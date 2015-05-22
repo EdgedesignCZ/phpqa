@@ -1,0 +1,21 @@
+{
+    "name": "zdenekdrahos/qa",
+    "authors": [
+        {
+            "name": "Zdenek Drahos",
+            "email": "drahoszdenek@gmail.com"
+        }
+    ],
+    "config": {
+        "bin-dir": "bin"
+    },
+    "require": {
+        "codegyre/robo": "*",
+        "phpmd/phpmd" : "*",
+        "phploc/phploc": "*",
+        "pdepend/pdepend": "*",
+        "sebastian/phpcpd": "*",
+        "squizlabs/php_codesniffer": "*",
+        "halleck45/phpmetrics": "dev-master"
+    }
+}
