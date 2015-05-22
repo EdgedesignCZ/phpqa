@@ -70,7 +70,8 @@ class RoboFile extends \Robo\Tasks
     {
         $this->runCI(
             'pdepend',
-            "--summary-xml={$this->buildDir}/jdepend.xml"
+            "--jdepend-xml={$this->buildDir}/pdepend-jdepend.xml"
+            . " --summary-xml={$this->buildDir}/pdepend-summary.xml"
             . " --jdepend-chart={$this->buildDir}/pdepend-jdepend.svg"
             . " --overview-pyramid={$this->buildDir}/pdepend-pyramid.svg"
             . " {$this->ignore->pdepend()} {$this->analyzedDir}"
