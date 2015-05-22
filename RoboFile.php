@@ -22,7 +22,7 @@ class RoboFile extends \Robo\Tasks
         )
     ) {
         $this->analyzedDir = '"' . $opts['analyzedDir'] . '"';
-        $this->buildDir = '"' . $opts['buildDir'] . '"';
+        $this->buildDir = $opts['buildDir'];
         $this->ignore = new IgnoredPaths($opts['ignoredDirs'], $opts['ignoredFiles']);
         $this->ciClean();
         $this->ciPhploc();
@@ -43,61 +43,71 @@ class RoboFile extends \Robo\Tasks
 
     private function ciPhploc()
     {
-        $this->runCI(
-            'phploc',
-            "{$this->analyzedDir} --progress {$this->ignore->bergman()} --log-xml={$this->buildDir}/phploc.xml"
-        );
+        $this->taskExec('bin/phploc')
+            ->option('progress')
+            ->option('log-xml', $this->toFile('phploc.xml'))
+            ->arg($this->ignore->bergman())
+            ->arg($this->analyzedDir)
+            ->run();
     }
 
     private function ciPhpcpd()
     {
-        $this->runCI(
-            'phpcpd',
-            "{$this->analyzedDir} --progress {$this->ignore->bergman()} --log-pmd={$this->buildDir}/phpcpd.xml"
-        );
+        $this->taskExec('bin/phpcpd')
+            ->option('progress')
+            ->option('log-pmd', $this->toFile('phpcpd.xml'))
+            ->arg($this->ignore->bergman())
+            ->arg($this->analyzedDir)
+            ->run();
     }
 
     private function ciPhpcs()
     {
-        $this->runCI(
-            'phpcs',
-            "{$this->analyzedDir} -p --standard=PSR2 --extensions=php {$this->ignore->phpcs()} "
-            . "--report=checkstyle --report-file={$this->buildDir}/checkstyle.xml"
-        );
+        $this->taskExec('bin/phpcs')
+            ->arg('-p')
+            ->arg('--extensions=php')
+            ->arg('--standard=PSR2')
+            ->arg('--report=checkstyle')
+            ->arg("--report-file={$this->toFile('checkstyle.xml')}")
+            ->arg($this->ignore->phpcs())
+            ->arg($this->analyzedDir)
+            ->run();
     }
 
     private function ciPdepend()
     {
-        $this->runCI(
-            'pdepend',
-            "--jdepend-xml={$this->buildDir}/pdepend-jdepend.xml"
-            . " --summary-xml={$this->buildDir}/pdepend-summary.xml"
-            . " --jdepend-chart={$this->buildDir}/pdepend-jdepend.svg"
-            . " --overview-pyramid={$this->buildDir}/pdepend-pyramid.svg"
-            . " {$this->ignore->pdepend()} {$this->analyzedDir}"
-        );
+        $this->taskExec('bin/pdepend')
+            ->arg("--jdepend-xml={$this->toFile('pdepend-jdepend.xml')}")
+            ->arg("--summary-xml={$this->toFile('pdepend-summary.xml')}")
+            ->arg("--jdepend-chart={$this->toFile('pdepend-jdepend.svg')}")
+            ->arg("--overview-pyramid={$this->toFile('pdepend-pyramid.svg')}")
+            ->arg($this->ignore->pdepend())
+            ->arg($this->analyzedDir)
+            ->run();
     }
 
     private function ciPhpmd()
     {
-        $this->runCI(
-            'phpmd',
-            "{$this->analyzedDir} xml config/phpmd.xml {$this->ignore->phpmd()}"
-            . " --reportfile {$this->buildDir}/phpmd.xml"
-        );
+        $this->taskExec('bin/phpmd')
+            ->arg($this->analyzedDir)
+            ->arg("xml config/phpmd.xml")
+            ->option('reportfile', $this->toFile('phpmd.xml'))
+            ->arg($this->ignore->phpmd())
+            ->run();
     }
 
     private function ciPhpmetrics()
     {
-        $this->runCI(
-            'phpmetrics',
-            "{$this->analyzedDir} --extensions=php {$this->ignore->phpmetrics()}"
-            . " --report-html={$this->buildDir}/phpmetrics.html"
-        );
+        $this->taskExec('bin/phpmetrics')
+            ->arg($this->analyzedDir)
+            ->option('extensions', 'php')
+            ->option('report-html', $this->toFile('phpmetrics.html'))
+            ->arg($this->ignore->phpmetrics())
+            ->run();
     }
 
-    private function runCI($tool, $arguments)
+    private function toFile($file)
     {
-        $this->_exec("bin/{$tool} {$arguments}");
+        return "'{$this->buildDir}/{$file}'";
     }
 }
