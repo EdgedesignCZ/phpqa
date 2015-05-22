@@ -17,5 +17,12 @@
         "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "*",
         "halleck45/phpmetrics": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "hamcrest/hamcrest-php": "*"
+    },
+    "autoload": {
+        "files": ["config/IgnoredPaths.php"]
     }
 }
