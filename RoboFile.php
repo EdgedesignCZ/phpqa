@@ -21,8 +21,8 @@ class RoboFile extends \Robo\Tasks
             'ignoredFiles' => 'RoboFile.php'
         )
     ) {
-        $this->analyzedDir = $opts['analyzedDir'];
-        $this->buildDir = $opts['buildDir'];
+        $this->analyzedDir = '"' . $opts['analyzedDir'] . '"';
+        $this->buildDir = '"' . $opts['buildDir'] . '"';
         $this->ignore = new IgnoredPaths($opts['ignoredDirs'], $opts['ignoredFiles']);
         $this->ciClean();
         $this->ciPhploc();
