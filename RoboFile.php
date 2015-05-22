@@ -10,18 +10,20 @@ class RoboFile extends \Robo\Tasks
      * @description Executes QA tools
      * @option string $analyzedDir path to analyzed directory
      * @option string $buildDir path to output directory
-     * @option string $ignoredDirs csv ignored dirs
+     * @option string $ignoredDirs csv
+     * @option string $ignoredFiles csv
      */
     public function ci(
         $opts = array(
             'analyzedDir' => './',
             'buildDir' => 'build/',
-            'ignoredDirs' => 'CI,bin,vendor'
+            'ignoredDirs' => 'CI,bin,vendor',
+            'ignoredFiles' => 'RoboFile.php'
         )
     ) {
         $this->analyzedDir = $opts['analyzedDir'];
         $this->buildDir = $opts['buildDir'];
-        $this->ignore = new IgnoredPaths($opts['ignoredDirs']);
+        $this->ignore = new IgnoredPaths($opts['ignoredDirs'], $opts['ignoredFiles']);
         $this->ciClean();
         $this->ciPhploc();
         $this->ciPhpcpd();
