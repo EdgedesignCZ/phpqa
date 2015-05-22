@@ -25,12 +25,14 @@ class RoboFile extends \Robo\Tasks
         $this->buildDir = $opts['buildDir'];
         $this->ignore = new IgnoredPaths($opts['ignoredDirs'], $opts['ignoredFiles']);
         $this->ciClean();
-        $this->ciPhploc();
-        $this->ciPhpcpd();
-        $this->ciPhpcs();
-        $this->ciPdepend();
-        $this->ciPhpmd();
-        $this->ciPhpmetrics();
+        $this->parallelRun(
+            $this->ciPhploc(),
+            $this->ciPhpcpd(),
+            $this->ciPhpcs(),
+            $this->ciPdepend(),
+            $this->ciPhpmd(),
+            $this->ciPhpmetrics()
+        );
     }
 
     private function ciClean()
@@ -43,71 +45,74 @@ class RoboFile extends \Robo\Tasks
 
     private function ciPhploc()
     {
-        $this->taskExec('bin/phploc')
+        return $this->taskExec('bin/phploc')
             ->option('progress')
             ->option('log-xml', $this->toFile('phploc.xml'))
             ->arg($this->ignore->bergman())
-            ->arg($this->analyzedDir)
-            ->run();
+            ->arg($this->analyzedDir);
     }
 
     private function ciPhpcpd()
     {
-        $this->taskExec('bin/phpcpd')
+        return $this->taskExec('bin/phpcpd')
             ->option('progress')
             ->option('log-pmd', $this->toFile('phpcpd.xml'))
             ->arg($this->ignore->bergman())
-            ->arg($this->analyzedDir)
-            ->run();
+            ->arg($this->analyzedDir);
     }
 
     private function ciPhpcs()
     {
-        $this->taskExec('bin/phpcs')
+        return $this->taskExec('bin/phpcs')
             ->arg('-p')
             ->arg('--extensions=php')
             ->arg('--standard=PSR2')
             ->arg('--report=checkstyle')
             ->arg("--report-file={$this->toFile('checkstyle.xml')}")
             ->arg($this->ignore->phpcs())
-            ->arg($this->analyzedDir)
-            ->run();
+            ->arg($this->analyzedDir);
     }
 
     private function ciPdepend()
     {
-        $this->taskExec('bin/pdepend')
+        return $this->taskExec('bin/pdepend')
             ->arg("--jdepend-xml={$this->toFile('pdepend-jdepend.xml')}")
             ->arg("--summary-xml={$this->toFile('pdepend-summary.xml')}")
             ->arg("--jdepend-chart={$this->toFile('pdepend-jdepend.svg')}")
             ->arg("--overview-pyramid={$this->toFile('pdepend-pyramid.svg')}")
             ->arg($this->ignore->pdepend())
-            ->arg($this->analyzedDir)
-            ->run();
+            ->arg($this->analyzedDir);
     }
 
     private function ciPhpmd()
     {
-        $this->taskExec('bin/phpmd')
+        return $this->taskExec('bin/phpmd')
             ->arg($this->analyzedDir)
             ->arg("xml config/phpmd.xml")
             ->option('reportfile', $this->toFile('phpmd.xml'))
-            ->arg($this->ignore->phpmd())
-            ->run();
+            ->arg($this->ignore->phpmd());
     }
 
     private function ciPhpmetrics()
     {
-        $this->taskExec('bin/phpmetrics')
+        return $this->taskExec('bin/phpmetrics')
             ->arg($this->analyzedDir)
             ->option('extensions', 'php')
             ->option('report-html', $this->toFile('phpmetrics.html'))
-            ->arg($this->ignore->phpmetrics())
-            ->run();
+            ->arg($this->ignore->phpmetrics());
     }
 
     private function toFile($file)
     {
         return "'{$this->buildDir}/{$file}'";
+    }
+
+    private function parallelRun()
+    {
+        $parallel = $this->taskParallelExec();
+        foreach (func_get_args() as $process) {         
+            $parallel->process($process);
+        }
+        $parallel->printed()->run();
     }
 }
