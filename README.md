@@ -22,8 +22,8 @@ bin/robo ci --analyzedDir=./ --buildDir=build/ --ignoredDirs build,vendor --igno
 ```
 <target name="ci-phpqa">
     <exec executable="phpqa.php" passthru="true">
-        <arg value="--analyzedDir=${application.startdir}/src" />
-        <arg value="--buildDir=${application.startdir}/build/logs" />
+        <arg value="--analyzedDir='${application.startdir}/src'" />
+        <arg value="--buildDir='${application.startdir}/build/logs'" />
     </exec>
 </target>
 ```
