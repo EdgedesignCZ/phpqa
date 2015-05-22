@@ -2,24 +2,26 @@
 
 class RoboFile extends \Robo\Tasks
 {
-    private $bergmanExclude = '--exclude=CI --exclude=bin --exclude=vendor';
-    private $phpcsIgnore = '--ignore=*/CI/*,*/bin/*,*/vendor/*,RoboFile.php,error-handling.php';
-    private $pdependIgnore = '--ignore=/CI/,/bin/,/vendor/';
-    private $phpmdExclude = '--exclude /CI/,/bin/,/vendor/';
-    private $phpmetricsExclude = '--excluded-dirs="CI|bin|vendor"';
-
     private $buildDir;
     private $analyzedDir;
+    private $ignore;
 
     /**
      * @description Executes QA tools
-     * @param string $analyzedDir path to analyzed directory
-     * @param string $buildDir path to output directory
+     * @option string $analyzedDir path to analyzed directory
+     * @option string $buildDir path to output directory
+     * @option string $ignoredDirs csv ignored dirs
      */
-    public function ci($analyzedDir = './', $buildDir = 'build/')
-    {
-        $this->analyzedDir = $analyzedDir;
-        $this->buildDir = $buildDir;
+    public function ci(
+        $opts = array(
+            'analyzedDir' => './',
+            'buildDir' => 'build/',
+            'ignoredDirs' => 'CI,bin,vendor'
+        )
+    ) {
+        $this->analyzedDir = $opts['analyzedDir'];
+        $this->buildDir = $opts['buildDir'];
+        $this->ignore = new IgnoredPaths($opts['ignoredDirs']);
         $this->ciClean();
         $this->ciPhploc();
         $this->ciPhpcpd();
@@ -41,7 +43,7 @@ class RoboFile extends \Robo\Tasks
     {
         $this->runCI(
             'phploc',
-            "{$this->analyzedDir} --progress {$this->bergmanExclude} --log-xml={$this->buildDir}/phploc.xml"
+            "{$this->analyzedDir} --progress {$this->ignore->bergman()} --log-xml={$this->buildDir}/phploc.xml"
         );
     }
 
@@ -49,7 +51,7 @@ class RoboFile extends \Robo\Tasks
     {
         $this->runCI(
             'phpcpd',
-            "{$this->analyzedDir} --progress {$this->bergmanExclude} --log-pmd={$this->buildDir}/phpcpd.xml"
+            "{$this->analyzedDir} --progress {$this->ignore->bergman()} --log-pmd={$this->buildDir}/phpcpd.xml"
         );
     }
 
@@ -57,7 +59,7 @@ class RoboFile extends \Robo\Tasks
     {
         $this->runCI(
             'phpcs',
-            "{$this->analyzedDir} -p --standard=PSR2 --extensions=php {$this->phpcsIgnore} "
+            "{$this->analyzedDir} -p --standard=PSR2 --extensions=php {$this->ignore->phpcs()} "
             . "--report=checkstyle --report-file={$this->buildDir}/checkstyle.xml"
         );
     }
@@ -69,7 +71,7 @@ class RoboFile extends \Robo\Tasks
             "--summary-xml={$this->buildDir}/pdepend-summary.xml"
             . " --jdepend-chart={$this->buildDir}/pdepend-jdepend.svg"
             . " --overview-pyramid={$this->buildDir}/pdepend-pyramid.svg"
-            . " {$this->pdependIgnore} {$this->analyzedDir}"
+            . " {$this->ignore->pdepend()} {$this->analyzedDir}"
         );
     }
 
@@ -77,7 +79,8 @@ class RoboFile extends \Robo\Tasks
     {
         $this->runCI(
             'phpmd',
-            "{$this->analyzedDir} xml config/phpmd.xml {$this->phpmdExclude} --reportfile {$this->buildDir}/phpmd.xml"
+            "{$this->analyzedDir} xml config/phpmd.xml {$this->ignore->phpmd()}"
+            . " --reportfile {$this->buildDir}/phpmd.xml"
         );
     }
 
@@ -85,7 +88,7 @@ class RoboFile extends \Robo\Tasks
     {
         $this->runCI(
             'phpmetrics',
-            "{$this->analyzedDir} --extensions=php --excluded-dirs={$this->phpmetricsExclude}"
+            "{$this->analyzedDir} --extensions=php {$this->ignore->phpmetrics()}"
             . " --report-html={$this->buildDir}/phpmetrics.html"
         );
     }
