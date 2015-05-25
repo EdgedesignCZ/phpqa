@@ -15,7 +15,7 @@ class IgnoredPaths
 
     private function csvToArray($csv)
     {
-        return array_filter(explode(',', $csv));
+        return array_filter(explode(',', $csv), 'trim');
     }
 
     public function phpcs()
@@ -38,23 +38,24 @@ class IgnoredPaths
         return $this->ignore(' --excluded-dirs="', '|', '"');
     }
 
-    public function bergman()
+    public function bergmann()
     {
         return $this->ignore(' --exclude=', ' --exclude=', '');
     }
 
     private function ignore($before, $dirSeparator, $after, $fileSeparator = null)
     {
-        $input = $fileSeparator ? $this->ignoreDirs : $this->ignoreBoth;
-        if ($input) {
-            return $this->implode($input, $before, $dirSeparator, "{$after}{$this->files($fileSeparator)}");
+        if ($fileSeparator) {
+            if ($this->ignoreDirs) {
+                $files = $this->implode($this->ignoreFiles, $fileSeparator, $fileSeparator);
+                return $this->implode($this->ignoreDirs, $before, $dirSeparator, "{$after}{$files}");
+            } else {
+                $ignoredFiles = $this->implode($this->ignoreFiles, $before, $fileSeparator);
+                return str_replace('*/', '', $ignoredFiles); // phpcs hack
+            }
+        } else {
+            return $this->implode($this->ignoreBoth, $before, $dirSeparator, $after);
         }
-        return '';
-    }
-
-    private function files($separator)
-    {
-        return $this->implode($this->ignoreFiles, $separator, $separator);
     }
 
     private function implode(array $input, $before, $separator, $after = '')

@@ -48,7 +48,7 @@ class RoboFile extends \Robo\Tasks
         return $this->task('phploc')
             ->option('progress')
             ->option('log-xml', $this->toFile('phploc.xml'))
-            ->arg($this->ignore->bergman())
+            ->arg($this->ignore->bergmann())
             ->arg($this->analyzedDir);
     }
 
@@ -57,7 +57,7 @@ class RoboFile extends \Robo\Tasks
         return $this->task('phpcpd')
             ->option('progress')
             ->option('log-pmd', $this->toFile('phpcpd.xml'))
-            ->arg($this->ignore->bergman())
+            ->arg($this->ignore->bergmann())
             ->arg($this->analyzedDir);
     }
 
