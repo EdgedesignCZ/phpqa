@@ -1,9 +1,0 @@
-#!/usr/bin/env php
-<?php
-
-$cliArguments = array_slice($argv, 1);
-$currentDir = realpath(__DIR__ . "/../");
-$command = "cd {$currentDir} && bin/robo ci " . implode(' ', $cliArguments);
-
-echo $command . "\n";
-passthru($command);

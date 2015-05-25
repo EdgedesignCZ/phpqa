@@ -45,7 +45,7 @@ class RoboFile extends \Robo\Tasks
 
     private function ciPhploc()
     {
-        return $this->taskExec('bin/phploc')
+        return $this->task('phploc')
             ->option('progress')
             ->option('log-xml', $this->toFile('phploc.xml'))
             ->arg($this->ignore->bergman())
@@ -54,7 +54,7 @@ class RoboFile extends \Robo\Tasks
 
     private function ciPhpcpd()
     {
-        return $this->taskExec('bin/phpcpd')
+        return $this->task('phpcpd')
             ->option('progress')
             ->option('log-pmd', $this->toFile('phpcpd.xml'))
             ->arg($this->ignore->bergman())
@@ -63,7 +63,7 @@ class RoboFile extends \Robo\Tasks
 
     private function ciPhpcs()
     {
-        return $this->taskExec('bin/phpcs')
+        return $this->task('phpcs')
             ->arg('-p')
             ->arg('--extensions=php')
             ->arg('--standard=PSR2')
@@ -75,7 +75,7 @@ class RoboFile extends \Robo\Tasks
 
     private function ciPdepend()
     {
-        return $this->taskExec('bin/pdepend')
+        return $this->task('pdepend')
             ->arg("--jdepend-xml={$this->toFile('pdepend-jdepend.xml')}")
             ->arg("--summary-xml={$this->toFile('pdepend-summary.xml')}")
             ->arg("--jdepend-chart={$this->toFile('pdepend-jdepend.svg')}")
@@ -86,16 +86,18 @@ class RoboFile extends \Robo\Tasks
 
     private function ciPhpmd()
     {
-        return $this->taskExec('bin/phpmd')
+        return $this->task('phpmd')
             ->arg($this->analyzedDir)
-            ->arg("xml config/phpmd.xml")
+            ->arg('xml')
+            ->arg($this->qaFile('config/phpmd.xml'))
+            ->option('sufixxes', 'php')
             ->option('reportfile', $this->toFile('phpmd.xml'))
             ->arg($this->ignore->phpmd());
     }
 
     private function ciPhpmetrics()
     {
-        return $this->taskExec('bin/phpmetrics')
+        return $this->task('phpmetrics')
             ->arg($this->analyzedDir)
             ->option('extensions', 'php')
             ->option('report-html', $this->toFile('phpmetrics.html'))
@@ -105,6 +107,16 @@ class RoboFile extends \Robo\Tasks
     private function toFile($file)
     {
         return "'{$this->buildDir}/{$file}'";
+    }
+
+    private function task($tool)
+    {
+        return $this->taskExec($this->qaFile("vendor/bin/{$tool}"));
+    }
+
+    private function qaFile($file)
+    {
+        return __DIR__ . "/{$file}";
     }
 
     private function parallelRun()
