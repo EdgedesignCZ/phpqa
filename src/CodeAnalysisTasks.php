@@ -10,17 +10,17 @@ trait CodeAnalysisTasks
 
     /**
      * @description Executes QA tools
-     * @option string $analyzedDir path to analyzed directory
-     * @option string $buildDir path to output directory
-     * @option string $ignoredDirs csv
-     * @option string $ignoredFiles csv
+     * @option $analyzedDir path to analyzed directory
+     * @option $buildDir path to output directory
+     * @option $ignoredDirs csv @example CI,bin,vendor
+     * @option $ignoredFiles csv @example RoboFile.php
      */
     public function ci(
         $opts = array(
             'analyzedDir' => './',
             'buildDir' => 'build/',
-            'ignoredDirs' => 'CI,bin,vendor',
-            'ignoredFiles' => 'RoboFile.php'
+            'ignoredDirs' => 'vendor',
+            'ignoredFiles' => ''
         )
     ) {
         $this->analyzedDir = '"' . $opts['analyzedDir'] . '"';
