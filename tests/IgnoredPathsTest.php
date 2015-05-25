@@ -29,7 +29,7 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
         return array(
             array(
                 'phpcs',
-                array( 
+                array(
                     'both' => ' --ignore=*/bin/*,*/vendor/*,autoload.php,RoboFile.php',
                     'dirs' => ' --ignore=*/bin/*,*/vendor/*',
                     'files' => ' --ignore=autoload.php,RoboFile.php'
@@ -37,7 +37,7 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
             ),
             array(
                 'pdepend',
-                array( 
+                array(
                     'both' => ' --ignore=/bin/,/vendor/,/autoload.php,/RoboFile.php',
                     'dirs' => ' --ignore=/bin/,/vendor/',
                     'files' => ' --ignore=/autoload.php,/RoboFile.php'
@@ -45,7 +45,7 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
             ),
             array(
                 'phpmd',
-                array( 
+                array(
                     'both' => ' --exclude /bin/,/vendor/,/autoload.php,/RoboFile.php',
                     'dirs' => ' --exclude /bin/,/vendor/',
                     'files' => ' --exclude /autoload.php,/RoboFile.php'
@@ -53,7 +53,7 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
             ),
             array(
                 'phpmetrics',
-                array( 
+                array(
                     'both' => ' --excluded-dirs="bin|vendor|autoload.php|RoboFile.php"',
                     'dirs' => ' --excluded-dirs="bin|vendor"',
                     'files' => ' --excluded-dirs="autoload.php|RoboFile.php"'
@@ -61,7 +61,7 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
             ),
             array(
                 'bergmann',
-                array( 
+                array(
                     'both' => ' --exclude=bin --exclude=vendor --exclude=autoload.php --exclude=RoboFile.php',
                     'dirs' => ' --exclude=bin --exclude=vendor',
                     'files' => ' --exclude=autoload.php --exclude=RoboFile.php'
