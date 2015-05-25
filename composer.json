@@ -1,5 +1,9 @@
 {
-    "name": "zdenekdrahos/qa",
+    "name": "edgedesign/phpqa",
+    "type": "library",
+    "description": "Analyze PHP code with one command.",
+    "keywords": ["QA", "code analysis", "static analysis"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Zdenek Drahos",
