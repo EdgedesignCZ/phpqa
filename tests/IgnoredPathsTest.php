@@ -1,5 +1,7 @@
 <?php
 
+namespace Edge\QA;
+
 class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
 {
     private function ignore($tool, $dirs, $files)

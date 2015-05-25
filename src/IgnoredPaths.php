@@ -1,5 +1,7 @@
 <?php
 
+namespace Edge\QA;
+
 class IgnoredPaths
 {
     private $ignoreDirs;
