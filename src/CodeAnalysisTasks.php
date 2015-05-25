@@ -4,6 +4,15 @@ namespace Edge\QA;
 
 trait CodeAnalysisTasks
 {
+    /** @var array [tool => optionSeparator] */
+    private $tools = array(
+        'phploc' => ' ',
+        'phpcpd' => ' ',
+        'phpcs' => '=',
+        'pdepend' => '=',
+        'phpmd' => ' ',
+        'phpmetrics' => ' '
+    );
     private $buildDir;
     private $analyzedDir;
     private $ignore;
@@ -27,16 +36,9 @@ trait CodeAnalysisTasks
         $this->analyzedDir = '"' . $opts['analyzedDir'] . '"';
         $this->buildDir = $opts['buildDir'];
         $this->ignore = new IgnoredPaths($opts['ignoredDirs'], $opts['ignoredFiles']);
+        $allowedTools = explode(',', $opts['tools']);
         $this->ciClean();
-        $tools = array(
-            'phploc' => $this->ciPhploc(),
-            'phpcpd' => $this->ciPhpcpd(),
-            'phpcs' => $this->ciPhpcs(),
-            'pdepend' => $this->ciPdepend(),
-            'phpmd' => $this->ciPhpmd(),
-            'phpmetrics' => $this->ciPhpmetrics(),
-        );
-        $this->parallelRun($tools, $opts['tools']);
+        $this->parallelRun($allowedTools);
     }
 
     private function ciClean()
@@ -47,65 +49,99 @@ trait CodeAnalysisTasks
         $this->_mkdir($this->buildDir);
     }
 
-    private function ciPhploc()
+    private function parallelRun($allowedTools)
     {
-        return $this->task('phploc')
-            ->option('progress')
-            ->option('log-xml', $this->toFile('phploc.xml'))
-            ->arg($this->ignore->bergmann())
-            ->arg($this->analyzedDir);
+        $parallel = $this->taskParallelExec();
+        foreach ($this->tools as $tool => $optionSeparator) {
+            if (in_array($tool, $allowedTools)) {
+                $process = $this->toolToProcess($tool, $optionSeparator);
+                $parallel->process($process);
+            }
+        }
+        $parallel->printed()->run();
     }
 
-    private function ciPhpcpd()
+    private function toolToProcess($tool, $optionSeparator)
     {
-        return $this->task('phpcpd')
-            ->option('progress')
-            ->option('log-pmd', $this->toFile('phpcpd.xml'))
-            ->arg($this->ignore->bergmann())
-            ->arg($this->analyzedDir);
+        $binary = $this->qaFile("vendor/bin/{$tool}");
+        $process = $this->taskExec($binary);
+        foreach ($this->$tool() as $arg => $value) {
+            if (is_int($arg)) {
+                $process->arg($value);
+            } elseif ($value) {
+                $process->arg("--{$arg}{$optionSeparator}{$value}");
+            } else {
+                $process->arg("--{$arg}");
+            }
+        }
+        return $process;
     }
 
-    private function ciPhpcs()
+    private function phploc()
     {
-        return $this->task('phpcs')
-            ->arg('-p')
-            ->arg('--extensions=php')
-            ->arg('--standard=PSR2')
-            ->arg('--report=checkstyle')
-            ->arg("--report-file={$this->toFile('checkstyle.xml')}")
-            ->arg($this->ignore->phpcs())
-            ->arg($this->analyzedDir);
+        return array(
+            'progress' => '',
+            'log-xml' => $this->toFile('phploc.xml'),
+            $this->ignore->bergmann(),
+            $this->analyzedDir
+        );
     }
 
-    private function ciPdepend()
+    private function phpcpd()
     {
-        return $this->task('pdepend')
-            ->arg("--jdepend-xml={$this->toFile('pdepend-jdepend.xml')}")
-            ->arg("--summary-xml={$this->toFile('pdepend-summary.xml')}")
-            ->arg("--jdepend-chart={$this->toFile('pdepend-jdepend.svg')}")
-            ->arg("--overview-pyramid={$this->toFile('pdepend-pyramid.svg')}")
-            ->arg($this->ignore->pdepend())
-            ->arg($this->analyzedDir);
+        return array(
+            'progress' => '',
+            'log-pmd' => $this->toFile('phpcpd.xml'),
+            $this->ignore->bergmann(),
+            $this->analyzedDir
+        );
     }
 
-    private function ciPhpmd()
+    private function phpcs()
     {
-        return $this->task('phpmd')
-            ->arg($this->analyzedDir)
-            ->arg('xml')
-            ->arg($this->qaFile('app/phpmd.xml'))
-            ->option('sufixxes', 'php')
-            ->option('reportfile', $this->toFile('phpmd.xml'))
-            ->arg($this->ignore->phpmd());
+        return array(
+            '-p',
+            'extensions' => 'php',
+            'standard' => 'PSR2',
+            'report' => 'checkstyle',
+            'report-file' => $this->toFile('checkstyle.xml'),
+            $this->ignore->phpcs(),
+            $this->analyzedDir
+        );
     }
 
-    private function ciPhpmetrics()
+    private function pdepend()
     {
-        return $this->task('phpmetrics')
-            ->arg($this->analyzedDir)
-            ->option('extensions', 'php')
-            ->option('report-html', $this->toFile('phpmetrics.html'))
-            ->arg($this->ignore->phpmetrics());
+        return array(
+            'jdepend-xml' => $this->toFile('pdepend-jdepend.xml'),
+            'summary-xml' => $this->toFile('pdepend-summary.xml'),
+            'jdepend-chart' => $this->toFile('pdepend-jdepend.svg'),
+            'overview-pyramid' => $this->toFile('pdepend-pyramid.svg'),
+            $this->ignore->pdepend(),
+            $this->analyzedDir
+        );
+    }
+
+    private function phpmd()
+    {
+        return array(
+            $this->analyzedDir,
+            'xml',
+            $this->qaFile('app/phpmd.xml'),
+            'sufixxes' => 'php',
+            'reportfile' => $this->toFile('phpmd.xml'),
+            $this->ignore->phpmd()
+        );
+    }
+
+    private function phpmetrics()
+    {
+        return array(
+            $this->analyzedDir,
+            'extensions' => 'php',
+            'report-html' => $this->toFile('phpmetrics.html'),
+            $this->ignore->phpmetrics()
+        );
     }
 
     private function toFile($file)
@@ -113,25 +149,8 @@ trait CodeAnalysisTasks
         return "\"{$this->buildDir}/{$file}\"";
     }
 
-    private function task($tool)
-    {
-        return $this->taskExec($this->qaFile("vendor/bin/{$tool}"));
-    }
-
     private function qaFile($file)
     {
         return __DIR__ . "/../{$file}";
-    }
-
-    private function parallelRun($tools, $allowedToolsInCsv)
-    {
-        $allowedTools = explode(',', $allowedToolsInCsv);
-        $parallel = $this->taskParallelExec();
-        foreach ($tools as $tool => $process) {
-            if (in_array($tool, $allowedTools)) {
-                $parallel->process($process);
-            }
-        }
-        $parallel->printed()->run();
     }
 }
