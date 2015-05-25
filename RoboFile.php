@@ -106,7 +106,7 @@ class RoboFile extends \Robo\Tasks
 
     private function toFile($file)
     {
-        return "'{$this->buildDir}/{$file}'";
+        return "\"{$this->buildDir}/{$file}\"";
     }
 
     private function task($tool)
