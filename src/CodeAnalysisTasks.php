@@ -18,6 +18,16 @@ trait CodeAnalysisTasks
     private $ignore;
 
     /**
+     * @description Current versions
+     */
+    public function tools()
+    {
+        foreach (array_keys($this->tools) as $tool) {
+            $this->_exec("vendor/bin/{$tool} --version");
+        }
+    }
+
+    /**
      * @description Executes QA tools
      * @option $analyzedDir path to analyzed directory
      * @option $buildDir path to output directory
