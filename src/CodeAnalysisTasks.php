@@ -20,21 +20,23 @@ trait CodeAnalysisTasks
             'analyzedDir' => './',
             'buildDir' => 'build/',
             'ignoredDirs' => 'vendor',
-            'ignoredFiles' => ''
+            'ignoredFiles' => '',
+            'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics'
         )
     ) {
         $this->analyzedDir = '"' . $opts['analyzedDir'] . '"';
         $this->buildDir = $opts['buildDir'];
         $this->ignore = new IgnoredPaths($opts['ignoredDirs'], $opts['ignoredFiles']);
         $this->ciClean();
-        $this->parallelRun(
-            $this->ciPhploc(),
-            $this->ciPhpcpd(),
-            $this->ciPhpcs(),
-            $this->ciPdepend(),
-            $this->ciPhpmd(),
-            $this->ciPhpmetrics()
+        $tools = array(
+            'phploc' => $this->ciPhploc(),
+            'phpcpd' => $this->ciPhpcpd(),
+            'phpcs' => $this->ciPhpcs(),
+            'pdepend' => $this->ciPdepend(),
+            'phpmd' => $this->ciPhpmd(),
+            'phpmetrics' => $this->ciPhpmetrics(),
         );
+        $this->parallelRun($tools, $opts['tools']);
     }
 
     private function ciClean()
@@ -121,11 +123,14 @@ trait CodeAnalysisTasks
         return __DIR__ . "/../{$file}";
     }
 
-    private function parallelRun()
+    private function parallelRun($tools, $allowedToolsInCsv)
     {
+        $allowedTools = explode(',', $allowedToolsInCsv);
         $parallel = $this->taskParallelExec();
-        foreach (func_get_args() as $process) {         
-            $parallel->process($process);
+        foreach ($tools as $tool => $process) {
+            if (in_array($tool, $allowedTools)) {
+                $parallel->process($process);
+            }
         }
         $parallel->printed()->run();
     }
