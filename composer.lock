@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "107ced56324e689bd057916042b07332",
+    "hash": "85565077d456f07e8fc3a614a8ace43e",
     "packages": [
         {
             "name": "codegyre/robo",
@@ -59,23 +59,23 @@
         },
         {
             "name": "halleck45/phpmetrics",
-            "version": "dev-master",
+            "version": "v1.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Halleck45/PhpMetrics.git",
-                "reference": "34cf0888e7225d743fc01b467fbbd8a1d54226a6"
+                "reference": "ea499b068b8b82aadeb37843fe24ff7fc514192f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Halleck45/PhpMetrics/zipball/34cf0888e7225d743fc01b467fbbd8a1d54226a6",
-                "reference": "34cf0888e7225d743fc01b467fbbd8a1d54226a6",
+                "url": "https://api.github.com/repos/Halleck45/PhpMetrics/zipball/ea499b068b8b82aadeb37843fe24ff7fc514192f",
+                "reference": "ea499b068b8b82aadeb37843fe24ff7fc514192f",
                 "shasum": ""
             },
             "require": {
                 "ext-dom": "*",
                 "hoa/ruler": "~1.0",
                 "symfony/config": "~2.4",
-                "symfony/console": "~2.5",
+                "symfony/console": "~2.4",
                 "symfony/yaml": "~2.4",
                 "twig/twig": "~1.15"
             },
@@ -106,7 +106,7 @@
                     "role": "Copyright Holder"
                 }
             ],
-            "description": "Static analyzis tool for PHP : Coupling, Cyclomatic complexity, Maintainability Index, Halstead's metrics... and more !",
+            "description": "Static analyzis tool for PHP : Coupling, Cyclomatic complexity, Maintenability Index, Halstead's metrics... and more !",
             "homepage": "http://www.phpmetrics.org",
             "keywords": [
                 "analysis",
@@ -114,7 +114,7 @@
                 "quality",
                 "testing"
             ],
-            "time": "2015-04-01 17:22:51"
+            "time": "2014-12-17 12:40:26"
         },
         {
             "name": "henrikbjorn/lurker",
@@ -2632,9 +2632,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "halleck45/phpmetrics": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
