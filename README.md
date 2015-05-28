@@ -53,7 +53,7 @@ export PATH=~/path-to-phpqa-cli-repository-from-pwd:$PATH
 ### Composer
 
 ```bash
-composer global require 'edgedesigncz/php-qa-cli=*' --update-no-dev
+composer global require 'edgedesign/phpqa=*' --update-no-dev
 # Make sure you have ~/.composer/vendor/bin/ in your PATH.
 ```
 
