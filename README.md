@@ -5,7 +5,7 @@ Analyze PHP code with one command.
 
 [![License](https://poser.pugx.org/edgedesign/phpqa/license)](https://packagist.org/packages/edgedesign/phpqa)
 [![Latest Stable Version](https://poser.pugx.org/edgedesign/phpqa/v/stable)](https://packagist.org/packages/edgedesign/phpqa)
-[![Dependency Status](https://www.versioneye.com/user/projects/5562ac79366466001b5a0000/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5562ac79366466001b5a0000)
+[![Dependency Status](https://www.versioneye.com/user/projects/5566c1666365390010c20000/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5566c1666365390010c20000)
 
 ## Why?
 
