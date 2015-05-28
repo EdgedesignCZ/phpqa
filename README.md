@@ -3,7 +3,8 @@
 
 Analyze PHP code with one command.
 
-[license, stable](https://poser.pugx.org/)
+[![License](https://poser.pugx.org/edgedesign/phpqa/license)](https://packagist.org/packages/edgedesign/phpqa)
+[![Latest Stable Version](https://poser.pugx.org/edgedesign/phpqa/v/stable)](https://packagist.org/packages/edgedesign/phpqa)
 [![Dependency Status](https://www.versioneye.com/user/projects/5562ac79366466001b5a0000/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5562ac79366466001b5a0000)
 
 ## Why?
@@ -18,7 +19,7 @@ needs special configuration file. What if you want to analyze every bundle in yo
 Will you create e.g. Jenkins project/task for each bundle?
 
 * I want to analyze selected directory without complex configuration and creating extra files/tasks
-* I don't care about format of [ignored directories](https://bitbucket.org/edgedesigncz/qa-cli/src/d4f921b56ddb4b70bce4e2b0ca0f6a7231952677/tests/IgnoredPathsTest.php?at=develop) in phploc, phpmd, ...
+* I don't care about format of [ignored directories](https://github.com/EdgedesignCZ/phpqa/blob/master/tests/IgnoredPathsTest.php) in phploc, phpmd, ...
 * I don't want to update all projects when QA tool is updated or if I've found cool tool like [PHPMetrics](https://github.com/Halleck45/PhpMetrics)
 * I want fast execution time → tools should run in parallel ([thanks Robo](http://robo.li/tasks/Base/#parallelexec))
 
@@ -39,7 +40,7 @@ Tool| Description
 
 ```
 # install php-a-cli
-git clone git@bitbucket.org:edgedesigncz/qa-cli.git
+git@github.com:EdgedesignCZ/phpqa.git
 composer install --no-dev
 
 # make phpqa is globally accessible
@@ -52,7 +53,7 @@ export PATH=~/path-to-phpqa-cli-repository-from-pwd:$PATH
 ### Composer
 
 ```
-composer global require 'edgedesigncz/php-qa-cli=*' --no-dev
+composer global require 'edgedesigncz/php-qa-cli=*' --update-no-dev
 # Make sure you have ~/.composer/vendor/bin/ in your PATH.
 ```
 
@@ -85,8 +86,8 @@ phpqa tools
 
 We use [Jenkins-CI](http://jenkins-php.org/) in Edgedesign. Below you can find examples of
 [Phing](https://www.phing.info/) and [Robo](http://robo.li/) tasks. Right now Edgedesign's
-phpmd rulesets are [“hard-coded”](https://bitbucket.org/edgedesigncz/qa-cli/src/d4f921b56ddb4b70bce4e2b0ca0f6a7231952677/config/phpmd.xml?at=develop).
-That happens when you open-source internal app ([contributions are welcomed](http://readme.md/#contributing)).
+phpmd rulesets are [“hard-coded”](https://github.com/EdgedesignCZ/phpqa/blob/master/config/phpmd.xml).
+That happens when you open-source internal app ([contributions are welcomed](#contributing)).
 
 ### Project with one directory
 
@@ -140,11 +141,11 @@ public function ciPhpqa()
 ## Contributing
 
 Contributions from others would be very much appreciated! Send 
-[pull request](http://github.com/)/
-[issue](http://github.com/). Thanks!
+[pull request](https://github.com/EdgedesignCZ/phpqa/pulls)/
+[issue](https://github.com/EdgedesignCZ/phpqa/issues). Thanks!
 
 ## License
 
-Copyright (c) 2015 Edgedesign.cz, Zdeněk Drahoš. MIT Licensed,
+Copyright (c) 2015 Edgedesign.cz. MIT Licensed,
 see [LICENSE](/LICENSE) for details.
 
