@@ -18,7 +18,7 @@
         "pdepend/pdepend": "*",
         "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "*",
-        "halleck45/phpmetrics": "dev-master"
+        "halleck45/phpmetrics": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "*",
