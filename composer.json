@@ -1,14 +1,16 @@
 {
-    "name": "zdenekdrahos/qa",
+    "name": "edgedesign/phpqa",
+    "type": "library",
+    "description": "Analyze PHP code with one command.",
+    "keywords": ["QA", "code analysis", "static analysis"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Zdenek Drahos",
             "email": "drahoszdenek@gmail.com"
         }
     ],
-    "config": {
-        "bin-dir": "bin"
-    },
+    "bin": ["phpqa"],
     "require": {
         "codegyre/robo": "*",
         "phpmd/phpmd" : "*",
@@ -17,5 +19,12 @@
         "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "*",
         "halleck45/phpmetrics": "dev-master"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "*",
+        "hamcrest/hamcrest-php": "*"
+    },
+    "autoload": {
+        "files": ["src/IgnoredPaths.php", "src/CodeAnalysisTasks.php"]
     }
 }
