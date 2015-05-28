@@ -38,7 +38,7 @@ Tool| Description
 
 ### Without composer
 
-```
+```bash
 # install php-a-cli
 git@github.com:EdgedesignCZ/phpqa.git
 composer install --no-dev
@@ -52,7 +52,7 @@ export PATH=~/path-to-phpqa-cli-repository-from-pwd:$PATH
 
 ### Composer
 
-```
+```bash
 composer global require 'edgedesigncz/php-qa-cli=*' --update-no-dev
 # Make sure you have ~/.composer/vendor/bin/ in your PATH.
 ```
@@ -65,7 +65,7 @@ how many repositories you want to update when new version is released.
 
 ## Analyze
 
-```
+```bash
 phpqa --help
 
 # analyze current directory and save output to build directory
@@ -86,7 +86,7 @@ phpqa tools
 
 We use [Jenkins-CI](http://jenkins-php.org/) in Edgedesign. Below you can find examples of
 [Phing](https://www.phing.info/) and [Robo](http://robo.li/) tasks. Right now Edgedesign's
-phpmd rulesets are [“hard-coded”](https://github.com/EdgedesignCZ/phpqa/blob/master/config/phpmd.xml).
+phpmd rulesets are [“hard-coded”](https://github.com/EdgedesignCZ/phpqa/blob/master/app/phpmd.xml).
 That happens when you open-source internal app ([contributions are welcomed](#contributing)).
 
 ### Project with one directory
@@ -94,7 +94,8 @@ That happens when you open-source internal app ([contributions are welcomed](#co
 Typically in Symfony project you have project with `src` directory with all the code and tests. So you don't need ignore vendors, web directory etc. 
 
 **Phing - `build.xml`**
-```
+
+```xml
 <target name="ci-phpqa">
     <exec executable="phpqa" passthru="true">
         <arg value="--analyzedDir=./src" />
@@ -113,7 +114,7 @@ other non-code directories. Otherwise the analysis could take a very long time.
 
 **Phing - `build.xml`**
 
-```
+```xml
 <target name="ci-phpqa">
     <exec executable="phpqa" passthru="true">
         <arg value="--analyzedDir=./" />
@@ -126,7 +127,7 @@ other non-code directories. Otherwise the analysis could take a very long time.
 
 **Robo - `RoboFile.php`**
 
-```
+```php
 public function ciPhpqa()
 {
     $this->taskExec('phpqa')
