@@ -45,15 +45,15 @@ composer install --no-dev
 
 # make phpqa is globally accessible
 ## you can symlink binary
-sudo ln -s /path-to-phpqa-cli-repository/phpqa /usr/bin/phpqa
+sudo ln -s /path-to-phpqa-repository/phpqa /usr/bin/phpqa
 ## or add this directory to your PATH in your ~/.bash_profile (or ~/.bashrc)
-export PATH=~/path-to-phpqa-cli-repository-from-pwd:$PATH
+export PATH=~/path-to-phpqa-repository-from-pwd:$PATH
 ```
 
 ### Composer
 
 ```bash
-composer global require 'edgedesign/phpqa=*' --update-no-dev
+composer global require edgedesign/phpqa --update-no-dev
 # Make sure you have ~/.composer/vendor/bin/ in your PATH.
 ```
 
