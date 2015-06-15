@@ -78,6 +78,14 @@ phpqa --ignoredDirs build,vendor --ignoredFiles RoboFile.php
 # run selected tools
 phpqa --tools phploc,phpcs
 
+# show output from executed tools
+phpqa -v
+phpqa --verbose
+
+# show no output at all
+phpqa -q
+phpqa --quiet
+
 ## show versions of available tools
 phpqa tools
 ```
@@ -121,6 +129,7 @@ other non-code directories. Otherwise the analysis could take a very long time.
         <arg value="--buildDir=./build/logs" />
         <arg value="--ignoredDirs=app,bin,build,vendor,web" />
         <arg value="--ignoredFiles= " />
+        <arg value="--verbose" />
     </exec>
 </target>
 ```
@@ -131,6 +140,7 @@ other non-code directories. Otherwise the analysis could take a very long time.
 public function ciPhpqa()
 {
     $this->taskExec('phpqa')
+        ->option('verbose')
         ->option('analyzedDir', './')
         ->option('buildDir', './build')
         ->option('ignoredDirs', 'build,bin,vendor')

@@ -48,7 +48,7 @@ trait CodeAnalysisTasks
         $this->ignore = new IgnoredPaths($opts['ignoredDirs'], $opts['ignoredFiles']);
         $allowedTools = explode(',', $opts['tools']);
         $this->ciClean();
-        $this->parallelRun($allowedTools);
+        $this->parallelRun($allowedTools, $opts['verbose']);
     }
 
     private function ciClean()
@@ -59,7 +59,7 @@ trait CodeAnalysisTasks
         $this->_mkdir($this->buildDir);
     }
 
-    private function parallelRun($allowedTools)
+    private function parallelRun($allowedTools, $isOutputPrinted)
     {
         $parallel = $this->taskParallelExec();
         foreach ($this->tools as $tool => $optionSeparator) {
@@ -68,7 +68,7 @@ trait CodeAnalysisTasks
                 $parallel->process($process);
             }
         }
-        $parallel->printed()->run();
+        $parallel->printed($isOutputPrinted)->run();
     }
 
     private function toolToProcess($tool, $optionSeparator)
