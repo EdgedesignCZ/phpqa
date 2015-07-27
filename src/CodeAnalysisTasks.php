@@ -13,10 +13,8 @@ trait CodeAnalysisTasks
         'phpmd' => ' ',
         'phpmetrics' => ' '
     );
-    private $buildDir;
-    private $analyzedDir;
-    private $ignore;
-    private $isSavedToFiles;
+    /** @var Options */
+    private $options;
 
     /**
      * @description Current versions
@@ -24,7 +22,7 @@ trait CodeAnalysisTasks
     public function tools()
     {
         foreach (array_keys($this->tools) as $tool) {
-            $this->_exec($this->binary("{$tool} --version"));
+            $this->_exec($this->options->binary("{$tool} --version"));
         }
     }
 
@@ -47,41 +45,36 @@ trait CodeAnalysisTasks
             'output' => 'file',
         )
     ) {
-        $this->analyzedDir = '"' . $opts['analyzedDir'] . '"';
-        $this->buildDir = $opts['buildDir'];
-        $this->ignore = new IgnoredPaths($opts['ignoredDirs'], $opts['ignoredFiles']);
-        $this->isSavedToFiles = $opts['output'] == 'file';
-        $isOutputPrinted = $this->isSavedToFiles ? $opts['verbose'] : true;
-        $allowedTools = explode(',', $opts['tools']);
+        $this->options = new Options($opts);
         $this->ciClean();
-        $this->parallelRun($allowedTools, $isOutputPrinted);
+        $this->parallelRun();
     }
 
     private function ciClean()
     {
-        if ($this->isSavedToFiles) {
-            if (is_dir($this->buildDir)) {
-                $this->_cleanDir($this->buildDir);
+        if ($this->options->isSavedToFiles) {
+            if (is_dir($this->options->buildDir)) {
+                $this->_cleanDir($this->options->buildDir);
             }
-            $this->_mkdir($this->buildDir);
+            $this->_mkdir($this->options->buildDir);
         }
     }
 
-    private function parallelRun($allowedTools, $isOutputPrinted)
+    private function parallelRun()
     {
         $parallel = $this->taskParallelExec();
         foreach ($this->tools as $tool => $optionSeparator) {
-            if (in_array($tool, $allowedTools)) {
+            if ($this->options->isToolAllowed($tool)) {
                 $process = $this->toolToProcess($tool, $optionSeparator);
                 $parallel->process($process);
             }
         }
-        $parallel->printed($isOutputPrinted)->run();
+        $parallel->printed($this->options->isOutputPrinted)->run();
     }
 
     private function toolToProcess($tool, $optionSeparator)
     {
-        $binary = $this->binary($tool);
+        $binary = $this->options->binary($tool);
         $process = $this->taskExec($binary);
         foreach ($this->$tool() as $arg => $value) {
             if (is_int($arg)) {
@@ -99,11 +92,11 @@ trait CodeAnalysisTasks
     {
         $args = array(
             'progress' => '',
-            $this->ignore->bergmann(),
-            $this->analyzedDir
+            $this->options->ignore->bergmann(),
+            $this->options->analyzedDir
         );
-        if ($this->isSavedToFiles) {
-            $args['log-xml'] = $this->toFile('phploc.xml');
+        if ($this->options->isSavedToFiles) {
+            $args['log-xml'] = $this->options->toFile('phploc.xml');
         }
         return $args;
     }
@@ -112,11 +105,11 @@ trait CodeAnalysisTasks
     {
         $args = array(
             'progress' => '',
-            $this->ignore->bergmann(),
-            $this->analyzedDir
+            $this->options->ignore->bergmann(),
+            $this->options->analyzedDir
         );
-        if ($this->isSavedToFiles) {
-            $args['log-pmd'] = $this->toFile('phpcpd.xml');
+        if ($this->options->isSavedToFiles) {
+            $args['log-pmd'] = $this->options->toFile('phpcpd.xml');
         }
         return $args;
     }
@@ -127,12 +120,12 @@ trait CodeAnalysisTasks
             '-p',
             'extensions' => 'php',
             'standard' => 'PSR2',
-            $this->ignore->phpcs(),
-            $this->analyzedDir
+            $this->options->ignore->phpcs(),
+            $this->options->analyzedDir
         );
-        if ($this->isSavedToFiles) {
+        if ($this->options->isSavedToFiles) {
             $args['report'] = 'checkstyle';
-            $args['report-file'] = $this->toFile('checkstyle.xml');
+            $args['report-file'] = $this->options->toFile('checkstyle.xml');
         } else {
             $args['report'] = 'full';
         }
@@ -141,30 +134,27 @@ trait CodeAnalysisTasks
 
     private function pdepend()
     {
-        if (!$this->isSavedToFiles) {
-            throw new \Exception('Pdepend has no CLI output');
-        }
         return array(
-            'jdepend-xml' => $this->toFile('pdepend-jdepend.xml'),
-            'summary-xml' => $this->toFile('pdepend-summary.xml'),
-            'jdepend-chart' => $this->toFile('pdepend-jdepend.svg'),
-            'overview-pyramid' => $this->toFile('pdepend-pyramid.svg'),
-            $this->ignore->pdepend(),
-            $this->analyzedDir
+            'jdepend-xml' => $this->options->toFile('pdepend-jdepend.xml'),
+            'summary-xml' => $this->options->toFile('pdepend-summary.xml'),
+            'jdepend-chart' => $this->options->toFile('pdepend-jdepend.svg'),
+            'overview-pyramid' => $this->options->toFile('pdepend-pyramid.svg'),
+            $this->options->ignore->pdepend(),
+            $this->options->analyzedDir
         );
     }
 
     private function phpmd()
     {
         $args = array(
-            $this->analyzedDir,
-            $this->isSavedToFiles ? 'xml' : 'text',
-            $this->appFile('phpmd.xml'),
+            $this->options->analyzedDir,
+            $this->options->isSavedToFiles ? 'xml' : 'text',
+            $this->options->appFile('phpmd.xml'),
             'sufixxes' => 'php',
-            $this->ignore->phpmd()
+            $this->options->ignore->phpmd()
         );
-        if ($this->isSavedToFiles) {
-            $args['reportfile'] = $this->toFile('phpmd.xml');
+        if ($this->options->isSavedToFiles) {
+            $args['reportfile'] = $this->options->toFile('phpmd.xml');
         }
         return $args;
     }
@@ -172,30 +162,15 @@ trait CodeAnalysisTasks
     private function phpmetrics()
     {
         $args = array(
-            $this->analyzedDir,
+            $this->options->analyzedDir,
             'extensions' => 'php',
-            $this->ignore->phpmetrics()
+            $this->options->ignore->phpmetrics()
         );
-        if ($this->isSavedToFiles) {
-            $args['report-html'] = $this->toFile('phpmetrics.html');
+        if ($this->options->isSavedToFiles) {
+            $args['report-html'] = $this->options->toFile('phpmetrics.html');
         } else {
             $args['report-cli'] = '';
         }
         return $args;
-    }
-
-    private function toFile($file)
-    {
-        return "\"{$this->buildDir}/{$file}\"";
-    }
-
-    private function appFile($file)
-    {
-        return __DIR__ . "/../app/{$file}";
-    }
-
-    private function binary($tool)
-    {
-        return COMPOSER_BINARY_DIR . $tool;
     }
 }
