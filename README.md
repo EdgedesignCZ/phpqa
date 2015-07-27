@@ -10,7 +10,7 @@ Analyze PHP code with one command.
 ## Why?
 
 Every analyzer has different arguments and options in different formats *(no surprise in PHP world :)*.
-If you ever tried to get ignoring directories to work then you know that I mean. On the other hand
+If you ever tried to get ignoring directories to work then you know what I mean. On the other hand
 CLI tools are cool because you can analyze any directory or file.
 Unfortunately [Jenkins](http://jenkins-php.org/automation.html),
 [Travis](https://github.com/libis/plugin-Mailer/blob/095cc1154fd6d7beb3be4425329868ecfa2043d9/.travis.yml),
