@@ -86,6 +86,9 @@ phpqa --verbose
 phpqa -q
 phpqa --quiet
 
+# CLI output instead of creating files (default output are files in --buildDir)
+phpqa --output cli
+
 ## show versions of available tools
 phpqa tools
 ```
