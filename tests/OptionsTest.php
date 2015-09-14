@@ -27,11 +27,9 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 
     public function testShouldEscapePaths()
     {
-        define('COMPOSER_BINARY_DIR', __DIR__);
         assertThat($this->fileOutput->analyzedDir, is('"./"'));
         assertThat($this->fileOutput->toFile('file'), is('"build//file"'));
         assertThat($this->fileOutput->appFile('file'), is(nonEmptyString()));
-        assertThat($this->fileOutput->binary('file'), is(nonEmptyString()));
     }
 
     public function testShouldIgnorePdependInCliOutput()

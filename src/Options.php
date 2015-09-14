@@ -43,9 +43,4 @@ class Options
     {
         return __DIR__ . "/../app/{$file}";
     }
-
-    public function binary($tool)
-    {
-        return COMPOSER_BINARY_DIR . $tool;
-    }
 }

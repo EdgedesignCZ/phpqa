@@ -22,7 +22,7 @@ trait CodeAnalysisTasks
     public function tools()
     {
         foreach (array_keys($this->tools) as $tool) {
-            $this->_exec($this->options->binary("{$tool} --version"));
+            $this->_exec($this->binary("{$tool} --version"));
         }
     }
 
@@ -74,7 +74,7 @@ trait CodeAnalysisTasks
 
     private function toolToProcess($tool, $optionSeparator)
     {
-        $binary = $this->options->binary($tool);
+        $binary = $this->binary($tool);
         $process = $this->taskExec($binary);
         foreach ($this->$tool() as $arg => $value) {
             if (is_int($arg)) {
@@ -172,5 +172,10 @@ trait CodeAnalysisTasks
             $args['report-cli'] = '';
         }
         return $args;
+    }
+
+    private function binary($tool)
+    {
+        return COMPOSER_BINARY_DIR . $tool;
     }
 }
