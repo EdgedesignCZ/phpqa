@@ -9,20 +9,26 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/../../autoload.php';
 }
 
-require_once __DIR__ . "/RoboFile.php";
+/**
+ * RoboFile is in phpqa repository, but analysis is runned in cwd.
+ * Robo\Runner:loadRoboFile calls chdir when option --load-from=__DIR__
+ */
+class QARunner extends \Robo\Runner
+{
+    protected function loadRoboFile()
+    {
+        require_once __DIR__ . "/RoboFile.php";
+        return true;
+    }
+}
 
+// IO
 $isNotToolsCommand = !(count($argv) >= 2 && $argv[1] == 'tools');
 if ($isNotToolsCommand) {
     // add robo command between the application name and the arguments
     array_splice($argv, 1, 0, 'ci');
 }
 
-// IO
-$input = new \Symfony\Component\Console\Input\ArgvInput($argv);
-$output = new \Symfony\Component\Console\Output\ConsoleOutput();
-\Robo\Config::setOutput($output);
-
 // run robo
-$robo = new \Robo\Runner();
-$qa = $robo->createApplication(RoboFile::class);
-$qa->run($input, $output);
+$robo = new QARunner();
+$robo->execute($argv);
