@@ -6,6 +6,8 @@ install:
   - composer install
 script:
   - vendor/phpunit/phpunit/phpunit
+after_success:
+  - ./phpqa --output cli --tools phploc,phpcpd,phpcs,phpmd
 # http://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/
 cache:
   directories:
