@@ -8,6 +8,10 @@ Analyze PHP code with one command.
 [![Dependency Status](https://www.versioneye.com/user/projects/5566c1666365390010c20000/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5566c1666365390010c20000)
 [![Build Status](https://travis-ci.org/EdgedesignCZ/phpqa.svg)](https://travis-ci.org/EdgedesignCZ/phpqa)
 
+## Requirements
+
+- PHP >= 5.4.0
+
 ## Why?
 
 Every analyzer has different arguments and options in different formats *(no surprise in PHP world :)*.
