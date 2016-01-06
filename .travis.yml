@@ -1,0 +1,13 @@
+sudo: false
+language: php
+php:
+  - 5.4
+install:
+  - composer install
+script:
+  - vendor/phpunit/phpunit/phpunit
+# http://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/
+cache:
+  directories:
+    - vendor
+    - $HOME/.composer/cache
