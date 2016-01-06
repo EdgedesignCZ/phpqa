@@ -30,5 +30,5 @@ if ($isNotToolsCommand) {
 }
 
 // run robo
-$robo = new QARunner();
+$robo = new QARunner(Edge\QA\RoboFile::class);
 $robo->execute($argv);

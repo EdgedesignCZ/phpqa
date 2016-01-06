@@ -1,6 +1,8 @@
 <?php
 
+namespace Edge\QA;
+
 class RoboFile extends \Robo\Tasks
 {
-    use Edge\QA\CodeAnalysisTasks;
+    use CodeAnalysisTasks;
 }
