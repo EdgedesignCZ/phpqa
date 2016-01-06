@@ -21,7 +21,7 @@
         "halleck45/phpmetrics": "*"
     },
     "require-dev": {
-        "phpunit/phpunit": "*",
+        "phpunit/phpunit": "~4.8",
         "hamcrest/hamcrest-php": "*"
     },
     "autoload": {
