@@ -2,7 +2,7 @@
 
 namespace Edge\QA;
 
-class XmlTransformerTest extends \PHPUnit_Framework_TestCase
+class ReportTest extends \PHPUnit_Framework_TestCase
 {
     private $output;
     private $phplocXsl;
