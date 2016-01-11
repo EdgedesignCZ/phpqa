@@ -13,6 +13,14 @@ trait CodeAnalysisTasks
         'phpmd' => ' ',
         'phpmetrics' => ' '
     );
+    /** @var array [tool => xml] */
+    private $xmlFiles = array(
+        'phploc' => 'phploc.xml',
+        'phpcpd' => 'phpcpd.xml',
+        'phpcs' => 'checkstyle.xml',
+        'pdepend' => 'pdepend-jdepend.xml',
+        'phpmd' => 'phpmd.xml'
+    );
     /** @var Options */
     private $options;
     /** @var array */
@@ -187,7 +195,20 @@ trait CodeAnalysisTasks
 
     private function buildReport()
     {
-        $this->say('build html report');
+        $this->say('<info>Build HTML report</info>');
+        $xsl = __DIR__ . "/../app/report/";
+        foreach (array_keys($this->usedTools) as $tool) {
+            if (array_key_exists($tool, $this->xmlFiles)) {
+                xmlToHtml(
+                    "{$this->options->buildDir}/{$this->xmlFiles[$tool]}",
+                    "{$xsl}/{$tool}.xsl",
+                    "{$this->options->buildDir}/{$tool}.html"
+                );
+                if ($this->options->isOutputPrinted) {
+                    $this->say("<comment>{$this->options->buildDir}/{$tool}.html</comment>");
+                }
+            }
+        }
     }
 
     private function binary($tool)
