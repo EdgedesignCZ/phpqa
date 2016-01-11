@@ -5,6 +5,16 @@ namespace Edge\QA;
 use DOMDocument;
 use XSLTProcessor;
 use Exception;
+use Twig_Loader_Filesystem;
+use Twig_Environment;
+
+function twigToHtml($template, array $params, $outputFile)
+{
+    $loader = new Twig_Loader_Filesystem(__DIR__ . '/../app/report');
+    $twig = new Twig_Environment($loader);
+    $html = $twig->render($template, $params);
+    file_put_contents($outputFile, $html);
+}
 
 function xmlToHtml($input, $style, $outputFile)
 {

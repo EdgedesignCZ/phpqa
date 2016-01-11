@@ -197,8 +197,13 @@ trait CodeAnalysisTasks
     {
         $this->say('<info>Build HTML report</info>');
         $xsl = __DIR__ . "/../app/report/";
+        $tools = array();
+        if (array_key_exists('phpmetrics', $this->usedTools)) {
+            $tools[] = 'phpmetrics';
+        }
         foreach (array_keys($this->usedTools) as $tool) {
             if (array_key_exists($tool, $this->xmlFiles)) {
+                $tools[] = $tool;
                 xmlToHtml(
                     "{$this->options->buildDir}/{$this->xmlFiles[$tool]}",
                     "{$xsl}/{$tool}.xsl",
@@ -208,6 +213,14 @@ trait CodeAnalysisTasks
                     $this->say("<comment>{$this->options->buildDir}/{$tool}.html</comment>");
                 }
             }
+        }
+        twigToHtml(
+            'phpqa.html.twig',
+            array('tools' => $tools),
+            "{$this->options->buildDir}/phpqa.html"
+        );
+        if ($this->options->isOutputPrinted) {
+            $this->say("<info>{$this->options->buildDir}/phpqa.html</info>");
         }
     }
 
