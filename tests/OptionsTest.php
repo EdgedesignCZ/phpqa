@@ -35,8 +35,8 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     public function testShouldIgnorePdependInCliOutput()
     {
         $cliOutput = $this->overrideOptions(array('output' => 'cli'));
-        assertThat($this->fileOutput->isToolAllowed('pdepend'), is(true));
-        assertThat($cliOutput->isToolAllowed('pdepend'), is(false));
+        assertThat($this->fileOutput->filterTools(array('pdepend' => '')), is(nonEmptyArray()));
+        assertThat($cliOutput->filterTools(array('pdepend' => '')), is(emptyArray()));
     }
 
     /** @dataProvider provideOutputs */

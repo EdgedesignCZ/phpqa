@@ -29,9 +29,15 @@ class Options
         $this->allowedTools = explode(',', $tools);
     }
 
-    public function isToolAllowed($tool)
+    public function filterTools(array $tools)
     {
-        return in_array($tool, $this->allowedTools);
+        $allowed = array();
+        foreach ($tools as $tool => $value) {
+            if (in_array($tool, $this->allowedTools)) {
+                $allowed[$tool] = $value;
+            }
+        }
+        return $allowed;
     }
 
     public function toFile($file)

@@ -15,6 +15,8 @@ trait CodeAnalysisTasks
     );
     /** @var Options */
     private $options;
+    /** @var array */
+    private $usedTools;
 
     /**
      * @description Current versions
@@ -45,9 +47,15 @@ trait CodeAnalysisTasks
             'output' => 'file',
         )
     ) {
-        $this->options = new Options($opts);
+        $this->loadOptions($opts);
         $this->ciClean();
         $this->parallelRun();
+    }
+
+    private function loadOptions(array $opts)
+    {
+        $this->options = new Options($opts);
+        $this->usedTools = $this->options->filterTools($this->tools);
     }
 
     private function ciClean()
@@ -63,11 +71,9 @@ trait CodeAnalysisTasks
     private function parallelRun()
     {
         $parallel = $this->taskParallelExec();
-        foreach ($this->tools as $tool => $optionSeparator) {
-            if ($this->options->isToolAllowed($tool)) {
-                $process = $this->toolToProcess($tool, $optionSeparator);
-                $parallel->process($process);
-            }
+        foreach ($this->usedTools as $tool => $optionSeparator) {
+            $process = $this->toolToProcess($tool, $optionSeparator);
+            $parallel->process($process);
         }
         $parallel->printed($this->options->isOutputPrinted)->run();
     }
