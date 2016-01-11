@@ -36,6 +36,7 @@ trait CodeAnalysisTasks
      * @option $ignoredFiles csv @example RoboFile.php
      * @option $tools csv @example phploc,phpcpd
      * @option $output output format @example cli
+     * @option $report build HTML report (only output format is file)
      */
     public function ci(
         $opts = array(
@@ -45,11 +46,15 @@ trait CodeAnalysisTasks
             'ignoredFiles' => '',
             'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
             'output' => 'file',
+            'report' => false,
         )
     ) {
         $this->loadOptions($opts);
         $this->ciClean();
         $this->parallelRun();
+        if ($this->options->hasReport) {
+            $this->buildReport();
+        }
     }
 
     private function loadOptions(array $opts)
@@ -178,6 +183,11 @@ trait CodeAnalysisTasks
             $args['report-cli'] = '';
         }
         return $args;
+    }
+
+    private function buildReport()
+    {
+        $this->say('build html report');
     }
 
     private function binary($tool)
