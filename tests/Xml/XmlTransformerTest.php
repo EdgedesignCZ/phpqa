@@ -5,20 +5,27 @@ namespace Edge\QA;
 class XmlTransformerTest extends \PHPUnit_Framework_TestCase
 {
     private $output;
+    private $phplocXsl;
 
     public function setUp()
     {
         $this->output = __DIR__ . "/result.html";
+        $this->phplocXsl = __DIR__ . "/../../app/report/phploc.xsl";
     }
 
-    public function testShouldConvertXmlToHtml()
+    /** @dataProvider provideXml */
+    public function testShouldConvertXmlToHtml($xml, $expectedOutput)
     {
-        xmlToHtml(
-            __DIR__ . "/phploc.xml",
-            __DIR__ . "/../../app/report/phploc.xsl",
-            $this->output
+        xmlToHtml(__DIR__ . "/{$xml}", $this->phplocXsl, $this->output);
+        assertThat(file_get_contents($this->output), containsString($expectedOutput));
+    }
+
+    public function provideXml()
+    {
+        return array(
+            'create html' => array('phploc.xml', '</table>'),
+            'create empty file if something went south' => array('invalid.xml', 'Premature end of data in tag phploc')
         );
-        assertThat(file_get_contents($this->output), containsString('</table>'));
     }
 
     public function tearDown()
