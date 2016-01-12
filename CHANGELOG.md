@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.2.1
+
+* [#12](https://github.com/EdgedesignCZ/phpqa/issues/7) Report is not saved in `--buildDir` if `--buildDir` doesn't end with `/`
+
 ## v1.2.0
 
 * [#7](https://github.com/EdgedesignCZ/phpqa/issues/7) HTML reports
