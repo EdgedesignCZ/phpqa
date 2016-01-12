@@ -1,4 +1,6 @@
-# should use default phpcs standard
+# should override default standard
+phpcs:
+    standard: Zend
 
 # path is relative to .phpqa.yml
 phpmd:
@@ -6,5 +8,3 @@ phpmd:
 
 # should ignore empty values
 phpcpd:
-    minLines: 1
-    minTokens: 

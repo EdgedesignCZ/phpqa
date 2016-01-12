@@ -60,7 +60,7 @@ class Config
     {
         $result = $config;
         foreach (explode('.', $path) as $key) {
-            if (!array_key_exists($key, $result)) {
+            if (!is_array($result) || !array_key_exists($key, $result)) {
                 return null;
             }
             $result = $result[$key];
