@@ -108,7 +108,7 @@ Override tools' settings with [`.phpqa.yml`](/.phpqa.yml):
 Tool | Settings | Default Value | Your value
 ---- | -------- | ------------- | ----------- |
 [phpcs](https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard) | Coding standard | PSR2 | Name of existing standard (`PEAR`, `PHPCS`, `PSR1`, `PSR2`, `Squiz`,  `Zend`), or path to your coding standard
-[phpmd](http://phpmd.org/documentation/creating-a-ruleset.html) | [Edgedesign's standard](/app/phpmd.xml) | Ruleset | Path to ruleset
+[phpmd](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset
 [phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens | 
 
 _Tip_: use [PHP Coding Standard Generator](http://edorian.github.io/php-coding-standard-generator/)
