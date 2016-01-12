@@ -1,0 +1,9 @@
+phpcs:
+    standard: PSR2
+
+phpmd:
+    standard: app/phpmd.xml
+
+phpcpd:
+    minLines: 5
+    minTokens: 70

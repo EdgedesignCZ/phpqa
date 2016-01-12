@@ -23,6 +23,8 @@ trait CodeAnalysisTasks
     );
     /** @var Options */
     private $options;
+    /** @var Config */
+    private $config;
     /** @var array */
     private $usedTools;
 
@@ -69,6 +71,7 @@ trait CodeAnalysisTasks
     {
         $this->options = new Options($opts);
         $this->usedTools = $this->options->filterTools($this->tools);
+        $this->config = new Config();
     }
 
     private function ciClean()
@@ -125,7 +128,9 @@ trait CodeAnalysisTasks
         $args = array(
             'progress' => '',
             $this->options->ignore->bergmann(),
-            $this->options->analyzedDir
+            $this->options->analyzedDir,
+            'min-lines' => $this->config->value('phpcpd.minLines'),
+            'min-tokens' => $this->config->value('phpcpd.minTokens'),
         );
         if ($this->options->isSavedToFiles) {
             $args['log-pmd'] = $this->options->toFile('phpcpd.xml');
@@ -138,7 +143,7 @@ trait CodeAnalysisTasks
         $args = array(
             '-p',
             'extensions' => 'php',
-            'standard' => 'PSR2',
+            'standard' => $this->config->value('phpcs.standard'),
             $this->options->ignore->phpcs(),
             $this->options->analyzedDir
         );
@@ -168,7 +173,7 @@ trait CodeAnalysisTasks
         $args = array(
             $this->options->analyzedDir,
             $this->options->isSavedToFiles ? 'xml' : 'text',
-            $this->options->appFile('phpmd.xml'),
+            $this->config->path('phpmd.standard'),
             'sufixxes' => 'php',
             $this->options->ignore->phpmd()
         );
