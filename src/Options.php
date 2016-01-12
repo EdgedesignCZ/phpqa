@@ -24,14 +24,24 @@ class Options
 
     public function __construct(array $options)
     {
+        $this->ignore = new IgnoredPaths($options['ignoredDirs'], $options['ignoredFiles']);
+        $this->loadOutput($options);
+        $this->loadTools($options['tools']);
+    }
+
+    private function loadOutput(array $options)
+    {
         $this->analyzedDir = '"' . $options['analyzedDir'] . '"';
         $this->buildDir = $options['buildDir'];
-        $this->ignore = new IgnoredPaths($options['ignoredDirs'], $options['ignoredFiles']);
         $this->isSavedToFiles = $options['output'] == 'file';
         $this->isOutputPrinted = $this->isSavedToFiles ? $options['verbose'] : true;
         $this->hasReport = $this->isSavedToFiles ? $options['report'] : false;
         $this->configDir = $options['config'] ? $options['config'] : getcwd();
-        $tools = $this->isSavedToFiles ? $options['tools'] : str_replace('pdepend', '', $options['tools']);
+    }
+
+    private function loadTools($inputTools)
+    {
+        $tools = $this->isSavedToFiles ? $inputTools : str_replace('pdepend', '', $inputTools);
         $this->allowedTools = explode(',', $tools);
     }
 
