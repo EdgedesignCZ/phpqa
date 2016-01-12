@@ -115,7 +115,7 @@ Tool | Settings | Default Value | Your value
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:
 
-```
+```bash
 # use .phpqa.yml from defined directory
 phpqa --config path-to-directory-with-config
 ```
@@ -124,7 +124,7 @@ You don't have to specify full configuration. Missing or empty values are replac
 with default values from our [`.phpqa.yml`](/.phpqa.yml). Example of minimal config
 that defines only standard for CodeSniffer:
 
-```
+```yaml
 phpcs:
     standard: Zend
 ```
@@ -138,7 +138,7 @@ If you don't have Jenkins or other CI server, then you can use HTML reports.
 HTML files are built when you add option `--report`. Take a look at
 [report from phpqa](http://edgedesigncz.github.io/phpqa/report/phpqa.html).
 
-```
+```bash
 # build html reports
 phpqa --report
 ```
