@@ -112,7 +112,7 @@ Tool | Settings | Default Value | Your value
 [phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens | 
 
 _Tip_: use [PHP Coding Standard Generator](http://edorian.github.io/php-coding-standard-generator/)
-for generataring phpcs/phpmd standards.
+for generating phpcs/phpmd standards.
 
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:
