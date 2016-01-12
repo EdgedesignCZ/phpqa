@@ -195,32 +195,33 @@ trait CodeAnalysisTasks
 
     private function buildReport()
     {
-        $this->say('<info>Build HTML report</info>');
-        $xsl = __DIR__ . "/../app/report/";
-        $tools = array();
-        if (array_key_exists('phpmetrics', $this->usedTools)) {
-            $tools[] = 'phpmetrics';
-        }
+        $this->writeHtmlReport("Start building html files");
+        $xslDirectory = __DIR__ . "/../app/report/";
+        $toolsWithHtmlFile = array_key_exists('phpmetrics', $this->usedTools) ? array('phpmetrics') : array();
         foreach (array_keys($this->usedTools) as $tool) {
             if (array_key_exists($tool, $this->xmlFiles)) {
-                $tools[] = $tool;
+                $toolsWithHtmlFile[] = $tool;
                 xmlToHtml(
-                    "{$this->options->buildDir}/{$this->xmlFiles[$tool]}",
-                    "{$xsl}/{$tool}.xsl",
-                    "{$this->options->buildDir}/{$tool}.html"
+                    "{$this->options->buildDir}{$this->xmlFiles[$tool]}",
+                    "{$xslDirectory}/{$tool}.xsl",
+                    "{$this->options->buildDir}{$tool}.html"
                 );
-                if ($this->options->isOutputPrinted) {
-                    $this->say("<comment>{$this->options->buildDir}/{$tool}.html</comment>");
-                }
+                $this->writeHtmlReport("<info>{$this->options->buildDir}{$tool}.html</info>");
             }
         }
         twigToHtml(
             'phpqa.html.twig',
-            array('tools' => $tools),
-            "{$this->options->buildDir}/phpqa.html"
+            array('tools' => $toolsWithHtmlFile),
+            "{$this->options->buildDir}phpqa.html"
         );
-        if ($this->options->isOutputPrinted) {
-            $this->say("<info>{$this->options->buildDir}/phpqa.html</info>");
+        $this->writeHtmlReport("<comment>{$this->options->buildDir}phpqa.html</comment>", true);
+    }
+
+    // copy-paste from \Robo\Common\TaskIO
+    private function writeHtmlReport($text, $isAlwaysPrinted = false)
+    {
+        if ($this->options->isOutputPrinted || $isAlwaysPrinted) {
+            $this->writeln(" <fg=white;bg=cyan;options=bold>[HTML report]</fg=white;bg=cyan;options=bold> $text");
         }
     }
 
