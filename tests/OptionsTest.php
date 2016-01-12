@@ -12,7 +12,8 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         'ignoredFiles' => '',
         'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
         'output' => 'file',
-        'verbose' => true
+        'verbose' => true,
+        'report' => false
     );
 
     public function setUp()
@@ -35,30 +36,33 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     public function testShouldIgnorePdependInCliOutput()
     {
         $cliOutput = $this->overrideOptions(array('output' => 'cli'));
-        assertThat($this->fileOutput->isToolAllowed('pdepend'), is(true));
-        assertThat($cliOutput->isToolAllowed('pdepend'), is(false));
+        assertThat($this->fileOutput->filterTools(array('pdepend' => '')), is(nonEmptyArray()));
+        assertThat($cliOutput->filterTools(array('pdepend' => '')), is(emptyArray()));
     }
 
     /** @dataProvider provideOutputs */
-    public function testShouldBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted)
+    public function testShouldBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)
     {
         $options = $this->overrideOptions($opts);
         assertThat($options->isSavedToFiles, is($isSavedToFiles));
         assertThat($options->isOutputPrinted, is($isOutputPrinted));
+        assertThat($options->hasReport, is($hasReport));
     }
 
     public function provideOutputs()
     {
         return array(
-            'ignore verbose in CLI output' => array(
-                array('output' => 'cli', 'verbose' => false),
+            'ignore verbose and report in CLI output' => array(
+                array('output' => 'cli', 'verbose' => false, 'report' => true),
                 false,
-                true
-            ),
-            'respect verbose mode in FILE output' => array(
-                array('output' => 'file', 'verbose' => false),
                 true,
                 false
+            ),
+            'respect verbose mode and report in FILE output' => array(
+                array('output' => 'file', 'verbose' => false, 'report' => true),
+                true,
+                false,
+                true
             )
         );
     }

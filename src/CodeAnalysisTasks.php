@@ -13,8 +13,18 @@ trait CodeAnalysisTasks
         'phpmd' => ' ',
         'phpmetrics' => ' '
     );
+    /** @var array [tool => xml] */
+    private $xmlFiles = array(
+        'phploc' => 'phploc.xml',
+        'phpcpd' => 'phpcpd.xml',
+        'phpcs' => 'checkstyle.xml',
+        'pdepend' => 'pdepend-jdepend.xml',
+        'phpmd' => 'phpmd.xml'
+    );
     /** @var Options */
     private $options;
+    /** @var array */
+    private $usedTools;
 
     /**
      * @description Current versions
@@ -34,6 +44,7 @@ trait CodeAnalysisTasks
      * @option $ignoredFiles csv @example RoboFile.php
      * @option $tools csv @example phploc,phpcpd
      * @option $output output format @example cli
+     * @option $report build HTML report (only output format is file)
      */
     public function ci(
         $opts = array(
@@ -43,11 +54,21 @@ trait CodeAnalysisTasks
             'ignoredFiles' => '',
             'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
             'output' => 'file',
+            'report' => false,
         )
     ) {
-        $this->options = new Options($opts);
+        $this->loadOptions($opts);
         $this->ciClean();
         $this->parallelRun();
+        if ($this->options->hasReport) {
+            $this->buildReport();
+        }
+    }
+
+    private function loadOptions(array $opts)
+    {
+        $this->options = new Options($opts);
+        $this->usedTools = $this->options->filterTools($this->tools);
     }
 
     private function ciClean()
@@ -63,11 +84,9 @@ trait CodeAnalysisTasks
     private function parallelRun()
     {
         $parallel = $this->taskParallelExec();
-        foreach ($this->tools as $tool => $optionSeparator) {
-            if ($this->options->isToolAllowed($tool)) {
-                $process = $this->toolToProcess($tool, $optionSeparator);
-                $parallel->process($process);
-            }
+        foreach ($this->usedTools as $tool => $optionSeparator) {
+            $process = $this->toolToProcess($tool, $optionSeparator);
+            $parallel->process($process);
         }
         $parallel->printed($this->options->isOutputPrinted)->run();
     }
@@ -172,6 +191,38 @@ trait CodeAnalysisTasks
             $args['report-cli'] = '';
         }
         return $args;
+    }
+
+    private function buildReport()
+    {
+        $this->writeHtmlReport("Start building html files");
+        $xslDirectory = __DIR__ . "/../app/report/";
+        $toolsWithHtmlFile = array_key_exists('phpmetrics', $this->usedTools) ? array('phpmetrics') : array();
+        foreach (array_keys($this->usedTools) as $tool) {
+            if (array_key_exists($tool, $this->xmlFiles)) {
+                $toolsWithHtmlFile[] = $tool;
+                xmlToHtml(
+                    "{$this->options->buildDir}{$this->xmlFiles[$tool]}",
+                    "{$xslDirectory}/{$tool}.xsl",
+                    "{$this->options->buildDir}{$tool}.html"
+                );
+                $this->writeHtmlReport("<info>{$this->options->buildDir}{$tool}.html</info>");
+            }
+        }
+        twigToHtml(
+            'phpqa.html.twig',
+            array('tools' => $toolsWithHtmlFile),
+            "{$this->options->buildDir}phpqa.html"
+        );
+        $this->writeHtmlReport("<comment>{$this->options->buildDir}phpqa.html</comment>", true);
+    }
+
+    // copy-paste from \Robo\Common\TaskIO
+    private function writeHtmlReport($text, $isAlwaysPrinted = false)
+    {
+        if ($this->options->isOutputPrinted || $isAlwaysPrinted) {
+            $this->writeln(" <fg=white;bg=cyan;options=bold>[HTML report]</fg=white;bg=cyan;options=bold> $text");
+        }
     }
 
     private function binary($tool)

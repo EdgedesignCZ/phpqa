@@ -17,6 +17,8 @@ class Options
     public $isSavedToFiles;
     /** @var boolean */
     public $isOutputPrinted;
+    /** @var boolean */
+    public $hasReport;
 
     public function __construct(array $options)
     {
@@ -25,13 +27,20 @@ class Options
         $this->ignore = new IgnoredPaths($options['ignoredDirs'], $options['ignoredFiles']);
         $this->isSavedToFiles = $options['output'] == 'file';
         $this->isOutputPrinted = $this->isSavedToFiles ? $options['verbose'] : true;
+        $this->hasReport = $this->isSavedToFiles ? $options['report'] : false;
         $tools = $this->isSavedToFiles ? $options['tools'] : str_replace('pdepend', '', $options['tools']);
         $this->allowedTools = explode(',', $tools);
     }
 
-    public function isToolAllowed($tool)
+    public function filterTools(array $tools)
     {
-        return in_array($tool, $this->allowedTools);
+        $allowed = array();
+        foreach ($tools as $tool => $value) {
+            if (in_array($tool, $this->allowedTools)) {
+                $allowed[$tool] = $value;
+            }
+        }
+        return $allowed;
     }
 
     public function toFile($file)

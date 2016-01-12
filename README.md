@@ -94,6 +94,9 @@ phpqa --quiet
 # CLI output instead of creating files (default output are files in --buildDir)
 phpqa --output cli
 
+# build html reports
+phpqa --report
+
 ## show versions of available tools
 phpqa tools
 ```
@@ -153,6 +156,24 @@ public function ciPhpqa()
         ->option('buildDir', './build')
         ->option('ignoredDirs', 'build,bin,vendor')
         ->option('ignoredFiles', 'RoboFile.php,error-handling.php')
+        ->run();
+}
+```
+
+## HTML reports
+
+If you don't have Jenkins or other CI server, then you can use HTML reports.
+HTML files are built when you add option `--report`. Take a look at
+[report from phpqa]().
+
+**Robo - `RoboFile.php`**
+
+```php
+public function ciPhpqa()
+{
+    $this->taskExec('phpqa')
+        ->option('report')
+        ->option('analyzedDir', './')
         ->run();
 }
 ```

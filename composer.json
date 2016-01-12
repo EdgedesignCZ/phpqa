@@ -25,7 +25,7 @@
         "hamcrest/hamcrest-php": "*"
     },
     "autoload": {
-        "files": ["src/IgnoredPaths.php", "src/CodeAnalysisTasks.php", "src/Options.php"]
+        "files": ["src/IgnoredPaths.php", "src/CodeAnalysisTasks.php", "src/Options.php", "src/report.php"]
     },
     "config": {
         "optimize-autoloader": true
