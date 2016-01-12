@@ -11,6 +11,7 @@ Analyze PHP code with one command.
 ## Requirements
 
 - PHP >= 5.4.0
+- `xsl` extension for [HTML reports](#html-reports)
 
 ## Why?
 
@@ -155,7 +156,20 @@ report:
 ```
 
 Be aware that all **paths are relative to `.phpqa.yml`**. Don't copy-paste section `report`
-if you don't have custom templates! 
+if you don't have custom templates!
+
+## Requirements
+
+[`xsl` extension](http://php.net/manual/en/class.xsltprocessor.php)
+must be installed and enabled for exporting HTML reports.
+Otherwise you'll get error `PHP Fatal error:  Class 'XSLTProcessor' not found`.
+
+```bash
+# install xsl extension in Ubuntu
+sudo apt-get update
+sudo apt-get install php5-xsl
+sudo service apache2 restart
+```
 
 ## Jenkins integration
 
