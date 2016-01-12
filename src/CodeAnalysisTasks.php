@@ -46,6 +46,7 @@ trait CodeAnalysisTasks
      * @option $ignoredFiles csv @example RoboFile.php
      * @option $tools csv @example phploc,phpcpd
      * @option $output output format @example cli
+     * @option $config path directory with .phpqa.yml, @default current working directory
      * @option $report build HTML report (only output format is file)
      */
     public function ci(
@@ -56,6 +57,7 @@ trait CodeAnalysisTasks
             'ignoredFiles' => '',
             'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
             'output' => 'file',
+            'config' => '',
             'report' => false,
         )
     ) {
@@ -72,6 +74,7 @@ trait CodeAnalysisTasks
         $this->options = new Options($opts);
         $this->usedTools = $this->options->filterTools($this->tools);
         $this->config = new Config();
+        $this->config->loadCustomConfig($this->options->configDir);
     }
 
     private function ciClean()

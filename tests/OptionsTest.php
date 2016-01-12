@@ -12,6 +12,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         'ignoredFiles' => '',
         'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
         'output' => 'file',
+        'config' => '',
         'verbose' => true,
         'report' => false
     );
@@ -37,6 +38,21 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         $cliOutput = $this->overrideOptions(array('output' => 'cli'));
         assertThat($this->fileOutput->filterTools(array('pdepend' => '')), is(nonEmptyArray()));
         assertThat($cliOutput->filterTools(array('pdepend' => '')), is(emptyArray()));
+    }
+
+    /** @dataProvider provideConfig */
+    public function testShouldLoadDirectoryWithCustomConfig($config, $expectedConfig)
+    {
+        $options = $this->overrideOptions(array('config' => $config));
+        assertThat($options->configDir, is($expectedConfig));
+    }
+
+    public function provideConfig()
+    {
+        return array(
+            'cwd when config is not defined' => array('', getcwd()),
+            'use passed config (relative to cwd)' => array('path-to-config-directory', 'path-to-config-directory')
+        );
     }
 
     /** @dataProvider provideOutputs */

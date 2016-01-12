@@ -8,6 +8,8 @@ class Options
     public $analyzedDir;
     /** @var string */
     public $buildDir;
+    /** @var string */
+    public $configDir;
     /** @var IgnoredPaths */
     public $ignore;
     /** @var array */
@@ -28,6 +30,7 @@ class Options
         $this->isSavedToFiles = $options['output'] == 'file';
         $this->isOutputPrinted = $this->isSavedToFiles ? $options['verbose'] : true;
         $this->hasReport = $this->isSavedToFiles ? $options['report'] : false;
+        $this->configDir = $options['config'] ? $options['config'] : getcwd();
         $tools = $this->isSavedToFiles ? $options['tools'] : str_replace('pdepend', '', $options['tools']);
         $this->allowedTools = explode(',', $tools);
     }
