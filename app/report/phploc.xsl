@@ -21,29 +21,127 @@
     </func:function>
 
     <xsl:template match="phploc">
-        <div class="column">
-            <div class="container">
+        <style>
+        body {
+            background-color: #ffffff;
+            font-family: 'Source Sans Pro', sans-serif;
+            font-size: 1em;
+            line-height: 1.5;
+            padding: 0;
+            margin: 0;
+        }
+
+        .container {
+            margin: 0 auto;
+            width: 80%;
+        }
+        table {
+            width: 100%;
+        }
+            
+        .indent {
+            text-indent: 1em;
+        }
+
+        .indent2 {
+            text-indent: 2em;
+        }
+
+        .nummeric {
+            text-align: right;
+        }
+
+        .nummeric a {
+            display: block;
+            background-color: #CCD;
+            padding: 0 0.5em;
+        }
+
+        .nummeric a:hover, .nummeric a:focus, .nummeric a:active {
+            background-color: #DDE;
+            outline: dotted 2px #AAB;
+        }
+
+        .nummeric a:hover {
+            outline-style: solid;
+        }
+
+        .nummeric a:active {
+            outline: solid 2px #667;
+        }
+
+        .percent {
+            text-align: right;
+            width:5em;
+        }
+
+        table.styled {
+            font-size: 1em;
+            border-collapse: collapse;
+            border-spacing: 0;
+            border-bottom: 1px solid rgba(255,147,30,1);
+            margin-bottom: 1em;
+        }
+
+        table.styled thead {
+            font-weight: normal;
+            font-size: 0.9em;
+        }
+
+        table.styled thead tr {
+            border-bottom: 1px solid #aaaaaa;
+        }
+
+        table.styled th {
+            text-align: left;
+            padding:5px;
+            color:#888;
+        }
+
+        table.styled tr {
+            border-bottom: 1px solid #dddddd;
+        }
+
+        table.styled td {
+            padding:5px;
+            font-size: 0.9em;
+        }
+        </style>
+        
+        <div class="container">
+                <table class="styled overview">
+                    <tr>
+                        <td>Directories</td>
+                        <td class="nummeric"><xsl:value-of select="directories" /></td>
+                        <td class="percent" />
+                    </tr>
+                    <tr>
+                        <td>Files</td>
+                        <td class="nummeric"><xsl:value-of select="files" /></td>
+                        <td class="percent" />
+                    </tr>
+                </table>
                 <h2>Structure</h2>
                 <table class="styled overview">
                     <tr>
                         <td>Namespaces</td>
                         <td class="nummeric"><xsl:value-of select="namespaces" /></td>
-                        <td />
+                        <td class="percent" />
                     </tr>
                     <tr>
                         <td>Interfaces</td>
                         <td class="nummeric"><xsl:value-of select="interfaces" /></td>
-                        <td />
+                        <td class="percent" />
                     </tr>
                     <tr>
                         <td>Traits</td>
                         <td class="nummeric"><xsl:value-of select="traits" /></td>
-                        <td />
+                        <td class="percent" />
                     </tr>
                     <tr>
                         <td>Classes</td>
                         <td class="nummeric"><xsl:value-of select="classes" /></td>
-                        <td />
+                        <td class="percent" />
                     </tr>
                     <tr>
                         <td class="indent">Abstract Classes</td>
@@ -58,12 +156,12 @@
                     <tr>
                         <td>Methods</td>
                         <td class="nummeric"><xsl:value-of select="methods" /></td>
-                        <td />
+                        <td class="percent" />
                     </tr>
                     <tr>
                         <td class="indent">Scope</td>
-                        <td />
-                        <td />
+                        <td class="percent" />
+                        <td class="percent" />
                     </tr>
                     <tr>
                         <td class="indent2">Non-Static Methods</td>
@@ -77,8 +175,8 @@
                     </tr>
                     <tr>
                         <td class="indent">Visibility</td>
-                        <td />
-                        <td />
+                        <td class="percent" />
+                        <td class="percent" />
                     </tr>
                     <tr>
                         <td class="indent2">Public Method</td>
@@ -93,7 +191,7 @@
                     <tr>
                         <td>Functions</td>
                         <td class="nummeric"><xsl:value-of select="functions" /></td>
-                        <td />
+                        <td class="percent" />
                     </tr>
                     <tr>
                         <td class="indent">Named Functions</td>
@@ -108,7 +206,7 @@
                     <tr>
                         <td>Constants</td>
                         <td class="nummeric"><xsl:value-of select="constants" /></td>
-                        <td />
+                        <td class="percent" />
                     </tr>
                     <tr>
                         <td class="indent">Global Constants</td>
@@ -121,25 +219,6 @@
                         <td class="percent">(<xsl:value-of select="phpqa:format-number(classConstants div constants * 100,'0.##')" />%)</td>
                     </tr>
                 </table>
-            </div>
-            <div class="container">
-                <h2>Tests</h2>
-                <table class="styled overview">
-                    <tr>
-                        <td>Classes</td>
-                        <td class="nummeric"><xsl:value-of select="testClasses" /></td>
-                        <td class="percent"/>
-                    </tr>
-                    <tr>
-                        <td>Methods</td>
-                        <td class="nummeric"><xsl:value-of select="testMethods" /></td>
-                        <td class="percent"/>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <div class="column">
-            <div class="container">
                 <h2>Size</h2>
                 <table class="styled overview">
                     <tr>
@@ -169,12 +248,32 @@
                     </tr>
                     <tr>
                         <td class="indent">Average Class Length</td>
-                        <td class="nummeric"><xsl:value-of select="round(llocByNoc)" /></td>
+                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(classLlocAvg)" /></td>
+                        <td/>
+                    </tr>
+                    <tr>
+                        <td class="indent2">Minimum Class Length</td>
+                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(classLlocMin)" /></td>
+                        <td/>
+                    </tr>
+                    <tr>
+                        <td class="indent2">Maximum Class Length</td>
+                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(classLlocMax)" /></td>
                         <td/>
                     </tr>
                     <tr>
                         <td class="indent">Average Method Length</td>
-                        <td class="nummeric"><xsl:value-of select="round(llocByNom)" /></td>
+                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(methodLlocAvg)" /></td>
+                        <td/>
+                    </tr>
+                    <tr>
+                        <td class="indent2">Minimum Method Length</td>
+                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(methodLlocMin)" /></td>
+                        <td/>
+                    </tr>
+                    <tr>
+                        <td class="indent2">Maximum Method Length</td>
+                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(methodLlocMax)" /></td>
                         <td/>
                     </tr>
                     <tr>
@@ -193,31 +292,50 @@
                         <td class="percent">(<xsl:value-of select="phpqa:format-number(llocGlobal div lloc * 100,'0.##')" />%)</td>
                     </tr>
                 </table>
-            </div>
-
-            <div class="container">
-                <h2>Complexity</h2>
+                <h2>Cyclomatic Complexity</h2>
                 <table class="styled overview">
                     <tr>
-                        <td>Cyclomatic Complexity / LLOC</td>
+                        <td>Average Complexity per LLOC</td>
                         <td class="nummeric"><xsl:value-of select="phpqa:format-number(ccnByLloc, '0.##')" /></td>
                         <td class="percent"/>
                     </tr>
                     <tr>
-                        <td>Cyclomatic Complexity / Number of Methods</td>
-                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(ccnByNom, '0.##')" /></td>
+                        <td>Average Complexity per Class</td>
+                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(classCcnAvg, '0.##')" /></td>
+                        <td class="percent"/>
+                    </tr>
+                    <tr>
+                        <td class="indent">Minimum Class Complexity</td>
+                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(classCcnMin, '0.##')" /></td>
+                        <td class="percent"/>
+                    </tr>
+                    <tr>
+                        <td class="indent">Maximum Class Complexity</td>
+                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(classCcnMax, '0.##')" /></td>
+                        <td class="percent"/>
+                    </tr>
+                    <tr>
+                        <td>Average Complexity per Method</td>
+                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(methodCcnAvg, '0.##')" /></td>
+                        <td class="percent"/>
+                    </tr>
+                    <tr>
+                        <td class="indent">Minimum Method Complexity</td>
+                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(methodCcnMin, '0.##')" /></td>
+                        <td class="percent"/>
+                    </tr>
+                    <tr>
+                        <td class="indent">Maximum Method Complexity</td>
+                        <td class="nummeric"><xsl:value-of select="phpqa:format-number(methodCcnMax, '0.##')" /></td>
                         <td class="percent"/>
                     </tr>
                 </table>
-            </div>
-
-            <div class="container">
                 <h2>Dependencies</h2>
                 <table class="styled overview">
                     <tr>
                         <td>Global Accesses</td>
                         <td class="nummeric"><xsl:value-of select="globalAccesses" /></td>
-                        <td />
+                        <td class="percent" />
                     </tr>
                     <tr>
                         <td class="indent">Global Constants</td>
@@ -237,7 +355,7 @@
                     <tr>
                         <td>Attribute Accesses</td>
                         <td class="nummeric"><xsl:value-of select="attributeAccesses" /></td>
-                        <td />
+                        <td class="percent" />
                     </tr>
                     <tr>
                         <td class="indent">Non-Static</td>
@@ -252,7 +370,7 @@
                     <tr>
                         <td>Method Calls</td>
                         <td class="nummeric"><xsl:value-of select="methodCalls" /></td>
-                        <td />
+                        <td class="percent" />
                     </tr>
                     <tr>
                         <td class="indent">Non-Static</td>
@@ -265,8 +383,6 @@
                         <td class="percent">(<xsl:value-of select="phpqa:format-number(staticMethodCalls div methodCalls * 100,'0.##')" />%)</td>
                     </tr>
                 </table>
-            </div>
-
         </div>
     </xsl:template>
 

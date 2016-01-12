@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>phpqa - by EdgedesignCZ</title>
+    <title>phpqa report - by EdgedesignCZ</title>
     <meta charset="utf-8">
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -39,7 +39,7 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav nav-tabs" role="tablist">
                 {% for tool in tools %}
-                <li><a href="#{{ tool }}">{{ tool }}</a></li>
+                <li{{ loop.first ? ' class=active' : '' }}><a href="#{{ tool }}">{{ tool }}</a></li>
                 {% endfor %}
             </ul>
         </div>
@@ -48,7 +48,7 @@
 
     <div class="tab-content">
         {% for tool in tools %}
-        <div role="tabpanel" class="tab-pane" id="{{ tool }}">
+        <div role="tabpanel" class="tab-pane{{ loop.first ? ' active' : '' }}" id="{{ tool }}">
             <iframe id="{{ tool }}" src="{{ tool }}.html"></iframe>
         </div>
         {% endfor %}

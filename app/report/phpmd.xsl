@@ -1,100 +1,98 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- XSL from https://github.com/marcelog/Ci-Php-Phing-Example/tree/master/resources -->
-<!-- $Header$ -->
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:output method="html" encoding="UTF-8" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN" 
-	doctype-system="http://www.w3.org/TR/html4/loose.dtd" indent="yes"/>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<!-- XSL from https://github.com/OpenDTP/OpenDTPAPI/tree/03b05727a3b28439fe9e0b4b5225964c616511c7/build/xsl -->
+    <xsl:output method="html"  encoding="UTF-8"/>
+    <xsl:template match="/">
+        <html>
+            <head>
+                <title>PHPMD report</title>
+                <style>
+                    #summary {font: 38px 'Arial'; color:#555; padding:20px 0 20px 30px;}
+                    .errors-count {color:red;}
+                    .warnings-count {color:orange}
+                    .files-count {color:black;}
 
-<xsl:template name="message">
-<xsl:value-of disable-output-escaping="yes" select="."/>
-</xsl:template>
+                    #files {padding:20px 0 0 30px;}
+                    .file {padding:20px 5px; border-bottom:2px solid #CCC; font-size:22px;}
+                    .file .file-info {display:none;}
+                    .file a:link {border-bottom:1px dotted #888; text-decoration:none; color:black;}
+                    .file a:link:hover {border-bottom:none;}
 
-<xsl:template name="priorityDiv">
-<xsl:if test="@priority = 1">p1</xsl:if>
-<xsl:if test="@priority = 2">p2</xsl:if>
-<xsl:if test="@priority = 3">p3</xsl:if>
-<xsl:if test="@priority = 4">p4</xsl:if>
-<xsl:if test="@priority = 5">p5</xsl:if>
-</xsl:template>
+                    .errors {padding:5px 15px; margin:5px 0; border-left:3px solid red; font-size:16px;}
+                    .warnings {padding:0 15px; border-left:3px solid orange; font-size:18px; color:#666;}
 
-<xsl:template name="timestamp">
-	<xsl:value-of select="substring-before(//pmd/@timestamp, 'T')"/> - <xsl:value-of select="substring-before(substring-after(//pmd/@timestamp, 'T'), '.')"/>
-</xsl:template>
+                    .error, .warning {padding:5px 0; border-bottom:1px solid #DDD;}
+                    .error .info, .warning .info {color:#666; font-size:15px;}
 
-<xsl:template match="pmd">
-<html>
-<head>
-    <title>PMD <xsl:value-of select="//pmd/@version"/> Report</title>
-	<script type="text/javascript" src="sorttable.js"></script>
-    <style type="text/css">
-        body { margin-left: 2%; margin-right: 2%; font:normal verdana,arial,helvetica; color:#000000; }
-        table.sortable tr th { font-weight: bold; text-align:left; background:#a6caf0; }
-        table.sortable tr td { background:#eeeee0; }
-        table.classcount tr th { font-weight: bold; text-align:left; background:#a6caf0; }
-        table.classcount tr td { background:#eeeee0; }
-        table.summary tr th { font-weight: bold; text-align:left; background:#a6caf0; }
-        table.summary tr td { background:#eeeee0; text-align:center;}
-        .p1 { background:#FF9999; }
-        .p2 { background:#FFCC66; }
-        .p3 { background:#FFFF99; }
-        .p4 { background:#99FF99; }
-        .p5 { background:#9999FF; }
-		div.top{text-align:right;margin:1em 0;padding:0}
-		div.top div{display:inline;white-space:nowrap}
-		div.top div.left{float:left}
-		#content>div.top{display:table;width:100%}
-		#content>div.top div{display:table-cell}
-		#content>div.top div.left{float:none;text-align:left}
-		#content>div.top div.right{text-align:right}
-    </style>
-</head>
-<body>
-    <H1><div class="top"><div class="left">PMD <xsl:value-of select="//pmd/@version"/> Report</div><div class="right"><xsl:call-template name="timestamp"/></div></div></H1>
-    <hr/>
-    <h2>Summary</h2>
-    <table border="0" class="summary">
-      <tr>
-        <th>Files</th>
-        <th>Total</th>
-        <th>Priority 1</th>
-        <th>Priority 2</th>
-        <th>Priority 3</th>
-        <th>Priority 4</th>
-        <th>Priority 5</th>
-      </tr>
-      <tr>
-        <td><xsl:value-of select="count(//file)"/></td>
-        <td><xsl:value-of select="count(//violation)"/></td>
-        <td><div class="p1"><xsl:value-of select="count(//violation[@priority = 1])"/></div></td>
-        <td><div class="p2"><xsl:value-of select="count(//violation[@priority = 2])"/></div></td>
-        <td><div class="p3"><xsl:value-of select="count(//violation[@priority = 3])"/></div></td>
-        <td><div class="p4"><xsl:value-of select="count(//violation[@priority = 4])"/></div></td>
-        <td><div class="p5"><xsl:value-of select="count(//violation[@priority = 5])"/></div></td>
-      </tr>
-    </table>
-    <hr/>
-	<table border="0" width="100%" class="sortable" id="sortable_id">
-		<tr>
-			<th>Prio</th>
-			<th>File</th>
-			<th>Line</th>
-			<th align="left">Description</th>
-		</tr>
-	<xsl:for-each select="file">
-	    <xsl:for-each select="violation">
-		    <tr>
-			<td style="padding: 3px" align="right"><div><xsl:attribute name="class"><xsl:call-template name="priorityDiv"/></xsl:attribute><xsl:value-of disable-output-escaping="yes" select="@priority"/></div></td>
-			<td style="padding: 3px" align="left"><xsl:value-of disable-output-escaping="yes" select="translate(substring-before(../@name,'.java'),'/','.')"/></td>
-			<td style="padding: 3px" align="right"><xsl:value-of disable-output-escaping="yes" select="@beginline"/></td>
-			<td style="padding: 3px" align="left" width="100%"><xsl:if test="@externalInfoUrl"><a><xsl:attribute name="href"><xsl:value-of select="@externalInfoUrl"/></xsl:attribute><xsl:call-template name="message"/></a></xsl:if><xsl:if test="not(@externalInfoUrl)"><xsl:call-template name="message"/></xsl:if></td>
-		    </tr>
-	    </xsl:for-each>
-    </xsl:for-each>
-	</table>
-	<br/>
-    <p>Generated by <a href="http://pmd.sourceforge.net">PMD <b><xsl:value-of select="//pmd/@version"/></b></a> on <xsl:call-template name="timestamp"/>.</p>
-</body>
-</html>
-</xsl:template>
+                    .file:last-child, .error:last-child, .warning:last-child {border-bottom:none;}
+                </style>
+                <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js" />
+                <script type="text/javascript" src="http://code.jquery.com/ui/1.7.2/jquery-ui.min.js" />
+                <script type="text/javascript">
+                    $(function() {
+                        $(".file a").click(function() {
+                            var info = $(this).parent().find(".file-info");
 
+                            if (info.is(":visible")) {
+                                info.slideUp();
+                            } else {
+                                info.slideDown();
+                            }
+                        })
+                    })
+                </script>
+            </head>
+            <body>
+                <div id="summary">
+                    PHP Mess Detector Report<br />
+                    Summary: <span class="errors-count"><xsl:value-of select="count(/pmd/file/violation)" /></span> errors
+                    and <span class="warnings-count"><xsl:value-of select="count(/pmd/file/violation[@priority &lt; 3])" /></span> warnings
+                    in <span class="files-count"><xsl:value-of select="count(/pmd/file/violation[@priority &gt; 2])" /></span> files
+                </div>
+                <div id="files">
+                    <xsl:apply-templates select="/pmd/file">
+                        <xsl:sort select="count(violation)" data-type="number" order="descending" />
+                    </xsl:apply-templates>
+                </div>
+            </body>
+        </html>
+    </xsl:template>
+
+    <xsl:template match="/pmd/file">
+        <div class="file">
+            <a href="javascript:void(null)"><xsl:value-of select="@name" /></a>
+            <b>
+                (<span class="errors-count"><xsl:value-of select="count(violation[@priority &gt; 2])" /></span> /
+                <span class="warnings-count"><xsl:value-of select="count(violation[@priority &lt; 3])" /></span>)
+            </b>
+            <div class="file-info">
+                <div class="errors">
+                    <xsl:apply-templates select="violation[@priority &gt; 2]" />
+                </div>
+                <div class="warnings">
+                    <xsl:apply-templates select="violation[@priority &lt; 3]" />
+                </div>
+            </div>
+        </div>
+    </xsl:template>
+
+    <xsl:template match="/pmd/file/violation[@priority &gt; 2]">
+        <div class="error">
+            <xsl:value-of select="." />
+            <div class="info">
+                <u>from line <xsl:value-of select="@beginline" /> to <xsl:value-of select="@endline" /></u>
+                in method <xsl:value-of select="@method" />
+            </div>
+        </div>
+    </xsl:template>
+
+    <xsl:template match="/pmd/file/violation[@priority &lt; 3]">
+        <div class="warning">
+            <xsl:value-of select="." />
+            <div class="info">
+                <u>from line <xsl:value-of select="@beginline" /> to <xsl:value-of select="@endline" /></u>
+                in method <xsl:value-of select="@method" />
+            </div>
+        </div>
+    </xsl:template>
 </xsl:stylesheet>

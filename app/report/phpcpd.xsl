@@ -1,99 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- XSL from https://github.com/marcelog/Ci-Php-Phing-Example/tree/master/resources -->
-<!-- Stylesheet to turn the XML output of CPD into a nice-looking HTML page -->
-<!-- $Id$ -->
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-<xsl:output method="html" encoding="UTF-8" doctype-public="-//W3C//DTD HTML 4.01 Transitional//EN" 
-	doctype-system="http://www.w3.org/TR/html4/loose.dtd" indent="yes"/>
+  <xsl:output indent="yes" omit-xml-declaration="yes"
+       doctype-public="-//W3C//DTD XHTML 1.0 Transitional//EN"
+       doctype-system="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"
+       media-type="text/html" encoding="UTF-8" />
+<!-- XSL from https://github.com/carrot2/carrot2/blob/ca4fc955ef08e38f46f9619582669f5356f919db/etc/cpd/cpd2html.xsl -->
+  <xsl:template match="/">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>Code duplication report</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        font-size: 12px;
+      }
 
-<xsl:template match="pmd-cpd">
-<html>
-	<head>
-		<script type="text/javascript">
-			function toggleCodeSection(btn, id)
-			{
-				area = document.getElementById(id);
-				if (area.style.display == 'none')
-					{
-					btn.innerHTML = '-';
-					area.style.display = 'inline';
-					}
-				else
-					{
-					btn.innerHTML = '+';
-					area.style.display = 'none';
-					}
-			}
-		</script>
-		<style>
-			.SummaryTitle  { }
-			.SummaryNumber { background-color:#DDDDDD; text-align: center; }
-			.ItemNumber    { background-color: #DDDDDD; }
-			.CodeFragment  { background-color: #BBBBBB; display:none; font:normal normal normal 9pt Courier; }
-			.ExpandButton  { background-color: #FFFFFF; font-size: 8pt; width: 20px; height: 20px; margin:0px; }
-		</style>
-	</head>
-<body>
-    <h2>Summary of duplicated code</h2>
-    This page summarizes the code fragments that have been found to be replicated in the code.
-    Only those fragments longer than 30 lines of code are shown.
-    <p/>
-    <table border="1" class="summary" cellpadding="2">
-      <tr style="background-color:#CCCCCC;">
-        <th># duplications</th>
-        <th>Total lines</th>
-        <th>Total tokens</th>
-        <th>Approx # bytes</th>
-      </tr>
-      <tr>
-        <td class="SummaryNumber"><xsl:value-of select="count(//duplication[@lines>30])"/></td>
-        <td class="SummaryNumber"><xsl:value-of select="sum(//duplication[@lines>30]/@lines)"/></td>
-        <td class="SummaryNumber"><xsl:value-of select="sum(//duplication[@lines>30]/@tokens)"/></td>
-        <td class="SummaryNumber"><xsl:value-of select="sum(//duplication[@lines>30]/@tokens) * 4"/></td>
-      </tr>
-    </table>
-    <p/>
-    You expand and collapse the code fragments using the + buttons. You can also navigate to the source code by clicking
-    on the file names.
-    <p/>
-    <table>
-    	<tr style="background-color: #444444; color: #DDDDDD;"><td>ID</td><td>Files</td><td>Lines</td></tr>
-    <xsl:for-each select="//duplication[@lines>30]">
-        <xsl:sort data-type="number" order="descending" select="@lines"/>
-        <tr>
-        	<td class="ItemNumber"><xsl:value-of select="position()"/></td>
-        	<td>
-        		<table>
-        			<xsl:for-each select="file">
-        				<tr><td><a><xsl:attribute name="href">../src/<xsl:value-of select="@path"/>.html#<xsl:value-of select="@line"/></xsl:attribute><xsl:value-of select="@path"/></a></td><td> line <xsl:value-of select="@line"/></td></tr>
-        			</xsl:for-each>
-        		</table>
-        	</td>
-        	<td># lines : <xsl:value-of select="@lines"/></td>
-        </tr>
-        <tr>
-        	<td> </td>
-        	<td colspan="2" valign="top">
-        		<table><tr>
-        			<td valign="top">
-        				<button class="ExpandButton" ><xsl:attribute name="onclick">blur(); toggleCodeSection(this, 'frag_<xsl:value-of select="position()"/>')</xsl:attribute>+</button>
-        			</td>
-        			<td>
-        				<textarea cols="100" rows="30" wrap="off" class='CodeFragment' style='display:none;'>
-        					<xsl:attribute name="id">frag_<xsl:value-of select="position()"/></xsl:attribute>
-        					<xsl:value-of select="codefragment"/>
-        				</textarea>
-        			</td>
-        		</tr></table>
-        	</td>
-        </tr>
-        <tr><td colspan="2"><hr/></td></tr>
-    </xsl:for-each>
-    </table>
-    
-    
-</body>
+      div.code {
+        white-space: pre;
+        font-family: "Lucida Sans Unicode", monospace;
+        font-size: 12px;
+        background-color: #f8f8f8;
+        border: 1px solid #808080;
+        margin: 20px;
+      }
+
+      h2 {
+        font-size: 26px;
+        font-weight: bold;
+        color: #909090;
+        margin-top: 0.5ex;
+        margin-bottom: 0ex;
+      }
+
+      h3 {
+        font-size: 16px;
+        font-weight: bold;
+        color: #909090;
+        margin-top: 3ex;
+        margin-bottom: 1ex;
+      }
+
+      span.lines {
+        color: #202020;
+      }
+
+      span.path {
+        font-size: 12px;
+        font-family: "Lucida Sans Unicode", monospace;
+      }
+
+      div.files {
+        margin-left: 20px;
+      }
+
+      div.files span.line {
+        font-weight: bold;
+        color: #202020;
+      }
+    </style>
+  </head>
+
+  <body>
+    <xsl:apply-templates select="pmd-cpd" mode="stats" />
+    <xsl:apply-templates select="pmd-cpd/duplication" />
+  </body>
 </html>
-</xsl:template>
+  </xsl:template>
 
+  <xsl:template match="pmd-cpd" mode="stats">
+    <h2><span class="lines"><xsl:value-of select="count(duplication)" /> fragments</span> duplicated</h2>
+    <h2><span class="lines"><xsl:value-of select="sum(duplication/@lines)" /> lines</span> duplicated</h2>
+  </xsl:template>
+
+  <xsl:template match="duplication">
+    <div>
+      <h3><span class="lines"><xsl:value-of select="@lines" /> lines</span> duplicated in:</h3>
+      <div class="files">
+        <xsl:apply-templates select="file" />
+      </div>
+      <div class="code">
+        <xsl:apply-templates select="codefragment" />
+      </div>
+    </div>
+  </xsl:template>
+
+  <xsl:template match="file">
+    <div>
+      <xsl:variable name="translated"><xsl:value-of select="translate(@path, '\', '/')" /></xsl:variable>
+      <span class="line">Line <xsl:value-of select="@line" /></span> of 
+     
+      <span class="path">
+      <xsl:choose>
+        <xsl:when test="contains($translated,'/core')">
+          <xsl:value-of select="substring($translated, string-length(substring-before($translated, '/core')) + 1)" />
+        </xsl:when>
+        <xsl:when test="contains($translated,'/applications')">
+          <xsl:value-of select="substring($translated, string-length(substring-before($translated, '/applications')) + 1)" />
+        </xsl:when>
+        <xsl:when test="contains($translated,'/workbench')">
+          <xsl:value-of select="substring($translated, string-length(substring-before($translated, '/workbench')) + 1)" />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="$translated" />
+        </xsl:otherwise>
+      </xsl:choose>
+      </span>
+    </div>
+  </xsl:template>
 </xsl:stylesheet>
