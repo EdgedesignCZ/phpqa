@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>phpqa by EdgedesignCZ</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">phpqa</h1>
+      <h2 class="project-tagline">Analyze PHP code with one command</h2>
+      <a href="https://github.com/EdgedesignCZ/phpqa" class="btn">View on GitHub</a>
+      <a href="https://github.com/EdgedesignCZ/phpqa/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/EdgedesignCZ/phpqa/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="phpqa-cli" class="anchor" href="#phpqa-cli" aria-hidden="true"><span class="octicon octicon-link"></span></a>PHPQA CLI</h1>
+
+<p>Analyze PHP code with one command.</p>
+
+<p><a href="https://packagist.org/packages/edgedesign/phpqa"><img src="https://poser.pugx.org/edgedesign/phpqa/license" alt="License"></a>
+<a href="https://packagist.org/packages/edgedesign/phpqa"><img src="https://poser.pugx.org/edgedesign/phpqa/v/stable" alt="Latest Stable Version"></a>
+<a href="https://www.versioneye.com/user/projects/5566c1666365390010c20000"><img src="https://www.versioneye.com/user/projects/5566c1666365390010c20000/badge.svg?style=flat" alt="Dependency Status"></a>
+<a href="https://travis-ci.org/EdgedesignCZ/phpqa"><img src="https://travis-ci.org/EdgedesignCZ/phpqa.svg" alt="Build Status"></a></p>
+
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a> Requirements</h2>
+
+<ul>
+<li>PHP &gt;= 5.4.0</li>
+</ul>
+
+<h2>
+<a id="why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why?</h2>
+
+<p>Every analyzer has different arguments and options in different formats <em>(no surprise in PHP world :)</em>.
+If you ever tried to get ignoring directories to work then you know what I mean. On the other hand
+CLI tools are cool because you can analyze any directory or file.
+Unfortunately <a href="http://jenkins-php.org/automation.html">Jenkins</a>,
+<a href="https://github.com/libis/plugin-Mailer/blob/095cc1154fd6d7beb3be4425329868ecfa2043d9/.travis.yml">Travis</a>,
+<a href="https://github.com/antonbabenko/imagepush2/blob/db88b1c65a34250ba98e01d584d72421aedfaeac/.scrutinizer.yml">Scrutiziner</a> 
+needs special configuration file. What if you want to analyze every bundle in your Symfony app?
+Will you create e.g. Jenkins project/task for each bundle?</p>
+
+<ul>
+<li>I want to analyze selected directory without complex configuration and creating extra files/tasks</li>
+<li>I don't care about format of <a href="https://github.com/EdgedesignCZ/phpqa/blob/master/tests/IgnoredPathsTest.php">ignored directories</a> in phploc, phpmd, ...</li>
+<li>I don't want to update all projects when QA tool is updated or if I've found cool tool like <a href="https://github.com/Halleck45/PhpMetrics">PHPMetrics</a>
+</li>
+<li>I want fast execution time → tools should run in parallel (<a href="http://robo.li/tasks/Base/#parallelexec">thanks Robo</a>)</li>
+</ul>
+
+<h2>
+<a id="available-tools" class="anchor" href="#available-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Available <a href="https://github.com/ziadoz/awesome-php#code-analysis">tools</a>
+</h2>
+
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://github.com/sebastianbergmann/phploc">phploc</a></td>
+<td>Measure the size of a PHP project</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sebastianbergmann/phpcpd">phpcpd</a></td>
+<td>Copy/Paste Detector (CPD) for PHP code</td>
+</tr>
+<tr>
+<td><a href="https://github.com/squizlabs/PHP_CodeSniffer">phpcs</a></td>
+<td>Detect violations of a coding standard</td>
+</tr>
+<tr>
+<td><a href="https://github.com/pdepend/pdepend">pdepend</a></td>
+<td>PHP adaptation of JDepend</td>
+</tr>
+<tr>
+<td><a href="https://github.com/phpmd/phpmd">phpmd</a></td>
+<td>Scan PHP project for messy code</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Halleck45/PhpMetrics">phpmetrics</a></td>
+<td>Static analysis tool for PHP</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+
+<h3>
+<a id="without-composer" class="anchor" href="#without-composer" aria-hidden="true"><span class="octicon octicon-link"></span></a> Without composer</h3>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># install php-a-cli</span>
+git@github.com:EdgedesignCZ/phpqa.git
+composer install --no-dev
+
+<span class="pl-c"># make phpqa is globally accessible</span>
+<span class="pl-c">## you can symlink binary</span>
+sudo ln -s /path-to-phpqa-repository/phpqa /usr/bin/phpqa
+<span class="pl-c">## or add this directory to your PATH in your ~/.bash_profile (or ~/.bashrc)</span>
+<span class="pl-k">export</span> PATH=<span class="pl-k">~</span>/path-to-phpqa-repository-from-pwd:<span class="pl-smi">$PATH</span></pre></div>
+
+<h3>
+<a id="composer" class="anchor" href="#composer" aria-hidden="true"><span class="octicon octicon-link"></span></a> Composer</h3>
+
+<div class="highlight highlight-source-shell"><pre>composer global require edgedesign/phpqa --update-no-dev
+<span class="pl-c"># Make sure you have ~/.composer/vendor/bin/ in your PATH.</span></pre></div>
+
+<p>Of course you can add dependency to <code>require-dev</code> section in your <code>composer.json</code>.
+But I wouldn't recommend it. In my experience <em>one</em> QA tool which analyzes
+<em>N</em> projects is better than <em>N</em> projects with <em>N</em> analyzers. It's up to you
+how many repositories you want to update when new version is released.</p>
+
+<h2>
+<a id="analyze" class="anchor" href="#analyze" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analyze</h2>
+
+<div class="highlight highlight-source-shell"><pre>phpqa --help
+
+<span class="pl-c"># analyze current directory and save output to build directory</span>
+phpqa
+phpqa --analyzedDir ./ --buildDir ./build
+
+<span class="pl-c"># ignore selected directories and files</span>
+phpqa --ignoredDirs build,vendor --ignoredFiles RoboFile.php
+
+<span class="pl-c"># run selected tools</span>
+phpqa --tools phploc,phpcs
+
+<span class="pl-c"># show output from executed tools</span>
+phpqa -v
+phpqa --verbose
+
+<span class="pl-c"># show no output at all</span>
+phpqa -q
+phpqa --quiet
+
+<span class="pl-c"># CLI output instead of creating files (default output are files in --buildDir)</span>
+phpqa --output cli
+
+<span class="pl-c"># build html reports</span>
+phpqa --report
+
+<span class="pl-c">## show versions of available tools</span>
+phpqa tools</pre></div>
+
+<h2>
+<a id="jenkins-integration" class="anchor" href="#jenkins-integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jenkins integration</h2>
+
+<p>We use <a href="http://jenkins-php.org/">Jenkins-CI</a> in Edgedesign. Below you can find examples of
+<a href="https://www.phing.info/">Phing</a> and <a href="http://robo.li/">Robo</a> tasks. Right now Edgedesign's
+phpmd rulesets are <a href="https://github.com/EdgedesignCZ/phpqa/blob/master/app/phpmd.xml">“hard-coded”</a>.
+That happens when you open-source internal app (<a href="#contributing">contributions are welcomed</a>).</p>
+
+<h3>
+<a id="project-with-one-directory" class="anchor" href="#project-with-one-directory" aria-hidden="true"><span class="octicon octicon-link"></span></a> Project with one directory</h3>
+
+<p>Typically in Symfony project you have project with <code>src</code> directory with all the code and tests. So you don't need ignore vendors, web directory etc. </p>
+
+<p><strong>Phing - <code>build.xml</code></strong></p>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ci-phpqa<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">exec</span> <span class="pl-e">executable</span>=<span class="pl-s"><span class="pl-pds">"</span>phpqa<span class="pl-pds">"</span></span> <span class="pl-e">passthru</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--analyzedDir=./src<span class="pl-pds">"</span></span> /&gt;
+        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--buildDir=./build/logs<span class="pl-pds">"</span></span> /&gt;
+        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--ignoredDirs= <span class="pl-pds">"</span></span> /&gt;
+        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--ignoredFiles= <span class="pl-pds">"</span></span> /&gt;
+    &lt;/<span class="pl-ent">exec</span>&gt;
+&lt;/<span class="pl-ent">target</span>&gt;</pre></div>
+
+<h3>
+<a id="project-with-multiple-directories-src-tests-" class="anchor" href="#project-with-multiple-directories-src-tests-" aria-hidden="true"><span class="octicon octicon-link"></span></a> Project with multiple directories (src, tests, ...)</h3>
+
+<p>When you analyze root directory of your project don't forget to ignore vendors and
+other non-code directories. Otherwise the analysis could take a very long time.</p>
+
+<p><strong>Phing - <code>build.xml</code></strong></p>
+
+<div class="highlight highlight-text-xml"><pre>&lt;<span class="pl-ent">target</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>ci-phpqa<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">exec</span> <span class="pl-e">executable</span>=<span class="pl-s"><span class="pl-pds">"</span>phpqa<span class="pl-pds">"</span></span> <span class="pl-e">passthru</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>&gt;
+        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--analyzedDir=./<span class="pl-pds">"</span></span> /&gt;
+        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--buildDir=./build/logs<span class="pl-pds">"</span></span> /&gt;
+        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--ignoredDirs=app,bin,build,vendor,web<span class="pl-pds">"</span></span> /&gt;
+        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--ignoredFiles= <span class="pl-pds">"</span></span> /&gt;
+        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--verbose<span class="pl-pds">"</span></span> /&gt;
+    &lt;/<span class="pl-ent">exec</span>&gt;
+&lt;/<span class="pl-ent">target</span>&gt;</pre></div>
+
+<p><strong>Robo - <code>RoboFile.php</code></strong></p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">ciPhpqa</span>()</span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span>taskExec(<span class="pl-s"><span class="pl-pds">'</span>phpqa<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>verbose<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>analyzedDir<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>./<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>buildDir<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>./build<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>ignoredDirs<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>build,bin,vendor<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>ignoredFiles<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>RoboFile.php,error-handling.php<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>run();</span>
+<span class="pl-s1">}</span></pre></div>
+
+<h2>
+<a id="html-reports" class="anchor" href="#html-reports" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML reports</h2>
+
+<p>If you don't have Jenkins or other CI server, then you can use HTML reports.
+HTML files are built when you add option <code>--report</code>. Take a look at
+<a href="">report from phpqa</a>.</p>
+
+<p><strong>Robo - <code>RoboFile.php</code></strong></p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">ciPhpqa</span>()</span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span>taskExec(<span class="pl-s"><span class="pl-pds">'</span>phpqa<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>report<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>analyzedDir<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>./<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>run();</span>
+<span class="pl-s1">}</span></pre></div>
+
+<h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+
+<p>Contributions from others would be very much appreciated! Send 
+<a href="https://github.com/EdgedesignCZ/phpqa/pulls">pull request</a>/
+<a href="https://github.com/EdgedesignCZ/phpqa/issues">issue</a>. Thanks!</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>Copyright (c) 2015 Edgedesign.cz. MIT Licensed,
+see <a href="/LICENSE">LICENSE</a> for details.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/EdgedesignCZ/phpqa">phpqa</a> is maintained by <a href="https://github.com/EdgedesignCZ">EdgedesignCZ</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
