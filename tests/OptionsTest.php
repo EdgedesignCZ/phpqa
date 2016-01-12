@@ -31,6 +31,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     {
         assertThat($this->fileOutput->analyzedDir, is('"./"'));
         assertThat($this->fileOutput->toFile('file'), is('"build//file"'));
+        assertThat($this->fileOutput->rawFile('file'), is('build//file'));
     }
 
     public function testShouldIgnorePdependInCliOutput()

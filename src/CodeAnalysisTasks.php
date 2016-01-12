@@ -216,19 +216,19 @@ trait CodeAnalysisTasks
         foreach ($this->usedTools as $tool => $config) {
             if ($config['transformedXml']) {
                 xmlToHtml(
-                    "{$this->options->buildDir}{$config['transformedXml']}",
+                    $this->options->rawFile($config['transformedXml']),
                     $this->config->path("report.{$tool}"),
-                    "{$this->options->buildDir}{$tool}.html"
+                    $this->options->rawFile("{$tool}.html")
                 );
-                $this->writeHtmlReport("<info>{$this->options->buildDir}{$tool}.html</info>");
+                $this->writeHtmlReport("<info>{$this->options->rawFile("{$tool}.html")}</info>");
             }
         }
         twigToHtml(
             'phpqa.html.twig',
             array('tools' => array_keys($this->usedTools)),
-            "{$this->options->buildDir}phpqa.html"
+            $this->options->rawFile('phpqa.html')
         );
-        $this->writeHtmlReport("<comment>{$this->options->buildDir}phpqa.html</comment>", true);
+        $this->writeHtmlReport("<comment>{$this->options->rawFile("phpqa.html")}</comment>", true);
     }
 
     // copy-paste from \Robo\Common\TaskIO

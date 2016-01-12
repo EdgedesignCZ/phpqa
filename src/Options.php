@@ -58,6 +58,11 @@ class Options
 
     public function toFile($file)
     {
-        return escapePath("{$this->buildDir}/{$file}");
+        return escapePath($this->rawFile($file));
+    }
+
+    public function rawFile($file)
+    {
+        return "{$this->buildDir}/{$file}";
     }
 }
