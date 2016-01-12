@@ -47,9 +47,4 @@ class Options
     {
         return "\"{$this->buildDir}/{$file}\"";
     }
-
-    public function appFile($file)
-    {
-        return __DIR__ . "/../app/{$file}";
-    }
 }
