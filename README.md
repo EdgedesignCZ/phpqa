@@ -164,7 +164,7 @@ public function ciPhpqa()
 
 If you don't have Jenkins or other CI server, then you can use HTML reports.
 HTML files are built when you add option `--report`. Take a look at
-[report from phpqa]().
+[report from phpqa](http://edgedesigncz.github.io/phpqa/report/phpqa.html).
 
 **Robo - `RoboFile.php`**
 
