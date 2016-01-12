@@ -34,6 +34,9 @@
 
 <ul>
 <li>PHP &gt;= 5.4.0</li>
+<li>
+<code>xsl</code> extension for <a href="#html-reports">HTML reports</a>
+</li>
 </ul>
 
 <h2>
@@ -231,7 +234,19 @@ report:
 </code></pre>
 
 <p>Be aware that all <strong>paths are relative to <code>.phpqa.yml</code></strong>. Don't copy-paste section <code>report</code>
-if you don't have custom templates! </p>
+if you don't have custom templates!</p>
+
+<h2>
+<a id="requirements-1" class="anchor" href="#requirements-1" aria-hidden="true"><span class="octicon octicon-link"></span></a> Requirements</h2>
+
+<p><a href="http://php.net/manual/en/class.xsltprocessor.php"><code>xsl</code> extension</a>
+must be installed and enabled for exporting HTML reports.
+Otherwise you'll get error <code>PHP Fatal error:  Class 'XSLTProcessor' not found</code>.</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># install xsl extension in Ubuntu</span>
+sudo apt-get update
+sudo apt-get install php5-xsl
+sudo service apache2 restart</pre></div>
 
 <h2>
 <a id="jenkins-integration" class="anchor" href="#jenkins-integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jenkins integration</h2>
