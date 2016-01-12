@@ -25,7 +25,10 @@
         "hamcrest/hamcrest-php": "*"
     },
     "autoload": {
-        "files": ["src/IgnoredPaths.php", "src/CodeAnalysisTasks.php", "src/Options.php", "src/report.php"]
+        "psr-4": {
+            "Edge\\QA\\": "src"
+        },
+        "files": ["src/report.php"]
     },
     "config": {
         "optimize-autoloader": true
