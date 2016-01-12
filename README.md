@@ -26,6 +26,7 @@ Will you create e.g. Jenkins project/task for each bundle?
 * I want to analyze selected directory without complex configuration and creating extra files/tasks
 * I don't care about format of [ignored directories](https://github.com/EdgedesignCZ/phpqa/blob/master/tests/IgnoredPathsTest.php) in phploc, phpmd, ...
 * I don't want to update all projects when QA tool is updated or if I've found cool tool like [PHPMetrics](https://github.com/Halleck45/PhpMetrics)
+* I don't want to analyze XML files → tool should be able to build [html reports](#html-reports)
 * I want fast execution time → tools should run in parallel ([thanks Robo](http://robo.li/tasks/Base/#parallelexec))
 
 ## Available [tools](https://github.com/ziadoz/awesome-php#code-analysis)
@@ -111,9 +112,6 @@ Tool | Settings | Default Value | Your value
 [phpmd](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset
 [phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens | 
 
-_Tip_: use [PHP Coding Standard Generator](http://edorian.github.io/php-coding-standard-generator/)
-for generating phpcs/phpmd standards.
-
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:
 
@@ -130,6 +128,34 @@ that defines only standard for CodeSniffer:
 phpcs:
     standard: Zend
 ```
+
+_Tip_: use [PHP Coding Standard Generator](http://edorian.github.io/php-coding-standard-generator/)
+for generating phpcs/phpmd standards.
+
+## HTML reports
+
+If you don't have Jenkins or other CI server, then you can use HTML reports.
+HTML files are built when you add option `--report`. Take a look at
+[report from phpqa](http://edgedesigncz.github.io/phpqa/report/phpqa.html).
+
+```
+# build html reports
+phpqa --report
+```
+
+### Custom templates
+
+Define custom templates if you don't like [default templates](/app/report).
+You have to define path to `xsl` files in your [`.phpqa.yml`](#advanced-configuration---phpqayml):
+
+```
+# use different template for PHPMD, use default for other tools
+report:
+    phpmd: my-templates/phpmd.xsl
+```
+
+Be aware that all **paths are relative to `.phpqa.yml`**. Don't copy-paste section `report`
+if you don't have custom templates! 
 
 ## Jenkins integration
 
@@ -184,24 +210,6 @@ public function ciPhpqa()
         ->option('buildDir', './build')
         ->option('ignoredDirs', 'build,bin,vendor')
         ->option('ignoredFiles', 'RoboFile.php,error-handling.php')
-        ->run();
-}
-```
-
-## HTML reports
-
-If you don't have Jenkins or other CI server, then you can use HTML reports.
-HTML files are built when you add option `--report`. Take a look at
-[report from phpqa](http://edgedesigncz.github.io/phpqa/report/phpqa.html).
-
-**Robo - `RoboFile.php`**
-
-```php
-public function ciPhpqa()
-{
-    $this->taskExec('phpqa')
-        ->option('report')
-        ->option('analyzedDir', './')
         ->run();
 }
 ```
