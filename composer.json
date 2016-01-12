@@ -28,7 +28,7 @@
         "psr-4": {
             "Edge\\QA\\": "src"
         },
-        "files": ["src/report.php"]
+        "files": ["src/report.php", "src/paths.php"]
     },
     "config": {
         "optimize-autoloader": true

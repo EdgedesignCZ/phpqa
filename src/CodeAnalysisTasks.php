@@ -34,7 +34,7 @@ trait CodeAnalysisTasks
     public function tools()
     {
         foreach (array_keys($this->tools) as $tool) {
-            $this->_exec($this->binary("{$tool} --version"));
+            $this->_exec(pathToBinary("{$tool} --version"));
         }
     }
 
@@ -99,7 +99,7 @@ trait CodeAnalysisTasks
 
     private function toolToProcess($tool, $optionSeparator)
     {
-        $binary = $this->binary($tool);
+        $binary = pathToBinary($tool);
         $process = $this->taskExec($binary);
         foreach ($this->$tool() as $arg => $value) {
             if (is_int($arg)) {
@@ -231,10 +231,5 @@ trait CodeAnalysisTasks
         if ($this->options->isOutputPrinted || $isAlwaysPrinted) {
             $this->writeln(" <fg=white;bg=cyan;options=bold>[HTML report]</fg=white;bg=cyan;options=bold> $text");
         }
-    }
-
-    private function binary($tool)
-    {
-        return COMPOSER_BINARY_DIR . $tool;
     }
 }

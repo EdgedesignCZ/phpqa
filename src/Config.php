@@ -41,7 +41,7 @@ class Config
         return $this->get(
             $path,
             function ($file, $dir) {
-                return realpath("{$dir}{$file}");
+                return escapePath(realpath("{$dir}{$file}"));
             }
         );
     }
