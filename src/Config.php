@@ -6,11 +6,13 @@ use Symfony\Component\Yaml\Yaml;
 
 class Config
 {
+    private $configDir;
     private $defaultConfig;
 
     public function __construct()
     {
-        $config = file_get_contents(__DIR__ . '/../.phpqa.yml');
+        $this->configDir = __DIR__ . '/../';
+        $config = file_get_contents("{$this->configDir}.phpqa.yml");
         $this->defaultConfig = Yaml::parse($config);
     }
 
@@ -25,6 +27,7 @@ class Config
 
     public function path($path)
     {
-        return $this->value($path);
+        $file = $this->value($path);
+        return realpath("{$this->configDir}{$file}");
     }
 }

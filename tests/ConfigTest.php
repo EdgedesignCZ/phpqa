@@ -12,4 +12,10 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpcs.standard'), is(nonEmptyString()));
         assertThat($config->path('phpmd.standard'), is(nonEmptyString()));
     }
+
+    public function testShouldBuildAbsolutePath()
+    {
+        $config = new Config();
+        assertThat($config->path('phpmd.standard'), not(startsWith('app/')));
+    }
 }
