@@ -22,8 +22,10 @@ class Config
     public function loadCustomConfig($configDir)
     {
         $this->overridenDir = $configDir . '/';
-        $config = file_get_contents("{$this->overridenDir}.phpqa.yml");
-        $this->overridenConfig = Yaml::parse($config);
+        if (file_exists("{$this->overridenDir}.phpqa.yml")) {
+            $config = file_get_contents("{$this->overridenDir}.phpqa.yml");
+            $this->overridenConfig = Yaml::parse($config);
+        }
     }
 
     public function value($path)

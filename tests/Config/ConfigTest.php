@@ -28,4 +28,12 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpcs.standard'), is('PSR2'));
         assertThat($config->path('phpmd.standard'), is(__DIR__ . "/my-standard.xml"));
     }
+
+    public function testShouldIgnoreNonExistenConfig()
+    {
+        $directoryWithoutConfig = __DIR__ . '/../';
+        $config = new Config();
+        $config->loadCustomConfig($directoryWithoutConfig);
+        assertThat($config->value('phpcs.standard'), is(nonEmptyString()));
+    }
 }
