@@ -7,3 +7,11 @@ phpmd:
 phpcpd:
     minLines: 5
     minTokens: 70
+
+# paths are relative to .phpqa.yml, so don't copy-paste this section if you don't have custom templates
+report:
+    phploc: app/report/phploc.xsl
+    phpcpd: app/report/phpcpd.xsl
+    phpcs: app/report/phpcs.xsl
+    pdepend: app/report/pdepend.xsl
+    phpmd: app/report/phpmd.xsl

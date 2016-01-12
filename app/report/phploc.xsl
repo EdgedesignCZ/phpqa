@@ -121,104 +121,6 @@
                         <td class="percent" />
                     </tr>
                 </table>
-                <h2>Structure</h2>
-                <table class="styled overview">
-                    <tr>
-                        <td>Namespaces</td>
-                        <td class="nummeric"><xsl:value-of select="namespaces" /></td>
-                        <td class="percent" />
-                    </tr>
-                    <tr>
-                        <td>Interfaces</td>
-                        <td class="nummeric"><xsl:value-of select="interfaces" /></td>
-                        <td class="percent" />
-                    </tr>
-                    <tr>
-                        <td>Traits</td>
-                        <td class="nummeric"><xsl:value-of select="traits" /></td>
-                        <td class="percent" />
-                    </tr>
-                    <tr>
-                        <td>Classes</td>
-                        <td class="nummeric"><xsl:value-of select="classes" /></td>
-                        <td class="percent" />
-                    </tr>
-                    <tr>
-                        <td class="indent">Abstract Classes</td>
-                        <td class="nummeric"><xsl:value-of select="abstractClasses" /></td>
-                        <td class="percent">(<xsl:value-of select="phpqa:format-number(abstractClasses div classes * 100, '0.##')" />%)</td>
-                    </tr>
-                    <tr>
-                        <td class="indent">Concrete Classes</td>
-                        <td class="nummeric"><xsl:value-of select="concreteClasses" /></td>
-                        <td class="percent">(<xsl:value-of select="phpqa:format-number(concreteClasses div classes * 100,'0.##')" />%)</td>
-                    </tr>
-                    <tr>
-                        <td>Methods</td>
-                        <td class="nummeric"><xsl:value-of select="methods" /></td>
-                        <td class="percent" />
-                    </tr>
-                    <tr>
-                        <td class="indent">Scope</td>
-                        <td class="percent" />
-                        <td class="percent" />
-                    </tr>
-                    <tr>
-                        <td class="indent2">Non-Static Methods</td>
-                        <td class="nummeric"><xsl:value-of select="nonStaticMethods" /></td>
-                        <td class="percent">(<xsl:value-of select="phpqa:format-number(nonStaticMethods div methods * 100,'0.##')" />%)</td>
-                    </tr>
-                    <tr>
-                        <td class="indent2">Static Methods</td>
-                        <td class="nummeric"><xsl:value-of select="staticMethods" /></td>
-                        <td class="percent">(<xsl:value-of select="phpqa:format-number(staticMethods div methods * 100,'0.##')" />%)</td>
-                    </tr>
-                    <tr>
-                        <td class="indent">Visibility</td>
-                        <td class="percent" />
-                        <td class="percent" />
-                    </tr>
-                    <tr>
-                        <td class="indent2">Public Method</td>
-                        <td class="nummeric"><xsl:value-of select="publicMethods" /></td>
-                        <td class="percent">(<xsl:value-of select="phpqa:format-number(publicMethods div methods * 100,'0.##')" />%)</td>
-                    </tr>
-                    <tr>
-                        <td class="indent2">Non-Public Methods</td>
-                        <td class="nummeric"><xsl:value-of select="nonPublicMethods" /></td>
-                        <td class="percent">(<xsl:value-of select="phpqa:format-number(nonPublicMethods div methods * 100,'0.##')" />%)</td>
-                    </tr>
-                    <tr>
-                        <td>Functions</td>
-                        <td class="nummeric"><xsl:value-of select="functions" /></td>
-                        <td class="percent" />
-                    </tr>
-                    <tr>
-                        <td class="indent">Named Functions</td>
-                        <td class="nummeric"><xsl:value-of select="namedFunctions" /></td>
-                        <td class="percent">(<xsl:value-of select="phpqa:format-number(namedFunctions div functions * 100,'0.##')" />%)</td>
-                    </tr>
-                    <tr>
-                        <td class="indent">Anonymous Functions</td>
-                        <td class="nummeric"><xsl:value-of select="anonymousFunctions" /></td>
-                        <td class="percent">(<xsl:value-of select="phpqa:format-number(anonymousFunctions div functions * 100,'0.##')" />%)</td>
-                    </tr>
-                    <tr>
-                        <td>Constants</td>
-                        <td class="nummeric"><xsl:value-of select="constants" /></td>
-                        <td class="percent" />
-                    </tr>
-                    <tr>
-                        <td class="indent">Global Constants</td>
-                        <td class="nummeric"><xsl:value-of select="globalConstants" /></td>
-                        <td class="percent">(<xsl:value-of select="phpqa:format-number(globalConstants div constants * 100,'0.##')" />%)</td>
-                    </tr>
-                    <tr>
-                        <td class="indent">Class Constants</td>
-                        <td class="nummeric"><xsl:value-of select="classConstants" /></td>
-                        <td class="percent">(<xsl:value-of select="phpqa:format-number(classConstants div constants * 100,'0.##')" />%)</td>
-                    </tr>
-                </table>
                 <h2>Size</h2>
                 <table class="styled overview">
                     <tr>
@@ -381,6 +283,104 @@
                         <td class="indent">Static</td>
                         <td class="nummeric"><xsl:value-of select="staticMethodCalls" /></td>
                         <td class="percent">(<xsl:value-of select="phpqa:format-number(staticMethodCalls div methodCalls * 100,'0.##')" />%)</td>
+                    </tr>
+                </table>
+                <h2>Structure</h2>
+                <table class="styled overview">
+                    <tr>
+                        <td>Namespaces</td>
+                        <td class="nummeric"><xsl:value-of select="namespaces" /></td>
+                        <td class="percent" />
+                    </tr>
+                    <tr>
+                        <td>Interfaces</td>
+                        <td class="nummeric"><xsl:value-of select="interfaces" /></td>
+                        <td class="percent" />
+                    </tr>
+                    <tr>
+                        <td>Traits</td>
+                        <td class="nummeric"><xsl:value-of select="traits" /></td>
+                        <td class="percent" />
+                    </tr>
+                    <tr>
+                        <td>Classes</td>
+                        <td class="nummeric"><xsl:value-of select="classes" /></td>
+                        <td class="percent" />
+                    </tr>
+                    <tr>
+                        <td class="indent">Abstract Classes</td>
+                        <td class="nummeric"><xsl:value-of select="abstractClasses" /></td>
+                        <td class="percent">(<xsl:value-of select="phpqa:format-number(abstractClasses div classes * 100, '0.##')" />%)</td>
+                    </tr>
+                    <tr>
+                        <td class="indent">Concrete Classes</td>
+                        <td class="nummeric"><xsl:value-of select="concreteClasses" /></td>
+                        <td class="percent">(<xsl:value-of select="phpqa:format-number(concreteClasses div classes * 100,'0.##')" />%)</td>
+                    </tr>
+                    <tr>
+                        <td>Methods</td>
+                        <td class="nummeric"><xsl:value-of select="methods" /></td>
+                        <td class="percent" />
+                    </tr>
+                    <tr>
+                        <td class="indent">Scope</td>
+                        <td class="percent" />
+                        <td class="percent" />
+                    </tr>
+                    <tr>
+                        <td class="indent2">Non-Static Methods</td>
+                        <td class="nummeric"><xsl:value-of select="nonStaticMethods" /></td>
+                        <td class="percent">(<xsl:value-of select="phpqa:format-number(nonStaticMethods div methods * 100,'0.##')" />%)</td>
+                    </tr>
+                    <tr>
+                        <td class="indent2">Static Methods</td>
+                        <td class="nummeric"><xsl:value-of select="staticMethods" /></td>
+                        <td class="percent">(<xsl:value-of select="phpqa:format-number(staticMethods div methods * 100,'0.##')" />%)</td>
+                    </tr>
+                    <tr>
+                        <td class="indent">Visibility</td>
+                        <td class="percent" />
+                        <td class="percent" />
+                    </tr>
+                    <tr>
+                        <td class="indent2">Public Method</td>
+                        <td class="nummeric"><xsl:value-of select="publicMethods" /></td>
+                        <td class="percent">(<xsl:value-of select="phpqa:format-number(publicMethods div methods * 100,'0.##')" />%)</td>
+                    </tr>
+                    <tr>
+                        <td class="indent2">Non-Public Methods</td>
+                        <td class="nummeric"><xsl:value-of select="nonPublicMethods" /></td>
+                        <td class="percent">(<xsl:value-of select="phpqa:format-number(nonPublicMethods div methods * 100,'0.##')" />%)</td>
+                    </tr>
+                    <tr>
+                        <td>Functions</td>
+                        <td class="nummeric"><xsl:value-of select="functions" /></td>
+                        <td class="percent" />
+                    </tr>
+                    <tr>
+                        <td class="indent">Named Functions</td>
+                        <td class="nummeric"><xsl:value-of select="namedFunctions" /></td>
+                        <td class="percent">(<xsl:value-of select="phpqa:format-number(namedFunctions div functions * 100,'0.##')" />%)</td>
+                    </tr>
+                    <tr>
+                        <td class="indent">Anonymous Functions</td>
+                        <td class="nummeric"><xsl:value-of select="anonymousFunctions" /></td>
+                        <td class="percent">(<xsl:value-of select="phpqa:format-number(anonymousFunctions div functions * 100,'0.##')" />%)</td>
+                    </tr>
+                    <tr>
+                        <td>Constants</td>
+                        <td class="nummeric"><xsl:value-of select="constants" /></td>
+                        <td class="percent" />
+                    </tr>
+                    <tr>
+                        <td class="indent">Global Constants</td>
+                        <td class="nummeric"><xsl:value-of select="globalConstants" /></td>
+                        <td class="percent">(<xsl:value-of select="phpqa:format-number(globalConstants div constants * 100,'0.##')" />%)</td>
+                    </tr>
+                    <tr>
+                        <td class="indent">Class Constants</td>
+                        <td class="nummeric"><xsl:value-of select="classConstants" /></td>
+                        <td class="percent">(<xsl:value-of select="phpqa:format-number(classConstants div constants * 100,'0.##')" />%)</td>
                     </tr>
                 </table>
         </div>
