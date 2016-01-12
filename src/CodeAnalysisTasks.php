@@ -6,20 +6,30 @@ trait CodeAnalysisTasks
 {
     /** @var array [tool => optionSeparator] */
     private $tools = array(
-        'phploc' => ' ',
-        'phpcpd' => ' ',
-        'phpcs' => '=',
-        'pdepend' => '=',
-        'phpmd' => ' ',
-        'phpmetrics' => ' '
-    );
-    /** @var array [tool => xml] */
-    private $xmlFiles = array(
-        'phploc' => 'phploc.xml',
-        'phpcpd' => 'phpcpd.xml',
-        'phpcs' => 'checkstyle.xml',
-        'pdepend' => 'pdepend-jdepend.xml',
-        'phpmd' => 'phpmd.xml'
+        'phpmetrics' => array(
+            'optionSeparator' => ' ',
+            'transformedXml' => '',
+        ),
+        'phploc' => array(
+            'optionSeparator' => ' ',
+            'transformedXml' => 'phploc.xml',
+        ),
+        'phpcs' => array(
+            'optionSeparator' => '=',
+            'transformedXml' => 'checkstyle.xml',
+        ),
+        'phpmd' => array(
+            'optionSeparator' => ' ',
+            'transformedXml' => 'phpmd.xml',
+        ),
+        'pdepend' => array(
+            'optionSeparator' => '=',
+            'transformedXml' => 'pdepend-jdepend.xml',
+        ),
+        'phpcpd' => array(
+            'optionSeparator' => ' ',
+            'transformedXml' => 'phpcpd.xml',
+        ),
     );
     /** @var Options */
     private $options;
@@ -90,8 +100,8 @@ trait CodeAnalysisTasks
     private function parallelRun()
     {
         $parallel = $this->taskParallelExec();
-        foreach ($this->usedTools as $tool => $optionSeparator) {
-            $process = $this->toolToProcess($tool, $optionSeparator);
+        foreach ($this->usedTools as $tool => $config) {
+            $process = $this->toolToProcess($tool, $config['optionSeparator']);
             $parallel->process($process);
         }
         $parallel->printed($this->options->isOutputPrinted)->run();
@@ -203,13 +213,10 @@ trait CodeAnalysisTasks
 
     private function buildReport()
     {
-        $this->writeHtmlReport("Start building html files");
-        $toolsWithHtmlFile = array_key_exists('phpmetrics', $this->usedTools) ? array('phpmetrics') : array();
-        foreach (array_keys($this->usedTools) as $tool) {
-            if (array_key_exists($tool, $this->xmlFiles)) {
-                $toolsWithHtmlFile[] = $tool;
+        foreach ($this->usedTools as $tool => $config) {
+            if ($config['transformedXml']) {
                 xmlToHtml(
-                    "{$this->options->buildDir}{$this->xmlFiles[$tool]}",
+                    "{$this->options->buildDir}{$config['transformedXml']}",
                     $this->config->path("report.{$tool}"),
                     "{$this->options->buildDir}{$tool}.html"
                 );
@@ -218,7 +225,7 @@ trait CodeAnalysisTasks
         }
         twigToHtml(
             'phpqa.html.twig',
-            array('tools' => $toolsWithHtmlFile),
+            array('tools' => array_keys($this->usedTools)),
             "{$this->options->buildDir}phpqa.html"
         );
         $this->writeHtmlReport("<comment>{$this->options->buildDir}phpqa.html</comment>", true);
