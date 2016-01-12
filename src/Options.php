@@ -8,6 +8,8 @@ class Options
     public $analyzedDir;
     /** @var string */
     public $buildDir;
+    /** @var string */
+    public $configDir;
     /** @var IgnoredPaths */
     public $ignore;
     /** @var array */
@@ -22,13 +24,24 @@ class Options
 
     public function __construct(array $options)
     {
+        $this->ignore = new IgnoredPaths($options['ignoredDirs'], $options['ignoredFiles']);
+        $this->loadOutput($options);
+        $this->loadTools($options['tools']);
+    }
+
+    private function loadOutput(array $options)
+    {
         $this->analyzedDir = '"' . $options['analyzedDir'] . '"';
         $this->buildDir = $options['buildDir'];
-        $this->ignore = new IgnoredPaths($options['ignoredDirs'], $options['ignoredFiles']);
         $this->isSavedToFiles = $options['output'] == 'file';
         $this->isOutputPrinted = $this->isSavedToFiles ? $options['verbose'] : true;
         $this->hasReport = $this->isSavedToFiles ? $options['report'] : false;
-        $tools = $this->isSavedToFiles ? $options['tools'] : str_replace('pdepend', '', $options['tools']);
+        $this->configDir = $options['config'] ? $options['config'] : getcwd();
+    }
+
+    private function loadTools($inputTools)
+    {
+        $tools = $this->isSavedToFiles ? $inputTools : str_replace('pdepend', '', $inputTools);
         $this->allowedTools = explode(',', $tools);
     }
 
@@ -45,11 +58,6 @@ class Options
 
     public function toFile($file)
     {
-        return "\"{$this->buildDir}/{$file}\"";
-    }
-
-    public function appFile($file)
-    {
-        return __DIR__ . "/../app/{$file}";
+        return escapePath("{$this->buildDir}/{$file}");
     }
 }

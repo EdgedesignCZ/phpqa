@@ -23,6 +23,8 @@ trait CodeAnalysisTasks
     );
     /** @var Options */
     private $options;
+    /** @var Config */
+    private $config;
     /** @var array */
     private $usedTools;
 
@@ -32,7 +34,7 @@ trait CodeAnalysisTasks
     public function tools()
     {
         foreach (array_keys($this->tools) as $tool) {
-            $this->_exec($this->binary("{$tool} --version"));
+            $this->_exec(pathToBinary("{$tool} --version"));
         }
     }
 
@@ -44,6 +46,7 @@ trait CodeAnalysisTasks
      * @option $ignoredFiles csv @example RoboFile.php
      * @option $tools csv @example phploc,phpcpd
      * @option $output output format @example cli
+     * @option $config path directory with .phpqa.yml, @default current working directory
      * @option $report build HTML report (only output format is file)
      */
     public function ci(
@@ -54,6 +57,7 @@ trait CodeAnalysisTasks
             'ignoredFiles' => '',
             'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
             'output' => 'file',
+            'config' => '',
             'report' => false,
         )
     ) {
@@ -69,6 +73,8 @@ trait CodeAnalysisTasks
     {
         $this->options = new Options($opts);
         $this->usedTools = $this->options->filterTools($this->tools);
+        $this->config = new Config();
+        $this->config->loadCustomConfig($this->options->configDir);
     }
 
     private function ciClean()
@@ -93,7 +99,7 @@ trait CodeAnalysisTasks
 
     private function toolToProcess($tool, $optionSeparator)
     {
-        $binary = $this->binary($tool);
+        $binary = pathToBinary($tool);
         $process = $this->taskExec($binary);
         foreach ($this->$tool() as $arg => $value) {
             if (is_int($arg)) {
@@ -125,7 +131,9 @@ trait CodeAnalysisTasks
         $args = array(
             'progress' => '',
             $this->options->ignore->bergmann(),
-            $this->options->analyzedDir
+            $this->options->analyzedDir,
+            'min-lines' => $this->config->value('phpcpd.minLines'),
+            'min-tokens' => $this->config->value('phpcpd.minTokens'),
         );
         if ($this->options->isSavedToFiles) {
             $args['log-pmd'] = $this->options->toFile('phpcpd.xml');
@@ -138,7 +146,7 @@ trait CodeAnalysisTasks
         $args = array(
             '-p',
             'extensions' => 'php',
-            'standard' => 'PSR2',
+            'standard' => $this->config->value('phpcs.standard'),
             $this->options->ignore->phpcs(),
             $this->options->analyzedDir
         );
@@ -168,7 +176,7 @@ trait CodeAnalysisTasks
         $args = array(
             $this->options->analyzedDir,
             $this->options->isSavedToFiles ? 'xml' : 'text',
-            $this->options->appFile('phpmd.xml'),
+            $this->config->path('phpmd.standard'),
             'sufixxes' => 'php',
             $this->options->ignore->phpmd()
         );
@@ -223,10 +231,5 @@ trait CodeAnalysisTasks
         if ($this->options->isOutputPrinted || $isAlwaysPrinted) {
             $this->writeln(" <fg=white;bg=cyan;options=bold>[HTML report]</fg=white;bg=cyan;options=bold> $text");
         }
-    }
-
-    private function binary($tool)
-    {
-        return COMPOSER_BINARY_DIR . $tool;
     }
 }

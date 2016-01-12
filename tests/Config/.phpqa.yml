@@ -1,0 +1,10 @@
+# should override default standard
+phpcs:
+    standard: Zend
+
+# path is relative to .phpqa.yml
+phpmd:
+    standard: my-standard.xml
+
+# should ignore empty values
+phpcpd:
