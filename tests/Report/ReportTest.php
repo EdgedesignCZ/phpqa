@@ -20,17 +20,17 @@ class ReportTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @dataProvider provideXml */
-    public function testShouldConvertXmlToHtml($xml, $expectedOutput)
+    public function testShouldConvertXmlToHtml($xml, $assertOutput)
     {
         xmlToHtml(__DIR__ . "/{$xml}", $this->phplocXsl, $this->output);
-        assertThat(file_get_contents($this->output), containsString($expectedOutput));
+        assertThat(file_get_contents($this->output), $assertOutput);
     }
 
     public function provideXml()
     {
         return array(
-            'create html' => array('phploc.xml', '</table>'),
-            'create empty file if something went south' => array('invalid.xml', 'Premature end of data in tag phploc')
+            'create html' => array('phploc.xml', containsString('</table>')),
+            'create empty file if something went south' => array('invalid.xml', not(containsString('</table>')))
         );
     }
 
