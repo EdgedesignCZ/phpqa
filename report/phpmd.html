@@ -1,0 +1,37 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>PHPMD report</title><style>
+                    #summary {font: 38px 'Arial'; color:#555; padding:20px 0 20px 30px;}
+                    .errors-count {color:red;}
+                    .warnings-count {color:orange}
+                    .files-count {color:black;}
+
+                    #files {padding:20px 0 0 30px;}
+                    .file {padding:20px 5px; border-bottom:2px solid #CCC; font-size:22px;}
+                    .file .file-info {display:none;}
+                    .file a:link {border-bottom:1px dotted #888; text-decoration:none; color:black;}
+                    .file a:link:hover {border-bottom:none;}
+
+                    .errors {padding:5px 15px; margin:5px 0; border-left:3px solid red; font-size:16px;}
+                    .warnings {padding:0 15px; border-left:3px solid orange; font-size:18px; color:#666;}
+
+                    .error, .warning {padding:5px 0; border-bottom:1px solid #DDD;}
+                    .error .info, .warning .info {color:#666; font-size:15px;}
+
+                    .file:last-child, .error:last-child, .warning:last-child {border-bottom:none;}
+                </style><script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js"></script><script type="text/javascript" src="http://code.jquery.com/ui/1.7.2/jquery-ui.min.js"></script><script type="text/javascript">
+                    $(function() {
+                        $(".file a").click(function() {
+                            var info = $(this).parent().find(".file-info");
+
+                            if (info.is(":visible")) {
+                                info.slideUp();
+                            } else {
+                                info.slideDown();
+                            }
+                        })
+                    })
+                </script></head><body><div id="summary">
+                    PHP Mess Detector Report<br>
+                    Summary: <span class="errors-count">0</span> errors
+                    and <span class="warnings-count">0</span> warnings
+                    in <span class="files-count">0</span> files
+                </div><div id="files"></div></body></html>
