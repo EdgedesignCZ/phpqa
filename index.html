@@ -53,6 +53,8 @@ Will you create e.g. Jenkins project/task for each bundle?</p>
 <li>I don't care about format of <a href="https://github.com/EdgedesignCZ/phpqa/blob/master/tests/IgnoredPathsTest.php">ignored directories</a> in phploc, phpmd, ...</li>
 <li>I don't want to update all projects when QA tool is updated or if I've found cool tool like <a href="https://github.com/Halleck45/PhpMetrics">PHPMetrics</a>
 </li>
+<li>I don't want to analyze XML files → tool should be able to build <a href="#html-reports">html reports</a>
+</li>
 <li>I want fast execution time → tools should run in parallel (<a href="http://robo.li/tasks/Base/#parallelexec">thanks Robo</a>)</li>
 </ul>
 
@@ -155,12 +157,87 @@ phpqa --report
 phpqa tools</pre></div>
 
 <h2>
+<a id="advanced-configuration---phpqayml" class="anchor" href="#advanced-configuration---phpqayml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced configuration - <code>.phpqa.yml</code>
+</h2>
+
+<p>Override tools' settings with <a href="/.phpqa.yml"><code>.phpqa.yml</code></a>:</p>
+
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Settings</th>
+<th>Default Value</th>
+<th>Your value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard">phpcs</a></td>
+<td>Coding standard</td>
+<td>PSR2</td>
+<td>Name of existing standard (<code>PEAR</code>, <code>PHPCS</code>, <code>PSR1</code>, <code>PSR2</code>, <code>Squiz</code>,  <code>Zend</code>), or path to your coding standard</td>
+</tr>
+<tr>
+<td><a href="http://phpmd.org/documentation/creating-a-ruleset.html">phpmd</a></td>
+<td>Ruleset</td>
+<td><a href="/app/phpmd.xml">Edgedesign's standard</a></td>
+<td>Path to ruleset</td>
+</tr>
+<tr>
+<td><a href="https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136">phpcpd</a></td>
+<td>Minimum number of lines/tokens for copy-paste detection</td>
+<td>5 lines, 70 tokens</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+<p><code>.phpqa.yml</code> is automatically detected in current working directory, but you can specify
+directory via option:</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># use .phpqa.yml from defined directory</span>
+phpqa --config path-to-directory-with-config</pre></div>
+
+<p>You don't have to specify full configuration. Missing or empty values are replaced
+with default values from our <a href="/.phpqa.yml"><code>.phpqa.yml</code></a>. Example of minimal config
+that defines only standard for CodeSniffer:</p>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">phpcs:</span></span>
+    <span class="pl-s"><span class="pl-ent">standard:</span> <span class="pl-s">Zend</span></span></pre></div>
+
+<p><em>Tip</em>: use <a href="http://edorian.github.io/php-coding-standard-generator/">PHP Coding Standard Generator</a>
+for generating phpcs/phpmd standards.</p>
+
+<h2>
+<a id="html-reports" class="anchor" href="#html-reports" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML reports</h2>
+
+<p>If you don't have Jenkins or other CI server, then you can use HTML reports.
+HTML files are built when you add option <code>--report</code>. Take a look at
+<a href="http://edgedesigncz.github.io/phpqa/report/phpqa.html">report from phpqa</a>.</p>
+
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># build html reports</span>
+phpqa --report</pre></div>
+
+<h3>
+<a id="custom-templates" class="anchor" href="#custom-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom templates</h3>
+
+<p>Define custom templates if you don't like <a href="/app/report">default templates</a>.
+You have to define path to <code>xsl</code> files in your <a href="#advanced-configuration---phpqayml"><code>.phpqa.yml</code></a>:</p>
+
+<pre><code># use different template for PHPMD, use default for other tools
+report:
+    phpmd: my-templates/phpmd.xsl
+</code></pre>
+
+<p>Be aware that all <strong>paths are relative to <code>.phpqa.yml</code></strong>. Don't copy-paste section <code>report</code>
+if you don't have custom templates! </p>
+
+<h2>
 <a id="jenkins-integration" class="anchor" href="#jenkins-integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jenkins integration</h2>
 
 <p>We use <a href="http://jenkins-php.org/">Jenkins-CI</a> in Edgedesign. Below you can find examples of
-<a href="https://www.phing.info/">Phing</a> and <a href="http://robo.li/">Robo</a> tasks. Right now Edgedesign's
-phpmd rulesets are <a href="https://github.com/EdgedesignCZ/phpqa/blob/master/app/phpmd.xml">“hard-coded”</a>.
-That happens when you open-source internal app (<a href="#contributing">contributions are welcomed</a>).</p>
+<a href="https://www.phing.info/">Phing</a> and <a href="http://robo.li/">Robo</a> tasks.</p>
 
 <h3>
 <a id="project-with-one-directory" class="anchor" href="#project-with-one-directory" aria-hidden="true"><span class="octicon octicon-link"></span></a> Project with one directory</h3>
@@ -206,23 +283,6 @@ other non-code directories. Otherwise the analysis could take a very long time.<
 <span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>buildDir<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>./build<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>ignoredDirs<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>build,bin,vendor<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>ignoredFiles<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>RoboFile.php,error-handling.php<span class="pl-pds">'</span></span>)</span>
-<span class="pl-s1">        <span class="pl-k">-&gt;</span>run();</span>
-<span class="pl-s1">}</span></pre></div>
-
-<h2>
-<a id="html-reports" class="anchor" href="#html-reports" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML reports</h2>
-
-<p>If you don't have Jenkins or other CI server, then you can use HTML reports.
-HTML files are built when you add option <code>--report</code>. Take a look at
-<a href="http://edgedesigncz.github.io/phpqa/report/phpqa.html">report from phpqa</a>.</p>
-
-<p><strong>Robo - <code>RoboFile.php</code></strong></p>
-
-<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">ciPhpqa</span>()</span>
-<span class="pl-s1">{</span>
-<span class="pl-s1">    <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span>taskExec(<span class="pl-s"><span class="pl-pds">'</span>phpqa<span class="pl-pds">'</span></span>)</span>
-<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>report<span class="pl-pds">'</span></span>)</span>
-<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>analyzedDir<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>./<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1">        <span class="pl-k">-&gt;</span>run();</span>
 <span class="pl-s1">}</span></pre></div>
 
