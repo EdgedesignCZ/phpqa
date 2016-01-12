@@ -18,4 +18,14 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         $config = new Config();
         assertThat($config->path('phpmd.standard'), not(startsWith('app/')));
     }
+
+    public function testShouldOverrideDefaultConfig()
+    {
+        $config = new Config();
+        $config->loadCustomConfig(__DIR__);
+        assertThat($config->value('phpcpd.minLines'), is(1));
+        assertThat($config->value('phpcpd.minTokens'), is(70));
+        assertThat($config->value('phpcs.standard'), is('PSR2'));
+        assertThat($config->path('phpmd.standard'), is(__DIR__ . "/my-standard.xml"));
+    }
 }

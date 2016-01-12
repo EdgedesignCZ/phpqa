@@ -1,0 +1,10 @@
+# should use default phpcs standard
+
+# path is relative to .phpqa.yml
+phpmd:
+    standard: my-standard.xml
+
+# should ignore empty values
+phpcpd:
+    minLines: 1
+    minTokens: 
