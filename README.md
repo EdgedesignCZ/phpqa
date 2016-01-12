@@ -101,12 +101,37 @@ phpqa --report
 phpqa tools
 ```
 
+## Advanced configuration - `.phpqa.yml`
+
+Override tools' settings with [`.phpqa.yml`](/.phpqa.yml):
+
+Tool | Default Value | Description
+---- | ------------- | ----------- |
+[phpcs](https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard) | PSR2 | Name of standard (`PEAR`, `PHPCS`, `PSR1`, `PSR2`, `Squiz`,  `Zend`), or you can add path to your standard
+[phpmd](http://phpmd.org/documentation/creating-a-ruleset.html) | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset
+[phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | 5 lines, 70 tokens | Minimum number of lines/tokens for copy-paste detection
+
+`.phpqa.yml` is automatically detected in current working directory, but you can specify
+directory via option:
+
+```
+# use .phpqa.yml from defined directory
+phpqa --config path-to-directory-with-config
+```
+
+You don't have to specify full configuration. Missing or empty values are replaced
+with default values from our [`.phpqa.yml`](/.phpqa.yml). Example of minimal config
+that defines only standard for CodeSniffer:
+
+```
+phpcs:
+    standard: Zend
+```
+
 ## Jenkins integration
 
 We use [Jenkins-CI](http://jenkins-php.org/) in Edgedesign. Below you can find examples of
-[Phing](https://www.phing.info/) and [Robo](http://robo.li/) tasks. Right now Edgedesign's
-phpmd rulesets are [“hard-coded”](https://github.com/EdgedesignCZ/phpqa/blob/master/app/phpmd.xml).
-That happens when you open-source internal app ([contributions are welcomed](#contributing)).
+[Phing](https://www.phing.info/) and [Robo](http://robo.li/) tasks.
 
 ### Project with one directory
 
