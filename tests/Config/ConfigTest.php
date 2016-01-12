@@ -26,7 +26,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpcpd.minLines'), is(5));
         assertThat($config->value('phpcpd.minTokens'), is(70));
         assertThat($config->value('phpcs.standard'), is('Zend'));
-        assertThat($config->path('phpmd.standard'), is('"' . __DIR__ . "/my-standard.xml" . '"'));
+        assertThat($config->path('phpmd.standard'), is(__DIR__ . "/my-standard.xml"));
     }
 
     public function testShouldIgnoreNonExistenConfig()

@@ -176,7 +176,7 @@ trait CodeAnalysisTasks
         $args = array(
             $this->options->analyzedDir,
             $this->options->isSavedToFiles ? 'xml' : 'text',
-            $this->config->path('phpmd.standard'),
+            escapePath($this->config->path('phpmd.standard')),
             'sufixxes' => 'php',
             $this->options->ignore->phpmd()
         );
@@ -204,14 +204,13 @@ trait CodeAnalysisTasks
     private function buildReport()
     {
         $this->writeHtmlReport("Start building html files");
-        $xslDirectory = __DIR__ . "/../app/report/";
         $toolsWithHtmlFile = array_key_exists('phpmetrics', $this->usedTools) ? array('phpmetrics') : array();
         foreach (array_keys($this->usedTools) as $tool) {
             if (array_key_exists($tool, $this->xmlFiles)) {
                 $toolsWithHtmlFile[] = $tool;
                 xmlToHtml(
                     "{$this->options->buildDir}{$this->xmlFiles[$tool]}",
-                    "{$xslDirectory}/{$tool}.xsl",
+                    $this->config->path("report.{$tool}"),
                     "{$this->options->buildDir}{$tool}.html"
                 );
                 $this->writeHtmlReport("<info>{$this->options->buildDir}{$tool}.html</info>");
