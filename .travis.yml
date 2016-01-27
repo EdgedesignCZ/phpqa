@@ -7,7 +7,7 @@ php:
   - 7.0
   - hhvm
 install:
-  - composer install
+  - composer install --no-interaction
 script:
   - vendor/phpunit/phpunit/phpunit
 after_success:
