@@ -20,7 +20,7 @@
 
     <section class="main-content">
       <h1>
-<a id="phpqa-cli" class="anchor" href="#phpqa-cli" aria-hidden="true"><span class="octicon octicon-link"></span></a>PHPQA CLI</h1>
+<a id="phpqa-cli" class="anchor" href="#phpqa-cli" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>PHPQA CLI</h1>
 
 <p>Analyze PHP code with one command.</p>
 
@@ -30,7 +30,7 @@
 <a href="https://travis-ci.org/EdgedesignCZ/phpqa"><img src="https://travis-ci.org/EdgedesignCZ/phpqa.svg" alt="Build Status"></a></p>
 
 <h2>
-<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span class="octicon octicon-link"></span></a> Requirements</h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Requirements</h2>
 
 <ul>
 <li>PHP &gt;= 5.4.0</li>
@@ -40,7 +40,7 @@
 </ul>
 
 <h2>
-<a id="why" class="anchor" href="#why" aria-hidden="true"><span class="octicon octicon-link"></span></a>Why?</h2>
+<a id="why" class="anchor" href="#why" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Why?</h2>
 
 <p>Every analyzer has different arguments and options in different formats <em>(no surprise in PHP world :)</em>.
 If you ever tried to get ignoring directories to work then you know what I mean. On the other hand
@@ -62,7 +62,7 @@ Will you create e.g. Jenkins project/task for each bundle?</p>
 </ul>
 
 <h2>
-<a id="available-tools" class="anchor" href="#available-tools" aria-hidden="true"><span class="octicon octicon-link"></span></a>Available <a href="https://github.com/ziadoz/awesome-php#code-analysis">tools</a>
+<a id="available-tools" class="anchor" href="#available-tools" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Available <a href="https://github.com/ziadoz/awesome-php#code-analysis">tools</a>
 </h2>
 
 <table>
@@ -101,10 +101,10 @@ Will you create e.g. Jenkins project/task for each bundle?</p>
 </table>
 
 <h2>
-<a id="install" class="anchor" href="#install" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install</h2>
+<a id="install" class="anchor" href="#install" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Install</h2>
 
 <h3>
-<a id="without-composer" class="anchor" href="#without-composer" aria-hidden="true"><span class="octicon octicon-link"></span></a> Without composer</h3>
+<a id="without-composer" class="anchor" href="#without-composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Without composer</h3>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"># install php-a-cli</span>
 git@github.com:EdgedesignCZ/phpqa.git
@@ -117,7 +117,7 @@ sudo ln -s /path-to-phpqa-repository/phpqa /usr/bin/phpqa
 <span class="pl-k">export</span> PATH=<span class="pl-k">~</span>/path-to-phpqa-repository-from-pwd:<span class="pl-smi">$PATH</span></pre></div>
 
 <h3>
-<a id="composer" class="anchor" href="#composer" aria-hidden="true"><span class="octicon octicon-link"></span></a> Composer</h3>
+<a id="composer" class="anchor" href="#composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Composer</h3>
 
 <div class="highlight highlight-source-shell"><pre>composer global require edgedesign/phpqa --update-no-dev
 <span class="pl-c"># Make sure you have ~/.composer/vendor/bin/ in your PATH.</span></pre></div>
@@ -128,7 +128,7 @@ But I wouldn't recommend it. In my experience <em>one</em> QA tool which analyze
 how many repositories you want to update when new version is released.</p>
 
 <h2>
-<a id="analyze" class="anchor" href="#analyze" aria-hidden="true"><span class="octicon octicon-link"></span></a>Analyze</h2>
+<a id="analyze" class="anchor" href="#analyze" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Analyze</h2>
 
 <div class="highlight highlight-source-shell"><pre>phpqa --help
 
@@ -153,6 +153,9 @@ phpqa --quiet
 <span class="pl-c"># CLI output instead of creating files (default output are files in --buildDir)</span>
 phpqa --output cli
 
+<span class="pl-c"># don't use parallelism (tools are runned in parallel if you don't specify option --execution != parallel)</span>
+phpqa --execution no-parallel
+
 <span class="pl-c"># build html reports</span>
 phpqa --report
 
@@ -160,7 +163,7 @@ phpqa --report
 phpqa tools</pre></div>
 
 <h2>
-<a id="advanced-configuration---phpqayml" class="anchor" href="#advanced-configuration---phpqayml" aria-hidden="true"><span class="octicon octicon-link"></span></a>Advanced configuration - <code>.phpqa.yml</code>
+<a id="advanced-configuration---phpqayml" class="anchor" href="#advanced-configuration---phpqayml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Advanced configuration - <code>.phpqa.yml</code>
 </h2>
 
 <p>Override tools' settings with <a href="/.phpqa.yml"><code>.phpqa.yml</code></a>:</p>
@@ -213,7 +216,7 @@ that defines only standard for CodeSniffer:</p>
 for generating phpcs/phpmd standards.</p>
 
 <h2>
-<a id="html-reports" class="anchor" href="#html-reports" aria-hidden="true"><span class="octicon octicon-link"></span></a>HTML reports</h2>
+<a id="html-reports" class="anchor" href="#html-reports" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>HTML reports</h2>
 
 <p>If you don't have Jenkins or other CI server, then you can use HTML reports.
 HTML files are built when you add option <code>--report</code>. Take a look at
@@ -223,7 +226,7 @@ HTML files are built when you add option <code>--report</code>. Take a look at
 phpqa --report</pre></div>
 
 <h3>
-<a id="custom-templates" class="anchor" href="#custom-templates" aria-hidden="true"><span class="octicon octicon-link"></span></a>Custom templates</h3>
+<a id="custom-templates" class="anchor" href="#custom-templates" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Custom templates</h3>
 
 <p>Define custom templates if you don't like <a href="/app/report">default templates</a>.
 You have to define path to <code>xsl</code> files in your <a href="#advanced-configuration---phpqayml"><code>.phpqa.yml</code></a>:</p>
@@ -237,7 +240,7 @@ report:
 if you don't have custom templates!</p>
 
 <h2>
-<a id="requirements-1" class="anchor" href="#requirements-1" aria-hidden="true"><span class="octicon octicon-link"></span></a> Requirements</h2>
+<a id="requirements-1" class="anchor" href="#requirements-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Requirements</h2>
 
 <p><a href="http://php.net/manual/en/class.xsltprocessor.php"><code>xsl</code> extension</a>
 must be installed and enabled for exporting HTML reports.
@@ -249,13 +252,13 @@ sudo apt-get install php5-xsl
 sudo service apache2 restart</pre></div>
 
 <h2>
-<a id="jenkins-integration" class="anchor" href="#jenkins-integration" aria-hidden="true"><span class="octicon octicon-link"></span></a>Jenkins integration</h2>
+<a id="jenkins-integration" class="anchor" href="#jenkins-integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Jenkins integration</h2>
 
 <p>We use <a href="http://jenkins-php.org/">Jenkins-CI</a> in Edgedesign. Below you can find examples of
 <a href="https://www.phing.info/">Phing</a> and <a href="http://robo.li/">Robo</a> tasks.</p>
 
 <h3>
-<a id="project-with-one-directory" class="anchor" href="#project-with-one-directory" aria-hidden="true"><span class="octicon octicon-link"></span></a> Project with one directory</h3>
+<a id="project-with-one-directory" class="anchor" href="#project-with-one-directory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Project with one directory</h3>
 
 <p>Typically in Symfony project you have project with <code>src</code> directory with all the code and tests. So you don't need ignore vendors, web directory etc. </p>
 
@@ -271,7 +274,7 @@ sudo service apache2 restart</pre></div>
 &lt;/<span class="pl-ent">target</span>&gt;</pre></div>
 
 <h3>
-<a id="project-with-multiple-directories-src-tests-" class="anchor" href="#project-with-multiple-directories-src-tests-" aria-hidden="true"><span class="octicon octicon-link"></span></a> Project with multiple directories (src, tests, ...)</h3>
+<a id="project-with-multiple-directories-src-tests-" class="anchor" href="#project-with-multiple-directories-src-tests-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Project with multiple directories (src, tests, ...)</h3>
 
 <p>When you analyze root directory of your project don't forget to ignore vendors and
 other non-code directories. Otherwise the analysis could take a very long time.</p>
@@ -302,14 +305,14 @@ other non-code directories. Otherwise the analysis could take a very long time.<
 <span class="pl-s1">}</span></pre></div>
 
 <h2>
-<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Contributing</h2>
+<a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
 
 <p>Contributions from others would be very much appreciated! Send 
 <a href="https://github.com/EdgedesignCZ/phpqa/pulls">pull request</a>/
 <a href="https://github.com/EdgedesignCZ/phpqa/issues">issue</a>. Thanks!</p>
 
 <h2>
-<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
 
 <p>Copyright (c) 2015 Edgedesign.cz. MIT Licensed,
 see <a href="/LICENSE">LICENSE</a> for details.</p>
