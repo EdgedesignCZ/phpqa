@@ -69,6 +69,7 @@ trait CodeAnalysisTasks
             'output' => 'file',
             'config' => '',
             'report' => false,
+            'execution' => 'parallel',
         )
     ) {
         $this->loadOptions($opts);

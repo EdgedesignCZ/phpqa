@@ -22,6 +22,9 @@ class Options
     /** @var boolean */
     public $hasReport;
 
+    /** @var boolean */
+    public $isParallel;
+
     public function __construct(array $options)
     {
         $this->ignore = new IgnoredPaths($options['ignoredDirs'], $options['ignoredFiles']);
@@ -33,6 +36,7 @@ class Options
     {
         $this->analyzedDir = '"' . $options['analyzedDir'] . '"';
         $this->buildDir = $options['buildDir'];
+        $this->isParallel = $options['execution'] == 'parallel';
         $this->isSavedToFiles = $options['output'] == 'file';
         $this->isOutputPrinted = $this->isSavedToFiles ? $options['verbose'] : true;
         $this->hasReport = $this->isSavedToFiles ? $options['report'] : false;

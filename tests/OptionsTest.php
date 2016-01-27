@@ -14,7 +14,8 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         'output' => 'file',
         'config' => '',
         'verbose' => true,
-        'report' => false
+        'report' => false,
+        'execution' => 'parallel',
     );
 
     public function setUp()
@@ -80,6 +81,22 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
                 false,
                 true
             )
+        );
+    }
+
+    /** @dataProvider provideExecutionMode */
+    public function testShouldExecute(array $opts, $isParallel)
+    {
+        $options = $this->overrideOptions($opts);
+        assertThat($options->isParallel, is($isParallel));
+    }
+
+    public function provideExecutionMode()
+    {
+        return array(
+            'parallel executaion is default mode' => array(array(), true),
+            'parallel executaion is default mode' => array(array('execution' => 'parallel'), true),
+            'dont use parallelism if execution is other word' => array(array('execution' => 'single'), false),
         );
     }
 }
