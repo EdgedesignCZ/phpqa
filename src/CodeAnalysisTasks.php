@@ -100,15 +100,20 @@ trait CodeAnalysisTasks
 
     private function parallelRun()
     {
-        $parallel = $this->taskParallelExec();
+        $group = $this->options->isParallel ? $this->taskParallelExec() : $this->taskExecStack();
         foreach ($this->usedTools as $tool => $config) {
-            $process = $this->toolToProcess($tool, $config['optionSeparator']);
-            $parallel->process($process);
+            $exec = $this->toolToExec($tool, $config['optionSeparator']);
+            if ($this->options->isParallel) {
+                $group->process($exec);
+            } else {
+                $group->exec($exec->getCommand());
+            }
         }
-        $parallel->printed($this->options->isOutputPrinted)->run();
+        $group->printed($this->options->isOutputPrinted)->run();
     }
 
-    private function toolToProcess($tool, $optionSeparator)
+    /** @return \Robo\Task\Base\Exec */
+    private function toolToExec($tool, $optionSeparator)
     {
         $binary = pathToBinary($tool);
         $process = $this->taskExec($binary);
