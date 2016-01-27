@@ -74,7 +74,7 @@ trait CodeAnalysisTasks
     ) {
         $this->loadOptions($opts);
         $this->ciClean();
-        $this->parallelRun();
+        $this->runTools();
         if ($this->options->hasReport) {
             $this->buildReport();
         }
@@ -98,16 +98,12 @@ trait CodeAnalysisTasks
         }
     }
 
-    private function parallelRun()
+    private function runTools()
     {
-        $group = $this->options->isParallel ? $this->taskParallelExec() : $this->taskExecStack();
+        $group = $this->options->isParallel ? $this->taskParallelExec() : new Task\NonParallelExec();
         foreach ($this->usedTools as $tool => $config) {
             $exec = $this->toolToExec($tool, $config['optionSeparator']);
-            if ($this->options->isParallel) {
-                $group->process($exec);
-            } else {
-                $group->exec($exec->getCommand());
-            }
+            $group->process($exec);
         }
         $group->printed($this->options->isOutputPrinted)->run();
     }
