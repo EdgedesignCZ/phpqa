@@ -10,7 +10,7 @@ use Robo\Result;
 /**
  * The task has similar output, same signatures as ParallelExec,
  * but executes processes sequentially (like in \Robo\Task\CommandStack)
- * 
+ *
  * \Robo\Task\Base\ExecStack has different behavior than ParallelExec:
  * - all commands are executed inside one command
  * - group execution with stopOnFail, but it stops everything when e.g. phpcs failed
@@ -34,7 +34,9 @@ class NonParallelExec extends ParallelExec
             $progress->advance();
             if ($this->isPrinted) {
                 $this->getOutput()->writeln("");
-                $this->printTaskInfo("Output for <fg=white;bg=magenta> " . $process->getCommandLine()." </fg=white;bg=magenta>");
+                $this->printTaskInfo(
+                    "Output for <fg=white;bg=magenta> " . $process->getCommandLine()." </fg=white;bg=magenta>"
+                );
                 $this->getOutput()->writeln($process->getOutput(), OutputInterface::OUTPUT_RAW);
                 if ($process->getErrorOutput()) {
                     $this->getOutput()->writeln("<error>" . $process->getErrorOutput() . "</error>");
@@ -48,11 +50,15 @@ class NonParallelExec extends ParallelExec
         $errorMessage = '';
         $exitCode = 0;
         foreach ($this->processes as $p) {
-            if ($p->getExitCode() === 0) continue;
+            if ($p->getExitCode() === 0) {
+                continue;
+            }
             $errorMessage .= "'" . $p->getCommandLine() . "' exited with code ". $p->getExitCode()." \n";
             $exitCode = max($exitCode, $p->getExitCode());
         }
-        if (!$errorMessage) $this->printTaskSuccess(count($this->processes) . " processes finished running");
+        if (!$errorMessage) {
+            $this->printTaskSuccess(count($this->processes) . " processes finished running");
+        }
 
         return new Result($this, $exitCode, $errorMessage, ['time' => $this->getExecutionTime()]);
     }
