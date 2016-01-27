@@ -1,6 +1,12 @@
 
 # Changelog
 
+## v1.3.0
+
+* [#13](https://github.com/EdgedesignCZ/phpqa/issues/13) Option for disabling parallel execution
+* [#861](https://github.com/squizlabs/PHP_CodeSniffer/issues/861) Upgrade CodeSniffer
+* Add [support](https://getcomposer.org/doc/04-schema.md#support) section to composer.json
+
 ## v1.2.1
 
 * [#12](https://github.com/EdgedesignCZ/phpqa/issues/12) Report is not saved in `--buildDir` if `--buildDir` doesn't end with `/`
