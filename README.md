@@ -96,6 +96,9 @@ phpqa --quiet
 # CLI output instead of creating files (default output are files in --buildDir)
 phpqa --output cli
 
+# don't use parallelism (tools are runned in parallel if you don't specify option --execution != parallel)
+phpqa --execution no-parallel
+
 # build html reports
 phpqa --report
 
