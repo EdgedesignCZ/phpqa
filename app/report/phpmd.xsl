@@ -26,8 +26,8 @@
 
                     .file:last-child, .error:last-child, .warning:last-child {border-bottom:none;}
                 </style>
-                <script type="text/javascript" src="http://code.jquery.com/jquery-1.8.0.min.js" />
-                <script type="text/javascript" src="http://code.jquery.com/ui/1.7.2/jquery-ui.min.js" />
+                <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.0.min.js" />
+                <script type="text/javascript" src="https://code.jquery.com/ui/1.7.2/jquery-ui.min.js" />
                 <script type="text/javascript">
                     $(function() {
                         $(".file a").click(function() {
