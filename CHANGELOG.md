@@ -1,6 +1,10 @@
 
 # Changelog
 
+## Unreleased
+
+* [#14](https://github.com/EdgedesignCZ/phpqa/pull/14) Fix Mixed Content errors in templates (load jQuery from HTTPS)
+
 ## v1.3.0
 
 * [#13](https://github.com/EdgedesignCZ/phpqa/issues/13) Option for disabling parallel execution
