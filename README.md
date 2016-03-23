@@ -140,7 +140,7 @@ for generating phpcs/phpmd standards.
 
 If you don't have Jenkins or other CI server, then you can use HTML reports.
 HTML files are built when you add option `--report`. Take a look at
-[report from phpqa](http://edgedesigncz.github.io/phpqa/report/phpqa.html).
+[report from phpqa](https://edgedesigncz.github.io/phpqa/report/phpqa.html).
 
 ```bash
 # build html reports

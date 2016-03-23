@@ -19,7 +19,7 @@
 
 * [#7](https://github.com/EdgedesignCZ/phpqa/issues/7) HTML reports
 * [#8](https://github.com/EdgedesignCZ/phpqa/issues/8) Advanced configuration - `.phpqa.yml` (define standards for phpcs, phpmd, phpcpd)
-* [Github page](http://edgedesigncz.github.io/phpqa/)
+* [Github page](https://edgedesigncz.github.io/phpqa/)
 
 ## v1.1.0
 

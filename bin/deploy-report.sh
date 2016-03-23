@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Deploy latest report to gh-pages (http://edgedesigncz.github.io/phpqa/report/phpqa.html)
+# Deploy latest report to gh-pages (https://edgedesigncz.github.io/phpqa/report/phpqa.html)
 #
 # Usage:
 #  $ bin/deploy-report.sh ../github-pages/phpqa

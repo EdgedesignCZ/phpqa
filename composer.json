@@ -13,7 +13,7 @@
     "support": {
         "issues": "https://github.com/EdgedesignCZ/phpqa/issues",
         "source": "https://github.com/EdgedesignCZ/phpqa",
-        "docs": "http://edgedesigncz.github.io/phpqa/"
+        "docs": "https://edgedesigncz.github.io/phpqa/"
     },
     "bin": ["phpqa"],
     "require": {
