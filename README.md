@@ -7,6 +7,7 @@ Analyze PHP code with one command.
 [![Latest Stable Version](https://poser.pugx.org/edgedesign/phpqa/v/stable)](https://packagist.org/packages/edgedesign/phpqa)
 [![Total Downloads](https://poser.pugx.org/edgedesign/phpqa/downloads)](https://packagist.org/packages/edgedesign/phpqa)
 [![Dependency Status](https://www.versioneye.com/user/projects/5566c1666365390010c20000/badge.svg?style=flat)](https://www.versioneye.com/user/projects/5566c1666365390010c20000)
+[![PHP runtimes](http://php-eye.com/badge/edgedesign/phpqa/tested.svg)](http://php-eye.com/package/edgedesign/phpqa)
 [![Build Status](https://travis-ci.org/EdgedesignCZ/phpqa.svg)](https://travis-ci.org/EdgedesignCZ/phpqa)
 
 ## Requirements
