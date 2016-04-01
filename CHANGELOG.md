@@ -1,9 +1,10 @@
 
 # Changelog
 
-## Unreleased
+## v1.4.0
 
-* [#14](https://github.com/EdgedesignCZ/phpqa/pull/14) Fix Mixed Content errors in templates (load jQuery from HTTPS)
+* [#15](https://github.com/EdgedesignCZ/phpqa/issues/15) Rename halleck45/phpmetrics to phpmetrics/phpmetrics
+* Upgrade QA tools
 
 ## v1.3.0
 
