@@ -48,11 +48,11 @@ Tool| Description
 ### Without composer
 
 ```bash
-# install php-a-cli
-git@github.com:EdgedesignCZ/phpqa.git
+# install phpqa
+git clone https://github.com/EdgedesignCZ/phpqa.git
 composer install --no-dev
 
-# make phpqa is globally accessible
+# make phpqa globally accessible
 ## you can symlink binary
 sudo ln -s /path-to-phpqa-repository/phpqa /usr/bin/phpqa
 ## or add this directory to your PATH in your ~/.bash_profile (or ~/.bashrc)
