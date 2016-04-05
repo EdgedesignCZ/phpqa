@@ -26,7 +26,9 @@
 
 <p><a href="https://packagist.org/packages/edgedesign/phpqa"><img src="https://poser.pugx.org/edgedesign/phpqa/license" alt="License"></a>
 <a href="https://packagist.org/packages/edgedesign/phpqa"><img src="https://poser.pugx.org/edgedesign/phpqa/v/stable" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/edgedesign/phpqa"><img src="https://poser.pugx.org/edgedesign/phpqa/downloads" alt="Total Downloads"></a>
 <a href="https://www.versioneye.com/user/projects/5566c1666365390010c20000"><img src="https://www.versioneye.com/user/projects/5566c1666365390010c20000/badge.svg?style=flat" alt="Dependency Status"></a>
+<a href="http://php-eye.com/package/edgedesign/phpqa"><img src="http://php-eye.com/badge/edgedesign/phpqa/tested.svg" alt="PHP runtimes"></a>
 <a href="https://travis-ci.org/EdgedesignCZ/phpqa"><img src="https://travis-ci.org/EdgedesignCZ/phpqa.svg" alt="Build Status"></a></p>
 
 <h2>
@@ -106,11 +108,11 @@ Will you create e.g. Jenkins project/task for each bundle?</p>
 <h3>
 <a id="without-composer" class="anchor" href="#without-composer" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Without composer</h3>
 
-<div class="highlight highlight-source-shell"><pre><span class="pl-c"># install php-a-cli</span>
-git@github.com:EdgedesignCZ/phpqa.git
+<div class="highlight highlight-source-shell"><pre><span class="pl-c"># install phpqa</span>
+git clone https://github.com/EdgedesignCZ/phpqa.git
 composer install --no-dev
 
-<span class="pl-c"># make phpqa is globally accessible</span>
+<span class="pl-c"># make phpqa globally accessible</span>
 <span class="pl-c">## you can symlink binary</span>
 sudo ln -s /path-to-phpqa-repository/phpqa /usr/bin/phpqa
 <span class="pl-c">## or add this directory to your PATH in your ~/.bash_profile (or ~/.bashrc)</span>
@@ -220,7 +222,7 @@ for generating phpcs/phpmd standards.</p>
 
 <p>If you don't have Jenkins or other CI server, then you can use HTML reports.
 HTML files are built when you add option <code>--report</code>. Take a look at
-<a href="http://edgedesigncz.github.io/phpqa/report/phpqa.html">report from phpqa</a>.</p>
+<a href="https://edgedesigncz.github.io/phpqa/report/phpqa.html">report from phpqa</a>.</p>
 
 <div class="highlight highlight-source-shell"><pre><span class="pl-c"># build html reports</span>
 phpqa --report</pre></div>
