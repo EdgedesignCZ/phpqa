@@ -176,10 +176,10 @@ sudo apt-get install php5-xsl
 sudo service apache2 restart
 ```
 
-## Jenkins integration
+## Continuous integration
 
 We use [Jenkins-CI](http://jenkins-php.org/) in Edgedesign. Below you can find examples of
-[Phing](https://www.phing.info/) and [Robo](http://robo.li/) tasks.
+[Phing](https://www.phing.info/), [Robo](http://robo.li/) and `bash` tasks.
 
 ### Project with one directory
 
@@ -192,12 +192,23 @@ Typically in Symfony project you have project with `src` directory with all the 
     <exec executable="phpqa" passthru="true">
         <arg value="--analyzedDir=./src" />
         <arg value="--buildDir=./build/logs" />
-        <arg value="--ignoredDirs= " />
-        <arg value="--ignoredFiles= " />
+        <arg value="--report" />
     </exec>
 </target>
 ```
 
+**Robo - `RoboFile.php`**
+
+```php
+public function ciPhpqa()
+{
+    $this->taskExec('phpqa')
+        ->option('analyzedDir', './src')
+        ->option('buildDir', './build/logs')
+        ->option('report')
+        ->run();
+}
+```
 
 ### Project with multiple directories (src, tests, ...)
 
@@ -214,6 +225,7 @@ other non-code directories. Otherwise the analysis could take a very long time.
         <arg value="--ignoredDirs=app,bin,build,vendor,web" />
         <arg value="--ignoredFiles= " />
         <arg value="--verbose" />
+        <arg value="--report" />
     </exec>
 </target>
 ```
@@ -225,12 +237,19 @@ public function ciPhpqa()
 {
     $this->taskExec('phpqa')
         ->option('verbose')
+        ->option('report')
         ->option('analyzedDir', './')
         ->option('buildDir', './build')
         ->option('ignoredDirs', 'build,bin,vendor')
         ->option('ignoredFiles', 'RoboFile.php,error-handling.php')
         ->run();
 }
+```
+
+**Bash**
+
+```bash
+phpqa --verbose --report --analyzedDir ./ --buildDir ./var/CI --ignoredDirs=bin,log,temp,var,vendor,www
 ```
 
 ## Contributing
