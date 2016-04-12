@@ -132,37 +132,68 @@ how many repositories you want to update when new version is released.</p>
 <h2>
 <a id="analyze" class="anchor" href="#analyze" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Analyze</h2>
 
-<div class="highlight highlight-source-shell"><pre>phpqa --help
-
-<span class="pl-c"># analyze current directory and save output to build directory</span>
-phpqa
-phpqa --analyzedDir ./ --buildDir ./build
-
-<span class="pl-c"># ignore selected directories and files</span>
-phpqa --ignoredDirs build,vendor --ignoredFiles RoboFile.php
-
-<span class="pl-c"># run selected tools</span>
-phpqa --tools phploc,phpcs
-
-<span class="pl-c"># show output from executed tools</span>
-phpqa -v
-phpqa --verbose
-
-<span class="pl-c"># show no output at all</span>
-phpqa -q
-phpqa --quiet
-
-<span class="pl-c"># CLI output instead of creating files (default output are files in --buildDir)</span>
-phpqa --output cli
-
-<span class="pl-c"># don't use parallelism (tools are runned in parallel if you don't specify option --execution != parallel)</span>
-phpqa --execution no-parallel
-
-<span class="pl-c"># build html reports</span>
-phpqa --report
-
-<span class="pl-c">## show versions of available tools</span>
-phpqa tools</pre></div>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>phpqa --help</code></td>
+<td>Show help - available options, tools, default values, ...</td>
+</tr>
+<tr>
+<td><code>phpqa --analyzedDir ./ --buildDir ./build</code></td>
+<td>Analyze current directory and save output to build directory</td>
+</tr>
+<tr>
+<td><code>phpqa --ignoredDirs build,vendor</code></td>
+<td>Ignore directories</td>
+</tr>
+<tr>
+<td><code>phpqa --ignoredFiles RoboFile.php</code></td>
+<td>Ignore files</td>
+</tr>
+<tr>
+<td><code>phpqa --tools phploc,phpcs</code></td>
+<td>Run only selected tools</td>
+</tr>
+<tr>
+<td><code>phpqa --verbose</code></td>
+<td>Show output from executed tools</td>
+</tr>
+<tr>
+<td><code>phpqa --quiet</code></td>
+<td>Show no output at all</td>
+</tr>
+<tr>
+<td><code>phpqa --output cli</code></td>
+<td>CLI output instead of creating files in <code>--buildDir</code>
+</td>
+</tr>
+<tr>
+<td><code>phpqa --execution no-parallel</code></td>
+<td>Don't use parallelism if <code>--execution != parallel</code>
+</td>
+</tr>
+<tr>
+<td><code>phpqa --config ./my-config</code></td>
+<td>Use <a href="#advanced-configuration---phpqayml">custom configuration</a>
+</td>
+</tr>
+<tr>
+<td><code>phpqa --report</code></td>
+<td>Build <a href="#html-reports">html reports</a>
+</td>
+</tr>
+<tr>
+<td><code>phpqa tools</code></td>
+<td>Show versions of available tools</td>
+</tr>
+</tbody>
+</table>
 
 <h2>
 <a id="advanced-configuration---phpqayml" class="anchor" href="#advanced-configuration---phpqayml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Advanced configuration - <code>.phpqa.yml</code>
@@ -254,10 +285,10 @@ sudo apt-get install php5-xsl
 sudo service apache2 restart</pre></div>
 
 <h2>
-<a id="jenkins-integration" class="anchor" href="#jenkins-integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Jenkins integration</h2>
+<a id="continuous-integration" class="anchor" href="#continuous-integration" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Continuous integration</h2>
 
 <p>We use <a href="http://jenkins-php.org/">Jenkins-CI</a> in Edgedesign. Below you can find examples of
-<a href="https://www.phing.info/">Phing</a> and <a href="http://robo.li/">Robo</a> tasks.</p>
+<a href="https://www.phing.info/">Phing</a>, <a href="http://robo.li/">Robo</a> and <code>bash</code> tasks.</p>
 
 <h3>
 <a id="project-with-one-directory" class="anchor" href="#project-with-one-directory" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Project with one directory</h3>
@@ -270,10 +301,20 @@ sudo service apache2 restart</pre></div>
     &lt;<span class="pl-ent">exec</span> <span class="pl-e">executable</span>=<span class="pl-s"><span class="pl-pds">"</span>phpqa<span class="pl-pds">"</span></span> <span class="pl-e">passthru</span>=<span class="pl-s"><span class="pl-pds">"</span>true<span class="pl-pds">"</span></span>&gt;
         &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--analyzedDir=./src<span class="pl-pds">"</span></span> /&gt;
         &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--buildDir=./build/logs<span class="pl-pds">"</span></span> /&gt;
-        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--ignoredDirs= <span class="pl-pds">"</span></span> /&gt;
-        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--ignoredFiles= <span class="pl-pds">"</span></span> /&gt;
+        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--report<span class="pl-pds">"</span></span> /&gt;
     &lt;/<span class="pl-ent">exec</span>&gt;
 &lt;/<span class="pl-ent">target</span>&gt;</pre></div>
+
+<p><strong>Robo - <code>RoboFile.php</code></strong></p>
+
+<div class="highlight highlight-text-html-php"><pre><span class="pl-s1"><span class="pl-k">public</span> <span class="pl-k">function</span> <span class="pl-en">ciPhpqa</span>()</span>
+<span class="pl-s1">{</span>
+<span class="pl-s1">    <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span>taskExec(<span class="pl-s"><span class="pl-pds">'</span>phpqa<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>analyzedDir<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>./src<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>buildDir<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>./build/logs<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>report<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>run();</span>
+<span class="pl-s1">}</span></pre></div>
 
 <h3>
 <a id="project-with-multiple-directories-src-tests-" class="anchor" href="#project-with-multiple-directories-src-tests-" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Project with multiple directories (src, tests, ...)</h3>
@@ -290,6 +331,7 @@ other non-code directories. Otherwise the analysis could take a very long time.<
         &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--ignoredDirs=app,bin,build,vendor,web<span class="pl-pds">"</span></span> /&gt;
         &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--ignoredFiles= <span class="pl-pds">"</span></span> /&gt;
         &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--verbose<span class="pl-pds">"</span></span> /&gt;
+        &lt;<span class="pl-ent">arg</span> <span class="pl-e">value</span>=<span class="pl-s"><span class="pl-pds">"</span>--report<span class="pl-pds">"</span></span> /&gt;
     &lt;/<span class="pl-ent">exec</span>&gt;
 &lt;/<span class="pl-ent">target</span>&gt;</pre></div>
 
@@ -299,12 +341,17 @@ other non-code directories. Otherwise the analysis could take a very long time.<
 <span class="pl-s1">{</span>
 <span class="pl-s1">    <span class="pl-smi">$this</span><span class="pl-k">-&gt;</span>taskExec(<span class="pl-s"><span class="pl-pds">'</span>phpqa<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>verbose<span class="pl-pds">'</span></span>)</span>
+<span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>report<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>analyzedDir<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>./<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>buildDir<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>./build<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>ignoredDirs<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>build,bin,vendor<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1">        <span class="pl-k">-&gt;</span>option(<span class="pl-s"><span class="pl-pds">'</span>ignoredFiles<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>RoboFile.php,error-handling.php<span class="pl-pds">'</span></span>)</span>
 <span class="pl-s1">        <span class="pl-k">-&gt;</span>run();</span>
 <span class="pl-s1">}</span></pre></div>
+
+<p><strong>Bash</strong></p>
+
+<div class="highlight highlight-source-shell"><pre>phpqa --verbose --report --analyzedDir ./ --buildDir ./var/CI --ignoredDirs=bin,log,temp,var,vendor,www</pre></div>
 
 <h2>
 <a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
