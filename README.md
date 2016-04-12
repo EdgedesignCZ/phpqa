@@ -74,39 +74,20 @@ how many repositories you want to update when new version is released.
 
 ## Analyze
 
-```bash
-phpqa --help
-
-# analyze current directory and save output to build directory
-phpqa
-phpqa --analyzedDir ./ --buildDir ./build
-
-# ignore selected directories and files
-phpqa --ignoredDirs build,vendor --ignoredFiles RoboFile.php
-
-# run selected tools
-phpqa --tools phploc,phpcs
-
-# show output from executed tools
-phpqa -v
-phpqa --verbose
-
-# show no output at all
-phpqa -q
-phpqa --quiet
-
-# CLI output instead of creating files (default output are files in --buildDir)
-phpqa --output cli
-
-# don't use parallelism (tools are runned in parallel if you don't specify option --execution != parallel)
-phpqa --execution no-parallel
-
-# build html reports
-phpqa --report
-
-## show versions of available tools
-phpqa tools
-```
+| Command | Description |
+| ------- | ----------- |
+| `phpqa --help` | Show help - available options, tools, default values, ... |
+| `phpqa --analyzedDir ./ --buildDir ./build` | Analyze current directory and save output to build directory |
+| `phpqa --ignoredDirs build,vendor` | Ignore directories |
+| `phpqa --ignoredFiles RoboFile.php` | Ignore files |
+| `phpqa --tools phploc,phpcs` | Run only selected tools |
+| `phpqa --verbose` | Show output from executed tools |
+| `phpqa --quiet` | Show no output at all |
+| `phpqa --output cli` | CLI output instead of creating files in `--buildDir` |
+| `phpqa --execution no-parallel` | Don't use parallelism if `--execution != parallel` |
+| `phpqa --config ./my-config` | Use [custom configuration](#advanced-configuration---phpqayml) |
+| `phpqa --report` | Build [html reports](#html-reports) |
+| `phpqa tools` | Show versions of available tools |
 
 ## Advanced configuration - `.phpqa.yml`
 
