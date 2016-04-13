@@ -205,6 +205,10 @@ trait CodeAnalysisTasks
             'extensions' => 'php',
             $this->options->ignore->phpmetrics()
         );
+        if ($this->config->value('phpmetrics.enable-bubbles-chart')) {
+            $svgPath = $this->options->toFile('bubbles-chart.svg');
+            array_push($args, '--chart-bubbles=' . $svgPath);
+        }
         if ($this->options->isSavedToFiles) {
             $args['report-html'] = $this->options->toFile('phpmetrics.html');
         } else {
