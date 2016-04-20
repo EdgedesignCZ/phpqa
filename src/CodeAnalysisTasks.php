@@ -189,7 +189,7 @@ trait CodeAnalysisTasks
             $this->options->analyzedDir,
             $this->options->isSavedToFiles ? 'xml' : 'text',
             escapePath($this->config->path('phpmd.standard')),
-            'sufixxes' => 'php',
+            'suffixes' => 'php',
             $this->options->ignore->phpmd()
         );
         if ($this->options->isSavedToFiles) {
