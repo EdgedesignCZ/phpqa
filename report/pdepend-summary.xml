@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metrics generated="2016-04-29T11:36:57" pdepend="@package_version@" ahh="1" andc="0" calls="171" ccn="107" ccn2="110" cloc="47" clsa="0" clsc="9" eloc="702" fanout="18" leafs="6" lloc="328" loc="855" maxDIT="2" ncloc="808" noc="9" nof="6" noi="0" nom="45" nop="2" roots="3">
+  <files>
+    <file name="/Users/www/qa/RoboFile.php" loc="10" cloc="0" eloc="7" lloc="3" ncloc="10"/>
+    <file name="/Users/www/qa/src/CodeAnalysisTasks.php" loc="244" cloc="20" eloc="207" lloc="80" ncloc="224"/>
+    <file name="/Users/www/qa/src/Config.php" loc="71" cloc="0" eloc="61" lloc="31" ncloc="71"/>
+    <file name="/Users/www/qa/src/IgnoredPaths.php" loc="68" cloc="1" eloc="56" lloc="30" ncloc="67"/>
+    <file name="/Users/www/qa/src/Options.php" loc="73" cloc="9" eloc="53" lloc="35" ncloc="64"/>
+    <file name="/Users/www/qa/tests/Config/ConfigTest.php" loc="40" cloc="0" eloc="34" lloc="22" ncloc="40"/>
+    <file name="/Users/www/qa/tests/IgnoredPathsTest.php" loc="73" cloc="2" eloc="65" lloc="12" ncloc="71"/>
+    <file name="/Users/www/qa/tests/OptionsTest.php" loc="103" cloc="4" eloc="86" lloc="31" ncloc="99"/>
+    <file name="/Users/www/qa/tests/Report/ReportTest.php" loc="42" cloc="1" eloc="33" lloc="16" ncloc="41"/>
+    <file name="/Users/www/qa/src/paths.php" loc="14" cloc="0" eloc="10" lloc="5" ncloc="14"/>
+    <file name="/Users/www/qa/src/report.php" loc="51" cloc="0" eloc="43" lloc="31" ncloc="51"/>
+    <file name="/Users/www/qa/src/Task/NonParallelExec.php" loc="66" cloc="10" eloc="47" lloc="32" ncloc="56"/>
+  </files>
+  <package name="Edge\QA" noc="8" noi="0" nom="44" nof="6" cr="0.15" rcr="0.405">
+    <class name="RoboFile" start="5" end="9" loc="5" cloc="0" eloc="0" lloc="0" ncloc="5" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.2775" ca="0" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
+      <file name="/Users/www/qa/RoboFile.php"/>
+    </class>
+    <trait name="CodeAnalysisTasks" start="5" end="243" ca="0" cbo="4" ce="4" impl="0" cis="2" csz="14" npm="2" vars="0" varsi="0" varsnp="0" wmc="33" wmci="33" wmcnp="4">
+      <file name="/Users/www/qa/src/CodeAnalysisTasks.php"/>
+      <method name="tools" start="44" end="49" ccn="2" ccn2="2" loc="6" cloc="0" eloc="5" lloc="2" ncloc="6" npath="2" hnt="13" hnd="19" hv="55.223057674767" hd="6" hl="0.16666666666667" he="331.3383460486" ht="18.407685891589" hb="0.015960991952897" hi="9.2038429457944" mi="72.285337318847"/>
+      <method name="ci" start="62" end="81" ccn="2" ccn2="2" loc="20" cloc="0" eloc="8" lloc="5" ncloc="20" npath="2" hnt="11" hnd="18" hv="45.869175015865" hd="5" hl="0.2" he="229.34587507933" ht="12.741437504407" hb="0.012489336518909" hi="9.1738350031731" mi="68.39703025979"/>
+      <method name="loadOptions" start="83" end="89" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="4" ncloc="7" npath="1" hnt="15" hnd="23" hv="67.853429340855" hd="3.25" hl="0.30769230769231" he="220.52364535778" ht="12.251313630988" hb="0.012166962997047" hi="20.877978258725" mi="70.066243843869"/>
+      <method name="ciClean" start="91" end="99" ccn="3" ccn2="3" loc="9" cloc="0" eloc="8" lloc="4" ncloc="9" npath="3" hnt="10" hnd="18" hv="41.699250014423" hd="3.9285714285714" hl="0.25454545454545" he="163.81848219952" ht="9.1010267888622" hb="0.0099797733268833" hi="10.614354549126" mi="68.552359461535"/>
+      <method name="runTools" start="101" end="109" ccn="3" ccn2="3" loc="9" cloc="0" eloc="8" lloc="5" ncloc="9" npath="10" hnt="26" hnd="39" hv="137.42045769042" hd="7.7647058823529" hl="0.12878787878788" he="1067.0294361844" ht="59.279413121357" hb="0.034806713000156" hi="17.698089248008" mi="64.925854778821"/>
+      <method name="toolToExec" start="112" end="126" ccn="4" ccn2="4" loc="15" cloc="0" eloc="14" lloc="9" ncloc="15" npath="4" hnt="25" hnd="60" hv="147.67226489021" hd="10.45652173913" hl="0.095634095634096" he="1544.1382480911" ht="85.785458227286" hb="0.044531726416825" hi="14.122503503014" mi="59.270932878633"/>
+      <method name="phploc" start="128" end="139" ccn="2" ccn2="2" loc="12" cloc="0" eloc="11" lloc="4" ncloc="12" npath="2" hnt="19" hnd="28" hv="91.339743519094" hd="7.7272727272727" hl="0.12941176470588" he="705.80710901118" ht="39.211506056177" hb="0.026424255756136" hi="11.820437396589" mi="63.285525954297"/>
+      <method name="phpcpd" start="141" end="154" ccn="2" ccn2="2" loc="14" cloc="0" eloc="13" lloc="4" ncloc="14" npath="2" hnt="24" hnd="41" hv="128.58124811083" hd="7.0588235294118" hl="0.14166666666667" he="907.63233960589" ht="50.424018866994" hb="0.031247747726961" hi="18.215676815701" mi="60.662984376768"/>
+      <method name="phpcs" start="156" end="172" ccn="2" ccn2="2" loc="17" cloc="0" eloc="16" lloc="6" ncloc="17" npath="2" hnt="27" hnd="50" hv="152.38411712392" hd="7.5952380952381" hl="0.13166144200627" he="1157.3936514888" ht="64.299647304933" hb="0.036745103572114" hi="20.063112599387" mi="58.179391648215"/>
+      <method name="pdepend" start="174" end="184" ccn="1" ccn2="1" loc="11" cloc="0" eloc="10" lloc="1" ncloc="11" npath="1" hnt="18" hnd="33" hv="90.799094148452" hd="4.75" hl="0.21052631578947" he="431.29569720515" ht="23.960872066953" hb="0.019028103086476" hi="19.115598768095" mi="64.34102051787"/>
+      <method name="phpmd" start="186" end="199" ccn="3" ccn2="3" loc="14" cloc="0" eloc="13" lloc="4" ncloc="14" npath="10" hnt="25" hnd="39" hv="132.13505547156" hd="7.1176470588235" hl="0.1404958677686" he="940.49068894461" ht="52.249482719145" hb="0.031997428612721" hi="18.564429281128" mi="60.445574716092"/>
+      <method name="phpmetrics" start="201" end="214" ccn="2" ccn2="2" loc="14" cloc="0" eloc="13" lloc="5" ncloc="14" npath="2" hnt="22" hnd="36" hv="113.73835003173" hd="8.6428571428571" hl="0.11570247933884" he="983.02431098853" ht="54.612461721585" hb="0.032955020355318" hi="13.15980909458" mi="61.035986611493"/>
+      <method name="buildReport" start="216" end="234" ccn="3" ccn2="3" loc="19" cloc="0" eloc="18" lloc="6" ncloc="19" npath="3" hnt="32" hnd="81" hv="202.87520009231" hd="7.6029411764706" hl="0.13152804642166" he="1542.4482124665" ht="85.691567359251" hb="0.044499227625835" hi="26.683778735545" mi="56.058774420508"/>
+      <method name="writeHtmlReport" start="237" end="242" ccn="2" ccn2="3" loc="6" cloc="0" eloc="5" lloc="2" ncloc="6" npath="3" hnt="12" hnd="14" hv="45.688259064691" hd="6.3" hl="0.15873015873016" he="287.83603210755" ht="15.990890672642" hb="0.014531446636858" hi="7.2521046134431" mi="72.727210988306"/>
+    </trait>
+    <class name="Config" start="7" end="70" loc="64" cloc="0" eloc="48" lloc="22" ncloc="64" dit="0" noam="0" nocc="0" noom="0" nom="6" cr="0.15" rcr="0.15" ca="2" cbo="1" ce="1" impl="0" cis="4" csz="7" npm="4" vars="1" varsi="1" varsnp="0" wmc="12" wmci="12" wmcnp="5">
+      <file name="/Users/www/qa/src/Config.php"/>
+      <method name="__construct" start="11" end="14" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="8" hnd="8" hv="24" hd="4.1666666666667" hl="0.24" he="100" ht="5.5555555555556" hb="0.0071814489667729" hi="5.76" mi="79.793333921501"/>
+      <method name="loadCustomConfig" start="16" end="27" ccn="2" ccn2="2" loc="12" cloc="0" eloc="11" lloc="5" ncloc="12" npath="2" hnt="21" hnd="40" hv="111.76048999263" hd="6.7647058823529" hl="0.14782608695652" he="756.02684406782" ht="42.001491337101" hb="0.027663272578446" hi="16.521115911955" mi="62.671949979223"/>
+      <method name="value" start="29" end="37" ccn="1" ccn2="1" loc="9" cloc="0" eloc="8" lloc="3" ncloc="9" npath="1" hnt="9" hnd="12" hv="32.26466250649" hd="9" hl="0.11111111111111" he="290.38196255841" ht="16.132331253245" hb="0.014617008607043" hi="3.5849625007212" mi="69.601397397727"/>
+      <method name="path" start="39" end="47" ccn="1" ccn2="1" loc="9" cloc="0" eloc="8" lloc="3" ncloc="9" npath="1" hnt="12" hnd="19" hv="50.975130161323" hd="9.8" hl="0.10204081632653" he="499.55627558097" ht="27.753126421165" hb="0.02098625882141" hi="5.2015438940126" mi="68.210579006637"/>
+      <method name="get" start="49" end="57" ccn="3" ccn2="3" loc="9" cloc="0" eloc="8" lloc="4" ncloc="9" npath="3" hnt="18" hnd="27" hv="85.587975038942" hd="8" hl="0.125" he="684.70380031154" ht="38.039100017308" hb="0.025894880082717" hi="10.698496879868" mi="66.3657392351"/>
+      <method name="findInConfig" start="59" end="69" ccn="3" ccn2="4" loc="11" cloc="0" eloc="10" lloc="6" ncloc="11" npath="4" hnt="22" hnd="40" hv="117.08241808752" hd="9.75" hl="0.1025641025641" he="1141.5535763533" ht="63.419643130741" hb="0.036409072130397" hi="12.008453137182" mi="63.164418301754"/>
+    </class>
+    <class name="IgnoredPaths" start="5" end="67" loc="63" cloc="1" eloc="39" lloc="17" ncloc="62" dit="0" noam="0" nocc="0" noom="0" nom="9" cr="0.15" rcr="0.15" ca="2" cbo="0" ce="0" impl="0" cis="6" csz="12" npm="6" vars="3" varsi="3" varsnp="0" wmc="13" wmci="13" wmcnp="6">
+      <file name="/Users/www/qa/src/IgnoredPaths.php"/>
+      <method name="__construct" start="11" end="16" ccn="1" ccn2="1" loc="6" cloc="0" eloc="5" lloc="3" ncloc="6" npath="1" hnt="13" hnd="22" hv="57.972611042285" hd="3.6" hl="0.27777777777778" he="208.70139975223" ht="11.594522208457" hb="0.01172813581375" hi="16.103503067301" mi="72.272080880364"/>
+      <method name="csvToArray" start="18" end="21" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="11" hnd="13" hv="40.704836899552" hd="4.8" hl="0.20833333333333" he="195.38321711785" ht="10.854623173214" hb="0.011223722387817" hi="8.4801743540733" mi="78.186828594918"/>
+      <method name="phpcs" start="23" end="26" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="11" hnd="13" hv="40.704836899552" hd="4.8" hl="0.20833333333333" he="195.38321711785" ht="10.854623173214" hb="0.011223722387817" hi="8.4801743540733" mi="78.186828594918"/>
+      <method name="pdepend" start="28" end="31" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="11" hnd="13" hv="40.704836899552" hd="4.8" hl="0.20833333333333" he="195.38321711785" ht="10.854623173214" hb="0.011223722387817" hi="8.4801743540733" mi="78.186828594918"/>
+      <method name="phpmd" start="33" end="36" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="11" hnd="13" hv="40.704836899552" hd="4.8" hl="0.20833333333333" he="195.38321711785" ht="10.854623173214" hb="0.011223722387817" hi="8.4801743540733" mi="78.186828594918"/>
+      <method name="phpmetrics" start="38" end="41" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="10" hnd="11" hv="34.594316186373" hd="5.25" hl="0.19047619047619" he="181.62015997846" ht="10.090008887692" hb="0.010690256224877" hi="6.5893935593091" mi="78.681459685251"/>
+      <method name="bergmann" start="43" end="46" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="9" hnd="11" hv="31.134884567736" hd="5.25" hl="0.19047619047619" he="163.45814398061" ht="9.0810079989229" hb="0.0099651334916741" hi="5.9304542033782" mi="79.00185423579"/>
+      <method name="ignore" start="48" end="61" ccn="3" ccn2="3" loc="14" cloc="1" eloc="13" lloc="7" ncloc="13" npath="3" hnt="23" hnd="68" hv="140.01164534876" hd="7.5925925925926" hl="0.13170731707317" he="1063.0513813517" ht="59.058410075093" hb="0.034720149195776" hi="18.440558167885" mi="60.269501338022"/>
+      <method name="implode" start="63" end="66" ccn="2" ccn2="3" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="6" hnt="15" hnd="19" hv="63.718912701654" hd="6.1875" hl="0.16161616161616" he="394.26077234148" ht="21.903376241193" hb="0.017922604619688" hi="10.298006093197" mi="76.55507458088"/>
+    </class>
+    <class name="Options" start="5" end="72" loc="68" cloc="9" eloc="33" lloc="19" ncloc="59" dit="0" noam="0" nocc="0" noom="0" nom="6" cr="0.15" rcr="0.15" ca="2" cbo="1" ce="1" impl="0" cis="12" csz="15" npm="4" vars="9" varsi="9" varsnp="8" wmc="12" wmci="12" wmcnp="6">
+      <file name="/Users/www/qa/src/Options.php"/>
+      <method name="__construct" start="28" end="33" ccn="1" ccn2="1" loc="6" cloc="0" eloc="5" lloc="3" ncloc="6" npath="1" hnt="15" hnd="24" hv="68.774437510817" hd="4.1363636363636" hl="0.24175824175824" he="284.47608243111" ht="15.804226801728" hb="0.014418140425018" hi="16.626787090527" mi="71.752502194443"/>
+      <method name="loadOutput" start="35" end="44" ccn="4" ccn2="4" loc="10" cloc="0" eloc="9" lloc="7" ncloc="10" npath="125" hnt="30" hnd="64" hv="180" hd="4.5" hl="0.22222222222222" he="810" ht="45" hb="0.028964681538169" hi="40" mi="62.854728785102"/>
+      <method name="loadTools" start="46" end="50" ccn="2" ccn2="2" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="5" hnt="16" hnd="23" hv="72.376991296912" hd="3.8181818181818" hl="0.26190476190476" he="276.34851222457" ht="15.352695123587" hb="0.014142195366725" hi="18.955878673001" mi="73.576731821318"/>
+      <method name="filterTools" start="52" end="61" ccn="3" ccn2="3" loc="10" cloc="0" eloc="9" lloc="5" ncloc="10" npath="3" hnt="18" hnd="29" hv="87.443657912296" hd="9.8181818181818" hl="0.10185185185185" he="858.53773222982" ht="47.696540679434" hb="0.03011052560423" hi="8.9062984910672" mi="65.184672239719"/>
+      <method name="toFile" start="63" end="66" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="8" hnd="9" hv="25.359400011539" hd="5" hl="0.2" he="126.79700005769" ht="7.0442777809829" hb="0.0084130098545288" hi="5.0718800023077" mi="79.625791624151"/>
+      <method name="rawFile" start="68" end="71" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="8" hnd="11" hv="27.675452949098" hd="13.5" hl="0.074074074074074" he="373.61861481283" ht="20.756589711824" hb="0.017291436836621" hi="2.0500335517851" mi="79.360024870534"/>
+    </class>
+    <class name="ConfigTest" start="5" end="39" loc="35" cloc="0" eloc="25" lloc="17" ncloc="35" dit="2" noam="4" nocc="0" noom="0" nom="4" cr="0.15" rcr="0.181875" ca="0" cbo="1" ce="1" impl="0" cis="4" csz="4" npm="4" vars="0" varsi="0" varsnp="0" wmc="4" wmci="4" wmcnp="4">
+      <file name="/Users/www/qa/tests/Config/ConfigTest.php"/>
+      <method name="testShouldLoadDefaultConfig" start="7" end="14" ccn="1" ccn2="1" loc="8" cloc="0" eloc="7" lloc="5" ncloc="8" npath="1" hnt="19" hnd="53" hv="108.8304886367" hd="3.625" hl="0.27586206896552" he="394.51052130804" ht="21.91725118378" hb="0.017930172672528" hi="30.022203761848" mi="67.169204487107"/>
+      <method name="testShouldBuildAbsolutePath" start="16" end="20" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="14" hnd="19" hv="59.47098518821" hd="4.125" hl="0.24242424242424" he="245.31781390137" ht="13.628767438965" hb="0.013062655374275" hi="14.417208530475" mi="74.30847420545"/>
+      <method name="testShouldOverrideDefaultConfig" start="22" end="30" ccn="1" ccn2="1" loc="9" cloc="0" eloc="8" lloc="6" ncloc="9" npath="1" hnt="23" hnd="53" hv="131.74217045495" hd="3.92" hl="0.25510204081633" he="516.42930818342" ht="28.690517121301" hb="0.021456192952672" hi="33.607696544631" mi="65.323183556298"/>
+      <method name="testShouldIgnoreNonExistenConfig" start="32" end="38" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="4" ncloc="7" npath="1" hnt="18" hnd="28" hv="86.532388597037" hd="4.6666666666667" hl="0.21428571428571" he="403.81781345284" ht="22.434322969602" hb="0.018211081048563" hi="18.542654699365" mi="69.326783011867"/>
+    </class>
+    <class name="IgnoredPathsTest" start="5" end="72" loc="68" cloc="2" eloc="56" lloc="7" ncloc="66" dit="2" noam="4" nocc="0" noom="0" nom="4" cr="0.15" rcr="0.181875" ca="0" cbo="1" ce="1" impl="0" cis="3" csz="4" npm="3" vars="0" varsi="0" varsnp="0" wmc="4" wmci="4" wmcnp="3">
+      <file name="/Users/www/qa/tests/IgnoredPathsTest.php"/>
+      <method name="ignore" start="7" end="11" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="12" hnd="14" hv="45.688259064691" hd="6.3" hl="0.15873015873016" he="287.83603210755" ht="15.990890672642" hb="0.014531446636858" hi="7.2521046134431" mi="75.110208375025"/>
+      <method name="testNoOptionWhenNothingIsIgnored" start="14" end="17" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="12" hnd="17" hv="49.049554095004" hd="3.5714285714286" hl="0.28" he="175.17697891073" ht="9.7320543839294" hb="0.010435904594826" hi="13.733875146601" mi="77.619742239079"/>
+      <method name="testShouldIgnoreDirectories" start="20" end="25" ccn="1" ccn2="1" loc="6" cloc="0" eloc="5" lloc="3" ncloc="6" npath="1" hnt="17" hnd="50" hv="95.94555522617" hd="3.25" hl="0.30769230769231" he="311.82305448505" ht="17.323503026947" hb="0.015327955334509" hi="29.52170930036" mi="70.740026404345"/>
+      <method name="provideTools" start="27" end="71" ccn="1" ccn2="1" loc="45" cloc="0" eloc="44" lloc="1" ncloc="45" npath="1" hnt="30" hnd="84" hv="191.76952268336" hd="4.9" hl="0.20408163265306" he="939.67066114848" ht="52.20392561936" hb="0.031978826553427" hi="39.136637282319" mi="48.031226806717"/>
+    </class>
+    <class name="OptionsTest" start="5" end="102" loc="98" cloc="4" eloc="59" lloc="19" ncloc="94" dit="2" noam="10" nocc="0" noom="0" nom="10" cr="0.15" rcr="0.181875" ca="0" cbo="1" ce="1" impl="0" cis="9" csz="11" npm="9" vars="1" varsi="1" varsnp="0" wmc="10" wmci="10" wmcnp="9">
+      <file name="/Users/www/qa/tests/OptionsTest.php"/>
+      <method name="setUp" start="21" end="24" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="7" hnd="7" hv="19.651484454403" hd="6.25" hl="0.16" he="122.82177784002" ht="6.8234321022233" hb="0.0082362400950509" hi="3.1442375127045" mi="80.401219851729"/>
+      <method name="overrideOptions" start="26" end="29" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="10" hnd="11" hv="34.594316186373" hd="5.25" hl="0.19047619047619" he="181.62015997846" ht="10.090008887692" hb="0.010690256224877" hi="6.5893935593091" mi="78.681459685251"/>
+      <method name="testShouldEscapePaths" start="31" end="36" ccn="1" ccn2="1" loc="6" cloc="0" eloc="5" lloc="3" ncloc="6" npath="1" hnt="14" hnd="30" hv="68.696468338519" hd="2.8571428571429" hl="0.35" he="196.27562382434" ht="10.904201323574" hb="0.011257872423808" hi="24.043763918482" mi="71.755951640875"/>
+      <method name="testShouldIgnorePdependInCliOutput" start="38" end="43" ccn="1" ccn2="1" loc="6" cloc="0" eloc="5" lloc="3" ncloc="6" npath="1" hnt="19" hnd="39" hv="100.42264215838" hd="5.03125" hl="0.19875776397516" he="505.25141835936" ht="28.069523242187" hb="0.021145458486841" hi="19.959779807877" mi="70.601339047726"/>
+      <method name="testShouldLoadDirectoryWithCustomConfig" start="46" end="50" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="15" hnd="19" hv="63.718912701654" hd="4.8125" hl="0.20779220779221" he="306.64726737671" ht="17.035959298706" hb="0.015157868830642" hi="13.240293548396" mi="74.098671321396"/>
+      <method name="provideConfig" start="52" end="58" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="1" ncloc="7" npath="1" hnt="12" hnd="19" hv="50.975130161323" hd="7.5833333333333" hl="0.13186813186813" he="386.56140372337" ht="21.475633540187" hb="0.017688502679888" hi="6.7219951861085" mi="70.935988114075"/>
+      <method name="testShouldBuildOutput" start="61" end="67" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="4" ncloc="7" npath="1" hnt="17" hnd="32" hv="85" hd="3.4" hl="0.29411764705882" he="289" ht="16.055555555556" hb="0.014570595680397" hi="25" mi="69.381116996933"/>
+      <method name="provideOutputs" start="69" end="85" ccn="1" ccn2="1" loc="17" cloc="0" eloc="16" lloc="1" ncloc="17" npath="1" hnt="16" hnd="48" hv="89.359400011539" hd="4.9" hl="0.20408163265306" he="437.86106005654" ht="24.325614447585" hb="0.019220718934408" hi="18.236612247253" mi="59.936957432371"/>
+      <method name="testShouldExecute" start="88" end="92" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="13" hnd="16" hv="52" hd="3.8571428571429" hl="0.25925925925926" he="200.57142857143" ht="11.142857142857" hb="0.011421543297904" hi="13.481481481481" mi="74.716704101307"/>
+      <method name="provideExecutionMode" start="94" end="101" ccn="1" ccn2="1" loc="8" cloc="0" eloc="7" lloc="1" ncloc="8" npath="1" hnt="14" hnd="32" hv="70" hd="7.7" hl="0.12987012987013" he="539" ht="29.944444444444" hb="0.022076891440122" hi="9.0909090909091" mi="68.511158085759"/>
+    </class>
+    <class name="ReportTest" start="5" end="41" loc="37" cloc="1" eloc="21" lloc="8" ncloc="36" dit="2" noam="5" nocc="0" noom="0" nom="5" cr="0.15" rcr="0.181875" ca="0" cbo="0" ce="0" impl="0" cis="5" csz="7" npm="5" vars="2" varsi="2" varsnp="0" wmc="5" wmci="5" wmcnp="5">
+      <file name="/Users/www/qa/tests/Report/ReportTest.php"/>
+      <method name="setUp" start="10" end="14" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="10" hnd="14" hv="38.073549220576" hd="3.3333333333333" hl="0.3" he="126.91183073525" ht="7.0506572630696" hb="0.0084180884492565" hi="11.422064766173" mi="75.664636500948"/>
+      <method name="testShouldConvertTwigToHtml" start="16" end="20" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="14" hnd="23" hv="63.329867384798" hd="4.6666666666667" hl="0.21428571428571" he="295.53938112906" ht="16.41885450717" hb="0.014789573554765" hi="13.570685868171" mi="74.117295120527"/>
+      <method name="testShouldConvertXmlToHtml" start="23" end="27" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="16" hnd="24" hv="73.359400011539" hd="6.6666666666667" hl="0.15" he="489.06266674359" ht="27.170148152422" hb="0.020691330595657" hi="11.003910001731" mi="73.670236242031"/>
+      <method name="provideXml" start="29" end="35" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="1" ncloc="7" npath="1" hnt="14" hnd="24" hv="64.189475010096" hd="5.8333333333333" hl="0.17142857142857" he="374.43860422556" ht="20.802144679198" hb="0.017316727535399" hi="11.003910001731" mi="70.235048224659"/>
+      <method name="tearDown" start="37" end="40" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+    </class>
+    <function name="pathToBinary" start="5" end="8" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208">
+      <file name="/Users/www/qa/src/paths.php"/>
+    </function>
+    <function name="escapePath" start="10" end="13" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="9" hv="19.019550008654" hd="4" hl="0.25" he="76.078200034616" ht="4.2265666685898" hb="0.0059848356844365" hi="4.7548875021635" mi="80.500614300613">
+      <file name="/Users/www/qa/src/paths.php"/>
+    </function>
+    <function name="twigToHtml" start="11" end="17" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="4" ncloc="7" npath="1" hnt="18" hnd="29" hv="87.443657912296" hd="3.2142857142857" hl="0.31111111111111" he="281.06890043238" ht="15.61493891291" hb="0.014302784935366" hi="27.204693572714" mi="69.294926480276">
+      <file name="/Users/www/qa/src/report.php"/>
+    </function>
+    <function name="xmlToHtml" start="19" end="34" ccn="2" ccn2="2" loc="16" cloc="0" eloc="14" lloc="11" ncloc="16" npath="2" hnt="25" hnd="50" hv="141.09640474437" hd="4.8333333333333" hl="0.20689655172414" he="681.96595626445" ht="37.886997570247" hb="0.025825805469967" hi="29.192359602283" mi="59.678459469517">
+      <file name="/Users/www/qa/src/report.php"/>
+    </function>
+    <function name="convertPhpErrorsToExceptions" start="36" end="43" ccn="2" ccn2="2" loc="8" cloc="0" eloc="7" lloc="4" ncloc="8" npath="2" hnt="11" hnd="17" hv="44.962091253754" hd="4.2857142857143" hl="0.23333333333333" he="192.6946768018" ht="10.705259822322" hb="0.01112052327893" hi="10.491154625876" mi="69.722802953742">
+      <file name="/Users/www/qa/src/report.php"/>
+    </function>
+    <function name="phpErrorToException" start="45" end="50" ccn="2" ccn2="2" loc="6" cloc="0" eloc="5" lloc="2" ncloc="6" npath="2" hnt="15" hnd="21" hv="65.884761341681" hd="6.5" hl="0.15384615384615" he="428.25094872093" ht="23.791719373385" hb="0.018938444305859" hi="10.136117129489" mi="71.748531289602">
+      <file name="/Users/www/qa/src/report.php"/>
+    </function>
+  </package>
+  <package name="Edge\QA\Task" noc="1" noi="0" nom="1" nof="0" cr="0.15" rcr="0.2775">
+    <class name="NonParallelExec" start="20" end="65" loc="46" cloc="0" eloc="37" lloc="26" ncloc="46" dit="2" noam="1" nocc="0" noom="0" nom="1" cr="0.15" rcr="0.2775" ca="1" cbo="3" ce="3" impl="0" cis="1" csz="1" npm="1" vars="0" varsi="0" varsnp="0" wmc="8" wmci="8" wmcnp="8">
+      <file name="/Users/www/qa/src/Task/NonParallelExec.php"/>
+      <method name="run" start="22" end="64" ccn="8" ccn2="8" loc="43" cloc="0" eloc="37" lloc="26" ncloc="43" npath="48" hnt="57" hnd="157" hv="415.79338268682" hd="13.024193548387" hl="0.076780185758514" he="5415.3734922518" ht="300.85408290288" hb="0.10279319268337" hi="31.924693159855" mi="46.377865391707"/>
+    </class>
+  </package>
+</metrics>

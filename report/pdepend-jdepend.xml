@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PDepend>
+  <Packages>
+    <Package name="Edge\QA">
+      <Stats>
+        <TotalClasses>8</TotalClasses>
+        <ConcreteClasses>8</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>0</Ca>
+        <Ce>4</Ce>
+        <A>0</A>
+        <I>1</I>
+        <D>0</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/Users/www/qa/RoboFile.php">RoboFile</Class>
+        <Class sourceFile="/Users/www/qa/src/Config.php">Config</Class>
+        <Class sourceFile="/Users/www/qa/src/IgnoredPaths.php">IgnoredPaths</Class>
+        <Class sourceFile="/Users/www/qa/src/Options.php">Options</Class>
+        <Class sourceFile="/Users/www/qa/tests/Config/ConfigTest.php">ConfigTest</Class>
+        <Class sourceFile="/Users/www/qa/tests/IgnoredPathsTest.php">IgnoredPathsTest</Class>
+        <Class sourceFile="/Users/www/qa/tests/OptionsTest.php">OptionsTest</Class>
+        <Class sourceFile="/Users/www/qa/tests/Report/ReportTest.php">ReportTest</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package></Package>
+        <Package>Edge\QA\Task</Package>
+        <Package>Robo</Package>
+        <Package>Symfony\Component\Yaml</Package>
+      </DependsUpon>
+      <UsedBy/>
+    </Package>
+    <Package name="Edge\QA\Task">
+      <Stats>
+        <TotalClasses>1</TotalClasses>
+        <ConcreteClasses>1</ConcreteClasses>
+        <AbstractClasses>0</AbstractClasses>
+        <Ca>1</Ca>
+        <Ce>4</Ce>
+        <A>0</A>
+        <I>0.8</I>
+        <D>0.2</D>
+      </Stats>
+      <ConcreteClasses>
+        <Class sourceFile="/Users/www/qa/src/Task/NonParallelExec.php">NonParallelExec</Class>
+      </ConcreteClasses>
+      <AbstractClasses/>
+      <DependsUpon>
+        <Package>Robo</Package>
+        <Package>Robo\Task\Base</Package>
+        <Package>Symfony\Component\Console\Helper</Package>
+        <Package>Symfony\Component\Console\Output</Package>
+      </DependsUpon>
+      <UsedBy>
+        <Package>Edge\QA</Package>
+      </UsedBy>
+    </Package>
+  </Packages>
+  <Cycles/>
+</PDepend>
