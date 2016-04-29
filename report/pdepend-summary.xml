@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metrics generated="2016-04-29T11:36:57" pdepend="@package_version@" ahh="1" andc="0" calls="171" ccn="107" ccn2="110" cloc="47" clsa="0" clsc="9" eloc="702" fanout="18" leafs="6" lloc="328" loc="855" maxDIT="2" ncloc="808" noc="9" nof="6" noi="0" nom="45" nop="2" roots="3">
+<metrics generated="2016-04-29T11:57:22" pdepend="@package_version@" ahh="1" andc="0" calls="171" ccn="107" ccn2="110" cloc="47" clsa="0" clsc="9" eloc="703" fanout="18" leafs="6" lloc="329" loc="856" maxDIT="2" ncloc="809" noc="9" nof="6" noi="0" nom="45" nop="2" roots="3">
   <files>
     <file name="/Users/www/qa/RoboFile.php" loc="10" cloc="0" eloc="7" lloc="3" ncloc="10"/>
-    <file name="/Users/www/qa/src/CodeAnalysisTasks.php" loc="244" cloc="20" eloc="207" lloc="80" ncloc="224"/>
+    <file name="/Users/www/qa/src/CodeAnalysisTasks.php" loc="245" cloc="20" eloc="208" lloc="81" ncloc="225"/>
     <file name="/Users/www/qa/src/Config.php" loc="71" cloc="0" eloc="61" lloc="31" ncloc="71"/>
     <file name="/Users/www/qa/src/IgnoredPaths.php" loc="68" cloc="1" eloc="56" lloc="30" ncloc="67"/>
     <file name="/Users/www/qa/src/Options.php" loc="73" cloc="9" eloc="53" lloc="35" ncloc="64"/>
@@ -18,7 +18,7 @@
     <class name="RoboFile" start="5" end="9" loc="5" cloc="0" eloc="0" lloc="0" ncloc="5" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.2775" ca="0" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
       <file name="/Users/www/qa/RoboFile.php"/>
     </class>
-    <trait name="CodeAnalysisTasks" start="5" end="243" ca="0" cbo="4" ce="4" impl="0" cis="2" csz="14" npm="2" vars="0" varsi="0" varsnp="0" wmc="33" wmci="33" wmcnp="4">
+    <trait name="CodeAnalysisTasks" start="5" end="244" ca="0" cbo="4" ce="4" impl="0" cis="2" csz="14" npm="2" vars="0" varsi="0" varsnp="0" wmc="33" wmci="33" wmcnp="4">
       <file name="/Users/www/qa/src/CodeAnalysisTasks.php"/>
       <method name="tools" start="44" end="49" ccn="2" ccn2="2" loc="6" cloc="0" eloc="5" lloc="2" ncloc="6" npath="2" hnt="13" hnd="19" hv="55.223057674767" hd="6" hl="0.16666666666667" he="331.3383460486" ht="18.407685891589" hb="0.015960991952897" hi="9.2038429457944" mi="72.285337318847"/>
       <method name="ci" start="62" end="81" ccn="2" ccn2="2" loc="20" cloc="0" eloc="8" lloc="5" ncloc="20" npath="2" hnt="11" hnd="18" hv="45.869175015865" hd="5" hl="0.2" he="229.34587507933" ht="12.741437504407" hb="0.012489336518909" hi="9.1738350031731" mi="68.39703025979"/>
@@ -31,9 +31,9 @@
       <method name="phpcs" start="156" end="172" ccn="2" ccn2="2" loc="17" cloc="0" eloc="16" lloc="6" ncloc="17" npath="2" hnt="27" hnd="50" hv="152.38411712392" hd="7.5952380952381" hl="0.13166144200627" he="1157.3936514888" ht="64.299647304933" hb="0.036745103572114" hi="20.063112599387" mi="58.179391648215"/>
       <method name="pdepend" start="174" end="184" ccn="1" ccn2="1" loc="11" cloc="0" eloc="10" lloc="1" ncloc="11" npath="1" hnt="18" hnd="33" hv="90.799094148452" hd="4.75" hl="0.21052631578947" he="431.29569720515" ht="23.960872066953" hb="0.019028103086476" hi="19.115598768095" mi="64.34102051787"/>
       <method name="phpmd" start="186" end="199" ccn="3" ccn2="3" loc="14" cloc="0" eloc="13" lloc="4" ncloc="14" npath="10" hnt="25" hnd="39" hv="132.13505547156" hd="7.1176470588235" hl="0.1404958677686" he="940.49068894461" ht="52.249482719145" hb="0.031997428612721" hi="18.564429281128" mi="60.445574716092"/>
-      <method name="phpmetrics" start="201" end="214" ccn="2" ccn2="2" loc="14" cloc="0" eloc="13" lloc="5" ncloc="14" npath="2" hnt="22" hnd="36" hv="113.73835003173" hd="8.6428571428571" hl="0.11570247933884" he="983.02431098853" ht="54.612461721585" hb="0.032955020355318" hi="13.15980909458" mi="61.035986611493"/>
-      <method name="buildReport" start="216" end="234" ccn="3" ccn2="3" loc="19" cloc="0" eloc="18" lloc="6" ncloc="19" npath="3" hnt="32" hnd="81" hv="202.87520009231" hd="7.6029411764706" hl="0.13152804642166" he="1542.4482124665" ht="85.691567359251" hb="0.044499227625835" hi="26.683778735545" mi="56.058774420508"/>
-      <method name="writeHtmlReport" start="237" end="242" ccn="2" ccn2="3" loc="6" cloc="0" eloc="5" lloc="2" ncloc="6" npath="3" hnt="12" hnd="14" hv="45.688259064691" hd="6.3" hl="0.15873015873016" he="287.83603210755" ht="15.990890672642" hb="0.014531446636858" hi="7.2521046134431" mi="72.727210988306"/>
+      <method name="phpmetrics" start="201" end="215" ccn="2" ccn2="2" loc="15" cloc="0" eloc="14" lloc="6" ncloc="15" npath="2" hnt="23" hnd="42" hv="124.02330072391" hd="8.0882352941176" hl="0.12363636363636" he="1003.1296382081" ht="55.729424344895" hb="0.033402844623009" hi="15.333789907684" mi="60.070660867689"/>
+      <method name="buildReport" start="217" end="235" ccn="3" ccn2="3" loc="19" cloc="0" eloc="18" lloc="6" ncloc="19" npath="3" hnt="32" hnd="81" hv="202.87520009231" hd="7.6029411764706" hl="0.13152804642166" he="1542.4482124665" ht="85.691567359251" hb="0.044499227625835" hi="26.683778735545" mi="56.058774420508"/>
+      <method name="writeHtmlReport" start="238" end="243" ccn="2" ccn2="3" loc="6" cloc="0" eloc="5" lloc="2" ncloc="6" npath="3" hnt="12" hnd="14" hv="45.688259064691" hd="6.3" hl="0.15873015873016" he="287.83603210755" ht="15.990890672642" hb="0.014531446636858" hi="7.2521046134431" mi="72.727210988306"/>
     </trait>
     <class name="Config" start="7" end="70" loc="64" cloc="0" eloc="48" lloc="22" ncloc="64" dit="0" noam="0" nocc="0" noom="0" nom="6" cr="0.15" rcr="0.15" ca="2" cbo="1" ce="1" impl="0" cis="4" csz="7" npm="4" vars="1" varsi="1" varsnp="0" wmc="12" wmci="12" wmcnp="5">
       <file name="/Users/www/qa/src/Config.php"/>

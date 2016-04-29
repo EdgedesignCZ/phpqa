@@ -2,9 +2,9 @@
 <phploc>
   <directories>5</directories>
   <files>12</files>
-  <loc>843</loc>
-  <lloc>225</lloc>
-  <llocClasses>184</llocClasses>
+  <loc>844</loc>
+  <lloc>226</lloc>
+  <llocClasses>185</llocClasses>
   <llocFunctions>19</llocFunctions>
   <llocGlobal>22</llocGlobal>
   <cloc>47</cloc>
@@ -28,7 +28,7 @@
   <globalConstants>0</globalConstants>
   <testClasses>0</testClasses>
   <testMethods>0</testMethods>
-  <ccnByLloc>0.2</ccnByLloc>
+  <ccnByLloc>0.19911504424779</ccnByLloc>
   <llocByNof>2.375</llocByNof>
   <methodCalls>126</methodCalls>
   <staticMethodCalls>1</staticMethodCalls>
@@ -44,14 +44,14 @@
   <classCcnAvg>5.2</classCcnAvg>
   <classCcnMax>20</classCcnMax>
   <classLlocMin>2</classLlocMin>
-  <classLlocAvg>18.4</classLlocAvg>
-  <classLlocMax>49</classLlocMax>
+  <classLlocAvg>18.5</classLlocAvg>
+  <classLlocMax>50</classLlocMax>
   <methodCcnMin>1</methodCcnMin>
   <methodCcnAvg>1.7368421052632</methodCcnAvg>
   <methodCcnMax>8</methodCcnMax>
   <methodLlocMin>1</methodLlocMin>
-  <methodLlocAvg>2.7719298245614</methodLlocAvg>
+  <methodLlocAvg>2.7894736842105</methodLlocAvg>
   <methodLlocMax>19</methodLlocMax>
   <namespaces>2</namespaces>
-  <ncloc>796</ncloc>
+  <ncloc>797</ncloc>
 </phploc>
