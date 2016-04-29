@@ -1,6 +1,12 @@
 
 # Changelog
 
+## v1.5.0
+
+* [#16](https://github.com/EdgedesignCZ/phpqa/pull/16) phpmd - scan only *.php files (fix typo in --suffixes option)
+* Upgrade QA tools (phpmd, phpmetrics, phpcpd)
+    * phpmetrics [generates bigger report](https://github.com/phpmetrics/PhpMetrics/issues/217)
+
 ## v1.4.0
 
 * [#15](https://github.com/EdgedesignCZ/phpqa/issues/15) Rename halleck45/phpmetrics to phpmetrics/phpmetrics
