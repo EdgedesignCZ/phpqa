@@ -206,6 +206,7 @@ trait CodeAnalysisTasks
             $this->options->ignore->phpmetrics()
         );
         if ($this->options->isSavedToFiles) {
+            $args['offline'] = '';
             $args['report-html'] = $this->options->toFile('phpmetrics.html');
         } else {
             $args['report-cli'] = '';
