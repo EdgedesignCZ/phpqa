@@ -83,11 +83,22 @@ how many repositories you want to update when new version is released.
 | `phpqa --tools phploc,phpcs` | Run only selected tools |
 | `phpqa --verbose` | Show output from executed tools |
 | `phpqa --quiet` | Show no output at all |
-| `phpqa --output cli` | CLI output instead of creating files in `--buildDir` |
+| `phpqa --output cli` | [CLI output](#output-modes) instead of creating files in `--buildDir` |
 | `phpqa --execution no-parallel` | Don't use parallelism if `--execution != parallel` |
 | `phpqa --config ./my-config` | Use [custom configuration](#advanced-configuration---phpqayml) |
 | `phpqa --report` | Build [html reports](#html-reports) |
 | `phpqa tools` | Show versions of available tools |
+
+## Output modes
+
+Tool | `--output file` (default) - generated files | `--output cli` |
+---- | ------------------------- | -------------- |
+phploc | [phploc.xml](https://edgedesigncz.github.io/phpqa/report/phploc.xml) | [✓](https://github.com/sebastianbergmann/phploc#analyse-a-directory-and-print-the-result) |
+phpcpd | [phpcpd.xml](https://edgedesigncz.github.io/phpqa/report/phpcpd.xml) | [✓](https://github.com/sebastianbergmann/phpcpd#usage-example) |
+phpcs | [checkstyle.xml](https://edgedesigncz.github.io/phpqa/report/checkstyle.xml) | [full report](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) |
+pdepend | [pdepend-jdepend.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.xml), [pdepend-summary.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-summary.xml), [pdepend-jdepend.svg](https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.svg), [pdepend-pyramid.svg](https://edgedesigncz.github.io/phpqa/report/pdepend-pyramid.svg) | ✗ |
+phpmd | [phpmd.xml](https://edgedesigncz.github.io/phpqa/report/phpmd.xml) | [✓](https://github.com/phpmd/phpmd/blob/master/src/main/php/PHPMD/Renderer/TextRenderer.php#L47) |
+phpmetrics | [phpmetrics.html](https://edgedesigncz.github.io/phpqa/report/phpmetrics.html) | [✓](https://github.com/phpmetrics/PhpMetrics#usage) |
 
 ## Advanced configuration - `.phpqa.yml`
 

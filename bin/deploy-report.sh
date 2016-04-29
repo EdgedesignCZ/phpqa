@@ -28,6 +28,7 @@ build_report() {
 copy_artifacts() {
     cp -R build/*.html $repository/report
     cp -R build/*.svg $repository/report
+    cp -R build/*.xml $repository/report
 }
 
 publish_changes() {
