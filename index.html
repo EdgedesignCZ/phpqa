@@ -170,7 +170,8 @@ how many repositories you want to update when new version is released.</p>
 </tr>
 <tr>
 <td><code>phpqa --output cli</code></td>
-<td>CLI output instead of creating files in <code>--buildDir</code>
+<td>
+<a href="#output-modes">CLI output</a> instead of creating files in <code>--buildDir</code>
 </td>
 </tr>
 <tr>
@@ -191,6 +192,54 @@ how many repositories you want to update when new version is released.</p>
 <tr>
 <td><code>phpqa tools</code></td>
 <td>Show versions of available tools</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="output-modes" class="anchor" href="#output-modes" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Output modes</h2>
+
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>
+<code>--output file</code> (default) - generated files</th>
+<th><code>--output cli</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>phploc</td>
+<td><a href="https://edgedesigncz.github.io/phpqa/report/phploc.xml">phploc.xml</a></td>
+<td><a href="https://github.com/sebastianbergmann/phploc#analyse-a-directory-and-print-the-result">✓</a></td>
+</tr>
+<tr>
+<td>phpcpd</td>
+<td><a href="https://edgedesigncz.github.io/phpqa/report/phpcpd.xml">phpcpd.xml</a></td>
+<td><a href="https://github.com/sebastianbergmann/phpcpd#usage-example">✓</a></td>
+</tr>
+<tr>
+<td>phpcs</td>
+<td><a href="https://edgedesigncz.github.io/phpqa/report/checkstyle.xml">checkstyle.xml</a></td>
+<td><a href="https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports">full report</a></td>
+</tr>
+<tr>
+<td>pdepend</td>
+<td>
+<a href="https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.xml">pdepend-jdepend.xml</a>, <a href="https://edgedesigncz.github.io/phpqa/report/pdepend-summary.xml">pdepend-summary.xml</a>, <a href="https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.svg">pdepend-jdepend.svg</a>, <a href="https://edgedesigncz.github.io/phpqa/report/pdepend-pyramid.svg">pdepend-pyramid.svg</a>
+</td>
+<td>✗</td>
+</tr>
+<tr>
+<td>phpmd</td>
+<td><a href="https://edgedesigncz.github.io/phpqa/report/phpmd.xml">phpmd.xml</a></td>
+<td><a href="https://github.com/phpmd/phpmd/blob/master/src/main/php/PHPMD/Renderer/TextRenderer.php#L47">✓</a></td>
+</tr>
+<tr>
+<td>phpmetrics</td>
+<td><a href="https://edgedesigncz.github.io/phpqa/report/phpmetrics.html">phpmetrics.html</a></td>
+<td><a href="https://github.com/phpmetrics/PhpMetrics#usage">✓</a></td>
 </tr>
 </tbody>
 </table>
