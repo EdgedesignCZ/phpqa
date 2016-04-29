@@ -25,6 +25,7 @@
         "symfony/filesystem": "~2.8",
         "symfony/process": "~2.8",
         "symfony/finder": "~2.8",
+        "symfony/yaml": "~2.8",
         "pdepend/pdepend": "*",
         "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "*",
