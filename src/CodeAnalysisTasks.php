@@ -208,6 +208,7 @@ trait CodeAnalysisTasks
         if ($this->options->isSavedToFiles) {
             $args['offline'] = '';
             $args['report-html'] = $this->options->toFile('phpmetrics.html');
+            $args['report-xml'] = $this->options->toFile('phpmetrics.xml');
         } else {
             $args['report-cli'] = '';
         }
