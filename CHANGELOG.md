@@ -1,6 +1,11 @@
 
 # Changelog
 
+## v1.5.1
+
+* [#18](https://github.com/EdgedesignCZ/phpqa/pull/18) phpmetrics - generate XML report
+* Upgrade QA tools (phpcs)
+
 ## v1.5.0
 
 * [#16](https://github.com/EdgedesignCZ/phpqa/pull/16) phpmd - scan only *.php files (fix typo in --suffixes option)
