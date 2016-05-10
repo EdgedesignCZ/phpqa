@@ -209,7 +209,7 @@ trait CodeAnalysisTasks
             $args['offline'] = '';
             $args['report-html'] = $this->options->toFile('phpmetrics.html');
             $args['report-xml'] = $this->options->toFile('phpmetrics.xml');
-            $args['violatons-xml'] = $this->options->toFile('phpmetrics-violations.xml');
+            $args['violations-xml'] = $this->options->toFile('phpmetrics-violations.xml');
         } else {
             $args['report-cli'] = '';
         }
