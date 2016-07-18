@@ -46,15 +46,24 @@ class Options
     private function loadTools($inputTools)
     {
         $tools = $this->isSavedToFiles ? $inputTools : str_replace('pdepend', '', $inputTools);
-        $this->allowedTools = explode(',', $tools);
+        $this->allowedTools = array();
+        foreach (array_filter(explode(',', $tools)) as $tool) {
+            if (is_int(strpos($tool, ':'))) {
+                list($name, $allowedErrors) = explode(':', $tool);
+            } else {
+                $name = $tool;
+                $allowedErrors = null;
+            }
+            $this->allowedTools[$name] = $allowedErrors;
+        }
     }
 
     public function filterTools(array $tools)
     {
         $allowed = array();
         foreach ($tools as $tool => $value) {
-            if (in_array($tool, $this->allowedTools)) {
-                $allowed[$tool] = $value;
+            if (array_key_exists($tool, $this->allowedTools)) {
+                $allowed[$tool] = $value + ['allowedErrorsCount' => $this->allowedTools[$tool]];
             }
         }
         return $allowed;
