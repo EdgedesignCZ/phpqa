@@ -13,31 +13,37 @@ trait CodeAnalysisTasks
             'optionSeparator' => ' ',
             'transformedXml' => '',
             'htmlReport' => '',
+            'errorsCount' => '',
         ),
         'phploc' => array(
             'optionSeparator' => ' ',
             'transformedXml' => 'phploc.xml',
             'htmlReport' => '',
+            'errorsCount' => '',
         ),
         'phpcs' => array(
             'optionSeparator' => '=',
             'transformedXml' => 'checkstyle.xml',
             'htmlReport' => '',
+            'errorsCount' => '',
         ),
         'phpmd' => array(
             'optionSeparator' => ' ',
             'transformedXml' => 'phpmd.xml',
             'htmlReport' => '',
+            'errorsCount' => '',
         ),
         'pdepend' => array(
             'optionSeparator' => '=',
             'transformedXml' => 'pdepend-jdepend.xml',
             'htmlReport' => '',
+            'errorsCount' => '',
         ),
         'phpcpd' => array(
             'optionSeparator' => ' ',
             'transformedXml' => 'phpcpd.xml',
             'htmlReport' => '',
+            'errorsCount' => '',
         ),
     );
     /** @var Options */
@@ -158,7 +164,13 @@ trait CodeAnalysisTasks
             'min-tokens' => $this->config->value('phpcpd.minTokens'),
         );
         if ($this->options->isSavedToFiles) {
-            $args['log-pmd'] = $this->options->toFile('phpcpd.xml');
+            $file = $this->options->rawFile('phpcpd.xml');
+            $args['log-pmd'] = escapePath($file);
+            $this->usedTools['phpcpd']['errorsCount'] = function () use ($file) {
+                $xml = simplexml_load_file($file);
+                $errorsCount = count($xml->xpath('//pmd-cpd/duplication'));
+                return $errorsCount;
+            };
         }
         return $args;
     }
@@ -177,8 +189,14 @@ trait CodeAnalysisTasks
             $this->options->analyzedDir
         );
         if ($this->options->isSavedToFiles) {
+            $file = $this->options->rawFile('checkstyle.xml');
             $args['report'] = 'checkstyle';
-            $args['report-file'] = $this->options->toFile('checkstyle.xml');
+            $args['report-file'] = escapePath($file);
+            $this->usedTools['phpcs']['errorsCount'] = function () use ($file) {
+                $xml = simplexml_load_file($file);
+                $errorsCount = count($xml->xpath('//checkstyle/file/error'));
+                return $errorsCount;
+            };
         } else {
             $args['report'] = 'full';
         }
@@ -207,7 +225,13 @@ trait CodeAnalysisTasks
             $this->options->ignore->phpmd()
         );
         if ($this->options->isSavedToFiles) {
-            $args['reportfile'] = $this->options->toFile('phpmd.xml');
+            $file = $this->options->rawFile('phpmd.xml');
+            $args['reportfile'] = escapePath($file);
+            $this->usedTools['phpmd']['errorsCount'] = function () use ($file) {
+                $xml = simplexml_load_file($file);
+                $errorsCount = count($xml->xpath('//pmd/file/violation'));
+                return $errorsCount;
+            };
         }
         return $args;
     }
@@ -255,13 +279,21 @@ trait CodeAnalysisTasks
     {
         $this->getOutput()->writeln('');
         $table = new Table($this->getOutput());
-        $table->setHeaders(array('Tool', 'HTML report'));
+        $table->setHeaders(array('Tool', 'Errors count', 'HTML report'));
+        $totalErrors = 0;
         foreach ($this->usedTools as $tool => $config) {
-            $table->addRow(array("<comment>{$tool}</comment>", $config['htmlReport']));
+            $errorsCount = $config['errorsCount'] ? $config['errorsCount']() : '';
+            $totalErrors += $errorsCount;
+            $table->addRow(array(
+                "<comment>{$tool}</comment>",
+                $errorsCount,
+                $config['htmlReport']
+            ));
         }
         $table->addRow(new TableSeparator());
         $table->addRow(array(
             '<comment>phpqa</comment>',
+            "<error>{$totalErrors}</error>",
             $this->options->hasReport ? $this->options->rawFile("phpqa.html") : ''
         ));
         $table->render();
