@@ -93,7 +93,7 @@ trait CodeAnalysisTasks
         if ($this->options->hasReport) {
             $this->buildReport();
         }
-        $this->printSummary();
+        return $this->printSummary();
     }
 
     private function loadOptions(array $opts)
@@ -306,5 +306,6 @@ trait CodeAnalysisTasks
             $this->options->hasReport ? $this->options->rawFile("phpqa.html") : ''
         ));
         $table->render();
+        return $isEveryToolOk ? 0 : 1;
     }
 }
