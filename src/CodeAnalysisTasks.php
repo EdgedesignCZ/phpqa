@@ -279,21 +279,30 @@ trait CodeAnalysisTasks
     {
         $this->getOutput()->writeln('');
         $table = new Table($this->getOutput());
-        $table->setHeaders(array('Tool', 'Errors count', 'HTML report'));
+        $table->setHeaders(array('Tool', 'Allowed Errors', 'Errors count', 'Is OK?', 'HTML report'));
         $totalErrors = 0;
+        $isEveryToolOk = true;
         foreach ($this->usedTools as $tool => $config) {
             $errorsCount = $config['errorsCount'] ? $config['errorsCount']() : '';
             $totalErrors += $errorsCount;
+            $isOk = !is_numeric($config['allowedErrorsCount']) || $errorsCount <= $config['allowedErrorsCount'];
             $table->addRow(array(
                 "<comment>{$tool}</comment>",
+                $config['allowedErrorsCount'],
                 $errorsCount,
+                $isOk ? '<info>✓</info>' : '<error>x</error>',
                 $config['htmlReport']
             ));
+            if (!$isOk) {
+                $isEveryToolOk = false;
+            }
         }
         $table->addRow(new TableSeparator());
         $table->addRow(array(
             '<comment>phpqa</comment>',
+            '',
             "<error>{$totalErrors}</error>",
+            $isEveryToolOk ? '<info>✓</info>' : '<error>x</error>',
             $this->options->hasReport ? $this->options->rawFile("phpqa.html") : ''
         ));
         $table->render();
