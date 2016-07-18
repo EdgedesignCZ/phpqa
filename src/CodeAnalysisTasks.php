@@ -2,6 +2,9 @@
 
 namespace Edge\QA;
 
+use Symfony\Component\Console\Helper\Table;
+use Symfony\Component\Console\Helper\TableSeparator;
+
 trait CodeAnalysisTasks
 {
     /** @var array [tool => optionSeparator] */
@@ -9,26 +12,32 @@ trait CodeAnalysisTasks
         'phpmetrics' => array(
             'optionSeparator' => ' ',
             'transformedXml' => '',
+            'htmlReport' => '',
         ),
         'phploc' => array(
             'optionSeparator' => ' ',
             'transformedXml' => 'phploc.xml',
+            'htmlReport' => '',
         ),
         'phpcs' => array(
             'optionSeparator' => '=',
             'transformedXml' => 'checkstyle.xml',
+            'htmlReport' => '',
         ),
         'phpmd' => array(
             'optionSeparator' => ' ',
             'transformedXml' => 'phpmd.xml',
+            'htmlReport' => '',
         ),
         'pdepend' => array(
             'optionSeparator' => '=',
             'transformedXml' => 'pdepend-jdepend.xml',
+            'htmlReport' => '',
         ),
         'phpcpd' => array(
             'optionSeparator' => ' ',
             'transformedXml' => 'phpcpd.xml',
+            'htmlReport' => '',
         ),
     );
     /** @var Options */
@@ -78,6 +87,7 @@ trait CodeAnalysisTasks
         if ($this->options->hasReport) {
             $this->buildReport();
         }
+        $this->printSummary();
     }
 
     private function loadOptions(array $opts)
@@ -210,9 +220,11 @@ trait CodeAnalysisTasks
             $this->options->ignore->phpmetrics()
         );
         if ($this->options->isSavedToFiles) {
+            $htmlFile = $this->options->toFile('phpmetrics.html');
             $args['offline'] = '';
-            $args['report-html'] = $this->options->toFile('phpmetrics.html');
+            $args['report-html'] = $htmlFile;
             $args['report-xml'] = $this->options->toFile('phpmetrics.xml');
+            $this->usedTools['phpmetrics']['htmlReport'] = trim($htmlFile, '"');
         } else {
             $args['report-cli'] = '';
         }
@@ -223,12 +235,13 @@ trait CodeAnalysisTasks
     {
         foreach ($this->usedTools as $tool => $config) {
             if ($config['transformedXml']) {
+                $htmlFile = $this->options->rawFile("{$tool}.html");
                 xmlToHtml(
                     $this->options->rawFile($config['transformedXml']),
                     $this->config->path("report.{$tool}"),
-                    $this->options->rawFile("{$tool}.html")
+                    $htmlFile
                 );
-                $this->writeHtmlReport("<info>{$this->options->rawFile("{$tool}.html")}</info>");
+                $this->usedTools[$tool]['htmlReport'] = $htmlFile;
             }
         }
         twigToHtml(
@@ -236,14 +249,21 @@ trait CodeAnalysisTasks
             array('tools' => array_keys($this->usedTools)),
             $this->options->rawFile('phpqa.html')
         );
-        $this->writeHtmlReport("<comment>{$this->options->rawFile("phpqa.html")}</comment>", true);
     }
 
-    // copy-paste from \Robo\Common\TaskIO
-    private function writeHtmlReport($text, $isAlwaysPrinted = false)
+    private function printSummary()
     {
-        if ($this->options->isOutputPrinted || $isAlwaysPrinted) {
-            $this->writeln(" <fg=white;bg=cyan;options=bold>[HTML report]</fg=white;bg=cyan;options=bold> $text");
+        $this->getOutput()->writeln('');
+        $table = new Table($this->getOutput());
+        $table->setHeaders(array('Tool', 'HTML report'));
+        foreach ($this->usedTools as $tool => $config) {
+            $table->addRow(array("<comment>{$tool}</comment>", $config['htmlReport']));
         }
+        $table->addRow(new TableSeparator());
+        $table->addRow(array(
+            '<comment>phpqa</comment>',
+            $this->options->hasReport ? $this->options->rawFile("phpqa.html") : ''
+        ));
+        $table->render();
     }
 }
