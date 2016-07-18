@@ -155,10 +155,14 @@ trait CodeAnalysisTasks
 
     private function phpcs()
     {
+        $standard = $this->config->value('phpcs.standard');
+        if (!in_array($standard, \PHP_CodeSniffer::getInstalledStandards())) {
+            $standard = escapePath($this->config->path('phpcs.standard'));
+        }
         $args = array(
             '-p',
             'extensions' => 'php',
-            'standard' => $this->config->value('phpcs.standard'),
+            'standard' => $standard,
             $this->options->ignore->phpcs(),
             $this->options->analyzedDir
         );
