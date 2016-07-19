@@ -18,6 +18,9 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         'execution' => 'parallel',
     );
 
+    /** @var Options */
+    private $fileOutput;
+
     public function setUp()
     {
         $this->fileOutput = $this->overrideOptions();
