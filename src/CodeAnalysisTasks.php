@@ -2,55 +2,42 @@
 
 namespace Edge\QA;
 
-use Symfony\Component\Console\Helper\Table;
-use Symfony\Component\Console\Helper\TableSeparator;
-
 trait CodeAnalysisTasks
 {
     /** @var array [tool => optionSeparator] */
     private $tools = array(
         'phpmetrics' => array(
             'optionSeparator' => ' ',
-            'transformedXml' => '',
-            'htmlReport' => '',
-            'errorsCount' => '',
         ),
         'phploc' => array(
             'optionSeparator' => ' ',
             'transformedXml' => 'phploc.xml',
-            'htmlReport' => '',
-            'errorsCount' => '',
         ),
         'phpcs' => array(
             'optionSeparator' => '=',
             'transformedXml' => 'checkstyle.xml',
-            'htmlReport' => '',
-            'errorsCount' => '',
+            'errorsXPath' => '//checkstyle/file/error',
         ),
         'phpmd' => array(
             'optionSeparator' => ' ',
             'transformedXml' => 'phpmd.xml',
-            'htmlReport' => '',
-            'errorsCount' => '',
+            'errorsXPath' => '//pmd/file/violation',
         ),
         'pdepend' => array(
             'optionSeparator' => '=',
             'transformedXml' => 'pdepend-jdepend.xml',
-            'htmlReport' => '',
-            'errorsCount' => '',
         ),
         'phpcpd' => array(
             'optionSeparator' => ' ',
             'transformedXml' => 'phpcpd.xml',
-            'htmlReport' => '',
-            'errorsCount' => '',
+            'errorsXPath' => '//pmd-cpd/duplication',
         ),
     );
     /** @var Options */
     private $options;
     /** @var Config */
     private $config;
-    /** @var array */
+    /** @var RunningTool[] */
     private $usedTools;
 
     /**
@@ -99,7 +86,7 @@ trait CodeAnalysisTasks
     private function loadOptions(array $opts)
     {
         $this->options = new Options($opts);
-        $this->usedTools = $this->options->filterTools($this->tools);
+        $this->usedTools = $this->options->buildRunningTools($this->tools);
         $this->config = new Config();
         $this->config->loadCustomConfig($this->options->configDir);
     }
@@ -117,25 +104,23 @@ trait CodeAnalysisTasks
     private function runTools()
     {
         $group = $this->options->isParallel ? $this->taskParallelExec() : new Task\NonParallelExec();
-        foreach ($this->usedTools as $tool => $config) {
-            $exec = $this->toolToExec($tool, $config['optionSeparator']);
+        foreach ($this->usedTools as $tool) {
+            $exec = $this->toolToExec($tool);
             $group->process($exec);
         }
         $group->printed($this->options->isOutputPrinted)->run();
     }
 
     /** @return \Robo\Task\Base\Exec */
-    private function toolToExec($tool, $optionSeparator)
+    private function toolToExec(RunningTool $tool)
     {
         $binary = pathToBinary($tool);
         $process = $this->taskExec($binary);
-        foreach ($this->$tool() as $arg => $value) {
+        foreach ($this->{(string) $tool}($tool) as $arg => $value) {
             if (is_int($arg)) {
                 $process->arg($value);
-            } elseif ($value) {
-                $process->arg("--{$arg}{$optionSeparator}{$value}");
             } else {
-                $process->arg("--{$arg}");
+                $process->arg($tool->buildOption($arg, $value));
             }
         }
         return $process;
@@ -154,7 +139,7 @@ trait CodeAnalysisTasks
         return $args;
     }
 
-    private function phpcpd()
+    private function phpcpd(RunningTool $tool)
     {
         $args = array(
             'progress' => '',
@@ -164,18 +149,12 @@ trait CodeAnalysisTasks
             'min-tokens' => $this->config->value('phpcpd.minTokens'),
         );
         if ($this->options->isSavedToFiles) {
-            $file = $this->options->rawFile('phpcpd.xml');
-            $args['log-pmd'] = escapePath($file);
-            $this->usedTools['phpcpd']['errorsCount'] = function () use ($file) {
-                $xml = simplexml_load_file($file);
-                $errorsCount = count($xml->xpath('//pmd-cpd/duplication'));
-                return $errorsCount;
-            };
+            $args['log-pmd'] = escapePath($tool->transformedXml);
         }
         return $args;
     }
 
-    private function phpcs()
+    private function phpcs(RunningTool $tool)
     {
         $standard = $this->config->value('phpcs.standard');
         if (!in_array($standard, \PHP_CodeSniffer::getInstalledStandards())) {
@@ -189,14 +168,8 @@ trait CodeAnalysisTasks
             $this->options->analyzedDir
         );
         if ($this->options->isSavedToFiles) {
-            $file = $this->options->rawFile('checkstyle.xml');
             $args['report'] = 'checkstyle';
-            $args['report-file'] = escapePath($file);
-            $this->usedTools['phpcs']['errorsCount'] = function () use ($file) {
-                $xml = simplexml_load_file($file);
-                $errorsCount = count($xml->xpath('//checkstyle/file/error'));
-                return $errorsCount;
-            };
+            $args['report-file'] = escapePath($tool->transformedXml);
         } else {
             $args['report'] = 'full';
         }
@@ -215,7 +188,7 @@ trait CodeAnalysisTasks
         );
     }
 
-    private function phpmd()
+    private function phpmd(RunningTool $tool)
     {
         $args = array(
             $this->options->analyzedDir,
@@ -225,13 +198,7 @@ trait CodeAnalysisTasks
             $this->options->ignore->phpmd()
         );
         if ($this->options->isSavedToFiles) {
-            $file = $this->options->rawFile('phpmd.xml');
-            $args['reportfile'] = escapePath($file);
-            $this->usedTools['phpmd']['errorsCount'] = function () use ($file) {
-                $xml = simplexml_load_file($file);
-                $errorsCount = count($xml->xpath('//pmd/file/violation'));
-                return $errorsCount;
-            };
+            $args['reportfile'] = escapePath($tool->transformedXml);
         }
         return $args;
     }
@@ -244,11 +211,11 @@ trait CodeAnalysisTasks
             $this->options->ignore->phpmetrics()
         );
         if ($this->options->isSavedToFiles) {
-            $htmlFile = $this->options->toFile('phpmetrics.html');
+            $htmlFile = $this->options->rawFile('phpmetrics.html');
             $args['offline'] = '';
-            $args['report-html'] = $htmlFile;
+            $args['report-html'] = escapePath($htmlFile);
             $args['report-xml'] = $this->options->toFile('phpmetrics.xml');
-            $this->usedTools['phpmetrics']['htmlReport'] = trim($htmlFile, '"');
+            $this->usedTools['phpmetrics']->htmlReport = $htmlFile;
         } else {
             $args['report-cli'] = '';
         }
@@ -257,15 +224,15 @@ trait CodeAnalysisTasks
 
     private function buildReport()
     {
-        foreach ($this->usedTools as $tool => $config) {
-            if ($config['transformedXml']) {
+        foreach ($this->usedTools as $tool) {
+            if ($tool->transformedXml) {
                 $htmlFile = $this->options->rawFile("{$tool}.html");
                 xmlToHtml(
-                    $this->options->rawFile($config['transformedXml']),
+                    $tool->transformedXml,
                     $this->config->path("report.{$tool}"),
                     $htmlFile
                 );
-                $this->usedTools[$tool]['htmlReport'] = $htmlFile;
+                $this->usedTools[(string) $tool]->htmlReport = $htmlFile;
             }
         }
         twigToHtml(
@@ -277,35 +244,10 @@ trait CodeAnalysisTasks
 
     private function printSummary()
     {
-        $this->getOutput()->writeln('');
-        $table = new Table($this->getOutput());
-        $table->setHeaders(array('Tool', 'Allowed Errors', 'Errors count', 'Is OK?', 'HTML report'));
-        $totalErrors = 0;
-        $isEveryToolOk = true;
-        foreach ($this->usedTools as $tool => $config) {
-            $errorsCount = $config['errorsCount'] ? $config['errorsCount']() : '';
-            $totalErrors += $errorsCount;
-            $isOk = !is_numeric($config['allowedErrorsCount']) || $errorsCount <= $config['allowedErrorsCount'];
-            $table->addRow(array(
-                "<comment>{$tool}</comment>",
-                $config['allowedErrorsCount'],
-                $errorsCount,
-                $isOk ? '<info>✓</info>' : '<error>x</error>',
-                $config['htmlReport']
-            ));
-            if (!$isOk) {
-                $isEveryToolOk = false;
-            }
+        if ($this->options->isSavedToFiles) {
+            $summary = new Task\TableSummary($this->options, $this->getOutput());
+            return $summary($this->usedTools);
         }
-        $table->addRow(new TableSeparator());
-        $table->addRow(array(
-            '<comment>phpqa</comment>',
-            '',
-            "<error>{$totalErrors}</error>",
-            $isEveryToolOk ? '<info>✓</info>' : '<error>x</error>',
-            $this->options->hasReport ? $this->options->rawFile("phpqa.html") : ''
-        ));
-        $table->render();
-        return $isEveryToolOk ? 0 : 1;
+        return 0;
     }
 }

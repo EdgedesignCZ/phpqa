@@ -58,12 +58,17 @@ class Options
         }
     }
 
-    public function filterTools(array $tools)
+    public function buildRunningTools(array $tools)
     {
         $allowed = array();
-        foreach ($tools as $tool => $value) {
+        foreach ($tools as $tool => $config) {
             if (array_key_exists($tool, $this->allowedTools)) {
-                $allowed[$tool] = $value + ['allowedErrorsCount' => $this->allowedTools[$tool]];
+                $preload = [
+                    'allowedErrorsCount' => $this->allowedTools[$tool],
+                    'transformedXml' => array_key_exists('transformedXml', $config)
+                        ? $this->rawFile($config['transformedXml']) : ''
+                ];
+                $allowed[$tool] = new RunningTool($tool, $preload + $config);
             }
         }
         return $allowed;
