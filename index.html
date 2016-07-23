@@ -161,6 +161,11 @@ how many repositories you want to update when new version is released.</p>
 <td>Run only selected tools</td>
 </tr>
 <tr>
+<td><code>phpqa --tools phpmd:1,phpcs:0,phpcpd:0</code></td>
+<td>Check number of errors and <a href="#exit-code">exit code</a>. <strong>New in v1.6</strong>
+</td>
+</tr>
+<tr>
 <td><code>phpqa --verbose</code></td>
 <td>Show output from executed tools</td>
 </tr>
@@ -245,6 +250,29 @@ how many repositories you want to update when new version is released.</p>
 </tr>
 </tbody>
 </table>
+
+<h2>
+<a id="exit-code" class="anchor" href="#exit-code" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Exit code</h2>
+
+<p><code>phpqa</code> can return non-zero exit code <strong>since version 1.6</strong>.
+It's optional feature that is by default turned off. You have to</p>
+
+<ul>
+<li>define number of allowed errors for <em>phpcpd, phpcs, phpmd</em> in <code>--tools</code>
+</li>
+<li>use <code>file</code> <a href="#output-modes">output mode</a> (exit code is always zero in CLI output mode)</li>
+</ul>
+
+<p>Let's say your <a href="https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Build-Step">Travis CI</a>
+or <a href="https://circleci.com/docs/manually/#overview">Circle CI</a> build should fail when new error is introduced.
+Define number of allowed errors for each tools and watch the build:</p>
+
+<pre><code>phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,phpmetrics,phploc,pdepend
+</code></pre>
+
+<p><img src="https://cloud.githubusercontent.com/assets/7994022/17077767/e18bcb2a-50dc-11e6-86bc-0dfc8e22d98c.png" alt="screenshot from 2016-07-23 13 53 34"></p>
+
+<p><em>Tip</em>: use <a href="https://gist.github.com/zdenekdrahos/5368eea304ed3fa6070bc77772779738"><code>echo $?</code></a> for displaying exit code.</p>
 
 <h2>
 <a id="advanced-configuration---phpqayml" class="anchor" href="#advanced-configuration---phpqayml" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Advanced configuration - <code>.phpqa.yml</code>
