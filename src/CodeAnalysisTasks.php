@@ -56,10 +56,10 @@ trait CodeAnalysisTasks
      * @option $buildDir path to output directory
      * @option $ignoredDirs csv @example CI,bin,vendor
      * @option $ignoredFiles csv @example RoboFile.php
-     * @option $tools csv @example phploc,phpcpd
+     * @option $tools csv with optional definition of allowed errors count @example phploc,phpmd:1,phpcs:0
      * @option $output output format @example cli
      * @option $config path directory with .phpqa.yml, @default current working directory
-     * @option $report build HTML report (only output format is file)
+     * @option $report build HTML report (only when output format is file)
      */
     public function ci(
         $opts = array(
