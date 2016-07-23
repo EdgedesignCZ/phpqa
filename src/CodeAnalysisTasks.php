@@ -203,7 +203,7 @@ trait CodeAnalysisTasks
         return $args;
     }
 
-    private function phpmetrics()
+    private function phpmetrics(RunningTool $tool)
     {
         $args = array(
             $this->options->analyzedDir,
@@ -211,11 +211,10 @@ trait CodeAnalysisTasks
             $this->options->ignore->phpmetrics()
         );
         if ($this->options->isSavedToFiles) {
-            $htmlFile = $this->options->rawFile('phpmetrics.html');
+            $tool->htmlReport = $this->options->rawFile('phpmetrics.html');
             $args['offline'] = '';
-            $args['report-html'] = escapePath($htmlFile);
+            $args['report-html'] = escapePath($tool->htmlReport);
             $args['report-xml'] = $this->options->toFile('phpmetrics.xml');
-            $this->usedTools['phpmetrics']->htmlReport = $htmlFile;
         } else {
             $args['report-cli'] = '';
         }
@@ -226,13 +225,12 @@ trait CodeAnalysisTasks
     {
         foreach ($this->usedTools as $tool) {
             if ($tool->transformedXml) {
-                $htmlFile = $this->options->rawFile("{$tool}.html");
+                $tool->htmlReport = $this->options->rawFile("{$tool}.html");
                 xmlToHtml(
                     $tool->transformedXml,
                     $this->config->path("report.{$tool}"),
-                    $htmlFile
+                    $tool->htmlReport
                 );
-                $this->usedTools[(string) $tool]->htmlReport = $htmlFile;
             }
         }
         twigToHtml(
