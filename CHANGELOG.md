@@ -1,6 +1,18 @@
 
 # Changelog
 
+## v1.6.0
+
+* [#25](https://github.com/EdgedesignCZ/phpqa/issues/25) phpcs's custom path to standard isn't relative to .phpqa.yml, but current directory
+* [#28](https://github.com/EdgedesignCZ/phpqa/pull/28)
+    * Show summary after analysis
+    * Allow failing build in travis/circle CI (return non-zero exit code when errors count > allowed errors count)
+
+![screenshot from 2016-07-23 13 53 34](https://cloud.githubusercontent.com/assets/7994022/17077767/e18bcb2a-50dc-11e6-86bc-0dfc8e22d98c.png)
+
+* [#29](https://github.com/EdgedesignCZ/phpqa/pull/29) Add .gitattributes (don't export tests and dev files)
+* Upgrade QA tools (phpcs)
+
 ## v1.5.1
 
 * [#18](https://github.com/EdgedesignCZ/phpqa/pull/18) phpmetrics - generate XML report
