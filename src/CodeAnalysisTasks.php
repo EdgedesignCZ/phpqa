@@ -78,9 +78,9 @@ trait CodeAnalysisTasks
         $this->ciClean();
         $this->runTools();
         if ($this->options->hasReport) {
-            $this->buildReport();
+            $this->buildHtmlReport();
         }
-        return $this->printSummary();
+        return $this->buildSummary();
     }
 
     private function loadOptions(array $opts)
@@ -221,7 +221,7 @@ trait CodeAnalysisTasks
         return $args;
     }
 
-    private function buildReport()
+    private function buildHtmlReport()
     {
         foreach ($this->usedTools as $tool) {
             if ($tool->transformedXml) {
@@ -240,7 +240,7 @@ trait CodeAnalysisTasks
         );
     }
 
-    private function printSummary()
+    private function buildSummary()
     {
         if ($this->options->isSavedToFiles) {
             $summary = new Task\TableSummary($this->options, $this->getOutput());
