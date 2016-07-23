@@ -46,15 +46,29 @@ class Options
     private function loadTools($inputTools)
     {
         $tools = $this->isSavedToFiles ? $inputTools : str_replace('pdepend', '', $inputTools);
-        $this->allowedTools = explode(',', $tools);
+        $this->allowedTools = array();
+        foreach (array_filter(explode(',', $tools)) as $tool) {
+            if (is_int(strpos($tool, ':'))) {
+                list($name, $allowedErrors) = explode(':', $tool);
+            } else {
+                $name = $tool;
+                $allowedErrors = null;
+            }
+            $this->allowedTools[$name] = $allowedErrors;
+        }
     }
 
-    public function filterTools(array $tools)
+    public function buildRunningTools(array $tools)
     {
         $allowed = array();
-        foreach ($tools as $tool => $value) {
-            if (in_array($tool, $this->allowedTools)) {
-                $allowed[$tool] = $value;
+        foreach ($tools as $tool => $config) {
+            if (array_key_exists($tool, $this->allowedTools)) {
+                $preload = [
+                    'allowedErrorsCount' => $this->allowedTools[$tool],
+                    'transformedXml' => array_key_exists('transformedXml', $config)
+                        ? $this->rawFile($config['transformedXml']) : ''
+                ];
+                $allowed[$tool] = new RunningTool($tool, $preload + $config);
             }
         }
         return $allowed;

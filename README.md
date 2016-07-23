@@ -81,6 +81,7 @@ how many repositories you want to update when new version is released.
 | `phpqa --ignoredDirs build,vendor` | Ignore directories |
 | `phpqa --ignoredFiles RoboFile.php` | Ignore files |
 | `phpqa --tools phploc,phpcs` | Run only selected tools |
+| `phpqa --tools phpmd:1,phpcs:0,phpcpd:0` | Check number of errors and [exit code](#exit-code). **New in v1.6** |
 | `phpqa --verbose` | Show output from executed tools |
 | `phpqa --quiet` | Show no output at all |
 | `phpqa --output cli` | [CLI output](#output-modes) instead of creating files in `--buildDir` |
@@ -99,6 +100,26 @@ phpcs | [checkstyle.xml](https://edgedesigncz.github.io/phpqa/report/checkstyle.
 pdepend | [pdepend-jdepend.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.xml), [pdepend-summary.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-summary.xml), [pdepend-jdepend.svg](https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.svg), [pdepend-pyramid.svg](https://edgedesigncz.github.io/phpqa/report/pdepend-pyramid.svg) | ✗ |
 phpmd | [phpmd.xml](https://edgedesigncz.github.io/phpqa/report/phpmd.xml) | [✓](https://github.com/phpmd/phpmd/blob/master/src/main/php/PHPMD/Renderer/TextRenderer.php#L47) |
 phpmetrics | [phpmetrics.html](https://edgedesigncz.github.io/phpqa/report/phpmetrics.html), [phpmetrics.xml](https://edgedesigncz.github.io/phpqa/report/phpmetrics.xml) | [✓](https://github.com/phpmetrics/PhpMetrics#usage) |
+
+## Exit code
+
+`phpqa` can return non-zero exit code **since version 1.6**.
+It's optional feature that is by default turned off. You have to
+
+* define number of allowed errors for *phpcpd, phpcs, phpmd* in `--tools`
+* use `file` [output mode](#output-modes) (exit code is always zero in CLI output mode)
+
+Let's say your [Travis CI](https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Build-Step)
+or [Circle CI](https://circleci.com/docs/manually/#overview) build should fail when new error is introduced.
+Define number of allowed errors for each tools and watch the build:
+
+```
+phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,phpmetrics,phploc,pdepend
+```
+
+![screenshot from 2016-07-23 13 53 34](https://cloud.githubusercontent.com/assets/7994022/17077767/e18bcb2a-50dc-11e6-86bc-0dfc8e22d98c.png)
+
+_Tip_: use [`echo $?`](https://gist.github.com/zdenekdrahos/5368eea304ed3fa6070bc77772779738) for displaying exit code.
 
 ## Advanced configuration - `.phpqa.yml`
 

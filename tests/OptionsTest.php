@@ -41,8 +41,8 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     public function testShouldIgnorePdependInCliOutput()
     {
         $cliOutput = $this->overrideOptions(array('output' => 'cli'));
-        assertThat($this->fileOutput->filterTools(array('pdepend' => '')), is(nonEmptyArray()));
-        assertThat($cliOutput->filterTools(array('pdepend' => '')), is(emptyArray()));
+        assertThat($this->fileOutput->buildRunningTools(array('pdepend' => [])), is(nonEmptyArray()));
+        assertThat($cliOutput->buildRunningTools(array('pdepend' => [])), is(emptyArray()));
     }
 
     /** @dataProvider provideConfig */
@@ -101,5 +101,13 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
             'parallel executaion is default mode' => array(array('execution' => 'parallel'), true),
             'dont use parallelism if execution is other word' => array(array('execution' => 'single'), false),
         );
+    }
+
+    public function testLoadAllowedErrorsCount()
+    {
+        $options = $this->overrideOptions(array('tools' => 'phpcs:1,pdepend'));
+        $tools = $options->buildRunningTools(array('phpcs' => [], 'pdepend' => []));
+        assertThat($tools['phpcs']->getAllowedErrorsCount(), is(1));
+        assertThat($tools['pdepend']->getAllowedErrorsCount(), is(nullValue()));
     }
 }

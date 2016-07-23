@@ -22,7 +22,7 @@ checkout_repository() {
 }
 
 build_report() {
-    phpqa --report
+    bin/ci.sh
 }
 
 copy_artifacts() {
