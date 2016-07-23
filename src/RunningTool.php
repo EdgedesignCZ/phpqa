@@ -5,7 +5,7 @@ namespace Edge\QA;
 class RunningTool
 {
     private $tool;
-    private $optionsSeparator;
+    private $optionSeparator;
 
     private $errorsXPath;
     private $allowedErrorsCount;
@@ -22,7 +22,7 @@ class RunningTool
             'allowedErrorsCount' => null
         ];
         $this->tool = $tool;
-        $this->optionsSeparator = $config['optionSeparator'];
+        $this->optionSeparator = $config['optionSeparator'];
         $this->transformedXml = $config['transformedXml'];
         $this->errorsXPath = $config['errorsXPath'];
         $this->allowedErrorsCount = $config['allowedErrorsCount'];
@@ -31,7 +31,7 @@ class RunningTool
     public function buildOption($arg, $value)
     {
         if ($value) {
-            return "--{$arg}{$this->optionsSeparator}{$value}";
+            return "--{$arg}{$this->optionSeparator}{$value}";
         } else {
             return "--{$arg}";
         }

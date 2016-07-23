@@ -40,9 +40,10 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
 
     public function provideAllowedErrors()
     {
+        $errorsCountInXmlFile = 2;
         return [
-            [1, false],
-            [2, true],
+            [$errorsCountInXmlFile, true],
+            [$errorsCountInXmlFile - 1, false],
         ];
     }
 }
