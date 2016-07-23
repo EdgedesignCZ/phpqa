@@ -44,7 +44,7 @@ class RunningTool
 
     public function analyzeResult()
     {
-        if (!is_numeric($this->allowedErrorsCount)) {
+        if (!$this->errorsXPath) {
             return [true, ''];
         } elseif (!file_exists($this->transformedXml)) {
             return [false, 0];
@@ -52,7 +52,7 @@ class RunningTool
 
         $xml = simplexml_load_file($this->transformedXml);
         $errorsCount = count($xml->xpath($this->errorsXPath));
-        $isOk = $errorsCount <= $this->allowedErrorsCount;
+        $isOk = $errorsCount <= $this->allowedErrorsCount || !is_numeric($this->allowedErrorsCount);
         return [$isOk, $errorsCount];
     }
     

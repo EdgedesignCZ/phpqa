@@ -4,6 +4,8 @@ namespace Edge\QA;
 
 class RunningToolTest extends \PHPUnit_Framework_TestCase
 {
+    private $errorsCountInXmlFile = 2;
+
     public function testBuildOptionWithDefinedSeparator()
     {
         $tool = new RunningTool('tool', ['optionSeparator' => ' ']);
@@ -11,10 +13,9 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
         assertThat($tool->buildOption('option', 'value'), is('--option value'));
     }
 
-    public function testMarkSuccessWhenAllowedErrorsAreNotDefined()
+    public function testMarkSuccessWhenXPathIsNotDefined()
     {
-        $tool = new RunningTool('tool', ['allowedErrorsCount' => null]);
-        assertThat($tool->getAllowedErrorsCount(), is(nullValue()));
+        $tool = new RunningTool('tool', ['errorsXPath' => null]);
         assertThat($tool->analyzeResult(), is([true, '']));
     }
 
@@ -22,28 +23,28 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
     {
         $tool = new RunningTool('tool', [
             'transformedXml' => 'non-existent.xml',
-            'allowedErrorsCount' => 0
+            'errorsXPath' => '//errors/error',
         ]);
         assertThat($tool->analyzeResult(), is([false, 0]));
     }
 
     /** @dataProvider provideAllowedErrors */
-    public function testCompareErrorsInXmlWithAllowedCount($allowedErrors, $isOk)
+    public function testCompareAllowedCountWithErrorsCountFromXml($allowedErrors, $isOk)
     {
         $tool = new RunningTool('tool', [
             'transformedXml' => 'tests/Error/errors.xml',
             'errorsXPath' => '//errors/error',
             'allowedErrorsCount' => $allowedErrors
         ]);
-        assertThat($tool->analyzeResult(), is([$isOk, 2]));
+        assertThat($tool->analyzeResult(), is([$isOk, $this->errorsCountInXmlFile]));
     }
 
     public function provideAllowedErrors()
     {
-        $errorsCountInXmlFile = 2;
         return [
-            [$errorsCountInXmlFile, true],
-            [$errorsCountInXmlFile - 1, false],
+            'success when allowed errors are not defined' => [null, true],
+            'success when errors count <= allowed count' => [$this->errorsCountInXmlFile, true],
+            'failure when errors count > allowed count' => [$this->errorsCountInXmlFile - 1, false],
         ];
     }
 }
