@@ -119,7 +119,7 @@ phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,phpmetrics,phploc,pdepend
 
 ![screenshot from 2016-07-23 13 53 34](https://cloud.githubusercontent.com/assets/7994022/17077767/e18bcb2a-50dc-11e6-86bc-0dfc8e22d98c.png)
 
-_Tip_: use [`echo $?`](https://gist.github.com/zdenekdrahos/4ccdeb8bb801284ae8edcc300e4a7145) for displaying exit code.
+_Tip_: use [`echo $?`](https://gist.github.com/zdenekdrahos/5368eea304ed3fa6070bc77772779738) for displaying exit code.
 
 ## Advanced configuration - `.phpqa.yml`
 
