@@ -71,6 +71,13 @@ But I wouldn't recommend it. In my experience *one* QA tool which analyzes
 *N* projects is better than *N* projects with *N* analyzers. It's up to you
 how many repositories you want to update when new version is released.
 
+### Docker
+
+```bash
+docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoreDirs vendor,build,migrations,test
+```
+
+For full documentation please visit [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/).
 
 ## Analyze
 
