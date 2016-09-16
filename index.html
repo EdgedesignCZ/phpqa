@@ -129,6 +129,13 @@ But I wouldn't recommend it. In my experience <em>one</em> QA tool which analyze
 <em>N</em> projects is better than <em>N</em> projects with <em>N</em> analyzers. It's up to you
 how many repositories you want to update when new version is released.</p>
 
+<h3>
+<a id="docker" class="anchor" href="#docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Docker</h3>
+
+<div class="highlight highlight-source-shell"><pre>docker run --rm -u <span class="pl-smi">$UID</span> -v <span class="pl-smi">$PWD</span>:/app eko3alpha/docker-phpqa --report --ignoreDirs vendor,build,migrations,<span class="pl-c1">test</span></pre></div>
+
+<p>For full documentation please visit <a href="https://hub.docker.com/r/eko3alpha/docker-phpqa/">eko3alpha/docker-phpqa</a>.</p>
+
 <h2>
 <a id="analyze" class="anchor" href="#analyze" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Analyze</h2>
 
@@ -321,8 +328,8 @@ phpqa --config path-to-directory-with-config</pre></div>
 with default values from our <a href="/.phpqa.yml"><code>.phpqa.yml</code></a>. Example of minimal config
 that defines only standard for CodeSniffer:</p>
 
-<div class="highlight highlight-source-yaml"><pre><span class="pl-s"><span class="pl-ent">phpcs:</span></span>
-    <span class="pl-s"><span class="pl-ent">standard:</span> <span class="pl-s">Zend</span></span></pre></div>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">phpcs:</span>
+    <span class="pl-ent">standard:</span> <span class="pl-s">Zend</span></pre></div>
 
 <p><em>Tip</em>: use <a href="http://edorian.github.io/php-coding-standard-generator/">PHP Coding Standard Generator</a>
 for generating phpcs/phpmd standards.</p>
