@@ -78,10 +78,10 @@ Do you have problems with dependencies
 Check if you can [install phpqa globally](#circleci---artifacts--global-installation).
 Or install dev-master versions of `sebastian/phpcpd` and `henrikbjorn/lurker`:
 
-```
+```json
 {
     "require-dev": {
-        "edgedesign/phpqa": "dev-master",
+        "edgedesign/phpqa": ">=1.7",
         "henrikbjorn/lurker": "dev-master",
         "sebastian/phpcpd": "dev-master"
     }
@@ -137,7 +137,7 @@ Let's say your [Travis CI](https://docs.travis-ci.com/user/customizing-the-build
 or [Circle CI](https://circleci.com/docs/manually/#overview) build should fail when new error is introduced.
 Define number of allowed errors for each tools and watch the build:
 
-```
+```bash
 phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,phpmetrics,phploc,pdepend
 ```
 
@@ -191,7 +191,7 @@ phpqa --report
 Define custom templates if you don't like [default templates](/app/report).
 You have to define path to `xsl` files in your [`.phpqa.yml`](#advanced-configuration---phpqayml):
 
-```
+```yaml
 # use different template for PHPMD, use default for other tools
 report:
     phpmd: my-templates/phpmd.xsl
@@ -289,9 +289,9 @@ public function ciPhpqa()
 phpqa --verbose --report --analyzedDir ./ --buildDir ./var/CI --ignoredDirs=bin,log,temp,var,vendor,www
 ```
 
-## Circle.ci - artifacts + global installation
+### Circle.ci - artifacts + global installation
 
-```
+```yaml
 machine:
     php:
         version: 7.0.4

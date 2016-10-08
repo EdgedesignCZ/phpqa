@@ -1,6 +1,11 @@
 
 # Changelog
 
+## v1.7.0
+
+* [#22](https://github.com/EdgedesignCZ/phpqa/issues/22) Support Symfony3 components
+* [#28](https://github.com/EdgedesignCZ/phpqa/pull/28) Add PHP 7.1 support, circle.ci example
+
 ## v1.6.0
 
 * [#25](https://github.com/EdgedesignCZ/phpqa/issues/25) phpcs's custom path to standard isn't relative to .phpqa.yml, but current directory
