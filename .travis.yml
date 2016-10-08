@@ -5,10 +5,13 @@ php:
   - 5.5
   - 5.6
   - 7.0
+  - 7.1
   - hhvm
 install:
   - if [ -n "$GITHUB_OAUTH_TOKEN" ]; then composer config github-oauth.github.com ${GITHUB_OAUTH_TOKEN}; fi;
   - composer install --no-interaction
+  # test app with symfony3 components in latest php
+  - if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then composer update && composer require sebastian/phpcpd:dev-master; fi
 script:
   - vendor/phpunit/phpunit/phpunit
   - bin/ci.sh
