@@ -5,6 +5,7 @@
 
 * [#22](https://github.com/EdgedesignCZ/phpqa/issues/22) Support Symfony3 components
 * [#28](https://github.com/EdgedesignCZ/phpqa/pull/28) Add PHP 7.1 support, circle.ci example
+* Add [docker usage](https://github.com/EdgedesignCZ/phpqa/commit/89cb494) to readme
 
 ## v1.6.0
 
