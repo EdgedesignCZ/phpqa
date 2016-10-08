@@ -129,6 +129,22 @@ But I wouldn't recommend it. In my experience <em>one</em> QA tool which analyze
 <em>N</em> projects is better than <em>N</em> projects with <em>N</em> analyzers. It's up to you
 how many repositories you want to update when new version is released.</p>
 
+<h5>
+<a id="symfony3-components" class="anchor" href="#symfony3-components" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Symfony3 components</h5>
+
+<p>Do you have problems with dependencies
+(<a href="https://github.com/EdgedesignCZ/phpqa/issues/22">symfony components</a>, <a href="https://github.com/EdgedesignCZ/phpqa/issues/19">phpcpd</a>, ...)?
+Check if you can <a href="#circleci---artifacts--global-installation">install phpqa globally</a>.
+Or install dev-master versions of <code>sebastian/phpcpd</code> and <code>henrikbjorn/lurker</code>:</p>
+
+<div class="highlight highlight-source-json"><pre>{
+    <span class="pl-s"><span class="pl-pds">"</span>require-dev<span class="pl-pds">"</span></span>: {
+        <span class="pl-s"><span class="pl-pds">"</span>edgedesign/phpqa<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>&gt;=1.7<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>henrikbjorn/lurker<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>dev-master<span class="pl-pds">"</span></span>,
+        <span class="pl-s"><span class="pl-pds">"</span>sebastian/phpcpd<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>dev-master<span class="pl-pds">"</span></span>
+    }
+}</pre></div>
+
 <h3>
 <a id="docker" class="anchor" href="#docker" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Docker</h3>
 
@@ -274,8 +290,7 @@ It's optional feature that is by default turned off. You have to</p>
 or <a href="https://circleci.com/docs/manually/#overview">Circle CI</a> build should fail when new error is introduced.
 Define number of allowed errors for each tools and watch the build:</p>
 
-<pre><code>phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,phpmetrics,phploc,pdepend
-</code></pre>
+<div class="highlight highlight-source-shell"><pre>phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,phpmetrics,phploc,pdepend</pre></div>
 
 <p><img src="https://cloud.githubusercontent.com/assets/7994022/17077767/e18bcb2a-50dc-11e6-86bc-0dfc8e22d98c.png" alt="screenshot from 2016-07-23 13 53 34"></p>
 
@@ -350,10 +365,9 @@ phpqa --report</pre></div>
 <p>Define custom templates if you don't like <a href="/app/report">default templates</a>.
 You have to define path to <code>xsl</code> files in your <a href="#advanced-configuration---phpqayml"><code>.phpqa.yml</code></a>:</p>
 
-<pre><code># use different template for PHPMD, use default for other tools
-report:
-    phpmd: my-templates/phpmd.xsl
-</code></pre>
+<div class="highlight highlight-source-yaml"><pre><span class="pl-c"># use different template for PHPMD, use default for other tools</span>
+<span class="pl-ent">report:</span>
+    <span class="pl-ent">phpmd:</span> <span class="pl-s">my-templates/phpmd.xsl</span></pre></div>
 
 <p>Be aware that all <strong>paths are relative to <code>.phpqa.yml</code></strong>. Don't copy-paste section <code>report</code>
 if you don't have custom templates!</p>
@@ -438,6 +452,27 @@ other non-code directories. Otherwise the analysis could take a very long time.<
 <p><strong>Bash</strong></p>
 
 <div class="highlight highlight-source-shell"><pre>phpqa --verbose --report --analyzedDir ./ --buildDir ./var/CI --ignoredDirs=bin,log,temp,var,vendor,www</pre></div>
+
+<h3>
+<a id="circleci---artifacts--global-installation" class="anchor" href="#circleci---artifacts--global-installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Circle.ci - artifacts + global installation</h3>
+
+<div class="highlight highlight-source-yaml"><pre><span class="pl-ent">machine:</span>
+    <span class="pl-ent">php:</span>
+        <span class="pl-ent">version:</span> <span class="pl-s">7.0.4</span>
+
+<span class="pl-ent">dependencies:</span>
+    <span class="pl-ent">cache_directories:</span>
+        - <span class="pl-s">~/.composer/cache</span>
+    <span class="pl-ent">post:</span>
+        - <span class="pl-s"><span class="pl-pds">'</span>git clone https://github.com/EdgedesignCZ/phpqa.git ./qa &amp;&amp; cd qa &amp;&amp; composer install --no-dev<span class="pl-pds">'</span></span>
+
+<span class="pl-ent">test:</span>
+    <span class="pl-ent">override:</span>
+        - <span class="pl-s">vendor/bin/phpunit --testdox-html ./var/tests/testdox.html --testdox-text ./var/tests/testdox.txt --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml</span>
+        - <span class="pl-s">qa/phpqa --report --verbose --buildDir var/QA --ignoredDirs vendor --tools=phpcs:0,phpmd:0,phpcpd:0,phploc,pdepend,phpmetrics</span>
+    <span class="pl-ent">post:</span>
+        - <span class="pl-s">cp -r ./var/QA $CIRCLE_ARTIFACTS</span>
+        - <span class="pl-s">cp -r ./var/tests $CIRCLE_ARTIFACTS</span></pre></div>
 
 <h2>
 <a id="contributing" class="anchor" href="#contributing" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contributing</h2>
