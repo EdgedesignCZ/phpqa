@@ -31,7 +31,7 @@ class TableSummary
         $failedTools = [];
         foreach ($usedTools as $tool) {
             list($isOk, $errorsCount) = $tool->analyzeResult();
-            $totalErrors += $errorsCount;
+            $totalErrors += (int) $errorsCount;
             $table->addRow(array(
                 "<comment>{$tool}</comment>",
                 $tool->getAllowedErrorsCount(),

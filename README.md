@@ -71,6 +71,23 @@ But I wouldn't recommend it. In my experience *one* QA tool which analyzes
 *N* projects is better than *N* projects with *N* analyzers. It's up to you
 how many repositories you want to update when new version is released.
 
+##### Symfony3 components
+
+Do you have problems with dependencies
+([symfony components](https://github.com/EdgedesignCZ/phpqa/issues/22), [phpcpd](https://github.com/EdgedesignCZ/phpqa/issues/19), ...)?
+Check if you can [install phpqa globally](#circleci---artifacts--global-installation).
+Or install dev-master versions of `sebastian/phpcpd` and `henrikbjorn/lurker`:
+
+```
+{
+    "require-dev": {
+        "edgedesign/phpqa": "dev-master",
+        "henrikbjorn/lurker": "dev-master",
+        "sebastian/phpcpd": "dev-master"
+    }
+}
+```
+
 ### Docker
 
 ```bash
@@ -270,6 +287,28 @@ public function ciPhpqa()
 
 ```bash
 phpqa --verbose --report --analyzedDir ./ --buildDir ./var/CI --ignoredDirs=bin,log,temp,var,vendor,www
+```
+
+## Circle.ci - artifacts + global installation
+
+```
+machine:
+    php:
+        version: 7.0.4
+
+dependencies:
+    cache_directories:
+        - ~/.composer/cache
+    post:
+        - 'git clone https://github.com/EdgedesignCZ/phpqa.git ./qa && cd qa && composer install --no-dev'
+
+test:
+    override:
+        - vendor/bin/phpunit --testdox-html ./var/tests/testdox.html --testdox-text ./var/tests/testdox.txt --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml
+        - qa/phpqa --report --verbose --buildDir var/QA --ignoredDirs vendor --tools=phpcs:0,phpmd:0,phpcpd:0,phploc,pdepend,phpmetrics
+    post:
+        - cp -r ./var/QA $CIRCLE_ARTIFACTS
+        - cp -r ./var/tests $CIRCLE_ARTIFACTS
 ```
 
 ## Contributing
