@@ -11,25 +11,25 @@ trait CodeAnalysisTasks
         ),
         'phploc' => array(
             'optionSeparator' => ' ',
-            'transformedXml' => 'phploc.xml',
+            'xml' => ['phploc.xml'],
         ),
         'phpcs' => array(
             'optionSeparator' => '=',
-            'transformedXml' => 'checkstyle.xml',
+            'xml' => ['checkstyle.xml'],
             'errorsXPath' => '//checkstyle/file/error',
         ),
         'phpmd' => array(
             'optionSeparator' => ' ',
-            'transformedXml' => 'phpmd.xml',
+            'xml' => ['phpmd.xml'],
             'errorsXPath' => '//pmd/file/violation',
         ),
         'pdepend' => array(
             'optionSeparator' => '=',
-            'transformedXml' => ['pdepend-jdepend.xml', 'pdepend-summary.xml'],
+            'xml' => ['pdepend-jdepend.xml', 'pdepend-summary.xml'],
         ),
         'phpcpd' => array(
             'optionSeparator' => ' ',
-            'transformedXml' => 'phpcpd.xml',
+            'xml' => ['phpcpd.xml'],
             'errorsXPath' => '//pmd-cpd/duplication',
         ),
     );
@@ -149,7 +149,7 @@ trait CodeAnalysisTasks
             'min-tokens' => $this->config->value('phpcpd.minTokens'),
         );
         if ($this->options->isSavedToFiles) {
-            $args['log-pmd'] = escapePath($tool->transformedXml);
+            $args['log-pmd'] = $tool->getEscapedXmlFile();
         }
         return $args;
     }
@@ -169,7 +169,7 @@ trait CodeAnalysisTasks
         );
         if ($this->options->isSavedToFiles) {
             $args['report'] = 'checkstyle';
-            $args['report-file'] = escapePath($tool->transformedXml);
+            $args['report-file'] = $tool->getEscapedXmlFile();
         } else {
             $args['report'] = 'full';
         }
@@ -198,7 +198,7 @@ trait CodeAnalysisTasks
             $this->options->ignore->phpmd()
         );
         if ($this->options->isSavedToFiles) {
-            $args['reportfile'] = escapePath($tool->transformedXml);
+            $args['reportfile'] = $tool->getEscapedXmlFile();
         }
         return $args;
     }
@@ -224,14 +224,12 @@ trait CodeAnalysisTasks
     private function buildHtmlReport()
     {
         foreach ($this->usedTools as $tool) {
-            if ($tool->transformedXml) {
-                $tool->htmlReport = $this->options->rawFile("{$tool}.html");
-                xmlToHtml(
-                    $tool->transformedXml,
-                    $this->config->path("report.{$tool}"),
-                    $tool->htmlReport
-                );
-            }
+            $tool->htmlReport = $this->options->rawFile("{$tool}.html");
+            xmlToHtml(
+                $tool->getXmlFiles(),
+                $this->config->path("report.{$tool}"),
+                $tool->htmlReport
+            );
         }
         twigToHtml(
             'phpqa.html.twig',

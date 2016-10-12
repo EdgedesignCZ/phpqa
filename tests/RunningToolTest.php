@@ -22,7 +22,7 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
     public function testMarkFailureWhenXmlFileDoesNotExist()
     {
         $tool = new RunningTool('tool', [
-            'transformedXml' => 'non-existent.xml',
+            'xml' => ['non-existent.xml'],
             'errorsXPath' => '//errors/error',
         ]);
         assertThat($tool->analyzeResult(), is([false, 0]));
@@ -32,7 +32,7 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
     public function testCompareAllowedCountWithErrorsCountFromXml($allowedErrors, $isOk)
     {
         $tool = new RunningTool('tool', [
-            'transformedXml' => 'tests/Error/errors.xml',
+            'xml' => ['tests/Error/errors.xml'],
             'errorsXPath' => '//errors/error',
             'allowedErrorsCount' => $allowedErrors
         ]);

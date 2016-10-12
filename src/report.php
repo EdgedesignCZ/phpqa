@@ -16,22 +16,22 @@ function twigToHtml($template, array $params, $outputFile)
     file_put_contents($outputFile, $html);
 }
 
-function xmlToHtml($input, $style, $outputFile)
+function xmlToHtml(array $xmlDocuments, $style, $outputFile)
 {
+    if (!$xmlDocuments) {
+        return;
+    }
+
     convertPhpErrorsToExceptions();
     try {
-        if (is_array($input)) {
-            $rootXml = array_shift($input);
-            $xml = new DOMDocument();
-            $xml->load($rootXml);
-            foreach ($input as $file) {
-                $anotherXml = new DOMDocument();
-                $anotherXml->load($file);
-                $xml->documentElement->appendChild($xml->importNode($anotherXml->documentElement, true));
-            }
-        } else {
-            $xml = new DOMDocument();
-            $xml->load($input);
+        $rootXml = array_shift($xmlDocuments);
+        $xml = new DOMDocument();
+        $xml->load($rootXml);
+
+        foreach ($xmlDocuments as $file) {
+            $anotherXml = new DOMDocument();
+            $anotherXml->load($file);
+            $xml->documentElement->appendChild($xml->importNode($anotherXml->documentElement, true));
         }
 
         $xsl = new DOMDocument();
