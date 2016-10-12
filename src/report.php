@@ -20,8 +20,20 @@ function xmlToHtml($input, $style, $outputFile)
 {
     convertPhpErrorsToExceptions();
     try {
-        $xml = new DOMDocument();
-        $xml->load($input);
+        if (is_array($input)) {
+            $rootXml = array_shift($input);
+            $xml = new DOMDocument();
+            $xml->load($rootXml);
+            foreach ($input as $file) {
+                $anotherXml = new DOMDocument();
+                $anotherXml->load($file);
+                $xml->documentElement->appendChild($xml->importNode($anotherXml->documentElement, true));
+            }
+        } else {
+            $xml = new DOMDocument();
+            $xml->load($input);
+        }
+
         $xsl = new DOMDocument();
         $xsl->load($style);
 

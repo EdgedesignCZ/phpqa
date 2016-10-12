@@ -25,7 +25,7 @@ trait CodeAnalysisTasks
         ),
         'pdepend' => array(
             'optionSeparator' => '=',
-            'transformedXml' => 'pdepend-jdepend.xml',
+            'transformedXml' => ['pdepend-jdepend.xml', 'pdepend-summary.xml'],
         ),
         'phpcpd' => array(
             'optionSeparator' => ' ',

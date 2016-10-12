@@ -66,7 +66,7 @@ class Options
                 $preload = [
                     'allowedErrorsCount' => $this->allowedTools[$tool],
                     'transformedXml' => array_key_exists('transformedXml', $config)
-                        ? $this->rawFile($config['transformedXml']) : ''
+                        ? (is_array($config['transformedXml']) ? array_map([$this, 'rawFile'], $config['transformedXml']) : $this->rawFile($config['transformedXml'])) : ''
                 ];
                 $allowed[$tool] = new RunningTool($tool, $preload + $config);
             }
