@@ -25,7 +25,7 @@ trait CodeAnalysisTasks
         ),
         'pdepend' => array(
             'optionSeparator' => '=',
-            'xml' => ['pdepend-jdepend.xml', 'pdepend-summary.xml'],
+            'xml' => ['pdepend-jdepend.xml', 'pdepend-summary.xml', 'pdepend-dependencies.xml'],
         ),
         'phpcpd' => array(
             'optionSeparator' => ' ',
@@ -181,6 +181,7 @@ trait CodeAnalysisTasks
         return array(
             'jdepend-xml' => $this->options->toFile('pdepend-jdepend.xml'),
             'summary-xml' => $this->options->toFile('pdepend-summary.xml'),
+            'dependency-xml' => $this->options->toFile('pdepend-dependencies.xml'),
             'jdepend-chart' => $this->options->toFile('pdepend-jdepend.svg'),
             'overview-pyramid' => $this->options->toFile('pdepend-pyramid.svg'),
             $this->options->ignore->pdepend(),

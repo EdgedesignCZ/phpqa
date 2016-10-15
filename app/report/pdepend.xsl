@@ -51,13 +51,13 @@
         margin-right:2em;
       }
 
-        .fixed-links {
+        .fixed-navbar {
             list-style-type: none;
             position: fixed;
-            top: 3em;
+            top: 0;
             right: 1em;
         }
-        .fixed-links li {
+        .fixed-navbar li {
             display: inline-block;
             margin-left: 1ex;
         }
@@ -99,6 +99,9 @@
                     </li>
                     <li role="presentation">
                         <a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#dependencies" aria-controls="dependencies" role="tab" data-toggle="tab">Dependencies</a>
                     </li>
                     <li role="presentation">
                         <a href="#metrics" aria-controls="metrics" role="tab" data-toggle="tab">Metrics</a>
@@ -153,6 +156,9 @@
                 <div role="tabpanel" class="tab-pane" id="packages">
                     <xsl:apply-templates select="./Packages"></xsl:apply-templates>
                 </div>
+                <div role="tabpanel" class="tab-pane" id="dependencies">
+                    <xsl:apply-templates select="./dependencies"></xsl:apply-templates>
+                </div>
                 <div role="tabpanel" class="tab-pane" id="metrics">
                     <xsl:apply-templates select="./metrics"></xsl:apply-templates>
                 </div>
@@ -171,7 +177,7 @@
 <!-- XSL from https://github.com/elnebuloso/phing-commons/blob/cc8478f930b38fe7542542d9490128e73d707356/resources/ -->
 <xsl:template match="Packages">
 
-    <ul class="fixed-links">
+    <ul class="fixed-navbar">
         <li><a class="label label-default" href="#NVsummary">summary</a></li>
         <li><a class="label label-default" href="#NVpackages">packages</a></li>
         <li><a class="label label-default" href="#NVcycles">cycles</a></li>
@@ -358,9 +364,83 @@
 
 </xsl:template>
 
+<!-- inspired by Dependencies in Qafoo https://github.com/Qafoo/QualityAnalyzer/blob/master/src/images/screen.png -->
+<xsl:template match="dependencies">
+    <div class="fixed-navbar">
+        <div class="input-group" style="width: 20em">
+            <span class="input-group-addon">Filter</span>
+            <input data-search="dependencies" type="text" class="form-control" placeholder="progressbar..." />
+        </div>
+        <small class="help-block">Results count: <strong data-results-count=""></strong></small>
+    </div>
+
+    <script>
+    onDocumentReady.push(function () {
+        var rows = $('[data-filterable] tbody tr');
+        var dependencies = rows.find('[data-dependency], small.text-muted');
+        var resultsCount = $('[data-results-count]');
+
+        $("[data-search]").keyup(function () {
+            var term = $(this).val().toLowerCase();
+
+            rows.hide();
+            var visibleRows = matchElements(rows);
+            visibleRows.show();
+            resultsCount.text(visibleRows.length);
+
+            dependencies.removeClass('highlight');
+            if (term) {
+                matchElements(dependencies).addClass('highlight');
+            }
+
+            function matchElements(elements) {
+                return elements.filter(function () {
+                    var rowContent = $(this).text().toLowerCase();
+                    return rowContent.indexOf(term) !== -1
+                });
+            }
+        });
+    });
+    </script>
+    <style>.highlight {background: yellow}</style>
+
+    <table class="table table-bordered details" data-filterable="dependencies">
+        <thead>
+            <tr>
+                <th>Dependency</th>
+                <th>Efferent Couplings</th>
+                <th>Afferent Couplings</th>
+            </tr>
+        </thead>
+    <xsl:for-each select="./package"> 
+        <xsl:for-each select="./*"> 
+        <tr>
+            <td>
+                <strong data-dependency=""> 
+                    <xsl:value-of select="./../@name"/>\<xsl:value-of select="@name"/> 
+                </strong> 
+                <br />
+                <small class="text-muted"><xsl:value-of select="name(.)"/></small>
+            </td> 
+            <td>
+                <xsl:for-each select="./efferent/type"> 
+                    <span data-dependency=""><xsl:value-of select="@namespace" />\<xsl:value-of select="@name" /></span><br />
+                </xsl:for-each> 
+            </td>
+            <td>
+                <xsl:for-each select="./afferent/type"> 
+                    <span data-dependency=""><xsl:value-of select="@namespace" />\<xsl:value-of select="@name" /></span><br />
+                </xsl:for-each> 
+            </td>
+        </tr>
+        </xsl:for-each> 
+    </xsl:for-each> 
+    </table>
+</xsl:template>
+
 <!-- XSL from https://gist.github.com/garex/5cd9b97c40f3369cb8cf60f253868df9 -->
 <xsl:template match="metrics">
-    <div class="fixed-links">
+    <div class="fixed-navbar">
         <div class="checkbox-inline">
             <label>
                 <input type="checkbox" id="class-ranks" />
