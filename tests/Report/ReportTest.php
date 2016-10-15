@@ -13,16 +13,16 @@ class ReportTest extends \PHPUnit_Framework_TestCase
         $this->phplocXsl = __DIR__ . "/../../app/report/phploc.xsl";
     }
 
-    public function testShouldConvertTwigToHtml()
+    public function testConvertTwigToHtml()
     {
         twigToHtml("phpqa.html.twig", array('tools' => array()), $this->output);
         assertThat(file_get_contents($this->output), containsString('phpqa'));
     }
 
     /** @dataProvider provideXml */
-    public function testShouldConvertXmlToHtml($xml, $assertOutput)
+    public function testConvertXmlToHtml($xml, $assertOutput)
     {
-        xmlToHtml(__DIR__ . "/{$xml}", $this->phplocXsl, $this->output);
+        xmlToHtml([__DIR__ . "/{$xml}"], $this->phplocXsl, $this->output);
         assertThat(file_get_contents($this->output), $assertOutput);
     }
 
@@ -34,8 +34,16 @@ class ReportTest extends \PHPUnit_Framework_TestCase
         );
     }
 
+    public function testIgnoreMissingXmlDocuments()
+    {
+        xmlToHtml([], $this->phplocXsl, $this->output);
+        assertThat(file_exists($this->output), is(false));
+    }
+
     public function tearDown()
     {
-        unlink($this->output);
+        if (file_exists($this->output)) {
+            unlink($this->output);
+        }
     }
 }

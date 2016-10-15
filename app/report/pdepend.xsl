@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-<!-- XSL from https://github.com/elnebuloso/phing-commons/blob/cc8478f930b38fe7542542d9490128e73d707356/resources/ -->
 <!--
    Licensed to the Apache Software Foundation (ASF) under one or more
    contributor license agreements.  See the NOTICE file distributed with
@@ -22,47 +21,17 @@
     <html>
     <head>
         <title>PHPDepend Analysis</title>
-
     <style type="text/css">
-      body {
-        font:normal 68% verdana,arial,helvetica;
-        color:#000000;
-      }
-      table tr td, tr th {
-          font-size: 68%;
-      }
-      table.details tr th{
+        table, nav {
+            margin: 1em 0;
+        }
+      table.details tr th {
         font-weight: bold;
         text-align:left;
         background:#a6caf0;
       }
-      table.details tr td{
+      table.details tr td {
         background:#eeeee0;
-      }
-
-      p {
-        line-height:1.5em;
-        margin-top:0.5em; margin-bottom:1.0em;
-        margin-left:2em;
-        margin-right:2em;
-      }
-      h1 {
-        margin: 0px 0px 5px; font: 165% verdana,arial,helvetica
-      }
-      h2 {
-        margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica
-      }
-      h3 {
-        margin-bottom: 0.5em; font: bold 115% verdana,arial,helvetica
-      }
-      h4 {
-        margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
-      }
-      h5 {
-        margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
-      }
-      h6 {
-        margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
       }
       .Error {
         font-weight:bold; color:red;
@@ -76,31 +45,148 @@
       img {
         height: 300px;
       }  
-      </style>
+      p.cycle {
+        margin-top:0.5em; margin-bottom:1.0em;
+        margin-left:2em;
+        margin-right:2em;
+      }
 
+        .fixed-navbar {
+            list-style-type: none;
+            position: fixed;
+            top: 0;
+            right: 1em;
+        }
+        .fixed-navbar li {
+            display: inline-block;
+            margin-left: 1ex;
+        }
+        img {
+            max-width: 700px !important;
+            width: 100%;
+        }
+        dt a:target {
+            background: yellow;
+        }
+        bt.btn-link {
+            margin-left: 1ex;
+        }
+        
+      ul.methods { -webkit-column-count: 3; }
+      .position-top-20 { color: red; }
+      .position-top-10 { font-weight: bold; }
+      .position-top-20 .badge {
+            background: #f0ad4e
+      }
+      .position-top-10 .badge {
+            background: #d9534f
+      }
+      .ccn-is-low { color: gray;  font-size: 80%; }
+      .ccn-is-low button { display: none; }
+      </style>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
+    <script>var onDocumentReady = [];</script>
 
     </head>
     <body>
 
-    <h1><a name="top">PHPDepend Analysis</a></h1>
+        <div class="container-fluid">
+            <nav>
+                <ul class="nav nav-pills" role="tablist">
+                    <li role="presentation" class="active">
+                        <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#dependencies" aria-controls="dependencies" role="tab" data-toggle="tab">Dependencies</a>
+                    </li>
+                    <li role="presentation">
+                        <a href="#metrics" aria-controls="metrics" role="tab" data-toggle="tab">Metrics</a>
+                    </li>
+                </ul>
+            </nav>
 
-    <table>
-        <tr>
-            <td><img src="pdepend-jdepend.svg" /></td>
-            <td><img src="pdepend-pyramid.svg" /></td>
-        </tr>
-    </table>
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="overview">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <img src="pdepend-pyramid.svg" class="img-responsive" />
+                        </div>
+                        <div class="col-sm-6">
+                            <img src="pdepend-jdepend.svg" class="img-responsive" />
+                        </div>
+                    </div>
 
-    <table width="100%"><tr><td>
-    <a name="NVsummary"><h2>Summary</h2></a>
-    </td><td align="right">
-    [<a href="#NVsummary">summary</a>]
-    [<a href="#NVpackages">packages</a>]
-    [<a href="#NVcycles">cycles</a>]
-    [<a href="#NVexplanations">explanations</a>]
-    </td></tr></table>
+                    <table class="table table-striped table-condensed table-hover">
+                        <thead>
+                            <tr>
+                                <th>Metric</th>
+                                <th>Value</th>
+                            </tr>
+                        </thead>
+                        <tr>
+                            <th>Cyclomatic Complexity Number</th>
+                            <td><xsl:value-of select="./metrics/@ccn"/></td>
+                        </tr>
+                        <tr>
+                            <th>Number of Method or Function Calls</th>
+                            <td><xsl:value-of select="./metrics/@calls"/></td>
+                        </tr>
+                        <tr>
+                            <th>Abstract classes</th>
+                            <td><xsl:value-of select="./metrics/@clsa"/></td>
+                        </tr>
+                        <tr>
+                            <th>Concrete classes</th>
+                            <td><xsl:value-of select="./metrics/@clsc"/></td>
+                        </tr>
+                        <tr>
+                            <th>Interfaces</th>
+                            <td><xsl:value-of select="./metrics/@noi"/></td>
+                        </tr>
+                        <tr>
+                            <th>Methods</th>
+                            <td><xsl:value-of select="./metrics/@nom"/></td>
+                        </tr>
+                    </table>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="packages">
+                    <xsl:apply-templates select="./Packages"></xsl:apply-templates>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="dependencies">
+                    <xsl:apply-templates select="./dependencies"></xsl:apply-templates>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="metrics">
+                    <xsl:apply-templates select="./metrics"></xsl:apply-templates>
+                </div>
+            </div>
+        </div>        
 
-    <table width="100%" class="details">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(onDocumentReady);
+        </script>
+    </body>
+    </html>
+</xsl:template>
+
+<!-- XSL from https://github.com/elnebuloso/phing-commons/blob/cc8478f930b38fe7542542d9490128e73d707356/resources/ -->
+<xsl:template match="Packages">
+
+    <ul class="fixed-navbar">
+        <li><a class="label label-default" href="#NVsummary">summary</a></li>
+        <li><a class="label label-default" href="#NVpackages">packages</a></li>
+        <li><a class="label label-default" href="#NVcycles">cycles</a></li>
+        <li><a class="label label-default" href="#NVexplanations">explanations</a></li>
+    </ul>
+
+    <h3 id="NVsummary">Summary</h3>
+
+    <table class="details table table-bordered">
         <tr>
             <th>Package</th>
             <th>Total Classes</th>
@@ -113,7 +199,7 @@
             <th><a href="#EXdistance">Distance</a></th>
 
         </tr>
-    <xsl:for-each select="./Packages/Package">
+    <xsl:for-each select="./Package">
         <xsl:if test="count(error) = 0">
             <tr>
                 <td align="left">
@@ -136,7 +222,7 @@
             </tr>
         </xsl:if>
     </xsl:for-each>
-    <xsl:for-each select="./Packages/Package">
+    <xsl:for-each select="./Package">
         <xsl:if test="count(error) &gt; 0">
             <tr>
                 <td align="left">
@@ -148,19 +234,14 @@
     </xsl:for-each>
     </table>
 
-    <table width="100%"><tr><td>
-    <a name="NVpackages"><h2>Packages</h2></a>
-    </td><td align="right">
-    [<a href="#NVsummary">summary</a>]
-    [<a href="#NVpackages">packages</a>]
-    [<a href="#NVcycles">cycles</a>]
-    [<a href="#NVexplanations">explanations</a>]
-    </td></tr></table>
+    <h3 id="NVpackages">Packages</h3>
 
-    <xsl:for-each select="./Packages/Package">
+    <xsl:for-each select="./Package">
         <xsl:if test="count(error) = 0">
-            <h3><a><xsl:attribute name="name">PK<xsl:value-of select="@name"/></xsl:attribute>
-            <xsl:value-of select="@name"/></a></h3>
+            <h4>
+                <xsl:attribute name="id">PK<xsl:value-of select="@name"/></xsl:attribute>
+                <xsl:value-of select="@name"/>
+            </h4>
 
             <table width="100%"><tr>
                 <td><a href="#EXafferent">Afferent Couplings</a>: <xsl:value-of select="Stats/Ca"/></td>
@@ -170,7 +251,7 @@
                 <td><a href="#EXdistance">Distance</a>: <xsl:value-of select="Stats/D"/></td>
             </tr></table>
 
-            <table width="100%" class="details">
+            <table width="100%" class="table table-bordered details">
                 <tr>
                     <th>Abstract Classes</th>
                     <th>Concrete Classes</th>
@@ -221,55 +302,283 @@
         </xsl:if>
     </xsl:for-each>
 
-    <table width="100%"><tr><td>
-    <a name="NVcycles"><h2>Cycles</h2></a>
-    </td><td align="right">
-    [<a href="#NVsummary">summary</a>]
-    [<a href="#NVpackages">packages</a>]
-    [<a href="#NVcycles">cycles</a>]
-    [<a href="#NVexplanations">explanations</a>]
-    </td></tr></table>
+    <h3 id="NVcycles">Cycles</h3>
 
-    <xsl:if test="count(Cycles/Package) = 0">
+    <xsl:if test="count(../Cycles/Package) = 0">
         <p>There are no cyclic dependancies.</p>
     </xsl:if>
-    <xsl:for-each select="Cycles/Package">
-        <h3><xsl:value-of select="@Name"/></h3><p>
+    <xsl:for-each select="../Cycles/Package">
+        <h4><xsl:value-of select="@Name"/></h4>
+        <p class="cycle">
         <xsl:for-each select="Package">
             <xsl:value-of select="."/><br/>
-        </xsl:for-each></p>
+        </xsl:for-each>
+        </p>
     </xsl:for-each>
 
-    <table width="100%"><tr><td>
-    <a name="NVexplanations"><h2>Explanations</h2></a>
-    </td><td align="right">
-    [<a href="#NVsummary">summary</a>]
-    [<a href="#NVpackages">packages</a>]
-    [<a href="#NVcycles">cycles</a>]
-    [<a href="#NVexplanations">explanations</a>]
-    </td></tr></table>
+    <h3 id="NVexplanations">Explanations</h3>
 
-    <p>The following explanations are for quick reference and are lifted directly from the original <a href="http://www.clarkware.com/software/JDepend.html">JDepend documentation</a>.</p>
+    <p class="text-muted">The following explanations are for quick reference and are lifted directly from the original <a href="http://www.clarkware.com/software/JDepend.html">JDepend documentation</a>.</p>
 
-    <h3><a name="EXnumber">Number of Classes</a></h3>
-        <p>The number of concrete and abstract classes (and interfaces) in the package is an indicator of the extensibility of the package.</p>
-    <h3><a name="EXafferent">Afferent Couplings</a></h3>
-        <p>The number of other packages that depend upon classes within the package is an indicator of the package's responsibility. </p>
-    <h3><a name="EXefferent">Efferent Couplings</a></h3>
-        <p>The number of other packages that the classes in the package depend upon is an indicator of the package's independence. </p>
-    <h3><a name="EXabstractness">Abstractness</a></h3>
-        <p>The ratio of the number of abstract classes (and interfaces) in the analyzed package to the total number of classes in the analyzed package. </p>
-        <p>The range for this metric is 0 to 1, with A=0 indicating a completely concrete package and A=1 indicating a completely abstract package. </p>
-    <h3><a name="EXinstability">Instability</a></h3>
-        <p>The ratio of efferent coupling (Ce) to total coupling (Ce / (Ce + Ca)). This metric is an indicator of the package's resilience to change. </p>
-        <p>The range for this metric is 0 to 1, with I=0 indicating a completely stable package and I=1 indicating a completely instable package. </p>
-    <h3><a name="EXdistance">Distance</a></h3>
+    <dl class="dl-horizontal">
+      <dt><a name="EXnumber">Number of Classes</a></dt>
+      <dd>
+          <p>The number of concrete and abstract classes (and interfaces) in the package is an indicator of the extensibility of the package.</p>
+      </dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt><a name="EXafferent">Afferent Couplings</a></dt>
+      <dd>
+          <p>The number of other packages that depend upon classes within the package is an indicator of the package's responsibility. </p>
+      </dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt><a name="EXefferent">Efferent Couplings</a></dt>
+      <dd>
+          <p>The number of other packages that the classes in the package depend upon is an indicator of the package's independence. </p>
+      </dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt><a name="EXabstractness">Abstractness</a></dt>
+      <dd>
+          <p>The ratio of the number of abstract classes (and interfaces) in the analyzed package to the total number of classes in the analyzed package. </p>
+            <p>The range for this metric is 0 to 1, with A=0 indicating a completely concrete package and A=1 indicating a completely abstract package. </p>
+      </dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt><a name="EXinstability">Instability</a></dt>
+      <dd>
+          <p>The ratio of efferent coupling (Ce) to total coupling (Ce / (Ce + Ca)). This metric is an indicator of the package's resilience to change. </p>
+          <p>The range for this metric is 0 to 1, with I=0 indicating a completely stable package and I=1 indicating a completely instable package. </p>
+      </dd>
+    </dl>
+    <dl class="dl-horizontal">
+      <dt><a name="EXdistance">Distance</a></dt>
+      <dd>
         <p>The perpendicular distance of a package from the idealized line A + I = 1. This metric is an indicator of the package's balance between abstractness and stability. </p>
         <p>A package squarely on the main sequence is optimally balanced with respect to its abstractness and stability. Ideal packages are either completely abstract and stable (x=0, y=1) or completely concrete and instable (x=1, y=0). </p>
         <p>The range for this metric is 0 to 1, with D=0 indicating a package that is coincident with the main sequence and D=1 indicating a package that is as far from the main sequence as possible. </p>
+      </dd>
+    </dl>
 
-    </body>
-    </html>
+
 </xsl:template>
 
+<!-- inspired by Dependencies in Qafoo https://github.com/Qafoo/QualityAnalyzer/blob/master/src/images/screen.png -->
+<xsl:template match="dependencies">
+    <div class="fixed-navbar">
+        <div class="input-group" style="width: 20em">
+            <span class="input-group-addon">Filter</span>
+            <input data-search="dependencies" type="text" class="form-control" placeholder="progressbar..." />
+        </div>
+        <small class="help-block">Results count: <strong data-results-count=""></strong></small>
+    </div>
+
+    <script>
+    onDocumentReady.push(function () {
+        var rows = $('[data-filterable] tbody tr');
+        var dependencies = rows.find('[data-dependency], small.text-muted');
+        var resultsCount = $('[data-results-count]');
+
+        $("[data-search]").keyup(function () {
+            var term = $(this).val().toLowerCase();
+
+            rows.hide();
+            var visibleRows = matchElements(rows);
+            visibleRows.show();
+            resultsCount.text(visibleRows.length);
+
+            dependencies.removeClass('highlight');
+            if (term) {
+                matchElements(dependencies).addClass('highlight');
+            }
+
+            function matchElements(elements) {
+                return elements.filter(function () {
+                    var rowContent = $(this).text().toLowerCase();
+                    return rowContent.indexOf(term) !== -1
+                });
+            }
+        });
+    });
+    </script>
+    <style>.highlight {background: yellow}</style>
+
+    <table class="table table-bordered details" data-filterable="dependencies">
+        <thead>
+            <tr>
+                <th>Dependency</th>
+                <th>Efferent Couplings</th>
+                <th>Afferent Couplings</th>
+            </tr>
+        </thead>
+    <xsl:for-each select="./package"> 
+        <xsl:for-each select="./*"> 
+        <tr>
+            <td>
+                <strong data-dependency=""> 
+                    <xsl:value-of select="./../@name"/>\<xsl:value-of select="@name"/> 
+                </strong> 
+                <br />
+                <small class="text-muted"><xsl:value-of select="name(.)"/></small>
+            </td> 
+            <td>
+                <xsl:for-each select="./efferent/type"> 
+                    <span data-dependency=""><xsl:value-of select="@namespace" />\<xsl:value-of select="@name" /></span><br />
+                </xsl:for-each> 
+            </td>
+            <td>
+                <xsl:for-each select="./afferent/type"> 
+                    <span data-dependency=""><xsl:value-of select="@namespace" />\<xsl:value-of select="@name" /></span><br />
+                </xsl:for-each> 
+            </td>
+        </tr>
+        </xsl:for-each> 
+    </xsl:for-each> 
+    </table>
+</xsl:template>
+
+<!-- XSL from https://gist.github.com/garex/5cd9b97c40f3369cb8cf60f253868df9 -->
+<xsl:template match="metrics">
+    <div class="fixed-navbar">
+        <div class="checkbox-inline">
+            <label>
+                <input type="checkbox" id="class-ranks" />
+                show complex classes
+            </label>
+        </div>
+        <div class="checkbox-inline">
+            <label title="CCN = 1">
+                <input type="checkbox" id="methods-low-ccn" />
+                show methods with low complexity
+            </label>
+        </div>
+    </div>
+    <script>
+        onDocumentReady.push(toggleComplexClasses);
+        onDocumentReady.push(toggleMethods);
+
+        function toggleComplexClasses() {
+            var checkboxClass = $('#class-ranks');
+            var classes = $('.not-top-position').closest('div');
+            var packages = $('[data-package]');
+        
+            toggleClasses();
+            checkboxClass.change(toggleClasses);
+        
+            function toggleClasses() {
+                var areHidden = checkboxClass.is(':checked');
+                if (areHidden) {
+                    classes.hide();
+                    getPackagesWithNoComplexClass().hide();
+                } else {
+                    classes.show();
+                    packages.show();
+                }
+            }
+
+            function getPackagesWithNoComplexClass() {
+                return packages.filter(function () {
+                    var topClassesCount = $(this).find('h4[class*="position-top"]').length;
+                    return topClassesCount == 0;
+                });
+            }
+        }
+
+        function toggleMethods() {
+            var checkbox = $('#methods-low-ccn');
+            var methods = $('.ccn-is-low');
+        
+            toggleMethods();
+            checkbox.change(toggleMethods);
+        
+            function toggleMethods() {
+                var areHidden = checkbox.is(':not(:checked)');
+                if (areHidden) {
+                    methods.hide();
+                } else {
+                    methods.show();
+                }
+            }
+        }
+    </script>
+
+    <xsl:for-each select="./package">
+        
+        <div data-package="">
+            <h3>
+                <xsl:value-of select="@name"/>
+                <button class="btn btn-link btn-sm" title="Google PageRank applied on Packages and Classes. Classes with a high value should be tested frequently.">
+                    code rank <span class="badge"><xsl:value-of select="@cr"/></span>
+                </button>
+            </h3>
+            <ul class="classes">
+                <xsl:apply-templates select="class">
+                    <xsl:sort
+                        select="@wmc"
+                        data-type="number"
+                        order="descending"
+                    />
+                </xsl:apply-templates>
+            </ul>
+        </div>
+    </xsl:for-each>
+</xsl:template>
+
+<xsl:template match="class">
+    <div>
+        <h4>
+            <xsl:attribute name="class">
+                <xsl:if test="0.1 > position() div count(../class)">
+                    position-top-10
+                </xsl:if>
+                <xsl:if test="0.2 > position() div count(../class)">
+                    position-top-20
+                </xsl:if>
+                <xsl:if test="position() div count(../class) >= 0.2">
+                    not-top-position
+                </xsl:if>
+            </xsl:attribute>
+            <xsl:value-of select="@name"/>
+            <button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge"><xsl:value-of select="@wmc"/></span>
+            </button>
+            <button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge"><xsl:value-of select="@cbo"/></span>
+            </button>
+        </h4>
+        <ul class="methods">
+        <xsl:apply-templates select="method">
+          <xsl:sort
+            select="@npath"
+            data-type="number"
+            order="descending"
+            />
+        </xsl:apply-templates>
+        </ul>
+        
+    </div>
+</xsl:template>
+<xsl:template match="method">
+  <p>
+    <xsl:attribute name="class">
+      <xsl:if test="0.1 > position() div count(../method)">
+        position-top-10
+      </xsl:if>
+      <xsl:if test="0.2 > position() div count(../method)">
+        position-top-20
+      </xsl:if>
+      <xsl:if test="1 >= @ccn">
+        ccn-is-low
+      </xsl:if>
+    </xsl:attribute>
+    <xsl:value-of select="@name"/>
+    <button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge"><xsl:value-of select="@ccn"/></span>
+    </button>
+    <button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge"><xsl:value-of select="@npath"/></span>
+    </button>
+  </p>
+</xsl:template>
 </xsl:stylesheet>
