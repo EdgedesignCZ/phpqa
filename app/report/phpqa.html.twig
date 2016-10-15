@@ -1,3 +1,19 @@
+{%
+set tabs = {
+    'phpmetrics': {
+        'link-overview': 'Overview',
+        'link-score': 'Score',
+        'link-relations': 'Relations map',
+        'link-repartition': 'Repartition',
+        'link-explore': 'Explore',
+    }, 
+    'pdepend': {
+        'overview': 'Overview',
+        'packages': 'Packages',
+        'metrics': 'Metrics',
+    }
+}
+%}
 <html>
 <head>
     <title>phpqa report - by EdgedesignCZ</title>
@@ -17,6 +33,10 @@
             width: 100%;
             height: 100% !important;
             border: 0;
+        }
+        .dropdown a.dropdown-toggle {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
         }
     </style>
 </head>
@@ -40,25 +60,53 @@
             <ul class="nav navbar-nav nav-tabs" role="tablist">
                 {% for tool in tools %}
                 <li{{ loop.first ? ' class=active' : '' }}><a href="#{{ tool }}">{{ tool }}</a></li>
+                {% if tabs[tool] is defined %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        &nbsp;<span class="caret"></span>&nbsp;
+                    </a>
+                    <ul class="dropdown-menu">
+                        {% for link, tab in tabs[tool] %}
+                        <li><a href="#{{ tool }}" data-iframe-tab="{{ link }}">{{ tab }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% endif %}
                 {% endfor %}
             </ul>
         </div>
       </div>
     </nav>
-
+                
     <div class="tab-content">
         {% for tool in tools %}
         <div role="tabpanel" class="tab-pane{{ loop.first ? ' active' : '' }}" id="{{ tool }}">
-            <iframe id="{{ tool }}" src="{{ tool }}.html"></iframe>
+            <iframe id="iframe-{{ tool }}" src="{{ tool }}.html"></iframe>
         </div>
         {% endfor %}
     </div>
 
     <script>
     (function () {
+        var tabsInIframe = {
+            '#pdepend': function(iframe, tab) {
+                iframe.$("nav [aria-controls=" + tab + "]").tab('show');
+            },
+            '#phpmetrics': function(iframe, tab) {
+                iframe.document.getElementById(tab).onclick();
+            },
+        };
+        
         $('.nav a').click(function (e) {
           e.preventDefault();
           $(this).tab('show');
+
+          var target = $(this).data('iframe-tab');
+          if (target) {
+              var tabOpener = tabsInIframe[$(this).attr('href')];
+              var iframe = $(".tab-pane.active iframe")[0].contentWindow;
+              tabOpener(iframe, target);
+          }
         });
     }());
     </script>

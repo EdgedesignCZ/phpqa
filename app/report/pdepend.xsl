@@ -95,7 +95,7 @@
             <nav>
                 <ul class="nav nav-pills" role="tablist">
                     <li role="presentation" class="active">
-                        <a href="#summary" aria-controls="summary" role="tab" data-toggle="tab">Summary</a>
+                        <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
                     </li>
                     <li role="presentation">
                         <a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a>
@@ -107,7 +107,7 @@
             </nav>
 
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="summary">
+                <div role="tabpanel" class="tab-pane active" id="overview">
                     <div class="row">
                         <div class="col-sm-6">
                             <img src="pdepend-pyramid.svg" class="img-responsive" />
