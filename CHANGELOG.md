@@ -1,10 +1,23 @@
 
 # Changelog
 
+## v1.7.1
+
+* [#32](https://github.com/EdgedesignCZ/phpqa/pull/32) Improved reports
+    * pdepend - dependencies, [#31](https://github.com/EdgedesignCZ/phpqa/issues/31) summary report
+
+        ![screenshot from 2016-10-15 10 41 19](https://cloud.githubusercontent.com/assets/7994022/19408696/ef3d1200-92c3-11e6-90c1-258b63051ec0.png)
+        ![screenshot from 2016-10-15 10 40 33](https://cloud.githubusercontent.com/assets/7994022/19408695/ef390d68-92c3-11e6-9035-266cb6a77d0a.png)
+
+    * open tabs from navbar
+
+        ![screenshot from 2016-10-15 10 38 12](https://cloud.githubusercontent.com/assets/7994022/19408678/888fe802-92c3-11e6-86ac-9595d576a9dd.png)
+
+
 ## v1.7.0
 
 * [#22](https://github.com/EdgedesignCZ/phpqa/issues/22) Support Symfony3 components
-* [#28](https://github.com/EdgedesignCZ/phpqa/pull/28) Add PHP 7.1 support, circle.ci example
+* [#30](https://github.com/EdgedesignCZ/phpqa/pull/30) Add PHP 7.1 support, circle.ci example
 * Add [docker usage](https://github.com/EdgedesignCZ/phpqa/commit/89cb494) to readme
 
 ## v1.6.0
