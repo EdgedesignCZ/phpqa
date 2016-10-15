@@ -1,43 +1,14 @@
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>PHPDepend Analysis</title><style type="text/css">
-      body {
-        font:normal 68% verdana,arial,helvetica;
-        color:#000000;
-      }
-      table tr td, tr th {
-          font-size: 68%;
-      }
-      table.details tr th{
+        table, nav {
+            margin: 1em 0;
+        }
+      table.details tr th {
         font-weight: bold;
         text-align:left;
         background:#a6caf0;
       }
-      table.details tr td{
+      table.details tr td {
         background:#eeeee0;
-      }
-
-      p {
-        line-height:1.5em;
-        margin-top:0.5em; margin-bottom:1.0em;
-        margin-left:2em;
-        margin-right:2em;
-      }
-      h1 {
-        margin: 0px 0px 5px; font: 165% verdana,arial,helvetica
-      }
-      h2 {
-        margin-top: 1em; margin-bottom: 0.5em; font: bold 125% verdana,arial,helvetica
-      }
-      h3 {
-        margin-bottom: 0.5em; font: bold 115% verdana,arial,helvetica
-      }
-      h4 {
-        margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
-      }
-      h5 {
-        margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
-      }
-      h6 {
-        margin-bottom: 0.5em; font: bold 100% verdana,arial,helvetica
       }
       .Error {
         font-weight:bold; color:red;
@@ -51,24 +22,418 @@
       img {
         height: 300px;
       }  
-      </style></head><body><h1><a name="top">PHPDepend Analysis</a></h1><table><tr><td><img src="pdepend-jdepend.svg"></td><td><img src="pdepend-pyramid.svg"></td></tr></table><table width="100%"><tr><td><a name="NVsummary"><h2>Summary</h2></a></td><td align="right">
-    [<a href="#NVsummary">summary</a>]
-    [<a href="#NVpackages">packages</a>]
-    [<a href="#NVcycles">cycles</a>]
-    [<a href="#NVexplanations">explanations</a>]
-    </td></tr></table><table width="100%" class="details"><tr><th>Package</th><th>Total Classes</th><th><a href="#EXnumber">Abstract Classes</a></th><th><a href="#EXnumber">Concrete Classes</a></th><th><a href="#EXafferent">Afferent Couplings</a></th><th><a href="#EXefferent">Efferent Couplings</a></th><th><a href="#EXabstractness">Abstractness</a></th><th><a href="#EXinstability">Instability</a></th><th><a href="#EXdistance">Distance</a></th></tr><tr><td align="left"><a href="#PKEdge%5CQA">Edge\QA</a></td><td align="right">10</td><td align="right">0</td><td align="right">10</td><td align="right">1</td><td align="right">4</td><td align="right">0</td><td align="right">0.8</td><td align="right">0.2</td></tr><tr><td align="left"><a href="#PKEdge%5CQA%5CTask">Edge\QA\Task</a></td><td align="right">2</td><td align="right">0</td><td align="right">2</td><td align="right">1</td><td align="right">5</td><td align="right">0</td><td align="right">0.83333333333333</td><td align="right">0.16666666666667</td></tr></table><table width="100%"><tr><td><a name="NVpackages"><h2>Packages</h2></a></td><td align="right">
-    [<a href="#NVsummary">summary</a>]
-    [<a href="#NVpackages">packages</a>]
-    [<a href="#NVcycles">cycles</a>]
-    [<a href="#NVexplanations">explanations</a>]
-    </td></tr></table><h3><a name="PKEdge%5CQA">Edge\QA</a></h3><table width="100%"><tr><td><a href="#EXafferent">Afferent Couplings</a>: 1</td><td><a href="#EXefferent">Efferent Couplings</a>: 4</td><td><a href="#EXabstractness">Abstractness</a>: 0</td><td><a href="#EXinstability">Instability</a>: 0.8</td><td><a href="#EXdistance">Distance</a>: 0.2</td></tr></table><table width="100%" class="details"><tr><th>Abstract Classes</th><th>Concrete Classes</th><th>Used by Packages</th><th>Uses Packages</th></tr><tr><td valign="top" width="25%"><i>None</i></td><td valign="top" width="25%">RoboFile<br>Config<br>IgnoredPaths<br>Options<br>RunningTool<br>ConfigTest<br>IgnoredPathsTest<br>OptionsTest<br>ReportTest<br>RunningToolTest<br></td><td valign="top" width="25%"><a href="#PKEdge%5CQA%5CTask">Edge\QA\Task</a><br></td><td valign="top" width="25%"><a href="#PK"></a><br><a href="#PKEdge%5CQA%5CTask">Edge\QA\Task</a><br><a href="#PKRobo">Robo</a><br><a href="#PKSymfony%5CComponent%5CYaml">Symfony\Component\Yaml</a><br></td></tr></table><h3><a name="PKEdge%5CQA%5CTask">Edge\QA\Task</a></h3><table width="100%"><tr><td><a href="#EXafferent">Afferent Couplings</a>: 1</td><td><a href="#EXefferent">Efferent Couplings</a>: 5</td><td><a href="#EXabstractness">Abstractness</a>: 0</td><td><a href="#EXinstability">Instability</a>: 0.83333333333333</td><td><a href="#EXdistance">Distance</a>: 0.16666666666667</td></tr></table><table width="100%" class="details"><tr><th>Abstract Classes</th><th>Concrete Classes</th><th>Used by Packages</th><th>Uses Packages</th></tr><tr><td valign="top" width="25%"><i>None</i></td><td valign="top" width="25%">NonParallelExec<br>TableSummary<br></td><td valign="top" width="25%"><a href="#PKEdge%5CQA">Edge\QA</a><br></td><td valign="top" width="25%"><a href="#PKEdge%5CQA">Edge\QA</a><br><a href="#PKRobo">Robo</a><br><a href="#PKRobo%5CTask%5CBase">Robo\Task\Base</a><br><a href="#PKSymfony%5CComponent%5CConsole%5CHelper">Symfony\Component\Console\Helper</a><br><a href="#PKSymfony%5CComponent%5CConsole%5COutput">Symfony\Component\Console\Output</a><br></td></tr></table><table width="100%"><tr><td><a name="NVcycles"><h2>Cycles</h2></a></td><td align="right">
-    [<a href="#NVsummary">summary</a>]
-    [<a href="#NVpackages">packages</a>]
-    [<a href="#NVcycles">cycles</a>]
-    [<a href="#NVexplanations">explanations</a>]
-    </td></tr></table><h3>Edge\QA</h3><p>Edge\QA<br>Edge\QA\Task<br>Edge\QA<br></p><h3>Edge\QA\Task</h3><p>Edge\QA\Task<br>Edge\QA<br>Edge\QA\Task<br></p><table width="100%"><tr><td><a name="NVexplanations"><h2>Explanations</h2></a></td><td align="right">
-    [<a href="#NVsummary">summary</a>]
-    [<a href="#NVpackages">packages</a>]
-    [<a href="#NVcycles">cycles</a>]
-    [<a href="#NVexplanations">explanations</a>]
-    </td></tr></table><p>The following explanations are for quick reference and are lifted directly from the original <a href="http://www.clarkware.com/software/JDepend.html">JDepend documentation</a>.</p><h3><a name="EXnumber">Number of Classes</a></h3><p>The number of concrete and abstract classes (and interfaces) in the package is an indicator of the extensibility of the package.</p><h3><a name="EXafferent">Afferent Couplings</a></h3><p>The number of other packages that depend upon classes within the package is an indicator of the package's responsibility. </p><h3><a name="EXefferent">Efferent Couplings</a></h3><p>The number of other packages that the classes in the package depend upon is an indicator of the package's independence. </p><h3><a name="EXabstractness">Abstractness</a></h3><p>The ratio of the number of abstract classes (and interfaces) in the analyzed package to the total number of classes in the analyzed package. </p><p>The range for this metric is 0 to 1, with A=0 indicating a completely concrete package and A=1 indicating a completely abstract package. </p><h3><a name="EXinstability">Instability</a></h3><p>The ratio of efferent coupling (Ce) to total coupling (Ce / (Ce + Ca)). This metric is an indicator of the package's resilience to change. </p><p>The range for this metric is 0 to 1, with I=0 indicating a completely stable package and I=1 indicating a completely instable package. </p><h3><a name="EXdistance">Distance</a></h3><p>The perpendicular distance of a package from the idealized line A + I = 1. This metric is an indicator of the package's balance between abstractness and stability. </p><p>A package squarely on the main sequence is optimally balanced with respect to its abstractness and stability. Ideal packages are either completely abstract and stable (x=0, y=1) or completely concrete and instable (x=1, y=0). </p><p>The range for this metric is 0 to 1, with D=0 indicating a package that is coincident with the main sequence and D=1 indicating a package that is as far from the main sequence as possible. </p></body></html>
+      p.cycle {
+        margin-top:0.5em; margin-bottom:1.0em;
+        margin-left:2em;
+        margin-right:2em;
+      }
+
+        .fixed-navbar {
+            list-style-type: none;
+            position: fixed;
+            top: 0;
+            right: 1em;
+        }
+        .fixed-navbar li {
+            display: inline-block;
+            margin-left: 1ex;
+        }
+        img {
+            max-width: 700px !important;
+            width: 100%;
+        }
+        dt a:target {
+            background: yellow;
+        }
+        bt.btn-link {
+            margin-left: 1ex;
+        }
+        
+      ul.methods { -webkit-column-count: 3; }
+      .position-top-20 { color: red; }
+      .position-top-10 { font-weight: bold; }
+      .position-top-20 .badge {
+            background: #f0ad4e
+      }
+      .position-top-10 .badge {
+            background: #d9534f
+      }
+      .ccn-is-low { color: gray;  font-size: 80%; }
+      .ccn-is-low button { display: none; }
+      </style><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"><script>var onDocumentReady = [];</script></head><body><div class="container-fluid"><nav><ul class="nav nav-pills" role="tablist"><li role="presentation" class="active"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a></li><li role="presentation"><a href="#packages" aria-controls="packages" role="tab" data-toggle="tab">Packages</a></li><li role="presentation"><a href="#dependencies" aria-controls="dependencies" role="tab" data-toggle="tab">Dependencies</a></li><li role="presentation"><a href="#metrics" aria-controls="metrics" role="tab" data-toggle="tab">Metrics</a></li></ul></nav><div class="tab-content"><div role="tabpanel" class="tab-pane active" id="overview"><div class="row"><div class="col-sm-6"><img src="pdepend-pyramid.svg" class="img-responsive"></div><div class="col-sm-6"><img src="pdepend-jdepend.svg" class="img-responsive"></div></div><table class="table table-striped table-condensed table-hover"><thead><tr><th>Metric</th><th>Value</th></tr></thead><tr><th>Cyclomatic Complexity Number</th><td>141</td></tr><tr><th>Number of Method or Function Calls</th><td>231</td></tr><tr><th>Abstract classes</th><td>0</td></tr><tr><th>Concrete classes</th><td>12</td></tr><tr><th>Interfaces</th><td>0</td></tr><tr><th>Methods</th><td>65</td></tr></table></div><div role="tabpanel" class="tab-pane" id="packages"><ul class="fixed-navbar"><li><a class="label label-default" href="#NVsummary">summary</a></li><li><a class="label label-default" href="#NVpackages">packages</a></li><li><a class="label label-default" href="#NVcycles">cycles</a></li><li><a class="label label-default" href="#NVexplanations">explanations</a></li></ul><h3 id="NVsummary">Summary</h3><table class="details table table-bordered"><tr><th>Package</th><th>Total Classes</th><th><a href="#EXnumber">Abstract Classes</a></th><th><a href="#EXnumber">Concrete Classes</a></th><th><a href="#EXafferent">Afferent Couplings</a></th><th><a href="#EXefferent">Efferent Couplings</a></th><th><a href="#EXabstractness">Abstractness</a></th><th><a href="#EXinstability">Instability</a></th><th><a href="#EXdistance">Distance</a></th></tr><tr><td align="left"><a href="#PKEdge%5CQA">Edge\QA</a></td><td align="right">10</td><td align="right">0</td><td align="right">10</td><td align="right">1</td><td align="right">4</td><td align="right">0</td><td align="right">0.8</td><td align="right">0.2</td></tr><tr><td align="left"><a href="#PKEdge%5CQA%5CTask">Edge\QA\Task</a></td><td align="right">2</td><td align="right">0</td><td align="right">2</td><td align="right">1</td><td align="right">5</td><td align="right">0</td><td align="right">0.83333333333333</td><td align="right">0.16666666666667</td></tr></table><h3 id="NVpackages">Packages</h3><h4 id="PKEdge\QA">Edge\QA</h4><table width="100%"><tr><td><a href="#EXafferent">Afferent Couplings</a>: 1</td><td><a href="#EXefferent">Efferent Couplings</a>: 4</td><td><a href="#EXabstractness">Abstractness</a>: 0</td><td><a href="#EXinstability">Instability</a>: 0.8</td><td><a href="#EXdistance">Distance</a>: 0.2</td></tr></table><table width="100%" class="table table-bordered details"><tr><th>Abstract Classes</th><th>Concrete Classes</th><th>Used by Packages</th><th>Uses Packages</th></tr><tr><td valign="top" width="25%"><i>None</i></td><td valign="top" width="25%">RoboFile<br>Config<br>IgnoredPaths<br>Options<br>RunningTool<br>ConfigTest<br>IgnoredPathsTest<br>OptionsTest<br>ReportTest<br>RunningToolTest<br></td><td valign="top" width="25%"><a href="#PKEdge%5CQA%5CTask">Edge\QA\Task</a><br></td><td valign="top" width="25%"><a href="#PK"></a><br><a href="#PKEdge%5CQA%5CTask">Edge\QA\Task</a><br><a href="#PKRobo">Robo</a><br><a href="#PKSymfony%5CComponent%5CYaml">Symfony\Component\Yaml</a><br></td></tr></table><h4 id="PKEdge\QA\Task">Edge\QA\Task</h4><table width="100%"><tr><td><a href="#EXafferent">Afferent Couplings</a>: 1</td><td><a href="#EXefferent">Efferent Couplings</a>: 5</td><td><a href="#EXabstractness">Abstractness</a>: 0</td><td><a href="#EXinstability">Instability</a>: 0.83333333333333</td><td><a href="#EXdistance">Distance</a>: 0.16666666666667</td></tr></table><table width="100%" class="table table-bordered details"><tr><th>Abstract Classes</th><th>Concrete Classes</th><th>Used by Packages</th><th>Uses Packages</th></tr><tr><td valign="top" width="25%"><i>None</i></td><td valign="top" width="25%">NonParallelExec<br>TableSummary<br></td><td valign="top" width="25%"><a href="#PKEdge%5CQA">Edge\QA</a><br></td><td valign="top" width="25%"><a href="#PKEdge%5CQA">Edge\QA</a><br><a href="#PKRobo">Robo</a><br><a href="#PKRobo%5CTask%5CBase">Robo\Task\Base</a><br><a href="#PKSymfony%5CComponent%5CConsole%5CHelper">Symfony\Component\Console\Helper</a><br><a href="#PKSymfony%5CComponent%5CConsole%5COutput">Symfony\Component\Console\Output</a><br></td></tr></table><h3 id="NVcycles">Cycles</h3><h4>Edge\QA</h4><p class="cycle">Edge\QA<br>Edge\QA\Task<br>Edge\QA<br></p><h4>Edge\QA\Task</h4><p class="cycle">Edge\QA\Task<br>Edge\QA<br>Edge\QA\Task<br></p><h3 id="NVexplanations">Explanations</h3><p class="text-muted">The following explanations are for quick reference and are lifted directly from the original <a href="http://www.clarkware.com/software/JDepend.html">JDepend documentation</a>.</p><dl class="dl-horizontal"><dt><a name="EXnumber">Number of Classes</a></dt><dd><p>The number of concrete and abstract classes (and interfaces) in the package is an indicator of the extensibility of the package.</p></dd></dl><dl class="dl-horizontal"><dt><a name="EXafferent">Afferent Couplings</a></dt><dd><p>The number of other packages that depend upon classes within the package is an indicator of the package's responsibility. </p></dd></dl><dl class="dl-horizontal"><dt><a name="EXefferent">Efferent Couplings</a></dt><dd><p>The number of other packages that the classes in the package depend upon is an indicator of the package's independence. </p></dd></dl><dl class="dl-horizontal"><dt><a name="EXabstractness">Abstractness</a></dt><dd><p>The ratio of the number of abstract classes (and interfaces) in the analyzed package to the total number of classes in the analyzed package. </p><p>The range for this metric is 0 to 1, with A=0 indicating a completely concrete package and A=1 indicating a completely abstract package. </p></dd></dl><dl class="dl-horizontal"><dt><a name="EXinstability">Instability</a></dt><dd><p>The ratio of efferent coupling (Ce) to total coupling (Ce / (Ce + Ca)). This metric is an indicator of the package's resilience to change. </p><p>The range for this metric is 0 to 1, with I=0 indicating a completely stable package and I=1 indicating a completely instable package. </p></dd></dl><dl class="dl-horizontal"><dt><a name="EXdistance">Distance</a></dt><dd><p>The perpendicular distance of a package from the idealized line A + I = 1. This metric is an indicator of the package's balance between abstractness and stability. </p><p>A package squarely on the main sequence is optimally balanced with respect to its abstractness and stability. Ideal packages are either completely abstract and stable (x=0, y=1) or completely concrete and instable (x=1, y=0). </p><p>The range for this metric is 0 to 1, with D=0 indicating a package that is coincident with the main sequence and D=1 indicating a package that is as far from the main sequence as possible. </p></dd></dl></div><div role="tabpanel" class="tab-pane" id="dependencies"><div class="fixed-navbar"><div class="input-group" style="width: 20em"><span class="input-group-addon">Filter</span><input data-search="dependencies" type="text" class="form-control" placeholder="progressbar..."></div><small class="help-block">Results count: <strong data-results-count=""></strong></small></div><script>
+    onDocumentReady.push(function () {
+        var rows = $('[data-filterable] tbody tr');
+        var dependencies = rows.find('[data-dependency], small.text-muted');
+        var resultsCount = $('[data-results-count]');
+
+        $("[data-search]").keyup(function () {
+            var term = $(this).val().toLowerCase();
+
+            rows.hide();
+            var visibleRows = matchElements(rows);
+            visibleRows.show();
+            resultsCount.text(visibleRows.length);
+
+            dependencies.removeClass('highlight');
+            if (term) {
+                matchElements(dependencies).addClass('highlight');
+            }
+
+            function matchElements(elements) {
+                return elements.filter(function () {
+                    var rowContent = $(this).text().toLowerCase();
+                    return rowContent.indexOf(term) !== -1
+                });
+            }
+        });
+    });
+    </script><style>.highlight {background: yellow}</style><table class="table table-bordered details" data-filterable="dependencies"><thead><tr><th>Dependency</th><th>Efferent Couplings</th><th>Afferent Couplings</th></tr></thead><tr><td><strong data-dependency="">Edge\QA\RoboFile</strong><br><small class="text-muted">class</small></td><td><span data-dependency="">Robo\Tasks</span><br></td><td></td></tr><tr><td><strong data-dependency="">Edge\QA\CodeAnalysisTasks</strong><br><small class="text-muted">trait</small></td><td><span data-dependency="">Edge\QA\Options</span><br><span data-dependency="">Edge\QA\Config</span><br><span data-dependency="">Edge\QA\Task\NonParallelExec</span><br><span data-dependency="">Edge\QA\RunningTool</span><br><span data-dependency="">\PHP_CodeSniffer</span><br><span data-dependency="">Edge\QA\Task\TableSummary</span><br></td><td></td></tr><tr><td><strong data-dependency="">Edge\QA\Config</strong><br><small class="text-muted">class</small></td><td><span data-dependency="">Symfony\Component\Yaml\Yaml</span><br></td><td><span data-dependency="">Edge\QA\CodeAnalysisTasks</span><br><span data-dependency="">Edge\QA\ConfigTest</span><br></td></tr><tr><td><strong data-dependency="">Edge\QA\IgnoredPaths</strong><br><small class="text-muted">class</small></td><td></td><td><span data-dependency="">Edge\QA\Options</span><br><span data-dependency="">Edge\QA\IgnoredPathsTest</span><br></td></tr><tr><td><strong data-dependency="">Edge\QA\Options</strong><br><small class="text-muted">class</small></td><td><span data-dependency="">Edge\QA\IgnoredPaths</span><br><span data-dependency="">Edge\QA\RunningTool</span><br></td><td><span data-dependency="">Edge\QA\CodeAnalysisTasks</span><br><span data-dependency="">Edge\QA\OptionsTest</span><br><span data-dependency="">Edge\QA\Task\TableSummary</span><br></td></tr><tr><td><strong data-dependency="">Edge\QA\RunningTool</strong><br><small class="text-muted">class</small></td><td></td><td><span data-dependency="">Edge\QA\CodeAnalysisTasks</span><br><span data-dependency="">Edge\QA\Options</span><br><span data-dependency="">Edge\QA\RunningToolTest</span><br></td></tr><tr><td><strong data-dependency="">Edge\QA\ConfigTest</strong><br><small class="text-muted">class</small></td><td><span data-dependency="">\PHPUnit_Framework_TestCase</span><br><span data-dependency="">Edge\QA\Config</span><br></td><td></td></tr><tr><td><strong data-dependency="">Edge\QA\IgnoredPathsTest</strong><br><small class="text-muted">class</small></td><td><span data-dependency="">\PHPUnit_Framework_TestCase</span><br><span data-dependency="">Edge\QA\IgnoredPaths</span><br></td><td></td></tr><tr><td><strong data-dependency="">Edge\QA\OptionsTest</strong><br><small class="text-muted">class</small></td><td><span data-dependency="">\PHPUnit_Framework_TestCase</span><br><span data-dependency="">Edge\QA\Options</span><br></td><td></td></tr><tr><td><strong data-dependency="">Edge\QA\ReportTest</strong><br><small class="text-muted">class</small></td><td><span data-dependency="">\PHPUnit_Framework_TestCase</span><br></td><td></td></tr><tr><td><strong data-dependency="">Edge\QA\RunningToolTest</strong><br><small class="text-muted">class</small></td><td><span data-dependency="">\PHPUnit_Framework_TestCase</span><br><span data-dependency="">Edge\QA\RunningTool</span><br></td><td></td></tr><tr><td><strong data-dependency="">Edge\QA\Task\NonParallelExec</strong><br><small class="text-muted">class</small></td><td><span data-dependency="">Robo\Task\Base\ParallelExec</span><br><span data-dependency="">Symfony\Component\Console\Helper\ProgressBar</span><br><span data-dependency="">Symfony\Component\Console\Output\OutputInterface</span><br><span data-dependency="">Robo\Result</span><br></td><td><span data-dependency="">Edge\QA\CodeAnalysisTasks</span><br></td></tr><tr><td><strong data-dependency="">Edge\QA\Task\TableSummary</strong><br><small class="text-muted">class</small></td><td><span data-dependency="">Edge\QA\Options</span><br><span data-dependency="">Symfony\Component\Console\Output\OutputInterface</span><br><span data-dependency="">Symfony\Component\Console\Helper\Table</span><br><span data-dependency="">Symfony\Component\Console\Helper\TableSeparator</span><br></td><td><span data-dependency="">Edge\QA\CodeAnalysisTasks</span><br></td></tr></table></div><div role="tabpanel" class="tab-pane" id="metrics"><div class="fixed-navbar"><div class="checkbox-inline"><label><input type="checkbox" id="class-ranks">
+                show complex classes
+            </label></div><div class="checkbox-inline"><label title="CCN = 1"><input type="checkbox" id="methods-low-ccn">
+                show methods with low complexity
+            </label></div></div><script>
+        onDocumentReady.push(toggleComplexClasses);
+        onDocumentReady.push(toggleMethods);
+
+        function toggleComplexClasses() {
+            var checkboxClass = $('#class-ranks');
+            var classes = $('.not-top-position').closest('div');
+            var packages = $('[data-package]');
+        
+            toggleClasses();
+            checkboxClass.change(toggleClasses);
+        
+            function toggleClasses() {
+                var areHidden = checkboxClass.is(':checked');
+                if (areHidden) {
+                    classes.hide();
+                    getPackagesWithNoComplexClass().hide();
+                } else {
+                    classes.show();
+                    packages.show();
+                }
+            }
+
+            function getPackagesWithNoComplexClass() {
+                return packages.filter(function () {
+                    var topClassesCount = $(this).find('h4[class*="position-top"]').length;
+                    return topClassesCount == 0;
+                });
+            }
+        }
+
+        function toggleMethods() {
+            var checkbox = $('#methods-low-ccn');
+            var methods = $('.ccn-is-low');
+        
+            toggleMethods();
+            checkbox.change(toggleMethods);
+        
+            function toggleMethods() {
+                var areHidden = checkbox.is(':not(:checked)');
+                if (areHidden) {
+                    methods.hide();
+                } else {
+                    methods.show();
+                }
+            }
+        }
+    </script><div data-package=""><h3>Edge\QA<button class="btn btn-link btn-sm" title="Google PageRank applied on Packages and Classes. Classes with a high value should be tested frequently.">
+                    code rank <span class="badge">0.15</span></button></h3><ul class="classes"><div><h4 class="
+                    position-top-20
+                ">Options<button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge">15</span></button><button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge">2</span></button></h4><ul class="methods"><p class="
+        position-top-20
+      ">loadOutput<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">4</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">125</span></button></p><p class="">loadTools<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">4</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">15</span></button></p><p class="">buildRunningTools<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">4</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">7</span></button></p><p class="
+        ccn-is-low
+      ">__construct<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">toFile<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">rawFile<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p></ul></div><div><h4 class="
+                    not-top-position
+                ">IgnoredPaths<button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge">13</span></button><button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge">0</span></button></h4><ul class="methods"><p class="
+        position-top-20
+      ">implode<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">2</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">6</span></button></p><p class="">ignore<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">3</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">3</span></button></p><p class="
+        ccn-is-low
+      ">__construct<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">csvToArray<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">phpcs<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">pdepend<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">phpmd<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">phpmetrics<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">bergmann<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p></ul></div><div><h4 class="
+                    not-top-position
+                ">Config<button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge">12</span></button><button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge">1</span></button></h4><ul class="methods"><p class="
+        position-top-20
+      ">findInConfig<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">3</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">4</span></button></p><p class="">get<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">3</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">3</span></button></p><p class="">loadCustomConfig<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">2</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">2</span></button></p><p class="
+        ccn-is-low
+      ">__construct<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">value<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">path<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p></ul></div><div><h4 class="
+                    not-top-position
+                ">RunningTool<button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge">12</span></button><button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge">0</span></button></h4><ul class="methods"><p class="
+        position-top-20
+      ">analyzeResult<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">3</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">3</span></button></p><p class="">buildOption<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">2</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">2</span></button></p><p class="
+        ccn-is-low
+      ">__construct<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">getAllowedErrorsCount<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">getXmlFiles<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">getEscapedXmlFile<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">getMainXml<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">__toString<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p></ul></div><div><h4 class="
+                    not-top-position
+                ">OptionsTest<button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge">11</span></button><button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge">1</span></button></h4><ul class="methods"><p class="
+        position-top-10
+      
+        position-top-20
+      
+        ccn-is-low
+      ">setUp<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        position-top-20
+      
+        ccn-is-low
+      ">overrideOptions<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testShouldEscapePaths<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testShouldIgnorePdependInCliOutput<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testShouldLoadDirectoryWithCustomConfig<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">provideConfig<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testShouldBuildOutput<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">provideOutputs<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testShouldExecute<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">provideExecutionMode<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testLoadAllowedErrorsCount<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p></ul></div><div><h4 class="
+                    not-top-position
+                ">ReportTest<button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge">7</span></button><button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge">0</span></button></h4><ul class="methods"><p class="
+        position-top-20
+      ">tearDown<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">2</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">2</span></button></p><p class="
+        ccn-is-low
+      ">setUp<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testConvertTwigToHtml<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testConvertXmlToHtml<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">provideXml<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testIgnoreMissingXmlDocuments<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p></ul></div><div><h4 class="
+                    not-top-position
+                ">RunningToolTest<button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge">5</span></button><button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge">1</span></button></h4><ul class="methods"><p class="
+        ccn-is-low
+      ">testBuildOptionWithDefinedSeparator<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testMarkSuccessWhenXPathIsNotDefined<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testMarkFailureWhenXmlFileDoesNotExist<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testCompareAllowedCountWithErrorsCountFromXml<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">provideAllowedErrors<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p></ul></div><div><h4 class="
+                    not-top-position
+                ">ConfigTest<button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge">4</span></button><button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge">1</span></button></h4><ul class="methods"><p class="
+        ccn-is-low
+      ">testShouldLoadDefaultConfig<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testShouldBuildAbsolutePath<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testShouldOverrideDefaultConfig<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testShouldIgnoreNonExistenConfig<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p></ul></div><div><h4 class="
+                    not-top-position
+                ">IgnoredPathsTest<button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge">4</span></button><button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge">1</span></button></h4><ul class="methods"><p class="
+        ccn-is-low
+      ">ignore<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testNoOptionWhenNothingIsIgnored<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">testShouldIgnoreDirectories<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">provideTools<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p></ul></div><div><h4 class="
+                    not-top-position
+                ">RoboFile<button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge">0</span></button><button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge">0</span></button></h4><ul class="methods"></ul></div></ul></div><div data-package=""><h3>Edge\QA\Task<button class="btn btn-link btn-sm" title="Google PageRank applied on Packages and Classes. Classes with a high value should be tested frequently.">
+                    code rank <span class="badge">0.15</span></button></h3><ul class="classes"><div><h4 class="
+                    not-top-position
+                ">TableSummary<button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge">11</span></button><button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge">5</span></button></h4><ul class="methods"><p class="">__invoke<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">5</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">75</span></button></p><p class="">getStatus<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">2</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">5</span></button></p><p class="">result<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">2</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">2</span></button></p><p class="
+        ccn-is-low
+      ">__construct<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p><p class="
+        ccn-is-low
+      ">writeln<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">1</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">1</span></button></p></ul></div><div><h4 class="
+                    not-top-position
+                ">NonParallelExec<button class="btn btn-link btn-sm" title="Sum of the complexities of all declared methods and constructors of class.">
+                weighted method count <span class="badge">8</span></button><button class="btn btn-link btn-sm" title="Number of unique outgoing dependencies to other artifacts of the same type">
+                outgoing coupling <span class="badge">3</span></button></h4><ul class="methods"><p class="">run<button class="btn btn-link btn-sm" title="Cyclomatic Complexity Number">
+        cyclo <span class="badge">8</span></button><button class="btn btn-link btn-sm" title="NPath Complexity">
+        npath <span class="badge">48</span></button></p></ul></div></ul></div></div></div></div><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script>
+            $(document).ready(onDocumentReady);
+        </script></body></html>

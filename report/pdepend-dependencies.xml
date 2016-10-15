@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dependencies generated="2016-10-15T10:31:06" pdepend="@package_version@">
+  <package name="Edge\QA">
+    <class name="RoboFile">
+      <efferent>
+        <type namespace="Robo" name="Tasks"/>
+      </efferent>
+      <afferent/>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/RoboFile.php"/>
+    </class>
+    <trait name="CodeAnalysisTasks">
+      <efferent>
+        <type namespace="Edge\QA" name="Options"/>
+        <type namespace="Edge\QA" name="Config"/>
+        <type namespace="Edge\QA\Task" name="NonParallelExec"/>
+        <type namespace="Edge\QA" name="RunningTool"/>
+        <type namespace="" name="PHP_CodeSniffer"/>
+        <type namespace="Edge\QA\Task" name="TableSummary"/>
+      </efferent>
+      <afferent/>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php"/>
+    </trait>
+    <class name="Config">
+      <efferent>
+        <type namespace="Symfony\Component\Yaml" name="Yaml"/>
+      </efferent>
+      <afferent>
+        <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
+        <type namespace="Edge\QA" name="ConfigTest"/>
+      </afferent>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Config.php"/>
+    </class>
+    <class name="IgnoredPaths">
+      <efferent/>
+      <afferent>
+        <type namespace="Edge\QA" name="Options"/>
+        <type namespace="Edge\QA" name="IgnoredPathsTest"/>
+      </afferent>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/IgnoredPaths.php"/>
+    </class>
+    <class name="Options">
+      <efferent>
+        <type namespace="Edge\QA" name="IgnoredPaths"/>
+        <type namespace="Edge\QA" name="RunningTool"/>
+      </efferent>
+      <afferent>
+        <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
+        <type namespace="Edge\QA" name="OptionsTest"/>
+        <type namespace="Edge\QA\Task" name="TableSummary"/>
+      </afferent>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Options.php"/>
+    </class>
+    <class name="RunningTool">
+      <efferent/>
+      <afferent>
+        <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
+        <type namespace="Edge\QA" name="Options"/>
+        <type namespace="Edge\QA" name="RunningToolTest"/>
+      </afferent>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/RunningTool.php"/>
+    </class>
+    <class name="ConfigTest">
+      <efferent>
+        <type namespace="" name="PHPUnit_Framework_TestCase"/>
+        <type namespace="Edge\QA" name="Config"/>
+      </efferent>
+      <afferent/>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php"/>
+    </class>
+    <class name="IgnoredPathsTest">
+      <efferent>
+        <type namespace="" name="PHPUnit_Framework_TestCase"/>
+        <type namespace="Edge\QA" name="IgnoredPaths"/>
+      </efferent>
+      <afferent/>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/IgnoredPathsTest.php"/>
+    </class>
+    <class name="OptionsTest">
+      <efferent>
+        <type namespace="" name="PHPUnit_Framework_TestCase"/>
+        <type namespace="Edge\QA" name="Options"/>
+      </efferent>
+      <afferent/>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php"/>
+    </class>
+    <class name="ReportTest">
+      <efferent>
+        <type namespace="" name="PHPUnit_Framework_TestCase"/>
+      </efferent>
+      <afferent/>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/Report/ReportTest.php"/>
+    </class>
+    <class name="RunningToolTest">
+      <efferent>
+        <type namespace="" name="PHPUnit_Framework_TestCase"/>
+        <type namespace="Edge\QA" name="RunningTool"/>
+      </efferent>
+      <afferent/>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/RunningToolTest.php"/>
+    </class>
+  </package>
+  <package name="Edge\QA\Task">
+    <class name="NonParallelExec">
+      <efferent>
+        <type namespace="Robo\Task\Base" name="ParallelExec"/>
+        <type namespace="Symfony\Component\Console\Helper" name="ProgressBar"/>
+        <type namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+        <type namespace="Robo" name="Result"/>
+      </efferent>
+      <afferent>
+        <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
+      </afferent>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExec.php"/>
+    </class>
+    <class name="TableSummary">
+      <efferent>
+        <type namespace="Edge\QA" name="Options"/>
+        <type namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+        <type namespace="Symfony\Component\Console\Helper" name="Table"/>
+        <type namespace="Symfony\Component\Console\Helper" name="TableSeparator"/>
+      </efferent>
+      <afferent>
+        <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
+      </afferent>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php"/>
+    </class>
+  </package>
+</dependencies>

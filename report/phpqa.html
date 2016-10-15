@@ -18,6 +18,10 @@
             height: 100% !important;
             border: 0;
         }
+        .dropdown a.dropdown-toggle {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+        }
     </style>
 </head>
 <body>
@@ -33,48 +37,87 @@
           </button>
             <div class="navbar-brand">
                 <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa">PHPQA</a>
-                <span>2016-10-08 17:25</span>
+                <span>2016-10-15 10:31</span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav nav-tabs" role="tablist">
                                 <li class=active><a href="#phpmetrics">phpmetrics</a></li>
-                                <li><a href="#phploc">phploc</a></li>
-                                <li><a href="#phpcs">phpcs</a></li>
-                                <li><a href="#phpmd">phpmd</a></li>
-                                <li><a href="#pdepend">pdepend</a></li>
-                                <li><a href="#phpcpd">phpcpd</a></li>
-                            </ul>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        &nbsp;<span class="caret"></span>&nbsp;
+                    </a>
+                    <ul class="dropdown-menu">
+                                                <li><a href="#phpmetrics" data-iframe-tab="link-overview">Overview</a></li>
+                                                <li><a href="#phpmetrics" data-iframe-tab="link-score">Score</a></li>
+                                                <li><a href="#phpmetrics" data-iframe-tab="link-relations">Relations map</a></li>
+                                                <li><a href="#phpmetrics" data-iframe-tab="link-repartition">Repartition</a></li>
+                                                <li><a href="#phpmetrics" data-iframe-tab="link-explore">Explore</a></li>
+                                            </ul>
+                </li>
+                                                <li><a href="#phploc">phploc</a></li>
+                                                <li><a href="#phpcs">phpcs</a></li>
+                                                <li><a href="#phpmd">phpmd</a></li>
+                                                <li><a href="#pdepend">pdepend</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        &nbsp;<span class="caret"></span>&nbsp;
+                    </a>
+                    <ul class="dropdown-menu">
+                                                <li><a href="#pdepend" data-iframe-tab="overview">Overview</a></li>
+                                                <li><a href="#pdepend" data-iframe-tab="packages">Packages</a></li>
+                                                <li><a href="#pdepend" data-iframe-tab="dependencies">Dependencies</a></li>
+                                                <li><a href="#pdepend" data-iframe-tab="metrics">Metrics</a></li>
+                                            </ul>
+                </li>
+                                                <li><a href="#phpcpd">phpcpd</a></li>
+                                            </ul>
         </div>
       </div>
     </nav>
-
+                
     <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="phpmetrics">
-            <iframe id="phpmetrics" src="phpmetrics.html"></iframe>
+            <iframe id="iframe-phpmetrics" src="phpmetrics.html"></iframe>
         </div>
                 <div role="tabpanel" class="tab-pane" id="phploc">
-            <iframe id="phploc" src="phploc.html"></iframe>
+            <iframe id="iframe-phploc" src="phploc.html"></iframe>
         </div>
                 <div role="tabpanel" class="tab-pane" id="phpcs">
-            <iframe id="phpcs" src="phpcs.html"></iframe>
+            <iframe id="iframe-phpcs" src="phpcs.html"></iframe>
         </div>
                 <div role="tabpanel" class="tab-pane" id="phpmd">
-            <iframe id="phpmd" src="phpmd.html"></iframe>
+            <iframe id="iframe-phpmd" src="phpmd.html"></iframe>
         </div>
                 <div role="tabpanel" class="tab-pane" id="pdepend">
-            <iframe id="pdepend" src="pdepend.html"></iframe>
+            <iframe id="iframe-pdepend" src="pdepend.html"></iframe>
         </div>
                 <div role="tabpanel" class="tab-pane" id="phpcpd">
-            <iframe id="phpcpd" src="phpcpd.html"></iframe>
+            <iframe id="iframe-phpcpd" src="phpcpd.html"></iframe>
         </div>
             </div>
 
     <script>
     (function () {
+        var tabsInIframe = {
+            '#pdepend': function(iframe, tab) {
+                iframe.$("nav [aria-controls=" + tab + "]").tab('show');
+            },
+            '#phpmetrics': function(iframe, tab) {
+                iframe.document.getElementById(tab).onclick();
+            },
+        };
+        
         $('.nav a').click(function (e) {
           e.preventDefault();
           $(this).tab('show');
+
+          var target = $(this).data('iframe-tab');
+          if (target) {
+              var tabOpener = tabsInIframe[$(this).attr('href')];
+              var iframe = $(".tab-pane.active iframe")[0].contentWindow;
+              tabOpener(iframe, target);
+          }
         });
     }());
     </script>
