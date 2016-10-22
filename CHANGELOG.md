@@ -1,6 +1,18 @@
 
 # Changelog
 
+## v1.7.2
+
+* [#33](https://github.com/EdgedesignCZ/phpqa/issues/33) Improved [reports](https://edgedesigncz.github.io/phpqa/report/phpqa.html)
+    * unified layout (bootstrap3) + phpqa version
+        ![screenshot from 2016-10-22 09 00 15](https://cloud.githubusercontent.com/assets/7994022/19617638/2b8852a2-9836-11e6-8e35-e5551c684451.png)
+    * overview in phpcs, phpmd, phpcpd
+        ![screenshot from 2016-10-22 09 00 35](https://cloud.githubusercontent.com/assets/7994022/19617639/2ba27f74-9836-11e6-83ef-e333c59e89dd.png)
+    * relative file paths
+        ![screenshot from 2016-10-22 09 01 04](https://cloud.githubusercontent.com/assets/7994022/19617642/2bb524d0-9836-11e6-98ca-1dfa4e5bfe55.png)
+    * interactive pdepend metrics
+        ![screenshot from 2016-10-22 09 01 37](https://cloud.githubusercontent.com/assets/7994022/19617640/2bb3d274-9836-11e6-97a8-22def6ea1901.png)
+
 ## v1.7.1
 
 * [#32](https://github.com/EdgedesignCZ/phpqa/pull/32) Improved reports
