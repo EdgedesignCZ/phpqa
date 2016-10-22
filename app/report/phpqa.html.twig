@@ -41,7 +41,7 @@ set tabs = {
 %}
 <html>
 <head>
-    <title>phpqa report - by EdgedesignCZ</title>
+    <title>phpqa report - v{{ appVersion }}</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -103,6 +103,9 @@ set tabs = {
                     </ul>
                 </li>
                 {% endfor %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right visible-md-block visible-lg-block">
+              <p class="navbar-text">v{{ appVersion }}</p>
             </ul>
         </div>
       </div>

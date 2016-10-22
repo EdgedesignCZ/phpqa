@@ -45,6 +45,7 @@ trait CodeAnalysisTasks
      */
     public function tools()
     {
+        $this->yell("phpqa v" . PHPQA_VERSION);
         foreach (array_keys($this->tools) as $tool) {
             $this->_exec(pathToBinary("{$tool} --version"));
         }
@@ -235,7 +236,7 @@ trait CodeAnalysisTasks
         }
         twigToHtml(
             'phpqa.html.twig',
-            array('tools' => array_keys($this->usedTools)),
+            array('tools' => array_keys($this->usedTools), 'appVersion' => PHPQA_VERSION),
             $this->options->rawFile('phpqa.html')
         );
     }
