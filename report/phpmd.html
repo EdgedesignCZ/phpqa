@@ -1,37 +1,62 @@
-<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>PHPMD report</title><style>
-                    #summary {font: 38px 'Arial'; color:#555; padding:20px 0 20px 30px;}
-                    .errors-count {color:red;}
-                    .warnings-count {color:orange}
-                    .files-count {color:black;}
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>PHPMD report</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><style>
+                    .file {
+                        background: #f9f9f9
+                    }
+                    .fixed-navbar {
+                        list-style-type: none;
+                        position: fixed;
+                        top: 0;
+                        right: 1em;
+                    }
+                    .priority-1 {background: #d9534f;}
+                    .priority-2 {background: #f0ad4e;}
+                    .priority-3 {background: #f0ad4e;}
+                    .priority-4 {background: #5bc0de;}
+                    .priority-5 {background: #5bc0de;}
+                </style><script>
+                var onDocumentReady = [
+                    function () {
+                        $('[data-file]').each(function () {
+                            var pathWithoutRoot = $(this).text().replace('/mnt/DATA/www/_my_classes/qa-cli/', '');
+                            $(this).text(pathWithoutRoot);
+                        });
+                    }
+                ];
+                </script></head><body><div class="container-fluid"><h1>phpmd report</h1><nav><ul class="nav nav-pills" role="tablist"><li role="presentation" class="active"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a></li><li role="presentation"><a href="#errors" aria-controls="errors" role="tab" data-toggle="tab">Errors</a></li></ul></nav><div class="tab-content"><div role="tabpanel" class="tab-pane active" id="overview"><table class="table table-striped"><thead><tr><th>Rule</th><th>Errors</th><th>Files</th></tr></thead><tr><td>ExitExpression</td><td>1</td><td>1</td><td></td></tr><tfoot><tr><td></td><th><span class="label label-danger">1</span></th><th><span class="label label-info">1</span></th></tr></tfoot></table></div><div role="tabpanel" class="tab-pane" id="errors"><div class="fixed-navbar"><div class="input-group" style="width: 20em"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input data-search="errors" type="text" class="form-control" placeholder="unused..."></div></div><script>
+                        onDocumentReady.push(function () {
+                            var groups = $('[data-filterable] tbody tr[data-permanent]');
+                            var rows = $('[data-filterable] tbody tr:not([data-permanent])');
 
-                    #files {padding:20px 0 0 30px;}
-                    .file {padding:20px 5px; border-bottom:2px solid #CCC; font-size:22px;}
-                    .file .file-info {display:none;}
-                    .file a:link {border-bottom:1px dotted #888; text-decoration:none; color:black;}
-                    .file a:link:hover {border-bottom:none;}
+                            $("[data-search]").keyup(function () {
+                                var term = $(this).val().toLowerCase();
 
-                    .errors {padding:5px 15px; margin:5px 0; border-left:3px solid red; font-size:16px;}
-                    .warnings {padding:0 15px; border-left:3px solid orange; font-size:18px; color:#666;}
+                                rows.hide();
+                                groups.show();
+                                matchElements(rows).show();
+                                matchEmptyGroups().hide();
 
-                    .error, .warning {padding:5px 0; border-bottom:1px solid #DDD;}
-                    .error .info, .warning .info {color:#666; font-size:15px;}
+                                function matchElements(elements) {
+                                    return elements.filter(function () {
+                                        var rowContent = $(this).text().toLowerCase();
+                                        return rowContent.indexOf(term) !== -1
+                                    });
+                                }
 
-                    .file:last-child, .error:last-child, .warning:last-child {border-bottom:none;}
-                </style><script type="text/javascript" src="https://code.jquery.com/jquery-1.8.0.min.js"></script><script type="text/javascript" src="https://code.jquery.com/ui/1.7.2/jquery-ui.min.js"></script><script type="text/javascript">
-                    $(function() {
-                        $(".file a").click(function() {
-                            var info = $(this).parent().find(".file-info");
-
-                            if (info.is(":visible")) {
-                                info.slideUp();
-                            } else {
-                                info.slideDown();
-                            }
-                        })
-                    })
-                </script></head><body><div id="summary">
-                    PHP Mess Detector Report<br>
-                    Summary: <span class="errors-count">0</span> errors
-                    and <span class="warnings-count">0</span> warnings
-                    in <span class="files-count">0</span> files
-                </div><div id="files"></div></body></html>
+                                function matchEmptyGroups() {
+                                    return groups.filter(function () {
+                                        var group = $(this).data('permanent');
+                                        return rows
+                                            .filter(function () {
+                                                return $(this).data('group') == group && $(this).is(':visible');
+                                            })
+                                            .length == 0;
+                                    });
+                                }
+                            });
+                        });
+                        </script><table class="table" data-filterable="errors"><thead><tr><th colspan="2">Rule</th><th>Error</th><th>Lines</th></tr></thead><tr data-permanent="/mnt/DATA/www/_my_classes/qa-cli/src/report.php"><td colspan="5" class="file"><strong data-file="">/mnt/DATA/www/_my_classes/qa-cli/src/report.php</strong></td></tr><tr data-group="/mnt/DATA/www/_my_classes/qa-cli/src/report.php"><td><span class="
+                                                label priority-1">1</span></td><td><a href="http://phpmd.org/rules/design.html#exitexpression">ExitExpression</a><br><span class="text-muted">Design Rules</span></td><td>
+      The function xmlToHtml() contains an exit expression.
+    <br><small class="text-muted"></small></td><td>47-47</td></tr></table></div></div></div><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script>
+                $(document).ready(onDocumentReady);
+            </script></body></html>

@@ -1,10 +1,10 @@
 <html>
 <head>
-    <title>phpqa report - by EdgedesignCZ</title>
+    <title>phpqa report - v1.7.2</title>
     <meta charset="utf-8">
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
         html, body {
             height: 100%;
@@ -12,6 +12,9 @@
         .navbar-brand span {
             font-size: 0.8em;
             color: #ccc;
+        }
+        .navbar-text {
+            color: #ccc !important;
         }
         iframe {
             width: 100%;
@@ -37,41 +40,88 @@
           </button>
             <div class="navbar-brand">
                 <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa">PHPQA</a>
-                <span>2016-10-15 10:31</span>
+                <span>2016-10-22 09:25</span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav nav-tabs" role="tablist">
                                 <li class=active><a href="#phpmetrics">phpmetrics</a></li>
-                                <li class="dropdown">
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         &nbsp;<span class="caret"></span>&nbsp;
                     </a>
                     <ul class="dropdown-menu">
-                                                <li><a href="#phpmetrics" data-iframe-tab="link-overview">Overview</a></li>
-                                                <li><a href="#phpmetrics" data-iframe-tab="link-score">Score</a></li>
-                                                <li><a href="#phpmetrics" data-iframe-tab="link-relations">Relations map</a></li>
-                                                <li><a href="#phpmetrics" data-iframe-tab="link-repartition">Repartition</a></li>
-                                                <li><a href="#phpmetrics" data-iframe-tab="link-explore">Explore</a></li>
-                                            </ul>
+                                                                        <li><a href="#phpmetrics" data-iframe-tab="link-overview">Overview</a></li>
+                                                                                                <li><a href="#phpmetrics" data-iframe-tab="link-score">Score</a></li>
+                                                                                                <li><a href="#phpmetrics" data-iframe-tab="link-relations">Relations map</a></li>
+                                                                                                <li><a href="#phpmetrics" data-iframe-tab="link-repartition">Repartition</a></li>
+                                                                                                <li><a href="#phpmetrics" data-iframe-tab="link-explore">Explore</a></li>
+                                                                    </ul>
                 </li>
-                                                <li><a href="#phploc">phploc</a></li>
-                                                <li><a href="#phpcs">phpcs</a></li>
-                                                <li><a href="#phpmd">phpmd</a></li>
-                                                <li><a href="#pdepend">pdepend</a></li>
-                                <li class="dropdown">
+                                <li><a href="#phploc">phploc</a></li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         &nbsp;<span class="caret"></span>&nbsp;
                     </a>
                     <ul class="dropdown-menu">
-                                                <li><a href="#pdepend" data-iframe-tab="overview">Overview</a></li>
-                                                <li><a href="#pdepend" data-iframe-tab="packages">Packages</a></li>
-                                                <li><a href="#pdepend" data-iframe-tab="dependencies">Dependencies</a></li>
-                                                <li><a href="#pdepend" data-iframe-tab="metrics">Metrics</a></li>
-                                            </ul>
+                                                                        <li><a href="#phploc" data-iframe-tab="overview">Overview</a></li>
+                                                                                                <li><a href="#phploc" data-iframe-tab="ccn">Cyclomatic Complexity</a></li>
+                                                                                                <li><a href="#phploc" data-iframe-tab="dependencies">Dependencies</a></li>
+                                                                    </ul>
                 </li>
-                                                <li><a href="#phpcpd">phpcpd</a></li>
-                                            </ul>
+                                <li><a href="#phpcs">phpcs</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        &nbsp;<span class="caret"></span>&nbsp;
+                    </a>
+                    <ul class="dropdown-menu">
+                                                                        <li><a href="#phpcs" data-iframe-tab="overview">Overview</a></li>
+                                                                                                <li><a href="#phpcs" data-iframe-tab="errors">Errors</a></li>
+                                                                    </ul>
+                </li>
+                                <li><a href="#phpmd">phpmd</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        &nbsp;<span class="caret"></span>&nbsp;
+                    </a>
+                    <ul class="dropdown-menu">
+                                                                        <li><a href="#phpmd" data-iframe-tab="overview">Overview</a></li>
+                                                                                                <li><a href="#phpmd" data-iframe-tab="errors">Errors</a></li>
+                                                                    </ul>
+                </li>
+                                <li><a href="#pdepend">pdepend</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        &nbsp;<span class="caret"></span>&nbsp;
+                    </a>
+                    <ul class="dropdown-menu">
+                                                                        <li><a href="#pdepend" data-iframe-tab="overview">Overview</a></li>
+                                                                                                <li><a href="#pdepend" data-iframe-tab="packages">Packages</a></li>
+                                                                                                <li><a href="#pdepend" data-iframe-tab="dependencies">Dependencies</a></li>
+                                                                                                <li><a href="#pdepend" data-iframe-tab="complexity">Complexity</a></li>
+                                                                                                <li role="separator" class="divider"></li>
+                                                                                                <li><a href="#pdepend" data-iframe-tab="metrics-file">File metrics</a></li>
+                                                                                                <li><a href="#pdepend" data-iframe-tab="metrics-package">Package metrics</a></li>
+                                                                                                <li><a href="#pdepend" data-iframe-tab="metrics-trait">Trait metrics</a></li>
+                                                                                                <li><a href="#pdepend" data-iframe-tab="metrics-class">Class metrics</a></li>
+                                                                                                <li><a href="#pdepend" data-iframe-tab="metrics-method">Method metrics</a></li>
+                                                                                                <li><a href="#pdepend" data-iframe-tab="metrics-function">Function metrics</a></li>
+                                                                    </ul>
+                </li>
+                                <li><a href="#phpcpd">phpcpd</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        &nbsp;<span class="caret"></span>&nbsp;
+                    </a>
+                    <ul class="dropdown-menu">
+                                                                        <li><a href="#phpcpd" data-iframe-tab="overview">Overview</a></li>
+                                                                                                <li><a href="#phpcpd" data-iframe-tab="errors">Errors</a></li>
+                                                                    </ul>
+                </li>
+                            </ul>
+            <ul class="nav navbar-nav navbar-right visible-md-block visible-lg-block">
+              <p class="navbar-text">v1.7.2</p>
+            </ul>
         </div>
       </div>
     </nav>
@@ -100,25 +150,53 @@
     <script>
     (function () {
         var tabsInIframe = {
-            '#pdepend': function(iframe, tab) {
-                iframe.$("nav [aria-controls=" + tab + "]").tab('show');
-            },
+            '#pdepend': openBootstrap,
+            '#phpcs': openBootstrap,
+            '#phpmd': openBootstrap,
+            '#phpcpd': openBootstrap,
+            '#phploc': openBootstrap,
             '#phpmetrics': function(iframe, tab) {
                 iframe.document.getElementById(tab).onclick();
             },
         };
+        listenOnTabChange();
+        hideHeadingsH1();
         
-        $('.nav a').click(function (e) {
-          e.preventDefault();
-          $(this).tab('show');
+        function hideHeadingsH1() {
+            var interval = 500;
+            $("iframe").each(function () {
+                var iframe = $(this)[0];
+                setTimeout(
+                    function () {
+                        hideFirstHeading(iframe);
+                    },
+                    interval
+                );
+                interval += 200;
+            });
 
-          var target = $(this).data('iframe-tab');
-          if (target) {
-              var tabOpener = tabsInIframe[$(this).attr('href')];
-              var iframe = $(".tab-pane.active iframe")[0].contentWindow;
-              tabOpener(iframe, target);
-          }
-        });
+            function hideFirstHeading(iframe) {
+                iframe.contentDocument.getElementsByTagName("h1")[0].style.display = 'none';
+            }
+        }
+
+        function openBootstrap(iframe, tab) {
+            iframe.$("nav [aria-controls=" + tab + "]").tab('show');
+        }
+        
+        function listenOnTabChange() {
+            $('.nav a').click(function (e) {
+              e.preventDefault();
+              $(this).tab('show');
+
+              var target = $(this).data('iframe-tab');
+              if (target) {
+                  var tabOpener = tabsInIframe[$(this).attr('href')];
+                  var iframe = $(".tab-pane.active iframe")[0].contentWindow;
+                  tabOpener(iframe, target);
+              }
+            });
+        }
     }());
     </script>
 </body>

@@ -1,2 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd-cpd/>
+<pmd-cpd>
+  <duplication lines="8" tokens="22">
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" line="9"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="66"/>
+    <codefragment>    private $defaultOptions = array(
+        'analyzedDir' =&gt; './',
+        'buildDir' =&gt; 'build/',
+        'ignoredDirs' =&gt; 'vendor',
+        'ignoredFiles' =&gt; '',
+        'tools' =&gt; 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
+        'output' =&gt; 'file',
+        'config' =&gt; '',
+</codefragment>
+  </duplication>
+  <duplication lines="4" tokens="17">
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="132"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="145"/>
+    <codefragment>        $args = array(
+            'progress' =&gt; '',
+            $this-&gt;options-&gt;ignore-&gt;bergmann(),
+            $this-&gt;options-&gt;analyzedDir
+</codefragment>
+  </duplication>
+  <duplication lines="4" tokens="12">
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="135"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="169"/>
+    <codefragment>            $this-&gt;options-&gt;analyzedDir
+        );
+        if ($this-&gt;options-&gt;isSavedToFiles) {
+            $args['log-xml'] = $this-&gt;options-&gt;toFile('phploc.xml');
+</codefragment>
+  </duplication>
+</pmd-cpd>

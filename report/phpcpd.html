@@ -1,50 +1,34 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta><title>Code duplication report</title><style>
-      body {
-        font-family: Arial, sans-serif;
-        font-size: 12px;
-      }
-
-      div.code {
-        white-space: pre;
-        font-family: "Lucida Sans Unicode", monospace;
-        font-size: 12px;
-        background-color: #f8f8f8;
-        border: 1px solid #808080;
-        margin: 20px;
-      }
-
-      h2 {
-        font-size: 26px;
-        font-weight: bold;
-        color: #909090;
-        margin-top: 0.5ex;
-        margin-bottom: 0ex;
-      }
-
-      h3 {
-        font-size: 16px;
-        font-weight: bold;
-        color: #909090;
-        margin-top: 3ex;
-        margin-bottom: 1ex;
-      }
-
-      span.lines {
-        color: #202020;
-      }
-
-      span.path {
-        font-size: 12px;
-        font-family: "Lucida Sans Unicode", monospace;
-      }
-
-      div.files {
-        margin-left: 20px;
-      }
-
-      div.files span.line {
-        font-weight: bold;
-        color: #202020;
-      }
-    </style></head><body><h2 xmlns=""><span class="lines">0 fragments</span> duplicated</h2><h2 xmlns=""><span class="lines">0 lines</span> duplicated</h2></body></html>
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>phpcpd report</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css"><script>
+                var onDocumentReady = [
+                    function () {
+                        $('[data-file]').each(function () {
+                            var pathWithoutRoot = $(this).text().replace('/mnt/DATA/www/_my_classes/qa-cli/', '');
+                            $(this).text(pathWithoutRoot);
+                        });
+                    },
+                ];
+                </script></head><body><div class="container-fluid"><h1>phpcpd report</h1><nav><ul class="nav nav-pills" role="tablist"><li role="presentation" class="active"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a></li><li role="presentation"><a href="#errors" aria-controls="errors" role="tab" data-toggle="tab">Errors</a></li></ul></nav><div class="tab-content"><div role="tabpanel" class="tab-pane active" id="overview"><table class="table table-striped"><thead><tr><td colspan="2"></td></tr></thead><tr><th>Duplications</th><td><span class="label label-danger">3</span></td></tr><tr><th>
+                                    - lines<br>
+                                    - tokens
+                                </th><td>16<br>51</td></tr><tr><th>Files</th><td><span class="label label-info">2</span></td></tr></table></div><div role="tabpanel" class="tab-pane" id="errors"><table class="table" data-filterable="errors"><thead><tr><th width="40">Line</th><th>Files</th><th>Duplications</th><th width="50" class="text-right">Code</th></tr></thead><tr><td><span class="text-muted">9</span><br><span class="text-muted">66</span><br></td><td><strong data-file="">/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</strong><br><strong data-file="">/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</strong><br></td><td><span class="label label-danger">8</span> lines<br><span class="label label-warning">22</span> tokens
+                                    </td><td class="text-right"><button class="btn btn-link" type="button" data-toggle="collapse" aria-expanded="true" data-target="#duplication-1" aria-controls="duplication-1"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></button></td></tr><tr class="collapse in" id="duplication-1"><td colspan="4"><pre><code class="language-php">    private $defaultOptions = array(
+        'analyzedDir' =&gt; './',
+        'buildDir' =&gt; 'build/',
+        'ignoredDirs' =&gt; 'vendor',
+        'ignoredFiles' =&gt; '',
+        'tools' =&gt; 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
+        'output' =&gt; 'file',
+        'config' =&gt; '',
+</code></pre></td></tr><tr><td><span class="text-muted">132</span><br><span class="text-muted">145</span><br></td><td><strong data-file="">/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</strong><br><strong data-file="">/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</strong><br></td><td><span class="label label-danger">4</span> lines<br><span class="label label-warning">17</span> tokens
+                                    </td><td class="text-right"><button class="btn btn-link" type="button" data-toggle="collapse" aria-expanded="true" data-target="#duplication-2" aria-controls="duplication-2"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></button></td></tr><tr class="collapse in" id="duplication-2"><td colspan="4"><pre><code class="language-php">        $args = array(
+            'progress' =&gt; '',
+            $this-&gt;options-&gt;ignore-&gt;bergmann(),
+            $this-&gt;options-&gt;analyzedDir
+</code></pre></td></tr><tr><td><span class="text-muted">135</span><br><span class="text-muted">169</span><br></td><td><strong data-file="">/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</strong><br><strong data-file="">/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</strong><br></td><td><span class="label label-danger">4</span> lines<br><span class="label label-warning">12</span> tokens
+                                    </td><td class="text-right"><button class="btn btn-link" type="button" data-toggle="collapse" aria-expanded="true" data-target="#duplication-3" aria-controls="duplication-3"><span class="glyphicon glyphicon-zoom-in" aria-hidden="true"></span></button></td></tr><tr class="collapse in" id="duplication-3"><td colspan="4"><pre><code class="language-php">            $this-&gt;options-&gt;analyzedDir
+        );
+        if ($this-&gt;options-&gt;isSavedToFiles) {
+            $args['log-xml'] = $this-&gt;options-&gt;toFile('phploc.xml');
+</code></pre></td></tr></table></div></div></div><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script>
+                $(document).ready(onDocumentReady);
+            </script><script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.js"></script><script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-php.min.js"></script></body></html>
