@@ -1,28 +1,14 @@
 <?xml version="1.0"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-<!--
-   Licensed to the Apache Software Foundation (ASF) under one or more
-   contributor license agreements.  See the NOTICE file distributed with
-   this work for additional information regarding copyright ownership.
-   The ASF licenses this file to You under the Apache License, Version 2.0
-   (the "License"); you may not use this file except in compliance with
-   the License.  You may obtain a copy of the License at
-       http://www.apache.org/licenses/LICENSE-2.0
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
--->
-
 <xsl:output method="html" indent="yes"  encoding="US-ASCII"/>
+<xsl:param name="root-directory"/>
 
 <xsl:template match="PDepend">
     <html>
     <head>
         <title>PHPDepend Analysis</title>
     <style type="text/css">
-        table, nav {
+      table {
             margin: 1em 0;
         }
       table.details tr th {
@@ -83,15 +69,33 @@
       }
       .ccn-is-low { color: gray;  font-size: 80%; }
       .ccn-is-low button { display: none; }
+        
+      .datatable {
+            width: 100% !Important;
+      }
+      .well {
+            margin: 1ex 0;
+      }
       </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" />
-    <script>var onDocumentReady = [];</script>
+    <script>
+    var onDocumentReady = [
+        function () {
+            $('[data-file]').each(function () {
+                var pathWithoutRoot = $(this).text().replace('<xsl:value-of select="$root-directory"></xsl:value-of>', '');
+                $(this).text(pathWithoutRoot);
+            });
+        }
+    ];
+    </script>
 
     </head>
     <body>
 
         <div class="container-fluid">
+            
+            <h1>PDepend report</h1>
+            
             <nav>
                 <ul class="nav nav-pills" role="tablist">
                     <li role="presentation" class="active">
@@ -104,7 +108,20 @@
                         <a href="#dependencies" aria-controls="dependencies" role="tab" data-toggle="tab">Dependencies</a>
                     </li>
                     <li role="presentation">
-                        <a href="#metrics" aria-controls="metrics" role="tab" data-toggle="tab">Metrics</a>
+                        <a href="#complexity" aria-controls="complexity" role="tab" data-toggle="tab">Complexity</a>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Metrics <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#metrics-file" aria-controls="metrics-file" role="tab" data-toggle="tab">Files</a></li>
+                            <li><a href="#metrics-package" aria-controls="metrics-package" role="tab" data-toggle="tab">Packages</a></li>
+                            <li><a href="#metrics-class" aria-controls="metrics-class" role="tab" data-toggle="tab">Classes</a></li>
+                            <li><a href="#metrics-trait" aria-controls="metrics-trait" role="tab" data-toggle="tab">Traits</a></li>
+                            <li><a href="#metrics-method" aria-controls="metrics-method" role="tab" data-toggle="tab">Methods</a></li>
+                            <li><a href="#metrics-function" aria-controls="metrics-function" role="tab" data-toggle="tab">Functions</a></li>
+                        </ul>
                     </li>
                 </ul>
             </nav>
@@ -132,8 +149,64 @@
                             <td><xsl:value-of select="./metrics/@ccn"/></td>
                         </tr>
                         <tr>
+                            <th>Extended Cyclomatic Complexity</th>
+                            <td><xsl:value-of select="./metrics/@ccn2"/></td>
+                        </tr>
+                        <tr>
                             <th>Number of Method or Function Calls</th>
                             <td><xsl:value-of select="./metrics/@calls"/></td>
+                        </tr>
+                        <tr>
+                            <th>Number of Root Classes</th>
+                            <td><xsl:value-of select="./metrics/@roots"/></td>
+                        </tr>
+                        <tr>
+                            <th>Average Hierarchy Height</th>
+                            <td><xsl:value-of select="./metrics/@ahh"/></td>
+                        </tr>
+                        <tr>
+                            <th>Average Number of Derived Classes</th>
+                            <td><xsl:value-of select="./metrics/@andc"/></td>
+                        </tr>
+                        <tr>
+                            <th>Number of Leaf Classes</th>
+                            <td><xsl:value-of select="./metrics/@leafs"/></td>
+                        </tr>
+                        <tr>
+                            <th>Number of Fanouts</th>
+                            <td><xsl:value-of select="./metrics/@fanout"/></td>
+                        </tr>
+                        <tr>
+                            <th>Max Depth of Inheritance Tree</th>
+                            <td><xsl:value-of select="./metrics/@maxDIT"/></td>
+                        </tr>
+                        <tr>
+                            <th>Lines of Code</th>
+                            <td><xsl:value-of select="./metrics/@loc"></xsl:value-of></td>
+                        </tr>
+                        <tr>
+                            <th>Non-Comment Line of Code</th>
+                            <td><xsl:value-of select="./metrics/@ncloc"></xsl:value-of></td>
+                        </tr>
+                        <tr>
+                            <th>Comment Lines of Code</th>
+                            <td><xsl:value-of select="./metrics/@cloc"></xsl:value-of></td>
+                        </tr>
+                        <tr>
+                            <th>Executable Lines of Code</th>
+                            <td><xsl:value-of select="./metrics/@eloc"></xsl:value-of></td>
+                        </tr>
+                        <tr>
+                            <th>Logical Lines Of Code</th>
+                            <td><xsl:value-of select="./metrics/@lloc"></xsl:value-of></td>
+                        </tr>
+                        <tr>
+                            <th>Packages</th>
+                            <td><xsl:value-of select="./metrics/@nop"/></td>
+                        </tr>
+                        <tr>
+                            <th>Classes</th>
+                            <td><xsl:value-of select="./metrics/@noc"/></td>
                         </tr>
                         <tr>
                             <th>Abstract classes</th>
@@ -151,6 +224,10 @@
                             <th>Methods</th>
                             <td><xsl:value-of select="./metrics/@nom"/></td>
                         </tr>
+                        <tr>
+                            <th>Functions</th>
+                            <td><xsl:value-of select="./metrics/@nof"/></td>
+                        </tr>
                     </table>
                 </div>
                 <div role="tabpanel" class="tab-pane" id="packages">
@@ -159,15 +236,351 @@
                 <div role="tabpanel" class="tab-pane" id="dependencies">
                     <xsl:apply-templates select="./dependencies"></xsl:apply-templates>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="metrics">
+                <div role="tabpanel" class="tab-pane" id="complexity">
                     <xsl:apply-templates select="./metrics"></xsl:apply-templates>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="metrics-file">
+                    <table class="table table-striped datatable">
+                        <thead>
+                            <tr>
+                                <th>File</th>
+                                <th>Lines of Code</th>
+                                <th>Comment Lines of Code</th>
+                                <th>Non-Comment Line of Code</th>
+                                <th>Executable Lines of Code</th>
+                                <th>Logical Lines Of Code</th>
+                            </tr>
+                        </thead>
+                        <xsl:for-each select="./metrics/files/file">
+                        <tr>
+                            <td><strong data-file=""><xsl:value-of select="@name"></xsl:value-of></strong></td>
+                            <td><xsl:value-of select="@loc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@cloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ncloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@eloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@lloc"></xsl:value-of></td>
+                        </tr>
+                        </xsl:for-each>
+                    </table>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="metrics-package">
+                    <table class="table table-striped datatable">
+                        <thead>
+                            <tr>
+                                <th>Package</th>
+                                <th>Number of Classes</th>
+                                <th>Number of Interfaces</th>
+                                <th>Number of Methods</th>
+                                <th>Number of Functions</th>
+                                <th>Code Rank</th>
+                                <th>Reverse Code Rank</th>
+                            </tr>
+                        </thead>
+                        <xsl:for-each select="./metrics/package">
+                        <tr>
+                            <th><xsl:value-of select="@name"></xsl:value-of></th>
+                            <td><xsl:value-of select="@noc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@noi"></xsl:value-of></td>
+                            <td><xsl:value-of select="@nom"></xsl:value-of></td>
+                            <td><xsl:value-of select="@nof"></xsl:value-of></td>
+                            <td><xsl:value-of select="@cr"></xsl:value-of></td>
+                            <td><xsl:value-of select="@rcr"></xsl:value-of></td>
+                        </tr>
+                        </xsl:for-each>
+                    </table>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="metrics-class">
+                    <table class="table table-striped datatable">
+                        <thead>
+                            <tr>
+                                <th>Class</th>
+                                <th>Lines of Code</th>
+                                <th>Comment Lines of Code</th>
+                                <th>Non-Comment Line of Code</th>
+                                <th>Executable Lines of Code</th>
+                                <th>Logical Lines Of Code</th>
+                                <th>Code Rank</th>
+                                <th>Reverse Code Rank</th>
+                                <th>Afferent Coupling</th>
+                                <th>Efferent Coupling</th>
+                                <th>Coupling Between Objects</th>
+                                <th>Class Size</th>
+                                <th>Class Interface Size</th>
+                                <th>Implemented Interfaces</th>
+                                <th>Number of Methods</th>
+                                <th>Number of Overwritten Methods</th>
+                                <th>Number of Public Methods</th>
+                                <th>Number of Added Methods</th>
+                                <th>Class Properties</th>
+                                <th>Inherited Properties</th>
+                                <th>Non Private Properties</th>
+                                <th>Weighted Method Count</th>
+                                <th>Inherited Weighted Method Count</th>
+                                <th>Non Private Weighted Method Count</th>
+                                <th>Depth of Inheritance Tree</th>
+                                <th>Number of Child Classes</th>
+                            </tr>
+                        </thead>
+                        <xsl:for-each select="./metrics/package/class">
+                        <tr>
+                            <th><xsl:value-of select="../@name"></xsl:value-of>\<xsl:value-of select="@name"></xsl:value-of></th>
+                            <td><xsl:value-of select="@loc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@cloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ncloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@eloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@lloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@cr"></xsl:value-of></td>
+                            <td><xsl:value-of select="@rcr"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ca"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ce"></xsl:value-of></td>
+                            <td><xsl:value-of select="@cbo"></xsl:value-of></td>
+                            <td><xsl:value-of select="@csz"></xsl:value-of></td>
+                            <td><xsl:value-of select="@cis"></xsl:value-of></td>
+                            <td><xsl:value-of select="@impl"></xsl:value-of></td>
+                            <td><xsl:value-of select="@nom"></xsl:value-of></td>
+                            <td><xsl:value-of select="@noom"></xsl:value-of></td>
+                            <td><xsl:value-of select="@npm"></xsl:value-of></td>
+                            <td><xsl:value-of select="@noam"></xsl:value-of></td>
+                            <td><xsl:value-of select="@vars"></xsl:value-of></td>
+                            <td><xsl:value-of select="@varsi"></xsl:value-of></td>
+                            <td><xsl:value-of select="@varsnp"></xsl:value-of></td>
+                            <td><xsl:value-of select="@wmc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@wmci"></xsl:value-of></td>
+                            <td><xsl:value-of select="@wmcnp"></xsl:value-of></td>
+                            <td><xsl:value-of select="@dit"></xsl:value-of></td>
+                            <td><xsl:value-of select="@nocc"></xsl:value-of></td>
+                        </tr>
+                        </xsl:for-each>
+                    </table>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="metrics-trait">
+                    <table class="table table-striped datatable">
+                        <thead>
+                            <tr>
+                                <th>Trait</th>
+                                <th>Afferent Coupling</th>
+                                <th>Efferent Coupling</th>
+                                <th>Coupling Between Objects</th>
+                                <th>Class Size</th>
+                                <th>Class Interface Size</th>
+                                <th>Implemented Interfaces</th>
+                                <th>Number of Public Methods</th>
+                                <th>Class Properties</th>
+                                <th>Inherited Properties</th>
+                                <th>Non Private Properties</th>
+                                <th>Weighted Method Count</th>
+                                <th>Inherited Weighted Method Count</th>
+                                <th>Non Private Weighted Method Count</th>
+                            </tr>
+                        </thead>
+                        <xsl:for-each select="./metrics/package/trait">
+                        <tr>
+                            <th><xsl:value-of select="../@name"></xsl:value-of>\<xsl:value-of select="@name"></xsl:value-of></th>
+                            <td><xsl:value-of select="@ca"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ce"></xsl:value-of></td>
+                            <td><xsl:value-of select="@cbo"></xsl:value-of></td>
+                            <td><xsl:value-of select="@csz"></xsl:value-of></td>
+                            <td><xsl:value-of select="@cis"></xsl:value-of></td>
+                            <td><xsl:value-of select="@impl"></xsl:value-of></td>
+                            <td><xsl:value-of select="@npm"></xsl:value-of></td>
+                            <td><xsl:value-of select="@vars"></xsl:value-of></td>
+                            <td><xsl:value-of select="@varsi"></xsl:value-of></td>
+                            <td><xsl:value-of select="@varsnp"></xsl:value-of></td>
+                            <td><xsl:value-of select="@wmc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@wmci"></xsl:value-of></td>
+                            <td><xsl:value-of select="@wmcnp"></xsl:value-of></td>
+                        </tr>
+                        </xsl:for-each>
+                    </table>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="metrics-method">
+                    <table class="table table-striped datatable">
+                        <thead>
+                            <tr>
+                                <th>Method</th>
+                                <th>Lines of Code</th>
+                                <th>Comment Lines of Code</th>
+                                <th>Non-Comment Line of Code</th>
+                                <th>Executable Lines of Code</th>
+                                <th>Logical Lines Of Code</th>
+                                <th>Cyclomatic Complexity</th>
+                                <th>Extended Cyclomatic Complexity</th>
+                                <th>NPath Complexity</th>
+                                <th>Maintainability Index</th>
+                                <th>Halstead Bugs</th>
+                                <th>Halstead Difficulty</th>
+                                <th>Halstead Effort</th>
+                                <th>Halstead Content</th>
+                                <th>Halstead Level</th>
+                                <th>Halstead Vocabulary</th>
+                                <th>Halstead Length</th>
+                                <th>Halstead Time</th>
+                                <th>Halstead Volumne</th>
+                            </tr>
+                        </thead>
+                        <xsl:for-each select="./metrics/package/*/method">
+                        <tr>
+                            <th><xsl:value-of select="../../@name"></xsl:value-of>\<xsl:value-of select="../@name"></xsl:value-of>::<xsl:value-of select="@name"></xsl:value-of>()</th>
+                            <td><xsl:value-of select="@loc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@cloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ncloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@eloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@lloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ccn"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ccn2"></xsl:value-of></td>
+                            <td><xsl:value-of select="@npath"></xsl:value-of></td>
+                            <td><xsl:value-of select="@mi"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hb"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hd"></xsl:value-of></td>
+                            <td><xsl:value-of select="@he"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hi"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hl"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hnd"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hnt"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ht"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hv"></xsl:value-of></td>
+                        </tr>
+                        </xsl:for-each>
+                    </table>
+                </div>
+
+                <div role="tabpanel" class="tab-pane" id="metrics-function">
+                    <table class="table table-striped datatable">
+                        <thead>
+                            <tr>
+                                <th>Function</th>
+                                <th>Lines of Code</th>
+                                <th>Comment Lines of Code</th>
+                                <th>Non-Comment Line of Code</th>
+                                <th>Executable Lines of Code</th>
+                                <th>Logical Lines Of Code</th>
+                                <th>Cyclomatic Complexity</th>
+                                <th>Extended Cyclomatic Complexity</th>
+                                <th>NPath Complexity</th>
+                                <th>Maintainability Index</th>
+                                <th>Halstead Bugs</th>
+                                <th>Halstead Difficulty</th>
+                                <th>Halstead Effort</th>
+                                <th>Halstead Content</th>
+                                <th>Halstead Level</th>
+                                <th>Halstead Vocabulary</th>
+                                <th>Halstead Length</th>
+                                <th>Halstead Time</th>
+                                <th>Halstead Volumne</th>
+                            </tr>
+                        </thead>
+                        <xsl:for-each select="./metrics/package/function">
+                        <tr>
+                            <th><xsl:value-of select="../../@name"></xsl:value-of>\<xsl:value-of select="@name"></xsl:value-of>()</th>
+                            <td><xsl:value-of select="@loc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@cloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ncloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@eloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@lloc"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ccn"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ccn2"></xsl:value-of></td>
+                            <td><xsl:value-of select="@npath"></xsl:value-of></td>
+                            <td><xsl:value-of select="@mi"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hb"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hd"></xsl:value-of></td>
+                            <td><xsl:value-of select="@he"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hi"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hl"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hnd"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hnt"></xsl:value-of></td>
+                            <td><xsl:value-of select="@ht"></xsl:value-of></td>
+                            <td><xsl:value-of select="@hv"></xsl:value-of></td>
+                        </tr>
+                        </xsl:for-each>
+                    </table>
                 </div>
             </div>
         </div>        
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
+        <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
+        <script src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css" />
+        <script src="https://cdn.jsdelivr.net/selectize/0.12.3/js/standalone/selectize.min.js"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/selectize/0.12.3/css/selectize.bootstrap3.css" />
         <script>
+            onDocumentReady.push(function () {
+                $('table.datatable').each(function () {
+                    var table = $(this);
+                    var datatable = table.DataTable({"lengthMenu": [[50, 100, -1], [50, 100, "All"]]});
+                    var defaultVisibleColumns = [1,2,3,4,5];
+
+                    var select = $('<![CDATA[<select multiple>]]>');
+                    loadOptions();
+                    var box = buildCustomControls();
+
+                    var selectize = select.selectize({maxItems: 50})[0].selectize;
+                    listenOnSelect();
+                    listenOnToggle();
+                    showColumns(defaultVisibleColumns);
+
+                    function loadOptions() {
+                        var columns = getMetrics();
+
+                        for (var column in columns) {
+                            var selected = column &lt;= defaultVisibleColumns.length ? 'selected="selected" ' : '';
+                            select.append($(<![CDATA['<option ' + selected + ' value=' + (parseInt(column) + 1) + '>' + columns[column] + '</option>']]>));
+                        }
+                    }
+
+                    function getMetrics() {
+                        return table.find('thead th:not(:first)').map(function () {
+                            return $(this).text();
+                        }).get();
+                    }
+
+                    function buildCustomControls() {
+                        return $('<![CDATA[<div class="well well-sm">]]>')
+                            .append(<![CDATA[
+                                '<small class="text-muted">Metrics</small>' +
+                                '<div class="pull-right"><button class="btn btn-link btn-sm" data-show>Show all</button><button class="btn btn-link btn-sm" data-hide>Hide all</button></div>'
+                            ]]>)
+                            .append(select)
+                            .insertBefore(table.closest('.dataTables_wrapper'));
+                    }
+
+                    function listenOnSelect() {
+                        selectize.on('change', function (values) {
+                            var visibleColumns = values ? values.map(Number) : [];
+                            showColumns(visibleColumns);
+                        });
+                    }
+
+                    function listenOnToggle() {
+                        box.find('[data-hide]').click(function (e) {
+                            e.preventDefault();
+                            selectize.clear();
+                        });
+
+                        box.find('[data-show]').click(function (e) {
+                            e.preventDefault();
+                            var allKeys = Object.keys(selectize.options);
+                            selectize.setValue(allKeys);
+                        });
+                    }
+
+                    function showColumns(visibleColumns) {
+                        datatable.columns().visible(false);
+                        datatable.columns(0).visible(true);
+                        datatable.columns(visibleColumns).visible(true);
+                    }
+                });
+            });
+
             $(document).ready(onDocumentReady);
         </script>
     </body>
@@ -175,6 +588,20 @@
 </xsl:template>
 
 <!-- XSL from https://github.com/elnebuloso/phing-commons/blob/cc8478f930b38fe7542542d9490128e73d707356/resources/ -->
+<!--
+   Licensed to the Apache Software Foundation (ASF) under one or more
+   contributor license agreements.  See the NOTICE file distributed with
+   this work for additional information regarding copyright ownership.
+   The ASF licenses this file to You under the Apache License, Version 2.0
+   (the "License"); you may not use this file except in compliance with
+   the License.  You may obtain a copy of the License at
+       http://www.apache.org/licenses/LICENSE-2.0
+   Unless required by applicable law or agreed to in writing, software
+   distributed under the License is distributed on an "AS IS" BASIS,
+   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   See the License for the specific language governing permissions and
+   limitations under the License.
+-->
 <xsl:template match="Packages">
 
     <ul class="fixed-navbar">
@@ -368,7 +795,7 @@
 <xsl:template match="dependencies">
     <div class="fixed-navbar">
         <div class="input-group" style="width: 20em">
-            <span class="input-group-addon">Filter</span>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
             <input data-search="dependencies" type="text" class="form-control" placeholder="progressbar..." />
         </div>
         <small class="help-block">Results count: <strong data-results-count=""></strong></small>

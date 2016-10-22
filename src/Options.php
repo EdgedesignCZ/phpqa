@@ -7,6 +7,8 @@ class Options
     /** @var string */
     public $analyzedDir;
     /** @var string */
+    public $rootPath;
+    /** @var string */
     public $buildDir;
     /** @var string */
     public $configDir;
@@ -35,12 +37,19 @@ class Options
     private function loadOutput(array $options)
     {
         $this->analyzedDir = '"' . $options['analyzedDir'] . '"';
+        $this->rootPath = $this->buildRootPath($options['analyzedDir']);
         $this->buildDir = $options['buildDir'];
         $this->isParallel = $options['execution'] == 'parallel';
         $this->isSavedToFiles = $options['output'] == 'file';
         $this->isOutputPrinted = $this->isSavedToFiles ? $options['verbose'] : true;
         $this->hasReport = $this->isSavedToFiles ? $options['report'] : false;
         $this->configDir = $options['config'] ? $options['config'] : getcwd();
+    }
+
+    private function buildRootPath($analyzedDir)
+    {
+        $path = realpath(getcwd() . '/' . $analyzedDir);
+        return $path ? "{$path}/" : '';
     }
 
     private function loadTools($inputTools)

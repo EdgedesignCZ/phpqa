@@ -2,6 +2,7 @@
 
 namespace Edge\QA;
 
+/** @SuppressWarnings(PHPMD.TooManyPublicMethods) */
 class OptionsTest extends \PHPUnit_Framework_TestCase
 {
     // copy-pasted options from CodeAnalysisTasks
@@ -100,6 +101,21 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
             'parallel executaion is default mode' => array(array(), true),
             'parallel executaion is default mode' => array(array('execution' => 'parallel'), true),
             'dont use parallelism if execution is other word' => array(array('execution' => 'single'), false),
+        );
+    }
+
+    /** @dataProvider provideAnalyzedDir */
+    public function testBuildRootPath($analyzedDir, $expectedRoot)
+    {
+        $options = $this->overrideOptions(array('analyzedDir' => $analyzedDir));
+        assertThat($options->rootPath, is($expectedRoot));
+    }
+
+    public function provideAnalyzedDir()
+    {
+        return array(
+            'current dir + analyzed dir + slash' => array('./', getcwd() . '/'),
+            'no path when dir is invalid' => array('./non-existent-directory', '')
         );
     }
 

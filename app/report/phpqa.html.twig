@@ -11,17 +11,41 @@ set tabs = {
         'overview': 'Overview',
         'packages': 'Packages',
         'dependencies': 'Dependencies',
-        'metrics': 'Metrics',
-    }
+        'complexity': 'Complexity',
+        'separator': '',
+        'metrics-file': 'File metrics',
+        'metrics-package': 'Package metrics',
+        'metrics-trait': 'Trait metrics',
+        'metrics-class': 'Class metrics',
+        'metrics-method': 'Method metrics',
+        'metrics-function': 'Function metrics',
+    }, 
+    'phpcs': {
+        'overview': 'Overview',
+        'errors': 'Errors',
+    }, 
+    'phpmd': {
+        'overview': 'Overview',
+        'errors': 'Errors',
+    }, 
+    'phpcpd': {
+        'overview': 'Overview',
+        'errors': 'Errors',
+    }, 
+    'phploc': {
+        'overview': 'Overview',
+        'ccn': 'Cyclomatic Complexity',
+        'dependencies': 'Dependencies',
+    },
 }
 %}
 <html>
 <head>
     <title>phpqa report - by EdgedesignCZ</title>
     <meta charset="utf-8">
-    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
         html, body {
             height: 100%;
@@ -29,6 +53,9 @@ set tabs = {
         .navbar-brand span {
             font-size: 0.8em;
             color: #ccc;
+        }
+        .navbar-text {
+            color: #ccc !important;
         }
         iframe {
             width: 100%;
@@ -61,18 +88,20 @@ set tabs = {
             <ul class="nav navbar-nav nav-tabs" role="tablist">
                 {% for tool in tools %}
                 <li{{ loop.first ? ' class=active' : '' }}><a href="#{{ tool }}">{{ tool }}</a></li>
-                {% if tabs[tool] is defined %}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         &nbsp;<span class="caret"></span>&nbsp;
                     </a>
                     <ul class="dropdown-menu">
                         {% for link, tab in tabs[tool] %}
+                        {% if tab %}
                         <li><a href="#{{ tool }}" data-iframe-tab="{{ link }}">{{ tab }}</a></li>
+                        {% else %}
+                        <li role="separator" class="divider"></li>
+                        {% endif %}
                         {% endfor %}
                     </ul>
                 </li>
-                {% endif %}
                 {% endfor %}
             </ul>
         </div>
@@ -90,25 +119,53 @@ set tabs = {
     <script>
     (function () {
         var tabsInIframe = {
-            '#pdepend': function(iframe, tab) {
-                iframe.$("nav [aria-controls=" + tab + "]").tab('show');
-            },
+            '#pdepend': openBootstrap,
+            '#phpcs': openBootstrap,
+            '#phpmd': openBootstrap,
+            '#phpcpd': openBootstrap,
+            '#phploc': openBootstrap,
             '#phpmetrics': function(iframe, tab) {
                 iframe.document.getElementById(tab).onclick();
             },
         };
+        listenOnTabChange();
+        hideHeadingsH1();
         
-        $('.nav a').click(function (e) {
-          e.preventDefault();
-          $(this).tab('show');
+        function hideHeadingsH1() {
+            var interval = 500;
+            $("iframe").each(function () {
+                var iframe = $(this)[0];
+                setTimeout(
+                    function () {
+                        hideFirstHeading(iframe);
+                    },
+                    interval
+                );
+                interval += 200;
+            });
 
-          var target = $(this).data('iframe-tab');
-          if (target) {
-              var tabOpener = tabsInIframe[$(this).attr('href')];
-              var iframe = $(".tab-pane.active iframe")[0].contentWindow;
-              tabOpener(iframe, target);
-          }
-        });
+            function hideFirstHeading(iframe) {
+                iframe.contentDocument.getElementsByTagName("h1")[0].style.display = 'none';
+            }
+        }
+
+        function openBootstrap(iframe, tab) {
+            iframe.$("nav [aria-controls=" + tab + "]").tab('show');
+        }
+        
+        function listenOnTabChange() {
+            $('.nav a').click(function (e) {
+              e.preventDefault();
+              $(this).tab('show');
+
+              var target = $(this).data('iframe-tab');
+              if (target) {
+                  var tabOpener = tabsInIframe[$(this).attr('href')];
+                  var iframe = $(".tab-pane.active iframe")[0].contentWindow;
+                  tabOpener(iframe, target);
+              }
+            });
+        }
     }());
     </script>
 </body>

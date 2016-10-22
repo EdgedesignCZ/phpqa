@@ -229,7 +229,8 @@ trait CodeAnalysisTasks
             xmlToHtml(
                 $tool->getXmlFiles(),
                 $this->config->path("report.{$tool}"),
-                $tool->htmlReport
+                $tool->htmlReport,
+                ['root-directory' => $this->options->rootPath]
             );
         }
         twigToHtml(

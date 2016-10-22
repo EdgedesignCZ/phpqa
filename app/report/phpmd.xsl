@@ -1,98 +1,201 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
-<!-- XSL from https://github.com/OpenDTP/OpenDTPAPI/tree/03b05727a3b28439fe9e0b4b5225964c616511c7/build/xsl -->
+
     <xsl:output method="html"  encoding="UTF-8"/>
+    <xsl:key name="error-category" match="/pmd/file/violation" use="@rule" />
+    <xsl:key name="file-category" match="/pmd/file" use="violation/@rule" />
+
     <xsl:template match="/">
         <html>
             <head>
                 <title>PHPMD report</title>
+                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
                 <style>
-                    #summary {font: 38px 'Arial'; color:#555; padding:20px 0 20px 30px;}
-                    .errors-count {color:red;}
-                    .warnings-count {color:orange}
-                    .files-count {color:black;}
-
-                    #files {padding:20px 0 0 30px;}
-                    .file {padding:20px 5px; border-bottom:2px solid #CCC; font-size:22px;}
-                    .file .file-info {display:none;}
-                    .file a:link {border-bottom:1px dotted #888; text-decoration:none; color:black;}
-                    .file a:link:hover {border-bottom:none;}
-
-                    .errors {padding:5px 15px; margin:5px 0; border-left:3px solid red; font-size:16px;}
-                    .warnings {padding:0 15px; border-left:3px solid orange; font-size:18px; color:#666;}
-
-                    .error, .warning {padding:5px 0; border-bottom:1px solid #DDD;}
-                    .error .info, .warning .info {color:#666; font-size:15px;}
-
-                    .file:last-child, .error:last-child, .warning:last-child {border-bottom:none;}
+                    .file {
+                        background: #f9f9f9
+                    }
+                    .fixed-navbar {
+                        list-style-type: none;
+                        position: fixed;
+                        top: 0;
+                        right: 1em;
+                    }
+                    .priority-1 {background: #d9534f;}
+                    .priority-2 {background: #f0ad4e;}
+                    .priority-3 {background: #f0ad4e;}
+                    .priority-4 {background: #5bc0de;}
+                    .priority-5 {background: #5bc0de;}
                 </style>
-                <script type="text/javascript" src="https://code.jquery.com/jquery-1.8.0.min.js" />
-                <script type="text/javascript" src="https://code.jquery.com/ui/1.7.2/jquery-ui.min.js" />
-                <script type="text/javascript">
-                    $(function() {
-                        $(".file a").click(function() {
-                            var info = $(this).parent().find(".file-info");
-
-                            if (info.is(":visible")) {
-                                info.slideUp();
-                            } else {
-                                info.slideDown();
-                            }
-                        })
-                    })
+                <script>
+                var onDocumentReady = [
+                    function () {
+                        $('[data-file]').each(function () {
+                            var pathWithoutRoot = $(this).text().replace('<xsl:value-of select="$root-directory"></xsl:value-of>', '');
+                            $(this).text(pathWithoutRoot);
+                        });
+                    }
+                ];
                 </script>
             </head>
             <body>
-                <div id="summary">
-                    PHP Mess Detector Report<br />
-                    Summary: <span class="errors-count"><xsl:value-of select="count(/pmd/file/violation)" /></span> errors
-                    and <span class="warnings-count"><xsl:value-of select="count(/pmd/file/violation[@priority &lt; 3])" /></span> warnings
-                    in <span class="files-count"><xsl:value-of select="count(/pmd/file/violation[@priority &gt; 2])" /></span> files
+
+            <div class="container-fluid">
+            
+                <h1>phpmd report</h1>
+
+                <nav>
+                    <ul class="nav nav-pills" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#errors" aria-controls="errors" role="tab" data-toggle="tab">Errors</a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="tab-content">
+
+                    <div role="tabpanel" class="tab-pane active" id="overview">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Rule</th>
+                                    <th>Errors</th>
+                                    <th>Files</th>
+                                </tr>
+                            </thead>
+                            <!-- http://stackoverflow.com/a/9589085/4587679 -->
+                            <xsl:for-each select="/pmd/file/violation[generate-id() = generate-id(key('error-category', ./@rule)[1])]">
+                                <xsl:variable name="group" select="@rule"/>
+                                <tr>
+                                    <td><xsl:value-of select="$group"/></td>
+                                    <td><xsl:value-of select="count(key('error-category', $group))" /></td>
+                                    <td><xsl:value-of select="count(key('file-category', $group))" /></td>
+                                    <td></td>
+                                </tr>
+                            </xsl:for-each>
+                            <tfoot>
+                                <tr>
+                                    <td></td>
+                                    <th><span class="label label-danger"><xsl:value-of select="count(/pmd/file/violation)" /></span></th>
+                                    <th><span class="label label-info"><xsl:value-of select="count(/pmd/file)" /></span></th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="errors">
+                        <div class="fixed-navbar">
+                            <div class="input-group" style="width: 20em">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
+                                <input data-search="errors" type="text" class="form-control" placeholder="unused..." />
+                            </div>
+                        </div>
+                        <script>
+                        onDocumentReady.push(function () {
+                            var groups = $('[data-filterable] tbody tr[data-permanent]');
+                            var rows = $('[data-filterable] tbody tr:not([data-permanent])');
+
+                            $("[data-search]").keyup(function () {
+                                var term = $(this).val().toLowerCase();
+
+                                rows.hide();
+                                groups.show();
+                                matchElements(rows).show();
+                                matchEmptyGroups().hide();
+
+                                function matchElements(elements) {
+                                    return elements.filter(function () {
+                                        var rowContent = $(this).text().toLowerCase();
+                                        return rowContent.indexOf(term) !== -1
+                                    });
+                                }
+
+                                function matchEmptyGroups() {
+                                    return groups.filter(function () {
+                                        var group = $(this).data('permanent');
+                                        return rows
+                                            .filter(function () {
+                                                return $(this).data('group') == group <![CDATA[&&]]> $(this).is(':visible');
+                                            })
+                                            .length == 0;
+                                    });
+                                }
+                            });
+                        });
+                        </script>
+
+                        <table class="table" data-filterable="errors">
+                            <thead>
+                                <tr>
+                                    <th colspan="2">Rule</th>
+                                    <th>Error</th>
+                                    <th>Lines</th>
+                                </tr>
+                            </thead>
+                            <xsl:for-each select="/pmd/file">
+                                <tr>
+                                    <xsl:attribute name="data-permanent">
+                                        <xsl:value-of select="@name" />
+                                    </xsl:attribute>
+                                    <td colspan="5" class="file"><strong data-file=""><xsl:value-of select="@name" /></strong></td>
+                                </tr>
+                                <xsl:for-each select="./violation">
+                                    <tr>
+                                        <xsl:attribute name="data-group">
+                                            <xsl:value-of select="../@name" />
+                                        </xsl:attribute>
+                                        <td>
+                                            <span>
+                                                <xsl:attribute name="class">
+                                                label priority-<xsl:value-of select="@priority" />
+                                                </xsl:attribute>
+                                                <xsl:value-of select="@priority" />
+                                            </span>
+                                        </td>
+                                        <td>
+                                            <xsl:choose>
+                                                <xsl:when test="@externalInfoUrl != '#'">
+                                                    <a>
+                                                        <xsl:attribute name="href">
+                                                            <xsl:value-of select="@externalInfoUrl" />
+                                                        </xsl:attribute>
+                                                        <xsl:value-of select="@rule" />
+                                                    </a>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <xsl:value-of select="@rule" />
+                                                </xsl:otherwise>
+                                            </xsl:choose>
+                                            <br />
+                                            <span class="text-muted"><xsl:value-of select="@ruleset" /></span>
+                                        </td>
+                                        <td>
+                                            <xsl:value-of select="text()" /><br />
+                                            <small class="text-muted">
+                                                <xsl:if test="@package"><xsl:value-of select="@package" />\</xsl:if>
+                                                <xsl:if test="@class"><xsl:value-of select="@class" /></xsl:if>
+                                                <xsl:if test="@method">::<xsl:value-of select="@method" /></xsl:if>
+                                                <xsl:value-of select="@function" />
+                                            </small>
+                                        </td>
+                                        <td><xsl:value-of select="@beginline" />-<xsl:value-of select="@endline" /></td>
+                                    </tr>
+                                </xsl:for-each>
+                            </xsl:for-each>
+                        </table>
+                    </div>
                 </div>
-                <div id="files">
-                    <xsl:apply-templates select="/pmd/file">
-                        <xsl:sort select="count(violation)" data-type="number" order="descending" />
-                    </xsl:apply-templates>
-                </div>
+            </div>    
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script>
+                $(document).ready(onDocumentReady);
+            </script>
             </body>
         </html>
-    </xsl:template>
-
-    <xsl:template match="/pmd/file">
-        <div class="file">
-            <a href="javascript:void(null)"><xsl:value-of select="@name" /></a>
-            <b>
-                (<span class="errors-count"><xsl:value-of select="count(violation[@priority &gt; 2])" /></span> /
-                <span class="warnings-count"><xsl:value-of select="count(violation[@priority &lt; 3])" /></span>)
-            </b>
-            <div class="file-info">
-                <div class="errors">
-                    <xsl:apply-templates select="violation[@priority &gt; 2]" />
-                </div>
-                <div class="warnings">
-                    <xsl:apply-templates select="violation[@priority &lt; 3]" />
-                </div>
-            </div>
-        </div>
-    </xsl:template>
-
-    <xsl:template match="/pmd/file/violation[@priority &gt; 2]">
-        <div class="error">
-            <xsl:value-of select="." />
-            <div class="info">
-                <u>from line <xsl:value-of select="@beginline" /> to <xsl:value-of select="@endline" /></u>
-                in method <xsl:value-of select="@method" />
-            </div>
-        </div>
-    </xsl:template>
-
-    <xsl:template match="/pmd/file/violation[@priority &lt; 3]">
-        <div class="warning">
-            <xsl:value-of select="." />
-            <div class="info">
-                <u>from line <xsl:value-of select="@beginline" /> to <xsl:value-of select="@endline" /></u>
-                in method <xsl:value-of select="@method" />
-            </div>
-        </div>
     </xsl:template>
 </xsl:stylesheet>

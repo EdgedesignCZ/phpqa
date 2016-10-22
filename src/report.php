@@ -16,7 +16,7 @@ function twigToHtml($template, array $params, $outputFile)
     file_put_contents($outputFile, $html);
 }
 
-function xmlToHtml(array $xmlDocuments, $style, $outputFile)
+function xmlToHtml(array $xmlDocuments, $style, $outputFile, array $params = [])
 {
     if (!$xmlDocuments) {
         return;
@@ -38,6 +38,9 @@ function xmlToHtml(array $xmlDocuments, $style, $outputFile)
         $xsl->load($style);
 
         $xslt = new XSLTProcessor();
+        foreach ($params as $param => $value) {
+            $xslt->setParameter('', $param, $value);
+        }
         $xslt->importStylesheet($xsl);
         $xslt->transformToDoc($xml)->saveHTMLFile($outputFile);
     } catch (Exception $e) {
