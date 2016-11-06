@@ -18,6 +18,7 @@
     "bin": ["phpqa"],
     "require": {
         "php": ">=5.4",
+        "ext-xsl": "*",
         "henrikbjorn/lurker": "dev-master",
         "codegyre/robo": "*",
         "phpmd/phpmd" : "*",
