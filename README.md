@@ -199,7 +199,7 @@ report:
 Be aware that all **paths are relative to `.phpqa.yml`**. Don't copy-paste section `report`
 if you don't have custom templates!
 
-## Requirements
+### Requirements
 
 [`xsl` extension](http://php.net/manual/en/class.xsltprocessor.php)
 must be installed and enabled for exporting HTML reports.
