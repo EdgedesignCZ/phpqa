@@ -135,12 +135,11 @@ how many repositories you want to update when new version is released.</p>
 <p>Do you have problems with dependencies
 (<a href="https://github.com/EdgedesignCZ/phpqa/issues/22">symfony components</a>, <a href="https://github.com/EdgedesignCZ/phpqa/issues/19">phpcpd</a>, ...)?
 Check if you can <a href="#circleci---artifacts--global-installation">install phpqa globally</a>.
-Or install dev-master versions of <code>sebastian/phpcpd</code> and <code>henrikbjorn/lurker</code>:</p>
+Or install dev-master versions of <code>sebastian/phpcpd</code>:</p>
 
 <div class="highlight highlight-source-json"><pre>{
     <span class="pl-s"><span class="pl-pds">"</span>require-dev<span class="pl-pds">"</span></span>: {
         <span class="pl-s"><span class="pl-pds">"</span>edgedesign/phpqa<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>&gt;=1.7<span class="pl-pds">"</span></span>,
-        <span class="pl-s"><span class="pl-pds">"</span>henrikbjorn/lurker<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>dev-master<span class="pl-pds">"</span></span>,
         <span class="pl-s"><span class="pl-pds">"</span>sebastian/phpcpd<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>dev-master<span class="pl-pds">"</span></span>
     }
 }</pre></div>
@@ -372,8 +371,8 @@ You have to define path to <code>xsl</code> files in your <a href="#advanced-con
 <p>Be aware that all <strong>paths are relative to <code>.phpqa.yml</code></strong>. Don't copy-paste section <code>report</code>
 if you don't have custom templates!</p>
 
-<h2>
-<a id="requirements-1" class="anchor" href="#requirements-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Requirements</h2>
+<h3>
+<a id="requirements-1" class="anchor" href="#requirements-1" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a> Requirements</h3>
 
 <p><a href="http://php.net/manual/en/class.xsltprocessor.php"><code>xsl</code> extension</a>
 must be installed and enabled for exporting HTML reports.
