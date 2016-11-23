@@ -1,6 +1,13 @@
 
 # Changelog
 
+## v1.7.3
+
+* [#35](https://github.com/EdgedesignCZ/phpqa/pull/35) Upgrade robo, pdepend, phpmd
+    * don't use `henrikbjorn/lurker: dev-master`
+    * fix PHP7’s null coalesce operator in [phpmd](https://github.com/phpmd/phpmd/issues/347) and [pdepend](https://github.com/pdepend/pdepend/pull/267)
+* [#34](https://github.com/EdgedesignCZ/phpqa/pull/34) Explicit `ext-xsl` requirement
+
 ## v1.7.2
 
 * [#33](https://github.com/EdgedesignCZ/phpqa/issues/33) Improved [reports](https://edgedesigncz.github.io/phpqa/report/phpqa.html)
