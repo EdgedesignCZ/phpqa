@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "4f109bd4ee79898a48b2f75fab86284d",
-    "content-hash": "bbab948633ba13e4e7758fbd5d8068cb",
+    "hash": "fcdfbbf4e73c12595d00a20f45c7a2a5",
+    "content-hash": "5065a6c361aa0f9b50fc43a84c495097",
     "packages": [
         {
-            "name": "codegyre/robo",
+            "name": "consolidation/robo",
             "version": "0.7.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/consolidation-org/Robo.git",
+                "url": "https://github.com/consolidation/Robo.git",
                 "reference": "9982edecb19f59420031dd9855b0d31e861b8b68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation-org/Robo/zipball/9982edecb19f59420031dd9855b0d31e861b8b68",
+                "url": "https://api.github.com/repos/consolidation/Robo/zipball/9982edecb19f59420031dd9855b0d31e861b8b68",
                 "reference": "9982edecb19f59420031dd9855b0d31e861b8b68",
                 "shasum": ""
             },
@@ -64,7 +64,7 @@
         },
         {
             "name": "henrikbjorn/lurker",
-            "version": "dev-master",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flint/Lurker.git",
@@ -727,16 +727,16 @@
         },
         {
             "name": "pdepend/pdepend",
-            "version": "2.2.4",
+            "version": "2.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/pdepend/pdepend.git",
-                "reference": "b086687f3a01dc6bb92d633aef071d2c5dd0db06"
+                "reference": "132c0a58dae0a92c4e091857515f4afcd5d27413"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/b086687f3a01dc6bb92d633aef071d2c5dd0db06",
-                "reference": "b086687f3a01dc6bb92d633aef071d2c5dd0db06",
+                "url": "https://api.github.com/repos/pdepend/pdepend/zipball/132c0a58dae0a92c4e091857515f4afcd5d27413",
+                "reference": "132c0a58dae0a92c4e091857515f4afcd5d27413",
                 "shasum": ""
             },
             "require": {
@@ -763,7 +763,7 @@
                 "BSD-3-Clause"
             ],
             "description": "Official version of pdepend to be handled with Composer",
-            "time": "2016-03-10 15:15:04"
+            "time": "2016-11-23 12:21:10"
         },
         {
             "name": "phploc/phploc",
@@ -820,21 +820,21 @@
         },
         {
             "name": "phpmd/phpmd",
-            "version": "2.4.3",
+            "version": "2.4.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phpmd/phpmd.git",
-                "reference": "2b9c2417a18696dfb578b38c116cd0ddc19b256e"
+                "reference": "148b605040ae6f7cc839e14a9e206beec9868d97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/2b9c2417a18696dfb578b38c116cd0ddc19b256e",
-                "reference": "2b9c2417a18696dfb578b38c116cd0ddc19b256e",
+                "url": "https://api.github.com/repos/phpmd/phpmd/zipball/148b605040ae6f7cc839e14a9e206beec9868d97",
+                "reference": "148b605040ae6f7cc839e14a9e206beec9868d97",
                 "shasum": ""
             },
             "require": {
                 "pdepend/pdepend": "^2.0.4",
-                "php": ">=5.3.0"
+                "php": ">=5.3.9"
             },
             "require-dev": {
                 "phpunit/phpunit": "^4.0",
@@ -881,7 +881,7 @@
                 "phpmd",
                 "pmd"
             ],
-            "time": "2016-04-04 11:52:04"
+            "time": "2016-11-22 14:35:17"
         },
         {
             "name": "phpmetrics/phpmetrics",
@@ -2706,13 +2706,12 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "henrikbjorn/lurker": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.4"
+        "php": ">=5.4",
+        "ext-xsl": "*"
     },
     "platform-dev": []
 }
