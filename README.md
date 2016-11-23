@@ -76,13 +76,12 @@ how many repositories you want to update when new version is released.
 Do you have problems with dependencies
 ([symfony components](https://github.com/EdgedesignCZ/phpqa/issues/22), [phpcpd](https://github.com/EdgedesignCZ/phpqa/issues/19), ...)?
 Check if you can [install phpqa globally](#circleci---artifacts--global-installation).
-Or install dev-master versions of `sebastian/phpcpd` and `henrikbjorn/lurker`:
+Or install dev-master versions of `sebastian/phpcpd`:
 
 ```json
 {
     "require-dev": {
         "edgedesign/phpqa": ">=1.7",
-        "henrikbjorn/lurker": "dev-master",
         "sebastian/phpcpd": "dev-master"
     }
 }

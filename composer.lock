@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "609ef52c5d5b2ae421edd11c9b6a33d6",
-    "content-hash": "c4499a39b896558e6d298ab016a7611e",
+    "hash": "fcdfbbf4e73c12595d00a20f45c7a2a5",
+    "content-hash": "5065a6c361aa0f9b50fc43a84c495097",
     "packages": [
         {
-            "name": "codegyre/robo",
+            "name": "consolidation/robo",
             "version": "0.7.2",
             "source": {
                 "type": "git",
-                "url": "https://github.com/consolidation-org/Robo.git",
+                "url": "https://github.com/consolidation/Robo.git",
                 "reference": "9982edecb19f59420031dd9855b0d31e861b8b68"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/consolidation-org/Robo/zipball/9982edecb19f59420031dd9855b0d31e861b8b68",
+                "url": "https://api.github.com/repos/consolidation/Robo/zipball/9982edecb19f59420031dd9855b0d31e861b8b68",
                 "reference": "9982edecb19f59420031dd9855b0d31e861b8b68",
                 "shasum": ""
             },
@@ -60,12 +60,11 @@
                 }
             ],
             "description": "Modern task runner",
-            "abandoned": "consolidation/robo",
             "time": "2016-04-13 20:14:17"
         },
         {
             "name": "henrikbjorn/lurker",
-            "version": "dev-master",
+            "version": "1.2.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/flint/Lurker.git",
@@ -2707,9 +2706,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "henrikbjorn/lurker": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

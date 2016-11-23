@@ -19,8 +19,7 @@
     "require": {
         "php": ">=5.4",
         "ext-xsl": "*",
-        "henrikbjorn/lurker": "dev-master",
-        "codegyre/robo": "*",
+        "consolidation/robo": "<1",
         "phpmd/phpmd" : "*",
         "phploc/phploc": "*",
         "symfony/dependency-injection": ">=2.8",
