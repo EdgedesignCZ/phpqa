@@ -158,7 +158,8 @@ trait CodeAnalysisTasks
     private function phpcs(RunningTool $tool)
     {
         $standard = $this->config->value('phpcs.standard');
-        if (!in_array($standard, \PHP_CodeSniffer::getInstalledStandards())) {
+        if (!in_array($standard, \PHP_CodeSniffer::getInstalledStandards())
+            && !file_exists($standard)) {
             $standard = escapePath($this->config->path('phpcs.standard'));
         }
         $args = array(
