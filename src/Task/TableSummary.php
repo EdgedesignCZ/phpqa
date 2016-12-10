@@ -47,7 +47,7 @@ class TableSummary
         $table->addRow(array(
             '<comment>phpqa</comment>',
             '',
-            $failedTools ? "<error>{$totalErrors}</error>" : $errorsCount,
+            $failedTools ? "<error>{$totalErrors}</error>" : $totalErrors,
             $this->getStatus(empty($failedTools)),
             $this->options->hasReport ? $this->options->rawFile("phpqa.html") : ''
         ));
