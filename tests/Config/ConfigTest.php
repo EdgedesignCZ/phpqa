@@ -41,7 +41,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
     {
         $config = new Config();
         $config->loadCustomConfig(__DIR__);
-        $this->setExpectedException(\Exception::class);
+        $this->setExpectedException('Exception');
         $config->path('phpcs.standard');
     }
 }
