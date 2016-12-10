@@ -33,15 +33,20 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
     {
         $directoryWithoutConfig = __DIR__ . '/../';
         $config = new Config();
+        $this->shouldStopPhpqa();
         $config->loadCustomConfig($directoryWithoutConfig);
-        assertThat($config->value('phpcs.standard'), is(nonEmptyString()));
     }
 
     public function testThrowExceptionWhenFileDoesNotExist()
     {
         $config = new Config();
         $config->loadCustomConfig(__DIR__);
-        $this->setExpectedException('Exception');
+        $this->shouldStopPhpqa();
         $config->path('phpcs.standard');
+    }
+
+    private function shouldStopPhpqa()
+    {
+        $this->setExpectedException('Exception');
     }
 }

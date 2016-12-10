@@ -23,6 +23,8 @@ class Config
                 array($configDir => $config),
                 $this->configs
             );
+        } else {
+            $this->throwInvalidPath('.phpqa.yml', $configFile);
         }
     }
 
@@ -43,7 +45,7 @@ class Config
             function ($file, $dir) use ($path) {
                 $realpath = realpath("{$dir}{$file}");
                 if (!$realpath) {
-                    throw new \RuntimeException("Unknown file in {$path}. '{$dir}{$file}' does not exist.");
+                    $this->throwInvalidPath($path, "{$dir}{$file}");
                 }
                 return $realpath;
             }
@@ -70,5 +72,10 @@ class Config
             $result = $result[$key];
         }
         return $result;
+    }
+
+    private function throwInvalidPath($source, $path)
+    {
+        throw new \RuntimeException("Invalid {$source} - '{$path}' does not exist.");
     }
 }
