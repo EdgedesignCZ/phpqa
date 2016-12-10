@@ -40,8 +40,12 @@ class Config
     {
         return $this->get(
             $path,
-            function ($file, $dir) {
-                return realpath("{$dir}{$file}");
+            function ($file, $dir) use ($path) {
+                $realpath = realpath("{$dir}{$file}");
+                if (!$realpath) {
+                    throw new \RuntimeException("Unknown file in {$path}. '{$dir}{$file}' does not exist.");
+                }
+                return $realpath;
             }
         );
     }

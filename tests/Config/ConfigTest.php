@@ -4,7 +4,7 @@ namespace Edge\QA;
 
 class ConfigTest extends \PHPUnit_Framework_TestCase
 {
-    public function testShouldLoadDefaultConfig()
+    public function testLoadDefaultConfig()
     {
         $config = new Config();
         assertThat($config->value('phpcpd.minLines'), is(greaterThan(0)));
@@ -13,13 +13,13 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->path('phpmd.standard'), is(nonEmptyString()));
     }
 
-    public function testShouldBuildAbsolutePath()
+    public function testBuildAbsolutePath()
     {
         $config = new Config();
         assertThat($config->path('phpmd.standard'), not(startsWith('app/')));
     }
 
-    public function testShouldOverrideDefaultConfig()
+    public function testOverrideDefaultConfig()
     {
         $config = new Config();
         $config->loadCustomConfig(__DIR__);
@@ -29,11 +29,19 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->path('phpmd.standard'), is(__DIR__ . "/my-standard.xml"));
     }
 
-    public function testShouldIgnoreNonExistenConfig()
+    public function testIgnoreNonExistenConfig()
     {
         $directoryWithoutConfig = __DIR__ . '/../';
         $config = new Config();
         $config->loadCustomConfig($directoryWithoutConfig);
         assertThat($config->value('phpcs.standard'), is(nonEmptyString()));
+    }
+
+    public function testThrowExceptionWhenFileDoesNotExist()
+    {
+        $config = new Config();
+        $config->loadCustomConfig(__DIR__);
+        $this->setExpectedException(\Exception::class);
+        $config->path('phpcs.standard');
     }
 }
