@@ -89,9 +89,7 @@ trait CodeAnalysisTasks
         $this->options = new Options($opts);
         $this->usedTools = $this->options->buildRunningTools($this->tools);
         $this->config = new Config();
-        if ($this->options->configDir) {
-            $this->config->loadCustomConfig($this->options->configDir);
-        }
+        $this->config->loadCustomConfig($this->options->configDir, $opts['config']);
     }
 
     private function ciClean()

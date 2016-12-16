@@ -29,12 +29,12 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->path('phpmd.standard'), is(__DIR__ . "/my-standard.xml"));
     }
 
-    public function testIgnoreNonExistenConfig()
+    public function testIgnoreNonExistentUserConfig()
     {
         $directoryWithoutConfig = __DIR__ . '/../';
         $config = new Config();
         $this->shouldStopPhpqa();
-        $config->loadCustomConfig($directoryWithoutConfig);
+        $config->loadCustomConfig($directoryWithoutConfig, true);
     }
 
     public function testThrowExceptionWhenFileDoesNotExist()

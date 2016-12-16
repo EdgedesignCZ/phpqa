@@ -13,7 +13,7 @@ class Config
         $this->loadCustomConfig(__DIR__ . '/../');
     }
 
-    public function loadCustomConfig($directory)
+    public function loadCustomConfig($directory, $isUserDirectory = false)
     {
         $configDir = $directory . '/';
         $configFile = "{$configDir}.phpqa.yml";
@@ -23,7 +23,7 @@ class Config
                 array($configDir => $config),
                 $this->configs
             );
-        } else {
+        } elseif ($isUserDirectory) {
             $this->throwInvalidPath('.phpqa.yml', $configFile);
         }
     }
