@@ -7,7 +7,7 @@ class Options
     /** @var string */
     public $analyzedDir;
     /** @var string */
-    public $rootPath;
+    private $rootPath;
     /** @var string */
     public $buildDir;
     /** @var string */
@@ -50,6 +50,11 @@ class Options
     {
         $path = realpath(getcwd() . '/' . $analyzedDir);
         return $path ? "{$path}/" : '';
+    }
+
+    public function getCommonRootPath()
+    {
+        return $this->rootPath;
     }
 
     private function loadTools($inputTools)

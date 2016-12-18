@@ -108,7 +108,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     public function testBuildRootPath($analyzedDir, $expectedRoot)
     {
         $options = $this->overrideOptions(array('analyzedDir' => $analyzedDir));
-        assertThat($options->rootPath, is($expectedRoot));
+        assertThat($options->getCommonRootPath(), is($expectedRoot));
     }
 
     public function provideAnalyzedDir()
