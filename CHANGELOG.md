@@ -1,6 +1,16 @@
 
 # Changelog
 
+## v1.8.0
+
+* [#37](https://github.com/EdgedesignCZ/phpqa/pull/37#issuecomment-266218735) Stop phpqa when `.phpqa.yml` or specified standard doesn't exist
+* [#39](https://github.com/EdgedesignCZ/phpqa/pull/39) Analyze multiple directories + deprecate analyzing one directory
+    * **Before**: `phpqa --analyzedDir ./`
+    * **After**: `phpqa --analyzedDirs ./`
+
+* Drop outdated versioneye badge in favor of `composer outdated --direct`
+* Upgrade QA tools (phpcs, phpmd, pdepend)
+
 ## v1.7.3
 
 * [#35](https://github.com/EdgedesignCZ/phpqa/pull/35) Upgrade robo, pdepend, phpmd
