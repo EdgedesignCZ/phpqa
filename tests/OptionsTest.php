@@ -115,7 +115,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     public function provideAnalyzedDir()
     {
         return array(
-            'current dir + analyzed dir + slash' => array('./', getcwd() . '/'),
+            'current dir + analyzed dir + slash' => array('src', getcwd() . '/src/'),
             'find common root from multiple dirs' => array('src,tests', getcwd() . '/'),
             'no path when dir is invalid' => array('./non-existent-directory', ''),
         );
