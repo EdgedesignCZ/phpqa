@@ -236,7 +236,7 @@ Typically in Symfony project you have project with `src` directory with all the 
 
 **Robo - `RoboFile.php`**
 
-```php
+```php?start_inline=true
 public function ciPhpqa()
 {
     $this->taskExec('phpqa')
@@ -272,7 +272,7 @@ Except phpmetrics that analyzes only first directory. Analyze root directory and
 
 **Robo - `RoboFile.php`**
 
-```php
+```php?start_inline=true
 public function ciPhpqa()
 {
     $this->taskExec('phpqa')
