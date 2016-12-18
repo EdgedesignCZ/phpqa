@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2016-11-23T18:34:09" pdepend="@package_version@">
+<dependencies generated="2016-12-18T13:14:40" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -23,6 +23,7 @@
     <class name="Config">
       <efferent>
         <type namespace="Symfony\Component\Yaml" name="Yaml"/>
+        <type namespace="" name="RuntimeException"/>
       </efferent>
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>

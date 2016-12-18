@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<checkstyle version="2.6.2">
+<checkstyle version="2.7.1">
 <file name="/mnt/DATA/www/_my_classes/qa-cli/src/report.php">
- <error line="47" column="31" severity="error" message="Each PHP statement must be on a line by itself" source="Generic.Formatting.DisallowMultipleStatements.SameLine"/>
+ <error line="48" column="13" severity="error" message="Each PHP statement must be on a line by itself" source="Generic.Formatting.DisallowMultipleStatements.SameLine"/>
 </file>
 </checkstyle>
 
