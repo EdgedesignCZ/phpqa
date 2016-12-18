@@ -7,7 +7,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 {
     // copy-pasted options from CodeAnalysisTasks
     private $defaultOptions = array(
-        'analyzedDir' => './',
+        'analyzedDirs' => './',
         'buildDir' => 'build/',
         'ignoredDirs' => 'vendor',
         'ignoredFiles' => '',
@@ -106,9 +106,9 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @dataProvider provideAnalyzedDir */
-    public function testBuildRootPath($analyzedDir, $expectedRoot)
+    public function testBuildRootPath($analyzedDirs, $expectedRoot)
     {
-        $options = $this->overrideOptions(array('analyzedDir' => $analyzedDir));
+        $options = $this->overrideOptions(array('analyzedDirs' => $analyzedDirs));
         assertThat($options->getCommonRootPath(), is($expectedRoot));
     }
 

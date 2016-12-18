@@ -54,6 +54,7 @@ trait CodeAnalysisTasks
     /**
      * @description Executes QA tools
      * @option $analyzedDir path to analyzed directory
+     * @option $analyzedDirs csv path(s) to analyzed directories @example src,tests
      * @option $buildDir path to output directory
      * @option $ignoredDirs csv @example CI,bin,vendor
      * @option $ignoredFiles csv @example RoboFile.php
@@ -64,7 +65,8 @@ trait CodeAnalysisTasks
      */
     public function ci(
         $opts = array(
-            'analyzedDir' => './',
+            'analyzedDir' => '',
+            'analyzedDirs' => '',
             'buildDir' => 'build/',
             'ignoredDirs' => 'vendor',
             'ignoredFiles' => '',
@@ -86,6 +88,13 @@ trait CodeAnalysisTasks
 
     private function loadOptions(array $opts)
     {
+        if (!$opts['analyzedDirs']) {
+            $opts['analyzedDirs'] = $opts['analyzedDir'] ?: './';
+            if ($opts['analyzedDir']) {
+                $this->yell("Option --analyzedDir is deprecated, please use option --analyzedDirs");
+            }
+        }
+
         $this->options = new Options($opts);
         $this->usedTools = $this->options->buildRunningTools($this->tools);
         $this->config = new Config();

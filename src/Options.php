@@ -38,7 +38,7 @@ class Options
             function ($dir) {
                 return '"' . $dir . '"';
             },
-            array_filter(explode(',', $options['analyzedDir']))
+            array_filter(explode(',', $options['analyzedDirs']))
         );
         $this->buildDir = $options['buildDir'];
         $this->isParallel = $options['execution'] == 'parallel';
