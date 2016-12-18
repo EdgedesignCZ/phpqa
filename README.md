@@ -100,7 +100,9 @@ For full documentation please visit [eko3alpha/docker-phpqa](https://hub.docker.
 | Command | Description |
 | ------- | ----------- |
 | `phpqa --help` | Show help - available options, tools, default values, ... |
-| `phpqa --analyzedDir ./ --buildDir ./build` | Analyze current directory and save output to build directory |
+| `phpqa --analyzedDirs ./ --buildDir ./build` | Analyze current directory and save output to build directory |
+| `phpqa --analyzedDirs src,tests` | Analyze source and test directory ([phpmetrics analyzes only `src`](#project-with-multiple-directories-src-tests-)) |
+| ~~`phpqa --analyzedDir ./`~~ | Deprecated in **v1.8** in favor of `--analyzedDirs` |
 | `phpqa --ignoredDirs build,vendor` | Ignore directories |
 | `phpqa --ignoredFiles RoboFile.php` | Ignore files |
 | `phpqa --tools phploc,phpcs` | Run only selected tools |
@@ -226,7 +228,7 @@ Typically in Symfony project you have project with `src` directory with all the 
 ```xml
 <target name="ci-phpqa">
     <exec executable="phpqa" passthru="true">
-        <arg value="--analyzedDir=./src" />
+        <arg value="--analyzedDirs=./src" />
         <arg value="--buildDir=./build/logs" />
         <arg value="--report" />
     </exec>
@@ -239,7 +241,7 @@ Typically in Symfony project you have project with `src` directory with all the 
 public function ciPhpqa()
 {
     $this->taskExec('phpqa')
-        ->option('analyzedDir', './src')
+        ->option('analyzedDirs', './src')
         ->option('buildDir', './build/logs')
         ->option('report')
         ->run();
@@ -251,12 +253,15 @@ public function ciPhpqa()
 When you analyze root directory of your project don't forget to ignore vendors and
 other non-code directories. Otherwise the analysis could take a very long time.
 
+**Since version [1.8](CHANGELOG.md#v180) phpqa supports analyzing multiple directories.**
+Except phpmetrics that analyzes only first directory. Analyze root directory and ignore other directories if you rely on phpmetrics report.
+
 **Phing - `build.xml`**
 
 ```xml
 <target name="ci-phpqa">
     <exec executable="phpqa" passthru="true">
-        <arg value="--analyzedDir=./" />
+        <arg value="--analyzedDirs=./" />
         <arg value="--buildDir=./build/logs" />
         <arg value="--ignoredDirs=app,bin,build,vendor,web" />
         <arg value="--ignoredFiles= " />
@@ -274,7 +279,7 @@ public function ciPhpqa()
     $this->taskExec('phpqa')
         ->option('verbose')
         ->option('report')
-        ->option('analyzedDir', './')
+        ->option('analyzedDirs', './')
         ->option('buildDir', './build')
         ->option('ignoredDirs', 'build,bin,vendor')
         ->option('ignoredFiles', 'RoboFile.php,error-handling.php')
@@ -285,7 +290,7 @@ public function ciPhpqa()
 **Bash**
 
 ```bash
-phpqa --verbose --report --analyzedDir ./ --buildDir ./var/CI --ignoredDirs=bin,log,temp,var,vendor,www
+phpqa --verbose --report --analyzedDirs ./ --buildDir ./var/CI --ignoredDirs=bin,log,temp,var,vendor,www
 ```
 
 ### Circle.ci - artifacts + global installation

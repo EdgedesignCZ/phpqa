@@ -54,6 +54,7 @@ trait CodeAnalysisTasks
     /**
      * @description Executes QA tools
      * @option $analyzedDir path to analyzed directory
+     * @option $analyzedDirs csv path(s) to analyzed directories @example src,tests
      * @option $buildDir path to output directory
      * @option $ignoredDirs csv @example CI,bin,vendor
      * @option $ignoredFiles csv @example RoboFile.php
@@ -64,7 +65,8 @@ trait CodeAnalysisTasks
      */
     public function ci(
         $opts = array(
-            'analyzedDir' => './',
+            'analyzedDir' => '',
+            'analyzedDirs' => '',
             'buildDir' => 'build/',
             'ignoredDirs' => 'vendor',
             'ignoredFiles' => '',
@@ -86,6 +88,13 @@ trait CodeAnalysisTasks
 
     private function loadOptions(array $opts)
     {
+        if (!$opts['analyzedDirs']) {
+            $opts['analyzedDirs'] = $opts['analyzedDir'] ?: './';
+            if ($opts['analyzedDir']) {
+                $this->yell("Option --analyzedDir is deprecated, please use option --analyzedDirs");
+            }
+        }
+
         $this->options = new Options($opts);
         $this->usedTools = $this->options->buildRunningTools($this->tools);
         $this->config = new Config();
@@ -132,7 +141,7 @@ trait CodeAnalysisTasks
         $args = array(
             'progress' => '',
             $this->options->ignore->bergmann(),
-            $this->options->analyzedDir
+            $this->options->getAnalyzedDirs(' '),
         );
         if ($this->options->isSavedToFiles) {
             $args['log-xml'] = $this->options->toFile('phploc.xml');
@@ -145,7 +154,7 @@ trait CodeAnalysisTasks
         $args = array(
             'progress' => '',
             $this->options->ignore->bergmann(),
-            $this->options->analyzedDir,
+            $this->options->getAnalyzedDirs(' '),
             'min-lines' => $this->config->value('phpcpd.minLines'),
             'min-tokens' => $this->config->value('phpcpd.minTokens'),
         );
@@ -166,7 +175,7 @@ trait CodeAnalysisTasks
             'extensions' => 'php',
             'standard' => $standard,
             $this->options->ignore->phpcs(),
-            $this->options->analyzedDir
+            $this->options->getAnalyzedDirs(' '),
         );
         if ($this->options->isSavedToFiles) {
             $args['report'] = 'checkstyle';
@@ -186,14 +195,14 @@ trait CodeAnalysisTasks
             'jdepend-chart' => $this->options->toFile('pdepend-jdepend.svg'),
             'overview-pyramid' => $this->options->toFile('pdepend-pyramid.svg'),
             $this->options->ignore->pdepend(),
-            $this->options->analyzedDir
+            $this->options->getAnalyzedDirs(','),
         );
     }
 
     private function phpmd(RunningTool $tool)
     {
         $args = array(
-            $this->options->analyzedDir,
+            $this->options->getAnalyzedDirs(','),
             $this->options->isSavedToFiles ? 'xml' : 'text',
             escapePath($this->config->path('phpmd.standard')),
             'suffixes' => 'php',
@@ -207,8 +216,13 @@ trait CodeAnalysisTasks
 
     private function phpmetrics(RunningTool $tool)
     {
+        $analyzedDirs = $this->options->getAnalyzedDirs();
+        $analyzedDir = reset($analyzedDirs);
+        if (count($analyzedDirs) > 1) {
+            $this->say("<error>phpmetrics analyzes only first directory {$analyzedDir}</error>");
+        }
         $args = array(
-            $this->options->analyzedDir,
+            $analyzedDir,
             'extensions' => 'php',
             $this->options->ignore->phpmetrics()
         );
@@ -231,7 +245,7 @@ trait CodeAnalysisTasks
                 $tool->getXmlFiles(),
                 $this->config->path("report.{$tool}"),
                 $tool->htmlReport,
-                ['root-directory' => $this->options->rootPath]
+                ['root-directory' => $this->options->getCommonRootPath()]
             );
         }
         twigToHtml(

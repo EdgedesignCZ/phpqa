@@ -4,10 +4,8 @@ namespace Edge\QA;
 
 class Options
 {
-    /** @var string */
-    public $analyzedDir;
-    /** @var string */
-    public $rootPath;
+    /** @var string[] */
+    private $analyzedDirs;
     /** @var string */
     public $buildDir;
     /** @var string */
@@ -36,8 +34,12 @@ class Options
 
     private function loadOutput(array $options)
     {
-        $this->analyzedDir = '"' . $options['analyzedDir'] . '"';
-        $this->rootPath = $this->buildRootPath($options['analyzedDir']);
+        $this->analyzedDirs = array_map(
+            function ($dir) {
+                return '"' . $dir . '"';
+            },
+            array_filter(explode(',', $options['analyzedDirs']))
+        );
         $this->buildDir = $options['buildDir'];
         $this->isParallel = $options['execution'] == 'parallel';
         $this->isSavedToFiles = $options['output'] == 'file';
@@ -46,10 +48,21 @@ class Options
         $this->configDir = $options['config'] ? $options['config'] : getcwd();
     }
 
-    private function buildRootPath($analyzedDir)
+    public function getCommonRootPath()
     {
-        $path = realpath(getcwd() . '/' . $analyzedDir);
-        return $path ? "{$path}/" : '';
+        $paths = array_filter(array_map(
+            function ($relativeDir) {
+                return realpath(getcwd() . '/' . trim($relativeDir, '"'));
+            },
+            $this->analyzedDirs
+        ));
+        $commonPath = commonPath($paths);
+        return $commonPath ? "{$commonPath}/" : '';
+    }
+
+    public function getAnalyzedDirs($separator = null)
+    {
+        return $separator ? implode($separator, $this->analyzedDirs) : $this->analyzedDirs;
     }
 
     private function loadTools($inputTools)

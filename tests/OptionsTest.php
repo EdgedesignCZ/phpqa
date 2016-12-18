@@ -7,7 +7,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 {
     // copy-pasted options from CodeAnalysisTasks
     private $defaultOptions = array(
-        'analyzedDir' => './',
+        'analyzedDirs' => './',
         'buildDir' => 'build/',
         'ignoredDirs' => 'vendor',
         'ignoredFiles' => '',
@@ -34,7 +34,8 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 
     public function testShouldEscapePaths()
     {
-        assertThat($this->fileOutput->analyzedDir, is('"./"'));
+        assertThat($this->fileOutput->getAnalyzedDirs(','), is('"./"'));
+        assertThat($this->fileOutput->getAnalyzedDirs(), is(['"./"']));
         assertThat($this->fileOutput->toFile('file'), is('"build//file"'));
         assertThat($this->fileOutput->rawFile('file'), is('build//file'));
     }
@@ -105,17 +106,18 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @dataProvider provideAnalyzedDir */
-    public function testBuildRootPath($analyzedDir, $expectedRoot)
+    public function testBuildRootPath($analyzedDirs, $expectedRoot)
     {
-        $options = $this->overrideOptions(array('analyzedDir' => $analyzedDir));
-        assertThat($options->rootPath, is($expectedRoot));
+        $options = $this->overrideOptions(array('analyzedDirs' => $analyzedDirs));
+        assertThat($options->getCommonRootPath(), is($expectedRoot));
     }
 
     public function provideAnalyzedDir()
     {
         return array(
-            'current dir + analyzed dir + slash' => array('./', getcwd() . '/'),
-            'no path when dir is invalid' => array('./non-existent-directory', '')
+            'current dir + analyzed dir + slash' => array('src', getcwd() . '/src/'),
+            'find common root from multiple dirs' => array('src,tests', getcwd() . '/'),
+            'no path when dir is invalid' => array('./non-existent-directory', ''),
         );
     }
 
