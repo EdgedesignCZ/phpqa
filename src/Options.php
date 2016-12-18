@@ -50,14 +50,14 @@ class Options
 
     public function getCommonRootPath()
     {
-        $paths = array_map(
+        $paths = array_filter(array_map(
             function ($relativeDir) {
-                $path = realpath(getcwd() . '/' . trim($relativeDir, '"'));
-                return $path ? "{$path}/" : '';
+                return realpath(getcwd() . '/' . trim($relativeDir, '"'));
             },
             $this->analyzedDirs
-        );
-        return reset($paths);
+        ));
+        $commonPath = commonPath($paths);
+        return $commonPath ? "{$commonPath}/" : '';
     }
 
     public function getAnalyzedDirs($separator = null)
