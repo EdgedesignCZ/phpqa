@@ -9,7 +9,7 @@ Analyze PHP code with one command.
 [![PHP runtimes](http://php-eye.com/badge/edgedesign/phpqa/tested.svg)](http://php-eye.com/package/edgedesign/phpqa)
 [![Build Status](https://travis-ci.org/EdgedesignCZ/phpqa.svg)](https://travis-ci.org/EdgedesignCZ/phpqa)
 
-## Requirements
+## Requirements
 
 - PHP >= 5.4.0
 - `xsl` extension for [HTML reports](#html-reports)
