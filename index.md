@@ -167,7 +167,7 @@ You don't have to specify full configuration. Missing or empty values are replac
 with default values from our [`.phpqa.yml`](/.phpqa.yml). Example of minimal config
 that defines only standard for CodeSniffer:
 
-```yaml
+```ruby
 phpcs:
     standard: Zend
 ```
@@ -191,7 +191,7 @@ phpqa --report
 Define custom templates if you don't like [default templates](/app/report).
 You have to define path to `xsl` files in your [`.phpqa.yml`](#advanced-configuration---phpqayml):
 
-```yaml
+```ruby
 # use different template for PHPMD, use default for other tools
 report:
     phpmd: my-templates/phpmd.xsl
@@ -294,7 +294,7 @@ phpqa --verbose --report --analyzedDirs ./ --buildDir ./var/CI --ignoredDirs=bin
 
 ### Circle.ci - artifacts + global installation
 
-```yaml
+```ruby
 machine:
     php:
         version: 7.0.4
