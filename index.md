@@ -44,7 +44,7 @@ Tool| Description
 
 ## Install
 
-### Without composer
+### Without composer
 
 ```bash
 # install phpqa
@@ -58,7 +58,7 @@ sudo ln -s /path-to-phpqa-repository/phpqa /usr/bin/phpqa
 export PATH=~/path-to-phpqa-repository-from-pwd:$PATH
 ```
 
-### Composer
+### Composer
 
 ```bash
 composer global require edgedesign/phpqa --update-no-dev
@@ -86,7 +86,7 @@ Or install dev-master versions of `sebastian/phpcpd`:
 }
 ```
 
-### Docker
+### Docker
 
 ```bash
 docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoreDirs vendor,build,migrations,test
@@ -200,7 +200,7 @@ report:
 Be aware that all **paths are relative to `.phpqa.yml`**. Don't copy-paste section `report`
 if you don't have custom templates!
 
-### Requirements
+### Requirements
 
 [`xsl` extension](http://php.net/manual/en/class.xsltprocessor.php)
 must be installed and enabled for exporting HTML reports.
@@ -218,7 +218,7 @@ sudo service apache2 restart
 We use [Jenkins-CI](http://jenkins-php.org/) in Edgedesign. Below you can find examples of
 [Phing](https://www.phing.info/), [Robo](http://robo.li/) and `bash` tasks.
 
-### Project with one directory
+### Project with one directory
 
 Typically in Symfony project you have project with `src` directory with all the code and tests. So you don't need ignore vendors, web directory etc. 
 
@@ -247,7 +247,7 @@ public function ciPhpqa()
 }
 ```
 
-### Project with multiple directories (src, tests, ...)
+### Project with multiple directories (src, tests, ...)
 
 When you analyze root directory of your project don't forget to ignore vendors and
 other non-code directories. Otherwise the analysis could take a very long time.
@@ -317,8 +317,7 @@ test:
 ## Contributing
 
 Contributions from others would be very much appreciated! Send 
-[pull request](https://github.com/EdgedesignCZ/phpqa/pulls)/
-[issue](https://github.com/EdgedesignCZ/phpqa/issues). Thanks!
+[pull request](https://github.com/EdgedesignCZ/phpqa/pulls)/[issue](https://github.com/EdgedesignCZ/phpqa/issues). Thanks!
 
 ## License
 
