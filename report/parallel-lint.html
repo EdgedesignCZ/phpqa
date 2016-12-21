@@ -1,13 +1,20 @@
 <h1>Parallel Lint</h1>
 <pre id="cli">PHP 7.0.13 | 10 parallel jobs
-........[41mX[0m........                                            17/17 (100 %)
+.....[41mX[0m.........[41mX[0m..                                           18/18 (100 %)
 
 
-Checked 17 files in 0.2 seconds
-[41mSyntax error found in 1 file[0m
+Checked 18 files in 0.2 seconds
+[41mSyntax error found in 2 files[0m
 
 ------------------------------------------------------------
-Parse error: ./src/invalid.php:3
+Parse error: ./src/invalid/2.php:3
+    [90m1| [0m[39m&lt;?php[0m
+    [90m2| [0m[39m$foo [0m[32m=[0m[31m&#039;bar&#039;[0m
+[31m  &gt; [0m[90m3| [0m[32mecho [0m[39m$foo[0m[32m;[0m
+    [90m4| [0m
+Unexpected &#039;echo&#039; (T_ECHO)
+------------------------------------------------------------
+Parse error: ./src/invalid/1.php:3
     [90m1| [0m[39m&lt;?php[0m
     [90m2| [0m
 [31m  &gt; [0m[90m3| [0m[32mecho $;[0m
