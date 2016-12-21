@@ -12,6 +12,8 @@ class RunningTool
     private $allowedErrorsCount;
 
     public $htmlReport;
+    /** @var \Symfony\Component\Process\Process */
+    public $process;
 
     public function __construct($tool, array $toolConfig)
     {
@@ -42,6 +44,11 @@ class RunningTool
         return $this->allowedErrorsCount;
     }
 
+    public function areErrorsIgnored()
+    {
+        return !is_numeric($this->allowedErrorsCount);
+    }
+
     public function analyzeResult()
     {
         if (!$this->errorsXPath) {
@@ -52,7 +59,7 @@ class RunningTool
 
         $xml = simplexml_load_file($this->getMainXml());
         $errorsCount = count($xml->xpath($this->errorsXPath));
-        $isOk = $errorsCount <= $this->allowedErrorsCount || !is_numeric($this->allowedErrorsCount);
+        $isOk = $errorsCount <= $this->allowedErrorsCount || $this->areErrorsIgnored();
         return [$isOk, $errorsCount];
     }
 

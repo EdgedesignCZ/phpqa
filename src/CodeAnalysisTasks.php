@@ -113,10 +113,10 @@ trait CodeAnalysisTasks
 
     private function runTools()
     {
-        $group = $this->options->isParallel ? $this->taskParallelExec() : new Task\NonParallelExec();
+        $group = $this->options->isParallel ? new Task\ParallelExec() : new Task\NonParallelExec();
         foreach ($this->usedTools as $tool) {
             $exec = $this->toolToExec($tool);
-            $group->process($exec);
+            $tool->process = $group->process($exec);
         }
         $group->printed($this->options->isOutputPrinted)->run();
     }
