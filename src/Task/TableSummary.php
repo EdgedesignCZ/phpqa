@@ -30,7 +30,7 @@ class TableSummary
         $totalErrors = 0;
         $failedTools = [];
         foreach ($usedTools as $tool) {
-            list($isOk, $errorsCount) = $tool->analyzeResult();
+            list($isOk, $errorsCount) = $this->options->isSavedToFiles ? $tool->analyzeResult() : array(true, '');
             $totalErrors += (int) $errorsCount;
             $table->addRow(array(
                 "<comment>{$tool}</comment>",

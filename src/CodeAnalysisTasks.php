@@ -257,10 +257,7 @@ trait CodeAnalysisTasks
 
     private function buildSummary()
     {
-        if ($this->options->isSavedToFiles) {
-            $summary = new Task\TableSummary($this->options, $this->getOutput());
-            return $summary($this->usedTools);
-        }
-        return 0;
+        $summary = new Task\TableSummary($this->options, $this->getOutput());
+        return $summary($this->usedTools);
     }
 }
