@@ -11,7 +11,7 @@ install:
   - if [ -n "$GITHUB_OAUTH_TOKEN" ]; then composer config github-oauth.github.com ${GITHUB_OAUTH_TOKEN}; fi;
   - composer install --no-interaction
   # test app with symfony3 components in latest php
-  - if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then composer update && composer require sebastian/phpcpd:dev-master; fi
+  - if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then composer update && composer require sebastian/phpcpd:dev-master && bin/suggested-tools.sh install; fi
 script:
   - vendor/phpunit/phpunit/phpunit
   - bin/ci.sh
