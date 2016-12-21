@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd-cpd>
-  <duplication lines="6" tokens="18">
+  <duplication lines="4" tokens="11">
     <file path="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" line="11"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="70"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="82"/>
     <codefragment>        'buildDir' =&gt; 'build/',
         'ignoredDirs' =&gt; 'vendor',
         'ignoredFiles' =&gt; '',
         'tools' =&gt; 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
-        'output' =&gt; 'file',
-        'config' =&gt; '',
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="18">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="141"/>
     <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="154"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="167"/>
     <codefragment>        $args = array(
             'progress' =&gt; '',
             $this-&gt;options-&gt;ignore-&gt;bergmann(),
@@ -21,8 +19,8 @@
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="13">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="144"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="178"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="157"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="191"/>
     <codefragment>            $this-&gt;options-&gt;getAnalyzedDirs(' '),
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {

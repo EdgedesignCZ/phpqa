@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2016-12-18T13:14:40" pdepend="@package_version@">
+<dependencies generated="2016-12-21T15:34:38" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -12,6 +12,7 @@
       <efferent>
         <type namespace="Edge\QA" name="Options"/>
         <type namespace="Edge\QA" name="Config"/>
+        <type namespace="Edge\QA\Task" name="ParallelExec"/>
         <type namespace="Edge\QA\Task" name="NonParallelExec"/>
         <type namespace="Edge\QA" name="RunningTool"/>
         <type namespace="" name="PHP_CodeSniffer"/>
@@ -103,7 +104,7 @@
   <package name="Edge\QA\Task">
     <class name="NonParallelExec">
       <efferent>
-        <type namespace="Robo\Task\Base" name="ParallelExec"/>
+        <type namespace="Edge\QA\Task" name="ParallelExec"/>
         <type namespace="Symfony\Component\Console\Helper" name="ProgressBar"/>
         <type namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
         <type namespace="Robo" name="Result"/>
@@ -112,6 +113,16 @@
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
       </afferent>
       <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExec.php"/>
+    </class>
+    <class name="ParallelExec">
+      <efferent>
+        <type namespace="Robo\Task\Base" name="ParallelExec"/>
+      </efferent>
+      <afferent>
+        <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
+        <type namespace="Edge\QA\Task" name="NonParallelExec"/>
+      </afferent>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ParallelExec.php"/>
     </class>
     <class name="TableSummary">
       <efferent>

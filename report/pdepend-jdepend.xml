@@ -37,8 +37,8 @@
     </Package>
     <Package name="Edge\QA\Task">
       <Stats>
-        <TotalClasses>2</TotalClasses>
-        <ConcreteClasses>2</ConcreteClasses>
+        <TotalClasses>3</TotalClasses>
+        <ConcreteClasses>3</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>1</Ca>
         <Ce>5</Ce>
@@ -48,6 +48,7 @@
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExec.php">NonParallelExec</Class>
+        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ParallelExec.php">ParallelExec</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php">TableSummary</Class>
       </ConcreteClasses>
       <AbstractClasses/>
