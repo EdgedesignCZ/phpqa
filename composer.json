@@ -30,7 +30,13 @@
         "pdepend/pdepend": "*",
         "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "*",
-        "phpmetrics/phpmetrics": "*"
+        "phpmetrics/phpmetrics": "*",
+        "jakub-onderka/php-parallel-lint": "*",
+        "jakub-onderka/php-console-highlighter": "*"
+    },
+    "suggest": {
+        "jakub-onderka/php-parallel-lint": "Check PHP syntax",
+        "jakub-onderka/php-console-highlighter": "Colored output in parallel-lint"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.8",
