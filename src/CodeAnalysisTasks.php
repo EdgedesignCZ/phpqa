@@ -32,6 +32,8 @@ trait CodeAnalysisTasks
             'xml' => ['phpcpd.xml'],
             'errorsXPath' => '//pmd-cpd/duplication',
         ),
+        'parallel-lint' => array(
+        ),
     );
     /** @var Options */
     private $options;
@@ -47,7 +49,14 @@ trait CodeAnalysisTasks
     {
         $this->yell("phpqa v" . PHPQA_VERSION);
         foreach (array_keys($this->tools) as $tool) {
-            $this->_exec(pathToBinary("{$tool} --version"));
+            if ($tool == 'parallel-lint') {
+                $task = $this->taskExec(pathToBinary("{$tool}"))
+                    ->printed(false)
+                    ->run();
+                $this->getOutput()->writeln(strtok($task->getMessage(), "\n"));
+            } else {
+                $this->_exec(pathToBinary("{$tool} --version"));
+            }
         }
     }
 
