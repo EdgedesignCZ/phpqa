@@ -33,6 +33,7 @@ trait CodeAnalysisTasks
             'errorsXPath' => '//pmd-cpd/duplication',
         ),
         'parallel-lint' => array(
+            'optionSeparator' => ' ',
         ),
     );
     /** @var Options */
@@ -79,7 +80,7 @@ trait CodeAnalysisTasks
             'buildDir' => 'build/',
             'ignoredDirs' => 'vendor',
             'ignoredFiles' => '',
-            'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
+            'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics,parallel-lint',
             'output' => 'file',
             'config' => '',
             'report' => false,
@@ -135,7 +136,8 @@ trait CodeAnalysisTasks
     {
         $binary = pathToBinary($tool);
         $process = $this->taskExec($binary);
-        foreach ($this->{(string) $tool}($tool) as $arg => $value) {
+        $method = str_replace('-', '', $tool);
+        foreach ($this->{$method}($tool) as $arg => $value) {
             if (is_int($arg)) {
                 $process->arg($value);
             } else {
@@ -244,6 +246,14 @@ trait CodeAnalysisTasks
             $args['report-cli'] = '';
         }
         return $args;
+    }
+
+    private function parallellint()
+    {
+        return array(
+            $this->options->ignore->parallelLint(),
+            $this->options->getAnalyzedDirs(' '),
+        );
     }
 
     private function buildHtmlReport()

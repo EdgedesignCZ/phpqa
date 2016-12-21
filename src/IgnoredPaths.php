@@ -45,6 +45,11 @@ class IgnoredPaths
         return $this->ignore(' --exclude=', ' --exclude=', '');
     }
 
+    public function parallelLint()
+    {
+        return $this->ignore(' --exclude ', ' --exclude ', '');
+    }
+
     private function ignore($before, $dirSeparator, $after, $fileSeparator = null)
     {
         if ($fileSeparator) {

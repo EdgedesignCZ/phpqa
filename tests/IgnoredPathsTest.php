@@ -66,7 +66,15 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
                     'dirs' => ' --exclude=bin --exclude=vendor',
                     'files' => ' --exclude=autoload.php --exclude=RoboFile.php'
                 )
-            )
+            ),
+            array(
+                'parallelLint',
+                array(
+                    'both' => ' --exclude bin --exclude vendor --exclude autoload.php --exclude RoboFile.php',
+                    'dirs' => ' --exclude bin --exclude vendor',
+                    'files' => ' --exclude autoload.php --exclude RoboFile.php'
+                )
+            ),
         );
     }
 }
