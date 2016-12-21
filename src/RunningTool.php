@@ -43,7 +43,7 @@ class RunningTool
 
     public function buildOption($arg, $value)
     {
-        if ($value) {
+        if ($value || $value === 0) {
             return "--{$arg}{$this->optionSeparator}{$value}";
         } else {
             return "--{$arg}";

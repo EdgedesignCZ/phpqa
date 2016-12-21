@@ -8,6 +8,9 @@ phpcpd:
     minLines: 5
     minTokens: 70
 
+phpstan:
+    level: 0
+
 # paths are relative to .phpqa.yml, so don't copy-paste this section if you don't have custom templates
 report:
     phploc: app/report/phploc.xsl

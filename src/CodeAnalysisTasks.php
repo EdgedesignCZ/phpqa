@@ -45,6 +45,9 @@ trait CodeAnalysisTasks
             'composer' => 'jakub-onderka/php-parallel-lint',
         ),
         'phpstan' => array(
+            'optionSeparator' => ' ',
+            'internalClass' => 'PHPStan\Analyser\Analyser',
+            'hasOnlyConsoleOutput' => true,
         ),
     );
     /** @var Options */
@@ -82,7 +85,7 @@ trait CodeAnalysisTasks
             'buildDir' => 'build/',
             'ignoredDirs' => 'vendor',
             'ignoredFiles' => '',
-            'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics,parallel-lint',
+            'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics,parallel-lint,phpstan',
             'output' => 'file',
             'config' => '',
             'report' => false,
@@ -254,6 +257,16 @@ trait CodeAnalysisTasks
     {
         return array(
             $this->options->ignore->parallelLint(),
+            $this->options->getAnalyzedDirs(' '),
+        );
+    }
+
+    private function phpstan()
+    {
+        return array(
+            'analyze',
+            'ansi' => '',
+            'level' => $this->config->value('phpstan.level'),
             $this->options->getAnalyzedDirs(' '),
         );
     }

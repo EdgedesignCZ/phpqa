@@ -11,6 +11,7 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
         $tool = new RunningTool('tool', ['optionSeparator' => ' ']);
         assertThat($tool->buildOption('option', ''), is('--option'));
         assertThat($tool->buildOption('option', 'value'), is('--option value'));
+        assertThat($tool->buildOption('option', 0), is('--option 0'));
     }
 
     public function testMarkSuccessWhenXPathIsNotDefined()
