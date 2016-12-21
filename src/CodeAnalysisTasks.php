@@ -312,7 +312,10 @@ trait CodeAnalysisTasks
             if ($tool->hasOnlyConsoleOutput) {
                 twigToHtml(
                     'cli.html.twig',
-                    array('process' => $tool->process),
+                    array(
+                        'tool' => (string) $tool,
+                        'process' => $tool->process
+                    ),
                     $this->options->rawFile("{$tool}.html")
                 );
             } else {
