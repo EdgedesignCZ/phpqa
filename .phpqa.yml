@@ -11,7 +11,7 @@ phpcpd:
 phpstan:
     level: 0
     # https://github.com/phpstan/phpstan#configuration
-    # standard: app/phpstan.neon
+    # standard: tests/.travis/phpstan.neon
 
 # paths are relative to .phpqa.yml, so don't copy-paste this section if you don't have custom templates
 report:
