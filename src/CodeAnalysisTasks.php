@@ -34,6 +34,7 @@ trait CodeAnalysisTasks
         ),
         'parallel-lint' => array(
             'optionSeparator' => ' ',
+            'internalClass' => 'JakubOnderka\PhpParallelLint\ParallelLint',
             'hasOnlyConsoleOutput' => true,
         ),
     );

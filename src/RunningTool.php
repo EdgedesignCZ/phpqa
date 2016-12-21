@@ -5,6 +5,7 @@ namespace Edge\QA;
 class RunningTool
 {
     private $tool;
+    private $internalClass;
     private $optionSeparator;
 
     private $xmlFiles;
@@ -24,13 +25,20 @@ class RunningTool
             'errorsXPath' => '',
             'allowedErrorsCount' => null,
             'hasOnlyConsoleOutput' => false,
+            'internalClass' => null,
         ];
         $this->tool = $tool;
+        $this->internalClass = $config['internalClass'];
         $this->optionSeparator = $config['optionSeparator'];
         $this->xmlFiles = $config['xml'];
         $this->errorsXPath = $config['errorsXPath'];
         $this->allowedErrorsCount = $config['allowedErrorsCount'];
         $this->hasOnlyConsoleOutput = $config['hasOnlyConsoleOutput'];
+    }
+
+    public function isInstalled()
+    {
+        return !$this->internalClass || class_exists($this->internalClass);
     }
 
     public function buildOption($arg, $value)
