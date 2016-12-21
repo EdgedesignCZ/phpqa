@@ -1,0 +1,20 @@
+<h1>Parallel Lint</h1>
+<pre id="cli">{{ process.getOutput() }}{{ process.getErrorOutput() }}</pre> 
+ 
+<style> 
+    html, body { 
+        margin: 0; 
+        padding: 0; 
+    } 
+    pre { 
+        background: black; 
+        color: white; 
+        padding: 1em; 
+        margin: 0; 
+    } 
+</style> 
+<script src="../app/report/ansi_up.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+var code = document.getElementById("cli"); 
+code.innerHTML = ansi_up.ansi_to_html(code.innerHTML); 
+</script>

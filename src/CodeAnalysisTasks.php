@@ -34,6 +34,7 @@ trait CodeAnalysisTasks
         ),
         'parallel-lint' => array(
             'optionSeparator' => ' ',
+            'hasOnlyConsoleOutput' => true,
         ),
     );
     /** @var Options */
@@ -260,12 +261,20 @@ trait CodeAnalysisTasks
     {
         foreach ($this->usedTools as $tool) {
             $tool->htmlReport = $this->options->rawFile("{$tool}.html");
-            xmlToHtml(
-                $tool->getXmlFiles(),
-                $this->config->path("report.{$tool}"),
-                $tool->htmlReport,
-                ['root-directory' => $this->options->getCommonRootPath()]
-            );
+            if ($tool->hasOnlyConsoleOutput) {
+                twigToHtml(
+                    'cli.html.twig',
+                    array('process' => $tool->process),
+                    $this->options->rawFile("{$tool}.html")
+                );
+            } else {
+                xmlToHtml(
+                    $tool->getXmlFiles(),
+                    $this->config->path("report.{$tool}"),
+                    $tool->htmlReport,
+                    ['root-directory' => $this->options->getCommonRootPath()]
+                );
+            }
         }
         twigToHtml(
             'phpqa.html.twig',
