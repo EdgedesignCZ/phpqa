@@ -32,6 +32,11 @@ trait CodeAnalysisTasks
             'xml' => ['phpcpd.xml'],
             'errorsXPath' => '//pmd-cpd/duplication',
         ),
+        'parallel-lint' => array(
+            'optionSeparator' => ' ',
+            'internalClass' => 'JakubOnderka\PhpParallelLint\ParallelLint',
+            'hasOnlyConsoleOutput' => true,
+        ),
     );
     /** @var Options */
     private $options;
@@ -47,7 +52,14 @@ trait CodeAnalysisTasks
     {
         $this->yell("phpqa v" . PHPQA_VERSION);
         foreach (array_keys($this->tools) as $tool) {
-            $this->_exec(pathToBinary("{$tool} --version"));
+            if ($tool == 'parallel-lint') {
+                $task = $this->taskExec(pathToBinary("{$tool}"))
+                    ->printed(false)
+                    ->run();
+                $this->getOutput()->writeln(strtok($task->getMessage(), "\n"));
+            } else {
+                $this->_exec(pathToBinary("{$tool} --version"));
+            }
         }
     }
 
@@ -70,7 +82,7 @@ trait CodeAnalysisTasks
             'buildDir' => 'build/',
             'ignoredDirs' => 'vendor',
             'ignoredFiles' => '',
-            'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
+            'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics,parallel-lint',
             'output' => 'file',
             'config' => '',
             'report' => false,
@@ -126,7 +138,8 @@ trait CodeAnalysisTasks
     {
         $binary = pathToBinary($tool);
         $process = $this->taskExec($binary);
-        foreach ($this->{(string) $tool}($tool) as $arg => $value) {
+        $method = str_replace('-', '', $tool);
+        foreach ($this->{$method}($tool) as $arg => $value) {
             if (is_int($arg)) {
                 $process->arg($value);
             } else {
@@ -237,16 +250,32 @@ trait CodeAnalysisTasks
         return $args;
     }
 
+    private function parallellint()
+    {
+        return array(
+            $this->options->ignore->parallelLint(),
+            $this->options->getAnalyzedDirs(' '),
+        );
+    }
+
     private function buildHtmlReport()
     {
         foreach ($this->usedTools as $tool) {
             $tool->htmlReport = $this->options->rawFile("{$tool}.html");
-            xmlToHtml(
-                $tool->getXmlFiles(),
-                $this->config->path("report.{$tool}"),
-                $tool->htmlReport,
-                ['root-directory' => $this->options->getCommonRootPath()]
-            );
+            if ($tool->hasOnlyConsoleOutput) {
+                twigToHtml(
+                    'cli.html.twig',
+                    array('process' => $tool->process),
+                    $this->options->rawFile("{$tool}.html")
+                );
+            } else {
+                xmlToHtml(
+                    $tool->getXmlFiles(),
+                    $this->config->path("report.{$tool}"),
+                    $tool->htmlReport,
+                    ['root-directory' => $this->options->getCommonRootPath()]
+                );
+            }
         }
         twigToHtml(
             'phpqa.html.twig',

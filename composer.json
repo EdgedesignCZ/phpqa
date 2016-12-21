@@ -32,6 +32,10 @@
         "squizlabs/php_codesniffer": "*",
         "phpmetrics/phpmetrics": "*"
     },
+    "suggest": {
+        "jakub-onderka/php-parallel-lint": "Check PHP syntax",
+        "jakub-onderka/php-console-highlighter": "Colored output in parallel-lint"
+    },
     "require-dev": {
         "phpunit/phpunit": "~4.8",
         "hamcrest/hamcrest-php": "*"

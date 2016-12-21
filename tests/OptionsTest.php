@@ -32,7 +32,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         return new Options(array_merge($this->defaultOptions, $options));
     }
 
-    public function testShouldEscapePaths()
+    public function testEscapePaths()
     {
         assertThat($this->fileOutput->getAnalyzedDirs(','), is('"./"'));
         assertThat($this->fileOutput->getAnalyzedDirs(), is(['"./"']));
@@ -40,15 +40,23 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         assertThat($this->fileOutput->rawFile('file'), is('build//file'));
     }
 
-    public function testShouldIgnorePdependInCliOutput()
+    public function testIgnorePdependInCliOutput()
     {
         $cliOutput = $this->overrideOptions(array('output' => 'cli'));
         assertThat($this->fileOutput->buildRunningTools(array('pdepend' => [])), is(nonEmptyArray()));
         assertThat($cliOutput->buildRunningTools(array('pdepend' => [])), is(emptyArray()));
     }
 
+    public function testIgnoreNotInstalledTool()
+    {
+        assertThat(
+            $this->fileOutput->buildRunningTools(array('pdepend' => ['internalClass' => 'UnknownTool\UnknownClass'])),
+            is(emptyArray())
+        );
+    }
+
     /** @dataProvider provideConfig */
-    public function testShouldLoadDirectoryWithCustomConfig($config, $expectedConfig)
+    public function testLoadDirectoryWithCustomConfig($config, $expectedConfig)
     {
         $options = $this->overrideOptions(array('config' => $config));
         assertThat($options->configDir, is($expectedConfig));
@@ -63,7 +71,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @dataProvider provideOutputs */
-    public function testShouldBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)
+    public function testBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)
     {
         $options = $this->overrideOptions($opts);
         assertThat($options->isSavedToFiles, is($isSavedToFiles));
@@ -90,7 +98,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @dataProvider provideExecutionMode */
-    public function testShouldExecute(array $opts, $isParallel)
+    public function testExecute(array $opts, $isParallel)
     {
         $options = $this->overrideOptions($opts);
         assertThat($options->isParallel, is($isParallel));

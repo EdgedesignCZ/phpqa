@@ -89,7 +89,10 @@ class Options
                     'allowedErrorsCount' => $this->allowedTools[$tool],
                     'xml' => array_key_exists('xml', $config) ? array_map([$this, 'rawFile'], $config['xml']) : []
                 ];
-                $allowed[$tool] = new RunningTool($tool, $preload + $config);
+                $runningTool = new RunningTool($tool, $preload + $config);
+                if ($runningTool->isInstalled()) {
+                    $allowed[$tool] = $runningTool;
+                }
             }
         }
         return $allowed;

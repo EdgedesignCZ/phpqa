@@ -5,6 +5,7 @@ namespace Edge\QA;
 class RunningTool
 {
     private $tool;
+    private $internalClass;
     private $optionSeparator;
 
     private $xmlFiles;
@@ -12,6 +13,7 @@ class RunningTool
     private $allowedErrorsCount;
 
     public $htmlReport;
+    public $hasOnlyConsoleOutput;
     /** @var \Symfony\Component\Process\Process */
     public $process;
 
@@ -21,13 +23,22 @@ class RunningTool
             'optionSeparator' => '=',
             'xml' => [],
             'errorsXPath' => '',
-            'allowedErrorsCount' => null
+            'allowedErrorsCount' => null,
+            'hasOnlyConsoleOutput' => false,
+            'internalClass' => null,
         ];
         $this->tool = $tool;
+        $this->internalClass = $config['internalClass'];
         $this->optionSeparator = $config['optionSeparator'];
         $this->xmlFiles = $config['xml'];
         $this->errorsXPath = $config['errorsXPath'];
         $this->allowedErrorsCount = $config['allowedErrorsCount'];
+        $this->hasOnlyConsoleOutput = $config['hasOnlyConsoleOutput'];
+    }
+
+    public function isInstalled()
+    {
+        return !$this->internalClass || class_exists($this->internalClass);
     }
 
     public function buildOption($arg, $value)
@@ -46,7 +57,7 @@ class RunningTool
 
     public function analyzeResult($hasNoOutput = false)
     {
-        if ($hasNoOutput) {
+        if ($hasNoOutput || $this->hasOnlyConsoleOutput) {
             return $this->evaluteErrorsCount($this->process->getExitCode() ? 1 : 0);
         } elseif (!$this->errorsXPath) {
             return [true, ''];
