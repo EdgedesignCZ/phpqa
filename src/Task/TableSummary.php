@@ -26,19 +26,26 @@ class TableSummary
     {
         $this->writeln('', 'cyan');
         $table = new Table($this->output);
-        $table->setHeaders(array('Tool', 'Allowed Errors', 'Errors count', 'Is OK?', 'HTML report'));
+        if ($this->options->isSavedToFiles) {
+            $table->setHeaders(array('Tool', 'Allowed Errors', 'Errors count', 'Is OK?', 'HTML report'));
+        } else {
+            $table->setHeaders(array('Tool', 'Allowed Errors', 'Exit code', 'Is OK?'));
+        }
         $totalErrors = 0;
         $failedTools = [];
         foreach ($usedTools as $tool) {
             list($isOk, $errorsCount) = $this->options->isSavedToFiles ? $tool->analyzeResult() : array(true, '');
             $totalErrors += (int) $errorsCount;
-            $table->addRow(array(
+            $row = array(
                 "<comment>{$tool}</comment>",
                 $tool->getAllowedErrorsCount(),
                 $errorsCount,
                 $this->getStatus($isOk),
-                $tool->htmlReport
-            ));
+            );
+            if ($this->options->isSavedToFiles) {
+                $row[] = $tool->htmlReport;
+            }
+            $table->addRow($row);
             if (!$isOk) {
                 $failedTools[] = (string) $tool;
             }
