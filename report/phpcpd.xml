@@ -2,7 +2,7 @@
 <pmd-cpd>
   <duplication lines="4" tokens="11">
     <file path="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" line="11"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="82"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="87"/>
     <codefragment>        'buildDir' =&gt; 'build/',
         'ignoredDirs' =&gt; 'vendor',
         'ignoredFiles' =&gt; '',
@@ -10,8 +10,8 @@
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="18">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="154"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="167"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="159"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="172"/>
     <codefragment>        $args = array(
             'progress' =&gt; '',
             $this-&gt;options-&gt;ignore-&gt;bergmann(),
@@ -19,12 +19,20 @@
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="13">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="157"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="191"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="162"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="196"/>
     <codefragment>            $this-&gt;options-&gt;getAnalyzedDirs(' '),
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
             $args['log-xml'] = $this-&gt;options-&gt;toFile('phploc.xml');
+</codefragment>
+  </duplication>
+  <duplication lines="3" tokens="11">
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="269"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Options.php" line="53"/>
+    <codefragment>            return array_values(array_filter(array_map(
+                function ($relativeDir) {
+                    return realpath(getcwd() . '/' . trim($relativeDir, '"'));
 </codefragment>
   </duplication>
 </pmd-cpd>

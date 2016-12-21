@@ -7,10 +7,10 @@
         <ConcreteClasses>10</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>1</Ca>
-        <Ce>4</Ce>
+        <Ce>5</Ce>
         <A>0</A>
-        <I>0.8</I>
-        <D>0.2</D>
+        <I>0.83333333333333</I>
+        <D>0.16666666666667</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/RoboFile.php">RoboFile</Class>
@@ -28,6 +28,7 @@
       <DependsUpon>
         <Package></Package>
         <Package>Edge\QA\Task</Package>
+        <Package>Nette\Neon</Package>
         <Package>Robo</Package>
         <Package>Symfony\Component\Yaml</Package>
       </DependsUpon>

@@ -1,0 +1,50 @@
+<h1>phpstan</h1>
+<pre id="cli">
+
+ ------ ------------------------------------------------------------------- 
+ [32m Line [39m [32m tests/OptionsTest.php                                             [39m 
+ ------ ------------------------------------------------------------------- 
+  24     Access to an undefined property Edge\QA\OptionsTest::$fileOutput.  
+  35     Access to an undefined property Edge\QA\OptionsTest::$fileOutput.  
+  36     Access to an undefined property Edge\QA\OptionsTest::$fileOutput.  
+  37     Access to an undefined property Edge\QA\OptionsTest::$fileOutput.  
+  38     Access to an undefined property Edge\QA\OptionsTest::$fileOutput.  
+  44     Access to an undefined property Edge\QA\OptionsTest::$fileOutput.  
+  51     Access to an undefined property Edge\QA\OptionsTest::$fileOutput.  
+ ------ ------------------------------------------------------------------- 
+
+ ------ ---------------------------------------------------------------------------- 
+ [32m Line [39m [32m src/invalid/1.php                                                          [39m 
+ ------ ---------------------------------------------------------------------------- 
+         Syntax error, unexpected &#039;;&#039;, expecting T_VARIABLE or &#039;{&#039; or &#039;$&#039; on line 3  
+ ------ ---------------------------------------------------------------------------- 
+
+ ------ ------------------------------------------- 
+ [32m Line [39m [32m src/invalid/2.php                         [39m 
+ ------ ------------------------------------------- 
+         Syntax error, unexpected T_ECHO on line 3  
+ ------ ------------------------------------------- 
+
+[37;41m                                                                                                                        [39;49m
+[37;41m [ERROR] Found 9 errors                                                                                                 [39;49m
+[37;41m                                                                                                                        [39;49m
+
+</pre> 
+ 
+<style> 
+    html, body { 
+        margin: 0; 
+        padding: 0; 
+    } 
+    pre { 
+        background: black; 
+        color: white; 
+        padding: 1em; 
+        margin: 0; 
+    } 
+</style> 
+<script src="https://edgedesigncz.github.io/phpqa/assets/ansi_up.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+var code = document.getElementById("cli"); 
+code.innerHTML = ansi_up.ansi_to_html(code.innerHTML); 
+</script>

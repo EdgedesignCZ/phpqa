@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2016-12-21T16:30:39" pdepend="@package_version@">
+<dependencies generated="2016-12-21T18:32:58" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -16,6 +16,7 @@
         <type namespace="Edge\QA\Task" name="NonParallelExec"/>
         <type namespace="Edge\QA" name="RunningTool"/>
         <type namespace="" name="PHP_CodeSniffer"/>
+        <type namespace="Nette\Neon" name="Neon"/>
         <type namespace="Edge\QA\Task" name="TableSummary"/>
       </efferent>
       <afferent/>

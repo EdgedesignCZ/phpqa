@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pmd version="@project.version@" timestamp="2016-12-21T15:30:39+00:00">
-  <file name="/mnt/DATA/www/_my_classes/qa-cli/src/report.php">
-    <violation beginline="48" endline="48" rule="ExitExpression" ruleset="Design Rules" externalInfoUrl="http://phpmd.org/rules/design.html#exitexpression" priority="1">
-      The function xmlToHtml() contains an exit expression.
+<pmd version="@project.version@" timestamp="2016-12-21T17:32:58+00:00">
+  <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php">
+    <violation beginline="25" endline="25" rule="ExitExpression" ruleset="Design Rules" externalInfoUrl="http://phpmd.org/rules/design.html#exitexpression" priority="1">
+      The method setUp() contains an exit expression.
     </violation>
   </file>
   <error filename="/mnt/DATA/www/_my_classes/qa-cli/src/invalid/1.php" msg="Unexpected token: ;, line: 3, col: 7, file: /mnt/DATA/www/_my_classes/qa-cli/src/invalid/1.php." />
