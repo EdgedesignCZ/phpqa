@@ -50,6 +50,11 @@ class IgnoredPaths
         return $this->ignore(' --exclude ', ' --exclude ', '');
     }
 
+    public function phpstan()
+    {
+        return $this->ignoreBoth;
+    }
+
     private function ignore($before, $dirSeparator, $after, $fileSeparator = null)
     {
         if ($fileSeparator) {

@@ -263,10 +263,32 @@ trait CodeAnalysisTasks
 
     private function phpstan()
     {
+        $neonFile = $this->options->isSavedToFiles ? $this->options->rawFile('phpstan.neon') : (getcwd() . '/phpstan.neon');
+        $createAbsolutePaths = function (array $relativeDirs) {
+            return array_values(array_filter(array_map(
+                function ($relativeDir) {
+                    return realpath(getcwd() . '/' . trim($relativeDir, '"'));
+                },
+                $relativeDirs
+            )));
+        };
+
+        file_put_contents(
+            $neonFile,
+            \Nette\Neon\Neon::encode([
+                'parameters' => [
+                    'bootstrap' => $this->config->value('phpstan.bootstrap'),
+                    'autoload_directories' => $createAbsolutePaths($this->config->value('phpstan.autoload') ?: $this->options->getAnalyzedDirs()),
+                    'excludes_analyse' => $createAbsolutePaths($this->options->ignore->phpstan()),
+                ]
+            ])
+        );
+
         return array(
             'analyze',
             'ansi' => '',
             'level' => $this->config->value('phpstan.level'),
+            'configuration' => $neonFile,
             $this->options->getAnalyzedDirs(' '),
         );
     }
