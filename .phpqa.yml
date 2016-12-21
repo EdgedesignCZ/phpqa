@@ -10,10 +10,8 @@ phpcpd:
 
 phpstan:
     level: 0
-    # paths are relative to CWD (current working directory) !!!
-#    bootstrap: vendor/autoload.php 
-#    autoload:
-#        - tests
+    # https://github.com/phpstan/phpstan#configuration
+    # standard: app/phpstan.neon
 
 # paths are relative to .phpqa.yml, so don't copy-paste this section if you don't have custom templates
 report:

@@ -273,15 +273,24 @@ trait CodeAnalysisTasks
             )));
         };
 
+        $defaultConfig = $this->config->path('phpstan.standard');
+        if (file_exists($defaultConfig)) {
+            $params = \Nette\Neon\Neon::decode(file_get_contents($defaultConfig))['parameters'] + ['excludes_analyse' => []];
+        } else {
+            $params = [
+                'autoload_directories' => $createAbsolutePaths($this->options->getAnalyzedDirs()),
+                'excludes_analyse' => [],
+            ];
+        }
+
+        $params['excludes_analyse'] = array_merge(
+            $params['excludes_analyse'],
+            $createAbsolutePaths($this->options->ignore->phpstan())
+        );
+
         file_put_contents(
             $neonFile,
-            \Nette\Neon\Neon::encode([
-                'parameters' => [
-                    'bootstrap' => $this->config->value('phpstan.bootstrap'),
-                    'autoload_directories' => $createAbsolutePaths($this->config->value('phpstan.autoload') ?: $this->options->getAnalyzedDirs()),
-                    'excludes_analyse' => $createAbsolutePaths($this->options->ignore->phpstan()),
-                ]
-            ])
+            \Nette\Neon\Neon::encode(['parameters' => $params])
         );
 
         return array(
