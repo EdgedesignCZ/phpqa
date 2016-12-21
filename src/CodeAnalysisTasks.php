@@ -113,10 +113,10 @@ trait CodeAnalysisTasks
 
     private function runTools()
     {
-        $group = $this->options->isParallel ? $this->taskParallelExec() : new Task\NonParallelExec();
+        $group = $this->options->isParallel ? new Task\ParallelExec() : new Task\NonParallelExec();
         foreach ($this->usedTools as $tool) {
             $exec = $this->toolToExec($tool);
-            $group->process($exec);
+            $tool->process = $group->process($exec);
         }
         $group->printed($this->options->isOutputPrinted)->run();
     }
@@ -257,10 +257,7 @@ trait CodeAnalysisTasks
 
     private function buildSummary()
     {
-        if ($this->options->isSavedToFiles) {
-            $summary = new Task\TableSummary($this->options, $this->getOutput());
-            return $summary($this->usedTools);
-        }
-        return 0;
+        $summary = new Task\TableSummary($this->options, $this->getOutput());
+        return $summary($this->usedTools);
     }
 }

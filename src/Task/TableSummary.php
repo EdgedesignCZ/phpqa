@@ -26,31 +26,41 @@ class TableSummary
     {
         $this->writeln('', 'cyan');
         $table = new Table($this->output);
-        $table->setHeaders(array('Tool', 'Allowed Errors', 'Errors count', 'Is OK?', 'HTML report'));
+        if ($this->options->isSavedToFiles) {
+            $table->setHeaders(array('Tool', 'Allowed Errors', 'Errors count', 'Is OK?', 'HTML report'));
+        } else {
+            $table->setHeaders(array('Tool', 'Allowed exit code', 'Exit code', 'Is OK?'));
+        }
         $totalErrors = 0;
         $failedTools = [];
         foreach ($usedTools as $tool) {
-            list($isOk, $errorsCount) = $tool->analyzeResult();
+            list($isOk, $errorsCount) = $tool->analyzeResult(!$this->options->isSavedToFiles);
             $totalErrors += (int) $errorsCount;
-            $table->addRow(array(
+            $row = array(
                 "<comment>{$tool}</comment>",
                 $tool->getAllowedErrorsCount(),
                 $errorsCount,
                 $this->getStatus($isOk),
-                $tool->htmlReport
-            ));
+            );
+            if ($this->options->isSavedToFiles) {
+                $row[] = $tool->htmlReport;
+            }
+            $table->addRow($row);
             if (!$isOk) {
                 $failedTools[] = (string) $tool;
             }
         }
         $table->addRow(new TableSeparator());
-        $table->addRow(array(
+        $row = array(
             '<comment>phpqa</comment>',
             '',
             $failedTools ? "<error>{$totalErrors}</error>" : $totalErrors,
             $this->getStatus(empty($failedTools)),
-            $this->options->hasReport ? $this->options->rawFile("phpqa.html") : ''
-        ));
+        );
+        if ($this->options->isSavedToFiles) {
+            $row[] = $this->options->hasReport ? $this->options->rawFile("phpqa.html") : '';
+        }
+        $table->addRow($row);
         $table->render();
         return $this->result($failedTools);
     }
