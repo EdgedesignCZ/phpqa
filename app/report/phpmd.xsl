@@ -51,6 +51,9 @@
                         <li role="presentation">
                             <a href="#errors" aria-controls="errors" role="tab" data-toggle="tab">Errors</a>
                         </li>
+                        <li role="presentation">
+                            <a href="#parsing" aria-controls="parsing" role="tab" data-toggle="tab">Parsing Errors</a>
+                        </li>
                     </ul>
                 </nav>
 
@@ -183,6 +186,23 @@
                                         <td><xsl:value-of select="@beginline" />-<xsl:value-of select="@endline" /></td>
                                     </tr>
                                 </xsl:for-each>
+                            </xsl:for-each>
+                        </table>
+                    </div>
+
+                    <div role="tabpanel" class="tab-pane" id="parsing">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>File</th>
+                                    <th>Error</th>
+                                </tr>
+                            </thead>
+                            <xsl:for-each select="/pmd/error">
+                                <tr>
+                                    <td><strong data-file=""><xsl:value-of select="@filename" /></strong></td>
+                                    <td><xsl:value-of select="@msg" /></td>
+                                </tr>
                             </xsl:for-each>
                         </table>
                     </div>
