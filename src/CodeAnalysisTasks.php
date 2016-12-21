@@ -44,6 +44,8 @@ trait CodeAnalysisTasks
             'hasOnlyConsoleOutput' => true,
             'composer' => 'jakub-onderka/php-parallel-lint',
         ),
+        'phpstan' => array(
+        ),
     );
     /** @var Options */
     private $options;
