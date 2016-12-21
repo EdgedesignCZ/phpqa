@@ -42,6 +42,17 @@ Tool| Description
 [phpmd](https://github.com/phpmd/phpmd) | Scan PHP project for messy code |
 [phpmetrics](https://github.com/Halleck45/PhpMetrics) | Static analysis tool for PHP |
 
+##### Suggested tools 
+
+Newly added tools aren't preinstalled. You have to install relevant composer packages if
+you want to use.
+
+Tool | Supported since | Description |
+---- | --------------- |----------- |
+[parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 1.9` | Check syntax of PHP files |
+
+_Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
+
 ## Install
 
 ### Without composer
@@ -124,6 +135,7 @@ phpcs | [checkstyle.xml](https://edgedesigncz.github.io/phpqa/report/checkstyle.
 pdepend | [pdepend-jdepend.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.xml), [pdepend-summary.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-summary.xml), [pdepend-dependencies.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-dependencies.xml), [pdepend-jdepend.svg](https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.svg), [pdepend-pyramid.svg](https://edgedesigncz.github.io/phpqa/report/pdepend-pyramid.svg) | ✗ |
 phpmd | [phpmd.xml](https://edgedesigncz.github.io/phpqa/report/phpmd.xml) | [✓](https://github.com/phpmd/phpmd/blob/master/src/main/php/PHPMD/Renderer/TextRenderer.php#L47) |
 phpmetrics | [phpmetrics.html](https://edgedesigncz.github.io/phpqa/report/phpmetrics.html), [phpmetrics.xml](https://edgedesigncz.github.io/phpqa/report/phpmetrics.xml) | [✓](https://github.com/phpmetrics/PhpMetrics#usage) |
+parallel-lint | [parallel-lint.html](https://edgedesigncz.github.io/phpqa/report/parallel-lint.html) | [✓](https://github.com/JakubOnderka/PHP-Parallel-Lint#example-output) |
 
 ## Exit code
 
@@ -140,7 +152,7 @@ or [Circle CI](https://circleci.com/docs/manually/#overview) build should fail w
 Define number of allowed errors for each tools and watch the build:
 
 ```bash
-phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,phpmetrics,phploc,pdepend
+phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,parallel-lint:0,phpmetrics,phploc,pdepend
 ```
 
 **File mode**
