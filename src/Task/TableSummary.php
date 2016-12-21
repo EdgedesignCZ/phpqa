@@ -34,10 +34,8 @@ class TableSummary
         $totalErrors = 0;
         $failedTools = [];
         foreach ($usedTools as $tool) {
-            list($isOk, $errorsCount) = $this->options->isSavedToFiles ?
-                $tool->analyzeResult() :
-                array($tool->process->getExitCode() <= $tool->getAllowedErrorsCount() || $tool->areErrorsIgnored(), $tool->process->getExitCode());
-            $totalErrors += $this->options->isSavedToFiles ? ((int) $errorsCount) : ((int) $isOk);
+            list($isOk, $errorsCount) = $tool->analyzeResult(!$this->options->isSavedToFiles);
+            $totalErrors += (int) $errorsCount;
             $row = array(
                 "<comment>{$tool}</comment>",
                 $tool->getAllowedErrorsCount(),

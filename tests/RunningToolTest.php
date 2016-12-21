@@ -47,4 +47,25 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
             'failure when errors count > allowed count' => [$this->errorsCountInXmlFile - 1, false],
         ];
     }
+
+    /** @dataProvider provideProcess */
+    public function testAnalyzeExitCodeInCliMode($allowedErrors, $exitCode, array $expectedResult)
+    {
+        $tool = new RunningTool('tool', [
+            'allowedErrorsCount' => $allowedErrors
+        ]);
+        $tool->process = $this->prophesize('Symfony\Component\Process\Process')
+            ->getExitCode()->willReturn($exitCode)
+            ->getObjectProphecy()->reveal();
+        assertThat($tool->analyzeResult(true), is($expectedResult));
+    }
+
+    public function provideProcess()
+    {
+        return [
+            'success when exit code = 0' => [0, 0, [true, 0]],
+            'success when exit code <= allowed code' => [1, 1, [true, 1]],
+            'failure when errors count > allowed count but errors count is always one' => [0, 2, [false, 1]],
+        ];
+    }
 }

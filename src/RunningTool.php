@@ -44,14 +44,11 @@ class RunningTool
         return $this->allowedErrorsCount;
     }
 
-    public function areErrorsIgnored()
+    public function analyzeResult($hasNoOutput = false)
     {
-        return !is_numeric($this->allowedErrorsCount);
-    }
-
-    public function analyzeResult()
-    {
-        if (!$this->errorsXPath) {
+        if ($hasNoOutput) {
+            return $this->evaluteErrorsCount($this->process->getExitCode() ? 1 : 0);
+        } elseif (!$this->errorsXPath) {
             return [true, ''];
         } elseif (!file_exists($this->getMainXml())) {
             return [false, 0];
@@ -59,8 +56,18 @@ class RunningTool
 
         $xml = simplexml_load_file($this->getMainXml());
         $errorsCount = count($xml->xpath($this->errorsXPath));
+        return $this->evaluteErrorsCount($errorsCount);
+    }
+
+    private function evaluteErrorsCount($errorsCount)
+    {
         $isOk = $errorsCount <= $this->allowedErrorsCount || $this->areErrorsIgnored();
         return [$isOk, $errorsCount];
+    }
+
+    private function areErrorsIgnored()
+    {
+        return !is_numeric($this->allowedErrorsCount);
     }
 
     public function getXmlFiles()
