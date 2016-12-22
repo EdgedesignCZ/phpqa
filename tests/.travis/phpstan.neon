@@ -1,12 +1,10 @@
 # Required config for analyzing root directory (RobotLoader. throws Nette\InvalidStateException: Ambiguous class)
 #   phpqa --report --output cli --tools phpstan --analyzedDirs ./ --ignoredDirs=vendor
-#
-# %rootDir% == vendor/phpstan/phpstan/
 
 parameters: 
-    bootstrap: %rootDir%/../../../vendor/autoload.php
+    bootstrap: %currentWorkingDir%/vendor/autoload.php
     autoload_directories: 
-        - %rootDir%/../../../tests 
+        - %currentWorkingDir%/tests 
     ignoreErrors:
         - '#Call to an undefined method Edge\\QA\\CodeAnalysisTasks::[a-zA-Z0-9_]+\(\)#'
         - '#Call to an undefined method Prophecy\\Prophecy\\ObjectProphecy::[a-zA-Z0-9_]+\(\)#'

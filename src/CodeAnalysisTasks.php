@@ -294,7 +294,11 @@ trait CodeAnalysisTasks
         file_put_contents(
             $neonFile,
             "# Configuration generated in phpqa\n" .
-            \Nette\Neon\Neon::encode(['parameters' => $params])
+            str_replace(
+                '%currentWorkingDir%',
+                getcwd(),
+                \Nette\Neon\Neon::encode(['parameters' => $params])
+            )
         );
 
         return array(
