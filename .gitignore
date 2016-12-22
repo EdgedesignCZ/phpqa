@@ -1,4 +1,4 @@
 /nbproject/
 /vendor/
 /build/
-phpstan.neon
+phpstan-phpqa.neon

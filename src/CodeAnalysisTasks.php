@@ -289,10 +289,11 @@ trait CodeAnalysisTasks
             $createAbsolutePaths($this->options->ignore->phpstan())
         );
 
-        $neonFile = $this->options->isSavedToFiles ?
-            $this->options->rawFile('phpstan.neon') : (getcwd() . '/phpstan.neon');
+        $neonDir = $this->options->isSavedToFiles ? $this->options->rawFile('') : getcwd();
+        $neonFile = "{$neonDir}/phpstan-phpqa.neon";
         file_put_contents(
             $neonFile,
+            "# Configuration generated in phpqa\n" .
             \Nette\Neon\Neon::encode(['parameters' => $params])
         );
 
