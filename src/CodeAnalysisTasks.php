@@ -50,17 +50,8 @@ trait CodeAnalysisTasks
      */
     public function tools()
     {
-        $this->yell("phpqa v" . PHPQA_VERSION);
-        foreach (array_keys($this->tools) as $tool) {
-            if ($tool == 'parallel-lint') {
-                $task = $this->taskExec(pathToBinary("{$tool}"))
-                    ->printed(false)
-                    ->run();
-                $this->getOutput()->writeln(strtok($task->getMessage(), "\n"));
-            } else {
-                $this->_exec(pathToBinary("{$tool} --version"));
-            }
-        }
+        $tools = new Task\ToolVersions($this->getOutput());
+        $tools(array_keys($this->tools));
     }
 
     /**
