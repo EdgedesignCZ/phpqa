@@ -66,6 +66,7 @@ class ToolVersions
         $composerInfo = array_key_exists($composerPackage, $composerPackages) ?
             get_object_vars($composerPackages[$composerPackage]) :
             [
+                'version' => '',
                 'version_normalized' => '<error>not installed</error>',
                 'authors' => [(object) ['name' => "<info>composer require {$composerPackage}</info>"]],
             ];
@@ -76,14 +77,17 @@ class ToolVersions
 
         return array(
             "<comment>{$tool}</comment>",
-            $this->stripTrailingZeroVersion($composerInfo['version_normalized']),
+            $this->normalizeVersion($composerInfo),
             $this->groupAuthors($composerInfo['authors'])
         );
     }
 
-    private function stripTrailingZeroVersion($version)
+    private function normalizeVersion(array $composerInfo)
     {
-        return preg_replace('/\.0$/s', '', $version);
+        if ($composerInfo['version_normalized'] == '9999999-dev') {
+            return $composerInfo['version'];
+        }
+        return preg_replace('/\.0$/s', '', $composerInfo['version_normalized']);
     }
 
     private function groupAuthors(array $composerAuthors)
