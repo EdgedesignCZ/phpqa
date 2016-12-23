@@ -8,34 +8,41 @@ trait CodeAnalysisTasks
     private $tools = array(
         'phpmetrics' => array(
             'optionSeparator' => ' ',
+            'composer' => 'phpmetrics/phpmetrics',
         ),
         'phploc' => array(
             'optionSeparator' => ' ',
             'xml' => ['phploc.xml'],
+            'composer' => 'phploc/phploc',
         ),
         'phpcs' => array(
             'optionSeparator' => '=',
             'xml' => ['checkstyle.xml'],
             'errorsXPath' => '//checkstyle/file/error',
+            'composer' => 'squizlabs/php_codesniffer',
         ),
         'phpmd' => array(
             'optionSeparator' => ' ',
             'xml' => ['phpmd.xml'],
             'errorsXPath' => '//pmd/file/violation',
+            'composer' => 'phpmd/phpmd',
         ),
         'pdepend' => array(
             'optionSeparator' => '=',
             'xml' => ['pdepend-jdepend.xml', 'pdepend-summary.xml', 'pdepend-dependencies.xml'],
+            'composer' => 'pdepend/pdepend',
         ),
         'phpcpd' => array(
             'optionSeparator' => ' ',
             'xml' => ['phpcpd.xml'],
             'errorsXPath' => '//pmd-cpd/duplication',
+            'composer' => 'sebastian/phpcpd',
         ),
         'parallel-lint' => array(
             'optionSeparator' => ' ',
             'internalClass' => 'JakubOnderka\PhpParallelLint\ParallelLint',
             'hasOnlyConsoleOutput' => true,
+            'composer' => 'jakub-onderka/php-parallel-lint',
         ),
     );
     /** @var Options */
@@ -50,17 +57,8 @@ trait CodeAnalysisTasks
      */
     public function tools()
     {
-        $this->yell("phpqa v" . PHPQA_VERSION);
-        foreach (array_keys($this->tools) as $tool) {
-            if ($tool == 'parallel-lint') {
-                $task = $this->taskExec(pathToBinary("{$tool}"))
-                    ->printed(false)
-                    ->run();
-                $this->getOutput()->writeln(strtok($task->getMessage(), "\n"));
-            } else {
-                $this->_exec(pathToBinary("{$tool} --version"));
-            }
-        }
+        $tools = new Task\ToolVersions($this->getOutput());
+        $tools($this->tools);
     }
 
     /**

@@ -14,6 +14,7 @@ install:
   - if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then composer update && composer require sebastian/phpcpd:dev-master && bin/suggested-tools.sh install; fi
 script:
   - vendor/phpunit/phpunit/phpunit
+  - ./phpqa tools
   - bin/ci.sh
 # http://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/
 cache:
