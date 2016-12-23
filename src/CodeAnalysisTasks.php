@@ -48,6 +48,7 @@ trait CodeAnalysisTasks
             'optionSeparator' => ' ',
             'internalClass' => 'PHPStan\Analyser\Analyser',
             'hasOnlyConsoleOutput' => true,
+            'composer' => 'phpstan/phpstan',
         ),
     );
     /** @var Options */
