@@ -8,34 +8,41 @@ trait CodeAnalysisTasks
     private $tools = array(
         'phpmetrics' => array(
             'optionSeparator' => ' ',
+            'composer' => 'phpmetrics/phpmetrics',
         ),
         'phploc' => array(
             'optionSeparator' => ' ',
             'xml' => ['phploc.xml'],
+            'composer' => 'phploc/phploc',
         ),
         'phpcs' => array(
             'optionSeparator' => '=',
             'xml' => ['checkstyle.xml'],
             'errorsXPath' => '//checkstyle/file/error',
+            'composer' => 'squizlabs/php_codesniffer',
         ),
         'phpmd' => array(
             'optionSeparator' => ' ',
             'xml' => ['phpmd.xml'],
             'errorsXPath' => '//pmd/file/violation',
+            'composer' => 'phpmd/phpmd',
         ),
         'pdepend' => array(
             'optionSeparator' => '=',
             'xml' => ['pdepend-jdepend.xml', 'pdepend-summary.xml', 'pdepend-dependencies.xml'],
+            'composer' => 'pdepend/pdepend',
         ),
         'phpcpd' => array(
             'optionSeparator' => ' ',
             'xml' => ['phpcpd.xml'],
             'errorsXPath' => '//pmd-cpd/duplication',
+            'composer' => 'sebastian/phpcpd',
         ),
         'parallel-lint' => array(
             'optionSeparator' => ' ',
             'internalClass' => 'JakubOnderka\PhpParallelLint\ParallelLint',
             'hasOnlyConsoleOutput' => true,
+            'composer' => 'jakub-onderka/php-parallel-lint',
         ),
     );
     /** @var Options */
@@ -51,7 +58,7 @@ trait CodeAnalysisTasks
     public function tools()
     {
         $tools = new Task\ToolVersions($this->getOutput());
-        $tools(array_keys($this->tools));
+        $tools($this->tools);
     }
 
     /**
