@@ -7,7 +7,6 @@ php:
   - 7.0
   - 7.1
 matrix:
-  fast_finish: true
   include:
     - php: hhvm
       sudo: true
@@ -18,9 +17,6 @@ install:
   - composer install --no-interaction
   # test app with symfony3 components in latest php
   - if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then composer update && composer require sebastian/phpcpd:dev-master && bin/suggested-tools.sh install; fi
-before_script:
-  # Disable the HHVM JIT for faster Unit Testing
-  - if [[ $TRAVIS_PHP_VERSION = hhv* ]]; then echo 'hhvm.jit = 0' >> /etc/hhvm/php.ini; fi
 script:
   - vendor/phpunit/phpunit/phpunit
   - ./phpqa tools
