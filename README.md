@@ -146,10 +146,10 @@ phpstan | [phpstan.html](https://edgedesigncz.github.io/phpqa/report/phpstan.htm
 `phpqa` can return non-zero exit code **since version 1.6**. It's optional feature that is by default turned off.
 You have to define number of allowed errors for *phpcpd, phpcs, phpmd* in `--tools`.
 
-[mode](#output-modes) | Supported version |
---------------------- | ----------------- |
-`--output file` | >= 1.6 |
-`--output cli` | >= 1.9 |
+[mode](#output-modes) | Supported version | What is analyzed? |
+--------------------- | ----------------- | ----------------- |
+`--output file` | >= 1.6 | Number of errors in XML files, or exit code for tools without XML |
+`--output cli` | >= 1.9 | Exit code |
 
 Let's say your [Travis CI](https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Build-Step)
 or [Circle CI](https://circleci.com/docs/manually/#overview) build should fail when new error is introduced.
