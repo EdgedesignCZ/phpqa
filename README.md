@@ -58,7 +58,7 @@ _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for insta
 
 ## Install
 
-### Without composer
+### Clone + composer
 
 ```bash
 # install phpqa
@@ -75,8 +75,12 @@ export PATH=~/path-to-phpqa-repository-from-pwd:$PATH
 ### Composer
 
 ```bash
+# global installation
 composer global require edgedesign/phpqa --update-no-dev
 # Make sure you have ~/.composer/vendor/bin/ in your PATH.
+
+# local installation
+composer require edgedesign/phpqa --dev
 ```
 
 Of course you can add dependency to `require-dev` section in your `composer.json`.
@@ -86,10 +90,8 @@ how many repositories you want to update when new version is released.
 
 ##### Symfony3 components
 
-Do you have problems with dependencies
-([symfony components](https://github.com/EdgedesignCZ/phpqa/issues/22), [phpcpd](https://github.com/EdgedesignCZ/phpqa/issues/19), ...)?
-Check if you can [install phpqa globally](#circleci---artifacts--global-installation).
-Or install dev-master versions of `sebastian/phpcpd`:
+Symfony3 is supported since [version 1.7](/CHANGELOG.md#v170).
+Install dev-master version of `sebastian/phpcpd`, otherwise you'll get error [`The helper "progress" is not defined.`](https://github.com/EdgedesignCZ/phpqa/issues/19)
 
 ```json
 {
@@ -98,6 +100,23 @@ Or install dev-master versions of `sebastian/phpcpd`:
         "sebastian/phpcpd": "dev-master"
     }
 }
+```
+
+##### Fake global installation in local project
+
+Do you have problems with dependencies and you can't install phpqa globally?
+Install phpqa in [subdirectory](#circleci---artifacts--global-installation). 
+
+```bash
+#!/bin/sh 
+
+if [ ! -f qa/phpqa ];
+then
+    echo "installing phpqa"
+    (git clone https://github.com/EdgedesignCZ/phpqa.git ./qa  && cd qa && composer install --no-dev)
+fi
+
+qa/phpqa
 ```
 
 ### Docker
