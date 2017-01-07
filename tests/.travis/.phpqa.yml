@@ -1,4 +1,4 @@
 phpstan:
-    level: 4
+    level: 5
     # https://github.com/phpstan/phpstan#configuration
     standard: phpstan.neon
