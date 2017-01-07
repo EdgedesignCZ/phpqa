@@ -2,9 +2,9 @@
 #   phpqa --report --output cli --tools phpstan --analyzedDirs ./ --ignoredDirs=vendor
 
 parameters: 
-    bootstrap: %currentWorkingDir%/vendor/autoload.php
+    bootstrap: %currentWorkingDirectory%/vendor/autoload.php
     autoload_directories: 
-        - %currentWorkingDir%/tests 
+        - %currentWorkingDirectory%/tests 
     ignoreErrors:
         - '#Call to an undefined method Edge\\QA\\CodeAnalysisTasks::[a-zA-Z0-9_]+\(\)#'
         - '#Call to an undefined method Prophecy\\Prophecy\\ObjectProphecy::[a-zA-Z0-9_]+\(\)#'

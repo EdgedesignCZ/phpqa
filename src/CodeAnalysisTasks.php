@@ -267,7 +267,7 @@ trait CodeAnalysisTasks
         $createAbsolutePaths = function (array $relativeDirs) {
             return array_values(array_filter(array_map(
                 function ($relativeDir) {
-                    return realpath(getcwd() . '/' . trim($relativeDir, '"'));
+                    return '%currentWorkingDirectory%/' . trim($relativeDir, '"');
                 },
                 $relativeDirs
             )));
@@ -295,11 +295,7 @@ trait CodeAnalysisTasks
         file_put_contents(
             $neonFile,
             "# Configuration generated in phpqa\n" .
-            str_replace(
-                '%currentWorkingDir%',
-                getcwd(),
-                \Nette\Neon\Neon::encode(['parameters' => $params])
-            )
+            \Nette\Neon\Neon::encode(['parameters' => $params])
         );
 
         return array(
