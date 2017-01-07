@@ -1,5 +1,5 @@
 
-# PHPQA CLI
+# PHPQA
 
 Analyze PHP code with one command.
 
@@ -42,9 +42,23 @@ Tool| Description
 [phpmd](https://github.com/phpmd/phpmd) | Scan PHP project for messy code |
 [phpmetrics](https://github.com/Halleck45/PhpMetrics) | Static analysis tool for PHP |
 
+##### Suggested tools 
+
+Newly added tools aren't preinstalled. You have to install relevant composer packages if
+you want to use them. 
+Stable tool is executed if composer package is installed. 
+Experimental tool is executed only if the tool is specified in `--tools`.
+
+Tool | PHP | Supported since | Description | Status |
+---- | --- | --------------- | ----------- | ------ |
+[parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files | stable |
+[phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it | _experimental_ ([`v0.5`](https://github.com/EdgedesignCZ/phpqa/pull/43)) |
+
+_Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
+
 ## Install
 
-### Without composer
+### Clone + composer
 
 ```bash
 # install phpqa
@@ -61,8 +75,12 @@ export PATH=~/path-to-phpqa-repository-from-pwd:$PATH
 ### Composer
 
 ```bash
+# global installation
 composer global require edgedesign/phpqa --update-no-dev
 # Make sure you have ~/.composer/vendor/bin/ in your PATH.
+
+# local installation
+composer require edgedesign/phpqa --dev
 ```
 
 Of course you can add dependency to `require-dev` section in your `composer.json`.
@@ -72,10 +90,8 @@ how many repositories you want to update when new version is released.
 
 ##### Symfony3 components
 
-Do you have problems with dependencies
-([symfony components](https://github.com/EdgedesignCZ/phpqa/issues/22), [phpcpd](https://github.com/EdgedesignCZ/phpqa/issues/19), ...)?
-Check if you can [install phpqa globally](#circleci---artifacts--global-installation).
-Or install dev-master versions of `sebastian/phpcpd`:
+Symfony3 is supported since [version 1.7](/changelog.html#v170).
+Install dev-master version of `sebastian/phpcpd`, otherwise you'll get error [`The helper "progress" is not defined.`](https://github.com/EdgedesignCZ/phpqa/issues/19)
 
 ```json
 {
@@ -84,6 +100,23 @@ Or install dev-master versions of `sebastian/phpcpd`:
         "sebastian/phpcpd": "dev-master"
     }
 }
+```
+
+##### Fake global installation in local project
+
+Do you have problems with dependencies and you can't install phpqa globally?
+Install phpqa in [subdirectory](#circleci---artifacts--global-installation). 
+
+```bash
+#!/bin/sh 
+
+if [ ! -f qa/phpqa ];
+then
+    echo "installing phpqa"
+    (git clone https://github.com/EdgedesignCZ/phpqa.git ./qa  && cd qa && composer install --no-dev)
+fi
+
+qa/phpqa
 ```
 
 ### Docker
@@ -124,24 +157,34 @@ phpcs | [checkstyle.xml](https://edgedesigncz.github.io/phpqa/report/checkstyle.
 pdepend | [pdepend-jdepend.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.xml), [pdepend-summary.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-summary.xml), [pdepend-dependencies.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-dependencies.xml), [pdepend-jdepend.svg](https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.svg), [pdepend-pyramid.svg](https://edgedesigncz.github.io/phpqa/report/pdepend-pyramid.svg) | ✗ |
 phpmd | [phpmd.xml](https://edgedesigncz.github.io/phpqa/report/phpmd.xml) | [✓](https://github.com/phpmd/phpmd/blob/master/src/main/php/PHPMD/Renderer/TextRenderer.php#L47) |
 phpmetrics | [phpmetrics.html](https://edgedesigncz.github.io/phpqa/report/phpmetrics.html), [phpmetrics.xml](https://edgedesigncz.github.io/phpqa/report/phpmetrics.xml) | [✓](https://github.com/phpmetrics/PhpMetrics#usage) |
+parallel-lint | [parallel-lint.html](https://edgedesigncz.github.io/phpqa/report/parallel-lint.html) | [✓](https://github.com/JakubOnderka/PHP-Parallel-Lint#example-output) |
+phpstan | [phpstan.html](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon) | [✓](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon "Generated configuration is saved in current working directory") |
 
 ## Exit code
 
-`phpqa` can return non-zero exit code **since version 1.6**.
-It's optional feature that is by default turned off. You have to
+`phpqa` can return non-zero exit code **since version 1.6**. It's optional feature that is by default turned off.
+You have to define number of allowed errors for *phpcpd, phpcs, phpmd* in `--tools`.
 
-* define number of allowed errors for *phpcpd, phpcs, phpmd* in `--tools`
-* use `file` [output mode](#output-modes) (exit code is always zero in CLI output mode)
+[mode](#output-modes) | Supported version | What is analyzed? |
+--------------------- | ----------------- | ----------------- |
+`--output file` | >= 1.6 | Number of errors in XML files, or exit code for tools without XML |
+`--output cli` | >= 1.9 | Exit code |
 
 Let's say your [Travis CI](https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Build-Step)
 or [Circle CI](https://circleci.com/docs/manually/#overview) build should fail when new error is introduced.
 Define number of allowed errors for each tools and watch the build:
 
 ```bash
-phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,phpmetrics,phploc,pdepend
+phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,parallel-lint:0,phpstan:0,phpmetrics,phploc,pdepend
 ```
 
+**File mode**
+
 ![screenshot from 2016-07-23 13 53 34](https://cloud.githubusercontent.com/assets/7994022/17077767/e18bcb2a-50dc-11e6-86bc-0dfc8e22d98c.png)
+
+**CLI mode**
+
+![screenshot from 2016-12-21 14 31 27](https://cloud.githubusercontent.com/assets/7994022/21391059/33730d76-c78a-11e6-913a-84b3c7836c28.png)
 
 _Tip_: use [`echo $?`](https://gist.github.com/zdenekdrahos/5368eea304ed3fa6070bc77772779738) for displaying exit code.
 
@@ -154,6 +197,7 @@ Tool | Settings | Default Value | Your value
 [phpcs](https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard) | Coding standard | PSR2 | Name of existing standard (`PEAR`, `PHPCS`, `PSR1`, `PSR2`, `Squiz`,  `Zend`), or path to your coding standard
 [phpmd](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset
 [phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens | 
+[phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file | Level 0, `%currentWorkingDirectory%/phpstan.neon` | Take a look at [phpqa config in tests/.travis](/tests/.travis/) |
 
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:
