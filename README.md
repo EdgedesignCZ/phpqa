@@ -1,15 +1,15 @@
 
-# PHPQA CLI
+# PHPQA
 
 Analyze PHP code with one command.
 
 [![License](https://poser.pugx.org/edgedesign/phpqa/license)](https://packagist.org/packages/edgedesign/phpqa)
-[![Latest Stable Version](https://poser.pugx.org/edgedesign/phpqa/v/stable)](https://packagist.org/packages/edgedesign/phpqa)
+[![Latest Stable Version](https://poser.pugx.org/edgedesign/phpqa/v/stable)](/CHANGELOG.md)
 [![Total Downloads](https://poser.pugx.org/edgedesign/phpqa/downloads)](https://packagist.org/packages/edgedesign/phpqa)
 [![PHP runtimes](http://php-eye.com/badge/edgedesign/phpqa/tested.svg)](http://php-eye.com/package/edgedesign/phpqa)
 [![Build Status](https://travis-ci.org/EdgedesignCZ/phpqa.svg)](https://travis-ci.org/EdgedesignCZ/phpqa)
 
-## Requirements
+## Requirements
 
 - PHP >= 5.4.0
 - `xsl` extension for [HTML reports](#html-reports)
@@ -58,7 +58,7 @@ _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for insta
 
 ## Install
 
-### Without composer
+### Clone + composer
 
 ```bash
 # install phpqa
@@ -72,11 +72,15 @@ sudo ln -s /path-to-phpqa-repository/phpqa /usr/bin/phpqa
 export PATH=~/path-to-phpqa-repository-from-pwd:$PATH
 ```
 
-### Composer
+### Composer
 
 ```bash
+# global installation
 composer global require edgedesign/phpqa --update-no-dev
 # Make sure you have ~/.composer/vendor/bin/ in your PATH.
+
+# local installation
+composer require edgedesign/phpqa --dev
 ```
 
 Of course you can add dependency to `require-dev` section in your `composer.json`.
@@ -86,10 +90,8 @@ how many repositories you want to update when new version is released.
 
 ##### Symfony3 components
 
-Do you have problems with dependencies
-([symfony components](https://github.com/EdgedesignCZ/phpqa/issues/22), [phpcpd](https://github.com/EdgedesignCZ/phpqa/issues/19), ...)?
-Check if you can [install phpqa globally](#circleci---artifacts--global-installation).
-Or install dev-master versions of `sebastian/phpcpd`:
+Symfony3 is supported since [version 1.7](/CHANGELOG.md#v170).
+Install dev-master version of `sebastian/phpcpd`, otherwise you'll get error [`The helper "progress" is not defined.`](https://github.com/EdgedesignCZ/phpqa/issues/19)
 
 ```json
 {
@@ -100,7 +102,24 @@ Or install dev-master versions of `sebastian/phpcpd`:
 }
 ```
 
-### Docker
+##### Fake global installation in local project
+
+Do you have problems with dependencies and you can't install phpqa globally?
+Install phpqa in [subdirectory](#circleci---artifacts--global-installation). 
+
+```bash
+#!/bin/sh 
+
+if [ ! -f qa/phpqa ];
+then
+    echo "installing phpqa"
+    (git clone https://github.com/EdgedesignCZ/phpqa.git ./qa  && cd qa && composer install --no-dev)
+fi
+
+qa/phpqa
+```
+
+### Docker
 
 ```bash
 docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoreDirs vendor,build,migrations,test
@@ -146,10 +165,10 @@ phpstan | [phpstan.html](https://edgedesigncz.github.io/phpqa/report/phpstan.htm
 `phpqa` can return non-zero exit code **since version 1.6**. It's optional feature that is by default turned off.
 You have to define number of allowed errors for *phpcpd, phpcs, phpmd* in `--tools`.
 
-[mode](#output-modes) | Supported version |
---------------------- | ----------------- |
-`--output file` | >= 1.6 |
-`--output cli` | >= 1.9 |
+[mode](#output-modes) | Supported version | What is analyzed? |
+--------------------- | ----------------- | ----------------- |
+`--output file` | >= 1.6 | Number of errors in XML files, or exit code for tools without XML |
+`--output cli` | >= 1.9 | Exit code |
 
 Let's say your [Travis CI](https://docs.travis-ci.com/user/customizing-the-build/#Customizing-the-Build-Step)
 or [Circle CI](https://circleci.com/docs/manually/#overview) build should fail when new error is introduced.
@@ -225,7 +244,7 @@ report:
 Be aware that all **paths are relative to `.phpqa.yml`**. Don't copy-paste section `report`
 if you don't have custom templates!
 
-### Requirements
+### Requirements
 
 [`xsl` extension](http://php.net/manual/en/class.xsltprocessor.php)
 must be installed and enabled for exporting HTML reports.
@@ -243,7 +262,7 @@ sudo service apache2 restart
 We use [Jenkins-CI](http://jenkins-php.org/) in Edgedesign. Below you can find examples of
 [Phing](https://www.phing.info/), [Robo](http://robo.li/) and `bash` tasks.
 
-### Project with one directory
+### Project with one directory
 
 Typically in Symfony project you have project with `src` directory with all the code and tests. So you don't need ignore vendors, web directory etc. 
 
@@ -272,7 +291,7 @@ public function ciPhpqa()
 }
 ```
 
-### Project with multiple directories (src, tests, ...)
+### Project with multiple directories (src, tests, ...)
 
 When you analyze root directory of your project don't forget to ignore vendors and
 other non-code directories. Otherwise the analysis could take a very long time.
@@ -342,8 +361,7 @@ test:
 ## Contributing
 
 Contributions from others would be very much appreciated! Send 
-[pull request](https://github.com/EdgedesignCZ/phpqa/pulls)/
-[issue](https://github.com/EdgedesignCZ/phpqa/issues). Thanks!
+[pull request](https://github.com/EdgedesignCZ/phpqa/pulls)/[issue](https://github.com/EdgedesignCZ/phpqa/issues). Thanks!
 
 ## License
 

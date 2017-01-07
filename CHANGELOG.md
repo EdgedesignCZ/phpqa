@@ -7,7 +7,6 @@
 * [#39](https://github.com/EdgedesignCZ/phpqa/pull/39) Analyze multiple directories + deprecate analyzing one directory
     * **Before**: `phpqa --analyzedDir ./`
     * **After**: `phpqa --analyzedDirs ./`
-
 * Drop outdated versioneye badge in favor of `composer outdated --direct`
 * Upgrade QA tools (phpcs, phpmd, pdepend)
 
