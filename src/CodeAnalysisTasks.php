@@ -69,8 +69,8 @@ trait CodeAnalysisTasks
 
     /**
      * @description Executes QA tools
-     * @option $analyzedDir path to analyzed directory
-     * @option $analyzedDirs csv path(s) to analyzed directories @example src,tests
+     * @option $analyzedDir DEPRECATED, use --analyzedDirs
+     * @option $analyzedDirs csv path(s) to analyzed directories @default ./ @example src,tests
      * @option $buildDir path to output directory
      * @option $ignoredDirs csv @example CI,bin,vendor
      * @option $ignoredFiles csv @example RoboFile.php
