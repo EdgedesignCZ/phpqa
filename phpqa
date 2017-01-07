@@ -11,6 +11,10 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     require_once __DIR__ . '/../../autoload.php';
 }
 
+if (!defined('COMPOSER_BINARY_DIR') || !is_file(COMPOSER_BINARY_DIR . 'phploc')) {
+    die("Composer binary directory was not found\n");
+}
+
 /**
  * RoboFile is in phpqa repository, but analysis is runned in cwd.
  * Robo\Runner:loadRoboFile calls chdir when option --load-from=__DIR__
