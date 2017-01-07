@@ -11,6 +11,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpcpd.minTokens'), is(greaterThan(0)));
         assertThat($config->value('phpcs.standard'), is(nonEmptyString()));
         assertThat($config->path('phpmd.standard'), is(nonEmptyString()));
+        assertThat($config->value('phpstan.level'), identicalTo(0));
     }
 
     public function testBuildAbsolutePath()

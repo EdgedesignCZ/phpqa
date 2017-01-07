@@ -34,7 +34,8 @@
     },
     "suggest": {
         "jakub-onderka/php-parallel-lint": "Check PHP syntax",
-        "jakub-onderka/php-console-highlighter": "Colored output in parallel-lint"
+        "jakub-onderka/php-console-highlighter": "Colored output in parallel-lint",
+        "phpstan/phpstan": "PHP Static Analysis Tool - discover bugs in your code without running it!"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.8",

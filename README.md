@@ -45,11 +45,14 @@ Tool| Description
 ##### Suggested tools 
 
 Newly added tools aren't preinstalled. You have to install relevant composer packages if
-you want to use.
+you want to use them. 
+Stable tool is executed if composer package is installed. 
+Experimental tool is executed only if the tool is specified in `--tools`.
 
-Tool | Supported since | Description |
----- | --------------- |----------- |
-[parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 1.9` | Check syntax of PHP files |
+Tool | PHP | Supported since | Description | Status |
+---- | --- | --------------- | ----------- | ------ |
+[parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files | stable |
+[phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it | _experimental_ ([`v0.5`](https://github.com/EdgedesignCZ/phpqa/pull/43)) |
 
 _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
 
@@ -136,6 +139,7 @@ pdepend | [pdepend-jdepend.xml](https://edgedesigncz.github.io/phpqa/report/pdep
 phpmd | [phpmd.xml](https://edgedesigncz.github.io/phpqa/report/phpmd.xml) | [✓](https://github.com/phpmd/phpmd/blob/master/src/main/php/PHPMD/Renderer/TextRenderer.php#L47) |
 phpmetrics | [phpmetrics.html](https://edgedesigncz.github.io/phpqa/report/phpmetrics.html), [phpmetrics.xml](https://edgedesigncz.github.io/phpqa/report/phpmetrics.xml) | [✓](https://github.com/phpmetrics/PhpMetrics#usage) |
 parallel-lint | [parallel-lint.html](https://edgedesigncz.github.io/phpqa/report/parallel-lint.html) | [✓](https://github.com/JakubOnderka/PHP-Parallel-Lint#example-output) |
+phpstan | [phpstan.html](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon) | [✓](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon "Generated configuration is saved in current working directory") |
 
 ## Exit code
 
@@ -152,7 +156,7 @@ or [Circle CI](https://circleci.com/docs/manually/#overview) build should fail w
 Define number of allowed errors for each tools and watch the build:
 
 ```bash
-phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,parallel-lint:0,phpmetrics,phploc,pdepend
+phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,parallel-lint:0,phpstan:0,phpmetrics,phploc,pdepend
 ```
 
 **File mode**
@@ -174,6 +178,7 @@ Tool | Settings | Default Value | Your value
 [phpcs](https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard) | Coding standard | PSR2 | Name of existing standard (`PEAR`, `PHPCS`, `PSR1`, `PSR2`, `Squiz`,  `Zend`), or path to your coding standard
 [phpmd](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset
 [phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens | 
+[phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file | Level 0, `%currentWorkingDirectory%/phpstan.neon` | Take a look at [phpqa config in tests/.travis](/tests/.travis/) |
 
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:

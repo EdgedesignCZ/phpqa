@@ -9,8 +9,8 @@ mode="$1"
 if [ $mode = "install" ]
 then
     echo "Installing suggested tools"
-    composer require jakub-onderka/php-parallel-lint jakub-onderka/php-console-highlighter
+    composer require jakub-onderka/php-parallel-lint jakub-onderka/php-console-highlighter phpstan/phpstan
 else
     echo "Removing suggested tools"
-    composer remove jakub-onderka/php-parallel-lint jakub-onderka/php-console-highlighter
+    composer remove jakub-onderka/php-parallel-lint jakub-onderka/php-console-highlighter phpstan/phpstan
 fi

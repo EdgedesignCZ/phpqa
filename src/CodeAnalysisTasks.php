@@ -44,6 +44,12 @@ trait CodeAnalysisTasks
             'hasOnlyConsoleOutput' => true,
             'composer' => 'jakub-onderka/php-parallel-lint',
         ),
+        'phpstan' => array(
+            'optionSeparator' => ' ',
+            'internalClass' => 'PHPStan\Analyser\Analyser',
+            'hasOnlyConsoleOutput' => true,
+            'composer' => 'phpstan/phpstan',
+        ),
     );
     /** @var Options */
     private $options;
@@ -256,6 +262,51 @@ trait CodeAnalysisTasks
         );
     }
 
+    private function phpstan()
+    {
+        $createAbsolutePaths = function (array $relativeDirs) {
+            return array_values(array_filter(array_map(
+                function ($relativeDir) {
+                    return '%currentWorkingDirectory%/' . trim($relativeDir, '"');
+                },
+                $relativeDirs
+            )));
+        };
+
+        $defaultConfig = $this->config->path('phpstan.standard') ?: (getcwd() . '/phpstan.neon');
+        if (file_exists($defaultConfig)) {
+            $params = \Nette\Neon\Neon::decode(file_get_contents($defaultConfig))['parameters'] + [
+                'excludes_analyse' => []
+            ];
+        } else {
+            $params = [
+                'autoload_directories' => $createAbsolutePaths($this->options->getAnalyzedDirs()),
+                'excludes_analyse' => [],
+            ];
+        }
+
+        $params['excludes_analyse'] = array_merge(
+            $params['excludes_analyse'],
+            $createAbsolutePaths($this->options->ignore->phpstan())
+        );
+
+        $neonDir = $this->options->isSavedToFiles ? $this->options->rawFile('') : getcwd();
+        $neonFile = "{$neonDir}/phpstan-phpqa.neon";
+        file_put_contents(
+            $neonFile,
+            "# Configuration generated in phpqa\n" .
+            \Nette\Neon\Neon::encode(['parameters' => $params])
+        );
+
+        return array(
+            'analyze',
+            'ansi' => '',
+            'level' => $this->config->value('phpstan.level'),
+            'configuration' => $neonFile,
+            $this->options->getAnalyzedDirs(' '),
+        );
+    }
+
     private function buildHtmlReport()
     {
         foreach ($this->usedTools as $tool) {
@@ -263,7 +314,10 @@ trait CodeAnalysisTasks
             if ($tool->hasOnlyConsoleOutput) {
                 twigToHtml(
                     'cli.html.twig',
-                    array('process' => $tool->process),
+                    array(
+                        'tool' => (string) $tool,
+                        'process' => $tool->process
+                    ),
                     $this->options->rawFile("{$tool}.html")
                 );
             } else {

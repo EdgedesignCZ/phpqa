@@ -56,7 +56,7 @@ class Config
     {
         foreach ($this->configs as $dir => $config) {
             $value = $this->findInConfig($config, $path);
-            if ($value) {
+            if ($value !== null) {
                 return $extractor($value, $dir);
             }
         }

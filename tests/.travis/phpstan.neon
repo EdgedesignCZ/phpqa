@@ -1,0 +1,12 @@
+# Required config for analyzing root directory (RobotLoader. throws Nette\InvalidStateException: Ambiguous class)
+#   phpqa --report --output cli --tools phpstan --analyzedDirs ./ --ignoredDirs=vendor
+
+parameters: 
+    bootstrap: %currentWorkingDirectory%/vendor/autoload.php
+    autoload_directories: 
+        - %currentWorkingDirectory%/tests 
+    autoload_files:
+        - %currentWorkingDirectory%/RoboFile.php 
+    ignoreErrors:
+        - '#Call to an undefined method Prophecy\\Prophecy\\ObjectProphecy::[a-zA-Z0-9_]+\(\)#'
+        - '#Access to an undefined property DOMDocument::\$documentElement.#'
