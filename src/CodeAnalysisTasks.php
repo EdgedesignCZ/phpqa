@@ -273,7 +273,7 @@ trait CodeAnalysisTasks
             )));
         };
 
-        $defaultConfig = $this->config->path('phpstan.standard');
+        $defaultConfig = $this->config->path('phpstan.standard') ?: (getcwd() . '/phpstan.neon');
         if (file_exists($defaultConfig)) {
             $params = \Nette\Neon\Neon::decode(file_get_contents($defaultConfig))['parameters'] + [
                 'excludes_analyse' => []
