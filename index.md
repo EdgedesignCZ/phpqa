@@ -4,7 +4,7 @@
 Analyze PHP code with one command.
 
 [![License](https://poser.pugx.org/edgedesign/phpqa/license)](https://packagist.org/packages/edgedesign/phpqa)
-[![Latest Stable Version](https://poser.pugx.org/edgedesign/phpqa/v/stable)](changelog.html)
+[![Latest Stable Version](https://poser.pugx.org/edgedesign/phpqa/v/stable)](./changelog.html)
 [![Total Downloads](https://poser.pugx.org/edgedesign/phpqa/downloads)](https://packagist.org/packages/edgedesign/phpqa)
 [![PHP runtimes](http://php-eye.com/badge/edgedesign/phpqa/tested.svg)](http://php-eye.com/package/edgedesign/phpqa)
 [![Build Status](https://travis-ci.org/EdgedesignCZ/phpqa.svg)](https://travis-ci.org/EdgedesignCZ/phpqa)
@@ -90,7 +90,7 @@ how many repositories you want to update when new version is released.
 
 ##### Symfony3 components
 
-Symfony3 is supported since [version 1.7](/changelog.html#v170).
+Symfony3 is supported since [version 1.7](./changelog.html).
 Install dev-master version of `sebastian/phpcpd`, otherwise you'll get error [`The helper "progress" is not defined.`](https://github.com/EdgedesignCZ/phpqa/issues/19)
 
 ```json
