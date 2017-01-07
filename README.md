@@ -1,10 +1,10 @@
 
-# PHPQA CLI
+# PHPQA
 
 Analyze PHP code with one command.
 
 [![License](https://poser.pugx.org/edgedesign/phpqa/license)](https://packagist.org/packages/edgedesign/phpqa)
-[![Latest Stable Version](https://poser.pugx.org/edgedesign/phpqa/v/stable)](https://packagist.org/packages/edgedesign/phpqa)
+[![Latest Stable Version](https://poser.pugx.org/edgedesign/phpqa/v/stable)](/CHANGELOG.md)
 [![Total Downloads](https://poser.pugx.org/edgedesign/phpqa/downloads)](https://packagist.org/packages/edgedesign/phpqa)
 [![PHP runtimes](http://php-eye.com/badge/edgedesign/phpqa/tested.svg)](http://php-eye.com/package/edgedesign/phpqa)
 [![Build Status](https://travis-ci.org/EdgedesignCZ/phpqa.svg)](https://travis-ci.org/EdgedesignCZ/phpqa)
