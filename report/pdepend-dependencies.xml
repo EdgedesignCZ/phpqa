@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2016-12-21T18:32:58" pdepend="@package_version@">
+<dependencies generated="2017-01-07T10:06:17" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -10,6 +10,7 @@
     </class>
     <trait name="CodeAnalysisTasks">
       <efferent>
+        <type namespace="Edge\QA\Task" name="ToolVersions"/>
         <type namespace="Edge\QA" name="Options"/>
         <type namespace="Edge\QA" name="Config"/>
         <type namespace="Edge\QA\Task" name="ParallelExec"/>
@@ -136,6 +137,17 @@
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
       </afferent>
       <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php"/>
+    </class>
+    <class name="ToolVersions">
+      <efferent>
+        <type namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+        <type namespace="Symfony\Component\Console\Helper" name="Table"/>
+        <type namespace="Robo\Task\Base" name="Exec"/>
+      </efferent>
+      <afferent>
+        <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
+      </afferent>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php"/>
     </class>
   </package>
 </dependencies>

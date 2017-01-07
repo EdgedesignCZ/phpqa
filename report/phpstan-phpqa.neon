@@ -1,0 +1,2 @@
+# Configuration generated in phpqa
+{parameters: {bootstrap: %currentWorkingDirectory%/vendor/autoload.php, autoload_directories: [%currentWorkingDirectory%/tests], autoload_files: [%currentWorkingDirectory%/RoboFile.php], ignoreErrors: ["#Call to an undefined method Prophecy\\\\Prophecy\\\\ObjectProphecy::[a-zA-Z0-9_]+\\(\\)#", "#Access to an undefined property DOMDocument::\\$documentElement.#"], excludes_analyse: [%currentWorkingDirectory%/vendor]}}
