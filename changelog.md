@@ -1,6 +1,13 @@
 
 # Changelog
 
+## v1.9.1
+
+* Fix phpqa version (version constant not changed in `v1.9`)
+* _Internal changes_
+    * Deploy changelog to github pages
+    * Update copyright
+
 ## v1.9.0
 
 * **Optional tools**
