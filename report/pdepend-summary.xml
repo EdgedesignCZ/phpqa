@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metrics generated="2017-01-07T10:06:17" pdepend="@package_version@" ahh="0.77777777777778" andc="0.058823529411765" calls="337" ccn="200" ccn2="206" cloc="62" clsa="0" clsc="14" eloc="1283" fanout="36" leafs="10" lloc="610" loc="1535" maxDIT="3" ncloc="1473" noc="14" nof="7" noi="0" nom="91" nop="2" roots="3">
+<metrics generated="2017-01-08T10:09:01" pdepend="@package_version@" ahh="0.77777777777778" andc="0.058823529411765" calls="337" ccn="200" ccn2="206" cloc="62" clsa="0" clsc="14" eloc="1283" fanout="36" leafs="10" lloc="610" loc="1535" maxDIT="3" ncloc="1473" noc="14" nof="7" noi="0" nom="91" nop="2" roots="3">
   <files>
     <file name="/mnt/DATA/www/_my_classes/qa-cli/RoboFile.php" loc="9" cloc="0" eloc="6" lloc="2" ncloc="9"/>
     <file name="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" loc="345" cloc="20" eloc="301" lloc="111" ncloc="325"/>
@@ -38,7 +38,7 @@
       <method name="phpmd" start="219" end="232" ccn="3" ccn2="3" loc="14" cloc="0" eloc="13" lloc="4" ncloc="14" npath="4" hnt="25" hnd="40" hv="133.04820237218" hd="7.4411764705882" hl="0.13438735177866" he="990.03515294596" ht="55.001952941442" hb="0.033111522878339" hi="17.879995575709" mi="60.424631976477"/>
       <method name="phpmetrics" start="234" end="255" ccn="3" ccn2="3" loc="22" cloc="0" eloc="21" lloc="12" ncloc="22" npath="4" hnt="37" hnd="82" hv="235.22942417087" hd="7.6666666666667" hl="0.1304347826087" he="1803.42558531" ht="100.190310295" hb="0.049386801060524" hi="30.682098804896" mi="54.148431398744"/>
       <method name="parallellint" start="257" end="263" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="1" ncloc="7" npath="1" hnt="9" hnd="12" hv="32.26466250649" hd="9" hl="0.11111111111111" he="290.38196255841" ht="16.132331253245" hb="0.014617008607043" hi="3.5849625007212" mi="72.326806505165"/>
-      <method name="phpstan" start="265" end="308" ccn="4" ccn2="4" loc="44" cloc="0" eloc="39" lloc="14" ncloc="44" npath="8" hnt="57" hnd="148" hv="410.93884184085" hd="11.733333333333" hl="0.085227272727273" he="4821.6824109326" ht="267.87124505181" hb="0.095135910624669" hi="35.0231967478" mi="46.58736283748"/>
+      <method name="phpstan" start="265" end="308" ccn="4" ccn2="4" loc="44" cloc="0" eloc="39" lloc="14" ncloc="44" npath="8" hnt="58" hnd="154" hv="421.4736193603" hd="11.870967741935" hl="0.084239130434783" he="5003.299739503" ht="277.96109663905" hb="0.097510135433311" hi="35.504571196113" mi="46.375885353971"/>
       <method name="buildHtmlReport" start="310" end="337" ccn="3" ccn2="3" loc="28" cloc="0" eloc="27" lloc="6" ncloc="28" npath="3" hnt="37" hnd="84" hv="236.51574464281" hd="10.818181818182" hl="0.092436974789916" he="2558.6703284086" ht="142.14835157826" hb="0.062357443304271" hi="21.862799924966" mi="51.750974221395"/>
       <method name="buildSummary" start="339" end="343" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="14" hnd="18" hv="58.378950020192" hd="6.2857142857143" hl="0.15909090909091" he="366.95340012692" ht="20.386300007051" hb="0.017085172029828" hi="9.2875602304852" mi="74.364832382377"/>
     </trait>
