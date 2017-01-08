@@ -11,6 +11,7 @@ deploy() {
     checkout_repository
     build_report
     copy_artifacts
+    copy_changelog
     publish_changes
 }
 
@@ -30,6 +31,10 @@ copy_artifacts() {
     cp -R build/*.svg $repository/report
     cp -R build/*.xml $repository/report
     cp -R build/*.neon $repository/report
+}
+
+copy_changelog() {
+    cp CHANGELOG.md $repository/changelog.md
 }
 
 publish_changes() {
