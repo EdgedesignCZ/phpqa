@@ -7,8 +7,24 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     define('COMPOSER_BINARY_DIR', __DIR__ . "/vendor/bin/");
     require_once __DIR__ . '/vendor/autoload.php';
 } elseif (file_exists(__DIR__ . '/../../autoload.php')) {
-    define('COMPOSER_BINARY_DIR', __DIR__ . "/../../bin/");
+    $projectRoot = __DIR__ . '/../../..';
+    $binPaths = [
+        "{$projectRoot}/vendor/bin",
+        "{$projectRoot}/bin",
+        $projectRoot,
+        "{$projectRoot}/" . getenv('COMPOSER_BIN_DIR'),
+    ];
+    foreach ($binPaths as $bin) {
+        if (is_file("{$bin}/phploc")) {
+            define('COMPOSER_BINARY_DIR', "{$bin}/");
+            break;
+        }
+    }
     require_once __DIR__ . '/../../autoload.php';
+}
+
+if (!defined('COMPOSER_BINARY_DIR') || !is_file(COMPOSER_BINARY_DIR . 'phploc')) {
+    die("Composer binary directory was not found (define path in environment variable 'COMPOSER_BIN_DIR')\n");
 }
 
 /**
