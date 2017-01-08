@@ -365,6 +365,6 @@ Contributions from others would be very much appreciated! Send
 
 ## License
 
-Copyright (c) 2015, 2016 Edgedesign.cz. MIT Licensed,
+Copyright (c) 2015, 2016, 2017 Edgedesign.cz. MIT Licensed,
 see [LICENSE](/LICENSE) for details.
 
