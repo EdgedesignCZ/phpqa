@@ -1,6 +1,20 @@
 
 # Changelog
 
+## v1.9.0
+
+* **Optional tools**
+    - [#41](https://github.com/EdgedesignCZ/phpqa/pull/41) parallel-lint (stable)
+    - [#43](https://github.com/EdgedesignCZ/phpqa/pull/43) phpstan `v0.5` (experimental)
+* [#40](https://github.com/EdgedesignCZ/phpqa/pull/40) Support exit code and summary in CLI mode<br />
+    ![](https://cloud.githubusercontent.com/assets/7994022/21391059/33730d76-c78a-11e6-913a-84b3c7836c28.png)
+* [#42](https://github.com/EdgedesignCZ/phpqa/pull/42) Show parsing errors in phpmd report
+    ![](https://cloud.githubusercontent.com/assets/7994022/21394949/f7b28706-c79a-11e6-8fe9-ddc5906fa544.png)
+* [#44](https://github.com/EdgedesignCZ/phpqa/pull/44) `phpqa tools` - load package information from composer 
+    ![](https://cloud.githubusercontent.com/assets/7994022/21451392/296f40b2-c8ff-11e6-8871-bd98a21b9e5a.png)
+* [#47](https://github.com/EdgedesignCZ/phpqa/pull/47) Custom binary location ([#46](https://github.com/EdgedesignCZ/phpqa/issues/46) Changing composer bin-dir breaks tools path)
+* [#48](https://github.com/EdgedesignCZ/phpqa/pull/48) Refine documentation
+
 ## v1.8.0
 
 * [#37](https://github.com/EdgedesignCZ/phpqa/pull/37#issuecomment-266218735) Stop phpqa when `.phpqa.yml` or specified standard doesn't exist
