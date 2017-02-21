@@ -117,7 +117,7 @@ set tabs = {
     <div class="tab-content">
         {% for tool in tools %}
         <div role="tabpanel" class="tab-pane{{ loop.first ? ' active' : '' }}" id="{{ tool }}">
-            <iframe id="iframe-{{ tool }}" src="{{ tool }}.html"></iframe>
+            <iframe id="iframe-{{ tool }}" src="{{ tool == 'phpmetrics2' ? 'phpmetrics/index' : tool }}.html"></iframe>
         </div>
         {% endfor %}
     </div>

@@ -10,6 +10,11 @@ trait CodeAnalysisTasks
             'optionSeparator' => ' ',
             'composer' => 'phpmetrics/phpmetrics',
         ),
+        'phpmetrics2' => array(
+            'optionSeparator' => '=',
+            'composer' => 'phpmetrics/phpmetrics',
+            'binary' => 'phpmetrics',
+        ),
         'phploc' => array(
             'optionSeparator' => ' ',
             'xml' => ['phploc.xml'],
@@ -110,6 +115,9 @@ trait CodeAnalysisTasks
                 $this->yell("Option --analyzedDir is deprecated, please use option --analyzedDirs");
             }
         }
+        if (!class_exists('Hal\Application\Command\RunMetricsCommand')) {
+            $opts['tools'] = str_replace('phpmetrics', 'phpmetrics2', $opts['tools']);
+        }
 
         $this->options = new Options($opts);
         $this->usedTools = $this->options->buildRunningTools($this->tools);
@@ -140,7 +148,7 @@ trait CodeAnalysisTasks
     /** @return \Robo\Task\Base\Exec */
     private function toolToExec(RunningTool $tool)
     {
-        $binary = pathToBinary($tool);
+        $binary = pathToBinary($tool->binary);
         $process = $this->taskExec($binary);
         $method = str_replace('-', '', $tool);
         foreach ($this->{$method}($tool) as $arg => $value) {
@@ -251,6 +259,20 @@ trait CodeAnalysisTasks
         } else {
             $args['report-cli'] = '';
         }
+        return $args;
+    }
+
+    private function phpmetrics2()
+    {
+        $args = array(
+            $this->options->ignore->phpmetrics2(),
+            'extensions' => 'php',
+        );
+        if ($this->options->isSavedToFiles) {
+            $args['report-html'] = $this->options->toFile('phpmetrics/');
+            $args['report-violations'] = $this->options->toFile('phpmetrics.xml');
+        }
+        $args[] = $this->options->getAnalyzedDirs(',');
         return $args;
     }
 

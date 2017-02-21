@@ -40,6 +40,11 @@ class IgnoredPaths
         return $this->ignore(' --excluded-dirs="', '|', '"');
     }
 
+    public function phpmetrics2()
+    {
+        return $this->ignore(' --exclude="', ',', '"');
+    }
+
     public function bergmann()
     {
         return $this->ignore(' --exclude=', ' --exclude=', '');
