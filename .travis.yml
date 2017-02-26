@@ -1,5 +1,6 @@
 sudo: false
 language: php
+dist: trusty
 php:
   - 5.4
   - 5.5
@@ -9,9 +10,10 @@ php:
   - hhvm
 install:
   - if [ -n "$GITHUB_OAUTH_TOKEN" ]; then composer config github-oauth.github.com ${GITHUB_OAUTH_TOKEN}; fi;
-  - composer install --no-interaction
   # test app with symfony3 components in latest php
   - if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then composer update && composer require sebastian/phpcpd:dev-master && bin/suggested-tools.sh install; fi
+  - composer install --no-interaction
+
 script:
   - vendor/phpunit/phpunit/phpunit
   - ./phpqa tools
