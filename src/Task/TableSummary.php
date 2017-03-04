@@ -37,7 +37,7 @@ class TableSummary
             list($isOk, $errorsCount) = $tool->analyzeResult(!$this->options->isSavedToFiles);
             $totalErrors += (int) $errorsCount;
             $row = array(
-                "<comment>{$tool}</comment>",
+                "<comment>{$tool->binary}</comment>",
                 $tool->getAllowedErrorsCount(),
                 $errorsCount,
                 $this->getStatus($isOk),

@@ -56,6 +56,13 @@ trait CodeAnalysisTasks
             'composer' => 'phpstan/phpstan',
         ),
     );
+    /** @var array [tool => oldVersion] */
+    private $toolsWithDifferentVersions = array(
+        'phpmetrics2' => array(
+            'tool' => 'phpmetrics',
+            'internalClass' => 'Hal\Application\Command\RunMetricsCommand',
+        ),
+    );
     /** @var Options */
     private $options;
     /** @var Config */
@@ -69,7 +76,7 @@ trait CodeAnalysisTasks
     public function tools()
     {
         $tools = new Task\ToolVersions($this->getOutput());
-        $tools($this->tools);
+        $tools(array_diff_key($this->tools, $this->toolsWithDifferentVersions));
     }
 
     /**
@@ -115,14 +122,22 @@ trait CodeAnalysisTasks
                 $this->yell("Option --analyzedDir is deprecated, please use option --analyzedDirs");
             }
         }
-        if (!class_exists('Hal\Application\Command\RunMetricsCommand')) {
-            $opts['tools'] = str_replace('phpmetrics', 'phpmetrics2', $opts['tools']);
-        }
+        $opts['tools'] = $this->selectToolsThatAreInstalled($opts['tools']);
 
         $this->options = new Options($opts);
         $this->usedTools = $this->options->buildRunningTools($this->tools);
         $this->config = new Config();
         $this->config->loadCustomConfig($this->options->configDir, $opts['config']);
+    }
+
+    private function selectToolsThatAreInstalled($tools)
+    {
+        foreach ($this->toolsWithDifferentVersions as $newTool => $legacyTool) {
+            if (!class_exists($legacyTool['internalClass'])) {
+                $tools = str_replace($legacyTool['tool'], $newTool, $tools);
+            }
+        }
+        return $tools;
     }
 
     private function ciClean()
