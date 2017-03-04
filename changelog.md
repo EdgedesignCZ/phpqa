@@ -1,11 +1,16 @@
 
 # Changelog
 
+## v1.10.0
+
+* [#50](https://github.com/EdgedesignCZ/phpqa/pull/50) Support phpmetrics 2.0 ([new html report](https://edgedesigncz.github.io/phpqa/report/phpmetrics/))
+* Upgrade QA tools (phpcs, phpmd, pdepend)
+
 ## v1.9.1
 
 * Fix phpqa version (version constant not changed in `v1.9`)
 * _Internal changes_
-    * Deploy changelog to github pages
+    * Deploy changelog to github pages 
     * Update copyright
 
 ## v1.9.0

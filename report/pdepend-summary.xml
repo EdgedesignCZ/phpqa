@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metrics generated="2017-03-04T18:07:09" pdepend="@package_version@" ahh="0.77777777777778" andc="0.058823529411765" calls="345" ccn="207" ccn2="213" cloc="62" clsa="0" clsc="14" eloc="1343" fanout="36" leafs="10" lloc="633" loc="1598" maxDIT="3" ncloc="1536" noc="14" nof="7" noi="0" nom="92" nop="2" roots="3">
+<metrics generated="2017-03-04T18:27:42" pdepend="@package_version@" ahh="0.77777777777778" andc="0.058823529411765" calls="345" ccn="207" ccn2="213" cloc="62" clsa="0" clsc="14" eloc="1343" fanout="36" leafs="10" lloc="633" loc="1598" maxDIT="3" ncloc="1536" noc="14" nof="7" noi="0" nom="92" nop="2" roots="3">
   <files>
     <file name="/mnt/DATA/www/_my_classes/qa-cli/RoboFile.php" loc="9" cloc="0" eloc="6" lloc="2" ncloc="9"/>
     <file name="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" loc="389" cloc="21" eloc="342" lloc="127" ncloc="368"/>
