@@ -262,13 +262,14 @@ trait CodeAnalysisTasks
         return $args;
     }
 
-    private function phpmetrics2()
+    private function phpmetrics2(RunningTool $tool)
     {
         $args = array(
             $this->options->ignore->phpmetrics2(),
             'extensions' => 'php',
         );
         if ($this->options->isSavedToFiles) {
+            $tool->htmlReport = $this->options->rawFile('phpmetrics/index.html');
             $args['report-html'] = $this->options->toFile('phpmetrics/');
             $args['report-violations'] = $this->options->toFile('phpmetrics.xml');
         }
@@ -332,7 +333,9 @@ trait CodeAnalysisTasks
     private function buildHtmlReport()
     {
         foreach ($this->usedTools as $tool) {
-            $tool->htmlReport = $this->options->rawFile("{$tool}.html");
+            if (!$tool->htmlReport) {
+                $tool->htmlReport = $this->options->rawFile("{$tool}.html");
+            }
             if ($tool->hasOnlyConsoleOutput) {
                 twigToHtml(
                     'cli.html.twig',
@@ -353,7 +356,11 @@ trait CodeAnalysisTasks
         }
         twigToHtml(
             'phpqa.html.twig',
-            array('tools' => array_keys($this->usedTools), 'appVersion' => PHPQA_VERSION),
+            array(
+                'tools' => $this->usedTools,
+                'appVersion' => PHPQA_VERSION,
+                'buildDir' => $this->options->rawFile('')
+            ),
             $this->options->rawFile('phpqa.html')
         );
     }
