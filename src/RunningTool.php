@@ -5,6 +5,7 @@ namespace Edge\QA;
 class RunningTool
 {
     private $tool;
+    public $binary;
     private $internalClass;
     private $optionSeparator;
 
@@ -20,6 +21,7 @@ class RunningTool
     public function __construct($tool, array $toolConfig)
     {
         $config = $toolConfig + [
+            'binary' => $tool,
             'optionSeparator' => '=',
             'xml' => [],
             'errorsXPath' => '',
@@ -28,6 +30,7 @@ class RunningTool
             'internalClass' => null,
         ];
         $this->tool = $tool;
+        $this->binary = $config['binary'];
         $this->internalClass = $config['internalClass'];
         $this->optionSeparator = $config['optionSeparator'];
         $this->xmlFiles = $config['xml'];

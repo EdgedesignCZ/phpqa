@@ -67,6 +67,9 @@ set tabs = {
             padding-left: 0px !important;
             padding-right: 0px !important;
         }
+        #phpmetrics2 {
+            margin-top: -20px;
+        }
     </style>
 </head>
 <body>
@@ -88,14 +91,14 @@ set tabs = {
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav nav-tabs" role="tablist">
                 {% for tool in tools %}
-                <li{{ loop.first ? ' class=active' : '' }}><a href="#{{ tool }}">{{ tool }}</a></li>
-                {% if tabs[tool]  %}
+                <li{{ loop.first ? ' class=active' : '' }}><a href="#{{ tool }}">{{ tool.binary }}</a></li>
+                {% if tabs[tool.__toString()]  %}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         &nbsp;<span class="caret"></span>&nbsp;
                     </a>
                     <ul class="dropdown-menu">
-                        {% for link, tab in tabs[tool] %}
+                        {% for link, tab in tabs[tool.__toString()] %}
                         {% if tab %}
                         <li><a href="#{{ tool }}" data-iframe-tab="{{ link }}">{{ tab }}</a></li>
                         {% else %}
@@ -117,7 +120,7 @@ set tabs = {
     <div class="tab-content">
         {% for tool in tools %}
         <div role="tabpanel" class="tab-pane{{ loop.first ? ' active' : '' }}" id="{{ tool }}">
-            <iframe id="iframe-{{ tool }}" src="{{ tool }}.html"></iframe>
+            <iframe id="iframe-{{ tool }}" src="{{ tool.htmlReport|replace({(buildDir): ''}) }}"></iframe>
         </div>
         {% endfor %}
     </div>

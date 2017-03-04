@@ -10,6 +10,11 @@ trait CodeAnalysisTasks
             'optionSeparator' => ' ',
             'composer' => 'phpmetrics/phpmetrics',
         ),
+        'phpmetrics2' => array(
+            'optionSeparator' => '=',
+            'composer' => 'phpmetrics/phpmetrics',
+            'binary' => 'phpmetrics',
+        ),
         'phploc' => array(
             'optionSeparator' => ' ',
             'xml' => ['phploc.xml'],
@@ -51,6 +56,13 @@ trait CodeAnalysisTasks
             'composer' => 'phpstan/phpstan',
         ),
     );
+    /** @var array [tool => oldVersion] */
+    private $toolsWithDifferentVersions = array(
+        'phpmetrics2' => array(
+            'tool' => 'phpmetrics',
+            'internalClass' => 'Hal\Application\Command\RunMetricsCommand',
+        ),
+    );
     /** @var Options */
     private $options;
     /** @var Config */
@@ -64,7 +76,7 @@ trait CodeAnalysisTasks
     public function tools()
     {
         $tools = new Task\ToolVersions($this->getOutput());
-        $tools($this->tools);
+        $tools(array_diff_key($this->tools, $this->toolsWithDifferentVersions));
     }
 
     /**
@@ -110,11 +122,22 @@ trait CodeAnalysisTasks
                 $this->yell("Option --analyzedDir is deprecated, please use option --analyzedDirs");
             }
         }
+        $opts['tools'] = $this->selectToolsThatAreInstalled($opts['tools']);
 
         $this->options = new Options($opts);
         $this->usedTools = $this->options->buildRunningTools($this->tools);
         $this->config = new Config();
         $this->config->loadCustomConfig($this->options->configDir, $opts['config']);
+    }
+
+    private function selectToolsThatAreInstalled($tools)
+    {
+        foreach ($this->toolsWithDifferentVersions as $newTool => $legacyTool) {
+            if (!class_exists($legacyTool['internalClass'])) {
+                $tools = str_replace($legacyTool['tool'], $newTool, $tools);
+            }
+        }
+        return $tools;
     }
 
     private function ciClean()
@@ -140,7 +163,7 @@ trait CodeAnalysisTasks
     /** @return \Robo\Task\Base\Exec */
     private function toolToExec(RunningTool $tool)
     {
-        $binary = pathToBinary($tool);
+        $binary = pathToBinary($tool->binary);
         $process = $this->taskExec($binary);
         $method = str_replace('-', '', $tool);
         foreach ($this->{$method}($tool) as $arg => $value) {
@@ -254,6 +277,21 @@ trait CodeAnalysisTasks
         return $args;
     }
 
+    private function phpmetrics2(RunningTool $tool)
+    {
+        $args = array(
+            $this->options->ignore->phpmetrics2(),
+            'extensions' => 'php',
+        );
+        if ($this->options->isSavedToFiles) {
+            $tool->htmlReport = $this->options->rawFile('phpmetrics/index.html');
+            $args['report-html'] = $this->options->toFile('phpmetrics/');
+            $args['report-violations'] = $this->options->toFile('phpmetrics.xml');
+        }
+        $args[] = $this->options->getAnalyzedDirs(',');
+        return $args;
+    }
+
     private function parallellint()
     {
         return array(
@@ -310,7 +348,9 @@ trait CodeAnalysisTasks
     private function buildHtmlReport()
     {
         foreach ($this->usedTools as $tool) {
-            $tool->htmlReport = $this->options->rawFile("{$tool}.html");
+            if (!$tool->htmlReport) {
+                $tool->htmlReport = $this->options->rawFile("{$tool}.html");
+            }
             if ($tool->hasOnlyConsoleOutput) {
                 twigToHtml(
                     'cli.html.twig',
@@ -331,7 +371,11 @@ trait CodeAnalysisTasks
         }
         twigToHtml(
             'phpqa.html.twig',
-            array('tools' => array_keys($this->usedTools), 'appVersion' => PHPQA_VERSION),
+            array(
+                'tools' => $this->usedTools,
+                'appVersion' => PHPQA_VERSION,
+                'buildDir' => $this->options->rawFile('')
+            ),
             $this->options->rawFile('phpqa.html')
         );
     }

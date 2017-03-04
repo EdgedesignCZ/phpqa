@@ -60,6 +60,14 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
                 )
             ),
             array(
+                'phpmetrics2',
+                array(
+                    'both' => ' --exclude="bin,vendor,autoload.php,RoboFile.php"',
+                    'dirs' => ' --exclude="bin,vendor"',
+                    'files' => ' --exclude="autoload.php,RoboFile.php"'
+                )
+            ),
+            array(
                 'bergmann',
                 array(
                     'both' => ' --exclude=bin --exclude=vendor --exclude=autoload.php --exclude=RoboFile.php',

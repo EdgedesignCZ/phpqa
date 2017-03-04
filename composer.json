@@ -27,6 +27,7 @@
         "symfony/process": ">=2.8",
         "symfony/finder": ">=2.8",
         "symfony/yaml": ">=2.8",
+        "twig/twig": "<2",
         "pdepend/pdepend": "*",
         "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "*",
