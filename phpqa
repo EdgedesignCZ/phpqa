@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-define('PHPQA_VERSION', '1.9.1');
+define('PHPQA_VERSION', '1.10.0');
 
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     define('COMPOSER_BINARY_DIR', __DIR__ . "/vendor/bin/");
