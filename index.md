@@ -90,7 +90,7 @@ how many repositories you want to update when new version is released.
 
 ##### Symfony3 components
 
-Symfony3 is supported since [version 1.7](/changelog.html#v170).
+Symfony3 is supported since [version 1.7](./changelog.html#v170).
 Install at least version `~3.0` of `sebastian/phpcpd`, otherwise you'll get error [`The helper "progress" is not defined.`](https://github.com/EdgedesignCZ/phpqa/issues/19)
 
 ```json
