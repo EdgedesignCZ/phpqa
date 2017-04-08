@@ -9,6 +9,8 @@ phpcs:
         file:
             # checkstyle is always included and overriden
             checkstyle: checkstyle.xml
+            # you can include custom reports (https://github.com/wikidi/codesniffer/blob/master/reports/wikidi/Summary.php#L39)
+            # ./vendor/owner/package/src/MySummaryReport.php: phpcs-summary.html
 
 phpmd:
     standard: app/phpmd.xml
