@@ -218,11 +218,16 @@ trait CodeAnalysisTasks
             $this->options->getAnalyzedDirs(' '),
         );
         if ($this->options->isSavedToFiles) {
-            $args['report'] = 'checkstyle';
-            $args['report-file'] = $tool->getEscapedXmlFile();
+            $reports = ['checkstyle' => 'checkstyle.xml'] + $this->config->value('phpcs.reports.file');
+            foreach ($reports as $report => $file) {
+                $args["report-{$report}"] = $this->options->toFile($file);
+            }
         } else {
-            $args['report'] = 'full';
+            foreach ($this->config->value('phpcs.reports.cli') as $report) {
+                $args["report-{$report}"] = '';
+            }
         }
+
         return $args;
     }
 

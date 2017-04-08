@@ -1,5 +1,12 @@
 phpcs:
     standard: PSR2
+    # https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting
+    reports:
+        cli:
+            - full
+        file:
+            # checkstyle is always included and overriden
+            checkstyle: checkstyle.xml
 
 phpmd:
     standard: app/phpmd.xml
