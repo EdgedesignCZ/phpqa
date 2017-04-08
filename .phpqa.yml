@@ -1,5 +1,7 @@
 phpcs:
     standard: PSR2
+    # number of allowed errors is compared with warnings+errors, or just errors from checkstyle.xml
+    ignoreWarnings: false
     # https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting
     reports:
         cli:

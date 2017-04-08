@@ -23,7 +23,11 @@ trait CodeAnalysisTasks
         'phpcs' => array(
             'optionSeparator' => '=',
             'xml' => ['checkstyle.xml'],
-            'errorsXPath' => '//checkstyle/file/error',
+            'errorsXPath' => [
+                # ignoreWarnings => xpath
+                false => '//checkstyle/file/error',
+                true => '//checkstyle/file/error[@severity="error"]',
+            ],
             'composer' => 'squizlabs/php_codesniffer',
         ),
         'phpmd' => array(
@@ -206,6 +210,7 @@ trait CodeAnalysisTasks
 
     private function phpcs(RunningTool $tool)
     {
+        $tool->errorsType = $this->config->value('phpcs.ignoreWarnings') === true;
         $standard = $this->config->value('phpcs.standard');
         if (!in_array($standard, \PHP_CodeSniffer::getInstalledStandards())) {
             $standard = escapePath($this->config->path('phpcs.standard'));

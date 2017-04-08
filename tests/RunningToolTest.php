@@ -49,6 +49,20 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
+    public function testRuntimeSelectionOfErrorXpath()
+    {
+        $tool = new RunningTool('tool', [
+            'xml' => ['tests/Error/errors.xml'],
+            'errorsXPath' => [
+                false => '//errors/error',
+                true => '//errors/error[@severity="error"]',
+            ],
+            'allowedErrorsCount' => 0,
+        ]);
+        $tool->errorsType = true;
+        assertThat($tool->analyzeResult(), is([false, 1]));
+    }
+
     /** @dataProvider provideProcess */
     public function testAnalyzeExitCodeInCliMode($allowedErrors, $exitCode, array $expectedResult)
     {

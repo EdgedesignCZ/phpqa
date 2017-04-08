@@ -11,6 +11,7 @@ class RunningTool
 
     private $xmlFiles;
     private $errorsXPath;
+    public $errorsType;
     private $allowedErrorsCount;
 
     public $htmlReport;
@@ -35,7 +36,8 @@ class RunningTool
         $this->internalClass = $config['internalClass'];
         $this->optionSeparator = $config['optionSeparator'];
         $this->xmlFiles = $config['xml'];
-        $this->errorsXPath = $config['errorsXPath'];
+        $this->errorsXPath = is_array($config['errorsXPath'])
+            ? $config['errorsXPath'] : [$this->errorsXPath => $config['errorsXPath']];
         $this->allowedErrorsCount = $config['allowedErrorsCount'];
         $this->hasOnlyConsoleOutput = $config['hasOnlyConsoleOutput'];
     }
@@ -61,16 +63,18 @@ class RunningTool
 
     public function analyzeResult($hasNoOutput = false)
     {
+        $xpath = $this->errorsXPath[$this->errorsType];
+
         if ($hasNoOutput || $this->hasOnlyConsoleOutput) {
             return $this->evaluteErrorsCount($this->process->getExitCode() ? 1 : 0);
-        } elseif (!$this->errorsXPath) {
+        } elseif (!$xpath) {
             return [true, ''];
         } elseif (!file_exists($this->getMainXml())) {
             return [false, 0];
         }
 
         $xml = simplexml_load_file($this->getMainXml());
-        $errorsCount = count($xml->xpath($this->errorsXPath));
+        $errorsCount = count($xml->xpath($xpath));
         return $this->evaluteErrorsCount($errorsCount);
     }
 
