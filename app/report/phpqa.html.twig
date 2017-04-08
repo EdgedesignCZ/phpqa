@@ -105,6 +105,12 @@ set tabs = {
                         <li role="separator" class="divider"></li>
                         {% endif %}
                         {% endfor %}
+                        {% if tool.getHtmlRootReports() is not empty %}
+                        <li role="separator" class="divider"></li>
+                        {% for report in tool.getHtmlRootReports() %}
+                        <li><a href="#{{ report.id }}">{{ report.name }}</a></li>
+                        {% endfor %}
+                        {% endif %}
                     </ul>
                 </li>
                 {% endif %}
@@ -120,8 +126,13 @@ set tabs = {
     <div class="tab-content">
         {% for tool in tools %}
         <div role="tabpanel" class="tab-pane{{ loop.first ? ' active' : '' }}" id="{{ tool }}">
-            <iframe id="iframe-{{ tool }}" src="{{ tool.htmlReport|replace({(buildDir): ''}) }}"></iframe>
+            <iframe data-tool id="iframe-{{ tool }}" src="{{ tool.htmlReport|replace({(buildDir): ''}) }}"></iframe>
         </div>
+        {% for report in tool.getHtmlRootReports() %}
+        <div role="tabpanel" class="tab-pane" id="{{ report.id }}">
+            <iframe id="iframe-{{ report.id }}" src="{{ report.file|replace({(buildDir): ''}) }}"></iframe>
+        </div>
+        {% endfor %}
         {% endfor %}
     </div>
 
@@ -142,7 +153,7 @@ set tabs = {
         
         function hideHeadingsH1() {
             var interval = 500;
-            $("iframe").each(function () {
+            $("iframe[data-tool]").each(function () {
                 var iframe = $(this)[0];
                 setTimeout(
                     function () {

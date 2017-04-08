@@ -14,6 +14,7 @@ class RunningTool
     private $allowedErrorsCount;
 
     public $htmlReport;
+    public $userReports = [];
     public $hasOnlyConsoleOutput;
     /** @var \Symfony\Component\Process\Process */
     public $process;
@@ -97,6 +98,19 @@ class RunningTool
     private function getMainXml()
     {
         return reset($this->xmlFiles);
+    }
+
+    public function getHtmlRootReports()
+    {
+        $reports = [];
+        foreach ($this->userReports as $report => $file) {
+            $reports[] = [
+                'id' => "{$this}-" . str_replace(['.', '/', '\\'], '-', $report),
+                'name' => $report,
+                'file' => $file,
+            ];
+        }
+        return $reports;
     }
 
     public function __toString()

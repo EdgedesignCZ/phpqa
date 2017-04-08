@@ -69,4 +69,12 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
             'failure when errors count > allowed count but errors count is always one' => [0, 2, [false, 1]],
         ];
     }
+
+    public function testCreateUniqueIdForUserReport()
+    {
+        $tool = new RunningTool('phpcs', []);
+        $tool->userReports['dir/path.php'] = 'My report';
+        $report = $tool->getHtmlRootReports()[0];
+        assertThat($report['id'], is('phpcs-dir-path-php'));
+    }
 }
