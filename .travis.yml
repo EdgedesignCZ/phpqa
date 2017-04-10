@@ -10,13 +10,13 @@ matrix:
     - php: hhvm
       dist: trusty
 install:
+  # Disable JIT compilation in hhvm, as the JIT is useless for short live scripts like tests.
+  - if [[ $TRAVIS_PHP_VERSION = hhvm* ]]; then echo 'hhvm.jit = 0' >> /etc/hhvm/php.ini; fi
   - if [ -n "$GITHUB_OAUTH_TOKEN" ]; then composer config github-oauth.github.com ${GITHUB_OAUTH_TOKEN}; fi;
   - composer install --no-interaction
   # test app with symfony3 components in latest php
   - if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then composer update && composer remove phpunit/phpunit --dev --no-interaction && composer require sebastian/phpcpd:~3.0 phpunit/phpunit:~5.7 && bin/suggested-tools.sh install; fi
-  # Disable JIT compilation in hhvm, as the JIT is useless for short live scripts like tests.
-  - if [[ $TRAVIS_PHP_VERSION = hhvm* ]]; then echo 'hhvm.jit = 0' >> /etc/hhvm/php.ini; fi
-  # For HHVM phpmetrics report isn't generated, try phpmetrics v2
+  # For HHVM phpmetrics report isn't generated, use phpmetrics v2
   - if [[ $TRAVIS_PHP_VERSION = hhvm* ]] ; then composer update phpmetrics/phpmetrics; fi
 script:
   - vendor/phpunit/phpunit/phpunit
