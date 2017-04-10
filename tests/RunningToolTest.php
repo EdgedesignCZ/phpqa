@@ -49,6 +49,20 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
         ];
     }
 
+    public function testRuntimeSelectionOfErrorXpath()
+    {
+        $tool = new RunningTool('tool', [
+            'xml' => ['tests/Error/errors.xml'],
+            'errorsXPath' => [
+                false => '//errors/error',
+                true => '//errors/error[@severity="error"]',
+            ],
+            'allowedErrorsCount' => 0,
+        ]);
+        $tool->errorsType = true;
+        assertThat($tool->analyzeResult(), is([false, 1]));
+    }
+
     /** @dataProvider provideProcess */
     public function testAnalyzeExitCodeInCliMode($allowedErrors, $exitCode, array $expectedResult)
     {
@@ -68,5 +82,13 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
             'success when exit code <= allowed code' => [1, 1, [true, 1]],
             'failure when errors count > allowed count but errors count is always one' => [0, 2, [false, 1]],
         ];
+    }
+
+    public function testCreateUniqueIdForUserReport()
+    {
+        $tool = new RunningTool('phpcs', []);
+        $tool->userReports['dir/path.php'] = 'My report';
+        $report = $tool->getHtmlRootReports()[0];
+        assertThat($report['id'], is('phpcs-dir-path-php'));
     }
 }

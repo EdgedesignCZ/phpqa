@@ -1,3 +1,13 @@
+phpcs:
+    reports:
+        cli:
+            - full
+            - info
+        file:
+            # checkstyle: checkstyle.xml # always included
+            info: phpcs-info.txt
+            full: phpcs-full.txt
+
 phpstan:
     level: 5
     # https://github.com/phpstan/phpstan#configuration
