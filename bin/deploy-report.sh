@@ -31,6 +31,7 @@ copy_artifacts() {
     cp -R build/*.svg $repository/report
     cp -R build/*.xml $repository/report
     cp -R build/*.neon $repository/report
+    cp -R build/*.txt $repository/report
 }
 
 copy_changelog() {
