@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>phpqa report - v1.10.0</title>
+    <title>phpqa report - v1.11.0</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -43,7 +43,7 @@
           </button>
             <div class="navbar-brand">
                 <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa">PHPQA</a>
-                <span>2017-03-04 18:27</span>
+                <span>2017-04-10 16:13</span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
@@ -59,7 +59,7 @@
                                                                                                 <li><a href="#phpmetrics" data-iframe-tab="link-relations">Relations map</a></li>
                                                                                                 <li><a href="#phpmetrics" data-iframe-tab="link-repartition">Repartition</a></li>
                                                                                                 <li><a href="#phpmetrics" data-iframe-tab="link-explore">Explore</a></li>
-                                                                    </ul>
+                                                                                            </ul>
                 </li>
                                                 <li><a href="#phploc">phploc</a></li>
                                 <li class="dropdown">
@@ -70,7 +70,7 @@
                                                                         <li><a href="#phploc" data-iframe-tab="overview">Overview</a></li>
                                                                                                 <li><a href="#phploc" data-iframe-tab="ccn">Cyclomatic Complexity</a></li>
                                                                                                 <li><a href="#phploc" data-iframe-tab="dependencies">Dependencies</a></li>
-                                                                    </ul>
+                                                                                            </ul>
                 </li>
                                                 <li><a href="#phpcs">phpcs</a></li>
                                 <li class="dropdown">
@@ -80,6 +80,9 @@
                     <ul class="dropdown-menu">
                                                                         <li><a href="#phpcs" data-iframe-tab="overview">Overview</a></li>
                                                                                                 <li><a href="#phpcs" data-iframe-tab="errors">Errors</a></li>
+                                                                                                <li role="separator" class="divider"></li>
+                                                <li><a href="#phpcs-info">info</a></li>
+                                                <li><a href="#phpcs-full">full</a></li>
                                                                     </ul>
                 </li>
                                                 <li><a href="#phpmd">phpmd</a></li>
@@ -91,7 +94,7 @@
                                                                         <li><a href="#phpmd" data-iframe-tab="overview">Overview</a></li>
                                                                                                 <li><a href="#phpmd" data-iframe-tab="errors">Errors</a></li>
                                                                                                 <li><a href="#phpmd" data-iframe-tab="parsing">Parsing Errors</a></li>
-                                                                    </ul>
+                                                                                            </ul>
                 </li>
                                                 <li><a href="#pdepend">pdepend</a></li>
                                 <li class="dropdown">
@@ -110,7 +113,7 @@
                                                                                                 <li><a href="#pdepend" data-iframe-tab="metrics-class">Class metrics</a></li>
                                                                                                 <li><a href="#pdepend" data-iframe-tab="metrics-method">Method metrics</a></li>
                                                                                                 <li><a href="#pdepend" data-iframe-tab="metrics-function">Function metrics</a></li>
-                                                                    </ul>
+                                                                                            </ul>
                 </li>
                                                 <li><a href="#phpcpd">phpcpd</a></li>
                                 <li class="dropdown">
@@ -120,13 +123,13 @@
                     <ul class="dropdown-menu">
                                                                         <li><a href="#phpcpd" data-iframe-tab="overview">Overview</a></li>
                                                                                                 <li><a href="#phpcpd" data-iframe-tab="errors">Errors</a></li>
-                                                                    </ul>
+                                                                                            </ul>
                 </li>
                                                 <li><a href="#parallel-lint">parallel-lint</a></li>
                                                 <li><a href="#phpstan">phpstan</a></li>
                                             </ul>
             <ul class="nav navbar-nav navbar-right visible-md-block visible-lg-block">
-              <p class="navbar-text">v1.10.0</p>
+              <p class="navbar-text">v1.11.0</p>
             </ul>
         </div>
       </div>
@@ -134,30 +137,36 @@
                 
     <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="phpmetrics">
-            <iframe id="iframe-phpmetrics" src="phpmetrics.html"></iframe>
+            <iframe data-tool id="iframe-phpmetrics" src="phpmetrics.html"></iframe>
         </div>
-                <div role="tabpanel" class="tab-pane" id="phploc">
-            <iframe id="iframe-phploc" src="phploc.html"></iframe>
+                        <div role="tabpanel" class="tab-pane" id="phploc">
+            <iframe data-tool id="iframe-phploc" src="phploc.html"></iframe>
         </div>
-                <div role="tabpanel" class="tab-pane" id="phpcs">
-            <iframe id="iframe-phpcs" src="phpcs.html"></iframe>
+                        <div role="tabpanel" class="tab-pane" id="phpcs">
+            <iframe data-tool id="iframe-phpcs" src="phpcs.html"></iframe>
         </div>
-                <div role="tabpanel" class="tab-pane" id="phpmd">
-            <iframe id="iframe-phpmd" src="phpmd.html"></iframe>
+                <div role="tabpanel" class="tab-pane" id="phpcs-info">
+            <iframe id="iframe-phpcs-info" src="phpcs-info.txt"></iframe>
         </div>
-                <div role="tabpanel" class="tab-pane" id="pdepend">
-            <iframe id="iframe-pdepend" src="pdepend.html"></iframe>
+                <div role="tabpanel" class="tab-pane" id="phpcs-full">
+            <iframe id="iframe-phpcs-full" src="phpcs-full.txt"></iframe>
         </div>
-                <div role="tabpanel" class="tab-pane" id="phpcpd">
-            <iframe id="iframe-phpcpd" src="phpcpd.html"></iframe>
+                        <div role="tabpanel" class="tab-pane" id="phpmd">
+            <iframe data-tool id="iframe-phpmd" src="phpmd.html"></iframe>
         </div>
-                <div role="tabpanel" class="tab-pane" id="parallel-lint">
-            <iframe id="iframe-parallel-lint" src="parallel-lint.html"></iframe>
+                        <div role="tabpanel" class="tab-pane" id="pdepend">
+            <iframe data-tool id="iframe-pdepend" src="pdepend.html"></iframe>
         </div>
-                <div role="tabpanel" class="tab-pane" id="phpstan">
-            <iframe id="iframe-phpstan" src="phpstan.html"></iframe>
+                        <div role="tabpanel" class="tab-pane" id="phpcpd">
+            <iframe data-tool id="iframe-phpcpd" src="phpcpd.html"></iframe>
         </div>
-            </div>
+                        <div role="tabpanel" class="tab-pane" id="parallel-lint">
+            <iframe data-tool id="iframe-parallel-lint" src="parallel-lint.html"></iframe>
+        </div>
+                        <div role="tabpanel" class="tab-pane" id="phpstan">
+            <iframe data-tool id="iframe-phpstan" src="phpstan.html"></iframe>
+        </div>
+                    </div>
 
     <script>
     (function () {
@@ -176,7 +185,7 @@
         
         function hideHeadingsH1() {
             var interval = 500;
-            $("iframe").each(function () {
+            $("iframe[data-tool]").each(function () {
                 var iframe = $(this)[0];
                 setTimeout(
                     function () {

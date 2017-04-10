@@ -2,7 +2,7 @@
 <pmd-cpd>
   <duplication lines="4" tokens="11">
     <file path="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" line="11"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="98"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="102"/>
     <codefragment>        'buildDir' =&gt; 'build/',
         'ignoredDirs' =&gt; 'vendor',
         'ignoredFiles' =&gt; '',
@@ -10,26 +10,25 @@
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="18">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="181"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="194"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="185"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="198"/>
     <codefragment>        $args = array(
             'progress' =&gt; '',
             $this-&gt;options-&gt;ignore-&gt;bergmann(),
             $this-&gt;options-&gt;getAnalyzedDirs(' '),
 </codefragment>
   </duplication>
-  <duplication lines="4" tokens="13">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="184"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="218"/>
+  <duplication lines="3" tokens="12">
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="188"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="223"/>
     <codefragment>            $this-&gt;options-&gt;getAnalyzedDirs(' '),
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
-            $args['log-xml'] = $this-&gt;options-&gt;toFile('phploc.xml');
 </codefragment>
   </duplication>
   <duplication lines="2" tokens="14">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="269"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="286"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="282"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="299"/>
     <codefragment>        if ($this-&gt;options-&gt;isSavedToFiles) {
             $tool-&gt;htmlReport = $this-&gt;options-&gt;rawFile('phpmetrics.html');
 </codefragment>
