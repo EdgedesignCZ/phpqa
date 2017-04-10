@@ -1,6 +1,12 @@
 
 # Changelog
 
+## v1.11.0
+
+* [#54](https://github.com/EdgedesignCZ/phpqa/pull/54) Advanced phpcs configuration
+    * define [custom reports](https://github.com/EdgedesignCZ/phpqa/blob/master/tests/.travis/.phpqa.yml#L2) in `phpcs.reports`
+    * [#53](https://github.com/EdgedesignCZ/phpqa/issues/53) - allow ignoring warnings in `phpcs.ignoreWarnings`
+
 ## v1.10.0
 
 * [#50](https://github.com/EdgedesignCZ/phpqa/pull/50) Support phpmetrics 2.0 ([new html report](https://edgedesigncz.github.io/phpqa/report/phpmetrics/))
