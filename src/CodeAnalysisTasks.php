@@ -284,6 +284,7 @@ trait CodeAnalysisTasks
             $args['offline'] = '';
             $args['report-html'] = escapePath($tool->htmlReport);
             $args['report-xml'] = $this->options->toFile('phpmetrics.xml');
+            $args['violations-xml'] = $this->options->toFile('phpmetrics-violations.xml');
         } else {
             $args['report-cli'] = '';
         }
