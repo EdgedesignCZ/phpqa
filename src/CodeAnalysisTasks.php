@@ -172,9 +172,9 @@ trait CodeAnalysisTasks
         $method = str_replace('-', '', $tool);
         foreach ($this->{$method}($tool) as $arg => $value) {
             if (is_int($arg)) {
-                $process->arg($value);
+                $process->rawArg($value);
             } else {
-                $process->arg($tool->buildOption($arg, $value));
+                $process->rawArg($tool->buildOption($arg, $value));
             }
         }
         return $process;
