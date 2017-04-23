@@ -20,4 +20,9 @@ class RoboAdapter
             return $exec->arg($arg);
         }
     }
+
+    public function isVersionOne()
+    {
+        return $this->isVersionOne;
+    }
 }
