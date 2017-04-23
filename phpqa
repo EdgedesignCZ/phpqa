@@ -35,7 +35,7 @@ require_once COMPOSER_VENDOR_DIR . '/autoload.php';
  */
 class QARunner extends \Robo\Runner
 {
-    protected function loadRoboFile()
+    protected function loadRoboFile($output = null)
     {
         require_once __DIR__ . "/RoboFile.php";
         return true;
