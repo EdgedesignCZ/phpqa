@@ -2,9 +2,9 @@
 
 namespace Edge\QA\Task;
 
-use Symfony\Component\Console\Helper\ProgressBar;
-use Symfony\Component\Console\Output\OutputInterface;
+use Consolidation\Log\ConsoleLogLevel;
 use Robo\Result;
+use Symfony\Component\Process\Process;
 
 /**
  * The task has similar output, same signatures as ParallelExec,
@@ -16,7 +16,7 @@ use Robo\Result;
  * - prints phploc's output when one command failed
  *      phpqa --tools phpcs,phploc,phpmd --output file --execution s --quiet
  */
-class NonParallelExec extends ParallelExec
+class NonParallelExecV1 extends ParallelExec
 {
     public function run()
     {
@@ -24,26 +24,18 @@ class NonParallelExec extends ParallelExec
             $this->printTaskInfo($process->getCommandLine());
         }
 
-        $progress = new ProgressBar($this->getOutput());
-        $progress->start(count($this->processes));
+        $this->startProgressIndicator();
         $this->startTimer();
 
         foreach ($this->processes as $process) {
             $process->run();
-            $progress->advance();
+            $this->advanceProgressIndicator();
             if ($this->isPrinted) {
-                $this->getOutput()->writeln("");
-                $this->printTaskInfo(
-                    "Output for <fg=white;bg=magenta> " . $process->getCommandLine()." </fg=white;bg=magenta>"
-                );
-                $this->getOutput()->writeln($process->getOutput(), OutputInterface::OUTPUT_RAW);
-                if ($process->getErrorOutput()) {
-                    $this->getOutput()->writeln("<error>" . $process->getErrorOutput() . "</error>");
-                }
+                $this->printProcessResult($process);
             }
         }
 
-        $this->getOutput()->writeln("");
+        $this->stopProgressIndicator();
         $this->stopTimer();
 
         $errorMessage = '';
@@ -60,5 +52,16 @@ class NonParallelExec extends ParallelExec
         }
 
         return new Result($this, $exitCode, $errorMessage, ['time' => $this->getExecutionTime()]);
+    }
+
+    protected function printProcessResult(Process $process)
+    {
+        $this->printTaskInfo(
+            "Output for <fg=white;bg=magenta> " . $process->getCommandLine()." </fg=white;bg=magenta>"
+        );
+        $this->printTaskOutput(ConsoleLogLevel::SUCCESS, $process->getOutput(), $this->getTaskContext());
+        if ($process->getErrorOutput()) {
+            $this->printTaskOutput(ConsoleLogLevel::ERROR, $process->getErrorOutput(), $this->getTaskContext());
+        }
     }
 }
