@@ -2,27 +2,35 @@
 
 namespace Edge\QA\Task;
 
-class RoboAdapter
+trait RoboAdapter
 {
-    private $isVersionOne;
-
-    public function __construct()
+    protected function taskPhpqaRunner($isParallel)
     {
-        $this->isVersionOne = method_exists('Robo\Common\CommandArguments', 'rawArg');
+        $class = $isParallel
+            ? ParallelExec::class
+            : ($this->isRoboVersionOne() ? NonParallelExecV1::class : NonParallelExecV0::class);
+        if ($this->isRoboVersionOne()) {
+            return $this->task($class);
+        } else {
+            return new $class();
+        }
     }
 
-    // Robo v1 escapes the values
-    public function arg($exec, $arg)
+    protected function addArgToExec($exec, $arg)
     {
-        if ($this->isVersionOne) {
+        if ($this->isRoboVersionOne()) {
             return $exec->rawArg($arg);
         } else {
             return $exec->arg($arg);
         }
     }
 
-    public function isVersionOne()
+    private function isRoboVersionOne()
     {
-        return $this->isVersionOne;
+        static $isVersionOne = null;
+        if ($isVersionOne === null) {
+            $isVersionOne = method_exists('Robo\Common\CommandArguments', 'rawArg');
+        }
+        return $isVersionOne;
     }
 }

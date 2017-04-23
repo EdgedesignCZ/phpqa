@@ -171,26 +171,25 @@ trait CodeAnalysisTasks
 
     private function runTools()
     {
-        $roboAdapter= new Task\RoboAdapter();
-        $group = $this->taskPhpqaRunner($this->options->isParallel, $roboAdapter);
+        $group = $this->taskPhpqaRunner($this->options->isParallel);
         foreach ($this->usedTools as $tool) {
-            $exec = $this->toolToExec($tool, $roboAdapter);
+            $exec = $this->toolToExec($tool);
             $tool->process = $group->process($exec);
         }
         $group->printed($this->options->isOutputPrinted)->run();
     }
 
     /** @return \Robo\Task\Base\Exec */
-    private function toolToExec(RunningTool $tool, Task\RoboAdapter $robo)
+    private function toolToExec(RunningTool $tool)
     {
         $binary = pathToBinary($tool->binary);
         $process = $this->taskExec($binary);
         $method = str_replace('-', '', $tool);
         foreach ($this->{$method}($tool) as $arg => $value) {
             if (is_int($arg)) {
-                $robo->arg($process, $value);
+                $this->addArgToExec($process, $value);
             } else {
-                $robo->arg($process, $tool->buildOption($arg, $value));
+                $this->addArgToExec($process, $tool->buildOption($arg, $value));
             }
         }
         return $process;
