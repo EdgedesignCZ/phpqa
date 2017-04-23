@@ -171,8 +171,8 @@ trait CodeAnalysisTasks
 
     private function runTools()
     {
-        $group = $this->options->isParallel ? new Task\ParallelExec() : new Task\NonParallelExec();
         $roboAdapter= new Task\RoboAdapter();
+        $group = $this->taskPhpqaRunner($this->options->isParallel, $roboAdapter);
         foreach ($this->usedTools as $tool) {
             $exec = $this->toolToExec($tool, $roboAdapter);
             $tool->process = $group->process($exec);
