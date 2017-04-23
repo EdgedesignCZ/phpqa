@@ -14,7 +14,7 @@ class NonParallelExecV0 extends NonParallelExecV1
     protected function startProgressIndicator()
     {
         $this->progress = new ProgressBar($this->getOutput());
-        $this->progress->start(count($this->processes));	
+        $this->progress->start(count($this->processes));
     }
 
     protected function advanceProgressIndicator()
