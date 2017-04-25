@@ -6,9 +6,12 @@ trait RoboAdapter
 {
     protected function taskPhpqaRunner($isParallel)
     {
+        $getClass = function ($class) {
+            return "Edge\QA\Task\\{$class}";
+        };
         $class = $isParallel
-            ? ParallelExec::class
-            : ($this->isRoboVersionOne() ? NonParallelExecV1::class : NonParallelExecV0::class);
+            ? $getClass('ParallelExec')
+            : ($this->isRoboVersionOne() ? $getClass('NonParallelExecV1') : $getClass('NonParallelExecV0'));
         if ($this->isRoboVersionOne()) {
             return $this->task($class);
         } else {
