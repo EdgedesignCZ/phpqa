@@ -2,7 +2,10 @@
 
 namespace Edge\QA\Task;
 
+use Consolidation\Log\ConsoleLogLevel;
+use Robo\Robo;
 use Symfony\Component\Console\Helper\ProgressBar;
+use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Console\Output\OutputInterface;
 use Robo\Result;
 
@@ -20,30 +23,35 @@ class NonParallelExec extends ParallelExec
 {
     public function run()
     {
+        $this->setLogger(Robo::service('logger'));
+
         foreach ($this->processes as $process) {
             $this->printTaskInfo($process->getCommandLine());
         }
 
-        $progress = new ProgressBar($this->getOutput());
-        $progress->start(count($this->processes));
+        $this->startProgressIndicator();
         $this->startTimer();
+
+        for ($i = 0; $i < count($this->processes); ++$i) {
+            $this->advanceProgressIndicator();
+        }
+        $this->stopProgressIndicator();
 
         foreach ($this->processes as $process) {
             $process->run();
-            $progress->advance();
+            $this->advanceProgressIndicator();
             if ($this->isPrinted) {
-                $this->getOutput()->writeln("");
                 $this->printTaskInfo(
                     "Output for <fg=white;bg=magenta> " . $process->getCommandLine()." </fg=white;bg=magenta>"
                 );
-                $this->getOutput()->writeln($process->getOutput(), OutputInterface::OUTPUT_RAW);
+                $this->printTaskOutput(ConsoleLogLevel::SUCCESS, $process->getOutput(), $this->getTaskContext());
                 if ($process->getErrorOutput()) {
-                    $this->getOutput()->writeln("<error>" . $process->getErrorOutput() . "</error>");
+                    $this->printTaskOutput(ConsoleLogLevel::ERROR, $process->getErrorOutput(), $this->getTaskContext());
                 }
             }
         }
 
-        $this->getOutput()->writeln("");
+        $this->stopProgressIndicator();
         $this->stopTimer();
 
         $errorMessage = '';

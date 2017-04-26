@@ -33,7 +33,7 @@ if (!defined('COMPOSER_BINARY_DIR') || !is_file(COMPOSER_BINARY_DIR . 'phploc'))
  */
 class QARunner extends \Robo\Runner
 {
-    protected function loadRoboFile()
+    protected function loadRoboFile($output)
     {
         require_once __DIR__ . "/RoboFile.php";
         return true;
