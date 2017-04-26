@@ -212,7 +212,8 @@ trait CodeAnalysisTasks
     {
         $tool->errorsType = $this->config->value('phpcs.ignoreWarnings') === true;
         $standard = $this->config->value('phpcs.standard');
-        if (!in_array($standard, \PHP_CodeSniffer::getInstalledStandards())) {
+        if (!in_array($standard, \PHP_CodeSniffer::getInstalledStandards())
+            && !file_exists($standard)) {
             $standard = escapePath($this->config->path('phpcs.standard'));
         }
         $args = array(
