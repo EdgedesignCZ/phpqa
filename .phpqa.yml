@@ -31,3 +31,4 @@ report:
     phpcs: app/report/phpcs.xsl
     pdepend: app/report/pdepend.xsl
     phpmd: app/report/phpmd.xsl
+    php-cs-fixer: app/report/php-cs-fixer.xsl
