@@ -70,6 +70,15 @@ trait CodeAnalysisTasks
             'hasOnlyConsoleOutput' => true,
             'composer' => 'phpstan/phpstan',
         ),
+        'php-cs-fixer' => array(
+            'optionSeparator' => ' ',
+            'internalClass' => 'PhpCsFixer\Config',
+            'hasOnlyConsoleOutput' => false,
+            'hasXmlOutputInConsole' => true,
+            'composer' => 'friendsofphp/php-cs-fixer',
+            'xml' => ['php-cs-fixer.xml'],
+            'errorsXPath' => '//testsuites/testsuite/testcase/failure',
+        ),
     );
     /** @var array [tool => oldVersion] */
     private $toolsWithDifferentVersions = array(
@@ -384,12 +393,32 @@ trait CodeAnalysisTasks
         );
     }
 
+    private function phpcsfixer(RunningTool $tool)
+    {
+        $analyzedDirs = $this->options->getAnalyzedDirs();
+        $analyzedDir = reset($analyzedDirs);
+        if (count($analyzedDirs) > 1) {
+            $this->say("<error>php-cs-fixer analyzes only first directory {$analyzedDir}</error>");
+        }
+        return array(
+            'fix',
+            $analyzedDir,
+            'dry-run' => '',
+            'verbose' => '',
+            'format' => $this->options->isSavedToFiles ? 'junit' : 'txt',
+        );
+    }
+
     private function buildHtmlReport()
     {
         foreach ($this->usedTools as $tool) {
             if (!$tool->htmlReport) {
                 $tool->htmlReport = $this->options->rawFile("{$tool->binary}.html");
             }
+            if ($tool->hasXmlOutputInConsole) {
+                file_put_contents($this->options->rawFile("{$tool}.xml"), $tool->process->getOutput());
+            }
+
             if ($tool->hasOnlyConsoleOutput) {
                 twigToHtml(
                     'cli.html.twig',

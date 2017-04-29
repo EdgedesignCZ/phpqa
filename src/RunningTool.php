@@ -17,6 +17,7 @@ class RunningTool
     public $htmlReport;
     public $userReports = [];
     public $hasOnlyConsoleOutput;
+    public $hasXmlOutputInConsole;
     /** @var \Symfony\Component\Process\Process */
     public $process;
 
@@ -40,6 +41,7 @@ class RunningTool
             ? $config['errorsXPath'] : [$this->errorsXPath => $config['errorsXPath']];
         $this->allowedErrorsCount = $config['allowedErrorsCount'];
         $this->hasOnlyConsoleOutput = $config['hasOnlyConsoleOutput'];
+        $this->hasXmlOutputInConsole = $config['hasXmlOutputInConsole'];
     }
 
     public function isInstalled()

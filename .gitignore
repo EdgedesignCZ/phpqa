@@ -2,3 +2,4 @@
 /vendor/
 /build/
 phpstan-phpqa.neon
+.php_cs.cache
