@@ -6,6 +6,10 @@ parameters:
     autoload_directories: 
         - %currentWorkingDirectory%/tests 
     autoload_files:
-        - %currentWorkingDirectory%/RoboFile.php 
+        - %currentWorkingDirectory%/RoboFile.php
+    # exclude robo v0/v1 compatibility classes - it's not possible to analyze them with phsptan (only one robo version is installed)
+    excludes_analyse:
+        - %currentWorkingDirectory%/src/Task/NonParallelExecV0.php
+        - %currentWorkingDirectory%/src/Task/NonParallelExecV1.php
     ignoreErrors:
         - '#Call to an undefined method Prophecy\\Prophecy\\ObjectProphecy::[a-zA-Z0-9_]+\(\)#'
