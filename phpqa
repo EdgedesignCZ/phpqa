@@ -4,9 +4,10 @@
 define('PHPQA_VERSION', '1.11.0');
 
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+    define('COMPOSER_VENDOR_DIR', __DIR__ . "/vendor/");
     define('COMPOSER_BINARY_DIR', __DIR__ . "/vendor/bin/");
-    require_once __DIR__ . '/vendor/autoload.php';
 } elseif (file_exists(__DIR__ . '/../../autoload.php')) {
+    define('COMPOSER_VENDOR_DIR', __DIR__ . "/../../");
     $projectRoot = __DIR__ . '/../../..';
     $binPaths = [
         "{$projectRoot}/vendor/bin",
@@ -20,12 +21,13 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
             break;
         }
     }
-    require_once __DIR__ . '/../../autoload.php';
 }
 
 if (!defined('COMPOSER_BINARY_DIR') || !is_file(COMPOSER_BINARY_DIR . 'phploc')) {
     die("Composer binary directory was not found (define path in environment variable 'COMPOSER_BIN_DIR')\n");
 }
+
+require_once COMPOSER_VENDOR_DIR . '/autoload.php';
 
 /**
  * RoboFile is in phpqa repository, but analysis is runned in cwd.

@@ -30,6 +30,17 @@ trait CodeAnalysisTasks
             ],
             'composer' => 'squizlabs/php_codesniffer',
         ),
+        'phpcs3' => array(
+            'optionSeparator' => '=',
+            'xml' => ['checkstyle.xml'],
+            'errorsXPath' => [
+                # ignoreWarnings => xpath
+                false => '//checkstyle/file/error',
+                true => '//checkstyle/file/error[@severity="error"]',
+            ],
+            'composer' => 'squizlabs/php_codesniffer',
+            'binary' => 'phpcs',
+        ),
         'phpmd' => array(
             'optionSeparator' => ' ',
             'xml' => ['phpmd.xml'],
@@ -65,6 +76,10 @@ trait CodeAnalysisTasks
         'phpmetrics2' => array(
             'tool' => 'phpmetrics',
             'internalClass' => 'Hal\Application\Command\RunMetricsCommand',
+        ),
+        'phpcs3' => array(
+            'tool' => 'phpcs',
+            'internalClass' => 'PHP_CodeSniffer',
         ),
     );
     /** @var Options */
@@ -210,9 +225,20 @@ trait CodeAnalysisTasks
 
     private function phpcs(RunningTool $tool)
     {
+        return $this->buildPhpcs($tool, \PHP_CodeSniffer::getInstalledStandards());
+    }
+
+    private function phpcs3(RunningTool $tool)
+    {
+        require_once COMPOSER_VENDOR_DIR . '/squizlabs/php_codesniffer/autoload.php';
+        return $this->buildPhpcs($tool, \PHP_CodeSniffer\Util\Standards::getInstalledStandards());
+    }
+
+    private function buildPhpcs(RunningTool $tool, array $installedStandards)
+    {
         $tool->errorsType = $this->config->value('phpcs.ignoreWarnings') === true;
         $standard = $this->config->value('phpcs.standard');
-        if (!in_array($standard, \PHP_CodeSniffer::getInstalledStandards())) {
+        if (!in_array($standard, $installedStandards)) {
             $standard = escapePath($this->config->path('phpcs.standard'));
         }
         $args = array(
@@ -362,7 +388,7 @@ trait CodeAnalysisTasks
     {
         foreach ($this->usedTools as $tool) {
             if (!$tool->htmlReport) {
-                $tool->htmlReport = $this->options->rawFile("{$tool}.html");
+                $tool->htmlReport = $this->options->rawFile("{$tool->binary}.html");
             }
             if ($tool->hasOnlyConsoleOutput) {
                 twigToHtml(
@@ -376,7 +402,7 @@ trait CodeAnalysisTasks
             } else {
                 xmlToHtml(
                     $tool->getXmlFiles(),
-                    $this->config->path("report.{$tool}"),
+                    $this->config->path("report.{$tool->binary}"),
                     $tool->htmlReport,
                     ['root-directory' => $this->options->getCommonRootPath()]
                 );
