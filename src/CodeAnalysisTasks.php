@@ -392,7 +392,7 @@ trait CodeAnalysisTasks
         );
     }
 
-    private function phpcsfixer(RunningTool $tool)
+    private function phpcsfixer()
     {
         $analyzedDirs = $this->options->getAnalyzedDirs();
         $analyzedDir = reset($analyzedDirs);
