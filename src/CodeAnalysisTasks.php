@@ -44,8 +44,7 @@ trait CodeAnalysisTasks
         'php-cs-fixer' => array(
             'optionSeparator' => ' ',
             'internalClass' => 'PhpCsFixer\Config',
-            'hasOnlyConsoleOutput' => false,
-            'hasXmlOutputInConsole' => true,
+            'outputMode' => OutputMode::XML_CONSOLE_OUTPUT,
             'composer' => 'friendsofphp/php-cs-fixer',
             'xml' => ['php-cs-fixer.xml'],
             'errorsXPath' => '//testsuites/testsuite/testcase/failure',
@@ -70,13 +69,13 @@ trait CodeAnalysisTasks
         'parallel-lint' => array(
             'optionSeparator' => ' ',
             'internalClass' => 'JakubOnderka\PhpParallelLint\ParallelLint',
-            'hasOnlyConsoleOutput' => true,
+            'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
             'composer' => 'jakub-onderka/php-parallel-lint',
         ),
         'phpstan' => array(
             'optionSeparator' => ' ',
             'internalClass' => 'PHPStan\Analyser\Analyser',
-            'hasOnlyConsoleOutput' => true,
+            'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
             'composer' => 'phpstan/phpstan',
         ),
     );
@@ -419,11 +418,11 @@ trait CodeAnalysisTasks
             if (!$tool->htmlReport) {
                 $tool->htmlReport = $this->options->rawFile("{$tool->binary}.html");
             }
-            if ($tool->hasXmlOutputInConsole) {
+            if ($tool->hasOutput(OutputMode::XML_CONSOLE_OUTPUT)) {
                 file_put_contents($this->options->rawFile("{$tool}.xml"), $tool->process->getOutput());
             }
 
-            if ($tool->hasOnlyConsoleOutput) {
+            if ($tool->hasOutput(OutputMode::RAW_CONSOLE_OUTPUT)) {
                 twigToHtml(
                     'cli.html.twig',
                     array(
