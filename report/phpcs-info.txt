@@ -1,46 +1,52 @@
 
 PHP CODE SNIFFER INFORMATION REPORT
 ----------------------------------------------------------------------
-CamelCase class name: yes [15/15, 100%]
+Blank lines at end of control structure: 0 [97/97, 100%]
 
-CamelCase method name: yes [104/104, 100%]
+Blank lines at start of control structure: 0 [97/97, 100%]
 
-Class defined in namespace: yes [15/15, 100%]
+CamelCase class name: yes [18/18, 100%]
 
-Class opening brace placement: new line [15/15, 100%]
+CamelCase method name: yes [116/116, 100%]
 
-Control structure defined inline: no [86/86, 100%]
+Class defined in namespace: yes [18/18, 100%]
 
-Declarations and side effects mixed: no [19/19, 100%]
+Class opening brace placement: new line [18/18, 100%]
 
-EOL char: \n [19/19, 100%]
+Constant name case: upper [3/3, 100%]
 
-Function opening brace placement: new line [119/126, 94.44%]
-	same line => 7 (5.56%)
+Control structure defined inline: no [95/95, 100%]
 
-Line indent: spaces [1325/1325, 100%]
+Declarations and side effects mixed: no [22/22, 100%]
 
-Line length: 80 or less [1375/1461, 94.11%]
-	81-120 => 86 (5.89%)
+EOL char: \n [22/22, 100%]
 
-Multiple statements on same line: no [456/457, 99.78%]
-	yes => 1 (0.22%)
+Function opening brace placement: new line [131/139, 94.24%]
+	same line => 8 (5.76%)
 
-Number of newlines at EOF: 1 [19/19, 100%]
+Line indent: spaces [1448/1448, 100%]
 
-One class per file: yes [15/15, 100%]
+Line length: 80 or less [1507/1603, 94.01%]
+	81-120 => 96 (5.99%)
 
-PHP closing tag at end of PHP-only file: no [19/19, 100%]
+Multiple statements on same line: no [498/499, 99.8%]
+	yes => 1 (0.2%)
 
-PHP constant case: lower [57/57, 100%]
+Number of newlines at EOF: 1 [22/22, 100%]
 
-PHP keyword case: lower [680/680, 100%]
+One class per file: yes [18/18, 100%]
 
-PHP short open tag used: no [19/19, 100%]
+PHP closing tag at end of PHP-only file: no [22/22, 100%]
 
-Spaces after control structure open parenthesis: 0 [75/75, 100%]
+PHP constant case: lower [59/59, 100%]
 
-Spaces before control structure close parenthesis: 0 [75/75, 100%]
+PHP keyword case: lower [744/744, 100%]
+
+PHP short open tag used: no [22/22, 100%]
+
+Spaces after control structure open parenthesis: 0 [164/164, 100%]
+
+Spaces before control structure close parenthesis: 0 [164/164, 100%]
 
 Use of ELSE IF or ELSEIF: elseif [3/3, 100%]
 

@@ -3,7 +3,7 @@ FILE: /mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php
 ----------------------------------------------------------------------
 FOUND 1 ERROR AFFECTING 1 LINE
 ----------------------------------------------------------------------
- 24 | ERROR | [x] Each PHP statement must be on a line by itself
+ 28 | ERROR | [x] Each PHP statement must be on a line by itself
 ----------------------------------------------------------------------
 PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------

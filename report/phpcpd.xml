@@ -1,8 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd-cpd>
+  <duplication lines="9" tokens="19">
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="23"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="33"/>
+    <codefragment>        'phpcs' =&gt; array(
+            'optionSeparator' =&gt; '=',
+            'xml' =&gt; ['checkstyle.xml'],
+            'errorsXPath' =&gt; [
+                # ignoreWarnings =&gt; xpath
+                false =&gt; '//checkstyle/file/error',
+                true =&gt; '//checkstyle/file/error[@severity="error"]',
+            ],
+            'composer' =&gt; 'squizlabs/php_codesniffer',
+</codefragment>
+  </duplication>
   <duplication lines="4" tokens="11">
     <file path="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" line="11"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="102"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="125"/>
     <codefragment>        'buildDir' =&gt; 'build/',
         'ignoredDirs' =&gt; 'vendor',
         'ignoredFiles' =&gt; '',
@@ -10,8 +24,8 @@
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="18">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="185"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="198"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="208"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="221"/>
     <codefragment>        $args = array(
             'progress' =&gt; '',
             $this-&gt;options-&gt;ignore-&gt;bergmann(),
@@ -19,18 +33,36 @@
 </codefragment>
   </duplication>
   <duplication lines="3" tokens="12">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="188"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="223"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="211"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="257"/>
     <codefragment>            $this-&gt;options-&gt;getAnalyzedDirs(' '),
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
 </codefragment>
   </duplication>
   <duplication lines="2" tokens="14">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="282"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="299"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="316"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="333"/>
     <codefragment>        if ($this-&gt;options-&gt;isSavedToFiles) {
             $tool-&gt;htmlReport = $this-&gt;options-&gt;rawFile('phpmetrics.html');
+</codefragment>
+  </duplication>
+  <duplication lines="4" tokens="16">
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="306"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="397"/>
+    <codefragment>        $analyzedDirs = $this-&gt;options-&gt;getAnalyzedDirs();
+        $analyzedDir = reset($analyzedDirs);
+        if (count($analyzedDirs) &gt; 1) {
+            $this-&gt;say("&lt;error&gt;phpmetrics analyzes only first directory {$analyzedDir}&lt;/error&gt;");
+</codefragment>
+  </duplication>
+  <duplication lines="4" tokens="10">
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV0.php" line="33"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php" line="59"/>
+    <codefragment>        $this-&gt;printTaskInfo(
+            "Output for &lt;fg=white;bg=magenta&gt; " . $process-&gt;getCommandLine()." &lt;/fg=white;bg=magenta&gt;"
+        );
+        $this-&gt;getOutput()-&gt;writeln($process-&gt;getOutput(), OutputInterface::OUTPUT_RAW);
 </codefragment>
   </duplication>
 </pmd-cpd>

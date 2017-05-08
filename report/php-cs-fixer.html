@@ -1,0 +1,107 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>php-cs-fixer report</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><style>
+                    .file {
+                        background: #f9f9f9
+                    }
+                    .fixed-navbar {
+                        list-style-type: none;
+                        position: fixed;
+                        top: 0;
+                        right: 1em;
+                    }
+                </style><script>
+                var onDocumentReady = [
+                    function () {
+                        $('[data-fixers]').each(function () {
+                            var original = $(this).text();
+                            var fixers = original.replace("applied fixers:\n---------------", '');
+                            var html = fixers.split('* ').splice(1).join('<br>');
+                            $(this).html(html);
+                        });
+                    }
+                ];
+                </script></head><body><div class="container-fluid"><h1>php-cs-fixer report</h1><nav><ul class="nav nav-pills" role="tablist"><li role="presentation" class="active"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a></li><li role="presentation"><a href="#errors" aria-controls="errors" role="tab" data-toggle="tab">Errors</a></li></ul></nav><div class="tab-content"><div role="tabpanel" class="tab-pane active" id="overview"><table class="table table-striped"><thead><tr><th>Files</th><th>Errors</th><th>Duration</th></tr></thead><tr><td>18</td><th><span class="label label-danger">47</span></th><th><span class="label label-info">1.141</span></th></tr></table></div><div role="tabpanel" class="tab-pane" id="errors"><div class="fixed-navbar"><div class="input-group" style="width: 20em"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input data-search="errors" type="text" class="form-control" placeholder="trailing..."></div></div><script>
+                        onDocumentReady.push(function () {
+                            var rows = $('[data-filterable] tbody tr');
+
+                            $("[data-search]").keyup(function () {
+                                var term = $(this).val().toLowerCase();
+
+                                rows.hide();
+                                matchElements(rows).show();
+
+                                function matchElements(elements) {
+                                    return elements.filter(function () {
+                                        var rowContent = $(this).text().toLowerCase();
+                                        return rowContent.indexOf(term) !== -1
+                                    });
+                                }
+                            });
+                        });
+                        </script><table class="table table-striped table-hover" data-filterable="errors"><thead><tr><th>File</th><th>Errors (fixers)</th></tr></thead><tr><td><strong>/tests/IgnoredPathsTest</strong></td><td data-fixers="">applied fixers:
+---------------
+* trailing_comma_in_multiline_array
+* blank_line_before_return</td></tr><tr><td><strong>/tests/Config/ConfigTest</strong></td><td data-fixers="">applied fixers:
+---------------
+* single_quote
+* concat_space</td></tr><tr><td><strong>/tests/RunningToolTest</strong></td><td data-fixers="">applied fixers:
+---------------
+* trailing_comma_in_multiline_array</td></tr><tr><td><strong>/tests/Report/ReportTest</strong></td><td data-fixers="">applied fixers:
+---------------
+* trailing_comma_in_multiline_array
+* single_quote
+* concat_space</td></tr><tr><td><strong>/tests/OptionsTest</strong></td><td data-fixers="">applied fixers:
+---------------
+* no_empty_statement
+* trailing_comma_in_multiline_array
+* concat_space</td></tr><tr><td><strong>/src/CodeAnalysisTasks</strong></td><td data-fixers="">applied fixers:
+---------------
+* trailing_comma_in_multiline_array
+* single_quote
+* concat_space
+* hash_to_slash_comment
+* blank_line_before_return</td></tr><tr><td><strong>/src/Config</strong></td><td data-fixers="">applied fixers:
+---------------
+* concat_space
+* blank_line_before_return</td></tr><tr><td><strong>/src/Options</strong></td><td data-fixers="">applied fixers:
+---------------
+* phpdoc_scalar
+* trailing_comma_in_multiline_array
+* concat_space
+* blank_line_before_return</td></tr><tr><td><strong>/src/Task/RoboAdapter</strong></td><td data-fixers="">applied fixers:
+---------------
+* blank_line_before_return</td></tr><tr><td><strong>/src/Task/TableSummary</strong></td><td data-fixers="">applied fixers:
+---------------
+* single_quote
+* concat_space
+* phpdoc_separation
+* no_whitespace_in_blank_line
+* blank_line_before_return</td></tr><tr><td><strong>/src/Task/NonParallelExecV0</strong></td><td data-fixers="">applied fixers:
+---------------
+* single_quote
+* concat_space</td></tr><tr><td><strong>/src/Task/NonParallelExecV1</strong></td><td data-fixers="">applied fixers:
+---------------
+* single_quote
+* concat_space
+* phpdoc_summary</td></tr><tr><td><strong>/src/Task/ToolVersions</strong></td><td data-fixers="">applied fixers:
+---------------
+* trailing_comma_in_multiline_array
+* single_quote
+* concat_space
+* blank_line_before_return</td></tr><tr><td><strong>/src/Task/ParallelExec</strong></td><td data-fixers="">applied fixers:
+---------------
+* blank_line_before_return</td></tr><tr><td><strong>/src/IgnoredPaths</strong></td><td data-fixers="">applied fixers:
+---------------
+* single_quote
+* concat_space
+* blank_line_before_return</td></tr><tr><td><strong>/src/report</strong></td><td data-fixers="">applied fixers:
+---------------
+* concat_space</td></tr><tr><td><strong>/src/paths</strong></td><td data-fixers="">applied fixers:
+---------------
+* pre_increment
+* concat_space
+* blank_line_before_return</td></tr><tr><td><strong>/src/RunningTool</strong></td><td data-fixers="">applied fixers:
+---------------
+* concat_space
+* blank_line_before_return</td></tr></table></div></div></div><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script>
+                $(document).ready(onDocumentReady);
+            </script></body></html>

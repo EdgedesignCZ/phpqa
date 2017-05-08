@@ -3,20 +3,21 @@
   <Packages>
     <Package name="Edge\QA">
       <Stats>
-        <TotalClasses>10</TotalClasses>
-        <ConcreteClasses>10</ConcreteClasses>
+        <TotalClasses>11</TotalClasses>
+        <ConcreteClasses>11</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>1</Ca>
-        <Ce>5</Ce>
+        <Ce>6</Ce>
         <A>0</A>
-        <I>0.83333333333333</I>
-        <D>0.16666666666667</D>
+        <I>0.85714285714286</I>
+        <D>0.14285714285714</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/RoboFile.php">RoboFile</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Config.php">Config</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/IgnoredPaths.php">IgnoredPaths</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Options.php">Options</Class>
+        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/OutputMode.php">OutputMode</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/RunningTool.php">RunningTool</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php">ConfigTest</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/IgnoredPathsTest.php">IgnoredPathsTest</Class>
@@ -29,6 +30,7 @@
         <Package></Package>
         <Package>Edge\QA\Task</Package>
         <Package>Nette\Neon</Package>
+        <Package>PHP_CodeSniffer\Util</Package>
         <Package>Robo</Package>
         <Package>Symfony\Component\Yaml</Package>
       </DependsUpon>
@@ -38,28 +40,31 @@
     </Package>
     <Package name="Edge\QA\Task">
       <Stats>
-        <TotalClasses>4</TotalClasses>
-        <ConcreteClasses>4</ConcreteClasses>
+        <TotalClasses>5</TotalClasses>
+        <ConcreteClasses>5</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>1</Ca>
-        <Ce>5</Ce>
+        <Ce>7</Ce>
         <A>0</A>
-        <I>0.83333333333333</I>
-        <D>0.16666666666667</D>
+        <I>0.875</I>
+        <D>0.125</D>
       </Stats>
       <ConcreteClasses>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExec.php">NonParallelExec</Class>
+        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV0.php">NonParallelExecV0</Class>
+        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php">NonParallelExecV1</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ParallelExec.php">ParallelExec</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php">TableSummary</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php">ToolVersions</Class>
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
+        <Package>Consolidation\Log</Package>
         <Package>Edge\QA</Package>
         <Package>Robo</Package>
         <Package>Robo\Task\Base</Package>
         <Package>Symfony\Component\Console\Helper</Package>
         <Package>Symfony\Component\Console\Output</Package>
+        <Package>Symfony\Component\Process</Package>
       </DependsUpon>
       <UsedBy>
         <Package>Edge\QA</Package>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2017-04-10T16:20:18" pdepend="@package_version@">
+<dependencies generated="2017-05-08T11:09:10" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -13,11 +13,11 @@
         <type namespace="Edge\QA\Task" name="ToolVersions"/>
         <type namespace="Edge\QA" name="Options"/>
         <type namespace="Edge\QA" name="Config"/>
-        <type namespace="Edge\QA\Task" name="ParallelExec"/>
-        <type namespace="Edge\QA\Task" name="NonParallelExec"/>
         <type namespace="Edge\QA" name="RunningTool"/>
         <type namespace="" name="PHP_CodeSniffer"/>
+        <type namespace="PHP_CodeSniffer\Util" name="Standards"/>
         <type namespace="Nette\Neon" name="Neon"/>
+        <type namespace="Edge\QA" name="OutputMode"/>
         <type namespace="Edge\QA\Task" name="TableSummary"/>
       </efferent>
       <afferent/>
@@ -54,8 +54,18 @@
       </afferent>
       <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Options.php"/>
     </class>
-    <class name="RunningTool">
+    <class name="OutputMode">
       <efferent/>
+      <afferent>
+        <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
+        <type namespace="Edge\QA" name="RunningTool"/>
+      </afferent>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/OutputMode.php"/>
+    </class>
+    <class name="RunningTool">
+      <efferent>
+        <type namespace="Edge\QA" name="OutputMode"/>
+      </efferent>
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
         <type namespace="Edge\QA" name="Options"/>
@@ -104,28 +114,42 @@
     </class>
   </package>
   <package name="Edge\QA\Task">
-    <class name="NonParallelExec">
+    <class name="NonParallelExecV0">
+      <efferent>
+        <type namespace="Edge\QA\Task" name="NonParallelExecV1"/>
+        <type namespace="Symfony\Component\Console\Helper" name="ProgressBar"/>
+        <type namespace="Symfony\Component\Process" name="Process"/>
+        <type namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+      </efferent>
+      <afferent/>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV0.php"/>
+    </class>
+    <class name="NonParallelExecV1">
       <efferent>
         <type namespace="Edge\QA\Task" name="ParallelExec"/>
-        <type namespace="Symfony\Component\Console\Helper" name="ProgressBar"/>
-        <type namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
         <type namespace="Robo" name="Result"/>
+        <type namespace="Symfony\Component\Process" name="Process"/>
+        <type namespace="Consolidation\Log" name="ConsoleLogLevel"/>
       </efferent>
       <afferent>
-        <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
+        <type namespace="Edge\QA\Task" name="NonParallelExecV0"/>
       </afferent>
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExec.php"/>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php"/>
     </class>
     <class name="ParallelExec">
       <efferent>
         <type namespace="Robo\Task\Base" name="ParallelExec"/>
       </efferent>
       <afferent>
-        <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
-        <type namespace="Edge\QA\Task" name="NonParallelExec"/>
+        <type namespace="Edge\QA\Task" name="NonParallelExecV1"/>
       </afferent>
       <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ParallelExec.php"/>
     </class>
+    <trait name="RoboAdapter">
+      <efferent/>
+      <afferent/>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/RoboAdapter.php"/>
+    </trait>
     <class name="TableSummary">
       <efferent>
         <type namespace="Edge\QA" name="Options"/>

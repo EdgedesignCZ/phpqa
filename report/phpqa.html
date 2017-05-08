@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>phpqa report - v1.11.0</title>
+    <title>phpqa report - v1.12.0-dev</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -43,24 +43,12 @@
           </button>
             <div class="navbar-brand">
                 <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa">PHPQA</a>
-                <span>2017-04-10 16:20</span>
+                <span>2017-05-08 11:09</span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav nav-tabs" role="tablist">
-                                <li class=active><a href="#phpmetrics">phpmetrics</a></li>
-                                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        &nbsp;<span class="caret"></span>&nbsp;
-                    </a>
-                    <ul class="dropdown-menu">
-                                                                        <li><a href="#phpmetrics" data-iframe-tab="link-overview">Overview</a></li>
-                                                                                                <li><a href="#phpmetrics" data-iframe-tab="link-score">Score</a></li>
-                                                                                                <li><a href="#phpmetrics" data-iframe-tab="link-relations">Relations map</a></li>
-                                                                                                <li><a href="#phpmetrics" data-iframe-tab="link-repartition">Repartition</a></li>
-                                                                                                <li><a href="#phpmetrics" data-iframe-tab="link-explore">Explore</a></li>
-                                                                                            </ul>
-                </li>
+                                <li class=active><a href="#phpmetrics2">phpmetrics</a></li>
                                                 <li><a href="#phploc">phploc</a></li>
                                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -72,18 +60,16 @@
                                                                                                 <li><a href="#phploc" data-iframe-tab="dependencies">Dependencies</a></li>
                                                                                             </ul>
                 </li>
-                                                <li><a href="#phpcs">phpcs</a></li>
+                                                <li><a href="#phpcs3">phpcs</a></li>
+                                                <li><a href="#php-cs-fixer">php-cs-fixer</a></li>
                                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         &nbsp;<span class="caret"></span>&nbsp;
                     </a>
                     <ul class="dropdown-menu">
-                                                                        <li><a href="#phpcs" data-iframe-tab="overview">Overview</a></li>
-                                                                                                <li><a href="#phpcs" data-iframe-tab="errors">Errors</a></li>
-                                                                                                <li role="separator" class="divider"></li>
-                                                <li><a href="#phpcs-info">info</a></li>
-                                                <li><a href="#phpcs-full">full</a></li>
-                                                                    </ul>
+                                                                        <li><a href="#php-cs-fixer" data-iframe-tab="overview">Overview</a></li>
+                                                                                                <li><a href="#php-cs-fixer" data-iframe-tab="errors">Errors</a></li>
+                                                                                            </ul>
                 </li>
                                                 <li><a href="#phpmd">phpmd</a></li>
                                 <li class="dropdown">
@@ -129,27 +115,30 @@
                                                 <li><a href="#phpstan">phpstan</a></li>
                                             </ul>
             <ul class="nav navbar-nav navbar-right visible-md-block visible-lg-block">
-              <p class="navbar-text">v1.11.0</p>
+              <p class="navbar-text">v1.12.0-dev</p>
             </ul>
         </div>
       </div>
     </nav>
                 
     <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="phpmetrics">
-            <iframe data-tool id="iframe-phpmetrics" src="phpmetrics.html"></iframe>
+                <div role="tabpanel" class="tab-pane active" id="phpmetrics2">
+            <iframe data-tool id="iframe-phpmetrics2" src="phpmetrics/index.html"></iframe>
         </div>
                         <div role="tabpanel" class="tab-pane" id="phploc">
             <iframe data-tool id="iframe-phploc" src="phploc.html"></iframe>
         </div>
-                        <div role="tabpanel" class="tab-pane" id="phpcs">
-            <iframe data-tool id="iframe-phpcs" src="phpcs.html"></iframe>
+                        <div role="tabpanel" class="tab-pane" id="phpcs3">
+            <iframe data-tool id="iframe-phpcs3" src="phpcs.html"></iframe>
         </div>
-                <div role="tabpanel" class="tab-pane" id="phpcs-info">
-            <iframe id="iframe-phpcs-info" src="phpcs-info.txt"></iframe>
+                <div role="tabpanel" class="tab-pane" id="phpcs3-info">
+            <iframe id="iframe-phpcs3-info" src="phpcs-info.txt"></iframe>
         </div>
-                <div role="tabpanel" class="tab-pane" id="phpcs-full">
-            <iframe id="iframe-phpcs-full" src="phpcs-full.txt"></iframe>
+                <div role="tabpanel" class="tab-pane" id="phpcs3-full">
+            <iframe id="iframe-phpcs3-full" src="phpcs-full.txt"></iframe>
+        </div>
+                        <div role="tabpanel" class="tab-pane" id="php-cs-fixer">
+            <iframe data-tool id="iframe-php-cs-fixer" src="php-cs-fixer.html"></iframe>
         </div>
                         <div role="tabpanel" class="tab-pane" id="phpmd">
             <iframe data-tool id="iframe-phpmd" src="phpmd.html"></iframe>
