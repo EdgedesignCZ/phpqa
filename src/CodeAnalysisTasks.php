@@ -400,13 +400,17 @@ trait CodeAnalysisTasks
         if (count($analyzedDirs) > 1) {
             $this->say("<error>php-cs-fixer analyzes only first directory {$analyzedDir}</error>");
         }
-        return array(
+        $args = [
             'fix',
             $analyzedDir,
-            'dry-run' => '',
+            'rules' => $this->config->value('php-cs-fixer.rules'),
             'verbose' => '',
             'format' => $this->options->isSavedToFiles ? 'junit' : 'txt',
-        );
+        ];
+        if ($this->config->value('php-cs-fixer.isDryRun')) {
+            $args['dry-run'] = '';
+        }
+        return $args;
     }
 
     private function buildHtmlReport()

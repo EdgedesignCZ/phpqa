@@ -12,6 +12,12 @@ phpcs:
             # you can include custom reports (https://github.com/wikidi/codesniffer/blob/master/reports/wikidi/Summary.php#L39)
             # ./vendor/owner/package/src/MySummaryReport.php: phpcs-summary.html
 
+php-cs-fixer:
+    # http://cs.sensiolabs.org/#usage
+    rules: @PSR2
+    # by default the tool is runned in dry-run mode (no fixers are applied)
+    isDryRun: true
+
 phpmd:
     standard: app/phpmd.xml
 
