@@ -51,6 +51,7 @@ Experimental tool is executed only if the tool is specified in `--tools`.
 
 Tool | PHP | Supported since | Description | Status |
 ---- | --- | --------------- | ----------- | ------ |
+[php-cs-fixer](http://cs.sensiolabs.org/) | `>= 5.6` | `1.12` | Automatically detect and fix PHP coding standards issues | stable |
 [parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files | stable |
 [phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it | _experimental_ ([`v0.7`](https://github.com/EdgedesignCZ/phpqa/pull/43)) |
 
