@@ -8,6 +8,7 @@ class RunningTool
     public $binary;
     private $internalClass;
     private $optionSeparator;
+    private $outputMode;
 
     private $xmlFiles;
     private $errorsXPath;
@@ -16,8 +17,6 @@ class RunningTool
 
     public $htmlReport;
     public $userReports = [];
-    public $hasOnlyConsoleOutput;
-    public $hasXmlOutputInConsole;
     /** @var \Symfony\Component\Process\Process */
     public $process;
 
@@ -29,7 +28,7 @@ class RunningTool
             'xml' => [],
             'errorsXPath' => '',
             'allowedErrorsCount' => null,
-            'hasOnlyConsoleOutput' => false,
+            'outputMode' => OutputMode::HANDLED_BY_TOOL,
             'internalClass' => null,
         ];
         $this->tool = $tool;
@@ -40,13 +39,17 @@ class RunningTool
         $this->errorsXPath = is_array($config['errorsXPath'])
             ? $config['errorsXPath'] : [$this->errorsXPath => $config['errorsXPath']];
         $this->allowedErrorsCount = $config['allowedErrorsCount'];
-        $this->hasOnlyConsoleOutput = $config['hasOnlyConsoleOutput'];
-        $this->hasXmlOutputInConsole = $config['hasXmlOutputInConsole'];
+        $this->outputMode = $config['outputMode'];
     }
 
     public function isInstalled()
     {
         return !$this->internalClass || class_exists($this->internalClass);
+    }
+
+    public function hasOutput($outputMode)
+    {
+        return $this->outputMode == $outputMode;
     }
 
     public function buildOption($arg, $value)
@@ -67,7 +70,7 @@ class RunningTool
     {
         $xpath = $this->errorsXPath[$this->errorsType];
 
-        if ($hasNoOutput || $this->hasOnlyConsoleOutput) {
+        if ($hasNoOutput || $this->hasOutput(OutputMode::RAW_CONSOLE_OUTPUT)) {
             return $this->evaluteErrorsCount($this->process->getExitCode() ? 1 : 0);
         } elseif (!$xpath) {
             return [true, ''];
