@@ -41,6 +41,15 @@ trait CodeAnalysisTasks
             'composer' => 'squizlabs/php_codesniffer',
             'binary' => 'phpcs',
         ),
+        'php-cs-fixer' => array(
+            'optionSeparator' => ' ',
+            'internalClass' => 'PhpCsFixer\Config',
+            'hasOnlyConsoleOutput' => false,
+            'hasXmlOutputInConsole' => true,
+            'composer' => 'friendsofphp/php-cs-fixer',
+            'xml' => ['php-cs-fixer.xml'],
+            'errorsXPath' => '//testsuites/testsuite/testcase/failure',
+        ),
         'phpmd' => array(
             'optionSeparator' => ' ',
             'xml' => ['phpmd.xml'],
@@ -69,15 +78,6 @@ trait CodeAnalysisTasks
             'internalClass' => 'PHPStan\Analyser\Analyser',
             'hasOnlyConsoleOutput' => true,
             'composer' => 'phpstan/phpstan',
-        ),
-        'php-cs-fixer' => array(
-            'optionSeparator' => ' ',
-            'internalClass' => 'PhpCsFixer\Config',
-            'hasOnlyConsoleOutput' => false,
-            'hasXmlOutputInConsole' => true,
-            'composer' => 'friendsofphp/php-cs-fixer',
-            'xml' => ['php-cs-fixer.xml'],
-            'errorsXPath' => '//testsuites/testsuite/testcase/failure',
         ),
     );
     /** @var array [tool => oldVersion] */
