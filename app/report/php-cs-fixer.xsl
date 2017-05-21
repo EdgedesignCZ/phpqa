@@ -6,7 +6,7 @@
     <xsl:template match="/">
         <html>
             <head>
-                <title>php-cs-fixer report</title>
+                <title>PHP CS Fixer report</title>
                 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
                 <style>
                     .file {
@@ -36,7 +36,7 @@
 
             <div class="container-fluid">
             
-                <h1>php-cs-fixer report</h1>
+                <h1>PHP CS Fixer report</h1>
 
                 <nav>
                     <ul class="nav nav-pills" role="tablist">
