@@ -9,6 +9,6 @@ phpcs:
             full: phpcs-full.txt
 
 phpstan:
-    level: 5
+    level: 7
     # https://github.com/phpstan/phpstan#configuration
     standard: phpstan.neon
