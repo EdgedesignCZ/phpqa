@@ -18,6 +18,8 @@ php-cs-fixer:
     allowRiskyRules: false
     # by default the tool is runned in dry-run mode (no fixers are applied)
     isDryRun: true
+    # alternatively you can define path to your .phpcs_file (rules/allowRiskyRules config is ignored)
+    config: null
 
 phpmd:
     standard: app/phpmd.xml
