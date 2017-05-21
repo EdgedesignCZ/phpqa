@@ -405,6 +405,7 @@ trait CodeAnalysisTasks
             'rules' => $this->config->value('php-cs-fixer.rules'),
             'verbose' => '',
             'format' => $this->options->isSavedToFiles ? 'junit' : 'txt',
+            'allow-risky' => $this->config->value('php-cs-fixer.allowRiskyRules') ? 'yes' : 'no',
         ];
         if ($this->config->value('php-cs-fixer.isDryRun')) {
             $args['dry-run'] = '';

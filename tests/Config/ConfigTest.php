@@ -15,6 +15,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpcs.reports.file'), is(nonEmptyArray()));
         assertThat($config->value('php-cs-fixer.rules'), is(nonEmptyString()));
         assertThat($config->value('php-cs-fixer.isDryRun'), identicalTo(true));
+        assertThat($config->value('php-cs-fixer.allowRiskyRules'), identicalTo(false));
         assertThat($config->path('phpmd.standard'), is(nonEmptyString()));
         assertThat($config->value('phpstan.level'), identicalTo(0));
     }
