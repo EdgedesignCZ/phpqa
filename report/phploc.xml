@@ -2,14 +2,14 @@
 <phploc>
   <directories>6</directories>
   <files>22</files>
-  <loc>1805</loc>
-  <lloc>501</lloc>
-  <llocClasses>423</llocClasses>
+  <loc>1820</loc>
+  <lloc>507</lloc>
+  <llocClasses>429</llocClasses>
   <llocFunctions>37</llocFunctions>
   <llocGlobal>41</llocGlobal>
-  <cloc>66</cloc>
-  <ccn>110</ccn>
-  <ccnMethods>100</ccnMethods>
+  <cloc>65</cloc>
+  <ccn>113</ccn>
+  <ccnMethods>103</ccnMethods>
   <interfaces>0</interfaces>
   <traits>2</traits>
   <classes>16</classes>
@@ -28,30 +28,30 @@
   <globalConstants>0</globalConstants>
   <testClasses>0</testClasses>
   <testMethods>0</testMethods>
-  <ccnByLloc>0.21956087824351</ccnByLloc>
+  <ccnByLloc>0.22287968441815</ccnByLloc>
   <llocByNof>2.4666666666667</llocByNof>
-  <methodCalls>273</methodCalls>
+  <methodCalls>279</methodCalls>
   <staticMethodCalls>6</staticMethodCalls>
-  <instanceMethodCalls>267</instanceMethodCalls>
-  <attributeAccesses>247</attributeAccesses>
+  <instanceMethodCalls>273</instanceMethodCalls>
+  <attributeAccesses>250</attributeAccesses>
   <staticAttributeAccesses>0</staticAttributeAccesses>
-  <instanceAttributeAccesses>247</instanceAttributeAccesses>
+  <instanceAttributeAccesses>250</instanceAttributeAccesses>
   <globalAccesses>0</globalAccesses>
   <globalVariableAccesses>0</globalVariableAccesses>
   <superGlobalVariableAccesses>0</superGlobalVariableAccesses>
   <globalConstantAccesses>0</globalConstantAccesses>
   <classCcnMin>1</classCcnMin>
-  <classCcnAvg>6.5555555555556</classCcnAvg>
-  <classCcnMax>34</classCcnMax>
+  <classCcnAvg>6.7222222222222</classCcnAvg>
+  <classCcnMax>37</classCcnMax>
   <classLlocMin>2</classLlocMin>
-  <classLlocAvg>23.5</classLlocAvg>
-  <classLlocMax>96</classLlocMax>
+  <classLlocAvg>23.833333333333</classLlocAvg>
+  <classLlocMax>101</classLlocMax>
   <methodCcnMin>1</methodCcnMin>
-  <methodCcnAvg>1.7542372881356</methodCcnAvg>
+  <methodCcnAvg>1.7796610169492</methodCcnAvg>
   <methodCcnMax>8</methodCcnMax>
   <methodLlocMin>1</methodLlocMin>
-  <methodLlocAvg>2.9067796610169</methodLlocAvg>
+  <methodLlocAvg>2.9661016949153</methodLlocAvg>
   <methodLlocMax>18</methodLlocMax>
   <namespaces>2</namespaces>
-  <ncloc>1739</ncloc>
+  <ncloc>1755</ncloc>
 </phploc>

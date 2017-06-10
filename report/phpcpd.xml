@@ -49,7 +49,7 @@
   </duplication>
   <duplication lines="4" tokens="16">
     <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="306"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="397"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="401"/>
     <codefragment>        $analyzedDirs = $this-&gt;options-&gt;getAnalyzedDirs();
         $analyzedDir = reset($analyzedDirs);
         if (count($analyzedDirs) &gt; 1) {

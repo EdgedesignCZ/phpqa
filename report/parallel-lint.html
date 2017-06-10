@@ -1,18 +1,11 @@
 <h1>parallel-lint</h1>
-<pre id="cli">PHP 7.1.4 | 10 parallel jobs
-..........[41mX[0m[41mX[0m..........                                       22/22 (100 %)
+<pre id="cli">PHP 7.1.5 | 10 parallel jobs
+..........[41mX[0m...[41mX[0m.......                                       22/22 (100 %)
 
 
 Checked 22 files in 0.3 seconds
 [41mSyntax error found in 2 files[0m
 
-------------------------------------------------------------
-Parse error: ./src/invalid/1.php:3
-    [90m1| [0m[39m&lt;?php[0m
-    [90m2| [0m
-[31m  &gt; [0m[90m3| [0m[32mecho $;[0m
-    [90m4| [0m
-Unexpected &#039;;&#039;, expecting variable (T_VARIABLE) or &#039;{&#039; or &#039;$&#039;
 ------------------------------------------------------------
 Parse error: ./src/invalid/2.php:3
     [90m1| [0m[39m&lt;?php[0m
@@ -20,6 +13,13 @@ Parse error: ./src/invalid/2.php:3
 [31m  &gt; [0m[90m3| [0m[32mecho [0m[39m$foo[0m[32m;[0m
     [90m4| [0m
 Unexpected &#039;echo&#039; (T_ECHO)
+------------------------------------------------------------
+Parse error: ./src/invalid/1.php:3
+    [90m1| [0m[39m&lt;?php[0m
+    [90m2| [0m
+[31m  &gt; [0m[90m3| [0m[32mecho $;[0m
+    [90m4| [0m
+Unexpected &#039;;&#039;, expecting variable (T_VARIABLE) or &#039;{&#039; or &#039;$&#039;
 </pre> 
  
 <style> 

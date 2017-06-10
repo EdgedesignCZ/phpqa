@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pmd version="@project.version@" timestamp="2017-05-08T09:09:10+00:00">
+<pmd version="@project.version@" timestamp="2017-06-10T07:10:00+00:00">
   <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php">
-    <violation beginline="28" endline="28" rule="ExitExpression" ruleset="Design Rules" externalInfoUrl="http://phpmd.org/rules/design.html#exitexpression" priority="1">
+    <violation beginline="25" endline="25" rule="ExitExpression" ruleset="Design Rules" externalInfoUrl="http://phpmd.org/rules/design.html#exitexpression" priority="1">
       The method setUp() contains an exit expression.
     </violation>
   </file>
