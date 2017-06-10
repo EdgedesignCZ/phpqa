@@ -34,6 +34,7 @@
         "phpmetrics/phpmetrics": "*"
     },
     "suggest": {
+        "friendsofphp/php-cs-fixer": "A tool to automatically fix PHP coding standards issues",
         "jakub-onderka/php-parallel-lint": "Check PHP syntax",
         "jakub-onderka/php-console-highlighter": "Colored output in parallel-lint",
         "phpstan/phpstan": "PHP Static Analysis Tool - discover bugs in your code without running it!"
