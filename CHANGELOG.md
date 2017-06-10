@@ -1,6 +1,17 @@
 
 # Changelog
 
+## v1.12.0
+
+* **Optional tools**
+    * [#60](https://github.com/EdgedesignCZ/phpqa/pull/60) php-cs-fixer (stable)
+* [#68](https://github.com/EdgedesignCZ/phpqa/pull/68) Support phpstan v0.7
+* [#65](https://github.com/EdgedesignCZ/phpqa/pull/65) Support phpcs v3.X
+* [#61](https://github.com/EdgedesignCZ/phpqa/pull/61) Support Robo v1.X
+* [#58](https://github.com/EdgedesignCZ/phpqa/pull/58) Support Twig 2
+* _Internal changes_
+    * [#50](https://github.com/EdgedesignCZ/phpqa/pull/55), [#62](https://github.com/EdgedesignCZ/phpqa/pull/62) Optimize speed on Travis (Precise + HHVM on Trusty)
+
 ## v1.11.0
 
 * [#54](https://github.com/EdgedesignCZ/phpqa/pull/54) Advanced phpcs configuration
