@@ -172,8 +172,9 @@ trait CodeAnalysisTasks
         if ($this->options->isSavedToFiles) {
             if (is_dir($this->options->buildDir)) {
                 $this->_cleanDir($this->options->buildDir);
+            } else {
+                $this->_mkdir($this->options->buildDir);
             }
-            $this->_mkdir($this->options->buildDir);
         }
     }
 
