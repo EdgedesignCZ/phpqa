@@ -9,6 +9,7 @@ trait CodeAnalysisTasks
         'phpmetrics' => array(
             'optionSeparator' => ' ',
             'composer' => 'phpmetrics/phpmetrics',
+            'outputMode' => OutputMode::CUSTOM_OUTPUT_AND_EXIT_CODE,
         ),
         'phpmetrics2' => array(
             'optionSeparator' => '=',

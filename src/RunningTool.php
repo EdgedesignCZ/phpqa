@@ -70,7 +70,10 @@ class RunningTool
     {
         $xpath = $this->errorsXPath[$this->errorsType];
 
-        if ($hasNoOutput || $this->hasOutput(OutputMode::RAW_CONSOLE_OUTPUT)) {
+        if ($hasNoOutput ||
+            $this->hasOutput(OutputMode::RAW_CONSOLE_OUTPUT) ||
+            $this->hasOutput(OutputMode::CUSTOM_OUTPUT_AND_EXIT_CODE)
+        ) {
             return $this->evaluteErrorsCount($this->process->getExitCode() ? 1 : 0);
         } elseif (!$xpath) {
             return [true, ''];
