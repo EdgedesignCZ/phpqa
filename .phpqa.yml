@@ -28,6 +28,9 @@ phpcpd:
     minLines: 5
     minTokens: 70
 
+phpmetrics:
+    config: null
+
 phpstan:
     level: 0
     # https://github.com/phpstan/phpstan#configuration

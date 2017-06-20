@@ -317,6 +317,10 @@ trait CodeAnalysisTasks
             $args['offline'] = '';
             $args['report-html'] = escapePath($tool->htmlReport);
             $args['report-xml'] = $this->options->toFile('phpmetrics.xml');
+            $configFile = $this->config->value('phpmetrics.config');
+            if ($configFile) {
+                $args['config'] = $configFile;
+            }
         } else {
             $args['report-cli'] = '';
         }
