@@ -123,7 +123,7 @@ qa/phpqa
 ### Docker
 
 ```bash
-docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoreDirs vendor,build,migrations,test
+docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoredDirs vendor,build,migrations,test
 ```
 
 For full documentation please visit [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/).
