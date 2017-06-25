@@ -21,6 +21,8 @@ class NonParallelExecV1 extends ParallelExec
     public function run()
     {
         foreach ($this->processes as $process) {
+            $process->setIdleTimeout($this->idleTimeout);
+            $process->setTimeout($this->timeout);
             $this->printTaskInfo($process->getCommandLine());
         }
 
