@@ -1,0 +1,39 @@
+<h1>phpunit</h1>
+<pre id="cli">PHPUnit 4.8.21 by Sebastian Bergmann and contributors.
+
+..E............................................
+
+Time: 629 ms, Memory: 6.00Mb
+
+There was 1 error:
+
+1) Edge\QA\ConfigTest::testOverrideDefaultConfig
+Hamcrest\AssertionError: Expected: is &lt;5&gt;
+     but: was &lt;2&gt;
+
+/mnt/DATA/www/_my_classes/qa-cli/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:115
+/mnt/DATA/www/_my_classes/qa-cli/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:52
+/mnt/DATA/www/_my_classes/qa-cli/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php:28
+/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php:37
+
+FAILURES!
+Tests: 47, Assertions: 2, Errors: 1.
+</pre> 
+ 
+<style> 
+    html, body { 
+        margin: 0; 
+        padding: 0; 
+    } 
+    pre { 
+        background: black; 
+        color: white; 
+        padding: 1em; 
+        margin: 0; 
+    } 
+</style> 
+<script src="https://edgedesigncz.github.io/phpqa/assets/ansi_up.js" type="text/javascript"></script> 
+<script type="text/javascript"> 
+var code = document.getElementById("cli"); 
+code.innerHTML = ansi_up.ansi_to_html(code.innerHTML); 
+</script>

@@ -1,6 +1,14 @@
 
 # Changelog
 
+## v1.12.2
+
+* [#72](https://github.com/EdgedesignCZ/phpqa/pull/72) Support phploc v4.X (drop `--progress` option)
+
+## v1.12.1
+
+* [#69](https://github.com/EdgedesignCZ/phpqa/issues/69) Composer - fix version constrains (robo, twig), add php-cs-fixer to suggested tools
+
 ## v1.12.0
 
 * **Optional tools**

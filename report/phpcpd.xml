@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd-cpd>
   <duplication lines="9" tokens="19">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="23"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="33"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="24"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="34"/>
     <codefragment>        'phpcs' =&gt; array(
             'optionSeparator' =&gt; '=',
             'xml' =&gt; ['checkstyle.xml'],
@@ -16,40 +16,38 @@
   </duplication>
   <duplication lines="4" tokens="11">
     <file path="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" line="11"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="125"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="132"/>
     <codefragment>        'buildDir' =&gt; 'build/',
         'ignoredDirs' =&gt; 'vendor',
         'ignoredFiles' =&gt; '',
         'tools' =&gt; 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
 </codefragment>
   </duplication>
-  <duplication lines="4" tokens="18">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="208"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="221"/>
-    <codefragment>        $args = array(
-            'progress' =&gt; '',
-            $this-&gt;options-&gt;ignore-&gt;bergmann(),
+  <duplication lines="2" tokens="13">
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="216"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="229"/>
+    <codefragment>            $this-&gt;options-&gt;ignore-&gt;bergmann(),
             $this-&gt;options-&gt;getAnalyzedDirs(' '),
 </codefragment>
   </duplication>
   <duplication lines="3" tokens="12">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="211"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="257"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="217"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="263"/>
     <codefragment>            $this-&gt;options-&gt;getAnalyzedDirs(' '),
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
 </codefragment>
   </duplication>
   <duplication lines="2" tokens="14">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="316"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="333"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="322"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="343"/>
     <codefragment>        if ($this-&gt;options-&gt;isSavedToFiles) {
             $tool-&gt;htmlReport = $this-&gt;options-&gt;rawFile('phpmetrics.html');
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="16">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="306"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="401"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="312"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="411"/>
     <codefragment>        $analyzedDirs = $this-&gt;options-&gt;getAnalyzedDirs();
         $analyzedDir = reset($analyzedDirs);
         if (count($analyzedDirs) &gt; 1) {
@@ -58,7 +56,7 @@
   </duplication>
   <duplication lines="4" tokens="10">
     <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV0.php" line="33"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php" line="59"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php" line="60"/>
     <codefragment>        $this-&gt;printTaskInfo(
             "Output for &lt;fg=white;bg=magenta&gt; " . $process-&gt;getCommandLine()." &lt;/fg=white;bg=magenta&gt;"
         );

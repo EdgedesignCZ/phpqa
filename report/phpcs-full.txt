@@ -1,9 +1,9 @@
 
-FILE: /mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php
+FILE: /mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php
 ----------------------------------------------------------------------
 FOUND 1 ERROR AFFECTING 1 LINE
 ----------------------------------------------------------------------
- 25 | ERROR | [x] Each PHP statement must be on a line by itself
+ 23 | ERROR | [x] Each PHP statement must be on a line by itself
 ----------------------------------------------------------------------
 PHPCBF CAN FIX THE 1 MARKED SNIFF VIOLATIONS AUTOMATICALLY
 ----------------------------------------------------------------------

@@ -1,0 +1,35 @@
+Edge\QA\Config
+ [x] Load default config
+ [x] Build absolute path
+ [ ] Override default config
+ [x] Ignore non existent user config
+ [x] Throw exception when file does not exist
+
+Edge\QA\IgnoredPaths
+ [x] No option when nothing is ignored
+ [x] Should ignore directories
+
+Edge\QA\Options
+ [x] Escape paths
+ [x] Ignore pdepend in cli output
+ [x] Ignore not installed tool
+ [x] Load directory with custom config
+ [x] Build output
+ [x] Execute
+ [x] Build root path
+ [x] Load allowed errors count
+
+Edge\QA\Report
+ [x] Convert twig to html
+ [x] Convert xml to html
+ [x] Ignore missing xml documents
+
+Edge\QA\RunningTool
+ [x] Build option with defined separator
+ [x] Mark success when x path is not defined
+ [x] Mark failure when xml file does not exist
+ [x] Compare allowed count with errors count from xml
+ [x] Runtime selection of error xpath
+ [x] Analyze exit code in cli mode
+ [x] Create unique id for user report
+

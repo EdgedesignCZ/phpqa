@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PHP CS Fixer" tests="18" assertions="47" failures="47" errors="0" time="1.432">
+  <testsuite name="PHP CS Fixer" tests="18" assertions="47" failures="47" errors="0" time="1.659">
     <testcase name="/tests/IgnoredPathsTest" file="/tests/IgnoredPathsTest.php" assertions="2">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
@@ -25,10 +25,9 @@
 * single_quote
 * concat_space]]></failure>
     </testcase>
-    <testcase name="/tests/OptionsTest" file="/tests/OptionsTest.php" assertions="3">
+    <testcase name="/tests/OptionsTest" file="/tests/OptionsTest.php" assertions="2">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
-* no_empty_statement
 * trailing_comma_in_multiline_array
 * concat_space]]></failure>
     </testcase>
@@ -75,9 +74,10 @@
 * single_quote
 * concat_space]]></failure>
     </testcase>
-    <testcase name="/src/Task/NonParallelExecV1" file="/src/Task/NonParallelExecV1.php" assertions="3">
+    <testcase name="/src/Task/NonParallelExecV1" file="/src/Task/NonParallelExecV1.php" assertions="4">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
+* no_empty_statement
 * single_quote
 * concat_space
 * phpdoc_summary]]></failure>

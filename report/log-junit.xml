@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="Project Test Suite" tests="47" assertions="2" failures="0" errors="1" time="0.237160">
+    <testsuite name="Edge\QA\ConfigTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php" tests="5" assertions="2" failures="0" errors="1" time="0.071395">
+      <testcase name="testLoadDefaultConfig" class="Edge\QA\ConfigTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php" line="7" assertions="0" time="0.044401"/>
+      <testcase name="testBuildAbsolutePath" class="Edge\QA\ConfigTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php" line="27" assertions="0" time="0.005868"/>
+      <testcase name="testOverrideDefaultConfig" class="Edge\QA\ConfigTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php" line="33" assertions="0" time="0.018922">
+        <error type="PHPUnit_Framework_ExceptionWrapper">Edge\QA\ConfigTest::testOverrideDefaultConfig
+Hamcrest\AssertionError: Expected: is &lt;5&gt;
+     but: was &lt;2&gt;
+
+/mnt/DATA/www/_my_classes/qa-cli/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:115
+/mnt/DATA/www/_my_classes/qa-cli/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:52
+/mnt/DATA/www/_my_classes/qa-cli/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php:28
+/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php:37
+</error>
+      </testcase>
+      <testcase name="testIgnoreNonExistentUserConfig" class="Edge\QA\ConfigTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php" line="43" assertions="1" time="0.001356"/>
+      <testcase name="testThrowExceptionWhenFileDoesNotExist" class="Edge\QA\ConfigTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php" line="51" assertions="1" time="0.000848"/>
+    </testsuite>
+    <testsuite name="Edge\QA\IgnoredPathsTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/IgnoredPathsTest.php" tests="14" assertions="0" failures="0" errors="0" time="0.001069">
+      <testsuite name="Edge\QA\IgnoredPathsTest::testNoOptionWhenNothingIsIgnored" tests="7" assertions="0" failures="0" errors="0" time="0.000724">
+        <testcase name="testNoOptionWhenNothingIsIgnored with data set #0" assertions="0" time="0.000488"/>
+        <testcase name="testNoOptionWhenNothingIsIgnored with data set #1" assertions="0" time="0.000046"/>
+        <testcase name="testNoOptionWhenNothingIsIgnored with data set #2" assertions="0" time="0.000040"/>
+        <testcase name="testNoOptionWhenNothingIsIgnored with data set #3" assertions="0" time="0.000040"/>
+        <testcase name="testNoOptionWhenNothingIsIgnored with data set #4" assertions="0" time="0.000040"/>
+        <testcase name="testNoOptionWhenNothingIsIgnored with data set #5" assertions="0" time="0.000036"/>
+        <testcase name="testNoOptionWhenNothingIsIgnored with data set #6" assertions="0" time="0.000034"/>
+      </testsuite>
+      <testsuite name="Edge\QA\IgnoredPathsTest::testShouldIgnoreDirectories" tests="7" assertions="0" failures="0" errors="0" time="0.000345">
+        <testcase name="testShouldIgnoreDirectories with data set #0" assertions="0" time="0.000061"/>
+        <testcase name="testShouldIgnoreDirectories with data set #1" assertions="0" time="0.000053"/>
+        <testcase name="testShouldIgnoreDirectories with data set #2" assertions="0" time="0.000049"/>
+        <testcase name="testShouldIgnoreDirectories with data set #3" assertions="0" time="0.000047"/>
+        <testcase name="testShouldIgnoreDirectories with data set #4" assertions="0" time="0.000046"/>
+        <testcase name="testShouldIgnoreDirectories with data set #5" assertions="0" time="0.000046"/>
+        <testcase name="testShouldIgnoreDirectories with data set #6" assertions="0" time="0.000044"/>
+      </testsuite>
+    </testsuite>
+    <testsuite name="Edge\QA\OptionsTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" tests="13" assertions="0" failures="0" errors="0" time="0.002383">
+      <testcase name="testEscapePaths" class="Edge\QA\OptionsTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" line="35" assertions="0" time="0.000768"/>
+      <testcase name="testIgnorePdependInCliOutput" class="Edge\QA\OptionsTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" line="43" assertions="0" time="0.000771"/>
+      <testcase name="testIgnoreNotInstalledTool" class="Edge\QA\OptionsTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" line="50" assertions="0" time="0.000237"/>
+      <testsuite name="Edge\QA\OptionsTest::testLoadDirectoryWithCustomConfig" tests="2" assertions="0" failures="0" errors="0" time="0.000121">
+        <testcase name="testLoadDirectoryWithCustomConfig with data set &quot;cwd when config is not defined&quot;" assertions="0" time="0.000067"/>
+        <testcase name="testLoadDirectoryWithCustomConfig with data set &quot;use passed config (relative to cwd)&quot;" assertions="0" time="0.000054"/>
+      </testsuite>
+      <testsuite name="Edge\QA\OptionsTest::testBuildOutput" tests="2" assertions="0" failures="0" errors="0" time="0.000118">
+        <testcase name="testBuildOutput with data set &quot;ignore verbose and report in CLI output&quot;" assertions="0" time="0.000061"/>
+        <testcase name="testBuildOutput with data set &quot;respect verbose mode and report in FILE output&quot;" assertions="0" time="0.000057"/>
+      </testsuite>
+      <testsuite name="Edge\QA\OptionsTest::testExecute" tests="2" assertions="0" failures="0" errors="0" time="0.000100">
+        <testcase name="testExecute with data set &quot;parallel executaion is default mode&quot;" assertions="0" time="0.000052"/>
+        <testcase name="testExecute with data set &quot;dont use parallelism if execution is other word&quot;" assertions="0" time="0.000048"/>
+      </testsuite>
+      <testsuite name="Edge\QA\OptionsTest::testBuildRootPath" tests="3" assertions="0" failures="0" errors="0" time="0.000201">
+        <testcase name="testBuildRootPath with data set &quot;current dir + analyzed dir + slash&quot;" assertions="0" time="0.000071"/>
+        <testcase name="testBuildRootPath with data set &quot;find common root from multiple dirs&quot;" assertions="0" time="0.000071"/>
+        <testcase name="testBuildRootPath with data set &quot;no path when dir is invalid&quot;" assertions="0" time="0.000059"/>
+      </testsuite>
+      <testcase name="testLoadAllowedErrorsCount" class="Edge\QA\OptionsTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" line="132" assertions="0" time="0.000067"/>
+    </testsuite>
+    <testsuite name="Edge\QA\ReportTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/Report/ReportTest.php" tests="4" assertions="0" failures="0" errors="0" time="0.120568">
+      <testcase name="testConvertTwigToHtml" class="Edge\QA\ReportTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/Report/ReportTest.php" line="16" assertions="0" time="0.105564"/>
+      <testsuite name="Edge\QA\ReportTest::testConvertXmlToHtml" tests="2" assertions="0" failures="0" errors="0" time="0.014951">
+        <testcase name="testConvertXmlToHtml with data set &quot;create html&quot;" assertions="0" time="0.014611"/>
+        <testcase name="testConvertXmlToHtml with data set &quot;create empty file if something went south&quot;" assertions="0" time="0.000340"/>
+      </testsuite>
+      <testcase name="testIgnoreMissingXmlDocuments" class="Edge\QA\ReportTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/Report/ReportTest.php" line="37" assertions="0" time="0.000053"/>
+    </testsuite>
+    <testsuite name="Edge\QA\RunningToolTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/RunningToolTest.php" tests="11" assertions="0" failures="0" errors="0" time="0.041745">
+      <testcase name="testBuildOptionWithDefinedSeparator" class="Edge\QA\RunningToolTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/RunningToolTest.php" line="9" assertions="0" time="0.000075"/>
+      <testcase name="testMarkSuccessWhenXPathIsNotDefined" class="Edge\QA\RunningToolTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/RunningToolTest.php" line="17" assertions="0" time="0.000041"/>
+      <testcase name="testMarkFailureWhenXmlFileDoesNotExist" class="Edge\QA\RunningToolTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/RunningToolTest.php" line="23" assertions="0" time="0.000047"/>
+      <testsuite name="Edge\QA\RunningToolTest::testCompareAllowedCountWithErrorsCountFromXml" tests="3" assertions="0" failures="0" errors="0" time="0.000381">
+        <testcase name="testCompareAllowedCountWithErrorsCountFromXml with data set &quot;success when allowed errors are not defined&quot;" assertions="0" time="0.000157"/>
+        <testcase name="testCompareAllowedCountWithErrorsCountFromXml with data set &quot;success when errors count &lt;= allowed count&quot;" assertions="0" time="0.000109"/>
+        <testcase name="testCompareAllowedCountWithErrorsCountFromXml with data set &quot;failure when errors count &gt; allowed count&quot;" assertions="0" time="0.000115"/>
+      </testsuite>
+      <testcase name="testRuntimeSelectionOfErrorXpath" class="Edge\QA\RunningToolTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/RunningToolTest.php" line="52" assertions="0" time="0.000127"/>
+      <testsuite name="Edge\QA\RunningToolTest::testAnalyzeExitCodeInCliMode" tests="3" assertions="0" failures="0" errors="0" time="0.041012">
+        <testcase name="testAnalyzeExitCodeInCliMode with data set &quot;success when exit code = 0&quot;" assertions="0" time="0.034522"/>
+        <testcase name="testAnalyzeExitCodeInCliMode with data set &quot;success when exit code &lt;= allowed code&quot;" assertions="0" time="0.001179"/>
+        <testcase name="testAnalyzeExitCodeInCliMode with data set &quot;failure when errors count &gt; allowed count but errors count is always one&quot;" assertions="0" time="0.005311"/>
+      </testsuite>
+      <testcase name="testCreateUniqueIdForUserReport" class="Edge\QA\RunningToolTest" file="/mnt/DATA/www/_my_classes/qa-cli/tests/RunningToolTest.php" line="87" assertions="0" time="0.000062"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
