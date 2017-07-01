@@ -81,7 +81,7 @@ trait CodeAnalysisTasks
         ),
         'phpunit' => array(
             'optionSeparator' => '=',
-            'internalClass' => 'PHPUnit_Framework_TestCase',
+            'internalClass' => ['PHPUnit_Framework_TestCase', 'PHPUnit\Framework\TestCase'],
             'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
             'composer' => 'phpunit/phpunit',
         ),
