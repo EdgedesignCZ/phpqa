@@ -79,6 +79,12 @@ trait CodeAnalysisTasks
             'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
             'composer' => 'phpstan/phpstan',
         ),
+        'phpunit' => array(
+            'optionSeparator' => '=',
+            'internalClass' => 'PHPUnit_Framework_TestCase',
+            'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
+            'composer' => 'phpunit/phpunit',
+        ),
     );
     /** @var array [tool => oldVersion] */
     private $toolsWithDifferentVersions = array(
@@ -428,6 +434,30 @@ trait CodeAnalysisTasks
         }
         if ($this->config->value('php-cs-fixer.isDryRun')) {
             $args['dry-run'] = '';
+        }
+        return $args;
+    }
+
+    private function phpunit(RunningTool $tool)
+    {
+        $args = array();
+        $configFile = $this->config->value('phpunit.config');
+        if ($configFile) {
+            $args['configuration'] = $configFile;
+        }
+        if ($this->options->isSavedToFiles) {
+            $extensions = [
+                'junit' => 'xml', 'text' => 'txt', 'tap' => 'text',
+                'clover' => 'xml', 'crap4j' => 'xml',
+            ];
+            foreach ($this->config->value('phpunit.reports.file') as $report => $formats) {
+                foreach ($formats as $format) {
+                    $extension = array_key_exists($format, $extensions) ? $extensions[$format] : $format;
+                    $filename = "{$report}-{$format}.{$extension}";
+                    $args["{$report}-{$format}"] = $this->options->toFile($filename);
+                    $tool->userReports["{$report}.{$format}"] = $this->options->rawFile($filename);
+                }
+            }
         }
         return $args;
     }

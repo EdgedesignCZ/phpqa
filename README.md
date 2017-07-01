@@ -54,6 +54,7 @@ Tool | PHP | Supported since | Description | Status |
 [php-cs-fixer](http://cs.sensiolabs.org/) | [`>= 5.3`](https://github.com/EdgedesignCZ/phpqa/pull/66#discussion_r115206573) | `1.12` | Automatically detect and fix PHP coding standards issues | stable |
 [parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files | stable |
 [phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it | _experimental_ ([`v0.7`](https://github.com/EdgedesignCZ/phpqa/pull/43)) |
+[phpunit](https://github.com/phpunit/phpunit) | `>= 5.3` | `1.13` | The PHP Unit Testing framework | _experimental_ |
 
 _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
 
@@ -208,6 +209,8 @@ Tool | Settings | Default Value | Your value
 [phpmd](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset
 [phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens | 
 [phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file | Level 0, `%currentWorkingDirectory%/phpstan.neon` | Take a look at [phpqa config in tests/.travis](/tests/.travis/) |
+[phpunit.config](https://phpunit.de/manual/current/en/organizing-tests.html#organizing-tests.xml-configuration) | PHPUnit configuration, `analyzedDirs` and `ignoredDirs` are not used, you have to specify test suites in XML file | `null` | Path to `phpunit.xml` file
+[phpunit.reports](https://phpunit.de/manual/current/en/textui.html) | Report types  | no report | List of reports and formats, corresponds with CLI option, e.g. `--log-junit` is `log: [junit]` in `.phpqa.yml` |
 
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:

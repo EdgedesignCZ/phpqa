@@ -12,3 +12,10 @@ phpstan:
     level: 7
     # https://github.com/phpstan/phpstan#configuration
     standard: phpstan.neon
+
+phpunit:
+    config: phpunit.xml
+    reports:
+        file:
+            log: [junit]
+            testdox: [html, text]
