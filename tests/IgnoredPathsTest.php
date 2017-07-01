@@ -4,9 +4,12 @@ namespace Edge\QA;
 
 class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
 {
+    private $operatingSystem = 'Linux';
+
     private function ignore($tool, $dirs, $files)
     {
         $paths = new IgnoredPaths($dirs, $files);
+        $paths->setOS($this->operatingSystem);
         return $paths->$tool();
     }
 
@@ -17,11 +20,17 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @dataProvider provideTools */
-    public function testShouldIgnoreDirectories($tool, $expectedOptions)
+    public function testIgnoreDirectoriesAndFiles($tool, $expectedOptions, $os = null)
     {
-        assertThat($this->ignore($tool, 'bin,vendor', 'autoload.php,RoboFile.php'), is($expectedOptions['both']));
-        assertThat($this->ignore($tool, 'bin,vendor', ''), is($expectedOptions['dirs']));
-        assertThat($this->ignore($tool, '', 'autoload.php,RoboFile.php'), is($expectedOptions['files']));
+        $this->operatingSystem = $os ?: $this->operatingSystem;
+        $this->assertEquals(
+            $expectedOptions,
+            [
+                'both' => $this->ignore($tool, 'bin,vendor', 'autoload.php,RoboFile.php'),
+                'dirs' => $this->ignore($tool, 'bin,vendor', ''),
+                'files' => $this->ignore($tool, '', 'autoload.php,RoboFile.php'),
+            ]
+        );
     }
 
     public function provideTools()
@@ -50,6 +59,24 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
                     'dirs' => ' --exclude /bin/,/vendor/',
                     'files' => ' --exclude /autoload.php,/RoboFile.php'
                 )
+            ),
+            'pdepend + windows' => array(
+                'pdepend',
+                array(
+                    'both' => ' --ignore=bin\*,vendor\*,autoload.php,RoboFile.php',
+                    'dirs' => ' --ignore=bin\*,vendor\*',
+                    'files' => ' --ignore=autoload.php,RoboFile.php'
+                ),
+                'Windows'
+            ),
+            'phpmd + windows' => array(
+                'phpmd',
+                array(
+                    'both' => ' --exclude=bin\*,vendor\*,autoload.php,RoboFile.php',
+                    'dirs' => ' --exclude=bin\*,vendor\*',
+                    'files' => ' --exclude=autoload.php,RoboFile.php'
+                ),
+                'WIN32'
             ),
             array(
                 'phpmetrics',

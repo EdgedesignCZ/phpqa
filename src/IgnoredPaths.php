@@ -7,12 +7,19 @@ class IgnoredPaths
     private $ignoreDirs;
     private $ignoreFiles;
     private $ignoreBoth;
+    private $isWindows;
 
     public function __construct($ignoredDirs, $ignoredFiles)
     {
         $this->ignoreDirs = $this->csvToArray($ignoredDirs);
         $this->ignoreFiles = $this->csvToArray($ignoredFiles);
         $this->ignoreBoth = array_merge($this->ignoreDirs, $this->ignoreFiles);
+        $this->setOS(PHP_OS);
+    }
+
+    public function setOS($os)
+    {
+        $this->isWindows = strtoupper(substr($os, 0, 3)) == 'WIN';
     }
 
     private function csvToArray($csv)
@@ -27,12 +34,23 @@ class IgnoredPaths
 
     public function pdepend()
     {
+        if ($this->isWindows) {
+            return $this->pdependWindowsFilter('ignore');
+        }
         return $this->ignore(' --ignore=/', '/,/', '/', ',/');
     }
 
     public function phpmd()
     {
+        if ($this->isWindows) {
+            return $this->pdependWindowsFilter('exclude');
+        }
         return $this->ignore(" --exclude /", '/,/', '/', ',/');
+    }
+
+    private function pdependWindowsFilter($option)
+    {
+        return $this->ignore(" --{$option}=", '\*,', '\*', ',');
     }
 
     public function phpmetrics()
