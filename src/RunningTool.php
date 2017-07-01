@@ -6,7 +6,7 @@ class RunningTool
 {
     private $tool;
     public $binary;
-    private $internalClass;
+    private $internalClasses;
     private $optionSeparator;
     private $outputMode;
 
@@ -33,7 +33,7 @@ class RunningTool
         ];
         $this->tool = $tool;
         $this->binary = $config['binary'];
-        $this->internalClass = $config['internalClass'];
+        $this->internalClasses = $config['internalClass'] ? ((array) $config['internalClass']) : array();
         $this->optionSeparator = $config['optionSeparator'];
         $this->xmlFiles = $config['xml'];
         $this->errorsXPath = is_array($config['errorsXPath'])
@@ -44,7 +44,15 @@ class RunningTool
 
     public function isInstalled()
     {
-        return !$this->internalClass || class_exists($this->internalClass);
+        if (!$this->internalClasses) {
+            return true;
+        }
+        foreach ($this->internalClasses as $class) {
+            if (class_exists($class)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     public function hasOutput($outputMode)
