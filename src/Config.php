@@ -52,6 +52,16 @@ class Config
         );
     }
 
+    public function csv($path)
+    {
+        return $this->get(
+            $path,
+            function ($value) {
+                return (is_array($value) ? implode(',', $value) : $value);
+            }
+        );
+    }
+
     private function get($path, $extractor)
     {
         foreach ($this->configs as $dir => $config) {

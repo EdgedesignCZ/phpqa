@@ -45,6 +45,10 @@ phpunit:
             # testdox: [html, text]
             # coverage: [html, clover, crap4j, php, text, xml] # requires XDebug extension
 
+# Php file extensions to parse.
+extensions:
+    - php
+
 # paths are relative to .phpqa.yml, so don't copy-paste this section if you don't have custom templates
 report:
     phploc: app/report/phploc.xsl
