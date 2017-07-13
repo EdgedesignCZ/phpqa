@@ -56,6 +56,14 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         $config->path('phpcs.standard');
     }
 
+    public function testConfigCsvString()
+    {
+        $config = new Config();
+        $config->loadCustomConfig(__DIR__);
+        $extensions = $config->csv('extensions');
+        assertThat($extensions, equalTo('php,inc,module'));
+    }
+
     private function shouldStopPhpqa()
     {
         $this->setExpectedException('Exception');

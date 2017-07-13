@@ -136,7 +136,7 @@ trait CodeAnalysisTasks
             'output' => 'file',
             'config' => '',
             'report' => false,
-            'execution' => 'parallel',
+            'execution' => 'parallel'
         )
     ) {
         $this->loadOptions($opts);
@@ -257,10 +257,10 @@ trait CodeAnalysisTasks
         }
         $args = array(
             '-p',
-            'extensions' => 'php',
             'standard' => $standard,
             $this->options->ignore->phpcs(),
             $this->options->getAnalyzedDirs(' '),
+            'extensions' => $this->config->csv('extensions')
         );
         if ($this->options->isSavedToFiles) {
             $reports = ['checkstyle' => 'checkstyle.xml'] + $this->config->value('phpcs.reports.file');
@@ -287,8 +287,9 @@ trait CodeAnalysisTasks
             'dependency-xml' => $this->options->toFile('pdepend-dependencies.xml'),
             'jdepend-chart' => $this->options->toFile('pdepend-jdepend.svg'),
             'overview-pyramid' => $this->options->toFile('pdepend-pyramid.svg'),
+            'suffix' => $this->config->csv('extensions'),
             $this->options->ignore->pdepend(),
-            $this->options->getAnalyzedDirs(','),
+            $this->options->getAnalyzedDirs(',')
         );
     }
 
@@ -298,8 +299,8 @@ trait CodeAnalysisTasks
             $this->options->getAnalyzedDirs(','),
             $this->options->isSavedToFiles ? 'xml' : 'text',
             escapePath($this->config->path('phpmd.standard')),
-            'suffixes' => 'php',
-            $this->options->ignore->phpmd()
+            $this->options->ignore->phpmd(),
+            'suffixes' => $this->config->csv('extensions')
         );
         if ($this->options->isSavedToFiles) {
             $args['reportfile'] = $tool->getEscapedXmlFile();
@@ -316,8 +317,8 @@ trait CodeAnalysisTasks
         }
         $args = array(
             $analyzedDir,
-            'extensions' => 'php',
-            $this->options->ignore->phpmetrics()
+            $this->options->ignore->phpmetrics(),
+            'extensions' => $this->config->csv('extensions')
         );
         if ($this->options->isSavedToFiles) {
             $tool->htmlReport = $this->options->rawFile('phpmetrics.html');
@@ -338,7 +339,7 @@ trait CodeAnalysisTasks
     {
         $args = array(
             $this->options->ignore->phpmetrics2(),
-            'extensions' => 'php',
+            'extensions' => $this->config->csv('extensions')
         );
         if ($this->options->isSavedToFiles) {
             $tool->htmlReport = $this->options->rawFile('phpmetrics/index.html');

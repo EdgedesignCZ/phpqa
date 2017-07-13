@@ -21,7 +21,7 @@ If you ever tried to get ignoring directories to work then you know what I mean.
 CLI tools are cool because you can analyze any directory or file.
 Unfortunately [Jenkins](http://jenkins-php.org/automation.html),
 [Travis](https://github.com/libis/plugin-Mailer/blob/095cc1154fd6d7beb3be4425329868ecfa2043d9/.travis.yml),
-[Scrutiziner](https://github.com/antonbabenko/imagepush2/blob/db88b1c65a34250ba98e01d584d72421aedfaeac/.scrutinizer.yml) 
+[Scrutiziner](https://github.com/antonbabenko/imagepush2/blob/db88b1c65a34250ba98e01d584d72421aedfaeac/.scrutinizer.yml)
 needs special configuration file. What if you want to analyze every bundle in your Symfony app?
 Will you create e.g. Jenkins project/task for each bundle?
 
@@ -42,11 +42,11 @@ Tool| Description
 [phpmd](https://github.com/phpmd/phpmd) | Scan PHP project for messy code |
 [phpmetrics](https://github.com/Halleck45/PhpMetrics) | Static analysis tool for PHP |
 
-##### Suggested tools 
+##### Suggested tools
 
 Newly added tools aren't preinstalled. You have to install relevant composer packages if
-you want to use them. 
-Stable tool is executed if composer package is installed. 
+you want to use them.
+Stable tool is executed if composer package is installed.
 Experimental tool is executed only if the tool is specified in `--tools`.
 
 Tool | PHP | Supported since | Description | Status |
@@ -107,10 +107,10 @@ Install at least version `~3.0` of `sebastian/phpcpd`, otherwise you'll get erro
 ##### Fake global installation in local project
 
 Do you have problems with dependencies and you can't install phpqa globally?
-Install phpqa in [subdirectory](#circleci---artifacts--global-installation). 
+Install phpqa in [subdirectory](#circleci---artifacts--global-installation).
 
 ```bash
-#!/bin/sh 
+#!/bin/sh
 
 if [ ! -f qa/phpqa ];
 then
@@ -199,6 +199,7 @@ Override tools' settings with [`.phpqa.yml`](/.phpqa.yml):
 
 Tool | Settings | Default Value | Your value
 ---- | -------- | ------------- | ----------- |
+extensions | PHP File extensions | php | Name of php file to parse, you can specify it like a string `php,inc,modules` or like a yaml array.
 [phpcs.standard](https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard) | Coding standard | PSR2 | Name of existing standard (`PEAR`, `PHPCS`, `PSR1`, `PSR2`, `Squiz`,  `Zend`), or path to your coding standard
 [phpcs.ignoreWarnings](https://github.com/EdgedesignCZ/phpqa/issues/53) | If number of allowed errors is compared with warnings+errors, or just errors from `checkstyle.xml` | `false` | Boolean value
 [phpcs.reports](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) | Report types | [`full`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) report in [cli mode](#output-modes), [`checkstyle`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-a-checkstyle-report) in [file mode](#output-modes) | Predefined [report types](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) or [custom reports](https://github.com/wikidi/codesniffer#examples)
@@ -207,7 +208,7 @@ Tool | Settings | Default Value | Your value
 [php-cs-fixer.config](http://cs.sensiolabs.org/#usage) | Load configuration from [file](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/.php_cs.dist) | `null` | Path to `.phpcs` file
 [php-cs-fixer.isDryRun](http://cs.sensiolabs.org/#usage) | If code is just analyzed or fixers are applied  | `true` | Boolean value
 [phpmd](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset
-[phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens | 
+[phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens |
 [phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file | Level 0, `%currentWorkingDirectory%/phpstan.neon` | Take a look at [phpqa config in tests/.travis](/tests/.travis/) |
 [phpunit.config](https://phpunit.de/manual/current/en/organizing-tests.html#organizing-tests.xml-configuration) | PHPUnit configuration, `analyzedDirs` and `ignoredDirs` are not used, you have to specify test suites in XML file | `null` | Path to `phpunit.xml` file
 [phpunit.reports](https://phpunit.de/manual/current/en/textui.html) | Report types  | no report | List of reports and formats, corresponds with CLI option, e.g. `--log-junit` is `log: [junit]` in `.phpqa.yml` |
@@ -277,7 +278,7 @@ We use [Jenkins-CI](http://jenkins-php.org/) in Edgedesign. Below you can find e
 
 ### Project with one directory
 
-Typically in Symfony project you have project with `src` directory with all the code and tests. So you don't need ignore vendors, web directory etc. 
+Typically in Symfony project you have project with `src` directory with all the code and tests. So you don't need ignore vendors, web directory etc.
 
 **Phing - `build.xml`**
 
@@ -373,7 +374,7 @@ test:
 
 ## Contributing
 
-Contributions from others would be very much appreciated! Send 
+Contributions from others would be very much appreciated! Send
 [pull request](https://github.com/EdgedesignCZ/phpqa/pulls)/[issue](https://github.com/EdgedesignCZ/phpqa/issues). Thanks!
 
 ## License

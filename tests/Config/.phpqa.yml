@@ -8,3 +8,6 @@ phpmd:
 
 # should ignore empty values
 phpcpd:
+
+# Php file extensions to parse.
+extensions: php,inc,module
