@@ -281,7 +281,7 @@ trait CodeAnalysisTasks
 
     private function pdepend()
     {
-        $opts = array(
+        return array(
             'jdepend-xml' => $this->options->toFile('pdepend-jdepend.xml'),
             'summary-xml' => $this->options->toFile('pdepend-summary.xml'),
             'dependency-xml' => $this->options->toFile('pdepend-dependencies.xml'),
@@ -291,7 +291,6 @@ trait CodeAnalysisTasks
             $this->options->ignore->pdepend(),
             $this->options->getAnalyzedDirs(',')
         );
-        return $opts;
     }
 
     private function phpmd(RunningTool $tool)

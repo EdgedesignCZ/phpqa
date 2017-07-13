@@ -2,8 +2,6 @@
 
 namespace Edge\QA;
 
-use Symfony\Component\Yaml\Yaml;
-
 class ConfigTest extends \PHPUnit_Framework_TestCase
 {
     public function testLoadDefaultConfig()
@@ -58,24 +56,13 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         $config->path('phpcs.standard');
     }
 
-    public function testConfigCsvArray()
-    {
-        $config = new Config();
-        $yaml = Yaml::parse(__DIR__ . '/.phpqa.yml');
-        $config->loadCustomConfig(__DIR__);
-        $extensions = $config->csv('extensions');
-        $expectedString = implode(',', $yaml['extensions']);
-        assertThat($extensions, equalTo($expectedString));
-    }
-
     public function testConfigCsvString()
     {
         $config = new Config();
-        $yaml = Yaml::parse(__DIR__ . '/data/custom-extensions-string/.phpqa.yml');
         $config->loadCustomConfig(__DIR__ . '/data/custom-extensions-string');
         $extensions = $config->csv('extensions');
         assertThat($extensions, isNonEmptyString());
-        assertThat($extensions, equalTo($yaml['extensions']));
+        assertThat($extensions, equalTo('php,inc,module'));
     }
 
     private function shouldStopPhpqa()

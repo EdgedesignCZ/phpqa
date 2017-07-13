@@ -10,5 +10,4 @@ phpmd:
 phpcpd:
 
 # Php file extensions to parse.
-extensions:
-    - php
+extensions: php,inc,module
