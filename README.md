@@ -199,6 +199,7 @@ Override tools' settings with [`.phpqa.yml`](/.phpqa.yml):
 
 Tool | Settings | Default Value | Your value
 ---- | -------- | ------------- | ----------- |
+extensions | PHP File extensions | php | Name of php file to parse, you can specify it like a string `php,inc,modules` or like a yaml array.
 [phpcs.standard](https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard) | Coding standard | PSR2 | Name of existing standard (`PEAR`, `PHPCS`, `PSR1`, `PSR2`, `Squiz`,  `Zend`), or path to your coding standard
 [phpcs.ignoreWarnings](https://github.com/EdgedesignCZ/phpqa/issues/53) | If number of allowed errors is compared with warnings+errors, or just errors from `checkstyle.xml` | `false` | Boolean value
 [phpcs.reports](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) | Report types | [`full`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) report in [cli mode](#output-modes), [`checkstyle`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-a-checkstyle-report) in [file mode](#output-modes) | Predefined [report types](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) or [custom reports](https://github.com/wikidi/codesniffer#examples)

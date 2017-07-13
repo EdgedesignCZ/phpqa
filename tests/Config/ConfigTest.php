@@ -59,9 +59,8 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
     public function testConfigCsvString()
     {
         $config = new Config();
-        $config->loadCustomConfig(__DIR__ . '/data/custom-extensions-string');
+        $config->loadCustomConfig(__DIR__);
         $extensions = $config->csv('extensions');
-        assertThat($extensions, isNonEmptyString());
         assertThat($extensions, equalTo('php,inc,module'));
     }
 
