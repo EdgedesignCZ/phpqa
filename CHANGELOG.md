@@ -1,6 +1,19 @@
 
 # Changelog
 
+## v1.13.0
+
+* **Optional tools**
+    * [#80](https://github.com/EdgedesignCZ/phpqa/pull/80) phpunit (experimental)
+* [#72](https://github.com/EdgedesignCZ/phpqa/pull/72) Support phploc v4.X (drop `--progress` option)
+* [#74](https://github.com/EdgedesignCZ/phpqa/pull/74) Support phpmetrics v1 configuration, evaluate exit code
+* [#83](https://github.com/EdgedesignCZ/phpqa/pull/83) Make php extensions configurable in `.phpqa.yml`
+* _Bugfixes_
+    * [#75](https://github.com/EdgedesignCZ/phpqa/issues/75) Fix ignoring phpmd/pdepend directories on Windows
+    * [#76](https://github.com/EdgedesignCZ/phpqa/issues/76) Fix escaping binary path
+    * [#77](https://github.com/EdgedesignCZ/phpqa/issues/77) Don't use default 60s timeout is non-parallel execution 
+    * [#79](https://github.com/EdgedesignCZ/phpqa/pull/79) Fix typo in docker example in Readme
+
 ## v1.12.1
 
 * [#69](https://github.com/EdgedesignCZ/phpqa/issues/69) Composer - fix version constrains (robo, twig), add php-cs-fixer to suggested tools
