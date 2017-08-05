@@ -4,10 +4,11 @@ Edge\QA\Config
  [ ] Override default config
  [x] Ignore non existent user config
  [x] Throw exception when file does not exist
+ [x] Config csv string
 
 Edge\QA\IgnoredPaths
  [x] No option when nothing is ignored
- [x] Should ignore directories
+ [x] Ignore directories and files
 
 Edge\QA\Options
  [x] Escape paths
@@ -18,6 +19,9 @@ Edge\QA\Options
  [x] Execute
  [x] Build root path
  [x] Load allowed errors count
+
+Edge\QA\Paths
+ [x] Path to binary is escaped
 
 Edge\QA\Report
  [x] Convert twig to html

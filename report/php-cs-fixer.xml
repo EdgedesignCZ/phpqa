@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PHP CS Fixer" tests="18" assertions="47" failures="47" errors="0" time="1.659">
+  <testsuite name="PHP CS Fixer" tests="18" assertions="48" failures="48" errors="0" time="1.149">
     <testcase name="/tests/IgnoredPathsTest" file="/tests/IgnoredPathsTest.php" assertions="2">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
@@ -40,9 +40,10 @@
 * hash_to_slash_comment
 * blank_line_before_return]]></failure>
     </testcase>
-    <testcase name="/src/Config" file="/src/Config.php" assertions="2">
+    <testcase name="/src/Config" file="/src/Config.php" assertions="3">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
+* no_unneeded_control_parentheses
 * concat_space
 * blank_line_before_return]]></failure>
     </testcase>

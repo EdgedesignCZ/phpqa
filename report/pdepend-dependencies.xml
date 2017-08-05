@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2017-07-01T10:38:34" pdepend="@package_version@">
+<dependencies generated="2017-08-05T09:08:40" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -96,6 +96,13 @@
       </efferent>
       <afferent/>
       <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php"/>
+    </class>
+    <class name="PathsTest">
+      <efferent>
+        <type namespace="" name="PHPUnit_Framework_TestCase"/>
+      </efferent>
+      <afferent/>
+      <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/PathsTest.php"/>
     </class>
     <class name="ReportTest">
       <efferent>

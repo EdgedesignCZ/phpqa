@@ -3,8 +3,8 @@
   <Packages>
     <Package name="Edge\QA">
       <Stats>
-        <TotalClasses>11</TotalClasses>
-        <ConcreteClasses>11</ConcreteClasses>
+        <TotalClasses>12</TotalClasses>
+        <ConcreteClasses>12</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>1</Ca>
         <Ce>6</Ce>
@@ -22,6 +22,7 @@
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php">ConfigTest</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/IgnoredPathsTest.php">IgnoredPathsTest</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php">OptionsTest</Class>
+        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/PathsTest.php">PathsTest</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/Report/ReportTest.php">ReportTest</Class>
         <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/RunningToolTest.php">RunningToolTest</Class>
       </ConcreteClasses>

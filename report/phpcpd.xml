@@ -30,24 +30,27 @@
             $this-&gt;options-&gt;getAnalyzedDirs(' '),
 </codefragment>
   </duplication>
-  <duplication lines="3" tokens="12">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="217"/>
+  <duplication lines="3" tokens="13">
     <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="263"/>
-    <codefragment>            $this-&gt;options-&gt;getAnalyzedDirs(' '),
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="303"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="321"/>
+    <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('extensions')
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
 </codefragment>
   </duplication>
-  <duplication lines="2" tokens="14">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="322"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="343"/>
-    <codefragment>        if ($this-&gt;options-&gt;isSavedToFiles) {
-            $tool-&gt;htmlReport = $this-&gt;options-&gt;rawFile('phpmetrics.html');
+  <duplication lines="4" tokens="22">
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="263"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="342"/>
+    <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('extensions')
+        );
+        if ($this-&gt;options-&gt;isSavedToFiles) {
+            $reports = ['checkstyle' =&gt; 'checkstyle.xml'] + $this-&gt;config-&gt;value('phpcs.reports.file');
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="16">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="312"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="411"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="313"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="412"/>
     <codefragment>        $analyzedDirs = $this-&gt;options-&gt;getAnalyzedDirs();
         $analyzedDir = reset($analyzedDirs);
         if (count($analyzedDirs) &gt; 1) {
@@ -56,7 +59,7 @@
   </duplication>
   <duplication lines="4" tokens="10">
     <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV0.php" line="33"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php" line="60"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php" line="62"/>
     <codefragment>        $this-&gt;printTaskInfo(
             "Output for &lt;fg=white;bg=magenta&gt; " . $process-&gt;getCommandLine()." &lt;/fg=white;bg=magenta&gt;"
         );
