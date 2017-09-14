@@ -38,7 +38,8 @@
         "jakub-onderka/php-parallel-lint": "Check PHP syntax",
         "jakub-onderka/php-console-highlighter": "Colored output in parallel-lint",
         "phpstan/phpstan": "PHP Static Analysis Tool - discover bugs in your code without running it!",
-        "phpunit/phpunit": "The PHP Unit Testing framework"
+        "phpunit/phpunit": "The PHP Unit Testing framework",
+        "vimeo/psalm": "A static analysis tool for finding errors in PHP applications"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.8",
