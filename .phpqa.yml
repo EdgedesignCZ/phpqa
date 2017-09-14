@@ -45,6 +45,12 @@ phpunit:
             # testdox: [html, text]
             # coverage: [html, clover, crap4j, php, text, xml] # requires XDebug extension
 
+psalm:
+    config: null
+    deadCode: false
+    threads: 1
+    showInfo: true
+
 # Php file extensions to parse.
 extensions:
     - php
@@ -57,3 +63,4 @@ report:
     pdepend: app/report/pdepend.xsl
     phpmd: app/report/phpmd.xsl
     php-cs-fixer: app/report/php-cs-fixer.xsl
+    psalm: app/report/psalm.xsl

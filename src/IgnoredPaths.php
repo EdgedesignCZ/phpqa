@@ -78,6 +78,14 @@ class IgnoredPaths
         return $this->ignoreBoth;
     }
 
+    public function psalm()
+    {
+        return array(
+            'files' => $this->ignoreFiles,
+            'dirs' => $this->ignoreDirs,
+        );
+    }
+
     private function ignore($before, $dirSeparator, $after, $fileSeparator = null)
     {
         if ($fileSeparator) {

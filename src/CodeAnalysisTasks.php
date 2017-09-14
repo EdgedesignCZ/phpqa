@@ -85,6 +85,12 @@ trait CodeAnalysisTasks
             'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
             'composer' => 'phpunit/phpunit',
         ),
+        'psalm' => array(
+            'optionSeparator' => '=',
+            'xml' => ['psalm.xml'],
+            'errorsXPath' => '//item/severity[text()=\'error\']',
+            'composer' => 'vimeo/psalm'
+        )
     );
     /** @var array [tool => oldVersion] */
     private $toolsWithDifferentVersions = array(
@@ -460,6 +466,44 @@ trait CodeAnalysisTasks
                 }
             }
         }
+        return $args;
+    }
+
+    private function psalm()
+    {
+        $psalmConfigFile = escapePath($this->config->path('psalm.config'));
+        if (!$this->config->value('psalm.config')) {
+            $psalmConfigDir = rtrim($this->options->isSavedToFiles ? $this->options->rawFile('') : getcwd(), '/');
+            $psalmConfigFile = "{$psalmConfigDir}/psalm-config.xml";
+
+            $twig = new \Twig_Environment(new \Twig_Loader_Filesystem(__DIR__.'/../app/'));
+            file_put_contents(
+                $psalmConfigFile,
+                $twig->render(
+                    'psalm.xml.twig',
+                    array(
+                        'includes' => $this->options->getAnalyzedDirs(),
+                        'excludes' => $this->options->ignore->psalm()
+                    )
+                )
+            );
+            $psalmConfigFile = escapePath($psalmConfigFile);
+        }
+
+        $args = array(
+            'config' => $psalmConfigFile,
+            'output-format' => $this->options->isOutputPrinted?'console':'emacs',
+            'show-info' => $this->config->value('psalm.showInfo')?'true':'false',
+            'report' => escapePath($this->options->rawFile('psalm.xml'))
+        );
+
+        if ($this->config->value('psalm.deadCode')) {
+            $args['find-dead-code'] = '';
+        }
+        if ($this->options->isParallel && ((int) $this->config->value('psalm.threads')) > 1) {
+            $args['threads'] = $this->config->value('psalm.threads');
+        }
+
         return $args;
     }
 
