@@ -89,7 +89,8 @@ trait CodeAnalysisTasks
             'optionSeparator' => '=',
             'xml' => ['psalm.xml'],
             'errorsXPath' => '//item/severity[text()=\'error\']',
-            'composer' => 'vimeo/psalm'
+            'composer' => 'vimeo/psalm',
+            'internalClass' => 'Psalm\Checker\ProjectChecker'
         )
     );
     /** @var array [tool => oldVersion] */
