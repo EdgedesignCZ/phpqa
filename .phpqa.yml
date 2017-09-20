@@ -37,6 +37,8 @@ phpstan:
     # standard: tests/.travis/phpstan.neon
 
 phpunit:
+    # binary: vendor/bin/phpunit
+    binary: null
     # phpunit.xml
     config: null
     reports:
