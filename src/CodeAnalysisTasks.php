@@ -166,9 +166,14 @@ trait CodeAnalysisTasks
         $opts['tools'] = $this->selectToolsThatAreInstalled($opts['tools']);
 
         $this->options = new Options($opts);
-        $this->usedTools = $this->options->buildRunningTools($this->tools);
         $this->config = new Config();
         $this->config->loadCustomConfig($this->options->configDir, $opts['config']);
+        $this->usedTools = $this->options->buildRunningTools(
+            $this->tools,
+            function ($tool) {
+                return $this->config->value("{$tool}.binary");
+            }
+        );
     }
 
     private function selectToolsThatAreInstalled($tools)
@@ -204,7 +209,8 @@ trait CodeAnalysisTasks
     /** @return \Robo\Task\Base\Exec */
     private function toolToExec(RunningTool $tool)
     {
-        $binary = pathToBinary($tool->binary);
+        $customBinary = $this->config->path("{$tool}.binary");
+        $binary = $customBinary ?: pathToBinary($tool->binary);
         $process = $this->taskExec($binary);
         $method = str_replace('-', '', $tool);
         foreach ($this->{$method}($tool) as $arg => $value) {

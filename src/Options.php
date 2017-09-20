@@ -80,8 +80,11 @@ class Options
         }
     }
 
-    public function buildRunningTools(array $tools)
+    public function buildRunningTools(array $tools, $hasCustomBinary = null)
     {
+        $hasCustomBinary = $hasCustomBinary ?: function () {
+            return false;
+        };
         $allowed = array();
         foreach ($tools as $tool => $config) {
             if (array_key_exists($tool, $this->allowedTools)) {
@@ -90,7 +93,7 @@ class Options
                     'xml' => array_key_exists('xml', $config) ? array_map([$this, 'rawFile'], $config['xml']) : []
                 ];
                 $runningTool = new RunningTool($tool, $preload + $config);
-                if ($runningTool->isInstalled()) {
+                if ($runningTool->isInstalled() || $hasCustomBinary($tool)) {
                     $allowed[$tool] = $runningTool;
                 }
             }
