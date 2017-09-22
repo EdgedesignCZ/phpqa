@@ -491,8 +491,7 @@ trait CodeAnalysisTasks
 
         $args = array(
             'config' => escapePath($psalmFile),
-            'output-format' => $this->options->isOutputPrinted?'console':'emacs',
-            'show-info' => $this->config->value('psalm.showInfo')?'true':'false',
+            'show-info' => $this->config->value('psalm.showInfo') ? 'true' : 'false',
         );
         if ($this->options->isSavedToFiles) {
             $args['report'] = $this->options->toFile('psalm.xml');
