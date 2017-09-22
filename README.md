@@ -55,7 +55,7 @@ Tool | PHP | Supported since | Description | Status |
 [parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files | stable |
 [phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it | _experimental_ ([`v0.7`](https://github.com/EdgedesignCZ/phpqa/pull/43)) |
 [phpunit](https://github.com/phpunit/phpunit) | `>= 5.3` | `1.13` | The PHP Unit Testing framework | _experimental_ |
-[psalm](https://github.com/vimeo/psalm) | `>= 5.6` | `1.14` | A static analysis tool for finding errors in PHP applications | _experimental_ |
+[psalm](https://github.com/vimeo/psalm) | `>= 5.6` | `1.14` | A static analysis tool for finding errors in PHP applications | stable |
 
 _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
 
@@ -163,7 +163,7 @@ phpmetrics | [phpmetrics.html (v1)](https://edgedesigncz.github.io/phpqa/report/
 php-cs-fixer | [php-cs-fixer.html](https://edgedesigncz.github.io/phpqa/report/php-cs-fixer.html) | [✓](http://cs.sensiolabs.org/#usage "txt output format") |
 parallel-lint | [parallel-lint.html](https://edgedesigncz.github.io/phpqa/report/parallel-lint.html) | [✓](https://github.com/JakubOnderka/PHP-Parallel-Lint#example-output) |
 phpstan | [phpstan.html](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon) | [✓](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon "Generated configuration is saved in current working directory") |
-psalm | [psalm.xml](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-config.xml](https://edgedesigncz.github.io/phpqa/report/psalm-config.xml) | [✓](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-config.xml](https://edgedesigncz.github.io/phpqa/report/psalm-config.xml "Generated configuration is saved in current working directory") |
+psalm | [psalm.html](https://edgedesigncz.github.io/phpqa/report/psalm.html), [psalm.xml](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-config.xml](https://edgedesigncz.github.io/phpqa/report/psalm-config.xml) | [✓](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-config.xml](https://edgedesigncz.github.io/phpqa/report/psalm-config.xml "Generated configuration is saved in current working directory") |
 
 ## Exit code
 
