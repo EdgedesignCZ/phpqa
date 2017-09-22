@@ -480,7 +480,7 @@ trait CodeAnalysisTasks
                     'includes' => $this->options->getAnalyzedDirs(),
                     'excludes' => $this->options->ignore->psalm()
                 )
-            );    
+            );
         } else {
             $psalmXml = file_get_contents($this->config->path('psalm.config'));
         }
