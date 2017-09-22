@@ -493,9 +493,10 @@ trait CodeAnalysisTasks
             'config' => escapePath($psalmFile),
             'output-format' => $this->options->isOutputPrinted?'console':'emacs',
             'show-info' => $this->config->value('psalm.showInfo')?'true':'false',
-            'report' => escapePath($this->options->rawFile('psalm.xml'))
         );
-
+        if ($this->options->isSavedToFiles) {
+            $args['report'] = $this->options->toFile('psalm.xml');
+        }
         if ($this->config->value('psalm.deadCode')) {
             $args['find-dead-code'] = '';
         }
