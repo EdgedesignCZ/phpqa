@@ -472,27 +472,25 @@ trait CodeAnalysisTasks
 
     private function psalm()
     {
-        $psalmConfigFile = escapePath($this->config->path('psalm.config'));
         if (!$this->config->value('psalm.config')) {
-            $psalmConfigDir = rtrim($this->options->isSavedToFiles ? $this->options->rawFile('') : getcwd(), '/');
-            $psalmConfigFile = "{$psalmConfigDir}/psalm-config.xml";
-
             $twig = new \Twig_Environment(new \Twig_Loader_Filesystem(__DIR__.'/../app/'));
-            file_put_contents(
-                $psalmConfigFile,
-                $twig->render(
-                    'psalm.xml.twig',
-                    array(
-                        'includes' => $this->options->getAnalyzedDirs(),
-                        'excludes' => $this->options->ignore->psalm()
-                    )
+            $psalmXml = $twig->render(
+                'psalm.xml.twig',
+                array(
+                    'includes' => $this->options->getAnalyzedDirs(),
+                    'excludes' => $this->options->ignore->psalm()
                 )
-            );
-            $psalmConfigFile = escapePath($psalmConfigFile);
+            );    
+        } else {
+            $psalmXml = file_get_contents($this->config->path('psalm.config'));
         }
 
+        $psalmDir = rtrim($this->options->isSavedToFiles ? $this->options->rawFile('') : getcwd(), '/');
+        $psalmFile = "{$psalmDir}/psalm-phpqa.xml";
+        file_put_contents($psalmFile, $psalmXml);
+
         $args = array(
-            'config' => $psalmConfigFile,
+            'config' => escapePath($psalmFile),
             'output-format' => $this->options->isOutputPrinted?'console':'emacs',
             'show-info' => $this->config->value('psalm.showInfo')?'true':'false',
             'report' => escapePath($this->options->rawFile('psalm.xml'))

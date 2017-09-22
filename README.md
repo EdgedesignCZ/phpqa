@@ -163,7 +163,7 @@ phpmetrics | [phpmetrics.html (v1)](https://edgedesigncz.github.io/phpqa/report/
 php-cs-fixer | [php-cs-fixer.html](https://edgedesigncz.github.io/phpqa/report/php-cs-fixer.html) | [✓](http://cs.sensiolabs.org/#usage "txt output format") |
 parallel-lint | [parallel-lint.html](https://edgedesigncz.github.io/phpqa/report/parallel-lint.html) | [✓](https://github.com/JakubOnderka/PHP-Parallel-Lint#example-output) |
 phpstan | [phpstan.html](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon) | [✓](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon "Generated configuration is saved in current working directory") |
-psalm | [psalm.html](https://edgedesigncz.github.io/phpqa/report/psalm.html), [psalm.xml](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-config.xml](https://edgedesigncz.github.io/phpqa/report/psalm-config.xml) | [✓](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-config.xml](https://edgedesigncz.github.io/phpqa/report/psalm-config.xml "Generated configuration is saved in current working directory") |
+psalm | [psalm.html](https://edgedesigncz.github.io/phpqa/report/psalm.html), [psalm.xml](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-phpqa.xml](https://edgedesigncz.github.io/phpqa/report/psalm-phpqa.xml) | [✓](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-phpqa.xml](https://edgedesigncz.github.io/phpqa/report/psalm-phpqa.xml "Generated configuration is saved in current working directory") |
 
 ## Exit code
 
