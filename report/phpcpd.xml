@@ -16,7 +16,7 @@
   </duplication>
   <duplication lines="4" tokens="11">
     <file path="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" line="11"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="132"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="139"/>
     <codefragment>        'buildDir' =&gt; 'build/',
         'ignoredDirs' =&gt; 'vendor',
         'ignoredFiles' =&gt; '',
@@ -24,24 +24,24 @@
 </codefragment>
   </duplication>
   <duplication lines="2" tokens="13">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="216"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="229"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="223"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="236"/>
     <codefragment>            $this-&gt;options-&gt;ignore-&gt;bergmann(),
             $this-&gt;options-&gt;getAnalyzedDirs(' '),
 </codefragment>
   </duplication>
   <duplication lines="3" tokens="13">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="263"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="303"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="321"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="270"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="310"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="328"/>
     <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('extensions')
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="22">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="263"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="342"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="270"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="349"/>
     <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('extensions')
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
@@ -49,8 +49,8 @@
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="16">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="313"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="412"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="320"/>
+    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="419"/>
     <codefragment>        $analyzedDirs = $this-&gt;options-&gt;getAnalyzedDirs();
         $analyzedDir = reset($analyzedDirs);
         if (count($analyzedDirs) &gt; 1) {

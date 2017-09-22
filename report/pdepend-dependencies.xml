@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2017-08-05T09:08:40" pdepend="@package_version@">
+<dependencies generated="2017-09-22T16:27:39" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -17,6 +17,8 @@
         <type namespace="" name="PHP_CodeSniffer"/>
         <type namespace="PHP_CodeSniffer\Util" name="Standards"/>
         <type namespace="Nette\Neon" name="Neon"/>
+        <type namespace="" name="Twig_Environment"/>
+        <type namespace="" name="Twig_Loader_Filesystem"/>
         <type namespace="Edge\QA" name="OutputMode"/>
         <type namespace="Edge\QA\Task" name="TableSummary"/>
       </efferent>

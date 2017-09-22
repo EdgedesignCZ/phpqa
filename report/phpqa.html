@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>phpqa report - v1.13.0</title>
+    <title>phpqa report - v1.14.0-dev</title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -43,7 +43,7 @@
           </button>
             <div class="navbar-brand">
                 <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa">PHPQA</a>
-                <span>2017-08-05 09:08</span>
+                <span>2017-09-22 16:27</span>
             </div>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
@@ -150,9 +150,19 @@
                                                 <li><a href="#phpunit-testdox-text">testdox.text</a></li>
                                                                     </ul>
                 </li>
+                                                <li><a href="#psalm">psalm</a></li>
+                                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        &nbsp;<span class="caret"></span>&nbsp;
+                    </a>
+                    <ul class="dropdown-menu">
+                                                                        <li><a href="#psalm" data-iframe-tab="overview">Overview</a></li>
+                                                                                                <li><a href="#psalm" data-iframe-tab="errors">Errors</a></li>
+                                                                                            </ul>
+                </li>
                                             </ul>
             <ul class="nav navbar-nav navbar-right visible-md-block visible-lg-block">
-              <p class="navbar-text">v1.13.0</p>
+              <p class="navbar-text">v1.14.0-dev</p>
             </ul>
         </div>
       </div>
@@ -204,6 +214,9 @@
                 <div role="tabpanel" class="tab-pane" id="phpunit-testdox-text">
             <iframe id="iframe-phpunit-testdox-text" src="testdox-text.txt"></iframe>
         </div>
+                        <div role="tabpanel" class="tab-pane" id="psalm">
+            <iframe data-tool id="iframe-psalm" src="psalm.html"></iframe>
+        </div>
                     </div>
 
     <script>
@@ -217,6 +230,7 @@
             '#phpmetrics': function(iframe, tab) {
                 iframe.document.getElementById(tab).onclick();
             },
+            '#psalm': openBootstrap,
         };
         listenOnTabChange();
         hideHeadingsH1();
