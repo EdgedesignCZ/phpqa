@@ -20,9 +20,10 @@ class TableSummary
 
     /**
      * @param \Edge\QA\RunningTool[] $usedTools
+     * @param string[] $skippedTools
      * @return int
      */
-    public function __invoke(array $usedTools)
+    public function __invoke(array $usedTools, array $skippedTools)
     {
         $this->writeln('', 'cyan');
         $table = new Table($this->output);
@@ -62,11 +63,14 @@ class TableSummary
         }
         $table->addRow($row);
         $table->render();
-        return $this->result($failedTools);
+        return $this->result($failedTools, $skippedTools);
     }
 
-    private function result(array $failedTools)
+    private function result(array $failedTools, array $skippedTools)
     {
+        if ($skippedTools) {
+            $this->writeln('Not installed tools: <comment>' . implode(', ', $skippedTools) . '</comment>', 'magenta');
+        }
         if ($failedTools) {
             $this->writeln('Failed tools: <comment>' . implode(', ', $failedTools) . '</comment>', 'red');
             return 1;

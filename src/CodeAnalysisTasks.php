@@ -110,6 +110,8 @@ trait CodeAnalysisTasks
     private $config;
     /** @var RunningTool[] */
     private $usedTools;
+    /** @var string[] */
+    private $skippedTools;
 
     /**
      * @description Current versions
@@ -168,7 +170,7 @@ trait CodeAnalysisTasks
         $this->options = new Options($opts);
         $this->config = new Config();
         $this->config->loadCustomConfig($this->options->configDir, $opts['config']);
-        $this->usedTools = $this->options->buildRunningTools(
+        list($this->usedTools, $this->skippedTools) = $this->options->buildRunningTools(
             $this->tools,
             function ($tool) {
                 return $this->config->value("{$tool}.binary");
@@ -554,6 +556,6 @@ trait CodeAnalysisTasks
     private function buildSummary()
     {
         $summary = new Task\TableSummary($this->options, $this->getOutput());
-        return $summary($this->usedTools);
+        return $summary($this->usedTools, $this->skippedTools);
     }
 }
