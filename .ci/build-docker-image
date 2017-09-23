@@ -1,0 +1,29 @@
+#!/usr/bin/env sh
+
+APP_DIR="./"
+DOCKER_REPO="zdenekdrahos/phpqa"
+DOCKER_FILE=".ci/Dockerfile"
+DOCKER_TAG=""
+
+run () {
+    load_docker_variables
+    build_docker_image
+}
+
+load_docker_variables () {
+    DOCKER_TAG="$DOCKER_REPO:${TRAVIS_TAG:-$TRAVIS_COMMIT}"
+
+    echo "Dockefile: $DOCKER_FILE"
+    echo "Build context: $APP_DIR"
+    echo "Publish image: $DOCKER_TAG"
+    echo
+}
+
+build_docker_image () {
+    set -e
+    docker login --username $DOCKER_USER --password $DOCKER_TOKEN
+    time docker build --file $DOCKER_FILE --tag $DOCKER_TAG $APP_DIR
+    time docker push $DOCKER_TAG
+}
+
+run

@@ -1,6 +1,8 @@
-sudo: false
-dist: precise
+sudo: required
+dist: trusty
 language: php
+services:
+  - docker
 matrix:
   include:
     - php: 5.4
@@ -13,7 +15,7 @@ matrix:
 install:
   # Disable JIT compilation in hhvm, as the JIT is useless for short live scripts like tests.
   - if [[ $TRAVIS_PHP_VERSION = hhvm* ]]; then echo 'hhvm.jit = 0' >> /etc/hhvm/php.ini; fi
-  - if [ -n "$GITHUB_OAUTH_TOKEN" ]; then composer config github-oauth.github.com ${GITHUB_OAUTH_TOKEN}; fi;
+  - if [ -n "$GITHUB_OAUTH_TOKEN" ]; then composer config -g github-oauth.github.com ${GITHUB_OAUTH_TOKEN}; fi;
   - composer install --no-interaction
   # test app with symfony3 components in latest php
   - if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then composer update && composer remove phpunit/phpunit --dev --no-interaction && composer require sebastian/phpcpd:~3.0 phploc/phploc:~4 phpunit/phpunit:~5.7 && bin/suggested-tools.sh install; fi
@@ -24,6 +26,20 @@ script:
   - ./phpqa tools
   - bin/ci.sh
 # http://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/
+deploy:
+  - provider: script
+    script: .ci/build-docker-image
+    skip_cleanup: true
+    on:
+      tags: true
+      php: 7.0
+  - provider: script
+    script: ls -la .ci && .ci/build-docker-image
+    skip_cleanup: true
+    on:
+      branch: docker
+      php: 7.0
+
 cache:
   directories:
     - vendor
