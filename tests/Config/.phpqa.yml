@@ -11,3 +11,11 @@ phpcpd:
 
 # Php file extensions to parse.
 extensions: php,inc,module
+
+# invalid binary
+phpunit:
+    binary: non-existent-binary
+
+# binary for other tool
+phpmetrics:
+    binary: ../../phpqa
