@@ -8,8 +8,6 @@ class Options
     private $analyzedDirs;
     /** @var string */
     public $buildDir;
-    /** @var string */
-    public $configDir;
     /** @var IgnoredPaths */
     public $ignore;
     /** @var array */
@@ -45,7 +43,6 @@ class Options
         $this->isSavedToFiles = $options['output'] == 'file';
         $this->isOutputPrinted = $this->isSavedToFiles ? $options['verbose'] : true;
         $this->hasReport = $this->isSavedToFiles ? $options['report'] : false;
-        $this->configDir = $options['config'] ? $options['config'] : getcwd();
     }
 
     public function getCommonRootPath()
@@ -80,11 +77,8 @@ class Options
         }
     }
 
-    public function buildRunningTools(array $tools, $hasCustomBinary = null)
+    public function buildRunningTools(array $tools, Config $phpqaConfig = null)
     {
-        $hasCustomBinary = $hasCustomBinary ?: function () {
-            return false;
-        };
         $allowed = array();
         $skipped = array();
         foreach ($tools as $tool => $config) {
@@ -94,7 +88,7 @@ class Options
                     'xml' => array_key_exists('xml', $config) ? array_map([$this, 'rawFile'], $config['xml']) : []
                 ];
                 $runningTool = new RunningTool($tool, $preload + $config);
-                if ($runningTool->isInstalled() || $hasCustomBinary($tool)) {
+                if ($runningTool->isInstalled() || ($phpqaConfig && $phpqaConfig->getCustomBinary($tool))) {
                     $allowed[$tool] = $runningTool;
                 } else {
                     $skipped[] = $tool;

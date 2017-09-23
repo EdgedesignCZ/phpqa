@@ -115,11 +115,17 @@ trait CodeAnalysisTasks
 
     /**
      * @description Current versions
+     * @option $config path directory with .phpqa.yml, @default current working directory
      */
-    public function tools()
-    {
+    public function tools(
+         $opts = array(
+            'config' => '',
+        )
+    ) {
+        $this->config = new Config();
+        $this->config->loadUserConfig($opts['config']);
         $tools = new Task\ToolVersions($this->getOutput());
-        $tools(array_diff_key($this->tools, $this->toolsWithDifferentVersions));
+        $tools(array_diff_key($this->tools, $this->toolsWithDifferentVersions), $this->config);
     }
 
     /**
@@ -167,15 +173,10 @@ trait CodeAnalysisTasks
         }
         $opts['tools'] = $this->selectToolsThatAreInstalled($opts['tools']);
 
-        $this->options = new Options($opts);
         $this->config = new Config();
-        $this->config->loadCustomConfig($this->options->configDir, $opts['config']);
-        list($this->usedTools, $this->skippedTools) = $this->options->buildRunningTools(
-            $this->tools,
-            function ($tool) {
-                return $this->config->value("{$tool}.binary");
-            }
-        );
+        $this->config->loadUserConfig($opts['config']);
+        $this->options = new Options($opts);
+        list($this->usedTools, $this->skippedTools) = $this->options->buildRunningTools($this->tools, $this->config);
     }
 
     private function selectToolsThatAreInstalled($tools)
@@ -211,8 +212,8 @@ trait CodeAnalysisTasks
     /** @return \Robo\Task\Base\Exec */
     private function toolToExec(RunningTool $tool)
     {
-        $customBinary = $this->config->path("{$tool}.binary");
-        $binary = $customBinary ? escapePath($customBinary) : pathToBinary($tool->binary);
+        $customBinary = $this->config->getCustomBinary($tool);
+        $binary = $customBinary ?: pathToBinary($tool->binary);
         $process = $this->taskExec($binary);
         $method = str_replace('-', '', $tool);
         foreach ($this->{$method}($tool) as $arg => $value) {

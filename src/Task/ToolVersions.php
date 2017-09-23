@@ -5,6 +5,7 @@ namespace Edge\QA\Task;
 use Robo\Task\Base\Exec;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
+use Edge\QA\Config;
 
 class ToolVersions
 {
@@ -15,11 +16,11 @@ class ToolVersions
         $this->output = $p;
     }
 
-    public function __invoke(array $qaTools)
+    public function __invoke(array $qaTools, Config $config)
     {
         $composerPackages = $this->findComposerPackages();
         if ($composerPackages) {
-            $this->composerInfo($qaTools, $composerPackages);
+            $this->composerInfo($qaTools, $composerPackages, $config);
         } else {
             $this->consoleInfo(array_keys($qaTools));
         }
@@ -50,26 +51,37 @@ class ToolVersions
         ];
     }
 
-    private function composerInfo(array $qaTools, array $composerPackages)
+    private function composerInfo(array $qaTools, array $composerPackages, Config $phpqaConfig)
     {
         $table = new Table($this->output);
-        $table->setHeaders(['Tool', 'Version', 'Authors']);
-        $table->addRow($this->toolToTableRow('phpqa', 'edgedesign/phpqa', $composerPackages));
+        $table->setHeaders(['Tool', 'Version', 'Authors / Info']);
+        $table->addRow($this->toolToTableRow('phpqa', 'edgedesign/phpqa', $composerPackages, $phpqaConfig));
         foreach ($qaTools as $tool => $config) {
-            $table->addRow($this->toolToTableRow($tool, $config['composer'], $composerPackages));
+            $table->addRow($this->toolToTableRow($tool, $config['composer'], $composerPackages, $phpqaConfig));
         }
         $table->render();
     }
 
-    private function toolToTableRow($tool, $composerPackage, array $composerPackages)
+    private function toolToTableRow($tool, $composerPackage, array $composerPackages, Config $phpqaConfig)
     {
-        $composerInfo = array_key_exists($composerPackage, $composerPackages) ?
-            get_object_vars($composerPackages[$composerPackage]) :
-            [
+        $customBinary = $phpqaConfig->getCustomBinary($tool);
+        if ($customBinary) {
+            $version = $this->loadVersionFromConsoleCommand("{$customBinary} --version");
+            $composerInfo = [
+                'version' => $version,
+                'version_normalized' => $version,
+                'authors' => [(object) ['name' => "<comment>{$customBinary}</comment>"]],
+            ];
+        } elseif (array_key_exists($composerPackage, $composerPackages)) {
+            $composerInfo = get_object_vars($composerPackages[$composerPackage]);
+        } else {
+            $composerInfo = [
                 'version' => '',
                 'version_normalized' => '<error>not installed</error>',
                 'authors' => [(object) ['name' => "<info>composer require {$composerPackage}</info>"]],
             ];
+        }
+            
         $composerInfo += [
             'version_normalized' => '',
             'authors' => [(object) ['name' => '']],
@@ -111,19 +123,20 @@ class ToolVersions
         ]);
 
         foreach ($tools as $tool) {
-            $versionCommand = $tool == 'parallel-lint' ? $tool : "{$tool} --version";
-            $this->loadVersionFromConsoleCommand($versionCommand);
+            $binary = \Edge\QA\pathToBinary($tool);
+            $versionCommand = $tool == 'parallel-lint' ? $binary : "{$binary} --version";
+            $this->output->writeln($this->loadVersionFromConsoleCommand($versionCommand));
         }
     }
 
     private function loadVersionFromConsoleCommand($command)
     {
-        $exec = new Exec(\Edge\QA\pathToBinary($command));
+        $exec = new Exec($command);
         $result = $exec
             ->printed(false)
             ->run()
             ->getMessage();
-        $this->output->writeln($this->getFirstLine($result));
+        return $this->getFirstLine($result);
     }
 
     private function getFirstLine($string)

@@ -10,10 +10,15 @@ class Config
 
     public function __construct()
     {
-        $this->loadCustomConfig(__DIR__ . '/../');
+        $this->loadConfig(__DIR__ . '/../');
     }
 
-    public function loadCustomConfig($directory, $isUserDirectory = false)
+    public function loadUserConfig($directory)
+    {
+        $this->loadConfig($directory ?: getcwd(), $directory);
+    }
+
+    private function loadConfig($directory, $isUserDirectory = false)
     {
         $configDir = $directory . '/';
         $configFile = "{$configDir}.phpqa.yml";
@@ -26,6 +31,12 @@ class Config
         } elseif ($isUserDirectory) {
             $this->throwInvalidPath('.phpqa.yml', $configFile);
         }
+    }
+
+    public function getCustomBinary($tool)
+    {
+        $binary = $this->path("{$tool}.binary");
+        return $binary ? escapePath($binary) : $binary;
     }
 
     public function value($path)

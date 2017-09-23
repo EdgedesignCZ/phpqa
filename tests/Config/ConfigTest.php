@@ -37,7 +37,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
     public function testOverrideDefaultConfig()
     {
         $config = new Config();
-        $config->loadCustomConfig(__DIR__);
+        $config->loadUserConfig(__DIR__);
         assertThat($config->value('phpcpd.minLines'), is(5));
         assertThat($config->value('phpcpd.minTokens'), is(70));
         assertThat($config->value('phpcs.standard'), is('Zend'));
@@ -49,13 +49,13 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         $directoryWithoutConfig = __DIR__ . '/../';
         $config = new Config();
         $this->shouldStopPhpqa();
-        $config->loadCustomConfig($directoryWithoutConfig, true);
+        $config->loadUserConfig($directoryWithoutConfig);
     }
 
     public function testThrowExceptionWhenFileDoesNotExist()
     {
         $config = new Config();
-        $config->loadCustomConfig(__DIR__);
+        $config->loadUserConfig(__DIR__);
         $this->shouldStopPhpqa();
         $config->path('phpcs.standard');
     }
@@ -63,9 +63,15 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
     public function testConfigCsvString()
     {
         $config = new Config();
-        $config->loadCustomConfig(__DIR__);
+        $config->loadUserConfig(__DIR__);
         $extensions = $config->csv('extensions');
         assertThat($extensions, equalTo('php,inc,module'));
+    }
+
+    public function testUseCwdIfNoDirectoryIsSpecified()
+    {
+        $config = new Config();
+        $config->loadUserConfig('');
     }
 
     private function shouldStopPhpqa()

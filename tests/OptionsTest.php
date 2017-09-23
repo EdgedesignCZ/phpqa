@@ -55,21 +55,6 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         );
     }
 
-    /** @dataProvider provideConfig */
-    public function testLoadDirectoryWithCustomConfig($config, $expectedConfig)
-    {
-        $options = $this->overrideOptions(array('config' => $config));
-        assertThat($options->configDir, is($expectedConfig));
-    }
-
-    public function provideConfig()
-    {
-        return array(
-            'cwd when config is not defined' => array('', getcwd()),
-            'use passed config (relative to cwd)' => array('path-to-config-directory', 'path-to-config-directory')
-        );
-    }
-
     /** @dataProvider provideOutputs */
     public function testBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)
     {
