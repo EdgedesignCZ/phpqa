@@ -43,15 +43,15 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     public function testIgnorePdependInCliOutput()
     {
         $cliOutput = $this->overrideOptions(array('output' => 'cli'));
-        assertThat($this->fileOutput->buildRunningTools(array('pdepend' => [])), is(nonEmptyArray()));
-        assertThat($cliOutput->buildRunningTools(array('pdepend' => [])), is(emptyArray()));
+        assertThat($this->buildRunningTools($this->fileOutput, array('pdepend' => [])), is(nonEmptyArray()));
+        assertThat($this->buildRunningTools($cliOutput, array('pdepend' => [])), is(emptyArray()));
     }
 
     public function testIgnoreNotInstalledTool()
     {
         assertThat(
             $this->fileOutput->buildRunningTools(array('pdepend' => ['internalClass' => 'UnknownTool\UnknownClass'])),
-            is(emptyArray())
+            is([[], ['pdepend']])
         );
     }
 
@@ -132,8 +132,13 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     public function testLoadAllowedErrorsCount()
     {
         $options = $this->overrideOptions(array('tools' => 'phpcs:1,pdepend'));
-        $tools = $options->buildRunningTools(array('phpcs' => [], 'pdepend' => []));
+        $tools = $this->buildRunningTools($options, array('phpcs' => [], 'pdepend' => []));
         assertThat($tools['phpcs']->getAllowedErrorsCount(), is(1));
         assertThat($tools['pdepend']->getAllowedErrorsCount(), is(nullValue()));
+    }
+
+    private function buildRunningTools(Options $o, array $tools)
+    {
+        return $o->buildRunningTools($tools)[0];
     }
 }

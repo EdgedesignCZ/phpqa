@@ -86,6 +86,7 @@ class Options
             return false;
         };
         $allowed = array();
+        $skipped = array();
         foreach ($tools as $tool => $config) {
             if (array_key_exists($tool, $this->allowedTools)) {
                 $preload = [
@@ -95,10 +96,12 @@ class Options
                 $runningTool = new RunningTool($tool, $preload + $config);
                 if ($runningTool->isInstalled() || $hasCustomBinary($tool)) {
                     $allowed[$tool] = $runningTool;
+                } else {
+                    $skipped[] = $tool;
                 }
             }
         }
-        return $allowed;
+        return array($allowed, $skipped);
     }
 
     public function toFile($file)
