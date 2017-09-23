@@ -36,7 +36,14 @@ class Config
     public function getCustomBinary($tool)
     {
         $binary = $this->path("{$tool}.binary");
-        return $binary ? escapePath($binary) : $binary;
+        if ($binary) {
+            $filename = basename($binary);
+            if (is_bool(strpos($filename, "{$tool}"))) {
+                throw new \RuntimeException("Invalid '{$tool}' binary ('{$tool}' not found in '{$binary}')");
+            }
+            return escapePath($binary);
+        }
+        return null;
     }
 
     public function value($path)
