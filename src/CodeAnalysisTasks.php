@@ -210,7 +210,7 @@ trait CodeAnalysisTasks
     private function toolToExec(RunningTool $tool)
     {
         $customBinary = $this->config->path("{$tool}.binary");
-        $binary = $customBinary ?: pathToBinary($tool->binary);
+        $binary = $customBinary ? escapePath($customBinary) : pathToBinary($tool->binary);
         $process = $this->taskExec($binary);
         $method = str_replace('-', '', $tool);
         foreach ($this->{$method}($tool) as $arg => $value) {
