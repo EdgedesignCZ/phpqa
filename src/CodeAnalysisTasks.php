@@ -455,7 +455,7 @@ trait CodeAnalysisTasks
     private function phpunit(RunningTool $tool)
     {
         $args = array();
-        $configFile = $this->config->value('phpunit.config');
+        $configFile = $this->config->path('phpunit.config');
         if ($configFile) {
             $args['configuration'] = $configFile;
         }
