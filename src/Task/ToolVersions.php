@@ -2,7 +2,7 @@
 
 namespace Edge\QA\Task;
 
-use Robo\Task\Base\Exec;
+use Symfony\Component\Process\Process;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 use Edge\QA\Config;
@@ -19,11 +19,13 @@ class ToolVersions
     public function __invoke(array $qaTools, Config $config)
     {
         $composerPackages = $this->findComposerPackages();
-        if ($composerPackages) {
-            $this->composerInfo($qaTools, $composerPackages, $config);
-        } else {
-            $this->consoleInfo(array_keys($qaTools));
-        }
+        $phpqaPackages = [
+            'edgedesign/phpqa' => (object) [
+                'version_normalized' => PHPQA_VERSION,
+                'authors' => [(object) ['name' => "Zdeněk Drahoš"]],
+            ]
+        ];
+        $this->toolsToTable($qaTools, $composerPackages, $phpqaPackages, $config);
     }
 
     private function findComposerPackages()
@@ -43,19 +45,14 @@ class ToolVersions
             $tools[$tool->name] = $tool;
         }
 
-        return $tools + [
-            'edgedesign/phpqa' => (object) [
-                'version_normalized' => PHPQA_VERSION,
-                'authors' => [(object) ['name' => "Zdeněk Drahoš"]],
-            ]
-        ];
+        return $tools;
     }
 
-    private function composerInfo(array $qaTools, array $composerPackages, Config $phpqaConfig)
+    private function toolsToTable(array $qaTools, array $composerPackages, array $phpqaPackages, Config $phpqaConfig)
     {
         $table = new Table($this->output);
         $table->setHeaders(['Tool', 'Version', 'Authors / Info']);
-        $table->addRow($this->toolToTableRow('phpqa', 'edgedesign/phpqa', $composerPackages, $phpqaConfig));
+        $table->addRow($this->toolToTableRow('phpqa', 'edgedesign/phpqa', $phpqaPackages, $phpqaConfig));
         foreach ($qaTools as $tool => $config) {
             $table->addRow($this->toolToTableRow($tool, $config['composer'], $composerPackages, $phpqaConfig));
         }
@@ -66,26 +63,36 @@ class ToolVersions
     {
         $customBinary = $phpqaConfig->getCustomBinary($tool);
         if ($customBinary) {
-            $version = $this->loadVersionFromConsoleCommand("{$customBinary} --version");
+            $versionCommand = "{$customBinary} --version";
+            $version = $this->loadVersionFromConsoleCommand($versionCommand);
             $composerInfo = [
                 'version' => $version,
                 'version_normalized' => $version,
-                'authors' => [(object) ['name' => "<comment>{$customBinary}</comment>"]],
+                'authors' => [(object) ['name' => "<comment>{$versionCommand}</comment>"]],
             ];
         } elseif (array_key_exists($composerPackage, $composerPackages)) {
-            $composerInfo = get_object_vars($composerPackages[$composerPackage]);
-        } else {
+            $composerInfo = get_object_vars($composerPackages[$composerPackage]) + [
+                'version_normalized' => '',
+                'authors' => [(object) ['name' => '']],
+            ];
+        } elseif ($composerPackages) {
             $composerInfo = [
                 'version' => '',
                 'version_normalized' => '<error>not installed</error>',
                 'authors' => [(object) ['name' => "<info>composer require {$composerPackage}</info>"]],
             ];
+        } else {
+            $binary = \Edge\QA\pathToBinary($tool);
+            $versionCommand = $tool == 'parallel-lint' ? $binary : "{$binary} --version";
+            $version = $this->loadVersionFromConsoleCommand($versionCommand);
+            $composerInfo = [
+                'version' => $version,
+                'version_normalized' => $version ?: '<error>not installed</error>',
+                'authors' => [(object) ['name' => $versionCommand
+                    ? "<comment>{$versionCommand}</comment>"
+                    : "<info>composer require {$composerPackage}</info>"]],
+            ];
         }
-            
-        $composerInfo += [
-            'version_normalized' => '',
-            'authors' => [(object) ['name' => '']],
-        ];
 
         return array(
             "<comment>{$tool}</comment>",
@@ -115,28 +122,11 @@ class ToolVersions
         );
     }
 
-    private function consoleInfo(array $tools)
-    {
-        $this->output->writeln([
-            '<comment>phpqa ' . PHPQA_VERSION . '</comment>',
-            '',
-        ]);
-
-        foreach ($tools as $tool) {
-            $binary = \Edge\QA\pathToBinary($tool);
-            $versionCommand = $tool == 'parallel-lint' ? $binary : "{$binary} --version";
-            $this->output->writeln($this->loadVersionFromConsoleCommand($versionCommand));
-        }
-    }
-
     private function loadVersionFromConsoleCommand($command)
     {
-        $exec = new Exec($command);
-        $result = $exec
-            ->printed(false)
-            ->run()
-            ->getMessage();
-        return $this->getFirstLine($result);
+        $process = new Process($command);
+        $process->run();
+        return $this->getFirstLine($process->getOutput());
     }
 
     private function getFirstLine($string)

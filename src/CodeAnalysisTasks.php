@@ -118,7 +118,7 @@ trait CodeAnalysisTasks
      * @option $config path directory with .phpqa.yml, @default current working directory
      */
     public function tools(
-         $opts = array(
+        $opts = array(
             'config' => '',
         )
     ) {
