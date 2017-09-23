@@ -1,0 +1,15 @@
+.git*
+.docker*
+.ci
+bin/deploy-report.sh
+bin/ci.sh
+build
+nbproject
+tests
+vendor
+*-phpqa.*
+.php_cs*
+.travis.yml
+docker-compose.yml
+phpunit.xml
+auth.json
