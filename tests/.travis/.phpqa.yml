@@ -14,7 +14,8 @@ phpstan:
     standard: phpstan.neon
 
 phpunit:
-    config: phpunit.xml
+    binary: ../../vendor/phpunit/phpunit/phpunit
+    config: ../../phpunit.xml
     reports:
         file:
             log: [junit]
