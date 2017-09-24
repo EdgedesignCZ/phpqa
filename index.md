@@ -55,6 +55,7 @@ Tool | PHP | Supported since | Description | Status |
 [parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files | stable |
 [phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it | _experimental_ ([`v0.7`](https://github.com/EdgedesignCZ/phpqa/pull/43)) |
 [phpunit](https://github.com/phpunit/phpunit) | `>= 5.3` | `1.13` | The PHP Unit Testing framework | _experimental_ |
+[psalm](https://github.com/vimeo/psalm) | `>= 5.6` | `1.14` | A static analysis tool for finding errors in PHP applications | stable |
 
 _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
 
@@ -123,11 +124,25 @@ qa/phpqa
 
 ### Docker
 
+Official docker image is https://hub.docker.com/r/zdenekdrahos/phpqa/.
+The image can be used at [Gitlab CI](#gitlabci---docker-installation--composer-cache--artifacts).
+Beware that the image is as lean as possible. That can be a problem for running PHPUnit tests.
+In that case, you might miss PHP extensions for database etc (_you can [install phpqa](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/get-phpqa-binary#L40) in another [php image](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/.gitlab-ci.yml#L28)_). 
+
+```bash
+docker run --rm -it zdenekdrahos/phpqa:v1.14.0 phpqa tools
+# using a tool without phpqa
+docker run --rm -it zdenekdrahos/phpqa:v1.14.0 phploc -v
+```
+
+There are also available images [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/) and [sparkfabrik/docker-phpqa](https://hub.docker.com/r/sparkfabrik/docker-phpqa/).
+`phpqa` is used as [an entrypoint](https://docs.docker.com/engine/reference/builder/#entrypoint) (_I haven't been able to use these images at Gitlab CI_).
+
 ```bash
 docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoredDirs vendor,build,migrations,test
 ```
 
-For full documentation please visit [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/).
+
 
 ## Analyze
 
@@ -162,6 +177,7 @@ phpmetrics | [phpmetrics.html (v1)](https://edgedesigncz.github.io/phpqa/report/
 php-cs-fixer | [php-cs-fixer.html](https://edgedesigncz.github.io/phpqa/report/php-cs-fixer.html) | [✓](http://cs.sensiolabs.org/#usage "txt output format") |
 parallel-lint | [parallel-lint.html](https://edgedesigncz.github.io/phpqa/report/parallel-lint.html) | [✓](https://github.com/JakubOnderka/PHP-Parallel-Lint#example-output) |
 phpstan | [phpstan.html](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon) | [✓](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon "Generated configuration is saved in current working directory") |
+psalm | [psalm.html](https://edgedesigncz.github.io/phpqa/report/psalm.html), [psalm.xml](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-phpqa.xml](https://edgedesigncz.github.io/phpqa/report/psalm-phpqa.xml) | [✓](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-phpqa.xml](https://edgedesigncz.github.io/phpqa/report/psalm-phpqa.xml "Generated configuration is saved in current working directory") |
 
 ## Exit code
 
@@ -208,10 +224,15 @@ Tool | Settings | Default Value | Your value
 [php-cs-fixer.config](http://cs.sensiolabs.org/#usage) | Load configuration from [file](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/.php_cs.dist) | `null` | Path to `.phpcs` file
 [php-cs-fixer.isDryRun](http://cs.sensiolabs.org/#usage) | If code is just analyzed or fixers are applied  | `true` | Boolean value
 [phpmd](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset
-[phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens | 
+[phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens |
 [phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file | Level 0, `%currentWorkingDirectory%/phpstan.neon` | Take a look at [phpqa config in tests/.travis](/tests/.travis/) |
+[phpunit.binary](https://github.com/EdgedesignCZ/phpqa/blob/4947416/.phpqa.yml#L40) | Phpunit binary  | phpqa's phpunit | Path to phpunit executable in your project, typically [`vendor/bin/phpunit`](https://gitlab.com/costlocker/integrations/blob/master/basecamp/backend/.phpqa.yml#L2) |
 [phpunit.config](https://phpunit.de/manual/current/en/organizing-tests.html#organizing-tests.xml-configuration) | PHPUnit configuration, `analyzedDirs` and `ignoredDirs` are not used, you have to specify test suites in XML file | `null` | Path to `phpunit.xml` file
 [phpunit.reports](https://phpunit.de/manual/current/en/textui.html) | Report types  | no report | List of reports and formats, corresponds with CLI option, e.g. `--log-junit` is `log: [junit]` in `.phpqa.yml` |
+[psalm.config](https://github.com/vimeo/psalm/wiki/Configuration) | Psalm configuration, `analyzedDirs` and `ignoredDirs` are not used, you have to specify projectFiles in XML file | `null` | Path to `psalm.xml` file
+[psalm.deadCode](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Enable or not `--find-dead-code` option  of psalm | `false` | Boolean value
+[psalm.threads](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Set the number of process to use in parallel (option `--threads` of psalm) (Only if `--execution == parallel` for phpqa) | `1` | Number (>= 1)
+[psalm.showInfo](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
 
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:
@@ -370,6 +391,31 @@ test:
     post:
         - cp -r ./var/QA $CIRCLE_ARTIFACTS
         - cp -r ./var/tests $CIRCLE_ARTIFACTS
+```
+
+### Gitlab.ci - docker installation + composer cache + artifacts
+
+```yaml
+stages:
+  - test
+
+test:
+  stage: test
+  image: zdenekdrahos/phpqa:v1.14.0
+  variables:
+    BACKEND_QA: "*/backend/var/QA"
+    BACKEND_CACHE: $CI_PROJECT_DIR/.composercache
+  cache:
+    paths:
+    - $BACKEND_CACHE
+  script:
+    - 'export COMPOSER_CACHE_DIR=$BACKEND_CACHE'
+    - 'composer install --ignore-platform-reqs --no-progress --no-suggest'
+    - 'phpqa --report --tools phpcs:0,phpunit:0 --buildDir var/QA --analyzedDirs ./ --ignoredDirs var,vendor'
+  artifacts:
+    when: always
+    paths:
+    - $BACKEND_QA
 ```
 
 ## Contributing
