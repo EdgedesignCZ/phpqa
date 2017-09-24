@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PHP CS Fixer" tests="18" assertions="49" failures="49" errors="0" time="2.445">
+  <testsuite name="PHP CS Fixer" tests="18" assertions="49" failures="49" errors="0" time="2.523">
     <testcase name="/tests/IgnoredPathsTest" file="/tests/IgnoredPathsTest.php" assertions="2">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
@@ -31,11 +31,10 @@
 * trailing_comma_in_multiline_array
 * concat_space]]></failure>
     </testcase>
-    <testcase name="/src/CodeAnalysisTasks" file="/src/CodeAnalysisTasks.php" assertions="6">
+    <testcase name="/src/CodeAnalysisTasks" file="/src/CodeAnalysisTasks.php" assertions="5">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
 * trailing_comma_in_multiline_array
-* ternary_operator_spaces
 * single_quote
 * concat_space
 * hash_to_slash_comment
@@ -61,12 +60,13 @@
 ---------------
 * blank_line_before_return]]></failure>
     </testcase>
-    <testcase name="/src/Task/TableSummary" file="/src/Task/TableSummary.php" assertions="5">
+    <testcase name="/src/Task/TableSummary" file="/src/Task/TableSummary.php" assertions="6">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
 * single_quote
 * concat_space
 * phpdoc_separation
+* phpdoc_align
 * no_whitespace_in_blank_line
 * blank_line_before_return]]></failure>
     </testcase>

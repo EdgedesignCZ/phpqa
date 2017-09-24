@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2017-09-22T16:27:39" pdepend="@package_version@">
+<dependencies generated="2017-09-24T10:10:37" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -10,9 +10,9 @@
     </class>
     <trait name="CodeAnalysisTasks">
       <efferent>
+        <type namespace="Edge\QA" name="Config"/>
         <type namespace="Edge\QA\Task" name="ToolVersions"/>
         <type namespace="Edge\QA" name="Options"/>
-        <type namespace="Edge\QA" name="Config"/>
         <type namespace="Edge\QA" name="RunningTool"/>
         <type namespace="" name="PHP_CodeSniffer"/>
         <type namespace="PHP_CodeSniffer\Util" name="Standards"/>
@@ -32,7 +32,9 @@
       </efferent>
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
+        <type namespace="Edge\QA" name="Options"/>
         <type namespace="Edge\QA" name="ConfigTest"/>
+        <type namespace="Edge\QA\Task" name="ToolVersions"/>
       </afferent>
       <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Config.php"/>
     </class>
@@ -47,6 +49,7 @@
     <class name="Options">
       <efferent>
         <type namespace="Edge\QA" name="IgnoredPaths"/>
+        <type namespace="Edge\QA" name="Config"/>
         <type namespace="Edge\QA" name="RunningTool"/>
       </efferent>
       <afferent>
@@ -174,8 +177,9 @@
     <class name="ToolVersions">
       <efferent>
         <type namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+        <type namespace="Edge\QA" name="Config"/>
         <type namespace="Symfony\Component\Console\Helper" name="Table"/>
-        <type namespace="Robo\Task\Base" name="Exec"/>
+        <type namespace="Symfony\Component\Process" name="Process"/>
       </efferent>
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>

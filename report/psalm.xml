@@ -500,10 +500,10 @@
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php</file_path>
     <snippet>        assertThat($config-&gt;value('phpcpd.minLines'), is(5));</snippet>
-    <from>1914</from>
-    <to>1966</to>
-    <snippet_from>1906</snippet_from>
-    <snippet_to>1967</snippet_to>
+    <from>1912</from>
+    <to>1964</to>
+    <snippet_from>1904</snippet_from>
+    <snippet_to>1965</snippet_to>
     <column>9</column>
   </item>
   <item>
@@ -514,10 +514,10 @@
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php</file_path>
     <snippet>        assertThat($config-&gt;value('phpcpd.minTokens'), is(70));</snippet>
-    <from>1976</from>
-    <to>2030</to>
-    <snippet_from>1968</snippet_from>
-    <snippet_to>2031</snippet_to>
+    <from>1974</from>
+    <to>2028</to>
+    <snippet_from>1966</snippet_from>
+    <snippet_to>2029</snippet_to>
     <column>9</column>
   </item>
   <item>
@@ -528,10 +528,10 @@
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php</file_path>
     <snippet>        assertThat($config-&gt;value('phpcs.standard'), is('Zend'));</snippet>
-    <from>2040</from>
-    <to>2096</to>
-    <snippet_from>2032</snippet_from>
-    <snippet_to>2097</snippet_to>
+    <from>2038</from>
+    <to>2094</to>
+    <snippet_from>2030</snippet_from>
+    <snippet_to>2095</snippet_to>
     <column>9</column>
   </item>
   <item>
@@ -542,10 +542,10 @@
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php</file_path>
     <snippet>        assertThat($config-&gt;path('phpmd.standard'), is(__DIR__ . "/my-standard.xml"));</snippet>
-    <from>2106</from>
-    <to>2183</to>
-    <snippet_from>2098</snippet_from>
-    <snippet_to>2184</snippet_to>
+    <from>2104</from>
+    <to>2181</to>
+    <snippet_from>2096</snippet_from>
+    <snippet_to>2182</snippet_to>
     <column>9</column>
   </item>
   <item>
@@ -570,10 +570,10 @@
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testIgnoreNonExistentUserConfig()</snippet>
-    <from>2196</from>
-    <to>2245</to>
-    <snippet_from>2192</snippet_from>
-    <snippet_to>2245</snippet_to>
+    <from>2194</from>
+    <to>2243</to>
+    <snippet_from>2190</snippet_from>
+    <snippet_to>2243</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -584,10 +584,10 @@
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testThrowExceptionWhenFileDoesNotExist()</snippet>
-    <from>2447</from>
-    <to>2503</to>
-    <snippet_from>2443</snippet_from>
-    <snippet_to>2503</snippet_to>
+    <from>2437</from>
+    <to>2493</to>
+    <snippet_from>2433</snippet_from>
+    <snippet_to>2493</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -598,10 +598,10 @@
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php</file_path>
     <snippet>        assertThat($extensions, equalTo('php,inc,module'));</snippet>
-    <from>2850</from>
-    <to>2900</to>
-    <snippet_from>2842</snippet_from>
-    <snippet_to>2901</snippet_to>
+    <from>2836</from>
+    <to>2886</to>
+    <snippet_from>2828</snippet_from>
+    <snippet_to>2887</snippet_to>
     <column>9</column>
   </item>
   <item>
@@ -612,24 +612,66 @@
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testConfigCsvString()</snippet>
-    <from>2672</from>
-    <to>2709</to>
-    <snippet_from>2668</snippet_from>
-    <snippet_to>2709</snippet_to>
+    <from>2660</from>
+    <to>2697</to>
+    <snippet_from>2656</snippet_from>
+    <snippet_to>2697</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
     <line_number>71</line_number>
     <type>MissingReturnType</type>
+    <message>Method Edge\QA\ConfigTest::testUseCwdIfNoDirectoryIsSpecified does not have a return type, expecting void</message>
+    <file_name>tests/Config/ConfigTest.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php</file_path>
+    <snippet>    public function testUseCwdIfNoDirectoryIsSpecified()</snippet>
+    <from>2899</from>
+    <to>2951</to>
+    <snippet_from>2895</snippet_from>
+    <snippet_to>2951</snippet_to>
+    <column>5</column>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_number>77</line_number>
+    <type>MissingReturnType</type>
+    <message>Method Edge\QA\ConfigTest::testThrowExceptionWhenBinaryDoesNotExist does not have a return type, expecting void</message>
+    <file_name>tests/Config/ConfigTest.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php</file_path>
+    <snippet>    public function testThrowExceptionWhenBinaryDoesNotExist()</snippet>
+    <from>3038</from>
+    <to>3096</to>
+    <snippet_from>3034</snippet_from>
+    <snippet_to>3096</snippet_to>
+    <column>5</column>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_number>85</line_number>
+    <type>MissingReturnType</type>
+    <message>Method Edge\QA\ConfigTest::testThrowExceptionWhenWrongBinaryIsUsed does not have a return type, expecting void</message>
+    <file_name>tests/Config/ConfigTest.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php</file_path>
+    <snippet>    public function testThrowExceptionWhenWrongBinaryIsUsed()</snippet>
+    <from>3267</from>
+    <to>3324</to>
+    <snippet_from>3263</snippet_from>
+    <snippet_to>3324</snippet_to>
+    <column>5</column>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_number>93</line_number>
+    <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::shouldStopPhpqa does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php</file_path>
     <snippet>    private function shouldStopPhpqa()</snippet>
-    <from>2913</from>
-    <to>2947</to>
-    <snippet_from>2909</snippet_from>
-    <snippet_to>2947</snippet_to>
+    <from>3498</from>
+    <to>3532</to>
+    <snippet_from>3494</snippet_from>
+    <snippet_to>3532</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -1300,11 +1342,11 @@
     <message>Too many arguments for method assertthat</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
-    <snippet>        assertThat($this-&gt;fileOutput-&gt;buildRunningTools(array('pdepend' =&gt; [])), is(nonEmptyArray()));</snippet>
+    <snippet>        assertThat($this-&gt;buildRunningTools($this-&gt;fileOutput, array('pdepend' =&gt; [])), is(nonEmptyArray()));</snippet>
     <from>1346</from>
-    <to>1439</to>
+    <to>1446</to>
     <snippet_from>1338</snippet_from>
-    <snippet_to>1440</snippet_to>
+    <snippet_to>1447</snippet_to>
     <column>9</column>
   </item>
   <item>
@@ -1314,11 +1356,11 @@
     <message>Too many arguments for method assertthat</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
-    <snippet>        assertThat($cliOutput-&gt;buildRunningTools(array('pdepend' =&gt; [])), is(emptyArray()));</snippet>
-    <from>1449</from>
-    <to>1532</to>
-    <snippet_from>1441</snippet_from>
-    <snippet_to>1533</snippet_to>
+    <snippet>        assertThat($this-&gt;buildRunningTools($cliOutput, array('pdepend' =&gt; [])), is(emptyArray()));</snippet>
+    <from>1456</from>
+    <to>1546</to>
+    <snippet_from>1448</snippet_from>
+    <snippet_to>1547</snippet_to>
     <column>9</column>
   </item>
   <item>
@@ -1344,12 +1386,12 @@
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>        assertThat(
             $this-&gt;fileOutput-&gt;buildRunningTools(array('pdepend' =&gt; ['internalClass' =&gt; 'UnknownTool\UnknownClass'])),
-            is(emptyArray())
+            is([[], ['pdepend']])
         );</snippet>
-    <from>1604</from>
-    <to>1773</to>
-    <snippet_from>1596</snippet_from>
-    <snippet_to>1774</snippet_to>
+    <from>1618</from>
+    <to>1792</to>
+    <snippet_from>1610</snippet_from>
+    <snippet_to>1793</snippet_to>
     <column>9</column>
   </item>
   <item>
@@ -1360,10 +1402,10 @@
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    public function testIgnoreNotInstalledTool()</snippet>
-    <from>1545</from>
-    <to>1589</to>
-    <snippet_from>1541</snippet_from>
-    <snippet_to>1589</snippet_to>
+    <from>1559</from>
+    <to>1603</to>
+    <snippet_from>1555</snippet_from>
+    <snippet_to>1603</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -1373,351 +1415,294 @@
     <message>Too many arguments for method assertthat</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
-    <snippet>        assertThat($options-&gt;configDir, is($expectedConfig));</snippet>
-    <from>1986</from>
-    <to>2038</to>
-    <snippet_from>1978</snippet_from>
-    <snippet_to>2039</snippet_to>
-    <column>9</column>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_number>59</line_number>
-    <type>UntypedParam</type>
-    <message>Parameter $config has no provided type</message>
-    <file_name>tests/OptionsTest.php</file_name>
-    <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
-    <snippet>    public function testLoadDirectoryWithCustomConfig($config, $expectedConfig)</snippet>
-    <from>1875</from>
-    <to>1882</to>
-    <snippet_from>1821</snippet_from>
-    <snippet_to>1900</snippet_to>
-    <column>55</column>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_number>59</line_number>
-    <type>UntypedParam</type>
-    <message>Parameter $expectedConfig has no provided type</message>
-    <file_name>tests/OptionsTest.php</file_name>
-    <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
-    <snippet>    public function testLoadDirectoryWithCustomConfig($config, $expectedConfig)</snippet>
-    <from>1884</from>
-    <to>1899</to>
-    <snippet_from>1821</snippet_from>
-    <snippet_to>1900</snippet_to>
-    <column>64</column>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_number>59</line_number>
-    <type>MissingReturnType</type>
-    <message>Method Edge\QA\OptionsTest::testLoadDirectoryWithCustomConfig does not have a return type, expecting void</message>
-    <file_name>tests/OptionsTest.php</file_name>
-    <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
-    <snippet>    /** @dataProvider provideConfig */
-    public function testLoadDirectoryWithCustomConfig($config, $expectedConfig)</snippet>
-    <from>1825</from>
-    <to>1900</to>
-    <snippet_from>1782</snippet_from>
-    <snippet_to>1900</snippet_to>
-    <column>5</column>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_number>65</line_number>
-    <type>MissingReturnType</type>
-    <message>Method Edge\QA\OptionsTest::provideConfig does not have a return type, expecting array{cwd when config is not defined:array&lt;int, string|false&gt;, use passed config (relative to cwd):array&lt;int, string&gt;}</message>
-    <file_name>tests/OptionsTest.php</file_name>
-    <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
-    <snippet>    public function provideConfig()</snippet>
-    <from>2051</from>
-    <to>2082</to>
-    <snippet_from>2047</snippet_from>
-    <snippet_to>2082</snippet_to>
-    <column>5</column>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_number>77</line_number>
-    <type>TooManyArguments</type>
-    <message>Too many arguments for method assertthat</message>
-    <file_name>tests/OptionsTest.php</file_name>
-    <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>        assertThat($options-&gt;isSavedToFiles, is($isSavedToFiles));</snippet>
-    <from>2513</from>
-    <to>2570</to>
-    <snippet_from>2505</snippet_from>
-    <snippet_to>2571</snippet_to>
+    <from>2001</from>
+    <to>2058</to>
+    <snippet_from>1993</snippet_from>
+    <snippet_to>2059</snippet_to>
     <column>9</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>78</line_number>
+    <line_number>63</line_number>
     <type>TooManyArguments</type>
     <message>Too many arguments for method assertthat</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>        assertThat($options-&gt;isOutputPrinted, is($isOutputPrinted));</snippet>
-    <from>2580</from>
-    <to>2639</to>
-    <snippet_from>2572</snippet_from>
-    <snippet_to>2640</snippet_to>
+    <from>2068</from>
+    <to>2127</to>
+    <snippet_from>2060</snippet_from>
+    <snippet_to>2128</snippet_to>
     <column>9</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>79</line_number>
+    <line_number>64</line_number>
     <type>TooManyArguments</type>
     <message>Too many arguments for method assertthat</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>        assertThat($options-&gt;hasReport, is($hasReport));</snippet>
-    <from>2649</from>
-    <to>2696</to>
-    <snippet_from>2641</snippet_from>
-    <snippet_to>2697</snippet_to>
+    <from>2137</from>
+    <to>2184</to>
+    <snippet_from>2129</snippet_from>
+    <snippet_to>2185</snippet_to>
     <column>9</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>74</line_number>
+    <line_number>59</line_number>
     <type>UntypedParam</type>
     <message>Parameter $isSavedToFiles has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)</snippet>
-    <from>2402</from>
-    <to>2417</to>
-    <snippet_from>2353</snippet_from>
-    <snippet_to>2448</snippet_to>
+    <from>1890</from>
+    <to>1905</to>
+    <snippet_from>1841</snippet_from>
+    <snippet_to>1936</snippet_to>
     <column>50</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>74</line_number>
+    <line_number>59</line_number>
     <type>UntypedParam</type>
     <message>Parameter $isOutputPrinted has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)</snippet>
-    <from>2419</from>
-    <to>2435</to>
-    <snippet_from>2353</snippet_from>
-    <snippet_to>2448</snippet_to>
+    <from>1907</from>
+    <to>1923</to>
+    <snippet_from>1841</snippet_from>
+    <snippet_to>1936</snippet_to>
     <column>67</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>74</line_number>
+    <line_number>59</line_number>
     <type>UntypedParam</type>
     <message>Parameter $hasReport has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)</snippet>
-    <from>2437</from>
-    <to>2447</to>
-    <snippet_from>2353</snippet_from>
-    <snippet_to>2448</snippet_to>
+    <from>1925</from>
+    <to>1935</to>
+    <snippet_from>1841</snippet_from>
+    <snippet_to>1936</snippet_to>
     <column>85</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>74</line_number>
+    <line_number>59</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\OptionsTest::testBuildOutput does not have a return type, expecting void</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    /** @dataProvider provideOutputs */
     public function testBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)</snippet>
-    <from>2357</from>
-    <to>2448</to>
-    <snippet_from>2313</snippet_from>
-    <snippet_to>2448</snippet_to>
+    <from>1845</from>
+    <to>1936</to>
+    <snippet_from>1801</snippet_from>
+    <snippet_to>1936</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>82</line_number>
+    <line_number>67</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\OptionsTest::provideOutputs does not have a return type, expecting array{ignore verbose and report in CLI output:array&lt;int, array{output:string, verbose:false, report:bool}|bool&gt;, respect verbose mode and report in FILE output:array&lt;int, array{output:string, verbose:false, report:bool}|bool&gt;}</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    public function provideOutputs()</snippet>
-    <from>2709</from>
-    <to>2741</to>
-    <snippet_from>2705</snippet_from>
-    <snippet_to>2741</snippet_to>
+    <from>2197</from>
+    <to>2229</to>
+    <snippet_from>2193</snippet_from>
+    <snippet_to>2229</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>104</line_number>
+    <line_number>89</line_number>
     <type>TooManyArguments</type>
     <message>Too many arguments for method assertthat</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>        assertThat($options-&gt;isParallel, is($isParallel));</snippet>
-    <from>3414</from>
-    <to>3463</to>
-    <snippet_from>3406</snippet_from>
-    <snippet_to>3464</snippet_to>
+    <from>2902</from>
+    <to>2951</to>
+    <snippet_from>2894</snippet_from>
+    <snippet_to>2952</snippet_to>
     <column>9</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>101</line_number>
+    <line_number>86</line_number>
     <type>UntypedParam</type>
     <message>Parameter $isParallel has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    public function testExecute(array $opts, $isParallel)</snippet>
-    <from>3337</from>
-    <to>3348</to>
-    <snippet_from>3292</snippet_from>
-    <snippet_to>3349</snippet_to>
+    <from>2825</from>
+    <to>2836</to>
+    <snippet_from>2780</snippet_from>
+    <snippet_to>2837</snippet_to>
     <column>46</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>101</line_number>
+    <line_number>86</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\OptionsTest::testExecute does not have a return type, expecting void</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    /** @dataProvider provideExecutionMode */
     public function testExecute(array $opts, $isParallel)</snippet>
-    <from>3296</from>
-    <to>3349</to>
-    <snippet_from>3246</snippet_from>
-    <snippet_to>3349</snippet_to>
+    <from>2784</from>
+    <to>2837</to>
+    <snippet_from>2734</snippet_from>
+    <snippet_to>2837</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>107</line_number>
+    <line_number>92</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\OptionsTest::provideExecutionMode does not have a return type, expecting array{parallel executaion is default mode:array&lt;int, array{execution:string}|bool&gt;, dont use parallelism if execution is other word:array&lt;int, array{execution:string}|false&gt;}</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    public function provideExecutionMode()</snippet>
-    <from>3476</from>
-    <to>3514</to>
-    <snippet_from>3472</snippet_from>
-    <snippet_to>3514</snippet_to>
+    <from>2964</from>
+    <to>3002</to>
+    <snippet_from>2960</snippet_from>
+    <snippet_to>3002</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>120</line_number>
+    <line_number>105</line_number>
     <type>TooManyArguments</type>
     <message>Too many arguments for method assertthat</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>        assertThat($options-&gt;getCommonRootPath(), is($expectedRoot));</snippet>
-    <from>4056</from>
-    <to>4116</to>
-    <snippet_from>4048</snippet_from>
-    <snippet_to>4117</snippet_to>
+    <from>3544</from>
+    <to>3604</to>
+    <snippet_from>3536</snippet_from>
+    <snippet_to>3605</snippet_to>
     <column>9</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>117</line_number>
+    <line_number>102</line_number>
     <type>UntypedParam</type>
     <message>Parameter $analyzedDirs has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildRootPath($analyzedDirs, $expectedRoot)</snippet>
-    <from>3929</from>
-    <to>3942</to>
-    <snippet_from>3891</snippet_from>
-    <snippet_to>3958</snippet_to>
+    <from>3417</from>
+    <to>3430</to>
+    <snippet_from>3379</snippet_from>
+    <snippet_to>3446</snippet_to>
     <column>39</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>117</line_number>
+    <line_number>102</line_number>
     <type>UntypedParam</type>
     <message>Parameter $expectedRoot has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildRootPath($analyzedDirs, $expectedRoot)</snippet>
-    <from>3944</from>
-    <to>3957</to>
-    <snippet_from>3891</snippet_from>
-    <snippet_to>3958</snippet_to>
+    <from>3432</from>
+    <to>3445</to>
+    <snippet_from>3379</snippet_from>
+    <snippet_to>3446</snippet_to>
     <column>54</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>117</line_number>
+    <line_number>102</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\OptionsTest::testBuildRootPath does not have a return type, expecting void</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    /** @dataProvider provideAnalyzedDir */
     public function testBuildRootPath($analyzedDirs, $expectedRoot)</snippet>
-    <from>3895</from>
-    <to>3958</to>
-    <snippet_from>3847</snippet_from>
-    <snippet_to>3958</snippet_to>
+    <from>3383</from>
+    <to>3446</to>
+    <snippet_from>3335</snippet_from>
+    <snippet_to>3446</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>123</line_number>
+    <line_number>108</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\OptionsTest::provideAnalyzedDir does not have a return type, expecting array{current dir + analyzed dir + slash:array&lt;int, string&gt;, find common root from multiple dirs:array&lt;int, string&gt;, no path when dir is invalid:array&lt;int, string&gt;}</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    public function provideAnalyzedDir()</snippet>
-    <from>4129</from>
-    <to>4165</to>
-    <snippet_from>4125</snippet_from>
-    <snippet_to>4165</snippet_to>
+    <from>3617</from>
+    <to>3653</to>
+    <snippet_from>3613</snippet_from>
+    <snippet_to>3653</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>136</line_number>
+    <line_number>121</line_number>
     <type>TooManyArguments</type>
     <message>Too many arguments for method assertthat</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>        assertThat($tools['phpcs']-&gt;getAllowedErrorsCount(), is(1));</snippet>
-    <from>4699</from>
-    <to>4758</to>
-    <snippet_from>4691</snippet_from>
-    <snippet_to>4759</snippet_to>
+    <from>4194</from>
+    <to>4253</to>
+    <snippet_from>4186</snippet_from>
+    <snippet_to>4254</snippet_to>
     <column>9</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>137</line_number>
+    <line_number>122</line_number>
     <type>TooManyArguments</type>
     <message>Too many arguments for method assertthat</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>        assertThat($tools['pdepend']-&gt;getAllowedErrorsCount(), is(nullValue()));</snippet>
-    <from>4768</from>
-    <to>4839</to>
-    <snippet_from>4760</snippet_from>
-    <snippet_to>4840</snippet_to>
+    <from>4263</from>
+    <to>4334</to>
+    <snippet_from>4255</snippet_from>
+    <snippet_to>4335</snippet_to>
     <column>9</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>132</line_number>
+    <line_number>117</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\OptionsTest::testLoadAllowedErrorsCount does not have a return type, expecting void</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
     <snippet>    public function testLoadAllowedErrorsCount()</snippet>
-    <from>4475</from>
-    <to>4519</to>
-    <snippet_from>4471</snippet_from>
-    <snippet_to>4519</snippet_to>
+    <from>3963</from>
+    <to>4007</to>
+    <snippet_from>3959</snippet_from>
+    <snippet_to>4007</snippet_to>
+    <column>5</column>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_number>125</line_number>
+    <type>MissingReturnType</type>
+    <message>Method Edge\QA\OptionsTest::buildRunningTools does not have a return type</message>
+    <file_name>tests/OptionsTest.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php</file_path>
+    <snippet>    private function buildRunningTools(Options $o, array $tools)</snippet>
+    <from>4347</from>
+    <to>4407</to>
+    <snippet_from>4343</snippet_from>
+    <snippet_to>4407</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -1760,25 +1745,42 @@
     <column>5</column>
   </item>
   <item>
+    <severity>error</severity>
+    <line_number>121</line_number>
+    <type>UntypedParam</type>
+    <message>Parameter $opts has no provided type</message>
+    <file_name>src/CodeAnalysisTasks.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
+    <snippet>        $opts = array(
+            'config' =&gt; '',
+        )</snippet>
+    <from>4283</from>
+    <to>4335</to>
+    <snippet_from>4275</snippet_from>
+    <snippet_to>4335</snippet_to>
+    <column>9</column>
+  </item>
+  <item>
     <severity>info</severity>
-    <line_number>117</line_number>
+    <line_number>120</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::tools does not have a return type, expecting void</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    /**
      * @description Current versions
+     * @option $config path directory with .phpqa.yml, @default current working directory
      */
-    public function tools()</snippet>
-    <from>4110</from>
-    <to>4133</to>
-    <snippet_from>4053</snippet_from>
-    <snippet_to>4133</snippet_to>
+    public function tools(</snippet>
+    <from>4252</from>
+    <to>4274</to>
+    <snippet_from>4105</snippet_from>
+    <snippet_to>4274</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>136</line_number>
+    <line_number>144</line_number>
     <type>UntypedParam</type>
     <message>Parameter $opts has no provided type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
@@ -1795,15 +1797,15 @@
             'report' =&gt; false,
             'execution' =&gt; 'parallel'
         )</snippet>
-    <from>5011</from>
-    <to>5425</to>
-    <snippet_from>5003</snippet_from>
-    <snippet_to>5425</snippet_to>
+    <from>5324</from>
+    <to>5738</to>
+    <snippet_from>5316</snippet_from>
+    <snippet_to>5738</snippet_to>
     <column>9</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>135</line_number>
+    <line_number>143</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::ci does not have a return type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
@@ -1821,472 +1823,472 @@
      * @option $report build HTML report (only when output format is file)
      */
     public function ci(</snippet>
-    <from>4983</from>
-    <to>5002</to>
-    <snippet_from>4288</snippet_from>
-    <snippet_to>5002</snippet_to>
+    <from>5296</from>
+    <to>5315</to>
+    <snippet_from>4601</snippet_from>
+    <snippet_to>5315</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>158</line_number>
+    <line_number>166</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::loadOptions does not have a return type, expecting void</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function loadOptions(array $opts)</snippet>
-    <from>5660</from>
-    <to>5701</to>
-    <snippet_from>5656</snippet_from>
-    <snippet_to>5701</snippet_to>
+    <from>5973</from>
+    <to>6014</to>
+    <snippet_from>5969</snippet_from>
+    <snippet_to>6014</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>174</line_number>
+    <line_number>182</line_number>
     <type>UntypedParam</type>
     <message>Parameter $tools has no provided type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function selectToolsThatAreInstalled($tools)</snippet>
-    <from>6355</from>
-    <to>6361</to>
-    <snippet_from>6306</snippet_from>
-    <snippet_to>6362</snippet_to>
+    <from>6681</from>
+    <to>6687</to>
+    <snippet_from>6632</snippet_from>
+    <snippet_to>6688</snippet_to>
     <column>50</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>174</line_number>
+    <line_number>182</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::selectToolsThatAreInstalled does not have a return type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function selectToolsThatAreInstalled($tools)</snippet>
-    <from>6310</from>
-    <to>6362</to>
-    <snippet_from>6306</snippet_from>
-    <snippet_to>6362</snippet_to>
+    <from>6636</from>
+    <to>6688</to>
+    <snippet_from>6632</snippet_from>
+    <snippet_to>6688</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>184</line_number>
+    <line_number>192</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::ciClean does not have a return type, expecting void</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function ciClean()</snippet>
-    <from>6648</from>
-    <to>6674</to>
-    <snippet_from>6644</snippet_from>
-    <snippet_to>6674</snippet_to>
+    <from>6974</from>
+    <to>7000</to>
+    <snippet_from>6970</snippet_from>
+    <snippet_to>7000</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>194</line_number>
+    <line_number>202</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::runTools does not have a return type, expecting void</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function runTools()</snippet>
-    <from>6927</from>
-    <to>6954</to>
-    <snippet_from>6923</snippet_from>
-    <snippet_to>6954</snippet_to>
+    <from>7253</from>
+    <to>7280</to>
+    <snippet_from>7249</snippet_from>
+    <snippet_to>7280</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>207</line_number>
+    <line_number>216</line_number>
     <type>MissingPropertyType</type>
     <message>Property Edge\QA\RunningTool::$binary does not have a declared type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
-    <snippet>        $binary = pathToBinary($tool-&gt;binary);</snippet>
-    <from>7385</from>
-    <to>7398</to>
-    <snippet_from>7354</snippet_from>
-    <snippet_to>7400</snippet_to>
-    <column>32</column>
+    <snippet>        $binary = $customBinary ?: pathToBinary($tool-&gt;binary);</snippet>
+    <from>7791</from>
+    <to>7804</to>
+    <snippet_from>7743</snippet_from>
+    <snippet_to>7806</snippet_to>
+    <column>49</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>220</line_number>
+    <line_number>229</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::phploc does not have a return type, expecting array&lt;int|string, mixed&gt;</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function phploc()</snippet>
-    <from>7804</from>
-    <to>7829</to>
-    <snippet_from>7800</snippet_from>
-    <snippet_to>7829</snippet_to>
+    <from>8210</from>
+    <to>8235</to>
+    <snippet_from>8206</snippet_from>
+    <snippet_to>8235</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>232</line_number>
+    <line_number>241</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::phpcpd does not have a return type, expecting array&lt;string|int, mixed&gt;</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function phpcpd(RunningTool $tool)</snippet>
-    <from>8126</from>
-    <to>8168</to>
-    <snippet_from>8122</snippet_from>
-    <snippet_to>8168</snippet_to>
+    <from>8532</from>
+    <to>8574</to>
+    <snippet_from>8528</snippet_from>
+    <snippet_to>8574</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>247</line_number>
+    <line_number>256</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::phpcs does not have a return type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function phpcs(RunningTool $tool)</snippet>
-    <from>8623</from>
-    <to>8664</to>
-    <snippet_from>8619</snippet_from>
-    <snippet_to>8664</snippet_to>
+    <from>9029</from>
+    <to>9070</to>
+    <snippet_from>9025</snippet_from>
+    <snippet_to>9070</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>254</line_number>
+    <line_number>263</line_number>
     <type>UndefinedConstant</type>
     <message>Const COMPOSER_VENDOR_DIR is not defined</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>        require_once COMPOSER_VENDOR_DIR . '/squizlabs/php_codesniffer/autoload.php';</snippet>
-    <from>8836</from>
-    <to>8855</to>
-    <snippet_from>8815</snippet_from>
-    <snippet_to>8900</snippet_to>
+    <from>9242</from>
+    <to>9261</to>
+    <snippet_from>9221</snippet_from>
+    <snippet_to>9306</snippet_to>
     <column>22</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>255</line_number>
+    <line_number>264</line_number>
     <type>UndefinedClass</type>
     <message>Class or interface PHP_CodeSniffer\Util\Standards does not exist</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>        return $this-&gt;buildPhpcs($tool, \PHP_CodeSniffer\Util\Standards::getInstalledStandards());</snippet>
-    <from>8941</from>
-    <to>8972</to>
-    <snippet_from>8901</snippet_from>
-    <snippet_to>8999</snippet_to>
+    <from>9347</from>
+    <to>9378</to>
+    <snippet_from>9307</snippet_from>
+    <snippet_to>9405</snippet_to>
     <column>41</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>252</line_number>
+    <line_number>261</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::phpcs3 does not have a return type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function phpcs3(RunningTool $tool)</snippet>
-    <from>8766</from>
-    <to>8808</to>
-    <snippet_from>8762</snippet_from>
-    <snippet_to>8808</snippet_to>
+    <from>9172</from>
+    <to>9214</to>
+    <snippet_from>9168</snippet_from>
+    <snippet_to>9214</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>277</line_number>
+    <line_number>286</line_number>
     <type>MissingPropertyType</type>
     <message>Property Edge\QA\RunningTool::$userReports does not have a declared type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>                    $tool-&gt;userReports[$report] = $this-&gt;options-&gt;rawFile($file);</snippet>
-    <from>9966</from>
-    <to>9984</to>
-    <snippet_from>9946</snippet_from>
-    <snippet_to>10027</snippet_to>
+    <from>10372</from>
+    <to>10390</to>
+    <snippet_from>10352</snippet_from>
+    <snippet_to>10433</snippet_to>
     <column>21</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>258</line_number>
+    <line_number>267</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::buildPhpcs does not have a return type, expecting array&lt;string|int, mixed&gt;</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function buildPhpcs(RunningTool $tool, array $installedStandards)</snippet>
-    <from>9011</from>
-    <to>9084</to>
-    <snippet_from>9007</snippet_from>
-    <snippet_to>9084</snippet_to>
+    <from>9417</from>
+    <to>9490</to>
+    <snippet_from>9413</snippet_from>
+    <snippet_to>9490</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>289</line_number>
+    <line_number>298</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::pdepend does not have a return type, expecting array&lt;int, mixed&gt;</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function pdepend()</snippet>
-    <from>10260</from>
-    <to>10286</to>
-    <snippet_from>10256</snippet_from>
-    <snippet_to>10286</snippet_to>
+    <from>10666</from>
+    <to>10692</to>
+    <snippet_from>10662</snippet_from>
+    <snippet_to>10692</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>303</line_number>
+    <line_number>312</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::phpmd does not have a return type, expecting array&lt;string|int, mixed&gt;</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function phpmd(RunningTool $tool)</snippet>
-    <from>10886</from>
-    <to>10927</to>
-    <snippet_from>10882</snippet_from>
-    <snippet_to>10927</snippet_to>
+    <from>11292</from>
+    <to>11333</to>
+    <snippet_from>11288</snippet_from>
+    <snippet_to>11333</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>318</line_number>
+    <line_number>327</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::phpmetrics does not have a return type, expecting array&lt;string|int, mixed&gt;</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function phpmetrics(RunningTool $tool)</snippet>
-    <from>11397</from>
-    <to>11443</to>
-    <snippet_from>11393</snippet_from>
-    <snippet_to>11443</snippet_to>
+    <from>11803</from>
+    <to>11849</to>
+    <snippet_from>11799</snippet_from>
+    <snippet_to>11849</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>345</line_number>
+    <line_number>354</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::phpmetrics2 does not have a return type, expecting array&lt;string|int, mixed&gt;</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function phpmetrics2(RunningTool $tool)</snippet>
-    <from>12431</from>
-    <to>12478</to>
-    <snippet_from>12427</snippet_from>
-    <snippet_to>12478</snippet_to>
+    <from>12837</from>
+    <to>12884</to>
+    <snippet_from>12833</snippet_from>
+    <snippet_to>12884</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>360</line_number>
+    <line_number>369</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::parallellint does not have a return type, expecting array&lt;int, mixed&gt;</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function parallellint()</snippet>
-    <from>13015</from>
-    <to>13046</to>
-    <snippet_from>13011</snippet_from>
-    <snippet_to>13046</snippet_to>
+    <from>13421</from>
+    <to>13452</to>
+    <snippet_from>13417</snippet_from>
+    <snippet_to>13452</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>372</line_number>
+    <line_number>381</line_number>
     <type>UntypedParam</type>
     <message>Parameter $relativeDir has no provided type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>                function ($relativeDir) {</snippet>
-    <from>13378</from>
-    <to>13390</to>
-    <snippet_from>13352</snippet_from>
-    <snippet_to>13393</snippet_to>
+    <from>13784</from>
+    <to>13796</to>
+    <snippet_from>13758</snippet_from>
+    <snippet_to>13799</snippet_to>
     <column>27</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>372</line_number>
+    <line_number>381</line_number>
     <type>MissingClosureReturnType</type>
     <message>Closure does not have a return type, expecting string</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>                function ($relativeDir) {</snippet>
-    <from>13368</from>
-    <to>13393</to>
-    <snippet_from>13352</snippet_from>
-    <snippet_to>13393</snippet_to>
+    <from>13774</from>
+    <to>13799</to>
+    <snippet_from>13758</snippet_from>
+    <snippet_to>13799</snippet_to>
     <column>17</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>370</line_number>
+    <line_number>379</line_number>
     <type>MissingClosureReturnType</type>
     <message>Closure does not have a return type, expecting array&lt;int, string&gt;</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>        $createAbsolutePaths = function (array $relativeDirs) {</snippet>
-    <from>13263</from>
-    <to>13295</to>
-    <snippet_from>13232</snippet_from>
-    <snippet_to>13295</snippet_to>
+    <from>13669</from>
+    <to>13701</to>
+    <snippet_from>13638</snippet_from>
+    <snippet_to>13701</snippet_to>
     <column>32</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>368</line_number>
+    <line_number>377</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::phpstan does not have a return type, expecting array&lt;int, mixed&gt;</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function phpstan()</snippet>
-    <from>13199</from>
-    <to>13225</to>
-    <snippet_from>13195</snippet_from>
-    <snippet_to>13225</snippet_to>
+    <from>13605</from>
+    <to>13631</to>
+    <snippet_from>13601</snippet_from>
+    <snippet_to>13631</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>413</line_number>
+    <line_number>422</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::phpcsfixer does not have a return type, expecting array&lt;string|int, mixed&gt;</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function phpcsfixer()</snippet>
-    <from>14803</from>
-    <to>14832</to>
-    <snippet_from>14799</snippet_from>
-    <snippet_to>14832</snippet_to>
+    <from>15209</from>
+    <to>15238</to>
+    <snippet_from>15205</snippet_from>
+    <snippet_to>15238</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>466</line_number>
+    <line_number>475</line_number>
     <type>MissingPropertyType</type>
     <message>Property Edge\QA\RunningTool::$userReports does not have a declared type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>                    $tool-&gt;userReports["{$report}.{$format}"] = $this-&gt;options-&gt;rawFile($filename);</snippet>
-    <from>17002</from>
-    <to>17020</to>
-    <snippet_from>16982</snippet_from>
-    <snippet_to>17081</snippet_to>
+    <from>17407</from>
+    <to>17425</to>
+    <snippet_from>17387</snippet_from>
+    <snippet_to>17486</snippet_to>
     <column>21</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>449</line_number>
+    <line_number>458</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::phpunit does not have a return type, expecting array&lt;string, mixed&gt;</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function phpunit(RunningTool $tool)</snippet>
-    <from>16147</from>
-    <to>16190</to>
-    <snippet_from>16143</snippet_from>
-    <snippet_to>16190</snippet_to>
+    <from>16553</from>
+    <to>16596</to>
+    <snippet_from>16549</snippet_from>
+    <snippet_to>16596</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>473</line_number>
+    <line_number>482</line_number>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\CodeAnalysisTasks::psalm does not have a return type, expecting array{config:mixed, output-format:string, show-info:string, report:mixed, find-dead-code:string, threads:mixed}</message>
+    <message>Method Edge\QA\CodeAnalysisTasks::psalm does not have a return type, expecting array{config:mixed, show-info:string, report:mixed, find-dead-code:string, threads:mixed}</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function psalm()</snippet>
-    <from>17157</from>
-    <to>17181</to>
-    <snippet_from>17153</snippet_from>
-    <snippet_to>17181</snippet_to>
+    <from>17562</from>
+    <to>17586</to>
+    <snippet_from>17558</snippet_from>
+    <snippet_to>17586</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>514</line_number>
+    <line_number>521</line_number>
     <type>MissingPropertyType</type>
     <message>Property Edge\QA\RunningTool::$htmlReport does not have a declared type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>            if (!$tool-&gt;htmlReport) {</snippet>
-    <from>18758</from>
-    <to>18775</to>
-    <snippet_from>18741</snippet_from>
-    <snippet_to>18778</snippet_to>
+    <from>19028</from>
+    <to>19045</to>
+    <snippet_from>19011</snippet_from>
+    <snippet_to>19048</snippet_to>
     <column>18</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>515</line_number>
+    <line_number>522</line_number>
     <type>MissingPropertyType</type>
     <message>Property Edge\QA\RunningTool::$binary does not have a declared type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>                $tool-&gt;htmlReport = $this-&gt;options-&gt;rawFile("{$tool-&gt;binary}.html");</snippet>
-    <from>18841</from>
-    <to>18854</to>
-    <snippet_from>18779</snippet_from>
-    <snippet_to>18863</snippet_to>
+    <from>19111</from>
+    <to>19124</to>
+    <snippet_from>19049</snippet_from>
+    <snippet_to>19133</snippet_to>
     <column>63</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>533</line_number>
+    <line_number>540</line_number>
     <type>MissingPropertyType</type>
     <message>Property Edge\QA\RunningTool::$binary does not have a declared type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>                    $this-&gt;config-&gt;path("report.{$tool-&gt;binary}"),</snippet>
-    <from>19568</from>
-    <to>19581</to>
-    <snippet_from>19519</snippet_from>
-    <snippet_to>19585</snippet_to>
+    <from>19838</from>
+    <to>19851</to>
+    <snippet_from>19789</snippet_from>
+    <snippet_to>19855</snippet_to>
     <column>50</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>543</line_number>
+    <line_number>550</line_number>
     <type>UndefinedConstant</type>
     <message>Const PHPQA_VERSION is not defined</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>                'appVersion' =&gt; PHPQA_VERSION,</snippet>
-    <from>19893</from>
-    <to>19906</to>
-    <snippet_from>19861</snippet_from>
-    <snippet_to>19907</snippet_to>
+    <from>20163</from>
+    <to>20176</to>
+    <snippet_from>20131</snippet_from>
+    <snippet_to>20177</snippet_to>
     <column>33</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>511</line_number>
+    <line_number>518</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::buildHtmlReport does not have a return type, expecting void</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function buildHtmlReport()</snippet>
-    <from>18654</from>
-    <to>18688</to>
-    <snippet_from>18650</snippet_from>
-    <snippet_to>18688</snippet_to>
+    <from>18924</from>
+    <to>18958</to>
+    <snippet_from>18920</snippet_from>
+    <snippet_to>18958</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>550</line_number>
+    <line_number>557</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\CodeAnalysisTasks::buildSummary does not have a return type</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function buildSummary()</snippet>
-    <from>20053</from>
-    <to>20084</to>
-    <snippet_from>20049</snippet_from>
-    <snippet_to>20084</snippet_to>
+    <from>20323</from>
+    <to>20354</to>
+    <snippet_from>20319</snippet_from>
+    <snippet_to>20354</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -2431,352 +2433,408 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_number>21</line_number>
-    <type>InvalidScalarArgument</type>
-    <message>Argument 1 of Symfony\Component\Yaml\Yaml::parse expects string, string|false provided</message>
-    <file_name>src/Config.php</file_name>
-    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
-    <snippet>            $config = Yaml::parse(file_get_contents($configFile));</snippet>
-    <from>449</from>
-    <to>479</to>
-    <snippet_from>415</snippet_from>
-    <snippet_to>481</snippet_to>
-    <column>35</column>
-  </item>
-  <item>
-    <severity>error</severity>
     <line_number>16</line_number>
     <type>UntypedParam</type>
     <message>Parameter $directory has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
-    <snippet>    public function loadCustomConfig($directory, $isUserDirectory = false)</snippet>
-    <from>244</from>
-    <to>254</to>
-    <snippet_from>207</snippet_from>
-    <snippet_to>281</snippet_to>
-    <column>38</column>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_number>16</line_number>
-    <type>UntypedParam</type>
-    <message>Parameter $isUserDirectory has no provided type</message>
-    <file_name>src/Config.php</file_name>
-    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
-    <snippet>    public function loadCustomConfig($directory, $isUserDirectory = false)</snippet>
-    <from>256</from>
-    <to>280</to>
-    <snippet_from>207</snippet_from>
-    <snippet_to>281</snippet_to>
-    <column>50</column>
+    <snippet>    public function loadUserConfig($directory)</snippet>
+    <from>236</from>
+    <to>246</to>
+    <snippet_from>201</snippet_from>
+    <snippet_to>247</snippet_to>
+    <column>36</column>
   </item>
   <item>
     <severity>info</severity>
     <line_number>16</line_number>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Config::loadCustomConfig does not have a return type, expecting void</message>
+    <message>Method Edge\QA\Config::loadUserConfig does not have a return type, expecting void</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
-    <snippet>    public function loadCustomConfig($directory, $isUserDirectory = false)</snippet>
-    <from>211</from>
-    <to>281</to>
-    <snippet_from>207</snippet_from>
-    <snippet_to>281</snippet_to>
+    <snippet>    public function loadUserConfig($directory)</snippet>
+    <from>205</from>
+    <to>247</to>
+    <snippet_from>201</snippet_from>
+    <snippet_to>247</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>35</line_number>
+    <line_number>26</line_number>
+    <type>InvalidScalarArgument</type>
+    <message>Argument 1 of Symfony\Component\Yaml\Yaml::parse expects string, string|false provided</message>
+    <file_name>src/Config.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
+    <snippet>            $config = Yaml::parse(file_get_contents($configFile));</snippet>
+    <from>561</from>
+    <to>591</to>
+    <snippet_from>527</snippet_from>
+    <snippet_to>593</snippet_to>
+    <column>35</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>21</line_number>
+    <type>UntypedParam</type>
+    <message>Parameter $directory has no provided type</message>
+    <file_name>src/Config.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
+    <snippet>    private function loadConfig($directory, $isUserDirectory = false)</snippet>
+    <from>356</from>
+    <to>366</to>
+    <snippet_from>324</snippet_from>
+    <snippet_to>393</snippet_to>
+    <column>33</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>21</line_number>
+    <type>UntypedParam</type>
+    <message>Parameter $isUserDirectory has no provided type</message>
+    <file_name>src/Config.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
+    <snippet>    private function loadConfig($directory, $isUserDirectory = false)</snippet>
+    <from>368</from>
+    <to>392</to>
+    <snippet_from>324</snippet_from>
+    <snippet_to>393</snippet_to>
+    <column>45</column>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_number>21</line_number>
+    <type>MissingReturnType</type>
+    <message>Method Edge\QA\Config::loadConfig does not have a return type, expecting void</message>
+    <file_name>src/Config.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
+    <snippet>    private function loadConfig($directory, $isUserDirectory = false)</snippet>
+    <from>328</from>
+    <to>393</to>
+    <snippet_from>324</snippet_from>
+    <snippet_to>393</snippet_to>
+    <column>5</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>36</line_number>
+    <type>UntypedParam</type>
+    <message>Parameter $tool has no provided type</message>
+    <file_name>src/Config.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
+    <snippet>    public function getCustomBinary($tool)</snippet>
+    <from>883</from>
+    <to>888</to>
+    <snippet_from>847</snippet_from>
+    <snippet_to>889</snippet_to>
+    <column>37</column>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_number>36</line_number>
+    <type>MissingReturnType</type>
+    <message>Method Edge\QA\Config::getCustomBinary does not have a return type</message>
+    <file_name>src/Config.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
+    <snippet>    public function getCustomBinary($tool)</snippet>
+    <from>851</from>
+    <to>889</to>
+    <snippet_from>847</snippet_from>
+    <snippet_to>889</snippet_to>
+    <column>5</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>53</line_number>
     <type>UntypedParam</type>
     <message>Parameter $value has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>            function ($value) {</snippet>
-    <from>842</from>
-    <to>848</to>
-    <snippet_from>820</snippet_from>
-    <snippet_to>851</snippet_to>
+    <from>1377</from>
+    <to>1383</to>
+    <snippet_from>1355</snippet_from>
+    <snippet_to>1386</snippet_to>
     <column>23</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>35</line_number>
+    <line_number>53</line_number>
     <type>MissingClosureReturnType</type>
     <message>Closure does not have a return type, expecting mixed</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>            function ($value) {</snippet>
-    <from>832</from>
-    <to>851</to>
-    <snippet_from>820</snippet_from>
-    <snippet_to>851</snippet_to>
+    <from>1367</from>
+    <to>1386</to>
+    <snippet_from>1355</snippet_from>
+    <snippet_to>1386</snippet_to>
     <column>13</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>31</line_number>
+    <line_number>49</line_number>
     <type>UntypedParam</type>
     <message>Parameter $path has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    public function value($path)</snippet>
-    <from>761</from>
-    <to>766</to>
-    <snippet_from>735</snippet_from>
-    <snippet_to>767</snippet_to>
+    <from>1296</from>
+    <to>1301</to>
+    <snippet_from>1270</snippet_from>
+    <snippet_to>1302</snippet_to>
     <column>27</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>31</line_number>
+    <line_number>49</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Config::value does not have a return type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    public function value($path)</snippet>
-    <from>739</from>
-    <to>767</to>
-    <snippet_from>735</snippet_from>
-    <snippet_to>767</snippet_to>
+    <from>1274</from>
+    <to>1302</to>
+    <snippet_from>1270</snippet_from>
+    <snippet_to>1302</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>45</line_number>
+    <line_number>63</line_number>
     <type>UntypedParam</type>
     <message>Parameter $file has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>            function ($file, $dir) use ($path) {</snippet>
-    <from>1021</from>
-    <to>1026</to>
-    <snippet_from>999</snippet_from>
-    <snippet_to>1047</snippet_to>
+    <from>1556</from>
+    <to>1561</to>
+    <snippet_from>1534</snippet_from>
+    <snippet_to>1582</snippet_to>
     <column>23</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>45</line_number>
+    <line_number>63</line_number>
     <type>UntypedParam</type>
     <message>Parameter $dir has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>            function ($file, $dir) use ($path) {</snippet>
-    <from>1028</from>
-    <to>1032</to>
-    <snippet_from>999</snippet_from>
-    <snippet_to>1047</snippet_to>
+    <from>1563</from>
+    <to>1567</to>
+    <snippet_from>1534</snippet_from>
+    <snippet_to>1582</snippet_to>
     <column>30</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>45</line_number>
+    <line_number>63</line_number>
     <type>MissingClosureReturnType</type>
     <message>Closure does not have a return type, expecting string</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>            function ($file, $dir) use ($path) {</snippet>
-    <from>1011</from>
-    <to>1047</to>
-    <snippet_from>999</snippet_from>
-    <snippet_to>1047</snippet_to>
+    <from>1546</from>
+    <to>1582</to>
+    <snippet_from>1534</snippet_from>
+    <snippet_to>1582</snippet_to>
     <column>13</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>41</line_number>
+    <line_number>59</line_number>
     <type>UntypedParam</type>
     <message>Parameter $path has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    public function path($path)</snippet>
-    <from>940</from>
-    <to>945</to>
-    <snippet_from>915</snippet_from>
-    <snippet_to>946</snippet_to>
+    <from>1475</from>
+    <to>1480</to>
+    <snippet_from>1450</snippet_from>
+    <snippet_to>1481</snippet_to>
     <column>26</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>41</line_number>
+    <line_number>59</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Config::path does not have a return type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    public function path($path)</snippet>
-    <from>919</from>
-    <to>946</to>
-    <snippet_from>915</snippet_from>
-    <snippet_to>946</snippet_to>
+    <from>1454</from>
+    <to>1481</to>
+    <snippet_from>1450</snippet_from>
+    <snippet_to>1481</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>59</line_number>
+    <line_number>77</line_number>
     <type>UntypedParam</type>
     <message>Parameter $value has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>            function ($value) {</snippet>
-    <from>1395</from>
-    <to>1401</to>
-    <snippet_from>1373</snippet_from>
-    <snippet_to>1404</snippet_to>
+    <from>1930</from>
+    <to>1936</to>
+    <snippet_from>1908</snippet_from>
+    <snippet_to>1939</snippet_to>
     <column>23</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>59</line_number>
+    <line_number>77</line_number>
     <type>MissingClosureReturnType</type>
     <message>Closure does not have a return type, expecting mixed</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>            function ($value) {</snippet>
-    <from>1385</from>
-    <to>1404</to>
-    <snippet_from>1373</snippet_from>
-    <snippet_to>1404</snippet_to>
+    <from>1920</from>
+    <to>1939</to>
+    <snippet_from>1908</snippet_from>
+    <snippet_to>1939</snippet_to>
     <column>13</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>55</line_number>
+    <line_number>73</line_number>
     <type>UntypedParam</type>
     <message>Parameter $path has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    public function csv($path)</snippet>
-    <from>1314</from>
-    <to>1319</to>
-    <snippet_from>1290</snippet_from>
-    <snippet_to>1320</snippet_to>
+    <from>1849</from>
+    <to>1854</to>
+    <snippet_from>1825</snippet_from>
+    <snippet_to>1855</snippet_to>
     <column>25</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>55</line_number>
+    <line_number>73</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Config::csv does not have a return type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    public function csv($path)</snippet>
-    <from>1294</from>
-    <to>1320</to>
-    <snippet_from>1290</snippet_from>
-    <snippet_to>1320</snippet_to>
+    <from>1829</from>
+    <to>1855</to>
+    <snippet_from>1825</snippet_from>
+    <snippet_to>1855</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>65</line_number>
+    <line_number>83</line_number>
     <type>UntypedParam</type>
     <message>Parameter $path has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    private function get($path, $extractor)</snippet>
-    <from>1537</from>
-    <to>1542</to>
-    <snippet_from>1512</snippet_from>
-    <snippet_to>1555</snippet_to>
+    <from>2072</from>
+    <to>2077</to>
+    <snippet_from>2047</snippet_from>
+    <snippet_to>2090</snippet_to>
     <column>26</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>65</line_number>
+    <line_number>83</line_number>
     <type>UntypedParam</type>
     <message>Parameter $extractor has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    private function get($path, $extractor)</snippet>
-    <from>1544</from>
-    <to>1554</to>
-    <snippet_from>1512</snippet_from>
-    <snippet_to>1555</snippet_to>
+    <from>2079</from>
+    <to>2089</to>
+    <snippet_from>2047</snippet_from>
+    <snippet_to>2090</snippet_to>
     <column>33</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>65</line_number>
+    <line_number>83</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Config::get does not have a return type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    private function get($path, $extractor)</snippet>
-    <from>1516</from>
-    <to>1555</to>
-    <snippet_from>1512</snippet_from>
-    <snippet_to>1555</snippet_to>
+    <from>2051</from>
+    <to>2090</to>
+    <snippet_from>2047</snippet_from>
+    <snippet_to>2090</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>75</line_number>
+    <line_number>93</line_number>
     <type>UntypedParam</type>
     <message>Parameter $path has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    private function findInConfig(array $config, $path)</snippet>
-    <from>1838</from>
-    <to>1843</to>
-    <snippet_from>1789</snippet_from>
-    <snippet_to>1844</snippet_to>
+    <from>2373</from>
+    <to>2378</to>
+    <snippet_from>2324</snippet_from>
+    <snippet_to>2379</snippet_to>
     <column>50</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>75</line_number>
+    <line_number>93</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Config::findInConfig does not have a return type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    private function findInConfig(array $config, $path)</snippet>
-    <from>1793</from>
-    <to>1844</to>
-    <snippet_from>1789</snippet_from>
-    <snippet_to>1844</snippet_to>
+    <from>2328</from>
+    <to>2379</to>
+    <snippet_from>2324</snippet_from>
+    <snippet_to>2379</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>87</line_number>
+    <line_number>105</line_number>
     <type>UntypedParam</type>
     <message>Parameter $source has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    private function throwInvalidPath($source, $path)</snippet>
-    <from>2159</from>
-    <to>2166</to>
-    <snippet_from>2121</snippet_from>
-    <snippet_to>2174</snippet_to>
+    <from>2694</from>
+    <to>2701</to>
+    <snippet_from>2656</snippet_from>
+    <snippet_to>2709</snippet_to>
     <column>39</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>87</line_number>
+    <line_number>105</line_number>
     <type>UntypedParam</type>
     <message>Parameter $path has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    private function throwInvalidPath($source, $path)</snippet>
-    <from>2168</from>
-    <to>2173</to>
-    <snippet_from>2121</snippet_from>
-    <snippet_to>2174</snippet_to>
+    <from>2703</from>
+    <to>2708</to>
+    <snippet_from>2656</snippet_from>
+    <snippet_to>2709</snippet_to>
     <column>48</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>87</line_number>
+    <line_number>105</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Config::throwInvalidPath does not have a return type, expecting void</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Config.php</file_path>
     <snippet>    private function throwInvalidPath($source, $path)</snippet>
-    <from>2125</from>
-    <to>2174</to>
-    <snippet_from>2121</snippet_from>
-    <snippet_to>2174</snippet_to>
+    <from>2660</from>
+    <to>2709</to>
+    <snippet_from>2656</snippet_from>
+    <snippet_to>2709</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -2795,156 +2853,156 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_number>38</line_number>
+    <line_number>36</line_number>
     <type>UntypedParam</type>
     <message>Parameter $dir has no provided type</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>            function ($dir) {</snippet>
-    <from>840</from>
-    <to>844</to>
-    <snippet_from>818</snippet_from>
-    <snippet_to>847</snippet_to>
+    <from>794</from>
+    <to>798</to>
+    <snippet_from>772</snippet_from>
+    <snippet_to>801</snippet_to>
     <column>23</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>38</line_number>
+    <line_number>36</line_number>
     <type>MissingClosureReturnType</type>
     <message>Closure does not have a return type, expecting string</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>            function ($dir) {</snippet>
-    <from>830</from>
-    <to>847</to>
-    <snippet_from>818</snippet_from>
-    <snippet_to>847</snippet_to>
+    <from>784</from>
+    <to>801</to>
+    <snippet_from>772</snippet_from>
+    <snippet_to>801</snippet_to>
     <column>13</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>35</line_number>
+    <line_number>33</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Options::loadOutput does not have a return type, expecting void</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>    private function loadOutput(array $options)</snippet>
-    <from>727</from>
-    <to>770</to>
-    <snippet_from>723</snippet_from>
-    <snippet_to>770</snippet_to>
+    <from>681</from>
+    <to>724</to>
+    <snippet_from>677</snippet_from>
+    <snippet_to>724</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>54</line_number>
+    <line_number>51</line_number>
     <type>UntypedParam</type>
     <message>Parameter $relativeDir has no provided type</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>            function ($relativeDir) {</snippet>
-    <from>1514</from>
-    <to>1526</to>
-    <snippet_from>1492</snippet_from>
-    <snippet_to>1529</snippet_to>
+    <from>1389</from>
+    <to>1401</to>
+    <snippet_from>1367</snippet_from>
+    <snippet_to>1404</snippet_to>
     <column>23</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>54</line_number>
+    <line_number>51</line_number>
     <type>MissingClosureReturnType</type>
     <message>Closure does not have a return type, expecting string</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>            function ($relativeDir) {</snippet>
-    <from>1504</from>
-    <to>1529</to>
-    <snippet_from>1492</snippet_from>
-    <snippet_to>1529</snippet_to>
+    <from>1379</from>
+    <to>1404</to>
+    <snippet_from>1367</snippet_from>
+    <snippet_to>1404</snippet_to>
     <column>13</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>51</line_number>
+    <line_number>48</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Options::getCommonRootPath does not have a return type, expecting string</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>    public function getCommonRootPath()</snippet>
-    <from>1409</from>
-    <to>1444</to>
-    <snippet_from>1405</snippet_from>
-    <snippet_to>1444</snippet_to>
+    <from>1284</from>
+    <to>1319</to>
+    <snippet_from>1280</snippet_from>
+    <snippet_to>1319</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>63</line_number>
+    <line_number>60</line_number>
     <type>UntypedParam</type>
     <message>Parameter $separator has no provided type</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>    public function getAnalyzedDirs($separator = null)</snippet>
-    <from>1801</from>
-    <to>1818</to>
-    <snippet_from>1765</snippet_from>
-    <snippet_to>1819</snippet_to>
+    <from>1676</from>
+    <to>1693</to>
+    <snippet_from>1640</snippet_from>
+    <snippet_to>1694</snippet_to>
     <column>37</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>63</line_number>
+    <line_number>60</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Options::getAnalyzedDirs does not have a return type, expecting array&lt;mixed, string&gt;|string</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>    public function getAnalyzedDirs($separator = null)</snippet>
-    <from>1769</from>
-    <to>1819</to>
-    <snippet_from>1765</snippet_from>
-    <snippet_to>1819</snippet_to>
+    <from>1644</from>
+    <to>1694</to>
+    <snippet_from>1640</snippet_from>
+    <snippet_to>1694</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>68</line_number>
+    <line_number>65</line_number>
     <type>UntypedParam</type>
     <message>Parameter $inputTools has no provided type</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>    private function loadTools($inputTools)</snippet>
-    <from>1956</from>
-    <to>1967</to>
-    <snippet_from>1925</snippet_from>
-    <snippet_to>1968</snippet_to>
+    <from>1831</from>
+    <to>1842</to>
+    <snippet_from>1800</snippet_from>
+    <snippet_to>1843</snippet_to>
     <column>32</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>68</line_number>
+    <line_number>65</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Options::loadTools does not have a return type, expecting void</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>    private function loadTools($inputTools)</snippet>
-    <from>1929</from>
-    <to>1968</to>
-    <snippet_from>1925</snippet_from>
-    <snippet_to>1968</snippet_to>
+    <from>1804</from>
+    <to>1843</to>
+    <snippet_from>1800</snippet_from>
+    <snippet_to>1843</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>83</line_number>
+    <line_number>80</line_number>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Options::buildRunningTools does not have a return type, expecting array&lt;mixed, Edge\QA\RunningTool&gt;</message>
+    <message>Method Edge\QA\Options::buildRunningTools does not have a return type, expecting array&lt;int, array&lt;mixed, mixed&gt;&gt;</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
-    <snippet>    public function buildRunningTools(array $tools)</snippet>
-    <from>2470</from>
-    <to>2517</to>
-    <snippet_from>2466</snippet_from>
-    <snippet_to>2517</snippet_to>
+    <snippet>    public function buildRunningTools(array $tools, Config $phpqaConfig = null)</snippet>
+    <from>2345</from>
+    <to>2420</to>
+    <snippet_from>2341</snippet_from>
+    <snippet_to>2420</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -2955,10 +3013,10 @@
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>    public function toFile($file)</snippet>
-    <from>3177</from>
-    <to>3182</to>
-    <snippet_from>3150</snippet_from>
-    <snippet_to>3183</snippet_to>
+    <from>3248</from>
+    <to>3253</to>
+    <snippet_from>3221</snippet_from>
+    <snippet_to>3254</snippet_to>
     <column>28</column>
   </item>
   <item>
@@ -2969,10 +3027,10 @@
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>    public function toFile($file)</snippet>
-    <from>3154</from>
-    <to>3183</to>
-    <snippet_from>3150</snippet_from>
-    <snippet_to>3183</snippet_to>
+    <from>3225</from>
+    <to>3254</to>
+    <snippet_from>3221</snippet_from>
+    <snippet_to>3254</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -2983,10 +3041,10 @@
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>    public function rawFile($file)</snippet>
-    <from>3275</from>
-    <to>3280</to>
-    <snippet_from>3247</snippet_from>
-    <snippet_to>3281</snippet_to>
+    <from>3346</from>
+    <to>3351</to>
+    <snippet_from>3318</snippet_from>
+    <snippet_to>3352</snippet_to>
     <column>29</column>
   </item>
   <item>
@@ -2997,10 +3055,10 @@
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Options.php</file_path>
     <snippet>    public function rawFile($file)</snippet>
-    <from>3251</from>
-    <to>3281</to>
-    <snippet_from>3247</snippet_from>
-    <snippet_to>3281</snippet_to>
+    <from>3322</from>
+    <to>3352</to>
+    <snippet_from>3318</snippet_from>
+    <snippet_to>3352</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -3019,114 +3077,114 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_number>40</line_number>
+    <line_number>41</line_number>
     <type>MissingPropertyType</type>
     <message>Property Edge\QA\RunningTool::$binary does not have a declared type</message>
     <file_name>src/Task/TableSummary.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php</file_path>
     <snippet>                "&lt;comment&gt;{$tool-&gt;binary}&lt;/comment&gt;",</snippet>
-    <from>1182</from>
-    <to>1195</to>
-    <snippet_from>1155</snippet_from>
-    <snippet_to>1208</snippet_to>
+    <from>1240</from>
+    <to>1253</to>
+    <snippet_from>1213</snippet_from>
+    <snippet_to>1266</snippet_to>
     <column>28</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>46</line_number>
+    <line_number>47</line_number>
     <type>MissingPropertyType</type>
     <message>Property Edge\QA\RunningTool::$htmlReport does not have a declared type</message>
     <file_name>src/Task/TableSummary.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php</file_path>
     <snippet>                $row[] = $tool-&gt;htmlReport;</snippet>
-    <from>1418</from>
-    <to>1435</to>
-    <snippet_from>1393</snippet_from>
-    <snippet_to>1436</snippet_to>
+    <from>1476</from>
+    <to>1493</to>
+    <snippet_from>1451</snippet_from>
+    <snippet_to>1494</snippet_to>
     <column>26</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>68</line_number>
+    <line_number>69</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Task\TableSummary::result does not have a return type, expecting int</message>
     <file_name>src/Task/TableSummary.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php</file_path>
-    <snippet>    private function result(array $failedTools)</snippet>
-    <from>2105</from>
-    <to>2148</to>
-    <snippet_from>2101</snippet_from>
-    <snippet_to>2148</snippet_to>
+    <snippet>    private function result(array $failedTools, array $skippedTools)</snippet>
+    <from>2178</from>
+    <to>2242</to>
+    <snippet_from>2174</snippet_from>
+    <snippet_to>2242</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>79</line_number>
+    <line_number>83</line_number>
     <type>UntypedParam</type>
     <message>Parameter $isOk has no provided type</message>
     <file_name>src/Task/TableSummary.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php</file_path>
     <snippet>    private function getStatus($isOk)</snippet>
-    <from>2455</from>
-    <to>2460</to>
-    <snippet_from>2424</snippet_from>
-    <snippet_to>2461</snippet_to>
+    <from>2707</from>
+    <to>2712</to>
+    <snippet_from>2676</snippet_from>
+    <snippet_to>2713</snippet_to>
     <column>32</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>79</line_number>
+    <line_number>83</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Task\TableSummary::getStatus does not have a return type, expecting string</message>
     <file_name>src/Task/TableSummary.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php</file_path>
     <snippet>    private function getStatus($isOk)</snippet>
-    <from>2428</from>
-    <to>2461</to>
-    <snippet_from>2424</snippet_from>
-    <snippet_to>2461</snippet_to>
+    <from>2680</from>
+    <to>2713</to>
+    <snippet_from>2676</snippet_from>
+    <snippet_to>2713</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>85</line_number>
+    <line_number>89</line_number>
     <type>UntypedParam</type>
     <message>Parameter $text has no provided type</message>
     <file_name>src/Task/TableSummary.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php</file_path>
     <snippet>    private function writeln($text, $color)</snippet>
-    <from>2611</from>
-    <to>2616</to>
-    <snippet_from>2582</snippet_from>
-    <snippet_to>2625</snippet_to>
+    <from>2863</from>
+    <to>2868</to>
+    <snippet_from>2834</snippet_from>
+    <snippet_to>2877</snippet_to>
     <column>30</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>85</line_number>
+    <line_number>89</line_number>
     <type>UntypedParam</type>
     <message>Parameter $color has no provided type</message>
     <file_name>src/Task/TableSummary.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php</file_path>
     <snippet>    private function writeln($text, $color)</snippet>
-    <from>2618</from>
-    <to>2624</to>
-    <snippet_from>2582</snippet_from>
-    <snippet_to>2625</snippet_to>
+    <from>2870</from>
+    <to>2876</to>
+    <snippet_from>2834</snippet_from>
+    <snippet_to>2877</snippet_to>
     <column>37</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>85</line_number>
+    <line_number>89</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Task\TableSummary::writeln does not have a return type, expecting void</message>
     <file_name>src/Task/TableSummary.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php</file_path>
     <snippet>    private function writeln($text, $color)</snippet>
-    <from>2586</from>
-    <to>2625</to>
-    <snippet_from>2582</snippet_from>
-    <snippet_to>2625</snippet_to>
+    <from>2838</from>
+    <to>2877</to>
+    <snippet_from>2834</snippet_from>
+    <snippet_to>2877</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -3285,268 +3343,240 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_number>30</line_number>
-    <type>UndefinedConstant</type>
-    <message>Const COMPOSER_BINARY_DIR is not defined</message>
-    <file_name>src/Task/ToolVersions.php</file_name>
-    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
-    <snippet>        $installedJson = COMPOSER_BINARY_DIR . '/../composer/installed.json';</snippet>
-    <from>660</from>
-    <to>679</to>
-    <snippet_from>635</snippet_from>
-    <snippet_to>712</snippet_to>
-    <column>26</column>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_number>35</line_number>
-    <type>InvalidScalarArgument</type>
-    <message>Argument 1 of json_decode expects string, string|false provided</message>
-    <file_name>src/Task/ToolVersions.php</file_name>
-    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
-    <snippet>        $installedTools = json_decode(file_get_contents($installedJson));</snippet>
-    <from>825</from>
-    <to>858</to>
-    <snippet_from>787</snippet_from>
-    <snippet_to>860</snippet_to>
-    <column>39</column>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_number>47</line_number>
+    <line_number>24</line_number>
     <type>UndefinedConstant</type>
     <message>Const PHPQA_VERSION is not defined</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
     <snippet>                'version_normalized' =&gt; PHPQA_VERSION,</snippet>
-    <from>1171</from>
-    <to>1184</to>
-    <snippet_from>1131</snippet_from>
-    <snippet_to>1185</snippet_to>
+    <from>564</from>
+    <to>577</to>
+    <snippet_from>524</snippet_from>
+    <snippet_to>578</snippet_to>
     <column>41</column>
   </item>
   <item>
+    <severity>error</severity>
+    <line_number>33</line_number>
+    <type>UndefinedConstant</type>
+    <message>Const COMPOSER_BINARY_DIR is not defined</message>
+    <file_name>src/Task/ToolVersions.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
+    <snippet>        $installedJson = COMPOSER_BINARY_DIR . '/../composer/installed.json';</snippet>
+    <from>840</from>
+    <to>859</to>
+    <snippet_from>815</snippet_from>
+    <snippet_to>892</snippet_to>
+    <column>26</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>38</line_number>
+    <type>InvalidScalarArgument</type>
+    <message>Argument 1 of json_decode expects string, string|false provided</message>
+    <file_name>src/Task/ToolVersions.php</file_name>
+    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
+    <snippet>        $installedTools = json_decode(file_get_contents($installedJson));</snippet>
+    <from>1005</from>
+    <to>1038</to>
+    <snippet_from>967</snippet_from>
+    <snippet_to>1040</snippet_to>
+    <column>39</column>
+  </item>
+  <item>
     <severity>info</severity>
-    <line_number>28</line_number>
+    <line_number>31</line_number>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Task\ToolVersions::findComposerPackages does not have a return type</message>
+    <message>Method Edge\QA\Task\ToolVersions::findComposerPackages does not have a return type, expecting array&lt;mixed, mixed&gt;</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
     <snippet>    private function findComposerPackages()</snippet>
-    <from>589</from>
-    <to>628</to>
-    <snippet_from>585</snippet_from>
-    <snippet_to>628</snippet_to>
+    <from>769</from>
+    <to>808</to>
+    <snippet_from>765</snippet_from>
+    <snippet_to>808</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>53</line_number>
+    <line_number>51</line_number>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Task\ToolVersions::composerInfo does not have a return type, expecting void</message>
+    <message>Method Edge\QA\Task\ToolVersions::toolsToTable does not have a return type, expecting void</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
-    <snippet>    private function composerInfo(array $qaTools, array $composerPackages)</snippet>
-    <from>1293</from>
-    <to>1363</to>
-    <snippet_from>1289</snippet_from>
-    <snippet_to>1363</snippet_to>
+    <snippet>    private function toolsToTable(array $qaTools, array $composerPackages, array $phpqaPackages, Config $phpqaConfig)</snippet>
+    <from>1274</from>
+    <to>1387</to>
+    <snippet_from>1270</snippet_from>
+    <snippet_to>1387</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>64</line_number>
+    <line_number>62</line_number>
     <type>UntypedParam</type>
     <message>Parameter $tool has no provided type</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
-    <snippet>    private function toolToTableRow($tool, $composerPackage, array $composerPackages)</snippet>
-    <from>1794</from>
-    <to>1799</to>
-    <snippet_from>1758</snippet_from>
-    <snippet_to>1843</snippet_to>
+    <snippet>    private function toolToTableRow($tool, $composerPackage, array $composerPackages, Config $phpqaConfig)</snippet>
+    <from>1850</from>
+    <to>1855</to>
+    <snippet_from>1814</snippet_from>
+    <snippet_to>1920</snippet_to>
     <column>37</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>64</line_number>
+    <line_number>62</line_number>
     <type>UntypedParam</type>
     <message>Parameter $composerPackage has no provided type</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
-    <snippet>    private function toolToTableRow($tool, $composerPackage, array $composerPackages)</snippet>
-    <from>1801</from>
-    <to>1817</to>
-    <snippet_from>1758</snippet_from>
-    <snippet_to>1843</snippet_to>
+    <snippet>    private function toolToTableRow($tool, $composerPackage, array $composerPackages, Config $phpqaConfig)</snippet>
+    <from>1857</from>
+    <to>1873</to>
+    <snippet_from>1814</snippet_from>
+    <snippet_to>1920</snippet_to>
     <column>44</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>64</line_number>
+    <line_number>62</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Task\ToolVersions::toolToTableRow does not have a return type, expecting array&lt;int, mixed&gt;</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
-    <snippet>    private function toolToTableRow($tool, $composerPackage, array $composerPackages)</snippet>
-    <from>1762</from>
-    <to>1843</to>
-    <snippet_from>1758</snippet_from>
-    <snippet_to>1843</snippet_to>
+    <snippet>    private function toolToTableRow($tool, $composerPackage, array $composerPackages, Config $phpqaConfig)</snippet>
+    <from>1818</from>
+    <to>1920</to>
+    <snippet_from>1814</snippet_from>
+    <snippet_to>1920</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>85</line_number>
+    <line_number>104</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Task\ToolVersions::normalizeVersion does not have a return type</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
     <snippet>    private function normalizeVersion(array $composerInfo)</snippet>
-    <from>2562</from>
-    <to>2616</to>
-    <snippet_from>2558</snippet_from>
-    <snippet_to>2616</snippet_to>
+    <from>3764</from>
+    <to>3818</to>
+    <snippet_from>3760</snippet_from>
+    <snippet_to>3818</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>98</line_number>
+    <line_number>117</line_number>
     <type>UntypedParam</type>
     <message>Parameter $author has no provided type</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
     <snippet>                function ($author) {</snippet>
-    <from>2988</from>
-    <to>2995</to>
-    <snippet_from>2962</snippet_from>
-    <snippet_to>2998</snippet_to>
+    <from>4190</from>
+    <to>4197</to>
+    <snippet_from>4164</snippet_from>
+    <snippet_to>4200</snippet_to>
     <column>27</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>98</line_number>
+    <line_number>117</line_number>
     <type>MissingClosureReturnType</type>
     <message>Closure does not have a return type, expecting mixed</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
     <snippet>                function ($author) {</snippet>
-    <from>2978</from>
-    <to>2998</to>
-    <snippet_from>2962</snippet_from>
-    <snippet_to>2998</snippet_to>
+    <from>4180</from>
+    <to>4200</to>
+    <snippet_from>4164</snippet_from>
+    <snippet_to>4200</snippet_to>
     <column>17</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>93</line_number>
+    <line_number>112</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Task\ToolVersions::groupAuthors does not have a return type, expecting string</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
     <snippet>    private function groupAuthors(array $composerAuthors)</snippet>
-    <from>2838</from>
-    <to>2891</to>
-    <snippet_from>2834</snippet_from>
-    <snippet_to>2891</snippet_to>
+    <from>4040</from>
+    <to>4093</to>
+    <snippet_from>4036</snippet_from>
+    <snippet_to>4093</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>109</line_number>
-    <type>UndefinedConstant</type>
-    <message>Const PHPQA_VERSION is not defined</message>
-    <file_name>src/Task/ToolVersions.php</file_name>
-    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
-    <snippet>            '&lt;comment&gt;phpqa ' . PHPQA_VERSION . '&lt;/comment&gt;',</snippet>
-    <from>3243</from>
-    <to>3256</to>
-    <snippet_from>3211</snippet_from>
-    <snippet_to>3272</snippet_to>
-    <column>33</column>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_number>106</line_number>
-    <type>MissingReturnType</type>
-    <message>Method Edge\QA\Task\ToolVersions::consoleInfo does not have a return type, expecting void</message>
-    <file_name>src/Task/ToolVersions.php</file_name>
-    <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
-    <snippet>    private function consoleInfo(array $tools)</snippet>
-    <from>3129</from>
-    <to>3171</to>
-    <snippet_from>3125</snippet_from>
-    <snippet_to>3171</snippet_to>
-    <column>5</column>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_number>119</line_number>
+    <line_number>125</line_number>
     <type>UntypedParam</type>
     <message>Parameter $command has no provided type</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
     <snippet>    private function loadVersionFromConsoleCommand($command)</snippet>
-    <from>3559</from>
-    <to>3567</to>
-    <snippet_from>3508</snippet_from>
-    <snippet_to>3568</snippet_to>
+    <from>4378</from>
+    <to>4386</to>
+    <snippet_from>4327</snippet_from>
+    <snippet_to>4387</snippet_to>
     <column>52</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>119</line_number>
+    <line_number>125</line_number>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Task\ToolVersions::loadVersionFromConsoleCommand does not have a return type, expecting void</message>
+    <message>Method Edge\QA\Task\ToolVersions::loadVersionFromConsoleCommand does not have a return type</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
     <snippet>    private function loadVersionFromConsoleCommand($command)</snippet>
-    <from>3512</from>
-    <to>3568</to>
-    <snippet_from>3508</snippet_from>
-    <snippet_to>3568</snippet_to>
+    <from>4331</from>
+    <to>4387</to>
+    <snippet_from>4327</snippet_from>
+    <snippet_to>4387</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>129</line_number>
+    <line_number>132</line_number>
     <type>UntypedParam</type>
     <message>Parameter $string has no provided type</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
     <snippet>    private function getFirstLine($string)</snippet>
-    <from>3838</from>
-    <to>3845</to>
-    <snippet_from>3804</snippet_from>
-    <snippet_to>3846</snippet_to>
+    <from>4561</from>
+    <to>4568</to>
+    <snippet_from>4527</snippet_from>
+    <snippet_to>4569</snippet_to>
     <column>35</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>129</line_number>
+    <line_number>132</line_number>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Task\ToolVersions::getFirstLine does not have a return type, expecting string|bool</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
     <snippet>    private function getFirstLine($string)</snippet>
-    <from>3808</from>
-    <to>3846</to>
-    <snippet_from>3804</snippet_from>
-    <snippet_to>3846</snippet_to>
+    <from>4531</from>
+    <to>4569</to>
+    <snippet_from>4527</snippet_from>
+    <snippet_to>4569</snippet_to>
     <column>5</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>11</line_number>
+    <line_number>12</line_number>
     <type>MissingPropertyType</type>
     <message>Property Edge\QA\Task\ToolVersions::$output does not have a declared type - consider Symfony\Component\Console\Output\OutputInterface</message>
     <file_name>src/Task/ToolVersions.php</file_name>
     <file_path>/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php</file_path>
     <snippet>    private $output;</snippet>
-    <from>181</from>
-    <to>197</to>
-    <snippet_from>177</snippet_from>
-    <snippet_to>197</snippet_to>
+    <from>215</from>
+    <to>231</to>
+    <snippet_from>211</snippet_from>
+    <snippet_to>231</snippet_to>
     <column>5</column>
   </item>
   <item>

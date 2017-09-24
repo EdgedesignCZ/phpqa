@@ -5,6 +5,9 @@ Edge\QA\Config
  [x] Ignore non existent user config
  [x] Throw exception when file does not exist
  [x] Config csv string
+ [x] Use cwd if no directory is specified
+ [x] Throw exception when binary does not exist
+ [x] Throw exception when wrong binary is used
 
 Edge\QA\IgnoredPaths
  [x] No option when nothing is ignored
@@ -14,7 +17,6 @@ Edge\QA\Options
  [x] Escape paths
  [x] Ignore pdepend in cli output
  [x] Ignore not installed tool
- [x] Load directory with custom config
  [x] Build output
  [x] Execute
  [x] Build root path
