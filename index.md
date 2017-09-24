@@ -395,7 +395,7 @@ test:
 
 ### Gitlab.ci - docker installation + composer cache + artifacts
 
-```yaml
+```ruby
 stages:
   - test
 
