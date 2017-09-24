@@ -1,8 +1,8 @@
-#!/usr/bin/env sh
+#!/usr/bin/env bash
 
 APP_DIR="./"
 DOCKER_REPO="zdenekdrahos/phpqa"
-DOCKER_FILE=".ci/Dockerfile"
+DOCKER_FILE=".docker/Dockerfile"
 DOCKER_TAG=""
 
 run () {
@@ -11,7 +11,7 @@ run () {
 }
 
 load_docker_variables () {
-    DOCKER_TAG="$DOCKER_REPO:${TRAVIS_TAG:-$TRAVIS_COMMIT}"
+    DOCKER_TAG="$DOCKER_REPO:${TRAVIS_TAG:-${TRAVIS_COMMIT:0:7}}"
 
     echo "Dockefile: $DOCKER_FILE"
     echo "Build context: $APP_DIR"
