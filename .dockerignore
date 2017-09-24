@@ -1,5 +1,7 @@
 .git*
-.docker*
+.docker
+.dockerignore
+.dpl
 bin/deploy-report.sh
 bin/ci.sh
 build
