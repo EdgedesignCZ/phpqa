@@ -28,13 +28,13 @@ script:
 # http://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/
 deploy:
   - provider: script
-    script: .ci/build-docker-image
+    script: .docker/build-image
     skip_cleanup: true
     on:
       tags: true
       php: 7.0
   - provider: script
-    script: ls -la .ci && .ci/build-docker-image
+    script: ls -la .docker && .docker/build-image
     skip_cleanup: true
     on:
       branch: docker

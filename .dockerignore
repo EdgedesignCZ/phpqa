@@ -1,6 +1,5 @@
 .git*
 .docker*
-.ci
 bin/deploy-report.sh
 bin/ci.sh
 build
