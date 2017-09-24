@@ -1,6 +1,16 @@
 
 # Changelog
 
+## v1.14.0
+
+* **Optional tools**
+    * [#80](https://github.com/EdgedesignCZ/phpqa/issues/85) vimeo/psalm (stable)
+* [#88](https://github.com/EdgedesignCZ/phpqa/issues/88) Allow using custom binary (e.g. `phpunit.binary`)    
+    * show [skipped tools in summary](https://travis-ci.org/EdgedesignCZ/phpqa/jobs/278929601#L417)
+    * refactoring printing versions in `phpqa tools`
+    * **`phpunit.config` BC** - `phpunit.config` is relative to `.phpqa.yml`, previously it was relative to `cwd`
+* [#91](https://github.com/EdgedesignCZ/phpqa/pull/91) Docker support ([zdenekdrahos/phpqa](https://hub.docker.com/r/zdenekdrahos/phpqa/))
+
 ## v1.13.0
 
 * **Optional tools**
