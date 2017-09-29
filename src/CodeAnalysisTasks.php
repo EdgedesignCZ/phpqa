@@ -181,7 +181,10 @@ trait CodeAnalysisTasks
     {
         $this->config = new Config();
         $this->config->loadUserConfig($opts['config']);
-        $this->toolVersions = new Task\ToolVersions(array_diff_key($this->tools, $this->toolsWithDifferentVersions), $this->config);
+        $this->toolVersions = new Task\ToolVersions(
+            array_diff_key($this->tools, $this->toolsWithDifferentVersions),
+            $this->config
+        );
     }
 
     private function loadOptions(array $opts)
