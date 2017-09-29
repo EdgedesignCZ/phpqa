@@ -3,45 +3,32 @@
 namespace Edge\QA\Task;
 
 use Symfony\Component\Process\Process;
-use Symfony\Component\Console\Output\OutputInterface;
-use Symfony\Component\Console\Helper\Table;
 use Edge\QA\Config;
 
 class ToolVersions
 {
-    private $output;
+    private $qaTools;
+    private $config;
 
-    public function __construct(OutputInterface $p)
+    public function __construct(array $qaTools, Config $c)
     {
-        $this->output = $p;
+        $this->qaTools = $qaTools;
+        $this->config = $c;
     }
 
-    public function __invoke(array $qaTools, Config $config)
+    public function __invoke()
     {
-        $composerPackages = $this->findComposerPackages();
-        $phpqaPackages = [
-            'edgedesign/phpqa' => (object) [
-                'version_normalized' => PHPQA_VERSION,
-                'authors' => [(object) ['name' => "Zdeněk Drahoš"]],
-            ]
-        ];
-        $this->toolsToTable($qaTools, $composerPackages, $phpqaPackages, $config);
-    }
-
-    public function getVersions(array $qaTools, Config $phpqaConfig)
-    {
-        $composerPackages = $this->findComposerPackages();
-        $phpqaPackages = [
+        $composerPackages = [
             'edgedesign/phpqa' => (object) [
                 'version' => PHPQA_VERSION,
                 'version_normalized' => PHPQA_VERSION,
                 'authors' => [(object) ['name' => "Zdeněk Drahoš"]],
             ]
-        ];
+        ] + $this->findComposerPackages();
         $versions = [];
-        $versions['phpqa'] = $this->toolToTableRow('phpqa', 'edgedesign/phpqa', $phpqaPackages, $phpqaConfig, true);
-        foreach ($qaTools as $tool => $config) {
-            $versions[$tool] = $this->toolToTableRow($tool, $config['composer'], $composerPackages, $phpqaConfig, true);
+        $versions['phpqa'] = $this->analyzeTool('phpqa', 'edgedesign/phpqa', $composerPackages);
+        foreach ($this->qaTools as $tool => $config) {
+            $versions[$tool] = $this->analyzeTool($tool, $config['composer'], $composerPackages);
         }
         return $versions;
     }
@@ -66,20 +53,9 @@ class ToolVersions
         return $tools;
     }
 
-    private function toolsToTable(array $qaTools, array $composerPackages, array $phpqaPackages, Config $phpqaConfig)
+    private function analyzeTool($tool, $composerPackage, array $composerPackages)
     {
-        $table = new Table($this->output);
-        $table->setHeaders(['Tool', 'Version', 'Authors / Info']);
-        $table->addRow($this->toolToTableRow('phpqa', 'edgedesign/phpqa', $phpqaPackages, $phpqaConfig));
-        foreach ($qaTools as $tool => $config) {
-            $table->addRow($this->toolToTableRow($tool, $config['composer'], $composerPackages, $phpqaConfig));
-        }
-        $table->render();
-    }
-
-    private function toolToTableRow($tool, $composerPackage, array $composerPackages, Config $phpqaConfig, $isOnlyAnalyzed = false)
-    {
-        $customBinary = $phpqaConfig->getCustomBinary($tool);
+        $customBinary = $this->config->getCustomBinary($tool);
         if ($customBinary) {
             $versionCommand = "{$customBinary} --version";
             $version = $this->loadVersionFromConsoleCommand($versionCommand);
@@ -112,14 +88,10 @@ class ToolVersions
             ];
         }
 
-        if ($isOnlyAnalyzed) {
-            return $composerInfo['version'];
-        }
-
         return array(
-            "<comment>{$tool}</comment>",
-            $this->normalizeVersion($composerInfo),
-            $this->groupAuthors($composerInfo['authors'])
+            'version' => $composerInfo['version'],
+            'version_normalized' => $this->normalizeVersion($composerInfo),
+            'authors' => $this->groupAuthors($composerInfo['authors'])
         );
     }
 

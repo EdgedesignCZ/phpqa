@@ -2,6 +2,8 @@
 
 namespace Edge\QA;
 
+use Symfony\Component\Console\Helper\Table;
+
 trait CodeAnalysisTasks
 {
     /** @var array [tool => optionSeparator] */
@@ -108,6 +110,8 @@ trait CodeAnalysisTasks
     private $options;
     /** @var Config */
     private $config;
+    /** @var Task\ToolVersions */
+    private $toolVersions;
     /** @var RunningTool[] */
     private $usedTools;
     /** @var string[] */
@@ -122,10 +126,17 @@ trait CodeAnalysisTasks
             'config' => '',
         )
     ) {
-        $this->config = new Config();
-        $this->config->loadUserConfig($opts['config']);
-        $tools = new Task\ToolVersions($this->getOutput());
-        $tools(array_diff_key($this->tools, $this->toolsWithDifferentVersions), $this->config);
+        $this->loadConfig($opts);
+        $table = new Table($this->getOutput());
+        $table->setHeaders(['Tool', 'Version', 'Authors / Info']);
+        foreach ($this->toolVersions->__invoke() as $tool => $version) {
+            $table->addRow(array(
+                "<comment>{$tool}</comment>",
+                $version['version_normalized'],
+                $version['authors'],
+            ));
+        }
+        $table->render();
     }
 
     /**
@@ -154,6 +165,7 @@ trait CodeAnalysisTasks
             'execution' => 'parallel'
         )
     ) {
+        $this->loadConfig($opts);
         $this->loadOptions($opts);
         $this->ciClean();
         $this->runTools();
@@ -161,6 +173,13 @@ trait CodeAnalysisTasks
             $this->buildHtmlReport();
         }
         return $this->buildSummary();
+    }
+
+    private function loadConfig(array $opts)
+    {
+        $this->config = new Config();
+        $this->config->loadUserConfig($opts['config']);
+        $this->toolVersions = new Task\ToolVersions(array_diff_key($this->tools, $this->toolsWithDifferentVersions), $this->config);
     }
 
     private function loadOptions(array $opts)
@@ -173,8 +192,6 @@ trait CodeAnalysisTasks
         }
         $opts['tools'] = $this->selectToolsThatAreInstalled($opts['tools']);
 
-        $this->config = new Config();
-        $this->config->loadUserConfig($opts['config']);
         $this->options = new Options($opts);
         list($this->usedTools, $this->skippedTools) = $this->options->buildRunningTools($this->tools, $this->config);
     }
@@ -543,8 +560,6 @@ trait CodeAnalysisTasks
                 );
             }
         }
-        $tools = new Task\ToolVersions($this->getOutput());
-        $versions = $tools->getVersions(array_diff_key($this->tools, $this->toolsWithDifferentVersions), $this->config);
         twigToHtml(
             'phpqa.html.twig',
             array(
@@ -561,7 +576,7 @@ trait CodeAnalysisTasks
                 ),
                 'allTools' => $this->tools,
                 'phpqaCommand' => 'cd "' . getcwd() . "\" && \\\n" . PHPQA_USED_COMMAND,
-                'versions' => $versions,
+                'versions' => $this->toolVersions->__invoke(),
                 'createdFiles' => glob("{$this->options->rawFile('')}/*"),
                 'commands' => array(
                     'phpqa' => 'cd "' . getcwd() . "\" && \\\n" . PHPQA_USED_COMMAND,

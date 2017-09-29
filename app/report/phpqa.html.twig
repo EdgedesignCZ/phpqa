@@ -126,7 +126,7 @@ set tabs = {
             </ul>
             <ul class="nav navbar-right visible-md-block visible-lg-block">
                 <p class="navbar-text">
-                    <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa" class="text-muted">v{{ versions['phpqa'] }}</a>
+                    <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa" class="text-muted">v{{ versions['phpqa'].version }}</a>
                 </p>
             </ul>
         </div>
@@ -159,7 +159,11 @@ set tabs = {
                                 <tr>
                                     <th class="text-left">
                                         <a href="#{{ tool.__toString() }}" data-tool-link class="{{ areErrorsAnalyzed and not results[0] ? 'text-danger' : '' }}">{{ tool }}</a>
-                                        <a href="https://packagist.org/packages/{{ allTools[tool.binary].composer }}#{{ versions[tool.binary]  }}" target="_blank"><span class="badge">{{ versions[tool.binary] }}</span></a>
+                                        <a href="https://packagist.org/packages/{{ allTools[tool.binary].composer }}#{{ versions[tool.binary].version  }}" target="_blank">
+                                            <span class="badge" data-toggle="tooltip" data-placement="right" title="{{ versions[tool.binary].authors|striptags }}">
+                                                {{ versions[tool.binary].version }}
+                                            </span>
+                                        </a>
                                     </th>
                                     <td>{{ tool.getAllowedErrorsCount() }}</td>
                                     <td>
@@ -211,7 +215,11 @@ set tabs = {
                                 <tr class="{{ areAllOk ? 'success' : 'danger' }}">
                                     <th class="text-left">
                                         <a href="#phpqa" data-tool-link>phpqa</a>
-                                        <a href="https://packagist.org/packages/edgedesign/phpqa#{{ versions['phpqa']  }}" target="_blank"><span class="badge">{{ versions['phpqa'] }}</span></a>
+                                        <a href="https://packagist.org/packages/edgedesign/phpqa#{{ versions['phpqa'].version  }}" target="_blank">
+                                            <span class="badge" data-toggle="tooltip" data-placement="right" title="{{ versions['phpqa'].authors|striptags }}">
+                                                {{ versions['phpqa'].version }}
+                                            </span>
+                                        </a>
                                     </th>
                                     <td colspan="2"></td>
                                     <td>{{ totalErrors }}</td>
