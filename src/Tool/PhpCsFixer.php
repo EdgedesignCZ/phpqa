@@ -2,8 +2,19 @@
 
 namespace Edge\QA\Tool;
 
+use Edge\QA\OutputMode;
+
 class PhpCsFixer extends Tool
 {
+    public static $SETTINGS = array(
+        'optionSeparator' => ' ',
+        'internalClass' => 'PhpCsFixer\Config',
+        'outputMode' => OutputMode::XML_CONSOLE_OUTPUT,
+        'composer' => 'friendsofphp/php-cs-fixer',
+        'xml' => ['php-cs-fixer.xml'],
+        'errorsXPath' => '//testsuites/testsuite/testcase/failure',
+    );
+
     public function __invoke()
     {
         $configFile = $this->config->value('php-cs-fixer.config');

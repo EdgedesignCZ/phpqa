@@ -2,8 +2,16 @@
 
 namespace Edge\QA\Tool;
 
+use Edge\QA\OutputMode;
+
 class PhpMetrics extends Tool
 {
+    public static $SETTINGS = array(
+        'optionSeparator' => ' ',
+        'composer' => 'phpmetrics/phpmetrics',
+        'outputMode' => OutputMode::CUSTOM_OUTPUT_AND_EXIT_CODE,
+    );
+
     public function __invoke()
     {
         $analyzedDirs = $this->options->getAnalyzedDirs();

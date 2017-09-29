@@ -4,6 +4,12 @@ namespace Edge\QA\Tool;
 
 class Pdepend extends Tool
 {
+    public static $SETTINGS = array(
+        'optionSeparator' => '=',
+        'xml' => ['pdepend-jdepend.xml', 'pdepend-summary.xml', 'pdepend-dependencies.xml'],
+        'composer' => 'pdepend/pdepend',
+    );
+
     public function __invoke()
     {
         return array(

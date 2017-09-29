@@ -8,105 +8,19 @@ trait CodeAnalysisTasks
 {
     /** @var array [tool => optionSeparator] */
     private $tools = array(
-        'phpmetrics' => array(
-            'optionSeparator' => ' ',
-            'composer' => 'phpmetrics/phpmetrics',
-            'outputMode' => OutputMode::CUSTOM_OUTPUT_AND_EXIT_CODE,
-            'handler' => 'Edge\QA\Tool\PhpMetrics',
-        ),
-        'phpmetrics2' => array(
-            'optionSeparator' => '=',
-            'composer' => 'phpmetrics/phpmetrics',
-            'binary' => 'phpmetrics',
-            'handler' => 'Edge\QA\Tool\PhpMetricsV2',
-        ),
-        'phploc' => array(
-            'optionSeparator' => ' ',
-            'xml' => ['phploc.xml'],
-            'composer' => 'phploc/phploc',
-            'handler' => 'Edge\QA\Tool\Phploc',
-        ),
-        'phpcs' => array(
-            'optionSeparator' => '=',
-            'xml' => ['checkstyle.xml'],
-            'errorsXPath' => [
-                # ignoreWarnings => xpath
-                false => '//checkstyle/file/error',
-                true => '//checkstyle/file/error[@severity="error"]',
-            ],
-            'composer' => 'squizlabs/php_codesniffer',
-            'handler' => 'Edge\QA\Tool\Phpcs',
-        ),
-        'phpcs3' => array(
-            'optionSeparator' => '=',
-            'xml' => ['checkstyle.xml'],
-            'errorsXPath' => [
-                # ignoreWarnings => xpath
-                false => '//checkstyle/file/error',
-                true => '//checkstyle/file/error[@severity="error"]',
-            ],
-            'composer' => 'squizlabs/php_codesniffer',
-            'binary' => 'phpcs',
-            'handler' => 'Edge\QA\Tool\PhpcsV3',
-        ),
-        'php-cs-fixer' => array(
-            'optionSeparator' => ' ',
-            'internalClass' => 'PhpCsFixer\Config',
-            'outputMode' => OutputMode::XML_CONSOLE_OUTPUT,
-            'composer' => 'friendsofphp/php-cs-fixer',
-            'xml' => ['php-cs-fixer.xml'],
-            'errorsXPath' => '//testsuites/testsuite/testcase/failure',
-            'handler' => 'Edge\QA\Tool\PhpCsFixer',
-        ),
-        'phpmd' => array(
-            'optionSeparator' => ' ',
-            'xml' => ['phpmd.xml'],
-            'errorsXPath' => '//pmd/file/violation',
-            'composer' => 'phpmd/phpmd',
-            'handler' => 'Edge\QA\Tool\Phpmd',
-        ),
-        'pdepend' => array(
-            'optionSeparator' => '=',
-            'xml' => ['pdepend-jdepend.xml', 'pdepend-summary.xml', 'pdepend-dependencies.xml'],
-            'composer' => 'pdepend/pdepend',
-            'handler' => 'Edge\QA\Tool\Pdepend',
-        ),
-        'phpcpd' => array(
-            'optionSeparator' => ' ',
-            'xml' => ['phpcpd.xml'],
-            'errorsXPath' => '//pmd-cpd/duplication',
-            'composer' => 'sebastian/phpcpd',
-            'handler' => 'Edge\QA\Tool\Phpcpd',
-        ),
-        'parallel-lint' => array(
-            'optionSeparator' => ' ',
-            'internalClass' => 'JakubOnderka\PhpParallelLint\ParallelLint',
-            'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
-            'composer' => 'jakub-onderka/php-parallel-lint',
-            'handler' => 'Edge\QA\Tool\ParallelLint',
-        ),
-        'phpstan' => array(
-            'optionSeparator' => ' ',
-            'internalClass' => 'PHPStan\Analyser\Analyser',
-            'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
-            'composer' => 'phpstan/phpstan',
-            'handler' => 'Edge\QA\Tool\Phpstan',
-        ),
-        'phpunit' => array(
-            'optionSeparator' => '=',
-            'internalClass' => ['PHPUnit_Framework_TestCase', 'PHPUnit\Framework\TestCase'],
-            'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
-            'composer' => 'phpunit/phpunit',
-            'handler' => 'Edge\QA\Tool\Phpunit',
-        ),
-        'psalm' => array(
-            'optionSeparator' => '=',
-            'xml' => ['psalm.xml'],
-            'errorsXPath' => '//item/severity[text()=\'error\']',
-            'composer' => 'vimeo/psalm',
-            'internalClass' => 'Psalm\Checker\ProjectChecker',
-            'handler' => 'Edge\QA\Tool\Psalm',
-        )
+        'phpmetrics' => 'Edge\QA\Tool\PhpMetrics',
+        'phpmetrics2' => 'Edge\QA\Tool\PhpMetricsV2',
+        'phploc' => 'Edge\QA\Tool\Phploc',
+        'phpcs' => 'Edge\QA\Tool\Phpcs',
+        'phpcs3' => 'Edge\QA\Tool\PhpcsV3',
+        'php-cs-fixer' => 'Edge\QA\Tool\PhpCsFixer',
+        'phpmd' => 'Edge\QA\Tool\Phpmd',
+        'pdepend' => 'Edge\QA\Tool\Pdepend',
+        'phpcpd' => 'Edge\QA\Tool\Phpcpd',
+        'parallel-lint' => 'Edge\QA\Tool\ParallelLint',
+        'phpstan' => 'Edge\QA\Tool\Phpstan',
+        'phpunit' => 'Edge\QA\Tool\Phpunit',
+        'psalm' => 'Edge\QA\Tool\Psalm',
     );
     /** @var array [tool => oldVersion] */
     private $toolsWithDifferentVersions = array(
@@ -194,6 +108,9 @@ trait CodeAnalysisTasks
     {
         $this->config = new Config();
         $this->config->loadUserConfig($opts['config']);
+        foreach ($this->tools as $id => $handler) {
+            $this->tools[$id] = $handler::$SETTINGS + ['handler' => $handler];
+        }
         $this->toolVersions = new Task\ToolVersions(
             array_diff_key($this->tools, $this->toolsWithDifferentVersions),
             $this->config

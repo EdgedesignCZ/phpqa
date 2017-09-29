@@ -4,6 +4,13 @@ namespace Edge\QA\Tool;
 
 class Phpcpd extends Tool
 {
+    public static $SETTINGS = array(
+        'optionSeparator' => ' ',
+        'xml' => ['phpcpd.xml'],
+        'errorsXPath' => '//pmd-cpd/duplication',
+        'composer' => 'sebastian/phpcpd',
+    );
+
     public function __invoke()
     {
         $args = array(

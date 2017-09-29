@@ -4,6 +4,12 @@ namespace Edge\QA\Tool;
 
 class Phploc extends Tool
 {
+    public static $SETTINGS = array(
+        'optionSeparator' => ' ',
+        'xml' => ['phploc.xml'],
+        'composer' => 'phploc/phploc',
+    );
+
     public function __invoke()
     {
         $args = array(

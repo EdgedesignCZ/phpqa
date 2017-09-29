@@ -2,8 +2,17 @@
 
 namespace Edge\QA\Tool;
 
+use Edge\QA\OutputMode;
+
 class Phpstan extends Tool
 {
+    public static $SETTINGS = array(
+        'optionSeparator' => ' ',
+        'internalClass' => 'PHPStan\Analyser\Analyser',
+        'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
+        'composer' => 'phpstan/phpstan',
+    );
+
     public function __invoke()
     {
         $createAbsolutePaths = function (array $relativeDirs) {

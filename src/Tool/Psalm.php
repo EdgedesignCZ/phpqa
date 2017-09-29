@@ -4,6 +4,15 @@ namespace Edge\QA\Tool;
 
 class Psalm extends Tool
 {
+    public static $SETTINGS = array(
+        'optionSeparator' => '=',
+        'xml' => ['psalm.xml'],
+        'errorsXPath' => '//item/severity[text()=\'error\']',
+        'composer' => 'vimeo/psalm',
+        'internalClass' => 'Psalm\Checker\ProjectChecker',
+        'handler' => 'Edge\QA\Tool\Psalm',
+    );
+
     public function __invoke()
     {
         if (!$this->config->value('psalm.config')) {

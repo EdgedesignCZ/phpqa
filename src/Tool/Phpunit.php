@@ -2,8 +2,17 @@
 
 namespace Edge\QA\Tool;
 
+use Edge\QA\OutputMode;
+
 class Phpunit extends Tool
 {
+    public static $SETTINGS = array(
+        'optionSeparator' => '=',
+        'internalClass' => ['PHPUnit_Framework_TestCase', 'PHPUnit\Framework\TestCase'],
+        'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
+        'composer' => 'phpunit/phpunit',
+    );
+
     public function __invoke()
     {
         $args = array();

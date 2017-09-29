@@ -4,6 +4,17 @@ namespace Edge\QA\Tool;
 
 class Phpcs extends Tool
 {
+    public static $SETTINGS = array(
+        'optionSeparator' => '=',
+        'xml' => ['checkstyle.xml'],
+        'errorsXPath' => [
+            # ignoreWarnings => xpath
+            false => '//checkstyle/file/error',
+            true => '//checkstyle/file/error[@severity="error"]',
+        ],
+        'composer' => 'squizlabs/php_codesniffer',
+    );
+
     public function __invoke()
     {
         return $this->buildPhpcs(\PHP_CodeSniffer::getInstalledStandards());

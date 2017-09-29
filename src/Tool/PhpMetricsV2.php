@@ -4,6 +4,12 @@ namespace Edge\QA\Tool;
 
 class PhpMetricsV2 extends Tool
 {
+    public static $SETTINGS = array(
+        'optionSeparator' => '=',
+        'composer' => 'phpmetrics/phpmetrics',
+        'binary' => 'phpmetrics',
+    );
+
     public function __invoke()
     {
         $args = array(

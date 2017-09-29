@@ -4,6 +4,13 @@ namespace Edge\QA\Tool;
 
 class Phpmd extends Tool
 {
+    public static $SETTINGS = array(
+        'optionSeparator' => ' ',
+        'xml' => ['phpmd.xml'],
+        'errorsXPath' => '//pmd/file/violation',
+        'composer' => 'phpmd/phpmd',
+    );
+
     public function __invoke()
     {
         $args = array(
