@@ -13,7 +13,6 @@ class PhpcsV3 extends Phpcs
             true => '//checkstyle/file/error[@severity="error"]',
         ],
         'composer' => 'squizlabs/php_codesniffer',
-        'binary' => 'phpcs',
     );
 
     public function __invoke()

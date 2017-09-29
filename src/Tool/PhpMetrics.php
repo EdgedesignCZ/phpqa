@@ -10,6 +10,7 @@ class PhpMetrics extends Tool
         'optionSeparator' => ' ',
         'composer' => 'phpmetrics/phpmetrics',
         'outputMode' => OutputMode::CUSTOM_OUTPUT_AND_EXIT_CODE,
+        'internalClass' => 'Hal\Application\Command\RunMetricsCommand',
     );
 
     public function __invoke()

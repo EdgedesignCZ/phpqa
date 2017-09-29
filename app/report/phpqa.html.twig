@@ -170,7 +170,7 @@ set tabs = {
                                 <tr class="{{ isPhpqa ? (result.hasSucceeded ? 'success' : 'danger') : '' }}">
                                     <th class="text-left">
                                         <a href="#{{ tool }}" data-tool-link class="{{ result.areErrorsAnalyzed and not result.hasSucceeded ? 'text-danger' : '' }}">{{ tool }}</a>
-                                        <a href="https://packagist.org/packages/{{ versions[tool.binary].composer }}#{{ versions[tool].version  }}" target="_blank">
+                                        <a href="https://packagist.org/packages/{{ versions[tool].composer }}#{{ versions[tool].version  }}" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="{{ versions[tool].authors|striptags }}">
                                                 {{ versions[tool].version }}
                                             </span>

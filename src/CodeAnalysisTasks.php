@@ -8,11 +8,9 @@ trait CodeAnalysisTasks
 {
     /** @var array [tool => optionSeparator] */
     private $tools = array(
-        'phpmetrics' => 'Edge\QA\Tool\PhpMetrics',
-        'phpmetrics2' => 'Edge\QA\Tool\PhpMetricsV2',
+        'phpmetrics' => ['Edge\QA\Tool\PhpMetrics', 'Edge\QA\Tool\PhpMetricsV2'],
         'phploc' => 'Edge\QA\Tool\Phploc',
-        'phpcs' => 'Edge\QA\Tool\Phpcs',
-        'phpcs3' => 'Edge\QA\Tool\PhpcsV3',
+        'phpcs' => ['Edge\QA\Tool\Phpcs', 'Edge\QA\Tool\PhpcsV3'],
         'php-cs-fixer' => 'Edge\QA\Tool\PhpCsFixer',
         'phpmd' => 'Edge\QA\Tool\Phpmd',
         'pdepend' => 'Edge\QA\Tool\Pdepend',
@@ -21,17 +19,6 @@ trait CodeAnalysisTasks
         'phpstan' => 'Edge\QA\Tool\Phpstan',
         'phpunit' => 'Edge\QA\Tool\Phpunit',
         'psalm' => 'Edge\QA\Tool\Psalm',
-    );
-    /** @var array [tool => oldVersion] */
-    private $toolsWithDifferentVersions = array(
-        'phpmetrics2' => array(
-            'tool' => 'phpmetrics',
-            'internalClass' => 'Hal\Application\Command\RunMetricsCommand',
-        ),
-        'phpcs3' => array(
-            'tool' => 'phpcs',
-            'internalClass' => 'PHP_CodeSniffer',
-        ),
     );
     /** @var Options */
     private $options;
@@ -109,12 +96,23 @@ trait CodeAnalysisTasks
         $this->config = new Config();
         $this->config->loadUserConfig($opts['config']);
         foreach ($this->tools as $id => $handler) {
-            $this->tools[$id] = $handler::$SETTINGS + ['handler' => $handler];
+            $handlers = array_map(
+                function ($handler) {
+                    return $handler::$SETTINGS + ['handler' => $handler];
+                },
+                (array) $handler
+            );
+            if (count($handlers) > 1) {
+                $handlers = array_filter(
+                    $handlers,
+                    function (array $config) {
+                        return isset($config['internalClass']) ? class_exists($config['internalClass']) : true;
+                    }
+                );
+            }
+            $this->tools[$id] = array_shift($handlers);
         }
-        $this->toolVersions = new Task\ToolVersions(
-            array_diff_key($this->tools, $this->toolsWithDifferentVersions),
-            $this->config
-        );
+        $this->toolVersions = new Task\ToolVersions($this->tools, $this->config);
     }
 
     private function loadOptions(array $opts)
@@ -125,21 +123,10 @@ trait CodeAnalysisTasks
                 $this->yell("Option --analyzedDir is deprecated, please use option --analyzedDirs");
             }
         }
-        $opts['tools'] = $this->selectToolsThatAreInstalled($opts['tools']);
 
         $this->options = new Options($opts);
         list($this->usedTools, $this->skippedTools) = $this->options->buildRunningTools($this->tools, $this->config);
         $this->toolSummary = new Task\ToolSummary($this->options, $this->usedTools, $this->skippedTools);
-    }
-
-    private function selectToolsThatAreInstalled($tools)
-    {
-        foreach ($this->toolsWithDifferentVersions as $newTool => $legacyTool) {
-            if (!class_exists($legacyTool['internalClass'])) {
-                $tools = str_replace($legacyTool['tool'], $newTool, $tools);
-            }
-        }
-        return $tools;
     }
 
     private function ciClean()
@@ -166,7 +153,7 @@ trait CodeAnalysisTasks
     private function toolToExec(RunningTool $tool)
     {
         $customBinary = $this->config->getCustomBinary($tool);
-        $binary = $customBinary ?: pathToBinary($tool->binary);
+        $binary = $customBinary ?: pathToBinary((string) $tool);
         $process = $this->taskExec($binary);
 
         $handlerClass = $this->tools[(string) $tool]['handler'];
@@ -187,7 +174,7 @@ trait CodeAnalysisTasks
     {
         foreach ($this->usedTools as $tool) {
             if (!$tool->htmlReport) {
-                $tool->htmlReport = $this->options->rawFile("{$tool->binary}.html");
+                $tool->htmlReport = $this->options->rawFile("{$tool}.html");
             }
             if ($tool->hasOutput(OutputMode::XML_CONSOLE_OUTPUT)) {
                 file_put_contents($this->options->rawFile("{$tool}.xml"), $tool->process->getOutput());
@@ -205,7 +192,7 @@ trait CodeAnalysisTasks
             } else {
                 xmlToHtml(
                     $tool->getXmlFiles(),
-                    $this->config->path("report.{$tool->binary}"),
+                    $this->config->path("report.{$tool}"),
                     $tool->htmlReport,
                     ['root-directory' => $this->options->getCommonRootPath()]
                 );

@@ -27,7 +27,7 @@ class ToolSummary
         foreach ($this->usedTools as $tool) {
             list($isOk, $errorsCount) = $tool->analyzeResult(!$this->options->isSavedToFiles);
             $totalErrors += (int) $errorsCount;
-            $results[$tool->binary] = array(
+            $results[(string) $tool] = array(
                 'areErrorsAnalyzed' => $tool->getAllowedErrorsCount() !== null,
                 'allowedErrorsCount' => $tool->getAllowedErrorsCount(),
                 'errorsCount' => $errorsCount,
