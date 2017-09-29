@@ -7,7 +7,7 @@ use Edge\QA\Config;
 
 class GetVersions
 {
-    public function __invoke(array $tools, Config $c)
+    public function __invoke(array $tools)
     {
         $composer = [
             'edgedesign/phpqa' => (object) [
@@ -19,7 +19,7 @@ class GetVersions
         $versions = [];
         $versions['phpqa'] = $this->analyzeTool('phpqa', 'edgedesign/phpqa', $composer);
         foreach ($tools as $tool => $config) {
-            $versions[$tool] = $this->analyzeTool($tool, $config['composer'], $composer, $c->getCustomBinary($tool));
+            $versions[$tool] = $this->analyzeTool($tool, $config['composer'], $composer, $config['customBinary']);
         }
         return $versions;
     }

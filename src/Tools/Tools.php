@@ -21,13 +21,16 @@ class Tools
     /** @SuppressWarnings(PHPMD.ExitExpression) */
     private function loadTools()
     {
-        foreach ($this->config->value('tool') as $id => $handler) {
+        foreach ($this->config->value('tool') as $tool => $handler) {
             $handlers = array_map(
-                function ($handler) use ($id) {
+                function ($handler) use ($tool) {
                     if (!is_subclass_of($handler, 'Edge\QA\Tool\Tool')) {
-                        die("Invalid handler for {$id}. {$handler} is not subclass of 'Edge\QA\Tool\Tool'\n");
+                        die("Invalid handler for {$tool}. {$handler} is not subclass of 'Edge\QA\Tool\Tool'\n");
                     }
-                    return $handler::$SETTINGS + ['handler' => $handler];
+                    return [
+                        'handler' => $handler,
+                        'customBinary' => $this->config->getCustomBinary($tool),
+                    ] + $handler::$SETTINGS;
                 },
                 (array) $handler
             );
@@ -39,7 +42,7 @@ class Tools
                     }
                 );
             }
-            $this->tools[$id] = array_shift($handlers);
+            $this->tools[$tool] = array_shift($handlers);
         }
     }
 
@@ -58,8 +61,7 @@ class Tools
 
     public function buildCommand(RunningTool $tool, Options $o)
     {
-        $customBinary = $this->config->getCustomBinary($tool);
-        $binary = $customBinary ?: \Edge\QA\pathToBinary((string) $tool);
+        $binary = $this->tools[(string) $tool]['customBinary'] ?: \Edge\QA\pathToBinary((string) $tool);
 
         $handlerClass = $this->tools[(string) $tool]['handler'];
         $handler = new $handlerClass($this->config, $o, $tool);
@@ -82,6 +84,6 @@ class Tools
     public function getVersions()
     {
         $versions = new GetVersions();
-        return $versions($this->tools, $this->config);
+        return $versions($this->tools);
     }
 }

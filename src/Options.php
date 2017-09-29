@@ -77,7 +77,7 @@ class Options
         }
     }
 
-    public function buildRunningTools(array $tools, Config $phpqaConfig = null)
+    public function buildRunningTools(array $tools)
     {
         $allowed = array();
         foreach ($tools as $tool => $config) {
@@ -87,8 +87,7 @@ class Options
                     'xml' => array_key_exists('xml', $config) ? array_map([$this, 'rawFile'], $config['xml']) : []
                 ];
                 $runningTool = new RunningTool($tool, $preload + $config);
-                $runningTool->isExecutable =
-                    $runningTool->isInstalled() || ($phpqaConfig && $phpqaConfig->getCustomBinary($tool));
+                $runningTool->isExecutable = $runningTool->isInstalled() || isset($config['customBinary']);
                 $allowed[$tool] = $runningTool;
             }
         }
