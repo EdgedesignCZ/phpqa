@@ -294,21 +294,47 @@ set tabs = {
         }
         
         function listenOnTabChange() {
-            $('.navbar-nav a').click(function (e) {
-              e.preventDefault();
-              $(this).tab('show');
+            onNavLink();
+            onExternalLink();
+            onHashChange();
+            
+            function onNavLink() {
+                $('.navbar-nav a').click(function (e) {
+                    e.preventDefault();
+                    $(this).tab('show');
+                    updateBrowserHistory($(this));
 
-              var target = $(this).data('iframe-tab');
-              if (target) {
-                  var tabOpener = tabsInIframe[$(this).attr('href')];
-                  var iframe = $(".tab-pane.active iframe")[0].contentWindow;
-                  tabOpener(iframe, target);
-              }
-            });
-            $('[data-tool-link]').click(function (e) {
-              e.preventDefault();
-              $('.navbar-nav a[href="' + $(this).attr('href') + '"]').first().click();
-            });
+                    var target = $(this).data('iframe-tab');
+                    if (target) {
+                        var tabOpener = tabsInIframe[$(this).attr('href')];
+                        var iframe = $(".tab-pane.active iframe")[0].contentWindow;
+                        tabOpener(iframe, target);
+                    }
+                });
+                
+                function updateBrowserHistory(link) {
+                    if (window.history && window.history.pushState) {
+                        history.pushState(null, null, link.attr('href'));  
+                    }
+                }
+            }
+            
+            function onExternalLink() {
+                $('[data-tool-link]').click(function (e) {
+                    e.preventDefault();
+                    $('.navbar-nav a[href="' + $(this).attr('href') + '"]').first().click();
+                });
+            }
+
+            function onHashChange() {
+                window.addEventListener("popstate", function(e) {
+                    var hash = location.hash ? location.hash : '#phpqa';
+                    var activeTab = $('.navbar-nav [href="' + hash + '"]').first();
+                    if (activeTab.length) {
+                        activeTab.tab('show');
+                    }
+                });
+            }
         }
         
         function activateTooltips() {
