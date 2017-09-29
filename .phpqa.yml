@@ -66,3 +66,17 @@ report:
     phpmd: app/report/phpmd.xsl
     php-cs-fixer: app/report/php-cs-fixer.xsl
     psalm: app/report/psalm.xsl
+
+# you can add new tools, but existing tools cannot be removed
+tool:
+    phpmetrics: [Edge\QA\Tool\PhpMetrics, Edge\QA\Tool\PhpMetricsV2]
+    phploc: Edge\QA\Tool\Phploc
+    phpcs: [Edge\QA\Tool\Phpcs, Edge\QA\Tool\PhpcsV3]
+    php-cs-fixer: Edge\QA\Tool\PhpCsFixer
+    phpmd: Edge\QA\Tool\Phpmd
+    pdepend: Edge\QA\Tool\Pdepend
+    phpcpd: Edge\QA\Tool\Phpcpd
+    parallel-lint: Edge\QA\Tool\ParallelLint
+    phpstan: Edge\QA\Tool\Phpstan
+    phpunit: Edge\QA\Tool\Phpunit
+    psalm: Edge\QA\Tool\Psalm

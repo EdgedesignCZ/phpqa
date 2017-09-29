@@ -16,6 +16,7 @@ class Config
     public function loadUserConfig($directory)
     {
         $this->loadConfig($directory ?: getcwd(), $directory);
+        $this->mergeConfigs('tool');
     }
 
     private function loadConfig($directory, $isUserDirectory = false)
@@ -31,6 +32,18 @@ class Config
         } elseif ($isUserDirectory) {
             $this->throwInvalidPath('.phpqa.yml', $configFile);
         }
+    }
+
+    // better solution would be dynamic merge in findInConfig
+    // right now it cannot be used for 'report' because it would path would return invalid file
+    private function mergeConfigs($key)
+    {
+        $mergedConfig = [];
+        $userConfig = key($this->configs);
+        foreach ($this->configs as $config) {
+            $mergedConfig = array_merge(isset($config[$key]) ? $config[$key] : [], $mergedConfig);
+        }
+        $this->configs[$userConfig][$key] = $mergedConfig;
     }
 
     public function getCustomBinary($tool)

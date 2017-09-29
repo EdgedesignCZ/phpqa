@@ -19,3 +19,8 @@ phpunit:
 # binary for other tool
 phpmetrics:
     binary: ../../phpqa
+
+# default tools are not removed, only new tools are loaded (or existing tools are updated)
+tool:
+    phpmetrics: Edge\QA\Tool\PhpMetrics
+    myphpanalyzer: Edge\QA\Tool\PhpMetrics

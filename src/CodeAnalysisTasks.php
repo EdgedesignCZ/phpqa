@@ -6,20 +6,8 @@ use Symfony\Component\Console\Helper\Table;
 
 trait CodeAnalysisTasks
 {
-    /** @var array [tool => optionSeparator] */
-    private $tools = array(
-        'phpmetrics' => ['Edge\QA\Tool\PhpMetrics', 'Edge\QA\Tool\PhpMetricsV2'],
-        'phploc' => 'Edge\QA\Tool\Phploc',
-        'phpcs' => ['Edge\QA\Tool\Phpcs', 'Edge\QA\Tool\PhpcsV3'],
-        'php-cs-fixer' => 'Edge\QA\Tool\PhpCsFixer',
-        'phpmd' => 'Edge\QA\Tool\Phpmd',
-        'pdepend' => 'Edge\QA\Tool\Pdepend',
-        'phpcpd' => 'Edge\QA\Tool\Phpcpd',
-        'parallel-lint' => 'Edge\QA\Tool\ParallelLint',
-        'phpstan' => 'Edge\QA\Tool\Phpstan',
-        'phpunit' => 'Edge\QA\Tool\Phpunit',
-        'psalm' => 'Edge\QA\Tool\Psalm',
-    );
+    /** @var array */
+    private $tools = array();
     /** @var Options */
     private $options;
     /** @var Config */
@@ -95,9 +83,12 @@ trait CodeAnalysisTasks
     {
         $this->config = new Config();
         $this->config->loadUserConfig($opts['config']);
-        foreach ($this->tools as $id => $handler) {
+        foreach ($this->config->value('tool') as $id => $handler) {
             $handlers = array_map(
-                function ($handler) {
+                function ($handler) use ($id) {
+                    if (!is_subclass_of($handler, 'Edge\QA\Tool\Tool')) {
+                        die("Invalid handler for {$id}. {$handler} is not subclass of 'Edge\QA\Tool\Tool'\n");
+                    }
                     return $handler::$SETTINGS + ['handler' => $handler];
                 },
                 (array) $handler

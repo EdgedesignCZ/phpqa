@@ -4,6 +4,8 @@ namespace Edge\QA;
 
 class ConfigTest extends \PHPUnit_Framework_TestCase
 {
+    private $defaultToolsCount = 11;
+
     public function testLoadDefaultConfig()
     {
         $config = new Config();
@@ -42,6 +44,16 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpcpd.minTokens'), is(70));
         assertThat($config->value('phpcs.standard'), is('Zend'));
         assertThat($config->path('phpmd.standard'), is(__DIR__ . "/my-standard.xml"));
+    }
+
+    public function testAllowPartialUpdateOfTools()
+    {
+        $config = new Config();
+        assertThat($config->value('tool'), is(arrayWithSize($this->defaultToolsCount)));
+        assertThat($config->value('tool.phpmetrics'), is(arrayWithSize(2)));
+        $config->loadUserConfig(__DIR__);
+        assertThat($config->value('tool'), is(arrayWithSize($this->defaultToolsCount + 1)));
+        assertThat($config->value('tool.phpmetrics'), is(nonEmptyString()));
     }
 
     public function testIgnoreNonExistentUserConfig()
