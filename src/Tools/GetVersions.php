@@ -1,24 +1,15 @@
 <?php
 
-namespace Edge\QA\Task;
+namespace Edge\QA\Tools;
 
 use Symfony\Component\Process\Process;
 use Edge\QA\Config;
 
-class ToolVersions
+class GetVersions
 {
-    private $qaTools;
-    private $config;
-
-    public function __construct(array $qaTools, Config $c)
+    public function __invoke(array $tools, Config $c)
     {
-        $this->qaTools = $qaTools;
-        $this->config = $c;
-    }
-
-    public function __invoke()
-    {
-        $composerPackages = [
+        $composer = [
             'edgedesign/phpqa' => (object) [
                 'version' => PHPQA_VERSION,
                 'version_normalized' => PHPQA_VERSION,
@@ -26,9 +17,9 @@ class ToolVersions
             ]
         ] + $this->findComposerPackages();
         $versions = [];
-        $versions['phpqa'] = $this->analyzeTool('phpqa', 'edgedesign/phpqa', $composerPackages);
-        foreach ($this->qaTools as $tool => $config) {
-            $versions[$tool] = $this->analyzeTool($tool, $config['composer'], $composerPackages);
+        $versions['phpqa'] = $this->analyzeTool('phpqa', 'edgedesign/phpqa', $composer);
+        foreach ($tools as $tool => $config) {
+            $versions[$tool] = $this->analyzeTool($tool, $config['composer'], $composer, $c->getCustomBinary($tool));
         }
         return $versions;
     }
@@ -53,9 +44,8 @@ class ToolVersions
         return $tools;
     }
 
-    private function analyzeTool($tool, $composerPackage, array $composerPackages)
+    private function analyzeTool($tool, $composerPackage, array $composerPackages, $customBinary = null)
     {
-        $customBinary = $this->config->getCustomBinary($tool);
         if ($customBinary) {
             $versionCommand = "{$customBinary} --version";
             $version = $this->loadVersionFromConsoleCommand($versionCommand);

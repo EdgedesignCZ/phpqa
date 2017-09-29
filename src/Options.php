@@ -80,7 +80,6 @@ class Options
     public function buildRunningTools(array $tools, Config $phpqaConfig = null)
     {
         $allowed = array();
-        $skipped = array();
         foreach ($tools as $tool => $config) {
             if (array_key_exists($tool, $this->allowedTools)) {
                 $preload = [
@@ -88,14 +87,12 @@ class Options
                     'xml' => array_key_exists('xml', $config) ? array_map([$this, 'rawFile'], $config['xml']) : []
                 ];
                 $runningTool = new RunningTool($tool, $preload + $config);
-                if ($runningTool->isInstalled() || ($phpqaConfig && $phpqaConfig->getCustomBinary($tool))) {
-                    $allowed[$tool] = $runningTool;
-                } else {
-                    $skipped[] = $tool;
-                }
+                $runningTool->isExecutable =
+                    $runningTool->isInstalled() || ($phpqaConfig && $phpqaConfig->getCustomBinary($tool));
+                $allowed[$tool] = $runningTool;
             }
         }
-        return array($allowed, $skipped);
+        return $allowed;
     }
 
     public function toFile($file)

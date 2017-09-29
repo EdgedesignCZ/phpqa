@@ -1,30 +1,33 @@
 <?php
 
-namespace Edge\QA\Task;
+namespace Edge\QA\Tools;
 
 use Edge\QA\Options;
 
-class ToolSummary
+class AnalyzeResults
 {
     private $options;
-    /** @var \Edge\QA\RunningTool[] */
-    private $usedTools;
-    /** @var string[] $this->skippedTools */
-    private $skippedTools;
 
-    public function __construct(Options $o, array $usedTools, array $skippedTools)
+    public function __construct(Options $o)
     {
         $this->options = $o;
-        $this->usedTools = $usedTools;
-        $this->skippedTools = $skippedTools;
     }
 
-    public function __invoke()
+    /**
+     * @param \Edge\QA\RunningTool[] $runningTools
+     * @return type
+     */
+    public function __invoke(array $runningTools)
     {
         $totalErrors = 0;
         $failedTools = [];
+        $notInstalledTools = [];
         $results = [];
-        foreach ($this->usedTools as $tool) {
+        foreach ($runningTools as $tool) {
+            if (!$tool->isExecutable) {
+                $notInstalledTools[] = (string) $tool;
+                continue;
+            }
             list($isOk, $errorsCount) = $tool->analyzeResult(!$this->options->isSavedToFiles);
             $totalErrors += (int) $errorsCount;
             $results[(string) $tool] = array(
@@ -50,7 +53,7 @@ class ToolSummary
         return [
             'isErrorsCountAnalyzed' => $this->options->isSavedToFiles,
             'failedTools' => $failedTools,
-            'skippedTools' => $this->skippedTools,
+            'notInstalledTools' => $notInstalledTools,
             'tools' => $results,
         ];
     }

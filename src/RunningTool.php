@@ -16,6 +16,7 @@ class RunningTool
 
     public $htmlReport;
     public $userReports = [];
+    public $isExecutable;
     /** @var \Symfony\Component\Process\Process */
     public $process;
 

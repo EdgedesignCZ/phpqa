@@ -49,10 +49,11 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 
     public function testIgnoreNotInstalledTool()
     {
-        assertThat(
-            $this->fileOutput->buildRunningTools(array('pdepend' => ['internalClass' => 'UnknownTool\UnknownClass'])),
-            is([[], ['pdepend']])
+        $tools = $this->buildRunningTools(
+            $this->fileOutput,
+            array('pdepend' => ['internalClass' => 'UnknownTool\UnknownClass'])
         );
+        assertThat($tools['pdepend']->isExecutable, is(false));
     }
 
     /** @dataProvider provideOutputs */
@@ -124,6 +125,6 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 
     private function buildRunningTools(Options $o, array $tools)
     {
-        return $o->buildRunningTools($tools)[0];
+        return $o->buildRunningTools($tools);
     }
 }

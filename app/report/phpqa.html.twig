@@ -155,13 +155,13 @@ set tabs = {
                                 {% for tool, result in summary.tools %}
                                 {% set isPhpqa = tool == 'phpqa' %}
                                 {% if isPhpqa %}
-                                {% for skippedTool in summary.skippedTools %}
+                                {% for invalidTool in summary.notInstalledTools %}
                                 <tr class="disabled">
-                                    <td class="text-left text-muted">{{ skippedTool }}</td>
+                                    <td class="text-left text-muted">{{ invalidTool }}</td>
                                     <td colspan="3">
-                                        <code>composer require {{ versions[skippedTool].composer }}</code>
+                                        <code>composer require {{ versions[invalidTool].composer }}</code>
                                     </td>
-                                    <td data-toggle="tooltip" data-placement="left" title="{{ skippedTool }} is not installed">
+                                    <td data-toggle="tooltip" data-placement="left" title="{{ invalidTool }} is not installed">
                                         <span class="label label-default">?</a>
                                     </td>
                                 </tr>

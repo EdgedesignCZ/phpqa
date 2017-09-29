@@ -45,9 +45,9 @@ class TableSummary
 
     private function result(array $results)
     {
-        if ($results['skippedTools']) {
+        if ($results['notInstalledTools']) {
             $this->writeln(
-                'Not installed tools: <comment>' . implode(', ', $results['skippedTools']) . '</comment>',
+                'Not installed tools: <comment>' . implode(', ', $results['notInstalledTools']) . '</comment>',
                 'magenta'
             );
         }

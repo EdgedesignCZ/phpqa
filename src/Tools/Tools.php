@@ -10,19 +10,12 @@ class Tools
 {
     private $config;
     private $tools = array();
-
-    /** @var \Edge\QA\Task\ToolVersions */
-    private $versions;
-    /** @var \Edge\QA\Task\ToolSummary */
-    private $summary;
-    /** @var RunningTool[] */
-    private $runningTools;
+    private $selectedTools;
 
     public function __construct(Config $c)
     {
         $this->config = $c;
         $this->loadTools();
-        $this->versions = new \Edge\QA\Task\ToolVersions($this->tools, $this->config);
     }
 
     /** @SuppressWarnings(PHPMD.ExitExpression) */
@@ -50,18 +43,17 @@ class Tools
         }
     }
 
-    public function getRunningTools(Options $o)
+    public function getExecutableTools(Options $o)
     {
-        if (!$this->runningTools) {
-            $this->buildRunningTools($o);
+        if (!$this->selectedTools) {
+            $this->selectedTools = $o->buildRunningTools($this->tools, $this->config);
         }
-        return $this->runningTools;
-    }
-
-    private function buildRunningTools(Options $o)
-    {
-        list($this->runningTools, $skippedTools) = $o->buildRunningTools($this->tools, $this->config);
-        $this->summary = new \Edge\QA\Task\ToolSummary($o, $this->runningTools, $skippedTools);
+        return array_filter(
+            $this->selectedTools,
+            function (RunningTool $t) {
+                return $t->isExecutable;
+            }
+        );
     }
 
     public function buildCommand(RunningTool $tool, Options $o)
@@ -81,13 +73,15 @@ class Tools
         return  $this->config->path("report.{$tool}");
     }
 
-    public function getSummary()
+    public function getSummary(Options $o)
     {
-        return $this->summary->__invoke();
+        $analyzeResults = new AnalyzeResults($o);
+        return $analyzeResults->__invoke($this->selectedTools);
     }
 
     public function getVersions()
     {
-        return $this->versions->__invoke();
+        $versions = new GetVersions();
+        return $versions($this->tools, $this->config);
     }
 }

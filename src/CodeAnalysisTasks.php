@@ -2,7 +2,6 @@
 
 namespace Edge\QA;
 
-use Symfony\Component\Console\Helper\Table;
 use Edge\QA\Tools\Tools;
 
 trait CodeAnalysisTasks
@@ -22,16 +21,8 @@ trait CodeAnalysisTasks
         )
     ) {
         $this->loadConfig($opts);
-        $table = new Table($this->getOutput());
-        $table->setHeaders(['Tool', 'Version', 'Authors / Info']);
-        foreach ($this->tools->getVersions() as $tool => $version) {
-            $table->addRow(array(
-                "<comment>{$tool}</comment>",
-                $version['version_normalized'],
-                $version['authors'],
-            ));
-        }
-        $table->render();
+        $versions = new Task\TableVersions($this->getOutput());
+        $versions($this->tools->getVersions());
     }
 
     /**
@@ -102,7 +93,7 @@ trait CodeAnalysisTasks
     private function runTools()
     {
         $group = $this->taskPhpqaRunner($this->options->isParallel);
-        foreach ($this->tools->getRunningTools($this->options) as $tool) {
+        foreach ($this->tools->getExecutableTools($this->options) as $tool) {
             $exec = $this->toolToExec($tool);
             $tool->process = $group->process($exec);
         }
@@ -126,7 +117,7 @@ trait CodeAnalysisTasks
 
     private function buildHtmlReport()
     {
-        foreach ($this->tools->getRunningTools($this->options) as $tool) {
+        foreach ($this->tools->getExecutableTools($this->options) as $tool) {
             if (!$tool->htmlReport) {
                 $tool->htmlReport = $this->options->rawFile("{$tool}.html");
             }
@@ -155,7 +146,7 @@ trait CodeAnalysisTasks
         twigToHtml(
             'phpqa.html.twig',
             array(
-                'summary' => $this->tools->getSummary(),
+                'summary' => $this->tools->getSummary($this->options),
                 'versions' => $this->tools->getVersions(),
                 'buildDir' => $this->options->rawFile(''),
                 'createdFiles' => glob("{$this->options->rawFile('')}/*"),
@@ -171,6 +162,6 @@ trait CodeAnalysisTasks
     private function buildSummary()
     {
         $summary = new Task\TableSummary($this->getOutput());
-        return $summary($this->tools->getSummary());
+        return $summary($this->tools->getSummary($this->options));
     }
 }
