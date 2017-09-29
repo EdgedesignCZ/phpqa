@@ -22,13 +22,11 @@ class ToolSummary
     public function __invoke()
     {
         $totalErrors = 0;
-        $totalAllowed = 0;
         $failedTools = [];
         $results = [];
         foreach ($this->usedTools as $tool) {
             list($isOk, $errorsCount) = $tool->analyzeResult(!$this->options->isSavedToFiles);
             $totalErrors += (int) $errorsCount;
-            $totalAllowed += (int) $tool->getAllowedErrorsCount();
             $results[$tool->binary] = array(
                 'areErrorsAnalyzed' => $tool->getAllowedErrorsCount() !== null,
                 'allowedErrorsCount' => $tool->getAllowedErrorsCount(),
@@ -43,7 +41,7 @@ class ToolSummary
         }
         $results['phpqa'] = array(
             'areErrorsAnalyzed' => true,
-            'allowedErrorsCount' => $totalAllowed,
+            'allowedErrorsCount' => null,
             'errorsCount' => $totalErrors,
             'hasSucceeded' => count($failedTools) == 0,
             'htmlReport' => $this->options->isSavedToFiles ? $this->options->rawFile("phpqa.html") : null,

@@ -178,7 +178,7 @@ set tabs = {
                                     </th>
                                     <td>{{ result.allowedErrorsCount }}</td>
                                     <td>
-                                        {% if result.areErrorsAnalyzed %}
+                                        {% if result.areErrorsAnalyzed and not isPhpqa %}
                                         {% if result.hasSucceeded %}
                                         <small class="text-success">{{ result.errorsCount == result.allowedErrorsCount ? '==' : '>' }}</a>
                                         {% else %}
@@ -194,7 +194,7 @@ set tabs = {
                                                 <span class="label label-success">✓</span>
                                             </td>
                                             {% else %}   
-                                            <td data-toggle="tooltip" data-placement="left" title="{{ 'Errors count is greater than '~result.allowedErrorsCount }}">
+                                            <td data-toggle="tooltip" data-placement="left" title="{{ not isPhpqa ? ('Errors count is greater than '~result.allowedErrorsCount) : '' }}">
                                                 <span class="label label-danger">x</a>
                                             </td>
                                             {% endif %}
