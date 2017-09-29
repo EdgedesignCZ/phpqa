@@ -22,5 +22,5 @@ phpmetrics:
 
 # default tools are not removed, only new tools are loaded (or existing tools are updated)
 tool:
-    phpmetrics: Edge\QA\Tool\PhpMetrics
-    myphpanalyzer: Edge\QA\Tool\PhpMetrics
+    phpmetrics: Edge\QA\Tools\Analyzer\PhpMetrics
+    myphpanalyzer: Edge\QA\Tools\Analyzer\PhpMetrics

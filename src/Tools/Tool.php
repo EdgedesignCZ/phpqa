@@ -1,6 +1,6 @@
 <?php
 
-namespace Edge\QA\Tool;
+namespace Edge\QA\Tools;
 
 use Edge\QA\Config;
 use Edge\QA\Options;

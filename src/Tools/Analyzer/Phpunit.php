@@ -1,10 +1,10 @@
 <?php
 
-namespace Edge\QA\Tool;
+namespace Edge\QA\Tools\Analyzer;
 
 use Edge\QA\OutputMode;
 
-class Phpunit extends Tool
+class Phpunit extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' => '=',

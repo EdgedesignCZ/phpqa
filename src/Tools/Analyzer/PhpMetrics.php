@@ -1,10 +1,10 @@
 <?php
 
-namespace Edge\QA\Tool;
+namespace Edge\QA\Tools\Analyzer;
 
 use Edge\QA\OutputMode;
 
-class PhpMetrics extends Tool
+class PhpMetrics extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' => ' ',

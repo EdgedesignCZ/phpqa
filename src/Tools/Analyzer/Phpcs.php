@@ -1,8 +1,8 @@
 <?php
 
-namespace Edge\QA\Tool;
+namespace Edge\QA\Tools\Analyzer;
 
-class Phpcs extends Tool
+class Phpcs extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' => '=',

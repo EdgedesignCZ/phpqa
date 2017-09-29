@@ -1,6 +1,6 @@
 <?php
 
-namespace Edge\QA\Tool;
+namespace Edge\QA\Tools\Analyzer;
 
 class PhpcsV3 extends Phpcs
 {

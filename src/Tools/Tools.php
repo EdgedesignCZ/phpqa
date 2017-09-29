@@ -24,8 +24,9 @@ class Tools
         foreach ($this->config->value('tool') as $tool => $handler) {
             $handlers = array_map(
                 function ($handler) use ($tool) {
-                    if (!is_subclass_of($handler, 'Edge\QA\Tool\Tool')) {
-                        die("Invalid handler for {$tool}. {$handler} is not subclass of 'Edge\QA\Tool\Tool'\n");
+                    $abstractTool = 'Edge\QA\Tools\Tool';
+                    if (!is_subclass_of($handler, $abstractTool)) {
+                        die("Invalid handler for {$tool}. {$handler} is not subclass of '{$abstractTool}'\n");
                     }
                     return [
                         'handler' => $handler,
