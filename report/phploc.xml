@@ -1,57 +1,57 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <phploc>
   <directories>6</directories>
-  <files>23</files>
-  <loc>2051</loc>
-  <lloc>584</lloc>
-  <llocClasses>504</llocClasses>
+  <files>24</files>
+  <loc>2124</loc>
+  <lloc>594</lloc>
+  <llocClasses>514</llocClasses>
   <llocFunctions>37</llocFunctions>
   <llocGlobal>43</llocGlobal>
-  <cloc>67</cloc>
-  <ccn>142</ccn>
-  <ccnMethods>132</ccnMethods>
+  <cloc>66</cloc>
+  <ccn>144</ccn>
+  <ccnMethods>134</ccnMethods>
   <interfaces>0</interfaces>
   <traits>2</traits>
-  <classes>17</classes>
+  <classes>18</classes>
   <abstractClasses>0</abstractClasses>
-  <concreteClasses>17</concreteClasses>
+  <concreteClasses>18</concreteClasses>
   <functions>16</functions>
   <namedFunctions>7</namedFunctions>
   <anonymousFunctions>9</anonymousFunctions>
-  <methods>136</methods>
-  <publicMethods>80</publicMethods>
-  <nonPublicMethods>56</nonPublicMethods>
-  <nonStaticMethods>136</nonStaticMethods>
+  <methods>139</methods>
+  <publicMethods>82</publicMethods>
+  <nonPublicMethods>57</nonPublicMethods>
+  <nonStaticMethods>139</nonStaticMethods>
   <staticMethods>0</staticMethods>
   <constants>5</constants>
   <classConstants>4</classConstants>
   <globalConstants>1</globalConstants>
   <testClasses>0</testClasses>
   <testMethods>0</testMethods>
-  <ccnByLloc>0.24315068493151</ccnByLloc>
+  <ccnByLloc>0.24242424242424</ccnByLloc>
   <llocByNof>2.3125</llocByNof>
-  <methodCalls>330</methodCalls>
+  <methodCalls>336</methodCalls>
   <staticMethodCalls>6</staticMethodCalls>
-  <instanceMethodCalls>324</instanceMethodCalls>
-  <attributeAccesses>291</attributeAccesses>
+  <instanceMethodCalls>330</instanceMethodCalls>
+  <attributeAccesses>300</attributeAccesses>
   <staticAttributeAccesses>0</staticAttributeAccesses>
-  <instanceAttributeAccesses>291</instanceAttributeAccesses>
+  <instanceAttributeAccesses>300</instanceAttributeAccesses>
   <globalAccesses>2</globalAccesses>
   <globalVariableAccesses>0</globalVariableAccesses>
   <superGlobalVariableAccesses>0</superGlobalVariableAccesses>
   <globalConstantAccesses>2</globalConstantAccesses>
   <classCcnMin>1</classCcnMin>
-  <classCcnAvg>7.9473684210526</classCcnAvg>
-  <classCcnMax>51</classCcnMax>
+  <classCcnAvg>7.7</classCcnAvg>
+  <classCcnMax>52</classCcnMax>
   <classLlocMin>2</classLlocMin>
-  <classLlocAvg>26.526315789474</classLlocAvg>
-  <classLlocMax>127</classLlocMax>
+  <classLlocAvg>25.7</classLlocAvg>
+  <classLlocMax>133</classLlocMax>
   <methodCcnMin>1</methodCcnMin>
-  <methodCcnAvg>1.9453125</methodCcnAvg>
+  <methodCcnAvg>1.9389312977099</methodCcnAvg>
   <methodCcnMax>8</methodCcnMax>
   <methodLlocMin>1</methodLlocMin>
-  <methodLlocAvg>3.28125</methodLlocAvg>
+  <methodLlocAvg>3.2442748091603</methodLlocAvg>
   <methodLlocMax>20</methodLlocMax>
   <namespaces>2</namespaces>
-  <ncloc>1984</ncloc>
+  <ncloc>2058</ncloc>
 </phploc>

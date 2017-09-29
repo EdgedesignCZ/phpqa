@@ -1,60 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metrics generated="2017-09-24T10:10:37" pdepend="@package_version@" ahh="0.8" andc="0.1" calls="446" ccn="276" ccn2="285" cloc="67" clsa="0" clsc="17" eloc="1762" fanout="44" leafs="12" lloc="835" loc="2066" maxDIT="4" ncloc="1999" noc="17" nof="7" noi="0" nom="110" nop="2" roots="3">
+<metrics generated="2017-09-29T12:44:00" pdepend="@package_version@" ahh="0.72727272727273" andc="0.095238095238095" calls="456" ccn="281" ccn2="290" cloc="66" clsa="0" clsc="18" eloc="1826" fanout="45" leafs="13" lloc="849" loc="2140" maxDIT="4" ncloc="2074" noc="18" nof="7" noi="0" nom="112" nop="2" roots="3">
   <files>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/RoboFile.php" loc="10" cloc="0" eloc="7" lloc="3" ncloc="10"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" loc="563" cloc="25" eloc="502" lloc="192" ncloc="538"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Config.php" loc="110" cloc="0" eloc="96" lloc="52" ncloc="110"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/IgnoredPaths.php" loc="109" cloc="1" eloc="91" lloc="48" ncloc="108"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Options.php" loc="111" cloc="8" eloc="90" lloc="54" ncloc="103"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/OutputMode.php" loc="12" cloc="0" eloc="9" lloc="5" ncloc="12"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/RunningTool.php" loc="141" cloc="1" eloc="120" lloc="67" ncloc="140"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php" loc="98" cloc="0" eloc="86" lloc="62" ncloc="98"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/IgnoredPathsTest.php" loc="116" cloc="2" eloc="107" lloc="13" ncloc="114"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" loc="130" cloc="6" eloc="107" lloc="42" ncloc="124"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/PathsTest.php" loc="13" cloc="0" eloc="10" lloc="4" ncloc="13"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/Report/ReportTest.php" loc="50" cloc="1" eloc="40" lloc="20" ncloc="49"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/RunningToolTest.php" loc="95" cloc="2" eloc="81" lloc="33" ncloc="93"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/paths.php" loc="39" cloc="0" eloc="31" lloc="20" ncloc="39"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/report.php" loc="66" cloc="0" eloc="55" lloc="40" ncloc="66"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV0.php" loc="42" cloc="1" eloc="33" lloc="18" ncloc="41"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php" loc="71" cloc="10" eloc="51" lloc="35" ncloc="61"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ParallelExec.php" loc="17" cloc="4" eloc="10" lloc="4" ncloc="13"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/RoboAdapter.php" loc="40" cloc="0" eloc="35" lloc="18" ncloc="40"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php" loc="96" cloc="6" eloc="81" lloc="46" ncloc="90"/>
-    <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php" loc="137" cloc="0" eloc="120" lloc="59" ncloc="137"/>
+    <file name="/mnt/DATA/www/phpqa/RoboFile.php" loc="10" cloc="0" eloc="7" lloc="3" ncloc="10"/>
+    <file name="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" loc="591" cloc="27" eloc="526" lloc="201" ncloc="564"/>
+    <file name="/mnt/DATA/www/phpqa/src/Config.php" loc="110" cloc="0" eloc="96" lloc="52" ncloc="110"/>
+    <file name="/mnt/DATA/www/phpqa/src/IgnoredPaths.php" loc="109" cloc="1" eloc="91" lloc="48" ncloc="108"/>
+    <file name="/mnt/DATA/www/phpqa/src/Options.php" loc="111" cloc="8" eloc="90" lloc="54" ncloc="103"/>
+    <file name="/mnt/DATA/www/phpqa/src/OutputMode.php" loc="12" cloc="0" eloc="9" lloc="5" ncloc="12"/>
+    <file name="/mnt/DATA/www/phpqa/src/RunningTool.php" loc="141" cloc="1" eloc="120" lloc="67" ncloc="140"/>
+    <file name="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" loc="98" cloc="0" eloc="86" lloc="62" ncloc="98"/>
+    <file name="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" loc="116" cloc="2" eloc="107" lloc="13" ncloc="114"/>
+    <file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php" loc="130" cloc="6" eloc="107" lloc="42" ncloc="124"/>
+    <file name="/mnt/DATA/www/phpqa/tests/PathsTest.php" loc="13" cloc="0" eloc="10" lloc="4" ncloc="13"/>
+    <file name="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" loc="50" cloc="1" eloc="40" lloc="20" ncloc="49"/>
+    <file name="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" loc="95" cloc="2" eloc="81" lloc="33" ncloc="93"/>
+    <file name="/mnt/DATA/www/phpqa/src/paths.php" loc="39" cloc="0" eloc="31" lloc="20" ncloc="39"/>
+    <file name="/mnt/DATA/www/phpqa/src/report.php" loc="66" cloc="0" eloc="55" lloc="40" ncloc="66"/>
+    <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV0.php" loc="42" cloc="1" eloc="33" lloc="18" ncloc="41"/>
+    <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php" loc="71" cloc="10" eloc="51" lloc="35" ncloc="61"/>
+    <file name="/mnt/DATA/www/phpqa/src/Task/ParallelExec.php" loc="17" cloc="4" eloc="10" lloc="4" ncloc="13"/>
+    <file name="/mnt/DATA/www/phpqa/src/Task/RoboAdapter.php" loc="40" cloc="0" eloc="35" lloc="18" ncloc="40"/>
+    <file name="/mnt/DATA/www/phpqa/src/Task/TableSummary.php" loc="76" cloc="1" eloc="63" lloc="31" ncloc="75"/>
+    <file name="/mnt/DATA/www/phpqa/src/Task/ToolSummary.php" loc="58" cloc="2" eloc="50" lloc="21" ncloc="56"/>
+    <file name="/mnt/DATA/www/phpqa/src/Task/ToolVersions.php" loc="145" cloc="0" eloc="128" lloc="58" ncloc="145"/>
   </files>
   <package name="Edge\QA" noc="12" noi="0" nom="89" nof="7" cr="0.15" rcr="0.405">
     <class name="RoboFile" fqname="Edge\QA\RoboFile" start="5" end="9" loc="5" cloc="0" eloc="0" lloc="0" ncloc="5" dit="2" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.2775" ca="0" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/RoboFile.php"/>
+      <file name="/mnt/DATA/www/phpqa/RoboFile.php"/>
     </class>
-    <trait name="CodeAnalysisTasks" fqname="Edge\QA\CodeAnalysisTasks" start="5" end="562" ca="0" cbo="12" ce="12" impl="0" cis="2" csz="23" npm="2" vars="0" varsi="0" varsnp="0" wmc="73" wmci="73" wmcnp="3">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php"/>
-      <method name="tools" start="120" end="129" ccn="1" ccn2="1" loc="10" cloc="0" eloc="6" lloc="4" ncloc="10" npath="1" hnt="20" hnd="32" hv="100" hd="5.1428571428571" hl="0.19444444444444" he="514.28571428571" ht="28.571428571429" hb="0.021396778249196" hi="19.444444444444" mi="68.886907386765"/>
-      <method name="ci" start="143" end="164" ccn="2" ccn2="2" loc="22" cloc="0" eloc="9" lloc="6" ncloc="22" npath="2" hnt="13" hnd="22" hv="57.972611042285" hd="6.4285714285714" hl="0.15555555555556" he="372.68107098612" ht="20.704503943673" hb="0.017262497758346" hi="9.0179617176888" mi="66.569072709946"/>
-      <method name="loadOptions" start="166" end="180" ccn="4" ccn2="4" loc="15" cloc="0" eloc="13" lloc="9" ncloc="15" npath="5" hnt="29" hnd="66" hv="175.2874294614" hd="7.0172413793103" hl="0.14250614250614" he="1230.0342032894" ht="68.33523351608" hb="0.038266922536416" hi="24.979535402361" mi="59.451695666559"/>
-      <method name="selectToolsThatAreInstalled" start="182" end="190" ccn="3" ccn2="3" loc="9" cloc="0" eloc="8" lloc="4" ncloc="9" npath="3" hnt="21" hnd="32" hv="105" hd="9.5" hl="0.10526315789474" he="997.5" ht="55.416666666667" hb="0.033277754603872" hi="11.052631578947" mi="65.744124680683"/>
-      <method name="ciClean" start="192" end="200" ccn="3" ccn2="3" loc="9" cloc="0" eloc="8" lloc="4" ncloc="9" npath="3" hnt="10" hnd="18" hv="41.699250014423" hd="3.9285714285714" hl="0.25454545454545" he="163.81848219952" ht="9.1010267888622" hb="0.0099797733268833" hi="10.614354549126" mi="68.552359461535"/>
-      <method name="runTools" start="202" end="210" ccn="2" ccn2="2" loc="9" cloc="0" eloc="8" lloc="5" ncloc="9" npath="2" hnt="18" hnd="30" hv="88.324030720953" hd="4.5769230769231" hl="0.21848739495798" he="404.25229445359" ht="22.458460802977" hb="0.018224141311995" hi="19.29768738441" mi="66.404551745646"/>
-      <method name="toolToExec" start="213" end="227" ccn="4" ccn2="4" loc="15" cloc="0" eloc="14" lloc="9" ncloc="15" npath="6" hnt="31" hnd="68" hv="188.71134807876" hd="7.758064516129" hl="0.12889812889813" he="1464.0348133207" ht="81.335267406706" hb="0.042978014484633" hi="24.324539669196" mi="58.525224911483"/>
-      <method name="phploc" start="229" end="239" ccn="2" ccn2="2" loc="11" cloc="0" eloc="10" lloc="4" ncloc="11" npath="2" hnt="17" hnd="27" hv="80.833087536779" hd="7.65" hl="0.13071895424837" he="618.37311965636" ht="34.354062203131" hb="0.024194267634742" hi="10.566416671474" mi="64.560065679941"/>
-      <method name="phpcpd" start="241" end="254" ccn="2" ccn2="2" loc="14" cloc="0" eloc="13" lloc="4" ncloc="14" npath="2" hnt="24" hnd="42" hv="129.41561814669" hd="7.3529411764706" hl="0.136" he="951.58542754919" ht="52.865857086066" hb="0.032248580317797" hi="17.60052406795" mi="60.643315343662"/>
-      <method name="phpcs" start="256" end="259" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="10" hnd="11" hv="34.594316186373" hd="9.3333333333333" hl="0.10714285714286" he="322.88028440615" ht="17.937793578119" hb="0.015688199256261" hi="3.7065338771114" mi="78.681459685251"/>
-      <method name="phpcs3" start="261" end="265" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="16" hnd="20" hv="69.150849518198" hd="8.3571428571429" hl="0.11965811965812" he="577.90352811637" ht="32.10575156202" hb="0.023126805212104" hi="8.2744606261091" mi="73.849895652216"/>
-      <method name="buildPhpcs" start="267" end="296" ccn="6" ccn2="6" loc="30" cloc="0" eloc="28" lloc="14" ncloc="30" npath="10" hnt="49" hnd="122" hv="339.60612954058" hd="12.115384615385" hl="0.082539682539683" he="4114.4588771263" ht="228.58104872924" hb="0.085589514451077" hi="28.03098212081" mi="49.902805331346"/>
-      <method name="pdepend" start="298" end="310" ccn="1" ccn2="1" loc="13" cloc="0" eloc="12" lloc="1" ncloc="13" npath="1" hnt="24" hnd="47" hv="133.31013244026" hd="4.3333333333333" hl="0.23076923076923" he="577.67724057447" ht="32.093180031915" hb="0.023120767699798" hi="30.763876716984" mi="61.445956399479"/>
-      <method name="phpmd" start="312" end="325" ccn="3" ccn2="3" loc="14" cloc="0" eloc="13" lloc="4" ncloc="14" npath="4" hnt="26" hnd="42" hv="140.20025299225" hd="7.3333333333333" hl="0.13636363636364" he="1028.1351886098" ht="57.118621589434" hb="0.033955664006656" hi="19.118216317125" mi="60.265407694596"/>
-      <method name="phpmetrics" start="327" end="352" ccn="4" ccn2="4" loc="26" cloc="0" eloc="25" lloc="15" ncloc="26" npath="6" hnt="41" hnd="99" hv="271.80362142326" hd="7.5" hl="0.13333333333333" he="2038.5271606745" ht="113.25150892636" hb="0.053590739109849" hi="36.240482856435" mi="51.922688037797"/>
-      <method name="phpmetrics2" start="354" end="367" ccn="2" ccn2="2" loc="14" cloc="0" eloc="13" lloc="7" ncloc="14" npath="2" hnt="25" hnd="49" hv="140.36774610288" hd="6.6666666666667" hl="0.15" he="935.7849740192" ht="51.988054112178" hb="0.031890607338903" hi="21.055161915432" mi="60.396279870681"/>
-      <method name="parallellint" start="369" end="375" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="1" ncloc="7" npath="1" hnt="9" hnd="12" hv="32.26466250649" hd="9" hl="0.11111111111111" he="290.38196255841" ht="16.132331253245" hb="0.014617008607043" hi="3.5849625007212" mi="72.326806505165"/>
-      <method name="phpstan" start="377" end="420" ccn="4" ccn2="4" loc="44" cloc="0" eloc="39" lloc="14" ncloc="44" npath="8" hnt="58" hnd="154" hv="421.4736193603" hd="11.870967741935" hl="0.084239130434783" he="5003.299739503" ht="277.96109663905" hb="0.097510135433311" hi="35.504571196113" mi="46.375885353971"/>
-      <method name="phpcsfixer" start="422" end="456" ccn="7" ccn2="7" loc="35" cloc="0" eloc="34" lloc="15" ncloc="35" npath="36" hnt="47" hnd="114" hv="321.14583066574" hd="9.6" hl="0.10416666666667" he="3082.9999743911" ht="171.27777635506" hb="0.070609167761793" hi="33.452690694348" mi="48.098891129513"/>
-      <method name="phpunit" start="458" end="480" ccn="6" ccn2="6" loc="23" cloc="0" eloc="22" lloc="13" ncloc="23" npath="10" hnt="41" hnd="119" hv="282.68752829563" hd="11.833333333333" hl="0.084507042253521" he="3345.1357514982" ht="185.84087508324" hb="0.074556911618679" hi="23.889086898222" mi="52.74534098799"/>
-      <method name="psalm" start="482" end="516" ccn="7" ccn2="8" loc="35" cloc="0" eloc="31" lloc="15" ncloc="35" npath="96" hnt="60" hnd="137" hv="425.88192497763" hd="11.898305084746" hl="0.084045584045584" he="5067.2730734627" ht="281.51517074793" hb="0.098339565376087" hi="35.793495119203" mi="47.98114864203"/>
-      <method name="buildHtmlReport" start="518" end="555" ccn="5" ccn2="5" loc="38" cloc="0" eloc="36" lloc="9" ncloc="38" npath="9" hnt="45" hnd="112" hv="306.33097149259" hd="11.590909090909" hl="0.086274509803922" he="3550.6544423005" ht="197.25858012781" hb="0.077580221848241" hi="26.428554403282" mi="47.970017166183"/>
-      <method name="buildSummary" start="557" end="561" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="15" hnd="20" hv="64.82892142331" hd="6" hl="0.16666666666667" he="388.97352853986" ht="21.609640474437" hb="0.017762009976566" hi="10.804820237218" mi="74.046153143394"/>
+    <trait name="CodeAnalysisTasks" fqname="Edge\QA\CodeAnalysisTasks" start="7" end="590" ca="0" cbo="14" ce="14" impl="0" cis="2" csz="24" npm="2" vars="0" varsi="0" varsnp="0" wmc="75" wmci="75" wmcnp="4">
+      <file name="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php"/>
+      <method name="tools" start="126" end="142" ccn="2" ccn2="2" loc="17" cloc="0" eloc="13" lloc="6" ncloc="17" npath="2" hnt="29" hnd="52" hv="165.31275182609" hd="8.1190476190476" hl="0.12316715542522" he="1342.1821041118" ht="74.565672450658" hb="0.040558919292081" hi="20.361101397935" mi="59.898863656796"/>
+      <method name="ci" start="156" end="178" ccn="2" ccn2="2" loc="23" cloc="0" eloc="10" lloc="7" ncloc="23" npath="2" hnt="14" hnd="26" hv="65.806156053975" hd="5.6666666666667" hl="0.17647058823529" he="372.90155097253" ht="20.716752831807" hb="0.017269305473911" hi="11.612851068349" mi="65.18550401185"/>
+      <method name="loadConfig" start="180" end="188" ccn="1" ccn2="1" loc="9" cloc="0" eloc="8" lloc="3" ncloc="9" npath="1" hnt="19" hnd="27" hv="90.342862541106" hd="5" hl="0.2" he="451.71431270553" ht="25.095239594752" hb="0.019624020082304" hi="18.068572508221" mi="66.470330141179"/>
+      <method name="loadOptions" start="190" end="203" ccn="4" ccn2="4" loc="14" cloc="0" eloc="12" lloc="8" ncloc="14" npath="5" hnt="30" hnd="67" hv="181.98267571373" hd="7.4" hl="0.13513513513514" he="1346.6718002816" ht="74.815100015646" hb="0.040649317285656" hi="24.592253474829" mi="60.096007312165"/>
+      <method name="selectToolsThatAreInstalled" start="205" end="213" ccn="3" ccn2="3" loc="9" cloc="0" eloc="8" lloc="4" ncloc="9" npath="3" hnt="21" hnd="32" hv="105" hd="9.5" hl="0.10526315789474" he="997.5" ht="55.416666666667" hb="0.033277754603872" hi="11.052631578947" mi="65.744124680683"/>
+      <method name="ciClean" start="215" end="223" ccn="3" ccn2="3" loc="9" cloc="0" eloc="8" lloc="4" ncloc="9" npath="3" hnt="10" hnd="18" hv="41.699250014423" hd="3.9285714285714" hl="0.25454545454545" he="163.81848219952" ht="9.1010267888622" hb="0.0099797733268833" hi="10.614354549126" mi="68.552359461535"/>
+      <method name="runTools" start="225" end="233" ccn="2" ccn2="2" loc="9" cloc="0" eloc="8" lloc="5" ncloc="9" npath="2" hnt="18" hnd="30" hv="88.324030720953" hd="4.5769230769231" hl="0.21848739495798" he="404.25229445359" ht="22.458460802977" hb="0.018224141311995" hi="19.29768738441" mi="66.404551745646"/>
+      <method name="toolToExec" start="236" end="250" ccn="4" ccn2="4" loc="15" cloc="0" eloc="14" lloc="9" ncloc="15" npath="6" hnt="31" hnd="68" hv="188.71134807876" hd="7.758064516129" hl="0.12889812889813" he="1464.0348133207" ht="81.335267406706" hb="0.042978014484633" hi="24.324539669196" mi="58.525224911483"/>
+      <method name="phploc" start="252" end="262" ccn="2" ccn2="2" loc="11" cloc="0" eloc="10" lloc="4" ncloc="11" npath="2" hnt="17" hnd="27" hv="80.833087536779" hd="7.65" hl="0.13071895424837" he="618.37311965636" ht="34.354062203131" hb="0.024194267634742" hi="10.566416671474" mi="64.560065679941"/>
+      <method name="phpcpd" start="264" end="277" ccn="2" ccn2="2" loc="14" cloc="0" eloc="13" lloc="4" ncloc="14" npath="2" hnt="24" hnd="42" hv="129.41561814669" hd="7.3529411764706" hl="0.136" he="951.58542754919" ht="52.865857086066" hb="0.032248580317797" hi="17.60052406795" mi="60.643315343662"/>
+      <method name="phpcs" start="279" end="282" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="10" hnd="11" hv="34.594316186373" hd="9.3333333333333" hl="0.10714285714286" he="322.88028440615" ht="17.937793578119" hb="0.015688199256261" hi="3.7065338771114" mi="78.681459685251"/>
+      <method name="phpcs3" start="284" end="288" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="16" hnd="20" hv="69.150849518198" hd="8.3571428571429" hl="0.11965811965812" he="577.90352811637" ht="32.10575156202" hb="0.023126805212104" hi="8.2744606261091" mi="73.849895652216"/>
+      <method name="buildPhpcs" start="290" end="319" ccn="6" ccn2="6" loc="30" cloc="0" eloc="28" lloc="14" ncloc="30" npath="10" hnt="49" hnd="122" hv="339.60612954058" hd="12.115384615385" hl="0.082539682539683" he="4114.4588771263" ht="228.58104872924" hb="0.085589514451077" hi="28.03098212081" mi="49.902805331346"/>
+      <method name="pdepend" start="321" end="333" ccn="1" ccn2="1" loc="13" cloc="0" eloc="12" lloc="1" ncloc="13" npath="1" hnt="24" hnd="47" hv="133.31013244026" hd="4.3333333333333" hl="0.23076923076923" he="577.67724057447" ht="32.093180031915" hb="0.023120767699798" hi="30.763876716984" mi="61.445956399479"/>
+      <method name="phpmd" start="335" end="348" ccn="3" ccn2="3" loc="14" cloc="0" eloc="13" lloc="4" ncloc="14" npath="4" hnt="26" hnd="42" hv="140.20025299225" hd="7.3333333333333" hl="0.13636363636364" he="1028.1351886098" ht="57.118621589434" hb="0.033955664006656" hi="19.118216317125" mi="60.265407694596"/>
+      <method name="phpmetrics" start="350" end="375" ccn="4" ccn2="4" loc="26" cloc="0" eloc="25" lloc="15" ncloc="26" npath="6" hnt="41" hnd="99" hv="271.80362142326" hd="7.5" hl="0.13333333333333" he="2038.5271606745" ht="113.25150892636" hb="0.053590739109849" hi="36.240482856435" mi="51.922688037797"/>
+      <method name="phpmetrics2" start="377" end="390" ccn="2" ccn2="2" loc="14" cloc="0" eloc="13" lloc="7" ncloc="14" npath="2" hnt="25" hnd="49" hv="140.36774610288" hd="6.6666666666667" hl="0.15" he="935.7849740192" ht="51.988054112178" hb="0.031890607338903" hi="21.055161915432" mi="60.396279870681"/>
+      <method name="parallellint" start="392" end="398" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="1" ncloc="7" npath="1" hnt="9" hnd="12" hv="32.26466250649" hd="9" hl="0.11111111111111" he="290.38196255841" ht="16.132331253245" hb="0.014617008607043" hi="3.5849625007212" mi="72.326806505165"/>
+      <method name="phpstan" start="400" end="443" ccn="4" ccn2="4" loc="44" cloc="0" eloc="39" lloc="14" ncloc="44" npath="8" hnt="58" hnd="154" hv="421.4736193603" hd="11.870967741935" hl="0.084239130434783" he="5003.299739503" ht="277.96109663905" hb="0.097510135433311" hi="35.504571196113" mi="46.375885353971"/>
+      <method name="phpcsfixer" start="445" end="479" ccn="7" ccn2="7" loc="35" cloc="0" eloc="34" lloc="15" ncloc="35" npath="36" hnt="47" hnd="114" hv="321.14583066574" hd="9.6" hl="0.10416666666667" he="3082.9999743911" ht="171.27777635506" hb="0.070609167761793" hi="33.452690694348" mi="48.098891129513"/>
+      <method name="phpunit" start="481" end="503" ccn="6" ccn2="6" loc="23" cloc="0" eloc="22" lloc="13" ncloc="23" npath="10" hnt="41" hnd="119" hv="282.68752829563" hd="11.833333333333" hl="0.084507042253521" he="3345.1357514982" ht="185.84087508324" hb="0.074556911618679" hi="23.889086898222" mi="52.74534098799"/>
+      <method name="psalm" start="505" end="539" ccn="7" ccn2="8" loc="35" cloc="0" eloc="31" lloc="15" ncloc="35" npath="96" hnt="60" hnd="137" hv="425.88192497763" hd="11.898305084746" hl="0.084045584045584" he="5067.2730734627" ht="281.51517074793" hb="0.098339565376087" hi="35.793495119203" mi="47.98114864203"/>
+      <method name="buildHtmlReport" start="541" end="583" ccn="5" ccn2="5" loc="43" cloc="0" eloc="41" lloc="9" ncloc="43" npath="9" hnt="61" hnd="159" hv="446.08586027235" hd="12.190476190476" hl="0.08203125" he="5437.9990585581" ht="302.11105880878" hb="0.103079308706" hi="36.592980725466" mi="45.595013452491"/>
+      <method name="buildSummary" start="585" end="589" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="12" hnd="16" hv="48" hd="5.8333333333333" hl="0.17142857142857" he="280" ht="15.555555555556" hb="0.014266499740868" hi="8.2285714285714" mi="74.960108826396"/>
     </trait>
     <class name="Config" fqname="Edge\QA\Config" start="7" end="109" loc="103" cloc="0" eloc="79" lloc="39" ncloc="103" dit="0" noam="0" nocc="0" noom="0" nom="10" cr="0.15" rcr="0.15" ca="4" cbo="2" ce="2" impl="0" cis="6" csz="11" npm="6" vars="1" varsi="1" varsnp="0" wmc="22" wmci="22" wmcnp="11">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Config.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/Config.php"/>
       <method name="__construct" start="11" end="14" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="8" hnd="8" hv="24" hd="4.1666666666667" hl="0.24" he="100" ht="5.5555555555556" hb="0.0071814489667729" hi="5.76" mi="79.793333921501"/>
       <method name="loadUserConfig" start="16" end="19" ccn="2" ccn2="2" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="2" hnt="9" hnd="11" hv="31.134884567736" hd="5.25" hl="0.19047619047619" he="163.45814398061" ht="9.0810079989229" hb="0.0099651334916741" hi="5.9304542033782" mi="78.867351311813"/>
       <method name="loadConfig" start="21" end="34" ccn="3" ccn2="3" loc="14" cloc="0" eloc="13" lloc="7" ncloc="14" npath="3" hnt="25" hnd="50" hv="141.09640474437" hd="7.5952380952381" hl="0.13166144200627" he="1071.6607884156" ht="59.536710467531" hb="0.034907357370255" hi="18.576956110544" mi="60.246032071207"/>
@@ -67,7 +69,7 @@
       <method name="throwInvalidPath" start="105" end="108" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="13" hnd="16" hv="52" hd="5.8333333333333" hl="0.17142857142857" he="303.33333333333" ht="16.851851851852" hb="0.01504846388525" hi="8.9142857142857" mi="77.442113208745"/>
     </class>
     <class name="IgnoredPaths" fqname="Edge\QA\IgnoredPaths" start="5" end="108" loc="104" cloc="1" eloc="67" lloc="28" ncloc="103" dit="0" noam="0" nocc="0" noom="0" nom="15" cr="0.15" rcr="0.15" ca="2" cbo="0" ce="0" impl="0" cis="11" csz="19" npm="11" vars="4" varsi="4" varsnp="0" wmc="21" wmci="21" wmcnp="13">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/IgnoredPaths.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/IgnoredPaths.php"/>
       <method name="__construct" start="12" end="18" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="4" ncloc="7" npath="1" hnt="15" hnd="26" hv="70.506595772116" hd="3.5" hl="0.28571428571429" he="246.77308520241" ht="13.709615844578" hb="0.013114264514009" hi="20.144741649176" mi="69.949604697977"/>
       <method name="setOS" start="20" end="23" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="14" hnd="16" hv="56" hd="4.5" hl="0.22222222222222" he="252" ht="14" hb="0.013298799522302" hi="12.444444444444" mi="77.216755632605"/>
       <method name="csvToArray" start="25" end="28" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="11" hnd="13" hv="40.704836899552" hd="4.8" hl="0.20833333333333" he="195.38321711785" ht="10.854623173214" hb="0.011223722387817" hi="8.4801743540733" mi="78.186828594918"/>
@@ -85,7 +87,7 @@
       <method name="implode" start="104" end="107" ccn="2" ccn2="3" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="3" hnt="15" hnd="19" hv="63.718912701654" hd="6.1875" hl="0.16161616161616" he="394.26077234148" ht="21.903376241193" hb="0.017922604619688" hi="10.298006093197" mi="76.55507458088"/>
     </class>
     <class name="Options" fqname="Edge\QA\Options" start="5" end="110" loc="106" cloc="8" eloc="69" lloc="37" ncloc="98" dit="0" noam="0" nocc="0" noom="0" nom="8" cr="0.15" rcr="0.15" ca="3" cbo="3" ce="3" impl="0" cis="12" csz="16" npm="6" vars="8" varsi="8" varsnp="6" wmc="21" wmci="21" wmcnp="14">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Options.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/Options.php"/>
       <method name="__construct" start="26" end="31" ccn="1" ccn2="1" loc="6" cloc="0" eloc="5" lloc="3" ncloc="6" npath="1" hnt="15" hnd="24" hv="68.774437510817" hd="4.1363636363636" hl="0.24175824175824" he="284.47608243111" ht="15.804226801728" hb="0.014418140425018" hi="16.626787090527" mi="71.752502194443"/>
       <method name="loadOutput" start="33" end="46" ccn="3" ccn2="3" loc="14" cloc="0" eloc="13" lloc="8" ncloc="14" npath="4" hnt="34" hnd="65" hv="204.76050564297" hd="6.0322580645161" hl="0.16577540106952" he="1235.1682114592" ht="68.620456192177" hb="0.038373329483957" hi="33.94425494616" mi="59.113594764781"/>
       <method name="getCommonRootPath" start="48" end="58" ccn="2" ccn2="2" loc="11" cloc="0" eloc="10" lloc="5" ncloc="11" npath="2" hnt="24" hnd="42" hv="129.41561814669" hd="8.9375" hl="0.11188811188811" he="1156.652087186" ht="64.258449288114" hb="0.036729406367327" hi="14.480069163266" mi="63.128871533354"/>
@@ -96,10 +98,10 @@
       <method name="rawFile" start="106" end="109" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="8" hnd="11" hv="27.675452949098" hd="13.5" hl="0.074074074074074" he="373.61861481283" ht="20.756589711824" hb="0.017291436836621" hi="2.0500335517851" mi="79.360024870534"/>
     </class>
     <class name="OutputMode" fqname="Edge\QA\OutputMode" start="5" end="11" loc="7" cloc="0" eloc="0" lloc="0" ncloc="7" dit="0" noam="0" nocc="0" noom="0" nom="0" cr="0.15" rcr="0.15" ca="2" cbo="0" ce="0" impl="0" cis="0" csz="0" npm="0" vars="0" varsi="0" varsnp="0" wmc="0" wmci="0" wmcnp="0">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/OutputMode.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/OutputMode.php"/>
     </class>
     <class name="RunningTool" fqname="Edge\QA\RunningTool" start="5" end="140" loc="136" cloc="1" eloc="90" lloc="41" ncloc="135" dit="0" noam="0" nocc="0" noom="0" nom="13" cr="0.15" rcr="0.15" ca="4" cbo="2" ce="2" impl="0" cis="15" csz="25" npm="10" vars="12" varsi="12" varsnp="5" wmc="28" wmci="28" wmcnp="24">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/RunningTool.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/RunningTool.php"/>
       <method name="__construct" start="23" end="43" ccn="3" ccn2="3" loc="21" cloc="0" eloc="20" lloc="9" ncloc="21" npath="4" hnt="34" hnd="101" hv="226.37919041356" hd="6.5760869565217" hl="0.15206611570248" he="1488.6892413066" ht="82.704957850365" hb="0.043459171738733" hi="34.424604162062" mi="54.727273536948"/>
       <method name="isInstalled" start="45" end="56" ccn="4" ccn2="4" loc="12" cloc="0" eloc="11" lloc="6" ncloc="12" npath="6" hnt="14" hnd="25" hv="65.013986656846" hd="9.5625" hl="0.10457516339869" he="621.69624740609" ht="34.53868041145" hb="0.024280869934761" hi="6.7988482778401" mi="64.050388283643"/>
       <method name="hasOutput" start="58" end="61" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="7" hnd="7" hv="19.651484454403" hd="6.25" hl="0.16" he="122.82177784002" ht="6.8234321022233" hb="0.0082362400950509" hi="3.1442375127045" mi="80.401219851729"/>
@@ -115,7 +117,7 @@
       <method name="__toString" start="136" end="139" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="5" hnd="5" hv="11.609640474437" hd="8" hl="0.125" he="92.877123795494" ht="5.1598402108608" hb="0.0068362496969366" hi="1.4512050593046" mi="82.001716149821"/>
     </class>
     <class name="ConfigTest" fqname="Edge\QA\ConfigTest" start="5" end="97" loc="93" cloc="0" eloc="71" lloc="51" ncloc="93" dit="2" noam="10" nocc="0" noom="0" nom="10" cr="0.15" rcr="0.17125" ca="0" cbo="1" ce="1" impl="0" cis="9" csz="10" npm="9" vars="0" varsi="0" varsnp="0" wmc="10" wmci="10" wmcnp="9">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php"/>
+      <file name="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php"/>
       <method name="testLoadDefaultConfig" start="7" end="29" ccn="1" ccn2="1" loc="23" cloc="0" eloc="22" lloc="20" ncloc="23" npath="1" hnt="41" hnd="211" hv="316.56506673699" hd="3.3939393939394" hl="0.29464285714286" he="1074.4026507437" ht="59.68903615243" hb="0.034966872720893" hi="93.273635735007" mi="53.073662270333"/>
       <method name="testBuildAbsolutePath" start="31" end="35" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="14" hnd="19" hv="59.47098518821" hd="4.125" hl="0.24242424242424" he="245.31781390137" ht="13.628767438965" hb="0.013062655374275" hi="14.417208530475" mi="74.30847420545"/>
       <method name="testOverrideDefaultConfig" start="37" end="45" ccn="1" ccn2="1" loc="9" cloc="0" eloc="8" lloc="6" ncloc="9" npath="1" hnt="23" hnd="53" hv="131.74217045495" hd="3.92" hl="0.25510204081633" he="516.42930818342" ht="28.690517121301" hb="0.021456192952672" hi="33.607696544631" mi="65.323183556298"/>
@@ -128,14 +130,14 @@
       <method name="shouldStopPhpqa" start="93" end="96" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
     </class>
     <class name="IgnoredPathsTest" fqname="Edge\QA\IgnoredPathsTest" start="5" end="115" loc="111" cloc="2" eloc="97" lloc="7" ncloc="109" dit="2" noam="4" nocc="0" noom="0" nom="4" cr="0.15" rcr="0.17125" ca="0" cbo="1" ce="1" impl="0" cis="3" csz="5" npm="3" vars="1" varsi="1" varsnp="0" wmc="5" wmci="5" wmcnp="4">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/IgnoredPathsTest.php"/>
+      <file name="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php"/>
       <method name="ignore" start="9" end="14" ccn="1" ccn2="1" loc="6" cloc="0" eloc="5" lloc="3" ncloc="6" npath="1" hnt="14" hnd="18" hv="58.378950020192" hd="5.5" hl="0.18181818181818" he="321.08422511106" ht="17.83801250617" hb="0.015629966891368" hi="10.614354549126" mi="72.250840843611"/>
       <method name="testNoOptionWhenNothingIsIgnored" start="17" end="20" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="12" hnd="17" hv="49.049554095004" hd="3.5714285714286" hl="0.28" he="175.17697891073" ht="9.7320543839294" hb="0.010435904594826" hi="13.733875146601" mi="77.619742239079"/>
       <method name="testIgnoreDirectoriesAndFiles" start="23" end="34" ccn="2" ccn2="2" loc="12" cloc="0" eloc="11" lloc="2" ncloc="12" npath="2" hnt="21" hnd="44" hv="114.64806399138" hd="5.4" hl="0.18518518518519" he="619.09954555347" ht="34.394419197415" hb="0.024213211864086" hi="21.231122961367" mi="62.594378679257"/>
       <method name="provideTools" start="36" end="114" ccn="1" ccn2="1" loc="79" cloc="0" eloc="78" lloc="1" ncloc="79" npath="1" hnt="47" hnd="157" hv="342.84717519791" hd="4.7014925373134" hl="0.21269841269841" he="1611.8934356319" ht="89.549635312886" hb="0.045825051640604" hi="72.923049962729" mi="40.840605892475"/>
     </class>
     <class name="OptionsTest" fqname="Edge\QA\OptionsTest" start="6" end="129" loc="124" cloc="5" eloc="76" lloc="26" ncloc="119" dit="2" noam="13" nocc="0" noom="0" nom="13" cr="0.15" rcr="0.17125" ca="0" cbo="1" ce="1" impl="0" cis="11" csz="15" npm="11" vars="2" varsi="2" varsnp="0" wmc="13" wmci="13" wmcnp="11">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php"/>
+      <file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php"/>
       <method name="setUp" start="25" end="28" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="7" hnd="7" hv="19.651484454403" hd="6.25" hl="0.16" he="122.82177784002" ht="6.8234321022233" hb="0.0082362400950509" hi="3.1442375127045" mi="80.401219851729"/>
       <method name="overrideOptions" start="30" end="33" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="10" hnd="11" hv="34.594316186373" hd="5.25" hl="0.19047619047619" he="181.62015997846" ht="10.090008887692" hb="0.010690256224877" hi="6.5893935593091" mi="78.681459685251"/>
       <method name="testEscapePaths" start="35" end="41" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="4" ncloc="7" npath="1" hnt="16" hnd="42" hv="86.27707876446" hd="3.6315789473684" hl="0.27536231884058" he="313.32202288146" ht="17.40677904897" hb="0.015377038196055" hi="23.757456471373" mi="69.335768414741"/>
@@ -151,11 +153,11 @@
       <method name="buildRunningTools" start="125" end="128" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="9" hnd="9" hv="28.529325012981" hd="6" hl="0.16666666666667" he="171.17595007788" ht="9.5097750043269" hb="0.010276389970974" hi="4.7548875021635" mi="79.267620989406"/>
     </class>
     <class name="PathsTest" fqname="Edge\QA\PathsTest" start="5" end="12" loc="8" cloc="0" eloc="4" lloc="2" ncloc="8" dit="2" noam="1" nocc="0" noom="0" nom="1" cr="0.15" rcr="0.17125" ca="0" cbo="0" ce="0" impl="0" cis="1" csz="1" npm="1" vars="0" varsi="0" varsnp="0" wmc="1" wmci="1" wmcnp="1">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/PathsTest.php"/>
+      <file name="/mnt/DATA/www/phpqa/tests/PathsTest.php"/>
       <method name="testPathToBinaryIsEscaped" start="7" end="11" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="12" hnd="19" hv="50.975130161323" hd="3.4375" hl="0.29090909090909" he="175.22700992955" ht="9.7348338849749" hb="0.010437891515301" hi="14.829128774203" mi="74.777236506679"/>
     </class>
     <class name="ReportTest" fqname="Edge\QA\ReportTest" start="5" end="49" loc="45" cloc="1" eloc="27" lloc="11" ncloc="44" dit="2" noam="6" nocc="0" noom="0" nom="6" cr="0.15" rcr="0.17125" ca="0" cbo="0" ce="0" impl="0" cis="6" csz="8" npm="6" vars="2" varsi="2" varsnp="0" wmc="7" wmci="7" wmcnp="7">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/Report/ReportTest.php"/>
+      <file name="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php"/>
       <method name="setUp" start="10" end="14" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="10" hnd="14" hv="38.073549220576" hd="3.3333333333333" hl="0.3" he="126.91183073525" ht="7.0506572630696" hb="0.0084180884492565" hi="11.422064766173" mi="75.664636500948"/>
       <method name="testConvertTwigToHtml" start="16" end="20" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="14" hnd="23" hv="63.329867384798" hd="4.6666666666667" hl="0.21428571428571" he="295.53938112906" ht="16.41885450717" hb="0.014789573554765" hi="13.570685868171" mi="74.117295120527"/>
       <method name="testConvertXmlToHtml" start="23" end="27" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="17" hnd="25" hv="78.94555522617" hd="8" hl="0.125" he="631.56444180936" ht="35.086913433853" hb="0.024537135372167" hi="9.8681944032713" mi="73.447068689549"/>
@@ -164,7 +166,7 @@
       <method name="tearDown" start="43" end="48" ccn="2" ccn2="2" loc="6" cloc="0" eloc="5" lloc="2" ncloc="6" npath="2" hnt="8" hnd="11" hv="27.675452949098" hd="4.375" hl="0.22857142857143" he="121.08010665231" ht="6.7266725917947" hb="0.0081581923714408" hi="6.3258178169368" mi="74.386121300354"/>
     </class>
     <class name="RunningToolTest" fqname="Edge\QA\RunningToolTest" start="5" end="94" loc="90" cloc="2" eloc="66" lloc="22" ncloc="88" dit="2" noam="9" nocc="0" noom="0" nom="9" cr="0.15" rcr="0.17125" ca="0" cbo="1" ce="1" impl="0" cis="9" csz="10" npm="9" vars="1" varsi="1" varsnp="0" wmc="9" wmci="9" wmcnp="9">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/tests/RunningToolTest.php"/>
+      <file name="/mnt/DATA/www/phpqa/tests/RunningToolTest.php"/>
       <method name="testBuildOptionWithDefinedSeparator" start="9" end="15" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="4" ncloc="7" npath="1" hnt="23" hnd="49" hv="129.13832641465" hd="4.5217391304348" hl="0.22115384615385" he="583.92982378798" ht="32.440545765999" hb="0.023287302429184" hi="28.559437572471" mi="68.109297739609"/>
       <method name="testMarkSuccessWhenXPathIsNotDefined" start="17" end="21" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="18" hnd="25" hv="83.589411415945" hd="6" hl="0.16666666666667" he="501.53646849567" ht="27.863137138648" hb="0.021041680585028" hi="13.931568569324" mi="73.273253629918"/>
       <method name="testMarkFailureWhenXmlFileDoesNotExist" start="23" end="30" ccn="1" ccn2="1" loc="8" cloc="0" eloc="7" lloc="2" ncloc="8" npath="1" hnt="20" hnd="31" hv="99.083926207738" hd="6.3333333333333" hl="0.15789473684211" he="627.531532649" ht="34.862862924945" hb="0.024432567891959" hi="15.644830453853" mi="67.454518120945"/>
@@ -176,69 +178,74 @@
       <method name="testCreateUniqueIdForUserReport" start="87" end="93" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="4" ncloc="7" npath="1" hnt="20" hnd="33" hv="100.88788238717" hd="4.75" hl="0.21052631578947" he="479.21744133905" ht="26.623191185503" hb="0.020412701710193" hi="21.239554186772" mi="68.860026613536"/>
     </class>
     <function name="pathToBinary" start="5" end="8" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="8" hnd="8" hv="24" hd="4.1666666666667" hl="0.24" he="100" ht="5.5555555555556" hb="0.0071814489667729" hi="5.76" mi="79.793333921501">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/paths.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/paths.php"/>
     </function>
     <function name="escapePath" start="10" end="13" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="9" hv="19.019550008654" hd="4" hl="0.25" he="76.078200034616" ht="4.2265666685898" hb="0.0059848356844365" hi="4.7548875021635" mi="80.500614300613">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/paths.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/paths.php"/>
     </function>
     <function name="commonPath" start="15" end="38" ccn="5" ccn2="5" loc="24" cloc="0" eloc="20" lloc="14" ncloc="24" npath="16" hnt="37" hnd="114" hv="252.8169305241" hd="12.16" hl="0.082236842105263" he="3074.253875173" ht="170.79188195406" hb="0.070475564745483" hi="20.790865997047" mi="54.122383556618">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/paths.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/paths.php"/>
     </function>
     <function name="twigToHtml" start="11" end="17" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="4" ncloc="7" npath="1" hnt="18" hnd="29" hv="87.443657912296" hd="3.2142857142857" hl="0.31111111111111" he="281.06890043238" ht="15.61493891291" hb="0.014302784935366" hi="27.204693572714" mi="69.294926480276">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/report.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/report.php"/>
     </function>
     <function name="xmlToHtml" start="19" end="49" ccn="5" ccn2="5" loc="31" cloc="0" eloc="26" lloc="20" ncloc="31" npath="10" hnt="45" hnd="99" hv="298.32104790358" hd="8.8214285714286" hl="0.11336032388664" he="2631.6178154352" ht="146.2009897464" hb="0.063537085645291" hi="33.817770612552" mi="51.133538474623">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/report.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/report.php"/>
     </function>
     <function name="convertPhpErrorsToExceptions" start="51" end="58" ccn="2" ccn2="2" loc="8" cloc="0" eloc="7" lloc="4" ncloc="8" npath="2" hnt="11" hnd="17" hv="44.962091253754" hd="4.2857142857143" hl="0.23333333333333" he="192.6946768018" ht="10.705259822322" hb="0.01112052327893" hi="10.491154625876" mi="69.722802953742">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/report.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/report.php"/>
     </function>
     <function name="phpErrorToException" start="60" end="65" ccn="2" ccn2="2" loc="6" cloc="0" eloc="5" lloc="2" ncloc="6" npath="2" hnt="15" hnd="21" hv="65.884761341681" hd="6.5" hl="0.15384615384615" he="428.25094872093" ht="23.791719373385" hb="0.018938444305859" hi="10.136117129489" mi="71.748531289602">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/report.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/report.php"/>
     </function>
   </package>
-  <package name="Edge\QA\Task" noc="5" noi="0" nom="21" nof="0" cr="0.15" rcr="0.2775">
+  <package name="Edge\QA\Task" noc="6" noi="0" nom="23" nof="0" cr="0.15" rcr="0.2775">
     <class name="NonParallelExecV0" fqname="Edge\QA\Task\NonParallelExecV0" start="10" end="41" loc="32" cloc="0" eloc="20" lloc="9" ncloc="32" dit="4" noam="3" nocc="0" noom="1" nom="4" cr="0.15" rcr="0.47799375" ca="0" cbo="3" ce="3" impl="0" cis="0" csz="5" npm="0" vars="1" varsi="1" varsnp="0" wmc="5" wmci="13" wmcnp="0">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV0.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV0.php"/>
       <method name="startProgressIndicator" start="14" end="18" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="11" hnd="15" hv="42.975796551694" hd="3.75" hl="0.26666666666667" he="161.15923706885" ht="8.9532909482695" hb="0.0098714787232443" hi="11.460212413785" mi="75.296326608734"/>
       <method name="advanceProgressIndicator" start="20" end="23" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
       <method name="stopProgressIndicator" start="25" end="28" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="7" hv="16.844129532346" hd="5" hl="0.2" he="84.220647661728" ht="4.678924870096" hb="0.0064045870052382" hi="3.3688259064691" mi="80.869982152958"/>
       <method name="printProcessResult" start="30" end="40" ccn="2" ccn2="2" loc="11" cloc="0" eloc="10" lloc="5" ncloc="11" npath="2" hnt="18" hnd="38" hv="94.462695241985" hd="6" hl="0.16666666666667" he="566.77617145191" ht="31.487565080662" hb="0.022828977887724" hi="15.743782540331" mi="64.086231291207"/>
     </class>
     <class name="NonParallelExecV1" fqname="Edge\QA\Task\NonParallelExecV1" start="19" end="70" loc="52" cloc="0" eloc="41" lloc="29" ncloc="52" dit="3" noam="2" nocc="1" noom="0" nom="2" cr="0.2775" rcr="0.385875" ca="0" cbo="3" ce="3" impl="0" cis="1" csz="2" npm="1" vars="0" varsi="0" varsnp="0" wmc="9" wmci="10" wmcnp="7">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php"/>
       <method name="run" start="21" end="58" ccn="7" ccn2="7" loc="38" cloc="0" eloc="32" lloc="25" ncloc="38" npath="36" hnt="52" hnd="124" hv="361.61820814012" hd="14.25" hl="0.070175438596491" he="5153.0594659967" ht="286.28108144426" hb="0.099446350078446" hi="25.37671636071" mi="48.312289865626"/>
       <method name="printProcessResult" start="60" end="69" ccn="2" ccn2="2" loc="10" cloc="0" eloc="9" lloc="4" ncloc="10" npath="2" hnt="17" hnd="35" hv="87.197811288064" hd="5.9230769230769" hl="0.16883116883117" he="516.47934378315" ht="28.693296876842" hb="0.021457578823084" hi="14.721708399284" mi="65.327736752955"/>
     </class>
     <class name="ParallelExec" fqname="Edge\QA\Task\ParallelExec" start="9" end="16" loc="8" cloc="0" eloc="4" lloc="2" ncloc="8" dit="2" noam="1" nocc="1" noom="0" nom="1" cr="0.385875" rcr="0.2775" ca="0" cbo="0" ce="0" impl="0" cis="1" csz="1" npm="1" vars="0" varsi="0" varsnp="0" wmc="1" wmci="1" wmcnp="1">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ParallelExec.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/Task/ParallelExec.php"/>
       <method name="process" start="11" end="15" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="10" hnd="12" hv="35.849625007212" hd="6" hl="0.16666666666667" he="215.09775004327" ht="11.949875002404" hb="0.01196656002761" hi="5.9749375012019" mi="75.847660347231"/>
     </class>
     <trait name="RoboAdapter" fqname="Edge\QA\Task\RoboAdapter" start="5" end="39" ca="0" cbo="0" ce="0" impl="0" cis="0" csz="3" npm="0" vars="0" varsi="0" varsnp="0" wmc="8" wmci="8" wmcnp="0">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/RoboAdapter.php"/>
+      <file name="/mnt/DATA/www/phpqa/src/Task/RoboAdapter.php"/>
       <method name="taskPhpqaRunner" start="7" end="20" ccn="4" ccn2="4" loc="14" cloc="0" eloc="13" lloc="7" ncloc="14" npath="8" hnt="19" hnd="46" hv="104.94767716508" hd="9.375" hl="0.10666666666667" he="983.88447342266" ht="54.660248523481" hb="0.032974241675923" hi="11.194418897609" mi="61.011589742836"/>
       <method name="addArgToExec" start="22" end="29" ccn="2" ccn2="2" loc="8" cloc="0" eloc="7" lloc="3" ncloc="8" npath="2" hnt="11" hnd="18" hv="45.869175015865" hd="9.1" hl="0.10989010989011" he="417.40949264438" ht="23.189416258021" hb="0.018617454148857" hi="5.0405686830621" mi="69.662064505707"/>
       <method name="isRoboVersionOne" start="31" end="38" ccn="2" ccn2="2" loc="8" cloc="0" eloc="7" lloc="4" ncloc="8" npath="2" hnt="15" hnd="23" hv="67.853429340855" hd="7.7777777777778" hl="0.12857142857143" he="527.74889487332" ht="29.319383048518" hb="0.021768590029175" hi="8.7240123438242" mi="68.471366058371"/>
     </trait>
-    <class name="TableSummary" fqname="Edge\QA\Task\TableSummary" start="10" end="95" loc="86" cloc="6" eloc="65" lloc="34" ncloc="80" dit="0" noam="0" nocc="0" noom="0" nom="5" cr="0.15" rcr="0.15" ca="1" cbo="5" ce="5" impl="0" cis="2" csz="7" npm="2" vars="2" varsi="2" varsnp="0" wmc="15" wmci="15" wmcnp="9">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php"/>
-      <method name="__construct" start="15" end="19" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="8" hnd="10" hv="26.575424759099" hd="3" hl="0.33333333333333" he="79.726274277297" ht="4.4292374598498" hb="0.0061746601349011" hi="8.8584749196996" mi="76.757952883514"/>
-      <method name="__invoke" start="26" end="67" ccn="8" ccn2="8" loc="42" cloc="0" eloc="41" lloc="23" ncloc="42" npath="60" hnt="61" hnd="170" hv="451.9728471044" hd="14.63768115942" hl="0.068316831683168" he="6615.8344286296" ht="367.54635714609" hb="0.11747221665883" hi="30.877352920994" mi="45.151636007071"/>
-      <method name="result" start="69" end="81" ccn="3" ccn2="3" loc="13" cloc="0" eloc="12" lloc="7" ncloc="13" npath="4" hnt="23" hnd="50" hv="129.80869236482" hd="6.2142857142857" hl="0.16091954022989" he="806.6683025528" ht="44.814905697378" hb="0.028885201841124" hi="20.888755093189" mi="61.257889516116"/>
-      <method name="getStatus" start="83" end="86" ccn="2" ccn2="2" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="2" hnt="8" hnd="8" hv="24" hd="4.1666666666667" hl="0.24" he="100" ht="5.5555555555556" hb="0.0071814489667729" hi="5.76" mi="79.658830997525"/>
-      <method name="writeln" start="89" end="94" ccn="1" ccn2="1" loc="6" cloc="0" eloc="5" lloc="1" ncloc="6" npath="1" hnt="11" hnd="16" hv="44" hd="3.2142857142857" hl="0.31111111111111" he="141.42857142857" ht="7.8571428571429" hb="0.0090483664686151" hi="13.688888888889" mi="73.110713287832"/>
+    <class name="TableSummary" fqname="Edge\QA\Task\TableSummary" start="9" end="75" loc="67" cloc="1" eloc="49" lloc="21" ncloc="66" dit="0" noam="0" nocc="0" noom="0" nom="5" cr="0.15" rcr="0.15" ca="1" cbo="4" ce="4" impl="0" cis="2" csz="6" npm="2" vars="1" varsi="1" varsnp="0" wmc="12" wmci="12" wmcnp="5">
+      <file name="/mnt/DATA/www/phpqa/src/Task/TableSummary.php"/>
+      <method name="__construct" start="13" end="16" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
+      <method name="__invoke" start="18" end="45" ccn="4" ccn2="4" loc="28" cloc="0" eloc="24" lloc="12" ncloc="28" npath="6" hnt="47" hnd="106" hv="316.21226136447" hd="10.166666666667" hl="0.098360655737705" he="3214.8246572054" ht="178.60136984475" hb="0.072607854799356" hi="31.102845380112" mi="51.849226141388"/>
+      <method name="result" start="47" end="61" ccn="4" ccn2="4" loc="15" cloc="0" eloc="14" lloc="6" ncloc="15" npath="8" hnt="29" hnd="64" hv="174" hd="6.6379310344828" hl="0.15064935064935" he="1155" ht="64.166666666667" hb="0.036694423427204" hi="26.212987012987" mi="58.772037253987"/>
+      <method name="getStatus" start="63" end="66" ccn="2" ccn2="2" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="2" hnt="8" hnd="8" hv="24" hd="4.1666666666667" hl="0.24" he="100" ht="5.5555555555556" hb="0.0071814489667729" hi="5.76" mi="79.658830997525"/>
+      <method name="writeln" start="69" end="74" ccn="1" ccn2="1" loc="6" cloc="0" eloc="5" lloc="1" ncloc="6" npath="1" hnt="11" hnd="16" hv="44" hd="3.2142857142857" hl="0.31111111111111" he="141.42857142857" ht="7.8571428571429" hb="0.0090483664686151" hi="13.688888888889" mi="73.110713287832"/>
     </class>
-    <class name="ToolVersions" fqname="Edge\QA\Task\ToolVersions" start="10" end="136" loc="127" cloc="0" eloc="101" lloc="44" ncloc="127" dit="0" noam="0" nocc="0" noom="0" nom="9" cr="0.15" rcr="0.15" ca="1" cbo="4" ce="4" impl="0" cis="2" csz="10" npm="2" vars="1" varsi="1" varsnp="0" wmc="20" wmci="20" wmcnp="2">
-      <file name="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php"/>
-      <method name="__construct" start="14" end="17" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="6" hv="15.509775004327" hd="4" hl="0.25" he="62.039100017308" ht="3.4466166676282" hb="0.0052238304343202" hi="3.8774437510817" mi="81.120955834208"/>
-      <method name="__invoke" start="19" end="29" ccn="1" ccn2="1" loc="11" cloc="0" eloc="10" lloc="3" ncloc="11" npath="1" hnt="21" hnd="38" hv="110.20647778232" hd="7.7142857142857" hl="0.12962962962963" he="850.16425717786" ht="47.231347620992" hb="0.029914423668919" hi="14.286024897708" mi="63.751971913955"/>
-      <method name="findComposerPackages" start="31" end="49" ccn="4" ccn2="4" loc="19" cloc="0" eloc="15" lloc="10" ncloc="19" npath="8" hnt="23" hnd="52" hv="131.11011351725" hd="11.333333333333" hl="0.088235294117647" he="1485.9146198621" ht="82.550812214562" hb="0.043405155433815" hi="11.568539427992" mi="58.979059403064"/>
-      <method name="toolsToTable" start="51" end="60" ccn="2" ccn2="2" loc="10" cloc="0" eloc="9" lloc="6" ncloc="10" npath="2" hnt="29" hnd="53" hv="166.10969318233" hd="6.0416666666667" hl="0.16551724137931" he="1003.5793963099" ht="55.754410906107" hb="0.033412828096745" hi="27.494018181903" mi="63.367947550022"/>
-      <method name="toolToTableRow" start="62" end="102" ccn="7" ccn2="7" loc="41" cloc="0" eloc="39" lloc="14" ncloc="41" npath="11" hnt="47" hnd="199" hv="358.92135716555" hd="13.3875" hl="0.074696545284781" he="4805.0596690538" ht="266.94775939188" hb="0.094917130870649" hi="26.810185409192" mi="46.460914709714"/>
-      <method name="normalizeVersion" start="104" end="110" ccn="2" ccn2="2" loc="7" cloc="0" eloc="6" lloc="3" ncloc="7" npath="2" hnt="16" hnd="25" hv="74.301699036396" hd="6.75" hl="0.14814814814815" he="501.53646849567" ht="27.863137138648" hb="0.021041680585028" hi="11.007659116503" mi="69.655672948083"/>
-      <method name="groupAuthors" start="112" end="123" ccn="1" ccn2="1" loc="12" cloc="0" eloc="11" lloc="3" ncloc="12" npath="1" hnt="11" hnd="16" hv="44" hd="6.6" hl="0.15151515151515" he="290.4" ht="16.133333333333" hb="0.014617613903385" hi="6.6666666666667" mi="65.641117242276"/>
-      <method name="loadVersionFromConsoleCommand" start="125" end="130" ccn="1" ccn2="1" loc="6" cloc="0" eloc="5" lloc="3" ncloc="6" npath="1" hnt="12" hnd="17" hv="49.049554095004" hd="5.5" hl="0.18181818181818" he="269.77254752252" ht="14.987363751251" hb="0.013916945099623" hi="8.9181007445462" mi="72.780341592875"/>
-      <method name="getFirstLine" start="132" end="135" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="9" hnd="9" hv="28.529325012981" hd="6" hl="0.16666666666667" he="171.17595007788" ht="9.5097750043269" hb="0.010276389970974" hi="4.7548875021635" mi="79.267620989406"/>
+    <class name="ToolSummary" fqname="Edge\QA\Task\ToolSummary" start="7" end="57" loc="51" cloc="2" eloc="39" lloc="14" ncloc="49" dit="0" noam="0" nocc="0" noom="0" nom="2" cr="0.15" rcr="0.15" ca="2" cbo="2" ce="2" impl="0" cis="2" csz="5" npm="2" vars="3" varsi="3" varsnp="0" wmc="6" wmci="6" wmcnp="6">
+      <file name="/mnt/DATA/www/phpqa/src/Task/ToolSummary.php"/>
+      <method name="__construct" start="15" end="20" ccn="1" ccn2="1" loc="6" cloc="0" eloc="5" lloc="3" ncloc="6" npath="1" hnt="10" hnd="14" hv="38.073549220576" hd="2.6666666666667" hl="0.375" he="101.5294645882" ht="5.6405258104557" hb="0.0072544887115339" hi="14.277580957716" mi="73.550644962182"/>
+      <method name="__invoke" start="22" end="56" ccn="5" ccn2="5" loc="35" cloc="0" eloc="34" lloc="11" ncloc="35" npath="10" hnt="51" hnd="141" hv="364.11711897234" hd="14.310344827586" hl="0.069879518072289" he="5210.6415301214" ht="289.48008500674" hb="0.10018580904901" hi="25.444328795657" mi="47.986015514878"/>
+    </class>
+    <class name="ToolVersions" fqname="Edge\QA\Task\ToolVersions" start="8" end="144" loc="137" cloc="0" eloc="110" lloc="44" ncloc="137" dit="0" noam="0" nocc="0" noom="0" nom="9" cr="0.15" rcr="0.15" ca="1" cbo="2" ce="2" impl="0" cis="2" csz="11" npm="2" vars="2" varsi="2" varsnp="0" wmc="20" wmci="20" wmcnp="3">
+      <file name="/mnt/DATA/www/phpqa/src/Task/ToolVersions.php"/>
+      <method name="__construct" start="13" end="17" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="8" hnd="10" hv="26.575424759099" hd="3" hl="0.33333333333333" he="79.726274277297" ht="4.4292374598498" hb="0.0061746601349011" hi="8.8584749196996" mi="76.757952883514"/>
+      <method name="__invoke" start="19" end="34" ccn="2" ccn2="2" loc="16" cloc="0" eloc="15" lloc="6" ncloc="16" npath="2" hnt="29" hnd="70" hv="177.7492074914" hd="9.75" hl="0.1025641025641" he="1733.0547730412" ht="96.280820724511" hb="0.048093561330666" hi="18.230687947836" mi="58.322598812597"/>
+      <method name="findComposerPackages" start="36" end="54" ccn="4" ccn2="4" loc="19" cloc="0" eloc="15" lloc="10" ncloc="19" npath="8" hnt="23" hnd="52" hv="131.11011351725" hd="11.333333333333" hl="0.088235294117647" he="1485.9146198621" ht="82.550812214562" hb="0.043405155433815" hi="11.568539427992" mi="58.979059403064"/>
+      <method name="analyzeTool" start="56" end="97" ccn="7" ccn2="7" loc="42" cloc="0" eloc="40" lloc="14" ncloc="42" npath="11" hnt="48" hnd="207" hv="369.28737395997" hd="13.178571428571" hl="0.075880758807588" he="4866.680035401" ht="270.37111307783" hb="0.095726888160905" hi="28.021806154144" mi="46.134480793056"/>
+      <method name="normalizeVersion" start="99" end="105" ccn="2" ccn2="2" loc="7" cloc="0" eloc="6" lloc="3" ncloc="7" npath="2" hnt="16" hnd="25" hv="74.301699036396" hd="6.75" hl="0.14814814814815" he="501.53646849567" ht="27.863137138648" hb="0.021041680585028" hi="11.007659116503" mi="69.655672948083"/>
+      <method name="groupAuthors" start="107" end="118" ccn="1" ccn2="1" loc="12" cloc="0" eloc="11" lloc="3" ncloc="12" npath="1" hnt="11" hnd="16" hv="44" hd="6.6" hl="0.15151515151515" he="290.4" ht="16.133333333333" hb="0.014617613903385" hi="6.6666666666667" mi="65.641117242276"/>
+      <method name="loadVersionFromConsoleCommand" start="120" end="126" ccn="1" ccn2="1" loc="7" cloc="0" eloc="6" lloc="4" ncloc="7" npath="1" hnt="14" hnd="23" hv="63.329867384798" hd="4.6666666666667" hl="0.21428571428571" he="295.53938112906" ht="16.41885450717" hb="0.014789573554765" hi="13.570685868171" mi="70.276046727923"/>
+      <method name="getFirstLine" start="128" end="131" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="9" hnd="9" hv="28.529325012981" hd="6" hl="0.16666666666667" he="171.17595007788" ht="9.5097750043269" hb="0.010276389970974" hi="4.7548875021635" mi="79.267620989406"/>
+      <method name="extractVersion" start="133" end="143" ccn="1" ccn2="1" loc="11" cloc="0" eloc="10" lloc="1" ncloc="11" npath="1" hnt="11" hnd="14" hv="41.880904142634" hd="5.4" hl="0.18518518518519" he="226.15688237022" ht="12.56427124279" hb="0.012373292636275" hi="7.7557229893766" mi="66.69415533642"/>
     </class>
   </package>
 </metrics>

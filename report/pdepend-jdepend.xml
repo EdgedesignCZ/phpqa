@@ -7,24 +7,24 @@
         <ConcreteClasses>12</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>1</Ca>
-        <Ce>6</Ce>
+        <Ce>7</Ce>
         <A>0</A>
-        <I>0.85714285714286</I>
-        <D>0.14285714285714</D>
+        <I>0.875</I>
+        <D>0.125</D>
       </Stats>
       <ConcreteClasses>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/RoboFile.php">RoboFile</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Config.php">Config</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/IgnoredPaths.php">IgnoredPaths</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Options.php">Options</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/OutputMode.php">OutputMode</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/RunningTool.php">RunningTool</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php">ConfigTest</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/IgnoredPathsTest.php">IgnoredPathsTest</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php">OptionsTest</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/PathsTest.php">PathsTest</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/Report/ReportTest.php">ReportTest</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/tests/RunningToolTest.php">RunningToolTest</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/RoboFile.php">RoboFile</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/Config.php">Config</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/IgnoredPaths.php">IgnoredPaths</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/Options.php">Options</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/OutputMode.php">OutputMode</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/RunningTool.php">RunningTool</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php">ConfigTest</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php">IgnoredPathsTest</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/tests/OptionsTest.php">OptionsTest</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/tests/PathsTest.php">PathsTest</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php">ReportTest</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/tests/RunningToolTest.php">RunningToolTest</Class>
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
@@ -33,6 +33,7 @@
         <Package>Nette\Neon</Package>
         <Package>PHP_CodeSniffer\Util</Package>
         <Package>Robo</Package>
+        <Package>Symfony\Component\Console\Helper</Package>
         <Package>Symfony\Component\Yaml</Package>
       </DependsUpon>
       <UsedBy>
@@ -41,8 +42,8 @@
     </Package>
     <Package name="Edge\QA\Task">
       <Stats>
-        <TotalClasses>5</TotalClasses>
-        <ConcreteClasses>5</ConcreteClasses>
+        <TotalClasses>6</TotalClasses>
+        <ConcreteClasses>6</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>1</Ca>
         <Ce>7</Ce>
@@ -51,11 +52,12 @@
         <D>0.125</D>
       </Stats>
       <ConcreteClasses>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV0.php">NonParallelExecV0</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php">NonParallelExecV1</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ParallelExec.php">ParallelExec</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/TableSummary.php">TableSummary</Class>
-        <Class sourceFile="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php">ToolVersions</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV0.php">NonParallelExecV0</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php">NonParallelExecV1</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/Task/ParallelExec.php">ParallelExec</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/Task/TableSummary.php">TableSummary</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/Task/ToolSummary.php">ToolSummary</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/Task/ToolVersions.php">ToolVersions</Class>
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>

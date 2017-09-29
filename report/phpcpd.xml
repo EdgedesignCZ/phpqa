@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd-cpd>
   <duplication lines="4" tokens="12">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php" line="57"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php" line="79"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/tests/Config/ConfigTest.php" line="87"/>
+    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="57"/>
+    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="79"/>
+    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="87"/>
     <codefragment>        $config = new Config();
         $config-&gt;loadUserConfig(__DIR__);
         $this-&gt;shouldStopPhpqa();
@@ -11,8 +11,8 @@
 </codefragment>
   </duplication>
   <duplication lines="9" tokens="19">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="24"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="34"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="26"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="36"/>
     <codefragment>        'phpcs' =&gt; array(
             'optionSeparator' =&gt; '=',
             'xml' =&gt; ['checkstyle.xml'],
@@ -25,40 +25,33 @@
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="11">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/tests/OptionsTest.php" line="11"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="147"/>
+    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="11"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="160"/>
     <codefragment>        'buildDir' =&gt; 'build/',
         'ignoredDirs' =&gt; 'vendor',
         'ignoredFiles' =&gt; '',
         'tools' =&gt; 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
 </codefragment>
   </duplication>
-  <duplication lines="2" tokens="12">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="125"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="176"/>
-    <codefragment>        $this-&gt;config = new Config();
-        $this-&gt;config-&gt;loadUserConfig($opts['config']);
-</codefragment>
-  </duplication>
   <duplication lines="2" tokens="13">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="232"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="245"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="255"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="268"/>
     <codefragment>            $this-&gt;options-&gt;ignore-&gt;bergmann(),
             $this-&gt;options-&gt;getAnalyzedDirs(' '),
 </codefragment>
   </duplication>
   <duplication lines="3" tokens="13">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="279"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="319"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="337"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="302"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="342"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="360"/>
     <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('extensions')
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="22">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="279"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="358"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="302"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="381"/>
     <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('extensions')
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
@@ -66,8 +59,8 @@
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="16">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="329"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/CodeAnalysisTasks.php" line="428"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="352"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="451"/>
     <codefragment>        $analyzedDirs = $this-&gt;options-&gt;getAnalyzedDirs();
         $analyzedDir = reset($analyzedDirs);
         if (count($analyzedDirs) &gt; 1) {
@@ -75,8 +68,8 @@
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="10">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV0.php" line="33"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php" line="62"/>
+    <file path="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV0.php" line="33"/>
+    <file path="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php" line="62"/>
     <codefragment>        $this-&gt;printTaskInfo(
             "Output for &lt;fg=white;bg=magenta&gt; " . $process-&gt;getCommandLine()." &lt;/fg=white;bg=magenta&gt;"
         );
@@ -84,8 +77,8 @@
 </codefragment>
   </duplication>
   <duplication lines="5" tokens="13">
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php" line="66"/>
-    <file path="/mnt/DATA/www/_my_classes/qa-cli/src/Task/ToolVersions.php" line="86"/>
+    <file path="/mnt/DATA/www/phpqa/src/Task/ToolVersions.php" line="60"/>
+    <file path="/mnt/DATA/www/phpqa/src/Task/ToolVersions.php" line="80"/>
     <codefragment>            $versionCommand = "{$customBinary} --version";
             $version = $this-&gt;loadVersionFromConsoleCommand($versionCommand);
             $composerInfo = [

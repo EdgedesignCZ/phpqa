@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PHP CS Fixer" tests="18" assertions="49" failures="49" errors="0" time="2.523">
+  <testsuite name="PHP CS Fixer" tests="19" assertions="48" failures="48" errors="0" time="2.170">
     <testcase name="/tests/IgnoredPathsTest" file="/tests/IgnoredPathsTest.php" assertions="2">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
@@ -60,13 +60,10 @@
 ---------------
 * blank_line_before_return]]></failure>
     </testcase>
-    <testcase name="/src/Task/TableSummary" file="/src/Task/TableSummary.php" assertions="6">
+    <testcase name="/src/Task/TableSummary" file="/src/Task/TableSummary.php" assertions="3">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
-* single_quote
 * concat_space
-* phpdoc_separation
-* phpdoc_align
 * no_whitespace_in_blank_line
 * blank_line_before_return]]></failure>
     </testcase>
@@ -90,6 +87,12 @@
 * trailing_comma_in_multiline_array
 * single_quote
 * concat_space
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Task/ToolSummary" file="/src/Task/ToolSummary.php" assertions="2">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* single_quote
 * blank_line_before_return]]></failure>
     </testcase>
     <testcase name="/src/Task/ParallelExec" file="/src/Task/ParallelExec.php" assertions="1">

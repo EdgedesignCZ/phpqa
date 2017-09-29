@@ -1,5 +1,5 @@
 
-FILE: /mnt/DATA/www/_my_classes/qa-cli/src/Task/NonParallelExecV1.php
+FILE: /mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php
 ----------------------------------------------------------------------
 FOUND 1 ERROR AFFECTING 1 LINE
 ----------------------------------------------------------------------
