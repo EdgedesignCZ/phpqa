@@ -543,12 +543,30 @@ trait CodeAnalysisTasks
                 );
             }
         }
+        $tools = new Task\ToolVersions($this->getOutput());
+        $versions = $tools->getVersions(array_diff_key($this->tools, $this->toolsWithDifferentVersions), $this->config);
         twigToHtml(
             'phpqa.html.twig',
             array(
                 'tools' => $this->usedTools,
-                'appVersion' => PHPQA_VERSION,
-                'buildDir' => $this->options->rawFile('')
+                'buildDir' => $this->options->rawFile(''),
+                'skippedTools' => array_map(
+                    function ($tool) {
+                        return [
+                            'name' => $tool,
+                            'composer' => $this->tools[$tool]['composer']
+                        ];
+                    },
+                    $this->skippedTools
+                ),
+                'allTools' => $this->tools,
+                'phpqaCommand' => 'cd "' . getcwd() . "\" && \\\n" . PHPQA_USED_COMMAND,
+                'versions' => $versions,
+                'createdFiles' => glob("{$this->options->rawFile('')}/*"),
+                'commands' => array(
+                    'phpqa' => 'cd "' . getcwd() . "\" && \\\n" . PHPQA_USED_COMMAND,
+                    'files' => 'ls -lA "' . realpath(getcwd() . '/' . $this->options->rawFile('')) . '"',
+                ),
             ),
             $this->options->rawFile('phpqa.html')
         );

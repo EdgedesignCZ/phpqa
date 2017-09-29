@@ -55,19 +55,13 @@ set tabs = {
 <head>
     <title>phpqa report - v{{ appVersion }}</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
         html, body {
             height: 100%;
-        }
-        .navbar-brand span {
-            font-size: 0.8em;
-            color: #ccc;
-        }
-        .navbar-text {
-            color: #ccc !important;
         }
         iframe {
             width: 100%;
@@ -77,6 +71,12 @@ set tabs = {
         .dropdown a.dropdown-toggle {
             padding-left: 0px !important;
             padding-right: 0px !important;
+        }
+        .collapse.in .dropdown {
+            display: none;
+        }
+        tr.disabled {
+            opacity: 0.6;
         }
         #phpmetrics2 {
             margin-top: -20px;
@@ -94,15 +94,12 @@ set tabs = {
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-            <div class="navbar-brand">
-                <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa">PHPQA</a>
-                <span>{{"now"|date('Y-m-d H:i')}}</span>
-            </div>
         </div>
         <div class="collapse navbar-collapse" id="navbar">
-            <ul class="nav navbar-nav nav-tabs" role="tablist">
+            <ul class="nav navbar-nav" role="tablist">
+                <li class="active"><a href="#phpqa"><strong class="text-primary">PHPQA</strong></a></li>
                 {% for tool in tools %}
-                <li{{ loop.first ? ' class=active' : '' }}><a href="#{{ tool }}">{{ tool.binary }}</a></li>
+                <li><a href="#{{ tool }}" id="phpqa-tablink">{{ tool.binary }}</a></li>
                 {% if tabs[tool.__toString()]  %}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -127,16 +124,120 @@ set tabs = {
                 {% endif %}
                 {% endfor %}
             </ul>
-            <ul class="nav navbar-nav navbar-right visible-md-block visible-lg-block">
-              <p class="navbar-text">v{{ appVersion }}</p>
+            <ul class="nav navbar-right visible-md-block visible-lg-block">
+                <p class="navbar-text">
+                    <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa" class="text-muted">v{{ versions['phpqa'] }}</a>
+                </p>
             </ul>
         </div>
       </div>
     </nav>
                 
     <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="phpqa">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-sm-10">
+                        <h2>Summary <span class="badge">{{"now"|date('Y-m-d H:i')}}</span></h2>
+                        <table class="table table-striped text-center">
+                            <thead>
+                                <tr>
+                                    <th class="text-left">Tool</th>
+                                    <th class="text-center">Allowed errors</th>
+                                    <th width="2"></th>
+                                    <th class="text-center">Errors count</th>
+                                    <th class="text-center"><a href="https://github.com/EdgedesignCZ/phpqa#exit-code">Is OK?</a></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% set totalErrors, areAllOk = 0, true %}
+                                {% for tool in tools %}
+                                    {% set results = tool.analyzeResult() %}
+                                    {% set totalErrors = totalErrors + results[1]|number_format %}
+                                    {% set areAllOk = results[0] ? areAllOk : false %}
+                                    {% set areErrorsAnalyzed = tool.getAllowedErrorsCount() is not empty %}
+                                <tr>
+                                    <th class="text-left">
+                                        <a href="#{{ tool.__toString() }}" data-tool-link class="{{ areErrorsAnalyzed and not results[0] ? 'text-danger' : '' }}">{{ tool }}</a>
+                                        <a href="https://packagist.org/packages/{{ allTools[tool.binary].composer }}#{{ versions[tool.binary]  }}" target="_blank"><span class="badge">{{ versions[tool.binary] }}</span></a>
+                                    </th>
+                                    <td>{{ tool.getAllowedErrorsCount() }}</td>
+                                    <td>
+                                        {% if results[1] is not empty and areErrorsAnalyzed %}
+                                        {% if results[0] %}
+                                        <small class="text-success">{{ results[1] == tool.getAllowedErrorsCount() ? '==' : '>' }}</a>
+                                        {% else %}
+                                        <small class="text-danger"><</a>
+                                        {% endif %}
+                                        {% endif %}
+                                    </td>
+                                    <td>{{ results[1] }}</td>
+                                    {% if results[1] is not empty %}
+                                        {% if areErrorsAnalyzed %}
+                                            {% if results[0] %}
+                                            <td>
+                                                <span class="label label-success">✓</span>
+                                            </td>
+                                            {% else %}   
+                                            <td  data-toggle="tooltip" data-placement="left" title="{{ 'Errors count is greater than '~tool.getAllowedErrorsCount() }}">
+                                                <span class="label label-danger">x</a>
+                                            </td>
+                                            {% endif %}
+                                        {% else %}
+                                        <td  data-toggle="tooltip" data-placement="left" title="{{ "Allowed errors are not specified. Use '"~tool~":"~results[1]~"' for passing the build and analyzing errors" }}">
+                                            <span class="label label-info">✓</span>
+                                        </td>
+                                        {% endif %}
+                                    {% else %}
+                                    <td data-toggle="tooltip" data-placement="left" title="Analyzing errors count is not supported">
+                                        <span class="label label-info">–</a>
+                                    </td>
+                                    {% endif %}
+                                </tr>
+                                {% endfor %}
+                                {% for skippedTool in skippedTools %}
+                                <tr class="disabled">
+                                    <td class="text-left text-muted">{{ skippedTool.name }}</td>
+                                    <td colspan="3">
+                                        <code>composer require {{ skippedTool.composer }}</code>
+                                    </td>
+                                    <td data-toggle="tooltip" data-placement="left" title="{{ skippedTool.name }} is not installed">
+                                        <span class="label label-default">?</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                            <tfoot>
+                                <tr class="{{ areAllOk ? 'success' : 'danger' }}">
+                                    <th class="text-left">
+                                        <a href="#phpqa" data-tool-link>phpqa</a>
+                                        <a href="https://packagist.org/packages/edgedesign/phpqa#{{ versions['phpqa']  }}" target="_blank"><span class="badge">{{ versions['phpqa'] }}</span></a>
+                                    </th>
+                                    <td colspan="2"></td>
+                                    <td>{{ totalErrors }}</td>
+                                    <td>{{ areAllOk ? '<span class="label label-success">✓</span>' : '<span class="label label-danger">x</a>' }}</td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                        <h4>Would you like to run phpqa again?</h4>
+                        <pre><code>{{ commands.phpqa }}</code></pre>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="well">
+                            <h3>Files</h3>
+                            <ul class="list-unstyled">
+                                {% for file in createdFiles %}
+                                <li><a href=".{{ file|replace({(buildDir): ''}) }}" target="_blank">{{ file|replace({(buildDir): ''}) }}</a></li>
+                                {% endfor %}
+                            </ul>
+                            <pre><code>{{ commands.files }}</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         {% for tool in tools %}
-        <div role="tabpanel" class="tab-pane{{ loop.first ? ' active' : '' }}" id="{{ tool }}">
+        <div role="tabpanel" class="tab-pane" id="{{ tool }}">
             <iframe data-tool id="iframe-{{ tool }}" src="{{ tool.htmlReport|replace({(buildDir): ''}) }}"></iframe>
         </div>
         {% for report in tool.getHtmlRootReports() %}
@@ -145,6 +246,16 @@ set tabs = {
         </div>
         {% endfor %}
         {% endfor %}
+    </div>
+
+    <div class="modal fade" id="file-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+            <div class="modal-body">
+            </div>
+          </div>
+        </div>
     </div>
 
     <script>
@@ -162,9 +273,11 @@ set tabs = {
         };
         listenOnTabChange();
         hideHeadingsH1();
+        activateTooltips();
+        listenOnFileModal();
         
         function hideHeadingsH1() {
-            var interval = 500;
+            var interval = 1000;
             $("iframe[data-tool]").each(function () {
                 var iframe = $(this)[0];
                 setTimeout(
@@ -186,7 +299,7 @@ set tabs = {
         }
         
         function listenOnTabChange() {
-            $('.nav a').click(function (e) {
+            $('.navbar-nav a').click(function (e) {
               e.preventDefault();
               $(this).tab('show');
 
@@ -197,6 +310,50 @@ set tabs = {
                   tabOpener(iframe, target);
               }
             });
+            $('.navbar-nav a, [data-tool-link]').click(function (e) {
+              e.preventDefault();
+              $('.navbar-nav a[href="' + $(this).attr('href') + '"]').click();
+            });
+        }
+        
+        function activateTooltips() {
+            $('[data-toggle="tooltip"]').tooltip()
+        }
+
+        function listenOnFileModal() {
+            var modal = $('#file-modal');
+            var modalBody = modal.find('.modal-body');
+            $('.well a').click(function (e) {
+                e.preventDefault();
+                var url = $(this).attr('href');
+                var isXml = url.indexOf('.xml') != -1;
+                if (isXml) {
+                    modalBody.html('Rendering xml...');
+                    
+                    $.get({
+                        url: url,
+                        dataType: 'text',
+                    }).then(function (data) {
+                        modalBody.html('<pre><code>' + escapeHtml(data) + '</pre></code>');
+                    })
+                } else {
+                    modalBody.html(
+                        '<iframe src="' + url + '"></iframe>'
+                    );
+                }
+                modal.modal({
+                    show: true,
+                });
+            });
+        
+            function escapeHtml(text) {
+                return text
+                    .replace(/&/g, "&amp;")
+                    .replace(/</g, "&lt;")
+                    .replace(/>/g, "&gt;")
+                    .replace(/"/g, "&quot;")
+                    .replace(/'/g, "&#039;");
+            }
         }
     }());
     </script>

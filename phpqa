@@ -2,6 +2,7 @@
 <?php
 
 define('PHPQA_VERSION', '1.14.0');
+define('PHPQA_USED_COMMAND', implode(' ', $argv));
 
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
     define('COMPOSER_VENDOR_DIR', __DIR__ . "/vendor/");

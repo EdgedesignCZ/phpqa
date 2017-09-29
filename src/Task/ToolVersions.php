@@ -28,6 +28,24 @@ class ToolVersions
         $this->toolsToTable($qaTools, $composerPackages, $phpqaPackages, $config);
     }
 
+    public function getVersions(array $qaTools, Config $phpqaConfig)
+    {
+        $composerPackages = $this->findComposerPackages();
+        $phpqaPackages = [
+            'edgedesign/phpqa' => (object) [
+                'version' => PHPQA_VERSION,
+                'version_normalized' => PHPQA_VERSION,
+                'authors' => [(object) ['name' => "Zdeněk Drahoš"]],
+            ]
+        ];
+        $versions = [];
+        $versions['phpqa'] = $this->toolToTableRow('phpqa', 'edgedesign/phpqa', $phpqaPackages, $phpqaConfig, true);
+        foreach ($qaTools as $tool => $config) {
+            $versions[$tool] = $this->toolToTableRow($tool, $config['composer'], $composerPackages, $phpqaConfig, true);
+        }
+        return $versions;
+    }
+
     private function findComposerPackages()
     {
         $installedJson = COMPOSER_BINARY_DIR . '/../composer/installed.json';
@@ -59,7 +77,7 @@ class ToolVersions
         $table->render();
     }
 
-    private function toolToTableRow($tool, $composerPackage, array $composerPackages, Config $phpqaConfig)
+    private function toolToTableRow($tool, $composerPackage, array $composerPackages, Config $phpqaConfig, $isOnlyAnalyzed = false)
     {
         $customBinary = $phpqaConfig->getCustomBinary($tool);
         if ($customBinary) {
@@ -94,6 +112,10 @@ class ToolVersions
             ];
         }
 
+        if ($isOnlyAnalyzed) {
+            return $composerInfo['version'];
+        }
+
         return array(
             "<comment>{$tool}</comment>",
             $this->normalizeVersion($composerInfo),
@@ -126,11 +148,24 @@ class ToolVersions
     {
         $process = new Process($command);
         $process->run();
-        return $this->getFirstLine($process->getOutput());
+        $firstLine = $this->getFirstLine($process->getOutput());
+        return $this->extractVersion($firstLine);
     }
 
     private function getFirstLine($string)
     {
         return strtok($string, "\n");
+    }
+
+    private function extractVersion($text)
+    {
+        return str_replace(
+            array(
+                ' by Sebastian Bergmann and contributors.',
+                'PHPUnit '
+            ),
+            '',
+            $text
+        );
     }
 }
