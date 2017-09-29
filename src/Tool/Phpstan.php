@@ -41,13 +41,8 @@ class Phpstan extends Tool
             $createAbsolutePaths($this->options->ignore->phpstan())
         );
 
-        $neonDir = $this->options->isSavedToFiles ? $this->options->rawFile('') : getcwd();
-        $neonFile = "{$neonDir}/phpstan-phpqa.neon";
-        file_put_contents(
-            $neonFile,
-            "# Configuration generated in phpqa\n" .
-            \Nette\Neon\Neon::encode(['parameters' => $params])
-        );
+        $phpstanConfig = "# Configuration generated in phpqa\n" . \Nette\Neon\Neon::encode(['parameters' => $params]);
+        $neonFile = $this->saveDynamicConfig($phpstanConfig, 'neon');
 
         return array(
             'analyze',

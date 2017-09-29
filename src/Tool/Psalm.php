@@ -28,12 +28,10 @@ class Psalm extends Tool
             $psalmXml = file_get_contents($this->config->path('psalm.config'));
         }
 
-        $psalmDir = rtrim($this->options->isSavedToFiles ? $this->options->rawFile('') : getcwd(), '/');
-        $psalmFile = "{$psalmDir}/psalm-phpqa.xml";
-        file_put_contents($psalmFile, $psalmXml);
+        $psalmFile = $this->saveDynamicConfig($psalmXml, 'xml');
 
         $args = array(
-            'config' => \Edge\QA\escapePath($psalmFile),
+            'config' => $psalmFile,
             'show-info' => $this->config->value('psalm.showInfo') ? 'true' : 'false',
         );
         if ($this->options->isSavedToFiles) {

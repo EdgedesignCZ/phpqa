@@ -23,4 +23,12 @@ abstract class Tool
     }
 
     abstract public function __invoke();
+
+    public function saveDynamicConfig($config, $fileExtension)
+    {
+        $directory = rtrim($this->options->isSavedToFiles ? $this->options->rawFile('') : getcwd(), '/');
+        $file = "{$directory}/{$this->tool}-phpqa.{$fileExtension}";
+        file_put_contents($file, $config);
+        return \Edge\QA\escapePath($file);
+    }
 }
