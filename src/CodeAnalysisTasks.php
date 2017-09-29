@@ -12,16 +12,19 @@ trait CodeAnalysisTasks
             'optionSeparator' => ' ',
             'composer' => 'phpmetrics/phpmetrics',
             'outputMode' => OutputMode::CUSTOM_OUTPUT_AND_EXIT_CODE,
+            'handler' => 'Edge\QA\Tool\PhpMetrics',
         ),
         'phpmetrics2' => array(
             'optionSeparator' => '=',
             'composer' => 'phpmetrics/phpmetrics',
             'binary' => 'phpmetrics',
+            'handler' => 'Edge\QA\Tool\PhpMetricsV2',
         ),
         'phploc' => array(
             'optionSeparator' => ' ',
             'xml' => ['phploc.xml'],
             'composer' => 'phploc/phploc',
+            'handler' => 'Edge\QA\Tool\Phploc',
         ),
         'phpcs' => array(
             'optionSeparator' => '=',
@@ -32,6 +35,7 @@ trait CodeAnalysisTasks
                 true => '//checkstyle/file/error[@severity="error"]',
             ],
             'composer' => 'squizlabs/php_codesniffer',
+            'handler' => 'Edge\QA\Tool\Phpcs',
         ),
         'phpcs3' => array(
             'optionSeparator' => '=',
@@ -43,6 +47,7 @@ trait CodeAnalysisTasks
             ],
             'composer' => 'squizlabs/php_codesniffer',
             'binary' => 'phpcs',
+            'handler' => 'Edge\QA\Tool\PhpcsV3',
         ),
         'php-cs-fixer' => array(
             'optionSeparator' => ' ',
@@ -51,48 +56,56 @@ trait CodeAnalysisTasks
             'composer' => 'friendsofphp/php-cs-fixer',
             'xml' => ['php-cs-fixer.xml'],
             'errorsXPath' => '//testsuites/testsuite/testcase/failure',
+            'handler' => 'Edge\QA\Tool\PhpCsFixer',
         ),
         'phpmd' => array(
             'optionSeparator' => ' ',
             'xml' => ['phpmd.xml'],
             'errorsXPath' => '//pmd/file/violation',
             'composer' => 'phpmd/phpmd',
+            'handler' => 'Edge\QA\Tool\Phpmd',
         ),
         'pdepend' => array(
             'optionSeparator' => '=',
             'xml' => ['pdepend-jdepend.xml', 'pdepend-summary.xml', 'pdepend-dependencies.xml'],
             'composer' => 'pdepend/pdepend',
+            'handler' => 'Edge\QA\Tool\Pdepend',
         ),
         'phpcpd' => array(
             'optionSeparator' => ' ',
             'xml' => ['phpcpd.xml'],
             'errorsXPath' => '//pmd-cpd/duplication',
             'composer' => 'sebastian/phpcpd',
+            'handler' => 'Edge\QA\Tool\Phpcpd',
         ),
         'parallel-lint' => array(
             'optionSeparator' => ' ',
             'internalClass' => 'JakubOnderka\PhpParallelLint\ParallelLint',
             'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
             'composer' => 'jakub-onderka/php-parallel-lint',
+            'handler' => 'Edge\QA\Tool\ParallelLint',
         ),
         'phpstan' => array(
             'optionSeparator' => ' ',
             'internalClass' => 'PHPStan\Analyser\Analyser',
             'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
             'composer' => 'phpstan/phpstan',
+            'handler' => 'Edge\QA\Tool\Phpstan',
         ),
         'phpunit' => array(
             'optionSeparator' => '=',
             'internalClass' => ['PHPUnit_Framework_TestCase', 'PHPUnit\Framework\TestCase'],
             'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
             'composer' => 'phpunit/phpunit',
+            'handler' => 'Edge\QA\Tool\Phpunit',
         ),
         'psalm' => array(
             'optionSeparator' => '=',
             'xml' => ['psalm.xml'],
             'errorsXPath' => '//item/severity[text()=\'error\']',
             'composer' => 'vimeo/psalm',
-            'internalClass' => 'Psalm\Checker\ProjectChecker'
+            'internalClass' => 'Psalm\Checker\ProjectChecker',
+            'handler' => 'Edge\QA\Tool\Psalm',
         )
     );
     /** @var array [tool => oldVersion] */
@@ -238,8 +251,12 @@ trait CodeAnalysisTasks
         $customBinary = $this->config->getCustomBinary($tool);
         $binary = $customBinary ?: pathToBinary($tool->binary);
         $process = $this->taskExec($binary);
-        $method = str_replace('-', '', $tool);
-        foreach ($this->{$method}($tool) as $arg => $value) {
+
+        $handlerClass = $this->tools[(string) $tool]['handler'];
+        $handler = new $handlerClass($this->config, $this->options, $tool);
+        $args = $handler($tool);
+
+        foreach ($args as $arg => $value) {
             if (is_int($arg)) {
                 $this->addArgToExec($process, $value);
             } else {
@@ -247,295 +264,6 @@ trait CodeAnalysisTasks
             }
         }
         return $process;
-    }
-
-    private function phploc()
-    {
-        $args = array(
-            $this->options->ignore->bergmann(),
-            $this->options->getAnalyzedDirs(' '),
-        );
-        if ($this->options->isSavedToFiles) {
-            $args['log-xml'] = $this->options->toFile('phploc.xml');
-        }
-        return $args;
-    }
-
-    private function phpcpd(RunningTool $tool)
-    {
-        $args = array(
-            'progress' => '',
-            $this->options->ignore->bergmann(),
-            $this->options->getAnalyzedDirs(' '),
-            'min-lines' => $this->config->value('phpcpd.minLines'),
-            'min-tokens' => $this->config->value('phpcpd.minTokens'),
-        );
-        if ($this->options->isSavedToFiles) {
-            $args['log-pmd'] = $tool->getEscapedXmlFile();
-        }
-        return $args;
-    }
-
-    private function phpcs(RunningTool $tool)
-    {
-        return $this->buildPhpcs($tool, \PHP_CodeSniffer::getInstalledStandards());
-    }
-
-    private function phpcs3(RunningTool $tool)
-    {
-        require_once COMPOSER_VENDOR_DIR . '/squizlabs/php_codesniffer/autoload.php';
-        return $this->buildPhpcs($tool, \PHP_CodeSniffer\Util\Standards::getInstalledStandards());
-    }
-
-    private function buildPhpcs(RunningTool $tool, array $installedStandards)
-    {
-        $tool->errorsType = $this->config->value('phpcs.ignoreWarnings') === true;
-        $standard = $this->config->value('phpcs.standard');
-        if (!in_array($standard, $installedStandards)) {
-            $standard = escapePath($this->config->path('phpcs.standard'));
-        }
-        $args = array(
-            '-p',
-            'standard' => $standard,
-            $this->options->ignore->phpcs(),
-            $this->options->getAnalyzedDirs(' '),
-            'extensions' => $this->config->csv('extensions')
-        );
-        if ($this->options->isSavedToFiles) {
-            $reports = ['checkstyle' => 'checkstyle.xml'] + $this->config->value('phpcs.reports.file');
-            foreach ($reports as $report => $file) {
-                $args["report-{$report}"] = $this->options->toFile($file);
-                if ($report != 'checkstyle') {
-                    $tool->userReports[$report] = $this->options->rawFile($file);
-                }
-            }
-        } else {
-            foreach ($this->config->value('phpcs.reports.cli') as $report) {
-                $args["report-{$report}"] = '';
-            }
-        }
-
-        return $args;
-    }
-
-    private function pdepend()
-    {
-        return array(
-            'jdepend-xml' => $this->options->toFile('pdepend-jdepend.xml'),
-            'summary-xml' => $this->options->toFile('pdepend-summary.xml'),
-            'dependency-xml' => $this->options->toFile('pdepend-dependencies.xml'),
-            'jdepend-chart' => $this->options->toFile('pdepend-jdepend.svg'),
-            'overview-pyramid' => $this->options->toFile('pdepend-pyramid.svg'),
-            'suffix' => $this->config->csv('extensions'),
-            $this->options->ignore->pdepend(),
-            $this->options->getAnalyzedDirs(',')
-        );
-    }
-
-    private function phpmd(RunningTool $tool)
-    {
-        $args = array(
-            $this->options->getAnalyzedDirs(','),
-            $this->options->isSavedToFiles ? 'xml' : 'text',
-            escapePath($this->config->path('phpmd.standard')),
-            $this->options->ignore->phpmd(),
-            'suffixes' => $this->config->csv('extensions')
-        );
-        if ($this->options->isSavedToFiles) {
-            $args['reportfile'] = $tool->getEscapedXmlFile();
-        }
-        return $args;
-    }
-
-    private function phpmetrics(RunningTool $tool)
-    {
-        $analyzedDirs = $this->options->getAnalyzedDirs();
-        $analyzedDir = reset($analyzedDirs);
-        if (count($analyzedDirs) > 1) {
-            $this->say("<error>phpmetrics analyzes only first directory {$analyzedDir}</error>");
-        }
-        $args = array(
-            $analyzedDir,
-            $this->options->ignore->phpmetrics(),
-            'extensions' => $this->config->csv('extensions')
-        );
-        if ($this->options->isSavedToFiles) {
-            $tool->htmlReport = $this->options->rawFile('phpmetrics.html');
-            $args['offline'] = '';
-            $args['report-html'] = escapePath($tool->htmlReport);
-            $args['report-xml'] = $this->options->toFile('phpmetrics.xml');
-            $configFile = $this->config->value('phpmetrics.config');
-            if ($configFile) {
-                $args['config'] = $configFile;
-            }
-        } else {
-            $args['report-cli'] = '';
-        }
-        return $args;
-    }
-
-    private function phpmetrics2(RunningTool $tool)
-    {
-        $args = array(
-            $this->options->ignore->phpmetrics2(),
-            'extensions' => $this->config->csv('extensions')
-        );
-        if ($this->options->isSavedToFiles) {
-            $tool->htmlReport = $this->options->rawFile('phpmetrics/index.html');
-            $args['report-html'] = $this->options->toFile('phpmetrics/');
-            $args['report-violations'] = $this->options->toFile('phpmetrics.xml');
-        }
-        $args[] = $this->options->getAnalyzedDirs(',');
-        return $args;
-    }
-
-    private function parallellint()
-    {
-        return array(
-            $this->options->ignore->parallelLint(),
-            $this->options->getAnalyzedDirs(' '),
-        );
-    }
-
-    private function phpstan()
-    {
-        $createAbsolutePaths = function (array $relativeDirs) {
-            return array_values(array_filter(array_map(
-                function ($relativeDir) {
-                    return '%currentWorkingDirectory%/' . trim($relativeDir, '"');
-                },
-                $relativeDirs
-            )));
-        };
-
-        $defaultConfig = $this->config->path('phpstan.standard') ?: (getcwd() . '/phpstan.neon');
-        if (file_exists($defaultConfig)) {
-            $params = \Nette\Neon\Neon::decode(file_get_contents($defaultConfig))['parameters'] + [
-                'excludes_analyse' => []
-            ];
-        } else {
-            $params = [
-                'autoload_directories' => $createAbsolutePaths($this->options->getAnalyzedDirs()),
-                'excludes_analyse' => [],
-            ];
-        }
-
-        $params['excludes_analyse'] = array_merge(
-            $params['excludes_analyse'],
-            $createAbsolutePaths($this->options->ignore->phpstan())
-        );
-
-        $neonDir = $this->options->isSavedToFiles ? $this->options->rawFile('') : getcwd();
-        $neonFile = "{$neonDir}/phpstan-phpqa.neon";
-        file_put_contents(
-            $neonFile,
-            "# Configuration generated in phpqa\n" .
-            \Nette\Neon\Neon::encode(['parameters' => $params])
-        );
-
-        return array(
-            'analyze',
-            'ansi' => '',
-            'level' => $this->config->value('phpstan.level'),
-            'configuration' => $neonFile,
-            $this->options->getAnalyzedDirs(' '),
-        );
-    }
-
-    private function phpcsfixer()
-    {
-        $configFile = $this->config->value('php-cs-fixer.config');
-        if ($configFile) {
-            $analyzedDir = $this->options->getAnalyzedDirs(' ');
-        } else {
-            $analyzedDirs = $this->options->getAnalyzedDirs();
-            $analyzedDir = reset($analyzedDirs);
-            if (count($analyzedDirs) > 1) {
-                $this->say("<error>php-cs-fixer analyzes only first directory {$analyzedDir}</error>");
-                $this->say(
-                    "- <info>multiple dirs are supported if you specify " .
-                    "<comment>php-cs-fixer.config</comment> in <comment>.phpqa.yml</comment></info>"
-                );
-            }
-        }
-        $args = [
-            'fix',
-            $analyzedDir,
-            'verbose' => '',
-            'format' => $this->options->isSavedToFiles ? 'junit' : 'txt',
-        ];
-        if ($configFile) {
-            $args['config'] = $configFile;
-        } else {
-            $args += [
-                'rules' => $this->config->value('php-cs-fixer.rules'),
-                'allow-risky' => $this->config->value('php-cs-fixer.allowRiskyRules') ? 'yes' : 'no',
-            ];
-        }
-        if ($this->config->value('php-cs-fixer.isDryRun')) {
-            $args['dry-run'] = '';
-        }
-        return $args;
-    }
-
-    private function phpunit(RunningTool $tool)
-    {
-        $args = array();
-        $configFile = $this->config->path('phpunit.config');
-        if ($configFile) {
-            $args['configuration'] = $configFile;
-        }
-        if ($this->options->isSavedToFiles) {
-            $extensions = [
-                'junit' => 'xml', 'text' => 'txt', 'tap' => 'text',
-                'clover' => 'xml', 'crap4j' => 'xml',
-            ];
-            foreach ($this->config->value('phpunit.reports.file') as $report => $formats) {
-                foreach ($formats as $format) {
-                    $extension = array_key_exists($format, $extensions) ? $extensions[$format] : $format;
-                    $filename = "{$report}-{$format}.{$extension}";
-                    $args["{$report}-{$format}"] = $this->options->toFile($filename);
-                    $tool->userReports["{$report}.{$format}"] = $this->options->rawFile($filename);
-                }
-            }
-        }
-        return $args;
-    }
-
-    private function psalm()
-    {
-        if (!$this->config->value('psalm.config')) {
-            $twig = new \Twig_Environment(new \Twig_Loader_Filesystem(__DIR__.'/../app/'));
-            $psalmXml = $twig->render(
-                'psalm.xml.twig',
-                array(
-                    'includes' => $this->options->getAnalyzedDirs(),
-                    'excludes' => $this->options->ignore->psalm()
-                )
-            );
-        } else {
-            $psalmXml = file_get_contents($this->config->path('psalm.config'));
-        }
-
-        $psalmDir = rtrim($this->options->isSavedToFiles ? $this->options->rawFile('') : getcwd(), '/');
-        $psalmFile = "{$psalmDir}/psalm-phpqa.xml";
-        file_put_contents($psalmFile, $psalmXml);
-
-        $args = array(
-            'config' => escapePath($psalmFile),
-            'show-info' => $this->config->value('psalm.showInfo') ? 'true' : 'false',
-        );
-        if ($this->options->isSavedToFiles) {
-            $args['report'] = $this->options->toFile('psalm.xml');
-        }
-        if ($this->config->value('psalm.deadCode')) {
-            $args['find-dead-code'] = '';
-        }
-        if ($this->options->isParallel && ((int) $this->config->value('psalm.threads')) > 1) {
-            $args['threads'] = $this->config->value('psalm.threads');
-        }
-
-        return $args;
     }
 
     private function buildHtmlReport()
