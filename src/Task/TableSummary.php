@@ -2,82 +2,59 @@
 
 namespace Edge\QA\Task;
 
-use Edge\QA\Options;
 use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Helper\TableSeparator;
 
 class TableSummary
 {
-    private $options;
     private $output;
     
-    public function __construct(Options $o, OutputInterface $p)
+    public function __construct(OutputInterface $o)
     {
-        $this->options = $o;
-        $this->output = $p;
+        $this->output = $o;
     }
 
-    /**
-     * @param \Edge\QA\RunningTool[] $usedTools
-     * @param string[] $skippedTools
-     * @return int
-     */
-    public function __invoke(array $usedTools, array $skippedTools)
+    public function __invoke(ToolSummary $s)
     {
+        $results = $s->__invoke();
         $this->writeln('', 'cyan');
         $table = new Table($this->output);
-        if ($this->options->isSavedToFiles) {
+
+        if ($results['isErrorsCountAnalyzed']) {
             $table->setHeaders(array('Tool', 'Allowed Errors', 'Errors count', 'Is OK?', 'HTML report'));
         } else {
             $table->setHeaders(array('Tool', 'Allowed exit code', 'Exit code', 'Is OK?'));
         }
-        $totalErrors = 0;
-        $failedTools = [];
-        foreach ($usedTools as $tool) {
-            list($isOk, $errorsCount) = $tool->analyzeResult(!$this->options->isSavedToFiles);
-            $totalErrors += (int) $errorsCount;
-            $row = array(
-                "<comment>{$tool->binary}</comment>",
-                $tool->getAllowedErrorsCount(),
-                $errorsCount,
-                $this->getStatus($isOk),
-            );
-            if ($this->options->isSavedToFiles) {
-                $row[] = $tool->htmlReport;
+
+        foreach ($results['tools'] as $tool => $result) {
+            if ($tool == 'phpqa') {
+                $table->addRow(new TableSeparator());
             }
-            $table->addRow($row);
-            if (!$isOk) {
-                $failedTools[] = (string) $tool;
-            }
+            $table->addRow(array(
+                "<comment>{$tool}</comment>",
+                $result['allowedErrorsCount'],
+                $result['errorsCount'],
+                $this->getStatus($result['hasSucceeded']),
+                $result['htmlReport'],
+            ));
         }
-        $table->addRow(new TableSeparator());
-        $row = array(
-            '<comment>phpqa</comment>',
-            '',
-            $failedTools ? "<error>{$totalErrors}</error>" : $totalErrors,
-            $this->getStatus(empty($failedTools)),
-        );
-        if ($this->options->isSavedToFiles) {
-            $row[] = $this->options->hasReport ? $this->options->rawFile("phpqa.html") : '';
-        }
-        $table->addRow($row);
+
         $table->render();
-        return $this->result($failedTools, $skippedTools);
+        return $this->result($results);
     }
 
-    private function result(array $failedTools, array $skippedTools)
+    private function result(array $results)
     {
-        if ($skippedTools) {
-            $this->writeln('Not installed tools: <comment>' . implode(', ', $skippedTools) . '</comment>', 'magenta');
+        if ($results['skippedTools']) {
+            $this->writeln('Not installed tools: <comment>' . implode(', ', $results['skippedTools']) . '</comment>', 'magenta');
         }
-        if ($failedTools) {
-            $this->writeln('Failed tools: <comment>' . implode(', ', $failedTools) . '</comment>', 'red');
-            return 1;
+        if ($results['failedTools']) {
+            $this->writeln('Failed tools: <comment>' . implode(', ', $results['failedTools']) . '</comment>', 'red');
         } else {
             $this->writeln('No failed tools', 'green');
-            return 0;
         }
+        return $results['tools']['phpqa']['hasSucceeded'] ? 0 : 1;
     }
 
     private function getStatus($isOk)

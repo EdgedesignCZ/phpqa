@@ -53,7 +53,7 @@ set tabs = {
 %}
 <html>
 <head>
-    <title>phpqa report - v{{ appVersion }}</title>
+    <title>phpqa report - v{{ versions['phpqa'].version }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -98,29 +98,31 @@ set tabs = {
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav" role="tablist">
                 <li class="active"><a href="#phpqa"><strong class="text-primary">PHPQA</strong></a></li>
-                {% for tool in tools %}
-                <li><a href="#{{ tool }}" id="phpqa-tablink">{{ tool.binary }}</a></li>
-                {% if tabs[tool.__toString()]  %}
+                {% for tool, result in summary.tools %}
+                {% if tool != 'phpqa' %}
+                <li><a href="#{{ tool }}">{{ tool }}</a></li>
+                {% if tabs[tool]  %}
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                         &nbsp;<span class="caret"></span>&nbsp;
                     </a>
                     <ul class="dropdown-menu">
-                        {% for link, tab in tabs[tool.__toString()] %}
+                        {% for link, tab in tabs[tool] %}
                         {% if tab %}
                         <li><a href="#{{ tool }}" data-iframe-tab="{{ link }}">{{ tab }}</a></li>
                         {% else %}
                         <li role="separator" class="divider"></li>
                         {% endif %}
                         {% endfor %}
-                        {% if tool.getHtmlRootReports() is not empty %}
+                        {% if result.otherReports is not empty %}
                         <li role="separator" class="divider"></li>
-                        {% for report in tool.getHtmlRootReports() %}
+                        {% for report in result.otherReports %}
                         <li><a href="#{{ report.id }}">{{ report.name }}</a></li>
                         {% endfor %}
                         {% endif %}
                     </ul>
                 </li>
+                {% endif %}
                 {% endif %}
                 {% endfor %}
             </ul>
@@ -150,45 +152,54 @@ set tabs = {
                                 </tr>
                             </thead>
                             <tbody>
-                                {% set totalErrors, areAllOk = 0, true %}
-                                {% for tool in tools %}
-                                    {% set results = tool.analyzeResult() %}
-                                    {% set totalErrors = totalErrors + results[1]|number_format %}
-                                    {% set areAllOk = results[0] ? areAllOk : false %}
-                                    {% set areErrorsAnalyzed = tool.getAllowedErrorsCount() is not empty %}
-                                <tr>
+                                {% for tool, result in summary.tools %}
+                                {% set isPhpqa = tool == 'phpqa' %}
+                                {% if isPhpqa %}
+                                {% for skippedTool in summary.skippedTools %}
+                                <tr class="disabled">
+                                    <td class="text-left text-muted">{{ skippedTool }}</td>
+                                    <td colspan="3">
+                                        <code>composer require {{ versions[skippedTool].composer }}</code>
+                                    </td>
+                                    <td data-toggle="tooltip" data-placement="left" title="{{ skippedTool }} is not installed">
+                                        <span class="label label-default">?</a>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                                <tr class="{{ isPhpqa ? (result.hasSucceeded ? 'success' : 'danger') : '' }}">
                                     <th class="text-left">
-                                        <a href="#{{ tool.__toString() }}" data-tool-link class="{{ areErrorsAnalyzed and not results[0] ? 'text-danger' : '' }}">{{ tool }}</a>
-                                        <a href="https://packagist.org/packages/{{ allTools[tool.binary].composer }}#{{ versions[tool.binary].version  }}" target="_blank">
-                                            <span class="badge" data-toggle="tooltip" data-placement="right" title="{{ versions[tool.binary].authors|striptags }}">
-                                                {{ versions[tool.binary].version }}
+                                        <a href="#{{ tool }}" data-tool-link class="{{ result.areErrorsAnalyzed and not result.hasSucceeded ? 'text-danger' : '' }}">{{ tool }}</a>
+                                        <a href="https://packagist.org/packages/{{ versions[tool.binary].composer }}#{{ versions[tool].version  }}" target="_blank">
+                                            <span class="badge" data-toggle="tooltip" data-placement="right" title="{{ versions[tool].authors|striptags }}">
+                                                {{ versions[tool].version }}
                                             </span>
                                         </a>
                                     </th>
-                                    <td>{{ tool.getAllowedErrorsCount() }}</td>
+                                    <td>{{ result.allowedErrorsCount }}</td>
                                     <td>
-                                        {% if results[1] is not empty and areErrorsAnalyzed %}
-                                        {% if results[0] %}
-                                        <small class="text-success">{{ results[1] == tool.getAllowedErrorsCount() ? '==' : '>' }}</a>
+                                        {% if result.areErrorsAnalyzed %}
+                                        {% if result.hasSucceeded %}
+                                        <small class="text-success">{{ result.errorsCount == result.allowedErrorsCount ? '==' : '>' }}</a>
                                         {% else %}
                                         <small class="text-danger"><</a>
                                         {% endif %}
                                         {% endif %}
                                     </td>
-                                    <td>{{ results[1] }}</td>
-                                    {% if results[1] is not empty %}
-                                        {% if areErrorsAnalyzed %}
-                                            {% if results[0] %}
+                                    <td>{{ result.errorsCount }}</td>
+                                    {% if result.errorsCount is not empty %}
+                                        {% if result.areErrorsAnalyzed %}
+                                            {% if result.hasSucceeded %}
                                             <td>
                                                 <span class="label label-success">✓</span>
                                             </td>
                                             {% else %}   
-                                            <td  data-toggle="tooltip" data-placement="left" title="{{ 'Errors count is greater than '~tool.getAllowedErrorsCount() }}">
+                                            <td data-toggle="tooltip" data-placement="left" title="{{ 'Errors count is greater than '~result.allowedErrorsCount }}">
                                                 <span class="label label-danger">x</a>
                                             </td>
                                             {% endif %}
                                         {% else %}
-                                        <td  data-toggle="tooltip" data-placement="left" title="{{ "Allowed errors are not specified. Use '"~tool~":"~results[1]~"' for passing the build and analyzing errors" }}">
+                                        <td data-toggle="tooltip" data-placement="left" title="{{ "Allowed errors are not specified. Use '"~tool~":"~result.errorsCount~"' for passing the build and analyzing errors" }}">
                                             <span class="label label-info">✓</span>
                                         </td>
                                         {% endif %}
@@ -199,33 +210,7 @@ set tabs = {
                                     {% endif %}
                                 </tr>
                                 {% endfor %}
-                                {% for skippedTool in skippedTools %}
-                                <tr class="disabled">
-                                    <td class="text-left text-muted">{{ skippedTool.name }}</td>
-                                    <td colspan="3">
-                                        <code>composer require {{ skippedTool.composer }}</code>
-                                    </td>
-                                    <td data-toggle="tooltip" data-placement="left" title="{{ skippedTool.name }} is not installed">
-                                        <span class="label label-default">?</a>
-                                    </td>
-                                </tr>
-                                {% endfor %}
                             </tbody>
-                            <tfoot>
-                                <tr class="{{ areAllOk ? 'success' : 'danger' }}">
-                                    <th class="text-left">
-                                        <a href="#phpqa" data-tool-link>phpqa</a>
-                                        <a href="https://packagist.org/packages/edgedesign/phpqa#{{ versions['phpqa'].version  }}" target="_blank">
-                                            <span class="badge" data-toggle="tooltip" data-placement="right" title="{{ versions['phpqa'].authors|striptags }}">
-                                                {{ versions['phpqa'].version }}
-                                            </span>
-                                        </a>
-                                    </th>
-                                    <td colspan="2"></td>
-                                    <td>{{ totalErrors }}</td>
-                                    <td>{{ areAllOk ? '<span class="label label-success">✓</span>' : '<span class="label label-danger">x</a>' }}</td>
-                                </tr>
-                            </tfoot>
                         </table>
                         <h4>Would you like to run phpqa again?</h4>
                         <pre><code>{{ commands.phpqa }}</code></pre>
@@ -244,15 +229,17 @@ set tabs = {
                 </div>
             </div>
         </div>
-        {% for tool in tools %}
+        {% for tool, result in summary.tools %}
+        {% if tool != 'phpqa' %}
         <div role="tabpanel" class="tab-pane" id="{{ tool }}">
-            <iframe data-tool id="iframe-{{ tool }}" src="{{ tool.htmlReport|replace({(buildDir): ''}) }}"></iframe>
+            <iframe data-tool id="iframe-{{ tool }}" src="{{ result.htmlReport|replace({(buildDir): ''}) }}"></iframe>
         </div>
-        {% for report in tool.getHtmlRootReports() %}
+        {% for report in result.otherReports %}
         <div role="tabpanel" class="tab-pane" id="{{ report.id }}">
             <iframe id="iframe-{{ report.id }}" src="{{ report.file|replace({(buildDir): ''}) }}"></iframe>
         </div>
         {% endfor %}
+        {% endif %}
         {% endfor %}
     </div>
 
@@ -318,9 +305,9 @@ set tabs = {
                   tabOpener(iframe, target);
               }
             });
-            $('.navbar-nav a, [data-tool-link]').click(function (e) {
+            $('[data-tool-link]').click(function (e) {
               e.preventDefault();
-              $('.navbar-nav a[href="' + $(this).attr('href') + '"]').click();
+              $('.navbar-nav a[href="' + $(this).attr('href') + '"]').first().click();
             });
         }
         

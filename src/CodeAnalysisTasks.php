@@ -112,6 +112,8 @@ trait CodeAnalysisTasks
     private $config;
     /** @var Task\ToolVersions */
     private $toolVersions;
+    /** @var Task\ToolSummary */
+    private $toolSummary;
     /** @var RunningTool[] */
     private $usedTools;
     /** @var string[] */
@@ -194,6 +196,7 @@ trait CodeAnalysisTasks
 
         $this->options = new Options($opts);
         list($this->usedTools, $this->skippedTools) = $this->options->buildRunningTools($this->tools, $this->config);
+        $this->toolSummary = new Task\ToolSummary($this->options, $this->usedTools, $this->skippedTools);
     }
 
     private function selectToolsThatAreInstalled($tools)
@@ -563,20 +566,9 @@ trait CodeAnalysisTasks
         twigToHtml(
             'phpqa.html.twig',
             array(
-                'tools' => $this->usedTools,
-                'buildDir' => $this->options->rawFile(''),
-                'skippedTools' => array_map(
-                    function ($tool) {
-                        return [
-                            'name' => $tool,
-                            'composer' => $this->tools[$tool]['composer']
-                        ];
-                    },
-                    $this->skippedTools
-                ),
-                'allTools' => $this->tools,
-                'phpqaCommand' => 'cd "' . getcwd() . "\" && \\\n" . PHPQA_USED_COMMAND,
+                'summary' => $this->toolSummary->__invoke(),
                 'versions' => $this->toolVersions->__invoke(),
+                'buildDir' => $this->options->rawFile(''),
                 'createdFiles' => glob("{$this->options->rawFile('')}/*"),
                 'commands' => array(
                     'phpqa' => 'cd "' . getcwd() . "\" && \\\n" . PHPQA_USED_COMMAND,
@@ -589,7 +581,7 @@ trait CodeAnalysisTasks
 
     private function buildSummary()
     {
-        $summary = new Task\TableSummary($this->options, $this->getOutput());
-        return $summary($this->usedTools, $this->skippedTools);
+        $summary = new Task\TableSummary($this->getOutput());
+        return $summary($this->toolSummary);
     }
 }

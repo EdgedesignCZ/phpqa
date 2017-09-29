@@ -91,7 +91,8 @@ class ToolVersions
         return array(
             'version' => $composerInfo['version'],
             'version_normalized' => $this->normalizeVersion($composerInfo),
-            'authors' => $this->groupAuthors($composerInfo['authors'])
+            'authors' => $this->groupAuthors($composerInfo['authors']),
+            'composer' => $composerPackage,
         );
     }
 
