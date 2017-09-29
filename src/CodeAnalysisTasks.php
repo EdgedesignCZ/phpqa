@@ -3,23 +3,14 @@
 namespace Edge\QA;
 
 use Symfony\Component\Console\Helper\Table;
+use Edge\QA\Tools\Tools;
 
 trait CodeAnalysisTasks
 {
-    /** @var array */
-    private $tools = array();
+    /** @var Tools */
+    private $tools;
     /** @var Options */
     private $options;
-    /** @var Config */
-    private $config;
-    /** @var Task\ToolVersions */
-    private $toolVersions;
-    /** @var Task\ToolSummary */
-    private $toolSummary;
-    /** @var RunningTool[] */
-    private $usedTools;
-    /** @var string[] */
-    private $skippedTools;
 
     /**
      * @description Current versions
@@ -33,7 +24,7 @@ trait CodeAnalysisTasks
         $this->loadConfig($opts);
         $table = new Table($this->getOutput());
         $table->setHeaders(['Tool', 'Version', 'Authors / Info']);
-        foreach ($this->toolVersions->__invoke() as $tool => $version) {
+        foreach ($this->tools->getVersions() as $tool => $version) {
             $table->addRow(array(
                 "<comment>{$tool}</comment>",
                 $version['version_normalized'],
@@ -81,29 +72,9 @@ trait CodeAnalysisTasks
 
     private function loadConfig(array $opts)
     {
-        $this->config = new Config();
-        $this->config->loadUserConfig($opts['config']);
-        foreach ($this->config->value('tool') as $id => $handler) {
-            $handlers = array_map(
-                function ($handler) use ($id) {
-                    if (!is_subclass_of($handler, 'Edge\QA\Tool\Tool')) {
-                        die("Invalid handler for {$id}. {$handler} is not subclass of 'Edge\QA\Tool\Tool'\n");
-                    }
-                    return $handler::$SETTINGS + ['handler' => $handler];
-                },
-                (array) $handler
-            );
-            if (count($handlers) > 1) {
-                $handlers = array_filter(
-                    $handlers,
-                    function (array $config) {
-                        return isset($config['internalClass']) ? class_exists($config['internalClass']) : true;
-                    }
-                );
-            }
-            $this->tools[$id] = array_shift($handlers);
-        }
-        $this->toolVersions = new Task\ToolVersions($this->tools, $this->config);
+        $config = new Config();
+        $config->loadUserConfig($opts['config']);
+        $this->tools = new Tools($config);
     }
 
     private function loadOptions(array $opts)
@@ -116,8 +87,6 @@ trait CodeAnalysisTasks
         }
 
         $this->options = new Options($opts);
-        list($this->usedTools, $this->skippedTools) = $this->options->buildRunningTools($this->tools, $this->config);
-        $this->toolSummary = new Task\ToolSummary($this->options, $this->usedTools, $this->skippedTools);
     }
 
     private function ciClean()
@@ -133,7 +102,7 @@ trait CodeAnalysisTasks
     private function runTools()
     {
         $group = $this->taskPhpqaRunner($this->options->isParallel);
-        foreach ($this->usedTools as $tool) {
+        foreach ($this->tools->getRunningTools($this->options) as $tool) {
             $exec = $this->toolToExec($tool);
             $tool->process = $group->process($exec);
         }
@@ -143,14 +112,8 @@ trait CodeAnalysisTasks
     /** @return \Robo\Task\Base\Exec */
     private function toolToExec(RunningTool $tool)
     {
-        $customBinary = $this->config->getCustomBinary($tool);
-        $binary = $customBinary ?: pathToBinary((string) $tool);
+        list($binary, $args) = $this->tools->buildCommand($tool, $this->options);
         $process = $this->taskExec($binary);
-
-        $handlerClass = $this->tools[(string) $tool]['handler'];
-        $handler = new $handlerClass($this->config, $this->options, $tool);
-        $args = $handler($tool);
-
         foreach ($args as $arg => $value) {
             if (is_int($arg)) {
                 $this->addArgToExec($process, $value);
@@ -163,7 +126,7 @@ trait CodeAnalysisTasks
 
     private function buildHtmlReport()
     {
-        foreach ($this->usedTools as $tool) {
+        foreach ($this->tools->getRunningTools($this->options) as $tool) {
             if (!$tool->htmlReport) {
                 $tool->htmlReport = $this->options->rawFile("{$tool}.html");
             }
@@ -183,7 +146,7 @@ trait CodeAnalysisTasks
             } else {
                 xmlToHtml(
                     $tool->getXmlFiles(),
-                    $this->config->path("report.{$tool}"),
+                    $this->tools->getReport($tool),
                     $tool->htmlReport,
                     ['root-directory' => $this->options->getCommonRootPath()]
                 );
@@ -192,8 +155,8 @@ trait CodeAnalysisTasks
         twigToHtml(
             'phpqa.html.twig',
             array(
-                'summary' => $this->toolSummary->__invoke(),
-                'versions' => $this->toolVersions->__invoke(),
+                'summary' => $this->tools->getSummary(),
+                'versions' => $this->tools->getVersions(),
                 'buildDir' => $this->options->rawFile(''),
                 'createdFiles' => glob("{$this->options->rawFile('')}/*"),
                 'commands' => array(
@@ -208,6 +171,6 @@ trait CodeAnalysisTasks
     private function buildSummary()
     {
         $summary = new Task\TableSummary($this->getOutput());
-        return $summary($this->toolSummary);
+        return $summary($this->tools->getSummary());
     }
 }

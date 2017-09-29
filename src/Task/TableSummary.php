@@ -15,9 +15,8 @@ class TableSummary
         $this->output = $o;
     }
 
-    public function __invoke(ToolSummary $s)
+    public function __invoke(array $results)
     {
-        $results = $s->__invoke();
         $this->writeln('', 'cyan');
         $table = new Table($this->output);
 
