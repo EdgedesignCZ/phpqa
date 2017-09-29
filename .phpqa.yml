@@ -67,7 +67,9 @@ report:
     php-cs-fixer: app/report/php-cs-fixer.xsl
     psalm: app/report/psalm.xsl
 
-# you can add new tools, but existing tools cannot be removed
+# !!! EXPERIMENTAL !!!
+# Beware that configuration or \Edge\QA\Tools\Tool might change (especially $SETTINGS is not stable :)
+# Use it for development of new tools, but not on production (you can add just a new tool, don't have to define all tools).
 tool:
     phpmetrics: [Edge\QA\Tools\Analyzer\PhpMetrics, Edge\QA\Tools\Analyzer\PhpMetricsV2]
     phploc: Edge\QA\Tools\Analyzer\Phploc
