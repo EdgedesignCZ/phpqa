@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PHP CS Fixer" tests="19" assertions="48" failures="48" errors="0" time="2.170">
+  <testsuite name="PHP CS Fixer" tests="34" assertions="73" failures="73" errors="0" time="3.435">
     <testcase name="/tests/IgnoredPathsTest" file="/tests/IgnoredPathsTest.php" assertions="2">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
@@ -31,13 +31,12 @@
 * trailing_comma_in_multiline_array
 * concat_space]]></failure>
     </testcase>
-    <testcase name="/src/CodeAnalysisTasks" file="/src/CodeAnalysisTasks.php" assertions="5">
+    <testcase name="/src/CodeAnalysisTasks" file="/src/CodeAnalysisTasks.php" assertions="4">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
 * trailing_comma_in_multiline_array
 * single_quote
 * concat_space
-* hash_to_slash_comment
 * blank_line_before_return]]></failure>
     </testcase>
     <testcase name="/src/Config" file="/src/Config.php" assertions="3">
@@ -53,6 +52,101 @@
 * phpdoc_scalar
 * trailing_comma_in_multiline_array
 * concat_space
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Tool" file="/src/Tools/Tool.php" assertions="1">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Tools" file="/src/Tools/Tools.php" assertions="1">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Analyzer/Phpmd" file="/src/Tools/Analyzer/Phpmd.php" assertions="2">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* trailing_comma_in_multiline_array
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Analyzer/Phpcs" file="/src/Tools/Analyzer/Phpcs.php" assertions="2">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* trailing_comma_in_multiline_array
+* hash_to_slash_comment]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Analyzer/PhpcsV3" file="/src/Tools/Analyzer/PhpcsV3.php" assertions="3">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* concat_space
+* hash_to_slash_comment
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Analyzer/Phploc" file="/src/Tools/Analyzer/Phploc.php" assertions="1">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Analyzer/Pdepend" file="/src/Tools/Analyzer/Pdepend.php" assertions="1">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* trailing_comma_in_multiline_array]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Analyzer/Phpstan" file="/src/Tools/Analyzer/Phpstan.php" assertions="2">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* trailing_comma_in_multiline_array
+* concat_space]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Analyzer/PhpCsFixer" file="/src/Tools/Analyzer/PhpCsFixer.php" assertions="3">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* single_quote
+* concat_space
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Analyzer/PhpMetrics" file="/src/Tools/Analyzer/PhpMetrics.php" assertions="2">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* trailing_comma_in_multiline_array
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Analyzer/Phpcpd" file="/src/Tools/Analyzer/Phpcpd.php" assertions="1">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Analyzer/PhpMetricsV2" file="/src/Tools/Analyzer/PhpMetricsV2.php" assertions="2">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* trailing_comma_in_multiline_array
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Analyzer/Psalm" file="/src/Tools/Analyzer/Psalm.php" assertions="2">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* no_whitespace_in_blank_line
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/Analyzer/Phpunit" file="/src/Tools/Analyzer/Phpunit.php" assertions="1">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/GetVersions" file="/src/Tools/GetVersions.php" assertions="5">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* trailing_comma_in_multiline_array
+* single_quote
+* concat_space
+* no_unused_imports
+* blank_line_before_return]]></failure>
+    </testcase>
+    <testcase name="/src/Tools/AnalyzeResults" file="/src/Tools/AnalyzeResults.php" assertions="2">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* single_quote
 * blank_line_before_return]]></failure>
     </testcase>
     <testcase name="/src/Task/RoboAdapter" file="/src/Task/RoboAdapter.php" assertions="1">
@@ -81,19 +175,10 @@
 * concat_space
 * phpdoc_summary]]></failure>
     </testcase>
-    <testcase name="/src/Task/ToolVersions" file="/src/Task/ToolVersions.php" assertions="4">
+    <testcase name="/src/Task/TableVersions" file="/src/Task/TableVersions.php" assertions="1">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
-* trailing_comma_in_multiline_array
-* single_quote
-* concat_space
-* blank_line_before_return]]></failure>
-    </testcase>
-    <testcase name="/src/Task/ToolSummary" file="/src/Task/ToolSummary.php" assertions="2">
-      <failure type="code_style"><![CDATA[applied fixers:
----------------
-* single_quote
-* blank_line_before_return]]></failure>
+* no_whitespace_in_blank_line]]></failure>
     </testcase>
     <testcase name="/src/Task/ParallelExec" file="/src/Task/ParallelExec.php" assertions="1">
       <failure type="code_style"><![CDATA[applied fixers:

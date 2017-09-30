@@ -2,6 +2,7 @@ Edge\QA\Config
  [x] Load default config
  [x] Build absolute path
  [ ] Override default config
+ [x] Allow partial update of tools
  [x] Ignore non existent user config
  [x] Throw exception when file does not exist
  [x] Config csv string
