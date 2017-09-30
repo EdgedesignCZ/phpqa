@@ -11,5 +11,9 @@ parameters:
     excludes_analyse:
         - %currentWorkingDirectory%/src/Task/NonParallelExecV0.php
         - %currentWorkingDirectory%/src/Task/NonParallelExecV1.php
+        - %currentWorkingDirectory%/src/Task/RoboAdapter.php
+        - %currentWorkingDirectory%/src/Tools/Analyzer/Phpcs.php
+        - %currentWorkingDirectory%/src/Tools/Analyzer/PhpcsV3.php
     ignoreErrors:
         - '#Call to an undefined method Prophecy\\Prophecy\\ObjectProphecy::[a-zA-Z0-9_]+\(\)#'
+        - '#Constant [A-Z_]+ not found#'
