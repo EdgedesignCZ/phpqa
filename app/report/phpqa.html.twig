@@ -57,8 +57,6 @@ set tabs = {
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <style type="text/css">
         html, body {
             height: 100%;
@@ -232,11 +230,11 @@ set tabs = {
         {% for tool, result in summary.tools %}
         {% if tool != 'phpqa' %}
         <div role="tabpanel" class="tab-pane" id="{{ tool }}">
-            <iframe data-tool id="iframe-{{ tool }}" src="{{ result.htmlReport|replace({(buildDir): ''}) }}"></iframe>
+            <iframe data-tool id="iframe-{{ tool }}" data-src="{{ result.htmlReport|replace({(buildDir): ''}) }}"></iframe>
         </div>
         {% for report in result.otherReports %}
         <div role="tabpanel" class="tab-pane" id="{{ report.id }}">
-            <iframe id="iframe-{{ report.id }}" src="{{ report.file|replace({(buildDir): ''}) }}"></iframe>
+            <iframe id="iframe-{{ report.id }}" data-src="{{ report.file|replace({(buildDir): ''}) }}"></iframe>
         </div>
         {% endfor %}
         {% endif %}
@@ -253,6 +251,8 @@ set tabs = {
         </div>
     </div>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
     (function () {
         var tabsInIframe = {
@@ -266,28 +266,10 @@ set tabs = {
             },
             '#psalm': openBootstrap,
         };
+        var loadedIframes = [];
         listenOnTabChange();
-        hideHeadingsH1();
         activateTooltips();
         listenOnFileModal();
-        
-        function hideHeadingsH1() {
-            var interval = 1000;
-            $("iframe[data-tool]").each(function () {
-                var iframe = $(this)[0];
-                setTimeout(
-                    function () {
-                        hideFirstHeading(iframe);
-                    },
-                    interval
-                );
-                interval += 200;
-            });
-
-            function hideFirstHeading(iframe) {
-                iframe.contentDocument.getElementsByTagName("h1")[0].style.display = 'none';
-            }
-        }
 
         function openBootstrap(iframe, tab) {
             iframe.$("nav [aria-controls=" + tab + "]").tab('show');
@@ -301,20 +283,65 @@ set tabs = {
             function onNavLink() {
                 $('.navbar-nav a').click(function (e) {
                     e.preventDefault();
-                    $(this).tab('show');
-                    updateBrowserHistory($(this));
 
-                    var target = $(this).data('iframe-tab');
-                    if (target) {
-                        var tabOpener = tabsInIframe[$(this).attr('href')];
-                        var iframe = $(".tab-pane.active iframe")[0].contentWindow;
-                        tabOpener(iframe, target);
+                    var navLink = $(this);
+                    var href = navLink.attr('href');
+
+                    if (href === '#') {
+                        return;
+                    } else if (href === '#phpqa') {
+                        return showTab(navLink);
                     }
+
+                    var iframe = $('div' + href + ' iframe').first();
+                    if (!iframe.length) {
+                        return;
+                    }
+
+                    if (loadedIframes.indexOf(href) === -1) {
+                        loadedIframes.push(href);
+                        loadReport({
+                            src: iframe.data('src'),
+                            loadCode: function (html) {
+                                iframe.replaceWith(html);
+                            },
+                            loadIframe: function (src) {
+                                iframe.attr('src', src);
+                                iframe.on('load', function () {
+                                    hideFirstHeading(iframe[0]);
+                                    openTabInIframe(navLink, iframe[0]);
+                                });
+                            },
+                        });
+                    } else {
+                        openTabInIframe(navLink, iframe[0]);
+                    }
+                    showTab(navLink);
                 });
+
+                function showTab(navLink) {
+                    navLink.tab('show');
+                    updateBrowserHistory(navLink);
+                }
                 
                 function updateBrowserHistory(link) {
                     if (window.history && window.history.pushState) {
                         history.pushState(null, null, link.attr('href'));  
+                    }
+                }
+
+                function openTabInIframe(navLink, iframe) {
+                    var target = navLink.data('iframe-tab');
+                    if (target) {
+                        var tabOpener = tabsInIframe[navLink.attr('href')];
+                        tabOpener(iframe.contentWindow, target);
+                    }
+                }
+
+                function hideFirstHeading(iframe) {
+                    var h1 = iframe.contentDocument.getElementsByTagName("h1")[0];
+                    if (h1) {
+                        h1.style.display = 'none';
                     }
                 }
             }
@@ -346,35 +373,42 @@ set tabs = {
             var modalBody = modal.find('.modal-body');
             $('.well a').click(function (e) {
                 e.preventDefault();
-                var url = $(this).attr('href');
-                var isXml = url.indexOf('.xml') != -1;
-                if (isXml) {
-                    modalBody.html('Rendering xml...');
-                    
-                    $.get({
-                        url: url,
-                        dataType: 'text',
-                    }).then(function (data) {
-                        modalBody.html('<pre><code>' + escapeHtml(data) + '</pre></code>');
-                    })
-                } else {
-                    modalBody.html(
-                        '<iframe src="' + url + '"></iframe>'
-                    );
-                }
+                loadReport({
+                    src: $(this).attr('href'),
+                    loadCode: function (html) {
+                        modalBody.html(html);
+                    },
+                    loadIframe: function (src) {
+                        modalBody.html('<iframe src="' + src + '"></iframe>');
+                    },
+                });
                 modal.modal({
                     show: true,
                 });
             });
-        
-            function escapeHtml(text) {
-                return text
-                    .replace(/&/g, "&amp;")
-                    .replace(/</g, "&lt;")
-                    .replace(/>/g, "&gt;")
-                    .replace(/"/g, "&quot;")
-                    .replace(/'/g, "&#039;");
+        }
+
+        function loadReport(settings) {
+            var isXml = settings.src.indexOf('.xml') != -1;
+            if (isXml) {
+                $.get({
+                    url: settings.src,
+                    dataType: 'text',
+                }).then(function (data) {
+                    settings.loadCode('<pre><code>' + escapeHtml(data) + '</pre></code>');
+                })
+            } else {
+                settings.loadIframe(settings.src);
             }
+        }
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, "&amp;")
+                .replace(/</g, "&lt;")
+                .replace(/>/g, "&gt;")
+                .replace(/"/g, "&quot;")
+                .replace(/'/g, "&#039;");
         }
     }());
     </script>
