@@ -15,7 +15,6 @@ class AnalyzeResults
 
     /**
      * @param \Edge\QA\RunningTool[] $runningTools
-     * @return type
      */
     public function __invoke(array $runningTools)
     {

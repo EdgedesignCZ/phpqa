@@ -65,7 +65,9 @@ trait CodeAnalysisTasks
     {
         $config = new Config();
         $config->loadUserConfig($opts['config']);
-        $this->tools = new Tools($config);
+        $this->tools = new Tools($config, function ($text) {
+            $this->say($text);
+        });
     }
 
     private function loadOptions(array $opts)

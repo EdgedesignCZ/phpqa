@@ -18,7 +18,7 @@ class PhpMetrics extends \Edge\QA\Tools\Tool
         $analyzedDirs = $this->options->getAnalyzedDirs();
         $analyzedDir = reset($analyzedDirs);
         if (count($analyzedDirs) > 1) {
-            $this->say("<error>phpmetrics analyzes only first directory {$analyzedDir}</error>");
+            $this->writeln("<error>phpmetrics analyzes only first directory {$analyzedDir}</error>");
         }
         $args = array(
             $analyzedDir,

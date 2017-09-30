@@ -11,10 +11,12 @@ class Tools
     private $config;
     private $tools = array();
     private $selectedTools;
+    private $presenter;
 
-    public function __construct(Config $c)
+    public function __construct(Config $c, $presenter)
     {
         $this->config = $c;
+        $this->presenter = $presenter;
         $this->loadTools();
     }
 
@@ -50,7 +52,7 @@ class Tools
     public function getExecutableTools(Options $o)
     {
         if (!$this->selectedTools) {
-            $this->selectedTools = $o->buildRunningTools($this->tools, $this->config);
+            $this->selectedTools = $o->buildRunningTools($this->tools);
         }
         return array_filter(
             $this->selectedTools,
@@ -65,7 +67,7 @@ class Tools
         $binary = $this->tools[(string) $tool]['customBinary'] ?: \Edge\QA\pathToBinary((string) $tool);
 
         $handlerClass = $this->tools[(string) $tool]['handler'];
-        $handler = new $handlerClass($this->config, $o, $tool);
+        $handler = new $handlerClass($this->config, $o, $tool, $this->presenter);
         $args = $handler($tool);
 
         return array($binary, $args);

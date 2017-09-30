@@ -24,8 +24,8 @@ class PhpCsFixer extends \Edge\QA\Tools\Tool
             $analyzedDirs = $this->options->getAnalyzedDirs();
             $analyzedDir = reset($analyzedDirs);
             if (count($analyzedDirs) > 1) {
-                $this->say("<error>php-cs-fixer analyzes only first directory {$analyzedDir}</error>");
-                $this->say(
+                $this->writeln("<error>php-cs-fixer analyzes only first directory {$analyzedDir}</error>");
+                $this->writeln(
                     "- <info>multiple dirs are supported if you specify " .
                     "<comment>php-cs-fixer.config</comment> in <comment>.phpqa.yml</comment></info>"
                 );

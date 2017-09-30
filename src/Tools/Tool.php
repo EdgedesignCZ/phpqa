@@ -14,21 +14,29 @@ abstract class Tool
     protected $options;
     /** @var RunningTool */
     protected $tool;
+    /** @var callable */
+    private $presenter;
 
-    public function __construct(Config $c, Options $o, RunningTool $t)
+    public function __construct(Config $c, Options $o, RunningTool $t, $presenter)
     {
         $this->config = $c;
         $this->options = $o;
         $this->tool = $t;
+        $this->presenter = $presenter;
     }
 
     abstract public function __invoke();
 
-    public function saveDynamicConfig($config, $fileExtension)
+    protected function saveDynamicConfig($config, $fileExtension)
     {
         $directory = rtrim($this->options->isSavedToFiles ? $this->options->rawFile('') : getcwd(), '/');
         $file = "{$directory}/{$this->tool}-phpqa.{$fileExtension}";
         file_put_contents($file, $config);
         return \Edge\QA\escapePath($file);
+    }
+
+    protected function writeln($text)
+    {
+        $this->presenter->__invoke($text);
     }
 }

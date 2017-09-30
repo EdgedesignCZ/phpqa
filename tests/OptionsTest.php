@@ -93,8 +93,8 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     public function provideExecutionMode()
     {
         return array(
-            'parallel executaion is default mode' => array(array(), true),
-            'parallel executaion is default mode' => array(array('execution' => 'parallel'), true),
+            'parallel execution is default mode' => array(array(), true),
+            'parallel execution' => array(array('execution' => 'parallel'), true),
             'dont use parallelism if execution is other word' => array(array('execution' => 'single'), false),
         );
     }
