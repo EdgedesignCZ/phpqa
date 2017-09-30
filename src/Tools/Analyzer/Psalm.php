@@ -2,6 +2,9 @@
 
 namespace Edge\QA\Tools\Analyzer;
 
+use SimpleXMLElement;
+use DOMDocument;
+
 class Psalm extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
@@ -15,18 +18,11 @@ class Psalm extends \Edge\QA\Tools\Tool
     public function __invoke()
     {
         if (!$this->config->value('psalm.config')) {
-            $twig = new \Twig_Environment(new \Twig_Loader_Filesystem(__DIR__ . '/../../../app/'));
-            $psalmXml = $twig->render(
-                'psalm.xml.twig',
-                array(
-                    'includes' => $this->options->getAnalyzedDirs(),
-                    'excludes' => $this->options->ignore->psalm()
-                )
-            );
-        } else {
-            $psalmXml = file_get_contents($this->config->path('psalm.config'));
+            $this->writeln("<error>Invalid 'psalm.config'</error>");
         }
-
+        
+        $rawXml = file_get_contents($this->config->path('psalm.config'));
+        $psalmXml = $this->updateProjectFiles($rawXml);
         $psalmFile = $this->saveDynamicConfig($psalmXml, 'xml');
 
         $args = array(
@@ -44,5 +40,42 @@ class Psalm extends \Edge\QA\Tools\Tool
         }
 
         return $args;
+    }
+
+    private function updateProjectFiles($rawXml)
+    {
+        $xml = new SimpleXMLElement($rawXml);
+
+        if (!isset($xml->projectFiles)) {
+            $xml->addChild('projectFiles');
+        }
+        if (!isset($xml->projectFiles->ignoreFiles)) {
+            $xml->projectFiles->addChild('ignoreFiles');
+        }
+
+        foreach ($this->options->getAnalyzedDirs() as $dir) {
+            $xml->projectFiles
+                ->addChild('directory')
+                ->addAttribute('name', trim($dir, '"'));
+        }
+
+        foreach ($this->options->ignore->psalm() as $type => $paths) {
+            foreach ($paths as $path) {
+                $xml->projectFiles->ignoreFiles
+                    ->addChild($type)
+                    ->addAttribute('name', trim($path, '"'));
+            }
+        }
+
+        return $this->simpleXMLToPrettyString($xml);
+    }
+
+    private function simpleXMLToPrettyString(SimpleXMLElement $xml)
+    {
+        $dom = new DOMDocument();
+        $dom->preserveWhiteSpace = false;
+        $dom->formatOutput = true;
+        $dom->loadXML((string) $xml->asXML());
+        return $dom->saveXML();
     }
 }

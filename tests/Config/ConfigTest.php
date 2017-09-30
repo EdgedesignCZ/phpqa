@@ -24,7 +24,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpstan.level'), identicalTo(0));
         assertThat($config->value('phpunit.config'), is(nullValue()));
         assertThat($config->value('phpunit.reports.file'), is(emptyArray()));
-        assertThat($config->value('psalm.config'), is(nullValue()));
+        assertThat($config->value('psalm.config'), is(nonEmptyString()));
         assertThat($config->value('psalm.deadCode'), identicalTo(false));
         assertThat($config->value('psalm.threads'), identicalTo(1));
         assertThat($config->value('psalm.showInfo'), identicalTo(true));

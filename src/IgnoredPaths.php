@@ -81,8 +81,8 @@ class IgnoredPaths
     public function psalm()
     {
         return array(
-            'files' => $this->ignoreFiles,
-            'dirs' => $this->ignoreDirs,
+            'file' => $this->ignoreFiles,
+            'directory' => $this->ignoreDirs,
         );
     }
 

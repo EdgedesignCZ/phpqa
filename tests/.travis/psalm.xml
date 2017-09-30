@@ -1,14 +1,12 @@
 <?xml version="1.0"?>
 <psalm
-    name="Example Psalm config with recommended defaults"
+    name="Psalm config for edgedesign/phpqa"
     stopOnFirstError="false"
     useDocblockTypes="true"
     totallyTyped="false"
 >
     <projectFiles>
-        <directory name="./" />
         <ignoreFiles>
-            <directory name="vendor" />
             <file name="src/Task/NonParallelExecV0.php" />
             <file name="src/Task/NonParallelExecV1.php" />
             <file name="src/Task/RoboAdapter.php" />

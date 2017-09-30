@@ -16,7 +16,11 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
     /** @dataProvider provideTools */
     public function testNoOptionWhenNothingIsIgnored($tool)
     {
-        assertThat($this->ignore($tool, '', ' '), is(emptyString()));
+        if ($tool == 'psalm') {
+            assertThat($this->ignore($tool, '', ' '), is(['file' => [], 'directory' => []]));
+        } else {
+            assertThat($this->ignore($tool, '', ' '), is(emptyString()));
+        }
     }
 
     /** @dataProvider provideTools */
@@ -108,6 +112,23 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
                     'both' => ' --exclude bin --exclude vendor --exclude autoload.php --exclude RoboFile.php',
                     'dirs' => ' --exclude bin --exclude vendor',
                     'files' => ' --exclude autoload.php --exclude RoboFile.php'
+                )
+            ),
+            array(
+                'psalm',
+                array(
+                    'both' => [
+                        'file' => ['autoload.php', 'RoboFile.php'],
+                        'directory' => ['bin', 'vendor'],
+                    ],
+                    'dirs' => [
+                        'file' => [],
+                        'directory' => ['bin', 'vendor'],
+                    ],
+                    'files' => [
+                        'file' => ['autoload.php', 'RoboFile.php'],
+                        'directory' => [],
+                    ],
                 )
             ),
         );

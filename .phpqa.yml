@@ -48,7 +48,7 @@ phpunit:
             # coverage: [html, clover, crap4j, php, text, xml] # requires XDebug extension
 
 psalm:
-    config: null
+    config: app/psalm.xml
     deadCode: false
     threads: 1
     showInfo: true
