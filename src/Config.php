@@ -24,7 +24,7 @@ class Config
         $configDir = $directory . '/';
         $configFile = "{$configDir}.phpqa.yml";
         if (file_exists($configFile)) {
-            $config = Yaml::parse(file_get_contents($configFile));
+            $config = Yaml::parse((string) file_get_contents($configFile));
             $this->configs = array_merge(
                 array($configDir => $config),
                 $this->configs

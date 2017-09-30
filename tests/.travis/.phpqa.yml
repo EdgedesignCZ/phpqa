@@ -8,6 +8,10 @@ phpcs:
             info: phpcs-info.txt
             full: phpcs-full.txt
 
+psalm:
+    config: psalm.xml
+    deadCode: true
+
 phpstan:
     level: 7
     # https://github.com/phpstan/phpstan#configuration

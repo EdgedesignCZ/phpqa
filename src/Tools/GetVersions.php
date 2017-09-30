@@ -31,7 +31,7 @@ class GetVersions
             return [];
         }
 
-        $installedTools = json_decode(file_get_contents($installedJson));
+        $installedTools = json_decode((string) file_get_contents($installedJson));
         if (!is_array($installedTools)) {
             return [];
         }

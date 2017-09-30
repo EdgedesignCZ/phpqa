@@ -1,0 +1,69 @@
+<?xml version="1.0"?>
+<psalm
+    name="Example Psalm config with recommended defaults"
+    stopOnFirstError="false"
+    useDocblockTypes="true"
+    totallyTyped="false"
+>
+    <projectFiles>
+        <directory name="./" />
+        <ignoreFiles>
+            <directory name="vendor" />
+            <file name="src/Task/NonParallelExecV0.php" />
+            <file name="src/Task/NonParallelExecV1.php" />
+            <file name="src/Task/RoboAdapter.php" />
+        </ignoreFiles>
+    </projectFiles>
+
+    <issueHandlers>
+        <!-- phpqa specifics (compatibility classes, dynamic tools, ...) -->
+        <UnusedClass> 
+          <errorLevel type="info"> 
+            <directory name="tests" />
+            <directory name="src/Tools/Analyzer" />
+          </errorLevel> 
+        </UnusedClass> 
+        <UndefinedClass>
+          <errorLevel type="info">
+            <file name="src/Tools/Analyzer/Phpcs.php" />
+            <file name="src/Tools/Analyzer/PhpcsV3.php" />
+          </errorLevel>
+        </UndefinedClass>
+        <PossiblyUnusedMethod>
+          <errorLevel type="info">
+            <file name="src/CodeAnalysisTasks.php" />
+            <file name="src/Tools/Tool.php" />
+            <file name="src/RunningTool.php" />
+          </errorLevel>
+          <errorLevel type="suppress"> 
+            <directory name="tests" />
+          </errorLevel> 
+        </PossiblyUnusedMethod>
+        <DeprecatedMethod errorLevel="info" /> 
+
+        <!-- Ignored rules -->
+        <PropertyNotSetInConstructor errorLevel="info" />
+        <UndefinedConstant errorLevel="info" />
+        <MissingReturnType errorLevel="suppress" />
+        <MissingPropertyType errorLevel="suppress" />
+        <MissingClosureReturnType errorLevel="suppress" />
+        <MissingPropertyDeclaration errorLevel="suppress" />
+        <UntypedParam errorLevel="suppress" />
+
+        <!-- false positive -->
+        <UnusedVariable errorLevel="info" />
+        <PossiblyUnusedVariable errorLevel="info" />
+        <UndefinedThisPropertyAssignment errorLevel="info" />
+        <TooFewArguments> 
+          <errorLevel type="info"> 
+            <file name="src/report.php" /><!-- Too few arguments for method XSLTProcessor::setparameter --> 
+          </errorLevel> 
+        </TooFewArguments> 
+        <TooManyArguments> 
+          <errorLevel type="suppress"> 
+            <directory name="tests" /><!-- Too many arguments for method assertthat --> 
+          </errorLevel> 
+        </TooManyArguments>
+        
+    </issueHandlers>
+</psalm>
