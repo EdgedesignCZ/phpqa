@@ -1,6 +1,17 @@
 
 # Changelog
 
+## v1.15.0
+
+* **Optional tools**
+    * [#94](https://github.com/EdgedesignCZ/phpqa/pull/94) vimeo/psalm - dynamic configuration
+* [#92](https://github.com/EdgedesignCZ/phpqa/pull/92) Improved reports (summary, [page load](https://github.com/EdgedesignCZ/phpqa/commit/96ea12438e1cb51362ad156a463fc7d5b9cff1a6))
+    ![](https://user-images.githubusercontent.com/7994022/31012952-2121b600-a514-11e7-8a5c-3b9fadca7152.png)
+* Upgrade QA tools (phpcs)
+* _Internal changes_
+    * [#93](https://github.com/EdgedesignCZ/phpqa/pull/93) Refactoring tools (tool per class, experimental configuration in `.phpqa.yml`)
+    * [#94](https://github.com/EdgedesignCZ/phpqa/pull/94) Fix `composer.lock`, enable phpstan/psalm in travis
+
 ## v1.14.0
 
 * **Optional tools**
