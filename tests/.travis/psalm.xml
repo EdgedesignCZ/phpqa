@@ -19,6 +19,7 @@
           <errorLevel type="info"> 
             <directory name="tests" />
             <directory name="src/Tools/Analyzer" />
+            <directory name="src/Task" />
           </errorLevel> 
         </UnusedClass> 
         <UndefinedClass>
@@ -46,6 +47,7 @@
         <MissingPropertyType errorLevel="suppress" />
         <MissingClosureReturnType errorLevel="suppress" />
         <MissingPropertyDeclaration errorLevel="suppress" />
+        <MissingConstructor errorLevel="suppress" />
         <UntypedParam errorLevel="suppress" />
 
         <!-- false positive -->
