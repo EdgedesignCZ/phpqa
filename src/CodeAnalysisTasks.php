@@ -78,7 +78,7 @@ trait CodeAnalysisTasks
                 $this->yell("Option --analyzedDir is deprecated, please use option --analyzedDirs");
             }
         }
-
+        $opts['report'] = $this->getInput()->hasParameterOption('--report') ? ($opts['report'] ?: true) : false;
         $this->options = new Options($opts);
     }
 
