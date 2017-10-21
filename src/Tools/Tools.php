@@ -78,6 +78,11 @@ class Tools
         return  $this->config->path("report.{$tool}");
     }
 
+    public function getAssets()
+    {
+        return  $this->config->value('report.assets');
+    }
+
     public function getSummary(Options $o)
     {
         $analyzeResults = new AnalyzeResults($o);

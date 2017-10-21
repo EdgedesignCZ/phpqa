@@ -19,6 +19,8 @@ class Options
     public $isOutputPrinted;
     /** @var boolean */
     public $hasReport;
+    /** @var boolean */
+    public $isOfflineReport;
 
     /** @var boolean */
     public $isParallel;
@@ -43,6 +45,7 @@ class Options
         $this->isSavedToFiles = $options['output'] == 'file';
         $this->isOutputPrinted = $this->isSavedToFiles ? $options['verbose'] : true;
         $this->hasReport = $this->isSavedToFiles ? $options['report'] : false;
+        $this->isOfflineReport = $this->hasReport && $options['report'] == 'offline';
     }
 
     public function getCommonRootPath()

@@ -35,7 +35,7 @@ trait CodeAnalysisTasks
      * @option $tools csv with optional definition of allowed errors count @example phploc,phpmd:1,phpcs:0
      * @option $output output format @example cli
      * @option $config path directory with .phpqa.yml, @default current working directory
-     * @option $report build HTML report (only when output format is file)
+     * @option $report build HTML report (only when output format is file), 'offline' for bundling assets with report
      */
     public function ci(
         $opts = array(
@@ -47,7 +47,7 @@ trait CodeAnalysisTasks
             'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics,parallel-lint',
             'output' => 'file',
             'config' => '',
-            'report' => false,
+            'report' => '',
             'execution' => 'parallel'
         )
     ) {
@@ -119,7 +119,8 @@ trait CodeAnalysisTasks
 
     private function buildHtmlReport()
     {
-        $assets = $this->tools->config->value('report.assets');
+        $assetsLoader = new Task\AssetsLoader($this->getOutput());
+        $assets = $assetsLoader($this->options, $this->tools->getAssets());
         foreach ($this->tools->getExecutableTools($this->options) as $tool) {
             if (!$tool->htmlReport) {
                 $tool->htmlReport = $this->options->rawFile("{$tool}.html");
