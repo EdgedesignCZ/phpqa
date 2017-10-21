@@ -51,6 +51,7 @@ Experimental tool is executed only if the tool is specified in `--tools`.
 
 Tool | PHP | Supported since | Description | Status |
 ---- | --- | --------------- | ----------- | ------ |
+[security-checker](https://github.com/sensiolabs/security-checker) | `>= 5.3` | `1.16` | Check composer.lock for known security issues | stable |
 [php-cs-fixer](http://cs.sensiolabs.org/) | [`>= 5.3`](https://github.com/EdgedesignCZ/phpqa/pull/66#discussion_r115206573) | `1.12` | Automatically detect and fix PHP coding standards issues | stable |
 [phpunit](https://github.com/phpunit/phpunit) | `>= 5.3` | `1.13` | The PHP Unit Testing framework | stable |
 [phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it | _experimental_ ([`v0.7`](https://github.com/EdgedesignCZ/phpqa/pull/43)) |

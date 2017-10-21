@@ -82,3 +82,4 @@ tool:
     phpstan: Edge\QA\Tools\Analyzer\Phpstan
     phpunit: Edge\QA\Tools\Analyzer\Phpunit
     psalm: Edge\QA\Tools\Analyzer\Psalm
+    security-checker: Edge\QA\Tools\Analyzer\SecurityChecker

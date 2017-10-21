@@ -11,8 +11,8 @@ requireMode="$2"
 if [ $mode = "install" ]
 then
     echo "Installing suggested tools"
-    composer require jakub-onderka/php-parallel-lint jakub-onderka/php-console-highlighter phpstan/phpstan friendsofphp/php-cs-fixer:~2.2 vimeo/psalm $requireMode
+    composer require jakub-onderka/php-parallel-lint jakub-onderka/php-console-highlighter phpstan/phpstan friendsofphp/php-cs-fixer:~2.2 vimeo/psalm sensiolabs/security-checker $requireMode
 else
     echo "Removing suggested tools"
-    composer remove jakub-onderka/php-parallel-lint jakub-onderka/php-console-highlighter phpstan/phpstan friendsofphp/php-cs-fixer vimeo/psalm
+    composer remove jakub-onderka/php-parallel-lint jakub-onderka/php-console-highlighter phpstan/phpstan friendsofphp/php-cs-fixer vimeo/psalm sensiolabs/security-checker
 fi
