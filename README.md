@@ -163,6 +163,7 @@ docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoredDi
 | `phpqa --execution no-parallel` | Don't use parallelism if `--execution != parallel` |
 | `phpqa --config ./my-config` | Use [custom configuration](#advanced-configuration---phpqayml) |
 | `phpqa --report` | Build [html reports](#html-reports) |
+| `phpqa --report offline` | Build html reports with [bundled assets](https://github.com/EdgedesignCZ/phpqa/issues/95) |
 | `phpqa tools` | Show versions of available tools |
 
 ## Output modes
