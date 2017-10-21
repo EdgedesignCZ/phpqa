@@ -24,9 +24,13 @@ class SecurityChecker extends \Edge\QA\Tools\Tool
                 break;
             }
         }
-        return [
+        $args = [
             'security:check',
             $composerLock,
         ];
+        if (getenv('TRAVIS_COMMIT')) {
+            $args['end-point'] = 'http://security.sensiolabs.org/check_lock';
+        }
+        return $args;
     }
 }
