@@ -36,6 +36,9 @@ class AssetsLoader
 
     private function downloadUrl($url)
     {
+        if (!filter_var($url, FILTER_VALIDATE_URL)) {
+            throw new \InvalidArgumentException("Invalid url '{$url}'");
+        }
         if (ini_get('allow_url_fopen')) {
             return file_get_contents($url);
         } else {
