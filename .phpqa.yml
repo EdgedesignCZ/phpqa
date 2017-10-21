@@ -66,6 +66,22 @@ report:
     phpmd: app/report/phpmd.xsl
     php-cs-fixer: app/report/php-cs-fixer.xsl
     psalm: app/report/psalm.xsl
+    assets:
+        bootstrap.min.css: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
+        jquery.min.js: https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
+        bootstrap.min.js: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js
+        prism.min.css: https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css
+        prism.js: https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.js
+        prism-php.min.js: https://cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-php.min.js
+        jquery.dataTables.min.js: https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js
+        dataTables.bootstrap.min.js: https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js
+        dataTables.responsive.min.js: https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js
+        responsive.bootstrap.min.js: https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js
+        dataTables.bootstrap.min.css: https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css
+        responsive.bootstrap.min.css: https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css
+        selectize.min.js: https://cdn.jsdelivr.net/selectize/0.12.3/js/standalone/selectize.min.js
+        selectize.bootstrap3.css: https://cdn.jsdelivr.net/selectize/0.12.3/css/selectize.bootstrap3.css
+        ansi_up.js: https://edgedesigncz.github.io/phpqa/assets/ansi_up.js
 
 # !!! EXPERIMENTAL !!!
 # Beware that configuration or \Edge\QA\Tools\Tool might change (especially $SETTINGS is not stable :)

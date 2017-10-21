@@ -119,6 +119,7 @@ trait CodeAnalysisTasks
 
     private function buildHtmlReport()
     {
+        $assets = $this->tools->config->value('report.assets');
         foreach ($this->tools->getExecutableTools($this->options) as $tool) {
             if (!$tool->htmlReport) {
                 $tool->htmlReport = $this->options->rawFile("{$tool}.html");
@@ -132,7 +133,8 @@ trait CodeAnalysisTasks
                     'cli.html.twig',
                     array(
                         'tool' => (string) $tool,
-                        'process' => $tool->process
+                        'process' => $tool->process,
+                        'assets' => $assets,
                     ),
                     $this->options->rawFile("{$tool}.html")
                 );
@@ -141,7 +143,7 @@ trait CodeAnalysisTasks
                     $tool->getXmlFiles(),
                     $this->tools->getReport($tool),
                     $tool->htmlReport,
-                    ['root-directory' => $this->options->getCommonRootPath()]
+                    ['root-directory' => $this->options->getCommonRootPath()] + $assets
                 );
             }
         }
@@ -156,6 +158,7 @@ trait CodeAnalysisTasks
                     'phpqa' => 'cd "' . getcwd() . "\" && \\\n" . PHPQA_USED_COMMAND,
                     'files' => 'ls -lA "' . realpath(getcwd() . '/' . $this->options->rawFile('')) . '"',
                 ),
+                'assets' => $assets,
             ),
             $this->options->rawFile('phpqa.html')
         );

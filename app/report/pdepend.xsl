@@ -77,7 +77,7 @@
             margin: 1ex 0;
       }
       </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+    <link rel="stylesheet"><xsl:attribute name="href"><xsl:value-of select="$bootstrap.min.css" /></xsl:attribute></link>
     <script>
     var onDocumentReady = [
         function () {
@@ -502,16 +502,16 @@
             </div>
         </div>        
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
-        <script src="https://cdn.datatables.net/1.10.12/js/dataTables.bootstrap.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.1.0/js/dataTables.responsive.min.js"></script>
-        <script src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
-        <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.1.0/css/responsive.bootstrap.min.css" />
-        <script src="https://cdn.jsdelivr.net/selectize/0.12.3/js/standalone/selectize.min.js"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/selectize/0.12.3/css/selectize.bootstrap3.css" />
+        <script><xsl:attribute name="src"><xsl:value-of select="$jquery.min.js" /></xsl:attribute></script>
+        <script><xsl:attribute name="src"><xsl:value-of select="$bootstrap.min.js" /></xsl:attribute></script>
+        <script><xsl:attribute name="src"><xsl:value-of select="$jquery.dataTables.min.js" /></xsl:attribute></script>
+        <script><xsl:attribute name="src"><xsl:value-of select="$dataTables.bootstrap.min.js" /></xsl:attribute></script>
+        <script><xsl:attribute name="src"><xsl:value-of select="$dataTables.responsive.min.js" /></xsl:attribute></script>
+        <script><xsl:attribute name="src"><xsl:value-of select="$responsive.bootstrap.min.js" /></xsl:attribute></script>
+        <link rel="stylesheet"><xsl:attribute name="href"><xsl:value-of select="$dataTables.bootstrap.min.css" /></xsl:attribute></link>
+        <link rel="stylesheet"><xsl:attribute name="href"><xsl:value-of select="$responsive.bootstrap.min.css" /></xsl:attribute></link>
+        <script><xsl:attribute name="src"><xsl:value-of select="$selectize.min.js" /></xsl:attribute></script>
+        <link rel="stylesheet"><xsl:attribute name="href"><xsl:value-of select="$selectize.bootstrap3.css" /></xsl:attribute></link>
         <script>
             onDocumentReady.push(function () {
                 $('table.datatable').each(function () {

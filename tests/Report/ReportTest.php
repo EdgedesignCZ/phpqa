@@ -6,6 +6,7 @@ class ReportTest extends \PHPUnit_Framework_TestCase
 {
     private $output;
     private $phplocXsl;
+    private $xmlParams = ['bootstrap.min.css' => '','bootstrap.min.js' => '', 'jquery.min.js' => ''];
 
     public function setUp()
     {
@@ -22,7 +23,7 @@ class ReportTest extends \PHPUnit_Framework_TestCase
     /** @dataProvider provideXml */
     public function testConvertXmlToHtml($xml, $assertOutput)
     {
-        xmlToHtml([__DIR__ . "/{$xml}"], $this->phplocXsl, $this->output);
+        xmlToHtml([__DIR__ . "/{$xml}"], $this->phplocXsl, $this->output, $this->xmlParams);
         assertThat(file_get_contents($this->output), $assertOutput);
     }
 
@@ -36,7 +37,7 @@ class ReportTest extends \PHPUnit_Framework_TestCase
 
     public function testIgnoreMissingXmlDocuments()
     {
-        xmlToHtml([], $this->phplocXsl, $this->output);
+        xmlToHtml([], $this->phplocXsl, $this->output, $this->xmlParams);
         assertThat(file_exists($this->output), is(false));
     }
 

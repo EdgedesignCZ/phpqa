@@ -9,8 +9,8 @@
         <html>
             <head>
                 <title>phpcpd report</title>
-                <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
-                <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/themes/prism.min.css" />
+                <link rel="stylesheet"><xsl:attribute name="href"><xsl:value-of select="$bootstrap.min.css" /></xsl:attribute></link>
+                <link rel="stylesheet"><xsl:attribute name="href"><xsl:value-of select="$prism.min.css" /></xsl:attribute></link>
                 <script>
                 var onDocumentReady = [
                     function () {
@@ -120,12 +120,13 @@
             </div>    
 
 
-            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+            <script><xsl:attribute name="src"><xsl:value-of select="$jquery.min.js" /></xsl:attribute></script>
+            <script><xsl:attribute name="src"><xsl:value-of select="$bootstrap.min.js" /></xsl:attribute></script>
             <script>
                 $(document).ready(onDocumentReady);
-            </script><script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/prism.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/prism/1.5.1/components/prism-php.min.js"></script>
+            </script>
+            <script><xsl:attribute name="src"><xsl:value-of select="$prism.js" /></xsl:attribute></script>
+            <script><xsl:attribute name="src"><xsl:value-of select="$prism-php.min.js" /></xsl:attribute></script>
             </body>
         </html>
     </xsl:template>
