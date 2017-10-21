@@ -35,11 +35,11 @@
     },
     "suggest": {
         "friendsofphp/php-cs-fixer": "A tool to automatically fix PHP coding standards issues",
-        "jakub-onderka/php-parallel-lint": "Check PHP syntax",
-        "jakub-onderka/php-console-highlighter": "Colored output in parallel-lint",
-        "phpstan/phpstan": "PHP Static Analysis Tool - discover bugs in your code without running it!",
         "phpunit/phpunit": "The PHP Unit Testing framework",
-        "vimeo/psalm": "A static analysis tool for finding errors in PHP applications"
+        "phpstan/phpstan": "PHP Static Analysis Tool - discover bugs in your code without running it!",
+        "vimeo/psalm": "A static analysis tool for finding errors in PHP applications",
+        "jakub-onderka/php-parallel-lint": "Check PHP syntax",
+        "jakub-onderka/php-console-highlighter": "Colored output in parallel-lint"
     },
     "require-dev": {
         "phpunit/phpunit": "~4.8",
