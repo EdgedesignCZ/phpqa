@@ -24,7 +24,7 @@ class AssetsLoader
             $start = microtime(true);
             foreach ($assets as $id => $url) {
                 $localAsset = $o->rawFile($id);
-                file_put_contents($localAsset, file_get_contents($url));
+                file_put_contents($localAsset, $this->downloadUrl($url));
                 $assets[$id] = "./{$id}";
                 $progressBar->advance();
             }
@@ -32,6 +32,20 @@ class AssetsLoader
             $this->writeln("Download time: <comment>{$duration}s</comment>");
         }
         return $assets;
+    }
+
+    private function downloadUrl($url)
+    {
+        if (ini_get('allow_url_fopen')) {
+            return file_get_contents($url);
+        } else {
+            $ch = curl_init();
+            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+            curl_setopt($ch, CURLOPT_URL, $url);
+            $data = curl_exec($ch);
+            curl_close($ch);
+            return $data;
+        }
     }
 
     // copy-paste from \Robo\Common\TaskIO
