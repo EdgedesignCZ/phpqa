@@ -64,11 +64,11 @@
             <directory name="tests" /><!-- Too many arguments for method assertthat --> 
           </errorLevel> 
         </TooManyArguments>
-        <PossiblyInvalidArgument>
+        <PossiblyFalseArgument>
           <errorLevel type="info">
             <file name="src/Task/AssetsLoader.php" /><!-- Argument 1 of curl_setopt expects resource, possibly different type resource|false provided --> 
           </errorLevel>
-        </PossiblyInvalidArgument>
+        </PossiblyFalseArgument>
         
     </issueHandlers>
 </psalm>
