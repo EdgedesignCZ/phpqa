@@ -10,6 +10,13 @@
         $config-&gt;path('phpcs.standard');
 </codefragment>
   </duplication>
+  <duplication lines="2" tokens="10">
+    <file path="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" line="26"/>
+    <file path="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" line="40"/>
+    <codefragment>        xmlToHtml([__DIR__ . "/{$xml}"], $this-&gt;phplocXsl, $this-&gt;output, $this-&gt;xmlParams);
+        assertThat(file_get_contents($this-&gt;output), $assertOutput);
+</codefragment>
+  </duplication>
   <duplication lines="4" tokens="11">
     <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="11"/>
     <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="44"/>
@@ -25,7 +32,7 @@
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpstan.php" line="7"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="7"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpunit.php" line="7"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/SecurityChecker.php" line="7"/>
     <codefragment>class Phpmd extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
@@ -62,6 +69,7 @@
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcpd.php" line="5"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Psalm.php" line="8"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/ParallelLint.php" line="7"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpunit.php" line="7"/>
     <codefragment>class Phpmd extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
@@ -130,8 +138,9 @@
         $this-&gt;getOutput()-&gt;writeln($process-&gt;getOutput(), OutputInterface::OUTPUT_RAW);
 </codefragment>
   </duplication>
-  <duplication lines="8" tokens="15">
+  <duplication lines="8" tokens="14">
     <file path="/mnt/DATA/www/phpqa/src/Task/TableSummary.php" line="11"/>
+    <file path="/mnt/DATA/www/phpqa/src/Task/AssetsLoader.php" line="11"/>
     <file path="/mnt/DATA/www/phpqa/src/Task/TableVersions.php" line="10"/>
     <codefragment>    private $output;
     

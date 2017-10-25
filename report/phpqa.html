@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>phpqa report - v1.15.0</title>
+    <title>phpqa report - v1.16.0</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -154,10 +154,11 @@
                                                                                                 <li><a href="#psalm" data-iframe-tab="errors">Errors</a></li>
                                                                                             </ul>
                 </li>
+                                                                                <li><a href="#security-checker">security-checker</a></li>
                                                                                             </ul>
             <ul class="nav navbar-right visible-md-block visible-lg-block">
                 <p class="navbar-text">
-                    <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa" class="text-muted">v1.15.0</a>
+                    <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa" class="text-muted">v1.16.0</a>
                 </p>
             </ul>
         </div>
@@ -169,7 +170,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h2>Summary <span class="badge">2017-09-30 11:54</span></h2>
+                        <h2>Summary <span class="badge">2017-10-25 15:44</span></h2>
                         <table class="table table-striped text-center">
                             <thead>
                                 <tr>
@@ -247,7 +248,7 @@
                                     <td>
                                                                                                                         <small class="text-danger"><</a>
                                                                                                                     </td>
-                                    <td>34</td>
+                                    <td>36</td>
                                                                                                                            
                                             <td data-toggle="tooltip" data-placement="left" title="Errors count is greater than 0">
                                                 <span class="label label-danger">x</a>
@@ -302,7 +303,7 @@
                                     <td>
                                                                                                                         <small class="text-danger"><</a>
                                                                                                                     </td>
-                                    <td>14</td>
+                                    <td>15</td>
                                                                                                                            
                                             <td data-toggle="tooltip" data-placement="left" title="Errors count is greater than 0">
                                                 <span class="label label-danger">x</a>
@@ -347,9 +348,9 @@
                                                                                                                                 <tr class="">
                                     <th class="text-left">
                                         <a href="#psalm" data-tool-link class="text-danger">psalm</a>
-                                        <a href="https://packagist.org/packages/vimeo/psalm#0.3.56" target="_blank">
+                                        <a href="https://packagist.org/packages/vimeo/psalm#0.3.60" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="Matthew Brown">
-                                                0.3.56
+                                                0.3.60
                                             </span>
                                         </a>
                                     </th>
@@ -361,6 +362,24 @@
                                                                                                                            
                                             <td data-toggle="tooltip" data-placement="left" title="Errors count is greater than 0">
                                                 <span class="label label-danger">x</a>
+                                            </td>
+                                                                                                                                                        </tr>
+                                                                                                                                <tr class="">
+                                    <th class="text-left">
+                                        <a href="#security-checker" data-tool-link class="">security-checker</a>
+                                        <a href="https://packagist.org/packages/sensiolabs/security-checker#v4.1.5" target="_blank">
+                                            <span class="badge" data-toggle="tooltip" data-placement="right" title="Fabien Potencier">
+                                                v4.1.5
+                                            </span>
+                                        </a>
+                                    </th>
+                                    <td>0</td>
+                                    <td>
+                                                                                                                        <small class="text-success">==</a>
+                                                                                                                    </td>
+                                    <td>0</td>
+                                                                                                                                                                    <td>
+                                                <span class="label label-success">✓</span>
                                             </td>
                                                                                                                                                         </tr>
                                                                                                                                                                 <tr class="disabled">
@@ -375,16 +394,16 @@
                                                                                                 <tr class="danger">
                                     <th class="text-left">
                                         <a href="#phpqa" data-tool-link class="text-danger">phpqa</a>
-                                        <a href="https://packagist.org/packages/edgedesign/phpqa#1.15.0" target="_blank">
+                                        <a href="https://packagist.org/packages/edgedesign/phpqa#1.16.0" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="Zdeněk Drahoš">
-                                                1.15.0
+                                                1.16.0
                                             </span>
                                         </a>
                                     </th>
                                     <td></td>
                                     <td>
                                                                             </td>
-                                    <td>53</td>
+                                    <td>56</td>
                                                                                                                            
                                             <td data-toggle="tooltip" data-placement="left" title="">
                                                 <span class="label label-danger">x</a>
@@ -394,7 +413,7 @@
                         </table>
                         <h4>Would you like to run phpqa again?</h4>
                         <pre><code>cd &quot;/mnt/DATA/www/phpqa&quot; &amp;&amp; \
-./phpqa --verbose --report --config tests/.travis --tools phpcs:10,php-cs-fixer:0,phpmd:0,phpcpd:0,parallel-lint:0,phpstan,phpmetrics:0,phploc,pdepend,phpunit:0,psalm:0</code></pre>
+./phpqa --verbose --report --config tests/.travis --tools phpcs:10,php-cs-fixer:0,phpmd:0,phpcpd:0,parallel-lint:0,phpstan,phpmetrics:0,phploc,pdepend,phpunit:0,psalm:0,security-checker:0</code></pre>
                     </div>
                     <div class="col-sm-2">
                         <div class="well">
@@ -427,6 +446,7 @@
                                                                 <li><a href="./psalm-phpqa.xml" target="_blank">/psalm-phpqa.xml</a></li>
                                                                 <li><a href="./psalm.html" target="_blank">/psalm.html</a></li>
                                                                 <li><a href="./psalm.xml" target="_blank">/psalm.xml</a></li>
+                                                                <li><a href="./security-checker.html" target="_blank">/security-checker.html</a></li>
                                                                 <li><a href="./testdox-html.html" target="_blank">/testdox-html.html</a></li>
                                                                 <li><a href="./testdox-text.txt" target="_blank">/testdox-text.txt</a></li>
                                                             </ul>
@@ -480,6 +500,9 @@
         </div>
                                         <div role="tabpanel" class="tab-pane" id="psalm">
             <iframe data-tool id="iframe-psalm" data-src="psalm.html"></iframe>
+        </div>
+                                        <div role="tabpanel" class="tab-pane" id="security-checker">
+            <iframe data-tool id="iframe-security-checker" data-src="security-checker.html"></iframe>
         </div>
                                             </div>
 

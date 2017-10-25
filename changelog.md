@@ -1,6 +1,14 @@
 
 # Changelog
 
+## v1.16.0
+
+* **Optional tools**
+   * [#97](https://github.com/EdgedesignCZ/phpqa/pull/97) sensiolabs/security-checker (stable)
+* [#95](https://github.com/EdgedesignCZ/phpqa/issues/95) Download assets if `--report=offline`
+   
+![--report=offline preview](https://user-images.githubusercontent.com/7994022/32001321-bbe1af3a-b999-11e7-9553-1995d840e2e1.png)
+
 ## v1.15.0
 
 * **Optional tools**

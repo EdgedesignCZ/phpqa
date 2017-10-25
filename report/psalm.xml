@@ -30,16 +30,16 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_number>156</line_number>
+    <line_number>159</line_number>
     <type>UndefinedConstant</type>
     <message>Const PHPQA_USED_COMMAND is not defined</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php</file_path>
     <snippet>                    'phpqa' =&gt; 'cd "' . getcwd() . "\" &amp;&amp; \\\n" . PHPQA_USED_COMMAND,</snippet>
-    <from>5280</from>
-    <to>5298</to>
-    <snippet_from>5214</snippet_from>
-    <snippet_to>5299</snippet_to>
+    <from>5631</from>
+    <to>5649</to>
+    <snippet_from>5565</snippet_from>
+    <snippet_to>5650</snippet_to>
     <column>67</column>
   </item>
   <item>
@@ -125,6 +125,34 @@
     <snippet_from>824</snippet_from>
     <snippet_to>901</snippet_to>
     <column>26</column>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_number>46</line_number>
+    <type>PossiblyFalseArgument</type>
+    <message>Argument 1 of curl_setopt cannot be false, possibly false value provided</message>
+    <file_name>src/Task/AssetsLoader.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/Task/AssetsLoader.php</file_path>
+    <snippet>            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);</snippet>
+    <from>1378</from>
+    <to>1381</to>
+    <snippet_from>1354</snippet_from>
+    <snippet_to>1410</snippet_to>
+    <column>25</column>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_number>47</line_number>
+    <type>PossiblyFalseArgument</type>
+    <message>Argument 1 of curl_setopt cannot be false, possibly false value provided</message>
+    <file_name>src/Task/AssetsLoader.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/Task/AssetsLoader.php</file_path>
+    <snippet>            curl_setopt($ch, CURLOPT_URL, $url);</snippet>
+    <from>1435</from>
+    <to>1438</to>
+    <snippet_from>1411</snippet_from>
+    <snippet_to>1459</snippet_to>
+    <column>25</column>
   </item>
   <item>
     <severity>info</severity>
@@ -245,13 +273,13 @@
      * @option $tools csv with optional definition of allowed errors count @example phploc,phpmd:1,phpcs:0
      * @option $output output format @example cli
      * @option $config path directory with .phpqa.yml, @default current working directory
-     * @option $report build HTML report (only when output format is file)
+     * @option $report build HTML report (only when output format is file), 'offline' for bundling assets with report
      */
     public function ci(</snippet>
-    <from>1255</from>
-    <to>1274</to>
+    <from>1298</from>
+    <to>1317</to>
     <snippet_from>560</snippet_from>
-    <snippet_to>1274</snippet_to>
+    <snippet_to>1317</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -420,6 +448,20 @@
     <to>113</to>
     <snippet_from>67</snippet_from>
     <snippet_to>113</snippet_to>
+    <column>1</column>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_number>7</line_number>
+    <type>UnusedClass</type>
+    <message>Class Edge\QA\Tools\Analyzer\SecurityChecker is never used</message>
+    <file_name>src/Tools/Analyzer/SecurityChecker.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/Tools/Analyzer/SecurityChecker.php</file_path>
+    <snippet>class SecurityChecker extends \Edge\QA\Tools\Tool</snippet>
+    <from>67</from>
+    <to>116</to>
+    <snippet_from>67</snippet_from>
+    <snippet_to>116</snippet_to>
     <column>1</column>
   </item>
   <item>

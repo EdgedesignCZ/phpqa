@@ -6,11 +6,11 @@
         <TotalClasses>12</TotalClasses>
         <ConcreteClasses>12</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
-        <Ca>1</Ca>
+        <Ca>2</Ca>
         <Ce>5</Ce>
         <A>0</A>
-        <I>0.83333333333333</I>
-        <D>0.16666666666667</D>
+        <I>0.71428571428571</I>
+        <D>0.28571428571429</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/mnt/DATA/www/phpqa/RoboFile.php">RoboFile</Class>
@@ -35,21 +35,23 @@
         <Package>Symfony\Component\Yaml</Package>
       </DependsUpon>
       <UsedBy>
+        <Package>Edge\QA\Task</Package>
         <Package>Edge\QA\Tools</Package>
       </UsedBy>
     </Package>
     <Package name="Edge\QA\Task">
       <Stats>
-        <TotalClasses>5</TotalClasses>
-        <ConcreteClasses>5</ConcreteClasses>
+        <TotalClasses>6</TotalClasses>
+        <ConcreteClasses>6</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>1</Ca>
-        <Ce>6</Ce>
+        <Ce>8</Ce>
         <A>0</A>
-        <I>0.85714285714286</I>
-        <D>0.14285714285714</D>
+        <I>0.88888888888889</I>
+        <D>0.11111111111111</D>
       </Stats>
       <ConcreteClasses>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/Task/AssetsLoader.php">AssetsLoader</Class>
         <Class sourceFile="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV0.php">NonParallelExecV0</Class>
         <Class sourceFile="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php">NonParallelExecV1</Class>
         <Class sourceFile="/mnt/DATA/www/phpqa/src/Task/ParallelExec.php">ParallelExec</Class>
@@ -58,7 +60,9 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
+        <Package></Package>
         <Package>Consolidation\Log</Package>
+        <Package>Edge\QA</Package>
         <Package>Robo</Package>
         <Package>Robo\Task\Base</Package>
         <Package>Symfony\Component\Console\Helper</Package>
@@ -99,8 +103,8 @@
     </Package>
     <Package name="Edge\QA\Tools\Analyzer">
       <Stats>
-        <TotalClasses>13</TotalClasses>
-        <ConcreteClasses>13</ConcreteClasses>
+        <TotalClasses>14</TotalClasses>
+        <ConcreteClasses>14</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>0</Ca>
         <Ce>4</Ce>
@@ -122,6 +126,7 @@
         <Class sourceFile="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpstan.php">Phpstan</Class>
         <Class sourceFile="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpunit.php">Phpunit</Class>
         <Class sourceFile="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Psalm.php">Psalm</Class>
+        <Class sourceFile="/mnt/DATA/www/phpqa/src/Tools/Analyzer/SecurityChecker.php">SecurityChecker</Class>
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
@@ -136,19 +141,26 @@
   <Cycles>
     <Package Name="Edge\QA">
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Tools</Package>
+      <Package>Edge\QA\Task</Package>
       <Package>Edge\QA</Package>
+    </Package>
+    <Package Name="Edge\QA\Task">
+      <Package>Edge\QA\Task</Package>
+      <Package>Edge\QA</Package>
+      <Package>Edge\QA\Task</Package>
     </Package>
     <Package Name="Edge\QA\Tools">
       <Package>Edge\QA\Tools</Package>
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Tools</Package>
+      <Package>Edge\QA\Task</Package>
+      <Package>Edge\QA</Package>
     </Package>
     <Package Name="Edge\QA\Tools\Analyzer">
       <Package>Edge\QA\Tools\Analyzer</Package>
       <Package>Edge\QA\Tools</Package>
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Tools</Package>
+      <Package>Edge\QA\Task</Package>
+      <Package>Edge\QA</Package>
     </Package>
   </Cycles>
 </PDepend>

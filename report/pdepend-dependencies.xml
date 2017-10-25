@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2017-09-30T11:54:11" pdepend="@package_version@">
+<dependencies generated="2017-10-25T15:44:17" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -15,6 +15,7 @@
         <type namespace="Edge\QA\Tools" name="Tools"/>
         <type namespace="Edge\QA" name="Options"/>
         <type namespace="Edge\QA" name="RunningTool"/>
+        <type namespace="Edge\QA\Task" name="AssetsLoader"/>
         <type namespace="Edge\QA" name="OutputMode"/>
         <type namespace="Edge\QA\Task" name="TableSummary"/>
       </efferent>
@@ -50,6 +51,7 @@
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
         <type namespace="Edge\QA" name="OptionsTest"/>
+        <type namespace="Edge\QA\Task" name="AssetsLoader"/>
         <type namespace="Edge\QA\Tools" name="AnalyzeResults"/>
         <type namespace="Edge\QA\Tools" name="Tool"/>
         <type namespace="Edge\QA\Tools" name="Tools"/>
@@ -125,6 +127,18 @@
     </class>
   </package>
   <package name="Edge\QA\Task">
+    <class name="AssetsLoader">
+      <efferent>
+        <type namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
+        <type namespace="Edge\QA" name="Options"/>
+        <type namespace="Symfony\Component\Console\Helper" name="ProgressBar"/>
+        <type namespace="" name="InvalidArgumentException"/>
+      </efferent>
+      <afferent>
+        <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
+      </afferent>
+      <file name="/mnt/DATA/www/phpqa/src/Task/AssetsLoader.php"/>
+    </class>
     <class name="NonParallelExecV0">
       <efferent>
         <type namespace="Edge\QA\Task" name="NonParallelExecV1"/>
@@ -221,6 +235,7 @@
         <type namespace="Edge\QA\Tools\Analyzer" name="Phpstan"/>
         <type namespace="Edge\QA\Tools\Analyzer" name="Phpunit"/>
         <type namespace="Edge\QA\Tools\Analyzer" name="Psalm"/>
+        <type namespace="Edge\QA\Tools\Analyzer" name="SecurityChecker"/>
       </afferent>
       <file name="/mnt/DATA/www/phpqa/src/Tools/Tool.php"/>
     </class>
@@ -336,6 +351,13 @@
       </efferent>
       <afferent/>
       <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Psalm.php"/>
+    </class>
+    <class name="SecurityChecker">
+      <efferent>
+        <type namespace="Edge\QA\Tools" name="Tool"/>
+      </efferent>
+      <afferent/>
+      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/SecurityChecker.php"/>
     </class>
   </package>
 </dependencies>

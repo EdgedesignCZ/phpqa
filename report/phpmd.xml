@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pmd version="@project.version@" timestamp="2017-09-30T09:54:11+00:00">
+<pmd version="@project.version@" timestamp="2017-10-25T13:44:17+00:00">
   <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php">
     <violation beginline="23" endline="23" rule="ExitExpression" ruleset="Design Rules" externalInfoUrl="http://phpmd.org/rules/design.html#exitexpression" priority="1">
       The method run() contains an exit expression.

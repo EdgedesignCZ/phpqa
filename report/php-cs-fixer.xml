@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PHP CS Fixer" tests="34" assertions="73" failures="73" errors="0" time="3.435">
+  <testsuite name="PHP CS Fixer" tests="36" assertions="79" failures="79" errors="0" time="2.447">
     <testcase name="/tests/IgnoredPathsTest" file="/tests/IgnoredPathsTest.php" assertions="2">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
@@ -18,11 +18,12 @@
 ---------------
 * trailing_comma_in_multiline_array]]></failure>
     </testcase>
-    <testcase name="/tests/Report/ReportTest" file="/tests/Report/ReportTest.php" assertions="3">
+    <testcase name="/tests/Report/ReportTest" file="/tests/Report/ReportTest.php" assertions="4">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
 * trailing_comma_in_multiline_array
 * single_quote
+* whitespace_after_comma_in_array
 * concat_space]]></failure>
     </testcase>
     <testcase name="/tests/OptionsTest" file="/tests/OptionsTest.php" assertions="2">
@@ -129,6 +130,13 @@
 * no_whitespace_in_blank_line
 * blank_line_before_return]]></failure>
     </testcase>
+    <testcase name="/src/Tools/Analyzer/SecurityChecker" file="/src/Tools/Analyzer/SecurityChecker.php" assertions="3">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* single_quote
+* concat_space
+* blank_line_before_return]]></failure>
+    </testcase>
     <testcase name="/src/Tools/Analyzer/Phpunit" file="/src/Tools/Analyzer/Phpunit.php" assertions="1">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
@@ -174,6 +182,12 @@
 * single_quote
 * concat_space
 * phpdoc_summary]]></failure>
+    </testcase>
+    <testcase name="/src/Task/AssetsLoader" file="/src/Task/AssetsLoader.php" assertions="2">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* no_whitespace_in_blank_line
+* blank_line_before_return]]></failure>
     </testcase>
     <testcase name="/src/Task/TableVersions" file="/src/Task/TableVersions.php" assertions="1">
       <failure type="code_style"><![CDATA[applied fixers:

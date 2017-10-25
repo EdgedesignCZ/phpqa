@@ -1,0 +1,31 @@
+<h1>security-checker</h1>
+<pre id="cli">
+Symfony Security Check Report
+=============================
+
+ // Checked file: /mnt/DATA/www/phpqa/composer.lock
+
+ [OK] No packages have known vulnerabilities.                                                                           
+
+ ! [NOTE] This checker can only detect vulnerabilities that are referenced in the SensioLabs security advisories        
+ ! database. Execute this command regularly to check the newly discovered vulnerabilities.                              
+
+</pre> 
+ 
+<style> 
+    html, body { 
+        margin: 0; 
+        padding: 0; 
+    } 
+    pre { 
+        background: black; 
+        color: white; 
+        padding: 1em; 
+        margin: 0; 
+    } 
+</style> 
+<script src="https://edgedesigncz.github.io/phpqa/assets/ansi_up.js"></script> 
+<script type="text/javascript"> 
+var code = document.getElementById("cli"); 
+code.innerHTML = ansi_up.ansi_to_html(code.innerHTML); 
+</script>
