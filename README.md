@@ -403,7 +403,7 @@ stages:
 
 test:
   stage: test
-  image: zdenekdrahos/phpqa:v1.15.0
+  image: zdenekdrahos/phpqa:v1.16.0
   variables:
     BACKEND_QA: "*/backend/var/QA"
     BACKEND_CACHE: $CI_PROJECT_DIR/.composercache
