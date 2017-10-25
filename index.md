@@ -51,11 +51,12 @@ Experimental tool is executed only if the tool is specified in `--tools`.
 
 Tool | PHP | Supported since | Description | Status |
 ---- | --- | --------------- | ----------- | ------ |
+[security-checker](https://github.com/sensiolabs/security-checker) | `>= 5.3` | `1.16` | Check composer.lock for known security issues | stable |
 [php-cs-fixer](http://cs.sensiolabs.org/) | [`>= 5.3`](https://github.com/EdgedesignCZ/phpqa/pull/66#discussion_r115206573) | `1.12` | Automatically detect and fix PHP coding standards issues | stable |
-[parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files | stable |
+[phpunit](https://github.com/phpunit/phpunit) | `>= 5.3` | `1.13` | The PHP Unit Testing framework | stable |
 [phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it | _experimental_ ([`v0.7`](https://github.com/EdgedesignCZ/phpqa/pull/43)) |
-[phpunit](https://github.com/phpunit/phpunit) | `>= 5.3` | `1.13` | The PHP Unit Testing framework | _experimental_ |
 [psalm](https://github.com/vimeo/psalm) | `>= 5.6` | `1.14` | A static analysis tool for finding errors in PHP applications | stable |
+[parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files | stable |
 
 _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
 
@@ -162,6 +163,7 @@ docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoredDi
 | `phpqa --execution no-parallel` | Don't use parallelism if `--execution != parallel` |
 | `phpqa --config ./my-config` | Use [custom configuration](#advanced-configuration---phpqayml) |
 | `phpqa --report` | Build [html reports](#html-reports) |
+| `phpqa --report offline` | Build html reports with [bundled assets](https://github.com/EdgedesignCZ/phpqa/issues/95). **New in v1.16** |
 | `phpqa tools` | Show versions of available tools |
 
 ## Output modes
@@ -401,7 +403,7 @@ stages:
 
 test:
   stage: test
-  image: zdenekdrahos/phpqa:v1.15.0
+  image: zdenekdrahos/phpqa:v1.16.0
   variables:
     BACKEND_QA: "*/backend/var/QA"
     BACKEND_CACHE: $CI_PROJECT_DIR/.composercache
