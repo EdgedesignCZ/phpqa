@@ -102,6 +102,18 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         $config->getCustomBinary('phpmetrics');
     }
 
+    public function testMultipleConfig()
+    {
+        $config = new Config();
+        $config->loadUserConfig(__DIR__.','.__DIR__.'/sub-config');
+
+        assertThat($config->value('phpcs.standard'), is('PSR2'));
+        assertThat($config->value('phpmd.standard'), is('my-standard.xml'));
+        assertThat($config->value('phpcpd.lines'), is(53));
+        assertThat($config->csv('extensions'), is('php,inc'));
+        assertThat($config->path('relative-path'), is(realpath(__DIR__.'/sub-config/a-file')));
+    }
+
     private function shouldStopPhpqa()
     {
         $this->setExpectedException('Exception');

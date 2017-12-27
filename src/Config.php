@@ -13,9 +13,13 @@ class Config
         $this->loadConfig(__DIR__ . '/../');
     }
 
-    public function loadUserConfig($directory)
+    public function loadUserConfig($directories)
     {
-        $this->loadConfig($directory ?: getcwd(), $directory);
+        /** @var string[] $directoriesArray */
+        $directoriesArray = explode(',', $directories);
+        foreach ($directoriesArray as $directory) {
+            $this->loadConfig($directory ?: getcwd(), $directory);
+        }
         $this->mergeConfigs('tool');
     }
 

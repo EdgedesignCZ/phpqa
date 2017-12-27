@@ -1,0 +1,12 @@
+# should override previous config
+phpcs:
+    standard: PSR2
+
+# should override default standard
+phpcpd:
+    lines: 53
+
+# Php file extensions to parse.
+extensions: php,inc
+
+relative-path: a-file
