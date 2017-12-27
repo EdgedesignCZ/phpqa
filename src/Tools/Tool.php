@@ -14,7 +14,7 @@ abstract class Tool
     protected $options;
     /** @var RunningTool */
     protected $tool;
-    /** @var callable */
+    /** @var \Closure */
     private $presenter;
 
     public function __construct(Config $c, Options $o, RunningTool $t, $presenter)
