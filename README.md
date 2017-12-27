@@ -161,7 +161,7 @@ docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoredDi
 | `phpqa --quiet` | Show no output at all |
 | `phpqa --output cli` | [CLI output](#output-modes) instead of creating files in `--buildDir` |
 | `phpqa --execution no-parallel` | Don't use parallelism if `--execution != parallel` |
-| `phpqa --config ./my-config` | Use [custom configuration](#advanced-configuration---phpqayml) |
+| `phpqa --config ./my-config,~/.config/phpqa` | Use [custom configuration](#advanced-configuration---phpqayml) |
 | `phpqa --report` | Build [html reports](#html-reports) |
 | `phpqa --report offline` | Build html reports with [bundled assets](https://github.com/EdgedesignCZ/phpqa/issues/95). **New in v1.16** |
 | `phpqa tools` | Show versions of available tools |
@@ -252,6 +252,12 @@ that defines only standard for CodeSniffer:
 phpcs:
     standard: Zend
 ```
+
+You can specify multiple configurations directory (separated by `,`).
+They are loaded in the order they are defined.
+This can be useful if you have a common configuration file that you want to use across multiple project but you still want to have per project configuration.
+Also, path inside configuration file are relative to where the configuration file is,
+so if you have a package that bundle a custom tool, the `.phpqa.yml` in the package can refers files within it.
 
 _Tip_: use [PHP Coding Standard Generator](http://edorian.github.io/php-coding-standard-generator/)
 for generating phpcs/phpmd standards.
