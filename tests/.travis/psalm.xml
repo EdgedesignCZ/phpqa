@@ -46,7 +46,6 @@
         <MissingReturnType errorLevel="suppress" />
         <MissingPropertyType errorLevel="suppress" />
         <MissingClosureReturnType errorLevel="suppress" />
-        <MissingPropertyDeclaration errorLevel="suppress" />
         <MissingConstructor errorLevel="suppress" />
         <UntypedParam errorLevel="suppress" />
 
