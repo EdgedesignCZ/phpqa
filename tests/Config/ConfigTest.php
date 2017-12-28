@@ -106,12 +106,27 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
     public function testMultipleConfig()
     {
         $config = new Config();
-        $config->loadUserConfig(__DIR__.','.__DIR__.'/sub-config');
+        $config->loadUserConfig(__DIR__ . ',' . __DIR__ . '/sub-config');
 
         assertThat($config->value('phpcs.standard'), is('PSR2'));
         assertThat($config->value('phpmd.standard'), is('my-standard.xml'));
         assertThat($config->value('phpcpd.lines'), is(53));
         assertThat($config->csv('extensions'), is('php,inc'));
+    }
+
+    public function testAutodetectConfigInCurrentDirectory()
+    {
+        $config = new Config(__DIR__);
+        $config->loadUserConfig('');
+        assertThat($config->value('phpcs.standard'), is('Zend'));
+    }
+
+    public function testIgnoreAutodetectedConfigIfUserConfigIsSpecified()
+    {
+        $currentDir = __DIR__;
+        $config = new Config($currentDir);
+        $config->loadUserConfig("{$currentDir},{$currentDir}/sub-config,");
+        assertThat($config->value('phpcs.standard'), is('Zend'));
     }
 
     private function shouldStopPhpqa()

@@ -7,10 +7,12 @@ use Symfony\Component\Yaml\Yaml;
 class Config
 {
     private $configs = array();
+    private $cwd;
 
-    public function __construct()
+    public function __construct($cwd = null)
     {
         $this->loadConfig(__DIR__ . '/../');
+        $this->cwd = $cwd ?: getcwd();
     }
 
     public function loadUserConfig($directories)
@@ -18,7 +20,7 @@ class Config
         /** @var string[] $directoriesArray */
         $directoriesArray = explode(',', $directories);
         foreach ($directoriesArray as $directory) {
-            $this->loadConfig($directory ?: getcwd(), $directory);
+            $this->loadConfig($directory ?:$this->cwd, $directory);
         }
         $this->mergeConfigs('tool');
     }

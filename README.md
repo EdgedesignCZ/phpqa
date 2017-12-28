@@ -262,10 +262,7 @@ This can be useful if you have a common configuration file that you want to use 
 Also, path inside configuration file are relative to where the configuration file is,
 so if you have a package that bundle a custom tool, the `.phpqa.yml` in the package can refers files within it.
 ```bash
-phpqa --config ~/phpqa/,my-config/
-```
-```bash
-phpqa --config ~/phpqa/,my-config/, # The leading comma indicate to load in the current directory
+phpqa --config ~/phpqa/,my-config/,$(pwd)
 ```
 
 ## HTML reports
