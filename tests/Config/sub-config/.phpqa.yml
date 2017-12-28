@@ -8,5 +8,3 @@ phpcpd:
 
 # Php file extensions to parse.
 extensions: php,inc
-
-relative-path: a-file

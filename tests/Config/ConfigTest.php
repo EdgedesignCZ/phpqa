@@ -112,7 +112,6 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpmd.standard'), is('my-standard.xml'));
         assertThat($config->value('phpcpd.lines'), is(53));
         assertThat($config->csv('extensions'), is('php,inc'));
-        assertThat($config->path('relative-path'), is(realpath(__DIR__.'/sub-config/a-file')));
     }
 
     private function shouldStopPhpqa()
