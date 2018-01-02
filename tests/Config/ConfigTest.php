@@ -65,6 +65,13 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         $config->loadUserConfig($directoryWithoutConfig);
     }
 
+    public function testNoExceptionWhenCwdHasNoConfig()
+    {
+        $directoryWithoutConfig = __DIR__ . '/../';
+        $config = new Config($directoryWithoutConfig);
+        $config->loadUserConfig('');
+    }
+
     public function testThrowExceptionWhenFileDoesNotExist()
     {
         $config = new Config();
@@ -126,7 +133,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         $currentDir = __DIR__;
         $config = new Config($currentDir);
         $config->loadUserConfig("{$currentDir},{$currentDir}/sub-config,");
-        assertThat($config->value('phpcs.standard'), is('Zend'));
+        assertThat($config->value('phpcs.standard'), is('PSR2'));
     }
 
     private function shouldStopPhpqa()

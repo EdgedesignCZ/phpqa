@@ -18,9 +18,9 @@ class Config
     public function loadUserConfig($directories)
     {
         /** @var string[] $directoriesArray */
-        $directoriesArray = explode(',', $directories);
+        $directoriesArray = array_filter(explode(',', $directories ?: $this->cwd));
         foreach ($directoriesArray as $directory) {
-            $this->loadConfig($directory ?:$this->cwd, $directory);
+            $this->loadConfig($directory, $directory != $this->cwd);
         }
         $this->mergeConfigs('tool');
     }
