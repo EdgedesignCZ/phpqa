@@ -32,12 +32,23 @@
           <errorLevel type="info">
             <file name="src/CodeAnalysisTasks.php" />
             <file name="src/Tools/Tool.php" />
+            <file name="src/Tools/Tools.php" />
             <file name="src/RunningTool.php" />
           </errorLevel>
           <errorLevel type="suppress"> 
             <directory name="tests" />
           </errorLevel> 
         </PossiblyUnusedMethod>
+        <InvalidReturnType>
+          <errorLevel type="info">
+            <file name="src/Task/ParallelExec.php" />
+          </errorLevel>
+        </InvalidReturnType>
+        <UnresolvableInclude>
+          <errorLevel type="info">
+            <file name="src/Tools/Analyzer/PhpcsV3.php" />
+          </errorLevel>
+        </UnresolvableInclude>
         <DeprecatedMethod errorLevel="info" /> 
 
         <!-- Ignored rules -->
@@ -48,10 +59,10 @@
         <MissingClosureReturnType errorLevel="suppress" />
         <MissingConstructor errorLevel="suppress" />
         <UntypedParam errorLevel="suppress" />
+        <PossiblyUnusedParam errorLevel="info" />
 
         <!-- false positive -->
         <UnusedVariable errorLevel="info" />
-        <PossiblyUnusedVariable errorLevel="info" />
         <UndefinedThisPropertyAssignment errorLevel="info" />
         <TooFewArguments> 
           <errorLevel type="info"> 
