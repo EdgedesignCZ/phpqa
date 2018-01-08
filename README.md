@@ -256,6 +256,15 @@ phpcs:
 _Tip_: use [PHP Coding Standard Generator](http://edorian.github.io/php-coding-standard-generator/)
 for generating phpcs/phpmd standards.
 
+You can specify multiple configurations directory (separated by `,`).
+They are loaded in the order they are defined.
+This can be useful if you have a common configuration file that you want to use across multiple project but you still want to have per project configuration.
+Also, path inside configuration file are relative to where the configuration file is,
+so if you have a package that bundle a custom tool, the `.phpqa.yml` in the package can refers files within it.
+```bash
+phpqa --config ~/phpqa/,my-config/,$(pwd)
+```
+
 ## HTML reports
 
 If you don't have Jenkins or other CI server, then you can use HTML reports.
