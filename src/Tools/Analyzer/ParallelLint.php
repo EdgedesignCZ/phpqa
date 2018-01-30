@@ -17,6 +17,7 @@ class ParallelLint extends \Edge\QA\Tools\Tool
     {
         return array(
             $this->options->ignore->parallelLint(),
+            "-e {$this->config->csv('extensions')}",
             $this->options->getAnalyzedDirs(' '),
         );
     }
