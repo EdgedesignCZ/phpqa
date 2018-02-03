@@ -27,13 +27,13 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
     public function testIgnoreDirectoriesAndFiles($tool, $expectedOptions, $os = null)
     {
         $this->operatingSystem = $os ?: $this->operatingSystem;
-        $this->assertEquals(
+        assertThat(
             $expectedOptions,
-            [
+            is([
                 'both' => $this->ignore($tool, 'bin,vendor', 'autoload.php,RoboFile.php'),
                 'dirs' => $this->ignore($tool, 'bin,vendor', ''),
                 'files' => $this->ignore($tool, '', 'autoload.php,RoboFile.php'),
-            ]
+            ])
         );
     }
 

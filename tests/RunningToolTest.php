@@ -66,6 +66,9 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
     /** @dataProvider provideProcess */
     public function testAnalyzeExitCodeInCliMode($allowedErrors, $exitCode, array $expectedResult)
     {
+        if (version_compare(PHP_VERSION, '7.2.0') >= 0) {
+            $this->markTestSkipped('Skipped on PHP 7.2');
+        }
         $tool = new RunningTool('tool', [
             'allowedErrorsCount' => $allowedErrors
         ]);
