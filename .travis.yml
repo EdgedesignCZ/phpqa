@@ -20,6 +20,8 @@ install:
   - composer install --no-interaction
   # test app with symfony3 components in latest php
   - if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then composer update && composer remove phpunit/phpunit --dev --no-interaction && composer remove sebastian/phpcpd --no-interaction && composer require sebastian/phpcpd:~3.0 phploc/phploc:~4 phpunit/phpunit:~5.7 symfony/filesystem:~3 symfony/process:~3 symfony/finder:~3 && bin/suggested-tools.sh install; fi
+  # test installing suggested tools like docker image
+  - if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.0" ]]; then bin/suggested-tools.sh install --update-no-dev; fi
   # For HHVM phpmetrics report isn't generated, use phpmetrics v2
   - if [[ $TRAVIS_PHP_VERSION = hhvm* ]] ; then composer update phpmetrics/phpmetrics; fi
 script:
