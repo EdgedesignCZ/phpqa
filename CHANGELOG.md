@@ -1,6 +1,13 @@
 
 # Changelog
 
+## v1.17.0
+
+* [#98](https://github.com/EdgedesignCZ/phpqa/pull/98) - allow multiple configurations in `--config`
+* [#104](https://github.com/EdgedesignCZ/phpqa/pull/104) - add support for extensions in `parallel-lint`
+* _Internal changes_
+    * [#99](https://github.com/EdgedesignCZ/phpqa/pull/99), [#101](https://github.com/EdgedesignCZ/phpqa/pull/101), [#106](https://github.com/EdgedesignCZ/phpqa/pull/106) Travis build (fix composer/psalm errors, add PHP 7.2)
+
 ## v1.16.0
 
 * **Optional tools**
