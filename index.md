@@ -131,9 +131,9 @@ Beware that the image is as lean as possible. That can be a problem for running 
 In that case, you might miss PHP extensions for database etc (_you can [install phpqa](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/get-phpqa-binary#L40) in another [php image](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/.gitlab-ci.yml#L28)_). 
 
 ```bash
-docker run --rm -it zdenekdrahos/phpqa:v1.14.0 phpqa tools
+docker run --rm -it zdenekdrahos/phpqa:v1.17.0 phpqa tools
 # using a tool without phpqa
-docker run --rm -it zdenekdrahos/phpqa:v1.14.0 phploc -v
+docker run --rm -it zdenekdrahos/phpqa:v1.17.0 phploc -v
 ```
 
 There are also available images [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/) and [sparkfabrik/docker-phpqa](https://hub.docker.com/r/sparkfabrik/docker-phpqa/).
@@ -255,6 +255,15 @@ phpcs:
 
 _Tip_: use [PHP Coding Standard Generator](http://edorian.github.io/php-coding-standard-generator/)
 for generating phpcs/phpmd standards.
+
+You can specify multiple configurations directory (separated by `,`).
+They are loaded in the order they are defined.
+This can be useful if you have a common configuration file that you want to use across multiple project but you still want to have per project configuration.
+Also, path inside configuration file are relative to where the configuration file is,
+so if you have a package that bundle a custom tool, the `.phpqa.yml` in the package can refers files within it.
+```bash
+phpqa --config ~/phpqa/,my-config/,$(pwd)
+```
 
 ## HTML reports
 
@@ -403,7 +412,7 @@ stages:
 
 test:
   stage: test
-  image: zdenekdrahos/phpqa:v1.16.0
+  image: zdenekdrahos/phpqa:v1.17.0
   variables:
     BACKEND_QA: "*/backend/var/QA"
     BACKEND_CACHE: $CI_PROJECT_DIR/.composercache
@@ -427,6 +436,6 @@ Contributions from others would be very much appreciated! Send
 
 ## License
 
-Copyright (c) 2015, 2016, 2017 Edgedesign.cz. MIT Licensed,
+Copyright (c) 2015, 2016, 2017, 2018 Edgedesign.cz. MIT Licensed,
 see [LICENSE](/LICENSE) for details.
 
