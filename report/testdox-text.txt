@@ -4,11 +4,15 @@ Edge\QA\Config
  [ ] Override default config
  [x] Allow partial update of tools
  [x] Ignore non existent user config
+ [x] No exception when cwd has no config
  [x] Throw exception when file does not exist
  [x] Config csv string
  [x] Use cwd if no directory is specified
  [x] Throw exception when binary does not exist
  [x] Throw exception when wrong binary is used
+ [x] Multiple config
+ [x] Autodetect config in current directory
+ [x] Ignore autodetected config if user config is specified
 
 Edge\QA\IgnoredPaths
  [x] No option when nothing is ignored
@@ -37,6 +41,6 @@ Edge\QA\RunningTool
  [x] Mark failure when xml file does not exist
  [x] Compare allowed count with errors count from xml
  [x] Runtime selection of error xpath
- [x] Analyze exit code in cli mode
+ [ ] Analyze exit code in cli mode
  [x] Create unique id for user report
 
