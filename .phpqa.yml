@@ -32,7 +32,7 @@ phpmetrics:
     config: null
 
 phpstan:
-    level: 5
+    level: 0
     # https://github.com/phpstan/phpstan#configuration
     # standard: tests/.travis/phpstan.neon
 
