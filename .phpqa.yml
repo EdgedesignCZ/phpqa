@@ -32,7 +32,7 @@ phpmetrics:
     config: null
 
 phpstan:
-    level: 0
+    level: 5
     # https://github.com/phpstan/phpstan#configuration
     # standard: tests/.travis/phpstan.neon
 
@@ -66,6 +66,7 @@ report:
     phpmd: app/report/phpmd.xsl
     php-cs-fixer: app/report/php-cs-fixer.xsl
     psalm: app/report/psalm.xsl
+    phpstan: app/report/phpstan.xsl
     assets:
         bootstrap.min.css: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
         jquery.min.js: https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js
