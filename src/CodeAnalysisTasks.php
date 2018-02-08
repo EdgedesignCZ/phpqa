@@ -126,7 +126,7 @@ trait CodeAnalysisTasks
                 $tool->htmlReport = $this->options->rawFile("{$tool}.html");
             }
             if ($tool->hasOutput(OutputMode::XML_CONSOLE_OUTPUT)) {
-                file_put_contents($this->options->rawFile("{$tool}.xml"), $tool->process->getOutput());
+                file_put_contents($this->options->rawFile("{$tool}.xml"), trim($tool->process->getOutput()));
             }
 
             if ($tool->hasOutput(OutputMode::RAW_CONSOLE_OUTPUT)) {

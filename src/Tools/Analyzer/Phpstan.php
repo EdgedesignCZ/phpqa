@@ -9,7 +9,9 @@ class Phpstan extends \Edge\QA\Tools\Tool
     public static $SETTINGS = array(
         'optionSeparator' => ' ',
         'internalClass' => 'PHPStan\Analyser\Analyser',
-        'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
+        'outputMode' => OutputMode::XML_CONSOLE_OUTPUT,
+        'xml' => ['phpstan.xml'],
+        'errorsXPath' => '//checkstyle/file/error',
         'composer' => 'phpstan/phpstan',
     );
 
@@ -50,6 +52,7 @@ class Phpstan extends \Edge\QA\Tools\Tool
         return array(
             'analyze',
             'ansi' => '',
+            'errorFormat' => 'checkstyle',
             'level' => $this->config->value('phpstan.level'),
             'configuration' => $neonFile,
             $this->options->getAnalyzedDirs(' '),
