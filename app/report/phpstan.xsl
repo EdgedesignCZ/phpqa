@@ -2,8 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
 
     <xsl:output method="html"  encoding="UTF-8"/>
-    <xsl:key name="error-category" match="/checkstyle/file/error" use="@source" />
-    <xsl:key name="file-category" match="/checkstyle/file" use="error/@source" />
+    <xsl:key name="file-category" match="/checkstyle/file" use="@name" />
     <xsl:param name="root-directory"/>
     
     <xsl:template match="/">
@@ -56,29 +55,22 @@
                         <table class="table table-striped">
                             <thead>
                                 <tr>
-                                    <th>Category</th>
+                                    <th>File</th>
                                     <th>Errors</th>
-                                    <th>Warnings</th>
-                                    <th>Files</th>
                                 </tr>
                             </thead>
                             <!-- http://stackoverflow.com/a/9589085/4587679 -->
-                            <xsl:for-each select="/checkstyle/file/error[generate-id() = generate-id(key('error-category', ./@source)[1])]">
-                                <xsl:variable name="group" select="@source"/>
+                            <xsl:for-each select="/checkstyle/file[generate-id() = generate-id(key('file-category', ./@name)[1])]">
+                                <xsl:variable name="group" select="@name"/>
                                 <tr>
-                                    <td><xsl:value-of select="$group"/></td>
-                                    <td><xsl:value-of select="count(/checkstyle/file/error[@severity='error' and @source = $group])"/></td>
-                                    <td><xsl:value-of select="count(/checkstyle/file/error[@severity='warning' and @source = $group])"/></td>
-                                    <td><xsl:value-of select="count(key('file-category', $group))" /></td>
-                                    <td></td>
+                                    <td><strong data-file=""><xsl:value-of select="$group"/></strong></td>
+                                    <td><xsl:value-of select="count(/checkstyle/file[@name = $group])"/></td>
                                 </tr>
                             </xsl:for-each>
                             <tfoot>
                                 <tr>
-                                    <td></td>
-                                    <th><span class="label label-danger"><xsl:value-of select="count(/checkstyle/file/error[@severity='error'])" /></span></th>
-                                    <th><span class="label label-warning"><xsl:value-of select="count(/checkstyle/file/error[@severity='warning'])" /></span></th>
-                                    <th><span class="label label-info"><xsl:value-of select="count(/checkstyle/file)" /></span></th>
+                                    <th><span class="label label-info"><xsl:value-of select="count(/checkstyle/file[generate-id() = generate-id(key('file-category', @name)[1])])"/></span></th>
+                                    <th><span class="label label-danger"><xsl:value-of select="count(/checkstyle/file/error)" /></span></th>
                                 </tr>
                             </tfoot>
                         </table>
@@ -128,39 +120,28 @@
                         <table class="table" data-filterable="errors">
                             <thead>
                                 <tr>
-                                    <th colspan="2">Error</th>
+                                    <th>Error</th>
                                     <th>Line</th>
-                                    <th>Column</th>
                                 </tr>
                             </thead>
-                            <xsl:for-each select="/checkstyle/file">
+                            <!-- phpstan has always one error in file, even when file contains multiple errors -->
+                            <xsl:for-each select="/checkstyle/file[generate-id() = generate-id(key('file-category', ./@name)[1])]">
+                                <xsl:variable name="group" select="@name"/>
                                 <tr>
                                     <xsl:attribute name="data-permanent">
-                                        <xsl:value-of select="@name" />
+                                        <xsl:value-of select="$group" />
                                     </xsl:attribute>
-                                    <td colspan="5" class="file"><strong data-file=""><xsl:value-of select="@name" /></strong></td>
+                                    <td colspan="3" class="file"><strong data-file=""><xsl:value-of select="$group" /></strong></td>
                                 </tr>
-                                <xsl:for-each select="./error">
+                                <xsl:for-each select="/checkstyle/file[@name = $group]/error">
                                     <tr>
                                         <xsl:attribute name="data-group">
                                             <xsl:value-of select="../@name" />
                                         </xsl:attribute>
                                         <td>
-                                            <xsl:choose>
-                                                <xsl:when test="@severity = 'error'">
-                                                    <span class="label label-danger">error</span>
-                                                </xsl:when>
-                                                <xsl:otherwise>
-                                                    <span class="label label-warning">warning</span>
-                                                </xsl:otherwise>
-                                            </xsl:choose>
-                                        </td>
-                                        <td>
-                                            <xsl:value-of select="@message" /><br />
-                                            <span class="text-muted"><xsl:value-of select="@source" /></span>
+                                            <span class="text-muted"><xsl:value-of select="@message" /></span>
                                         </td>
                                         <td><xsl:value-of select="@line" /></td>
-                                        <td><xsl:value-of select="@column" /></td>
                                     </tr>
                                 </xsl:for-each>
                             </xsl:for-each>
