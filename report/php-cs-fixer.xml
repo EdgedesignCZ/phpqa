@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PHP CS Fixer" tests="36" assertions="79" failures="79" errors="0" time="3.105">
+  <testsuite name="PHP CS Fixer" tests="36" assertions="79" failures="79" errors="0" time="3.346">
     <testcase name="/tests/IgnoredPathsTest" file="/tests/IgnoredPathsTest.php" assertions="2">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
@@ -97,7 +97,7 @@
     <testcase name="/src/Tools/Analyzer/Phpstan" file="/src/Tools/Analyzer/Phpstan.php" assertions="2">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
-* trailing_comma_in_multiline_array
+* binary_operator_spaces
 * concat_space]]></failure>
     </testcase>
     <testcase name="/src/Tools/Analyzer/PhpCsFixer" file="/src/Tools/Analyzer/PhpCsFixer.php" assertions="3">

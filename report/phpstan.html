@@ -1,38 +1,54 @@
-<h1>phpstan</h1>
-<pre id="cli">
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><title>phpstan report</title><link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><style>
+                    .file {
+                        background: #f9f9f9
+                    }
+                    .fixed-navbar {
+                        list-style-type: none;
+                        position: fixed;
+                        top: 0;
+                        right: 1em;
+                    }
+                </style><script>
+                var onDocumentReady = [
+                    function () {
+                        $('[data-file]').each(function () {
+                            var pathWithoutRoot = $(this).text().replace('/mnt/DATA/www/phpqa/', '');
+                            $(this).text(pathWithoutRoot);
+                        });
+                    }
+                ];
+                </script></head><body><div class="container-fluid"><h1>phpstan report</h1><nav><ul class="nav nav-pills" role="tablist"><li role="presentation" class="active"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a></li><li role="presentation"><a href="#errors" aria-controls="errors" role="tab" data-toggle="tab">Errors</a></li></ul></nav><div class="tab-content"><div role="tabpanel" class="tab-pane active" id="overview"><table class="table table-striped"><thead><tr><th>File</th><th>Errors</th></tr></thead><tr><td><strong data-file="">/mnt/DATA/www/phpqa/tests/OptionsTest.php</strong></td><td>7</td></tr><tr><td><strong data-file="">/mnt/DATA/www/phpqa/src/invalid/1.php</strong></td><td>1</td></tr><tr><td><strong data-file="">/mnt/DATA/www/phpqa/src/invalid/2.php</strong></td><td>1</td></tr><tfoot><tr><th><span class="label label-info">3</span></th><th><span class="label label-danger">9</span></th></tr></tfoot></table></div><div role="tabpanel" class="tab-pane" id="errors"><div class="fixed-navbar"><div class="input-group" style="width: 20em"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input data-search="errors" type="text" class="form-control" placeholder="undefined..."></div></div><script>
+                        onDocumentReady.push(function () {
+                            var groups = $('[data-filterable] tbody tr[data-permanent]');
+                            var rows = $('[data-filterable] tbody tr:not([data-permanent])');
 
- ------ ---------------------------------------------------------------------------- 
-  [32mLine[39m   [32msrc/invalid/1.php[39m                                                           
- ------ ---------------------------------------------------------------------------- 
-  3      Syntax error, unexpected &#039;;&#039;, expecting T_VARIABLE or &#039;{&#039; or &#039;$&#039; on line 3  
- ------ ---------------------------------------------------------------------------- 
+                            $("[data-search]").keyup(function () {
+                                var term = $(this).val().toLowerCase();
 
- ------ ------------------------------------------- 
-  [32mLine[39m   [32msrc/invalid/2.php[39m                          
- ------ ------------------------------------------- 
-  3      Syntax error, unexpected T_ECHO on line 3  
- ------ ------------------------------------------- 
+                                rows.hide();
+                                groups.show();
+                                matchElements(rows).show();
+                                matchEmptyGroups().hide();
 
-[37;41m                                                                                                                        [39;49m
-[37;41m [ERROR] Found 2 errors                                                                                                 [39;49m
-[37;41m                                                                                                                        [39;49m
+                                function matchElements(elements) {
+                                    return elements.filter(function () {
+                                        var rowContent = $(this).text().toLowerCase();
+                                        return rowContent.indexOf(term) !== -1
+                                    });
+                                }
 
-</pre> 
- 
-<style> 
-    html, body { 
-        margin: 0; 
-        padding: 0; 
-    } 
-    pre { 
-        background: black; 
-        color: white; 
-        padding: 1em; 
-        margin: 0; 
-    } 
-</style> 
-<script src="https://edgedesigncz.github.io/phpqa/assets/ansi_up.js"></script> 
-<script type="text/javascript"> 
-var code = document.getElementById("cli"); 
-code.innerHTML = ansi_up.ansi_to_html(code.innerHTML); 
-</script>
+                                function matchEmptyGroups() {
+                                    return groups.filter(function () {
+                                        var group = $(this).data('permanent');
+                                        return rows
+                                            .filter(function () {
+                                                return $(this).data('group') == group && $(this).is(':visible');
+                                            })
+                                            .length == 0;
+                                    });
+                                }
+                            });
+                        });
+                        </script><table class="table" data-filterable="errors"><thead><tr><th>Error</th><th>Line</th></tr></thead><tr data-permanent="/mnt/DATA/www/phpqa/tests/OptionsTest.php"><td colspan="3" class="file"><strong data-file="">/mnt/DATA/www/phpqa/tests/OptionsTest.php</strong></td></tr><tr data-group="/mnt/DATA/www/phpqa/tests/OptionsTest.php"><td><span class="text-muted">Access to an undefined property Edge\QA\OptionsTest::$fileOutput.</span></td><td>24</td></tr><tr data-group="/mnt/DATA/www/phpqa/tests/OptionsTest.php"><td><span class="text-muted">Access to an undefined property Edge\QA\OptionsTest::$fileOutput.</span></td><td>34</td></tr><tr data-group="/mnt/DATA/www/phpqa/tests/OptionsTest.php"><td><span class="text-muted">Access to an undefined property Edge\QA\OptionsTest::$fileOutput.</span></td><td>35</td></tr><tr data-group="/mnt/DATA/www/phpqa/tests/OptionsTest.php"><td><span class="text-muted">Access to an undefined property Edge\QA\OptionsTest::$fileOutput.</span></td><td>36</td></tr><tr data-group="/mnt/DATA/www/phpqa/tests/OptionsTest.php"><td><span class="text-muted">Access to an undefined property Edge\QA\OptionsTest::$fileOutput.</span></td><td>37</td></tr><tr data-group="/mnt/DATA/www/phpqa/tests/OptionsTest.php"><td><span class="text-muted">Access to an undefined property Edge\QA\OptionsTest::$fileOutput.</span></td><td>43</td></tr><tr data-group="/mnt/DATA/www/phpqa/tests/OptionsTest.php"><td><span class="text-muted">Access to an undefined property Edge\QA\OptionsTest::$fileOutput.</span></td><td>50</td></tr><tr data-permanent="/mnt/DATA/www/phpqa/src/invalid/1.php"><td colspan="3" class="file"><strong data-file="">/mnt/DATA/www/phpqa/src/invalid/1.php</strong></td></tr><tr data-group="/mnt/DATA/www/phpqa/src/invalid/1.php"><td><span class="text-muted">Syntax error, unexpected ';', expecting T_VARIABLE or '{' or '$' on line 3</span></td><td>3</td></tr><tr data-permanent="/mnt/DATA/www/phpqa/src/invalid/2.php"><td colspan="3" class="file"><strong data-file="">/mnt/DATA/www/phpqa/src/invalid/2.php</strong></td></tr><tr data-group="/mnt/DATA/www/phpqa/src/invalid/2.php"><td><span class="text-muted">Syntax error, unexpected T_ECHO on line 3</span></td><td>3</td></tr></table></div></div></div><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script>
+                $(document).ready(onDocumentReady);
+            </script></body></html>

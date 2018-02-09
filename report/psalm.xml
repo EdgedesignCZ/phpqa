@@ -107,10 +107,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php</file_path>
     <snippet>                    'phpqa' =&gt; 'cd "' . getcwd() . "\" &amp;&amp; \\\n" . PHPQA_USED_COMMAND,</snippet>
     <selected_text>PHPQA_USED_COMMAND</selected_text>
-    <from>5631</from>
-    <to>5649</to>
-    <snippet_from>5565</snippet_from>
-    <snippet_to>5650</snippet_to>
+    <from>5637</from>
+    <to>5655</to>
+    <snippet_from>5571</snippet_from>
+    <snippet_to>5656</snippet_to>
     <column>67</column>
   </item>
   <item>
@@ -1194,34 +1194,38 @@
     <snippet>    public static $SETTINGS = array(
         'optionSeparator' =&gt; ' ',
         'internalClass' =&gt; 'PHPStan\Analyser\Analyser',
-        'outputMode' =&gt; OutputMode::RAW_CONSOLE_OUTPUT,
+        'outputMode' =&gt; OutputMode::XML_CONSOLE_OUTPUT,
+        'xml' =&gt; ['phpstan.xml'],
+        'errorsXPath' =&gt; '//checkstyle/file/error',
         'composer' =&gt; 'phpstan/phpstan',
     );</snippet>
     <selected_text>$SETTINGS = array(
         'optionSeparator' =&gt; ' ',
         'internalClass' =&gt; 'PHPStan\Analyser\Analyser',
-        'outputMode' =&gt; OutputMode::RAW_CONSOLE_OUTPUT,
+        'outputMode' =&gt; OutputMode::XML_CONSOLE_OUTPUT,
+        'xml' =&gt; ['phpstan.xml'],
+        'errorsXPath' =&gt; '//checkstyle/file/error',
         'composer' =&gt; 'phpstan/phpstan',
     )</selected_text>
     <from>129</from>
-    <to>340</to>
+    <to>426</to>
     <snippet_from>111</snippet_from>
-    <snippet_to>341</snippet_to>
+    <snippet_to>427</snippet_to>
     <column>19</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>20</line_number>
+    <line_number>22</line_number>
     <type>MissingClosureParamType</type>
     <message>Parameter $relativeDir has no provided type</message>
     <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
     <snippet>                function ($relativeDir) {</snippet>
     <selected_text>$relativeDir</selected_text>
-    <from>526</from>
-    <to>538</to>
-    <snippet_from>500</snippet_from>
-    <snippet_to>541</snippet_to>
+    <from>612</from>
+    <to>624</to>
+    <snippet_from>586</snippet_from>
+    <snippet_to>627</snippet_to>
     <column>27</column>
   </item>
   <item>
@@ -1963,107 +1967,197 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_number>23</line_number>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\OptionsTest::$fileOutput is not defined in constructor of Edge\QA\OptionsTest or in any private methods called in the constructor</message>
+    <line_number>24</line_number>
+    <type>UndefinedThisPropertyAssignment</type>
+    <message>Instance property Edge\QA\OptionsTest::$fileOutput is not defined</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
-    <snippet>    private $fileOutput;</snippet>
-    <selected_text>$fileOutput</selected_text>
-    <from>604</from>
-    <to>615</to>
-    <snippet_from>592</snippet_from>
-    <snippet_to>616</snippet_to>
+    <snippet>        $this-&gt;fileOutput = $this-&gt;overrideOptions();</snippet>
+    <selected_text>$this-&gt;fileOutput</selected_text>
+    <from>610</from>
+    <to>627</to>
+    <snippet_from>602</snippet_from>
+    <snippet_to>655</snippet_to>
+    <column>9</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>34</line_number>
+    <type>UndefinedThisPropertyFetch</type>
+    <message>Instance property Edge\QA\OptionsTest::$fileOutput is not defined</message>
+    <file_name>tests/OptionsTest.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
+    <snippet>        assertThat($this-&gt;fileOutput-&gt;getAnalyzedDirs(','), is('"./"'));</snippet>
+    <selected_text>$this-&gt;fileOutput</selected_text>
+    <from>876</from>
+    <to>893</to>
+    <snippet_from>857</snippet_from>
+    <snippet_to>929</snippet_to>
+    <column>20</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>35</line_number>
+    <type>UndefinedThisPropertyFetch</type>
+    <message>Instance property Edge\QA\OptionsTest::$fileOutput is not defined</message>
+    <file_name>tests/OptionsTest.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
+    <snippet>        assertThat($this-&gt;fileOutput-&gt;getAnalyzedDirs(), is(['"./"']));</snippet>
+    <selected_text>$this-&gt;fileOutput</selected_text>
+    <from>949</from>
+    <to>966</to>
+    <snippet_from>930</snippet_from>
+    <snippet_to>1001</snippet_to>
+    <column>20</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>36</line_number>
+    <type>UndefinedThisPropertyFetch</type>
+    <message>Instance property Edge\QA\OptionsTest::$fileOutput is not defined</message>
+    <file_name>tests/OptionsTest.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
+    <snippet>        assertThat($this-&gt;fileOutput-&gt;toFile('file'), is('"build//file"'));</snippet>
+    <selected_text>$this-&gt;fileOutput</selected_text>
+    <from>1021</from>
+    <to>1038</to>
+    <snippet_from>1002</snippet_from>
+    <snippet_to>1077</snippet_to>
+    <column>20</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>37</line_number>
+    <type>UndefinedThisPropertyFetch</type>
+    <message>Instance property Edge\QA\OptionsTest::$fileOutput is not defined</message>
+    <file_name>tests/OptionsTest.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
+    <snippet>        assertThat($this-&gt;fileOutput-&gt;rawFile('file'), is('build//file'));</snippet>
+    <selected_text>$this-&gt;fileOutput</selected_text>
+    <from>1097</from>
+    <to>1114</to>
+    <snippet_from>1078</snippet_from>
+    <snippet_to>1152</snippet_to>
+    <column>20</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>43</line_number>
+    <type>UndefinedThisPropertyFetch</type>
+    <message>Instance property Edge\QA\OptionsTest::$fileOutput is not defined</message>
+    <file_name>tests/OptionsTest.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
+    <snippet>        assertThat($this-&gt;buildRunningTools($this-&gt;fileOutput, array('pdepend' =&gt; [])), is(nonEmptyArray()));</snippet>
+    <selected_text>$this-&gt;fileOutput</selected_text>
+    <from>1332</from>
+    <to>1349</to>
+    <snippet_from>1288</snippet_from>
+    <snippet_to>1397</snippet_to>
+    <column>45</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>50</line_number>
+    <type>UndefinedThisPropertyFetch</type>
+    <message>Instance property Edge\QA\OptionsTest::$fileOutput is not defined</message>
+    <file_name>tests/OptionsTest.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
+    <snippet>            $this-&gt;fileOutput,</snippet>
+    <selected_text>$this-&gt;fileOutput</selected_text>
+    <from>1615</from>
+    <to>1632</to>
+    <snippet_from>1603</snippet_from>
+    <snippet_to>1633</snippet_to>
     <column>13</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>60</line_number>
+    <line_number>57</line_number>
     <type>MissingParamType</type>
     <message>Parameter $isSavedToFiles has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)</snippet>
     <selected_text>$isSavedToFiles</selected_text>
-    <from>1935</from>
-    <to>1950</to>
-    <snippet_from>1886</snippet_from>
-    <snippet_to>1981</snippet_to>
+    <from>1885</from>
+    <to>1900</to>
+    <snippet_from>1836</snippet_from>
+    <snippet_to>1931</snippet_to>
     <column>50</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>60</line_number>
+    <line_number>57</line_number>
     <type>MissingParamType</type>
     <message>Parameter $isOutputPrinted has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)</snippet>
     <selected_text>$isOutputPrinted</selected_text>
-    <from>1952</from>
-    <to>1968</to>
-    <snippet_from>1886</snippet_from>
-    <snippet_to>1981</snippet_to>
+    <from>1902</from>
+    <to>1918</to>
+    <snippet_from>1836</snippet_from>
+    <snippet_to>1931</snippet_to>
     <column>67</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>60</line_number>
+    <line_number>57</line_number>
     <type>MissingParamType</type>
     <message>Parameter $hasReport has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)</snippet>
     <selected_text>$hasReport</selected_text>
-    <from>1970</from>
-    <to>1980</to>
-    <snippet_from>1886</snippet_from>
-    <snippet_to>1981</snippet_to>
+    <from>1920</from>
+    <to>1930</to>
+    <snippet_from>1836</snippet_from>
+    <snippet_to>1931</snippet_to>
     <column>85</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>87</line_number>
+    <line_number>84</line_number>
     <type>MissingParamType</type>
     <message>Parameter $isParallel has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function testExecute(array $opts, $isParallel)</snippet>
     <selected_text>$isParallel</selected_text>
-    <from>2870</from>
-    <to>2881</to>
-    <snippet_from>2825</snippet_from>
-    <snippet_to>2882</snippet_to>
+    <from>2820</from>
+    <to>2831</to>
+    <snippet_from>2775</snippet_from>
+    <snippet_to>2832</snippet_to>
     <column>46</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>103</line_number>
+    <line_number>100</line_number>
     <type>MissingParamType</type>
     <message>Parameter $analyzedDirs has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildRootPath($analyzedDirs, $expectedRoot)</snippet>
     <selected_text>$analyzedDirs</selected_text>
-    <from>3444</from>
-    <to>3457</to>
-    <snippet_from>3406</snippet_from>
-    <snippet_to>3473</snippet_to>
+    <from>3394</from>
+    <to>3407</to>
+    <snippet_from>3356</snippet_from>
+    <snippet_to>3423</snippet_to>
     <column>39</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>103</line_number>
+    <line_number>100</line_number>
     <type>MissingParamType</type>
     <message>Parameter $expectedRoot has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildRootPath($analyzedDirs, $expectedRoot)</snippet>
     <selected_text>$expectedRoot</selected_text>
-    <from>3459</from>
-    <to>3472</to>
-    <snippet_from>3406</snippet_from>
-    <snippet_to>3473</snippet_to>
+    <from>3409</from>
+    <to>3422</to>
+    <snippet_from>3356</snippet_from>
+    <snippet_to>3423</snippet_to>
     <column>54</column>
   </item>
   <item>

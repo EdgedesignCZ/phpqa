@@ -1,6 +1,14 @@
 
 # Changelog
 
+## v1.18.0
+
+* **phpstan**
+    * [#108](https://github.com/EdgedesignCZ/phpqa/issues/108) - pretty html report, checkstyle output (_BC, requires phpstan >= [0.8](https://github.com/phpstan/phpstan/releases/tag/0.8)_)
+    * [#110](https://github.com/EdgedesignCZ/phpqa/issues/110) - use entire phpstan config, not just parameters
+
+![screenshot from 2018-02-08 19 41 21](https://user-images.githubusercontent.com/7994022/35991629-11ffea0a-0d08-11e8-9b3b-9cf8afa6941a.png)
+
 ## v1.17.0
 
 * [#98](https://github.com/EdgedesignCZ/phpqa/pull/98) - allow multiple configurations in `--config`
