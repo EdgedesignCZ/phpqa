@@ -80,7 +80,7 @@
                         <div class="fixed-navbar">
                             <div class="input-group" style="width: 20em">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span>
-                                <input data-search="errors" type="text" class="form-control" placeholder="sideeffect..." />
+                                <input data-search="errors" type="text" class="form-control" placeholder="undefined..." />
                             </div>
                         </div>
                         <script>
