@@ -26,22 +26,25 @@ class Phpstan extends \Edge\QA\Tools\Tool
 
         $defaultConfig = $this->config->path('phpstan.standard') ?: (getcwd() . '/phpstan.neon');
         if (file_exists($defaultConfig)) {
-            $params = \Nette\Neon\Neon::decode(file_get_contents($defaultConfig))['parameters'] + [
-                'excludes_analyse' => []
+            $config = \Nette\Neon\Neon::decode(file_get_contents($defaultConfig));
+            $config['parameters'] += [
+                'excludes_analyse' => [],
             ];
         } else {
-            $params = [
-                'autoload_directories' => $createAbsolutePaths($this->options->getAnalyzedDirs()),
-                'excludes_analyse' => [],
+            $config = [
+                'parameters' => [
+                    'autoload_directories' => $createAbsolutePaths($this->options->getAnalyzedDirs()),
+                    'excludes_analyse'     => [],
+                ],
             ];
         }
 
-        $params['excludes_analyse'] = array_merge(
-            $params['excludes_analyse'],
+        $config['parameters']['excludes_analyse'] = array_merge(
+            $config['parameters']['excludes_analyse'],
             $createAbsolutePaths($this->options->ignore->phpstan())
         );
 
-        $phpstanConfig = "# Configuration generated in phpqa\n" . \Nette\Neon\Neon::encode(['parameters' => $params]);
+        $phpstanConfig = "# Configuration generated in phpqa\n" . \Nette\Neon\Neon::encode($config);
         $neonFile = $this->saveDynamicConfig($phpstanConfig, 'neon');
 
         return array(
