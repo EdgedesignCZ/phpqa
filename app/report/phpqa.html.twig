@@ -1,12 +1,13 @@
+{% set phpmetricsVersion = versions['phpmetrics'].version_normalized | number_format %}
 {%
 set tabs = {
-    'phpmetrics': {
+    'phpmetrics': phpmetricsVersion == 1 ? {
         'link-overview': 'Overview',
         'link-score': 'Score',
         'link-relations': 'Relations map',
         'link-repartition': 'Repartition',
         'link-explore': 'Explore',
-    }, 
+    } : [], 
     'pdepend': {
         'overview': 'Overview',
         'packages': 'Packages',
