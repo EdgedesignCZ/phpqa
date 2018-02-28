@@ -35,6 +35,11 @@ class Phpcs extends \Edge\QA\Tools\Tool
             $this->options->getAnalyzedDirs(' '),
             'extensions' => $this->config->csv('extensions')
         );
+
+        if ($this->tool->errorsType) {
+            $args[] = '-n';
+        }
+        
         if ($this->options->isSavedToFiles) {
             $reports = ['checkstyle' => 'checkstyle.xml'] + $this->config->value('phpcs.reports.file');
             foreach ($reports as $report => $file) {
