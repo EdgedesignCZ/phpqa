@@ -7,7 +7,14 @@ set tabs = {
         'link-relations': 'Relations map',
         'link-repartition': 'Repartition',
         'link-explore': 'Explore',
-    } : [], 
+    } : {
+        'index.html': 'Overview',
+        'violations.html': 'Violations',
+        'loc.html': 'Size & volume',
+        'complexity.html': 'Complexity & defects',
+        'oop.html': 'Object oriented metrics',
+        'relations.html': 'Object relations',
+    }, 
     'pdepend': {
         'overview': 'Overview',
         'packages': 'Packages',
@@ -262,8 +269,13 @@ set tabs = {
             '#phpmd': openBootstrap,
             '#phpcpd': openBootstrap,
             '#phploc': openBootstrap,
-            '#phpmetrics': function(iframe, tab) {
-                iframe.document.getElementById(tab).onclick();
+            '#phpmetrics': function(window, tab, iframe) {
+                {% if phpmetricsVersion == 1 %}
+                window.document.getElementById(tab).onclick();
+                {% else %}
+                var url = $('#iframe-phpmetrics').attr('data-src').replace('index.html', tab);
+                iframe.src = url;
+                {% endif %}    
             },
             '#psalm': openBootstrap,
         };
@@ -335,7 +347,7 @@ set tabs = {
                     var target = navLink.data('iframe-tab');
                     if (target) {
                         var tabOpener = tabsInIframe[navLink.attr('href')];
-                        tabOpener(iframe.contentWindow, target);
+                        tabOpener(iframe.contentWindow, target, iframe);
                     }
                 }
 
