@@ -54,6 +54,9 @@ class Psalm extends \Edge\QA\Tools\Tool
         }
 
         foreach ($this->options->getAnalyzedDirs() as $dir) {
+            if (!is_dir($dir)) {
+                continue;
+            }
             $xml->projectFiles
                 ->addChild('directory')
                 ->addAttribute('name', trim($dir, '"'));
