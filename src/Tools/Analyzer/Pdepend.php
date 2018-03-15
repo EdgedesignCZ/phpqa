@@ -12,7 +12,7 @@ class Pdepend extends \Edge\QA\Tools\Tool
 
     public function __invoke()
     {
-        return array(
+        $args = array(
             'jdepend-xml' => $this->options->toFile('pdepend-jdepend.xml'),
             'summary-xml' => $this->options->toFile('pdepend-summary.xml'),
             'dependency-xml' => $this->options->toFile('pdepend-dependencies.xml'),
@@ -22,5 +22,11 @@ class Pdepend extends \Edge\QA\Tools\Tool
             $this->options->ignore->pdepend(),
             $this->options->getAnalyzedDirs(',')
         );
+        if ($coverage_report = $this->config->value('pdepend.coveragereport')) {
+            if (is_file($coverage_report)) {
+                $args['coverage-report'] = $coverage_report;
+            }
+        }
+        return $args;
     }
 }
