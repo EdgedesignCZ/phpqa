@@ -20,6 +20,11 @@ class PhpMetricsV2 extends \Edge\QA\Tools\Tool
             $args['report-html'] = $this->options->toFile('phpmetrics/');
             $args['report-violations'] = $this->options->toFile('phpmetrics.xml');
         }
+        if ($junit = $this->config->value('phpmetrics.junit')) {
+            if (is_file($junit)) {
+                $args['junit'] = $junit;
+            }
+        }
         $args[] = $this->options->getAnalyzedDirs(',');
         return $args;
     }
