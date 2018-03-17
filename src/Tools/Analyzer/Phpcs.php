@@ -47,6 +47,9 @@ class Phpcs extends \Edge\QA\Tools\Tool
             foreach ($this->config->value('phpcs.reports.cli') as $report) {
                 $args["report-{$report}"] = '';
             }
+            if ($this->config->value('phpcs.ignoreWarnings')) {
+                $args['warning-severity'] = 0;
+            }
         }
 
         return $args;
