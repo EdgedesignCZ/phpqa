@@ -60,6 +60,12 @@ Tool | PHP | Supported since | Description | Status |
 
 _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
 
+or the following command to install all of them globally
+
+```
+composer global require sensiolabs/security-checker friendsofphp/php-cs-fixer phpstan/phpstan vimeo/psalm jakub-onderka/php-parall
+```
+
 ## Install
 
 ### Clone + composer
