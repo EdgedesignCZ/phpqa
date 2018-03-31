@@ -24,6 +24,9 @@ php-cs-fixer:
 phpmd:
     standard: app/phpmd.xml
 
+pdepend:
+    # coverageReport: build/coverage-clover.xml
+
 phpcpd:
     minLines: 5
     minTokens: 70

@@ -12,15 +12,20 @@ class Pdepend extends \Edge\QA\Tools\Tool
 
     public function __invoke()
     {
-        return array(
+        $args = array(
             'jdepend-xml' => $this->options->toFile('pdepend-jdepend.xml'),
             'summary-xml' => $this->options->toFile('pdepend-summary.xml'),
             'dependency-xml' => $this->options->toFile('pdepend-dependencies.xml'),
             'jdepend-chart' => $this->options->toFile('pdepend-jdepend.svg'),
             'overview-pyramid' => $this->options->toFile('pdepend-pyramid.svg'),
             'suffix' => $this->config->csv('extensions'),
-            $this->options->ignore->pdepend(),
-            $this->options->getAnalyzedDirs(',')
+            $this->options->ignore->pdepend()
         );
+        $coverageReport = $this->config->value('pdepend.coverageReport');
+        if ($coverageReport) {
+            $args['coverage-report'] = $coverageReport;
+        }
+        $args[] = $this->options->getAnalyzedDirs(',');
+        return $args;
     }
 }

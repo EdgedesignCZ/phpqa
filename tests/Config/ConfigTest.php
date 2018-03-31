@@ -33,6 +33,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpmetrics.junit'), is(nullValue()));
         assertThat($config->value('phpmetrics.composer'), is(nullValue()));
         assertThat($config->value('phpmetrics.git'), identicalTo(false));
+        assertThat($config->value('pdepend.coverageReport'), is(nullValue()));
     }
 
     public function testBuildAbsolutePath()
