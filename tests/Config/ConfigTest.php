@@ -31,6 +31,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('psalm.showInfo'), identicalTo(true));
         assertThat($config->value('phpmetrics.config'), is(nullValue()));
         assertThat($config->value('phpmetrics.junit'), is(nullValue()));
+        assertThat($config->value('phpmetrics.composer'), is(nullValue()));
         assertThat($config->value('phpmetrics.git'), identicalTo(false));
     }
 

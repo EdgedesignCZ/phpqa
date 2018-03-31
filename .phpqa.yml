@@ -34,6 +34,7 @@ phpmetrics:
     # v2
     git: false
     # junit: build/log-junit.xml
+    # composer: composer.json
 
 phpstan:
     level: 0

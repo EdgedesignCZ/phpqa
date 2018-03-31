@@ -31,7 +31,12 @@ class PhpMetricsV2 extends \Edge\QA\Tools\Tool
             $args['junit'] = $junit;
         }
 
-        $args[] = $this->options->getAnalyzedDirs(',');
+        $analyzedDirs = $this->options->getAnalyzedDirs(',');
+        $composer = $this->config->path('phpmetrics.composer');
+        if ($composer) {
+            $analyzedDirs .= ",{$composer}," . str_replace('composer.json', 'composer.lock', $composer);
+        }
+        $args[] = $analyzedDirs;
         return $args;
     }
 }
