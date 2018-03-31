@@ -29,7 +29,10 @@ phpcpd:
     minTokens: 70
 
 phpmetrics:
+    # v1
     config: null
+    # v2
+    git: false
 
 phpstan:
     level: 0

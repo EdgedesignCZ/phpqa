@@ -20,6 +20,10 @@ class PhpMetricsV2 extends \Edge\QA\Tools\Tool
             $args['report-html'] = $this->options->toFile('phpmetrics/');
             $args['report-violations'] = $this->options->toFile('phpmetrics.xml');
         }
+        $gitBinary = $this->config->value('phpmetrics.git');
+        if ($gitBinary) {
+            $args['git'] = is_file($gitBinary) ? $gitBinary : 'git';
+        }
         $args[] = $this->options->getAnalyzedDirs(',');
         return $args;
     }
