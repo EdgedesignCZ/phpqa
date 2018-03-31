@@ -226,7 +226,8 @@ Tool | Settings | Default Value | Your value
 [php-cs-fixer.config](http://cs.sensiolabs.org/#usage) | Load configuration from [file](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/.php_cs.dist) | `null` | Path to `.phpcs` file
 [php-cs-fixer.isDryRun](http://cs.sensiolabs.org/#usage) | If code is just analyzed or fixers are applied  | `true` | Boolean value
 [phpmetrics.config](https://github.com/EdgedesignCZ/phpqa/issues/74) | Configuration for phpmetrics v1  | `null` | Path to `.phpmetrics.yml` file
-[phpmetrics.git](https://github.com/EdgedesignCZ/phpqa/issues/74) | phpmetrics v2 supports basic git statistics  | `null` | Boolean value or path to git binary
+[phpmetrics.git](https://github.com/EdgedesignCZ/phpqa/pull/122) | phpmetrics v2 analyses based on Git History   | `null` | Boolean value or path to git binary
+[phpmetrics.junit](https://github.com/EdgedesignCZ/phpqa/pull/125) | phpmetrics v2 evaluates metrics according to JUnit logs | `null` | Path to JUnit xml
 [phpmd](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset
 [phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens |
 [phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file | Level 0, `%currentWorkingDirectory%/phpstan.neon` | Take a look at [phpqa config in tests/.travis](/tests/.travis/) |

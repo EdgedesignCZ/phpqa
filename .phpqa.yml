@@ -33,6 +33,7 @@ phpmetrics:
     config: null
     # v2
     git: false
+    # junit: build/log-junit.xml
 
 phpstan:
     level: 0
