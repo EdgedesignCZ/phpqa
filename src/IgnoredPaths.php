@@ -2,6 +2,7 @@
 
 namespace Edge\QA;
 
+/** @SuppressWarnings(PHPMD.TooManyPublicMethods) */
 class IgnoredPaths
 {
     private $ignoreDirs;
@@ -27,9 +28,36 @@ class IgnoredPaths
         return array_filter(explode(',', $csv), 'trim');
     }
 
+    public function listOfValue($optionKey, $optionSeparator, $valuesSeparator, $dirPattern = '%s', $filePattern = '%s')
+    {
+        $dirs = array_map(function ($dir) use ($dirPattern) {
+            return sprintf($dirPattern, $dir);
+        }, $this->ignoreDirs);
+        $files = array_map(function ($file) use ($filePattern) {
+            return sprintf($filePattern, $file);
+        }, $this->ignoreFiles);
+
+        if (count($dirs) === 0 && count($files) === 0) {
+            return '';
+        }
+
+        return ' ' . $optionKey . $optionSeparator . implode($valuesSeparator, array_merge($dirs, $files));
+    }
+
+    public function listOfOption($optionKey, $optionSeparator, $dirPattern = '%s', $filePattern = '%s')
+    {
+        return $this->listOfValue(
+            $optionKey,
+            $optionSeparator,
+            ' ' . $optionKey . $optionSeparator,
+            $dirPattern,
+            $filePattern
+        );
+    }
+
     public function phpcs()
     {
-        return $this->ignore(' --ignore=*/', '/*,*/', '/*', ',');
+        return $this->listOfValue('--ignore', '=', ',', '*/%s/*');
     }
 
     public function pdepend()
@@ -37,7 +65,7 @@ class IgnoredPaths
         if ($this->isWindows) {
             return $this->pdependWindowsFilter('ignore');
         }
-        return $this->ignore(' --ignore=/', '/,/', '/', ',/');
+        return $this->listOfValue('--ignore', '=', ',', '/%s/', '/%s');
     }
 
     public function phpmd()
@@ -45,32 +73,34 @@ class IgnoredPaths
         if ($this->isWindows) {
             return $this->pdependWindowsFilter('exclude');
         }
-        return $this->ignore(" --exclude /", '/,/', '/', ',/');
+        return $this->listOfValue('--exclude', ' ', ',', '/%s/', '/%s');
     }
 
     private function pdependWindowsFilter($option)
     {
-        return $this->ignore(" --{$option}=", '\*,', '\*', ',');
+        return $this->listOfValue('--' . $option, '=', ',', '%s\*');
     }
 
     public function phpmetrics()
     {
-        return $this->ignore(' --excluded-dirs="', '|', '"');
+        $result = $this->listOfValue('--excluded-dirs', '="', '|');
+        return empty($result)? '' : $result . '"';
     }
 
     public function phpmetrics2()
     {
-        return $this->ignore(' --exclude="', ',', '"');
+        $result = $this->listOfValue('--exclude', '="', ',');
+        return empty($result)? '' : $result . '"';
     }
 
     public function bergmann()
     {
-        return $this->ignore(' --exclude=', ' --exclude=', '');
+        return $this->listOfOption('--exclude', '=');
     }
 
     public function parallelLint()
     {
-        return $this->ignore(' --exclude ', ' --exclude ', '');
+        return $this->listOfOption('--exclude', ' ');
     }
 
     public function phpstan()
@@ -84,25 +114,5 @@ class IgnoredPaths
             'file' => $this->ignoreFiles,
             'directory' => $this->ignoreDirs,
         );
-    }
-
-    private function ignore($before, $dirSeparator, $after, $fileSeparator = null)
-    {
-        if ($fileSeparator) {
-            if ($this->ignoreDirs) {
-                $files = $this->implode($this->ignoreFiles, $fileSeparator, $fileSeparator);
-                return $this->implode($this->ignoreDirs, $before, $dirSeparator, "{$after}{$files}");
-            } else {
-                $ignoredFiles = $this->implode($this->ignoreFiles, $before, $fileSeparator);
-                return str_replace('*/', '', $ignoredFiles); // phpcs hack
-            }
-        } else {
-            return $this->implode($this->ignoreBoth, $before, $dirSeparator, $after);
-        }
-    }
-
-    private function implode(array $input, $before, $separator, $after = '')
-    {
-        return $input && $separator ? ($before . implode($separator, $input) . $after) : '';
     }
 }
