@@ -66,8 +66,7 @@ _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for insta
 
 ```bash
 # install phpqa
-git clone https://github.com/EdgedesignCZ/phpqa.git
-composer install --no-dev
+git clone https://github.com/EdgedesignCZ/phpqa.git && cd phpqa && composer install --no-dev
 
 # make phpqa globally accessible
 ## you can symlink binary
