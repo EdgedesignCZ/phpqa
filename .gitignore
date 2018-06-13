@@ -5,4 +5,3 @@ phpstan-phpqa.neon
 .php_cs
 .php_cs.cache
 psalm-phpqa.xml
-.idea/
