@@ -14,7 +14,7 @@ set tabs = {
         'complexity.html': 'Complexity & defects',
         'oop.html': 'Object oriented metrics',
         'relations.html': 'Object relations',
-    }, 
+    },
     'pdepend': {
         'overview': 'Overview',
         'packages': 'Packages',
@@ -27,24 +27,24 @@ set tabs = {
         'metrics-class': 'Class metrics',
         'metrics-method': 'Method metrics',
         'metrics-function': 'Function metrics',
-    }, 
+    },
     'phpcs': {
         'overview': 'Overview',
         'errors': 'Errors',
-    }, 
+    },
     'php-cs-fixer': {
         'overview': 'Overview',
         'errors': 'Errors',
-    }, 
+    },
     'phpmd': {
         'overview': 'Overview',
         'errors': 'Errors',
         'parsing': 'Parsing Errors',
-    }, 
+    },
     'phpcpd': {
         'overview': 'Overview',
         'errors': 'Errors',
-    }, 
+    },
     'phploc': {
         'overview': 'Overview',
         'ccn': 'Cyclomatic Complexity',
@@ -140,7 +140,7 @@ set tabs = {
         </div>
       </div>
     </nav>
-                
+
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="phpqa">
             <div class="container-fluid">
@@ -199,7 +199,7 @@ set tabs = {
                                             <td>
                                                 <span class="label label-success">✓</span>
                                             </td>
-                                            {% else %}   
+                                            {% else %}
                                             <td data-toggle="tooltip" data-placement="left" title="{{ not isPhpqa ? ('Errors count is greater than '~result.allowedErrorsCount) : '' }}">
                                                 <span class="label label-danger">x</a>
                                             </td>
@@ -275,7 +275,7 @@ set tabs = {
                 {% else %}
                 var url = $('#iframe-phpmetrics').attr('data-src').replace('index.html', tab);
                 iframe.src = url;
-                {% endif %}    
+                {% endif %}
             },
             '#psalm': openBootstrap,
         };
@@ -283,16 +283,25 @@ set tabs = {
         listenOnTabChange();
         activateTooltips();
         listenOnFileModal();
+        loadFromHash();
 
         function openBootstrap(iframe, tab) {
             iframe.$("nav [aria-controls=" + tab + "]").tab('show');
         }
-        
+
+        function loadFromHash() {
+          var hash = location.hash ? location.hash : '#phpqa';
+          var activeTab = $('.navbar-nav [href="' + hash + '"]').first();
+          if (activeTab.length) {
+            activeTab.click();
+          }
+        }
+
         function listenOnTabChange() {
             onNavLink();
             onExternalLink();
             onHashChange();
-            
+
             function onNavLink() {
                 $('.navbar-nav a').click(function (e) {
                     e.preventDefault();
@@ -336,10 +345,10 @@ set tabs = {
                     navLink.tab('show');
                     updateBrowserHistory(navLink);
                 }
-                
+
                 function updateBrowserHistory(link) {
                     if (window.history && window.history.pushState) {
-                        history.pushState(null, null, link.attr('href'));  
+                        history.pushState(null, null, link.attr('href'));
                     }
                 }
 
@@ -358,7 +367,7 @@ set tabs = {
                     }
                 }
             }
-            
+
             function onExternalLink() {
                 $('[data-tool-link]').click(function (e) {
                     e.preventDefault();
@@ -368,15 +377,11 @@ set tabs = {
 
             function onHashChange() {
                 window.addEventListener("popstate", function(e) {
-                    var hash = location.hash ? location.hash : '#phpqa';
-                    var activeTab = $('.navbar-nav [href="' + hash + '"]').first();
-                    if (activeTab.length) {
-                        activeTab.tab('show');
-                    }
+                    loadFromHash();
                 });
             }
         }
-        
+
         function activateTooltips() {
             $('[data-toggle="tooltip"]').tooltip()
         }
