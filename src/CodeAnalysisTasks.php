@@ -44,7 +44,9 @@ trait CodeAnalysisTasks
             'buildDir' => 'build/',
             'ignoredDirs' => 'vendor',
             'ignoredFiles' => '',
-            'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics,parallel-lint',
+            'tools' => 
+                'phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpcpd,' .
+                'phpstan,phpunit,psalm,security-checker,parallel-lint',
             'output' => 'file',
             'config' => '',
             'report' => '',
