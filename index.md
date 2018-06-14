@@ -45,18 +45,17 @@ Tool| Description
 ##### Suggested tools 
 
 Newly added tools aren't preinstalled. You have to install relevant composer packages if
-you want to use them. 
-Stable tool is executed if composer package is installed. 
-Experimental tool is executed only if the tool is specified in `--tools`.
+you want to use them.
 
-Tool | PHP | Supported since | Description | Status |
----- | --- | --------------- | ----------- | ------ |
-[security-checker](https://github.com/sensiolabs/security-checker) | `>= 5.3` | `1.16` | Check composer.lock for known security issues | stable |
-[php-cs-fixer](http://cs.sensiolabs.org/) | [`>= 5.3`](https://github.com/EdgedesignCZ/phpqa/pull/66#discussion_r115206573) | `1.12` | Automatically detect and fix PHP coding standards issues | stable |
-[phpunit](https://github.com/phpunit/phpunit) | `>= 5.3` | `1.13` | The PHP Unit Testing framework | stable |
-[phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it | _experimental_ ([`>= v0.8`](https://github.com/EdgedesignCZ/phpqa/pull/43)) |
-[psalm](https://github.com/vimeo/psalm) | `>= 5.6` | `1.14` | A static analysis tool for finding errors in PHP applications | stable |
-[parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files | stable |
+Tool | PHP | Supported since | Description |
+---- | --- | --------------- | ----------- |
+[security-checker](https://github.com/sensiolabs/security-checker) | `>= 5.3` | `1.16` | Check composer.lock for known security issues |
+[php-cs-fixer](http://cs.sensiolabs.org/) | [`>= 5.3`](https://github.com/EdgedesignCZ/phpqa/pull/66#discussion_r115206573) | `1.12` | Automatically detect and fix PHP coding standards issues |
+[phpunit](https://github.com/phpunit/phpunit) | `>= 5.3` | `1.13` | The PHP Unit Testing framework |
+[phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it |
+[psalm](https://github.com/vimeo/psalm) | `>= 5.6` | `1.14` | A static analysis tool for finding errors in PHP applications |
+[parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files |
+[MacFJA/phpqa-extensions](https://github.com/MacFJA/phpqa-extensions) | - | - | PHP Assumptions, Magic Number Detector, ... |
 
 _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
 
@@ -66,8 +65,7 @@ _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for insta
 
 ```bash
 # install phpqa
-git clone https://github.com/EdgedesignCZ/phpqa.git
-composer install --no-dev
+git clone https://github.com/EdgedesignCZ/phpqa.git && cd phpqa && composer install --no-dev
 
 # make phpqa globally accessible
 ## you can symlink binary
@@ -131,9 +129,9 @@ Beware that the image is as lean as possible. That can be a problem for running 
 In that case, you might miss PHP extensions for database etc (_you can [install phpqa](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/get-phpqa-binary#L40) in another [php image](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/.gitlab-ci.yml#L28)_). 
 
 ```bash
-docker run --rm -it zdenekdrahos/phpqa:v1.18.0 phpqa tools
+docker run --rm -it zdenekdrahos/phpqa:v1.19.0 phpqa tools
 # using a tool without phpqa
-docker run --rm -it zdenekdrahos/phpqa:v1.18.0 phploc -v
+docker run --rm -it zdenekdrahos/phpqa:v1.19.0 phploc -v
 ```
 
 There are also available images [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/) and [sparkfabrik/docker-phpqa](https://hub.docker.com/r/sparkfabrik/docker-phpqa/).
@@ -225,6 +223,11 @@ Tool | Settings | Default Value | Your value
 [php-cs-fixer.allowRiskyRules](http://cs.sensiolabs.org/#usage) | Whether risky rules may run  | `false` | Boolean value
 [php-cs-fixer.config](http://cs.sensiolabs.org/#usage) | Load configuration from [file](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/.php_cs.dist) | `null` | Path to `.phpcs` file
 [php-cs-fixer.isDryRun](http://cs.sensiolabs.org/#usage) | If code is just analyzed or fixers are applied  | `true` | Boolean value
+[phpmetrics.config](https://github.com/EdgedesignCZ/phpqa/issues/74) | Configuration for phpmetrics v1  | `null` | Path to `.phpmetrics.yml` file
+[phpmetrics.git](https://github.com/EdgedesignCZ/phpqa/pull/122) | phpmetrics v2 analyses based on Git History   | `null` | Boolean value or path to git binary
+[phpmetrics.junit](https://github.com/EdgedesignCZ/phpqa/pull/125) | phpmetrics v2 evaluates metrics according to JUnit logs | `null` | Path to JUnit xml
+[phpmetrics.composer](https://github.com/EdgedesignCZ/phpqa/pull/123) | phpmetrics v2 analyzes composer dependencies | `null` | Path to composer.json when the file is not included in `analyzedDirs`
+[pdepend.coverageReport](https://github.com/EdgedesignCZ/phpqa/pull/124) | Load Clover style CodeCoverage report | `null` | Path to report produced by PHPUnit's `--coverage-clover` option
 [phpmd](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset
 [phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens |
 [phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file | Level 0, `%currentWorkingDirectory%/phpstan.neon` | Take a look at [phpqa config in tests/.travis](/tests/.travis/) |
@@ -412,7 +415,7 @@ stages:
 
 test:
   stage: test
-  image: zdenekdrahos/phpqa:v1.18.0
+  image: zdenekdrahos/phpqa:v1.19.0
   variables:
     BACKEND_QA: "*/backend/var/QA"
     BACKEND_CACHE: $CI_PROJECT_DIR/.composercache
