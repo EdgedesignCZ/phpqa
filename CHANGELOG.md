@@ -1,6 +1,20 @@
 
 # Changelog
 
+## v1.19.0
+
+* **HTML reports**
+    * [#117](https://github.com/EdgedesignCZ/phpqa/pull/117) - fix phpmetrics menu
+    * [#133](https://github.com/EdgedesignCZ/phpqa/pull/133) - load correct initial page
+* **.phpqa.yml**
+    * [#128](https://github.com/EdgedesignCZ/phpqa/pull/128) - .phpqa.yml options - phpmetrics (git, junit, composer), pdepend (coverage report
+    * [#134](https://github.com/EdgedesignCZ/phpqa/pull/134) - keep tools order from --tools option
+* _Other_
+    * [#119](https://github.com/EdgedesignCZ/phpqa/pull/119) - fix ignoring PHPCS warnings in CLI mode
+    * [#131](https://github.com/EdgedesignCZ/phpqa/pull/131) - fix clone + composer installation
+    * [#132](https://github.com/EdgedesignCZ/phpqa/pull/132) - fix Travis build (hhvm, psalm)
+    * [#135](https://github.com/EdgedesignCZ/phpqa/pull/135) - update pdepend, suggested tools doc
+
 ## v1.18.0
 
 * **phpstan**
