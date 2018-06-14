@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle version="2.9.1">
+<file name="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php">
+ <error line="47" column="136" severity="warning" message="Line exceeds 120 characters; contains 136 characters" source="Generic.Files.LineLength.TooLong"/>
+</file>
 <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php">
  <error line="23" column="14" severity="error" message="Each PHP statement must be on a line by itself" source="Generic.Formatting.DisallowMultipleStatements.SameLine"/>
 </file>

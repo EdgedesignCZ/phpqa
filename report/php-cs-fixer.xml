@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PHP CS Fixer" tests="36" assertions="79" failures="79" errors="0" time="3.346">
+  <testsuite name="PHP CS Fixer" tests="36" assertions="81" failures="81" errors="0" time="3.063">
     <testcase name="/tests/IgnoredPathsTest" file="/tests/IgnoredPathsTest.php" assertions="2">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
@@ -89,10 +89,11 @@
 ---------------
 * blank_line_before_return]]></failure>
     </testcase>
-    <testcase name="/src/Tools/Analyzer/Pdepend" file="/src/Tools/Analyzer/Pdepend.php" assertions="1">
+    <testcase name="/src/Tools/Analyzer/Pdepend" file="/src/Tools/Analyzer/Pdepend.php" assertions="2">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
-* trailing_comma_in_multiline_array]]></failure>
+* trailing_comma_in_multiline_array
+* blank_line_before_return]]></failure>
     </testcase>
     <testcase name="/src/Tools/Analyzer/Phpstan" file="/src/Tools/Analyzer/Phpstan.php" assertions="2">
       <failure type="code_style"><![CDATA[applied fixers:
@@ -118,10 +119,11 @@
 ---------------
 * blank_line_before_return]]></failure>
     </testcase>
-    <testcase name="/src/Tools/Analyzer/PhpMetricsV2" file="/src/Tools/Analyzer/PhpMetricsV2.php" assertions="2">
+    <testcase name="/src/Tools/Analyzer/PhpMetricsV2" file="/src/Tools/Analyzer/PhpMetricsV2.php" assertions="3">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
 * trailing_comma_in_multiline_array
+* concat_space
 * blank_line_before_return]]></failure>
     </testcase>
     <testcase name="/src/Tools/Analyzer/Psalm" file="/src/Tools/Analyzer/Psalm.php" assertions="2">

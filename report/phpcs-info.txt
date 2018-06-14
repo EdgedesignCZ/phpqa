@@ -3,7 +3,7 @@ PHP CODE SNIFFER INFORMATION REPORT
 ----------------------------------------------------------------------
 CamelCase class name: yes [38/38, 100%]
 
-CamelCase method name: yes [133/133, 100%]
+CamelCase method name: yes [135/135, 100%]
 
 Class defined in namespace: yes [38/38, 100%]
 
@@ -11,21 +11,22 @@ Class opening brace placement: new line [38/38, 100%]
 
 Constant name case: upper [5/5, 100%]
 
-Control structure defined inline: no [138/138, 100%]
+Control structure defined inline: no [143/143, 100%]
 
 Declarations and side effects mixed: no [42/42, 100%]
 
 EOL char: \n [42/42, 100%]
 
-Function opening brace placement: new line [168/181, 92.82%]
-	same line => 13 (7.18%)
+Function opening brace placement: new line [170/184, 92.39%]
+	same line => 14 (7.61%)
 
-Line indent: spaces [1982/1982, 100%]
+Line indent: spaces [2025/2025, 100%]
 
-Line length: 80 or less [2119/2257, 93.89%]
-	81-120 => 138 (6.11%)
+Line length: 80 or less [2159/2300, 93.87%]
+	81-120 => 140 (6.09%)
+	121-150 => 1 (0.04%)
 
-Multiple statements on same line: no [745/746, 99.87%]
+Multiple statements on same line: no [769/770, 99.87%]
 	yes => 1 (0.13%)
 
 Number of newlines at EOF: 1 [42/42, 100%]
@@ -34,15 +35,15 @@ One class per file: yes [38/38, 100%]
 
 PHP closing tag at end of PHP-only file: no [42/42, 100%]
 
-PHP constant case: lower [79/79, 100%]
+PHP constant case: lower [80/80, 100%]
 
-PHP keyword case: lower [1066/1066, 100%]
+PHP keyword case: lower [1079/1079, 100%]
 
 PHP short open tag used: no [42/42, 100%]
 
-Spaces after control structure open parenthesis: 0 [121/121, 100%]
+Spaces after control structure open parenthesis: 0 [126/126, 100%]
 
-Spaces before control structure close parenthesis: 0 [121/121, 100%]
+Spaces before control structure close parenthesis: 0 [126/126, 100%]
 
 Use of ELSE IF or ELSEIF: elseif [5/5, 100%]
 

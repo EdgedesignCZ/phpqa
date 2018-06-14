@@ -16,10 +16,10 @@
  <error line="37" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
 </file>
 <file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php">
- <error line="43" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
+ <error line="50" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
 </file>
 <file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php">
- <error line="50" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
+ <error line="57" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
 </file>
 <file name="/mnt/DATA/www/phpqa/src/invalid/1.php">
  <error line="3" column="1" severity="error" message="Syntax error, unexpected ';', expecting T_VARIABLE or '{' or '$' on line 3"/>

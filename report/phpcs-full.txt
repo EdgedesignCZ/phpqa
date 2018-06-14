@@ -1,4 +1,12 @@
 
+FILE: /mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php
+----------------------------------------------------------------------
+FOUND 0 ERRORS AND 1 WARNING AFFECTING 1 LINE
+----------------------------------------------------------------------
+ 47 | WARNING | Line exceeds 120 characters; contains 136 characters
+----------------------------------------------------------------------
+
+
 FILE: /mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php
 ----------------------------------------------------------------------
 FOUND 1 ERROR AFFECTING 1 LINE

@@ -20,6 +20,7 @@ Edge\QA\IgnoredPaths
 
 Edge\QA\Options
  [x] Escape paths
+ [x] Respect tools order defined in option
  [x] Ignore pdepend in cli output
  [x] Ignore not installed tool
  [x] Build output

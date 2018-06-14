@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd-cpd>
   <duplication lines="4" tokens="12">
-    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="77"/>
-    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="99"/>
-    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="107"/>
+    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="82"/>
+    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="104"/>
+    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="112"/>
     <codefragment>        $config = new Config();
         $config-&gt;loadUserConfig(__DIR__);
         $this-&gt;shouldStopPhpqa();
@@ -123,7 +123,7 @@
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Pdepend.php" line="21"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/ParallelLint.php" line="20"/>
     <codefragment>            'suffix' =&gt; $this-&gt;config-&gt;csv('extensions'),
-            $this-&gt;options-&gt;ignore-&gt;pdepend(),
+            $this-&gt;options-&gt;ignore-&gt;pdepend()
 </codefragment>
   </duplication>
   <duplication lines="5" tokens="13">

@@ -92,10 +92,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php</file_path>
     <snippet>        $this-&gt;tools = new Tools($config, function ($text) {</snippet>
     <selected_text>$text</selected_text>
-    <from>2187</from>
-    <to>2192</to>
-    <snippet_from>2135</snippet_from>
-    <snippet_to>2195</snippet_to>
+    <from>2239</from>
+    <to>2244</to>
+    <snippet_from>2187</snippet_from>
+    <snippet_to>2247</snippet_to>
     <column>53</column>
   </item>
   <item>
@@ -107,10 +107,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php</file_path>
     <snippet>                    'phpqa' =&gt; 'cd "' . getcwd() . "\" &amp;&amp; \\\n" . PHPQA_USED_COMMAND,</snippet>
     <selected_text>PHPQA_USED_COMMAND</selected_text>
-    <from>5637</from>
-    <to>5655</to>
-    <snippet_from>5571</snippet_from>
-    <snippet_to>5656</snippet_to>
+    <from>5689</from>
+    <to>5707</to>
+    <snippet_from>5623</snippet_from>
+    <snippet_to>5708</snippet_to>
     <column>67</column>
   </item>
   <item>
@@ -655,32 +655,77 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_number>100</line_number>
+    <line_number>105</line_number>
+    <type>MissingClosureParamType</type>
+    <message>Parameter $a has no provided type</message>
+    <file_name>src/Options.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/Options.php</file_path>
+    <snippet>            function ($a, $b) use ($keys) {</snippet>
+    <selected_text>$a</selected_text>
+    <from>3380</from>
+    <to>3382</to>
+    <snippet_from>3358</snippet_from>
+    <snippet_to>3401</snippet_to>
+    <column>23</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>105</line_number>
+    <type>MissingClosureParamType</type>
+    <message>Parameter $b has no provided type</message>
+    <file_name>src/Options.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/Options.php</file_path>
+    <snippet>            function ($a, $b) use ($keys) {</snippet>
+    <selected_text>$b</selected_text>
+    <from>3384</from>
+    <to>3386</to>
+    <snippet_from>3358</snippet_from>
+    <snippet_to>3401</snippet_to>
+    <column>27</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>106</line_number>
+    <type>InvalidOperand</type>
+    <message>Cannot add a numeric type to a non-numeric type false</message>
+    <file_name>src/Options.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/Options.php</file_path>
+    <snippet>                return array_search($a, $keys) - array_search($b, $keys);</snippet>
+    <selected_text>array_search($a, $keys) - array_search($b, $keys)</selected_text>
+    <from>3425</from>
+    <to>3474</to>
+    <snippet_from>3402</snippet_from>
+    <snippet_to>3475</snippet_to>
+    <column>24</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>112</line_number>
     <type>MissingParamType</type>
     <message>Parameter $file has no provided type</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Options.php</file_path>
     <snippet>    public function toFile($file)</snippet>
     <selected_text>$file</selected_text>
-    <from>3227</from>
-    <to>3232</to>
-    <snippet_from>3200</snippet_from>
-    <snippet_to>3233</snippet_to>
+    <from>3560</from>
+    <to>3565</to>
+    <snippet_from>3533</snippet_from>
+    <snippet_to>3566</snippet_to>
     <column>28</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>105</line_number>
+    <line_number>117</line_number>
     <type>MissingParamType</type>
     <message>Parameter $file has no provided type</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Options.php</file_path>
     <snippet>    public function rawFile($file)</snippet>
     <selected_text>$file</selected_text>
-    <from>3325</from>
-    <to>3330</to>
-    <snippet_from>3297</snippet_from>
-    <snippet_to>3331</snippet_to>
+    <from>3658</from>
+    <to>3663</to>
+    <snippet_from>3630</snippet_from>
+    <snippet_to>3664</snippet_to>
     <column>29</column>
   </item>
   <item>
@@ -2042,122 +2087,122 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_number>43</line_number>
+    <line_number>50</line_number>
     <type>UndefinedThisPropertyFetch</type>
     <message>Instance property Edge\QA\OptionsTest::$fileOutput is not defined</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>        assertThat($this-&gt;buildRunningTools($this-&gt;fileOutput, array('pdepend' =&gt; [])), is(nonEmptyArray()));</snippet>
     <selected_text>$this-&gt;fileOutput</selected_text>
-    <from>1332</from>
-    <to>1349</to>
-    <snippet_from>1288</snippet_from>
-    <snippet_to>1397</snippet_to>
+    <from>1668</from>
+    <to>1685</to>
+    <snippet_from>1624</snippet_from>
+    <snippet_to>1733</snippet_to>
     <column>45</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>50</line_number>
+    <line_number>57</line_number>
     <type>UndefinedThisPropertyFetch</type>
     <message>Instance property Edge\QA\OptionsTest::$fileOutput is not defined</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>            $this-&gt;fileOutput,</snippet>
     <selected_text>$this-&gt;fileOutput</selected_text>
-    <from>1615</from>
-    <to>1632</to>
-    <snippet_from>1603</snippet_from>
-    <snippet_to>1633</snippet_to>
+    <from>1951</from>
+    <to>1968</to>
+    <snippet_from>1939</snippet_from>
+    <snippet_to>1969</snippet_to>
     <column>13</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>57</line_number>
+    <line_number>64</line_number>
     <type>MissingParamType</type>
     <message>Parameter $isSavedToFiles has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)</snippet>
     <selected_text>$isSavedToFiles</selected_text>
-    <from>1885</from>
-    <to>1900</to>
-    <snippet_from>1836</snippet_from>
-    <snippet_to>1931</snippet_to>
+    <from>2221</from>
+    <to>2236</to>
+    <snippet_from>2172</snippet_from>
+    <snippet_to>2267</snippet_to>
     <column>50</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>57</line_number>
+    <line_number>64</line_number>
     <type>MissingParamType</type>
     <message>Parameter $isOutputPrinted has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)</snippet>
     <selected_text>$isOutputPrinted</selected_text>
-    <from>1902</from>
-    <to>1918</to>
-    <snippet_from>1836</snippet_from>
-    <snippet_to>1931</snippet_to>
+    <from>2238</from>
+    <to>2254</to>
+    <snippet_from>2172</snippet_from>
+    <snippet_to>2267</snippet_to>
     <column>67</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>57</line_number>
+    <line_number>64</line_number>
     <type>MissingParamType</type>
     <message>Parameter $hasReport has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildOutput(array $opts, $isSavedToFiles, $isOutputPrinted, $hasReport)</snippet>
     <selected_text>$hasReport</selected_text>
-    <from>1920</from>
-    <to>1930</to>
-    <snippet_from>1836</snippet_from>
-    <snippet_to>1931</snippet_to>
+    <from>2256</from>
+    <to>2266</to>
+    <snippet_from>2172</snippet_from>
+    <snippet_to>2267</snippet_to>
     <column>85</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>84</line_number>
+    <line_number>91</line_number>
     <type>MissingParamType</type>
     <message>Parameter $isParallel has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function testExecute(array $opts, $isParallel)</snippet>
     <selected_text>$isParallel</selected_text>
-    <from>2820</from>
-    <to>2831</to>
-    <snippet_from>2775</snippet_from>
-    <snippet_to>2832</snippet_to>
+    <from>3156</from>
+    <to>3167</to>
+    <snippet_from>3111</snippet_from>
+    <snippet_to>3168</snippet_to>
     <column>46</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>100</line_number>
+    <line_number>107</line_number>
     <type>MissingParamType</type>
     <message>Parameter $analyzedDirs has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildRootPath($analyzedDirs, $expectedRoot)</snippet>
     <selected_text>$analyzedDirs</selected_text>
-    <from>3394</from>
-    <to>3407</to>
-    <snippet_from>3356</snippet_from>
-    <snippet_to>3423</snippet_to>
+    <from>3730</from>
+    <to>3743</to>
+    <snippet_from>3692</snippet_from>
+    <snippet_to>3759</snippet_to>
     <column>39</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>100</line_number>
+    <line_number>107</line_number>
     <type>MissingParamType</type>
     <message>Parameter $expectedRoot has no provided type</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function testBuildRootPath($analyzedDirs, $expectedRoot)</snippet>
     <selected_text>$expectedRoot</selected_text>
-    <from>3409</from>
-    <to>3422</to>
-    <snippet_from>3356</snippet_from>
-    <snippet_to>3423</snippet_to>
+    <from>3745</from>
+    <to>3758</to>
+    <snippet_from>3692</snippet_from>
+    <snippet_to>3759</snippet_to>
     <column>54</column>
   </item>
   <item>
