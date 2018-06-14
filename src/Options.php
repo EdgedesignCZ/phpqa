@@ -94,6 +94,18 @@ class Options
                 $allowed[$tool] = $runningTool;
             }
         }
+        return $this->sortTools($allowed);
+    }
+
+    private function sortTools(array $allowed)
+    {
+        $keys = array_keys($this->allowedTools);
+        uksort(
+            $allowed,
+            function ($a, $b) use ($keys) {
+                return array_search($a, $keys) - array_search($b, $keys);
+            }
+        );
         return $allowed;
     }
 

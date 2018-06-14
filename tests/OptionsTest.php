@@ -40,6 +40,13 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         assertThat($this->fileOutput->rawFile('file'), is('build//file'));
     }
 
+    public function testRespectToolsOrderDefinedInOption()
+    {
+        $cliOutput = $this->overrideOptions(['output' => 'cli', 'tools' => 'phpunit,phpmetrics']);
+        $tools = $this->buildRunningTools($cliOutput, ['phpmetrics' => [], 'phpunit' => []]);
+        assertThat(array_keys($tools), is(['phpunit', 'phpmetrics']));
+    }
+
     public function testIgnorePdependInCliOutput()
     {
         $cliOutput = $this->overrideOptions(array('output' => 'cli'));
