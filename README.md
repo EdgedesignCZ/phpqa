@@ -55,6 +55,7 @@ Tool | PHP | Supported since | Description |
 [phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it |
 [psalm](https://github.com/vimeo/psalm) | `>= 5.6` | `1.14` | A static analysis tool for finding errors in PHP applications |
 [parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files |
+[MacFJA/phpqa-extensions](https://github.com/MacFJA/phpqa-extensions) | - | - | PHP Assumptions, Magic Number Detector, ... |
 
 _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
 
