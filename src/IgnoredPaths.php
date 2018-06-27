@@ -50,7 +50,7 @@ class IgnoredPaths
 
     private function pdependWindowsFilter($option)
     {
-        return $this->ignore(" --{$option}=", '\*,', '\*', ',');
+        return str_replace('/', '\\', $this->ignore(" --{$option}=", '\*,', '\*', ','));
     }
 
     public function phpmetrics()

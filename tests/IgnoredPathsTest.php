@@ -67,8 +67,8 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
             'pdepend + windows' => array(
                 'pdepend',
                 array(
-                    'both' => ' --ignore=app/migrations\*,vendor\*,autoload.php,RoboFile.php',
-                    'dirs' => ' --ignore=app/migrations\*,vendor\*',
+                    'both' => ' --ignore=app\migrations\*,vendor\*,autoload.php,RoboFile.php',
+                    'dirs' => ' --ignore=app\migrations\*,vendor\*',
                     'files' => ' --ignore=autoload.php,RoboFile.php'
                 ),
                 'Windows'
@@ -76,8 +76,8 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
             'phpmd + windows' => array(
                 'phpmd',
                 array(
-                    'both' => ' --exclude=app/migrations\*,vendor\*,autoload.php,RoboFile.php',
-                    'dirs' => ' --exclude=app/migrations\*,vendor\*',
+                    'both' => ' --exclude=app\migrations\*,vendor\*,autoload.php,RoboFile.php',
+                    'dirs' => ' --exclude=app\migrations\*,vendor\*',
                     'files' => ' --exclude=autoload.php,RoboFile.php'
                 ),
                 'WIN32'
