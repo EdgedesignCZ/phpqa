@@ -23,9 +23,9 @@ class Phpunit extends \Edge\QA\Tools\Tool
         if ($this->options->isSavedToFiles) {
             foreach ($this->config->value('phpunit.reports.file') as $report => $formats) {
                 foreach ($formats as $format) {
-                    $filename = $this->getFile($report, $format);
-                    $args["{$report}-{$format}"] = $this->options->toFile($filename);
-                    $this->tool->userReports["{$report}.{$format}"] = $this->options->rawFile($filename);
+                    list($file, $html) = $this->getFile($report, $format);
+                    $args["{$report}-{$format}"] = $this->options->toFile($file);
+                    $this->tool->userReports["{$report}.{$format}"] = $this->options->rawFile($html ?: $file);
                 }
             }
         }
@@ -38,10 +38,13 @@ class Phpunit extends \Edge\QA\Tools\Tool
             'junit' => 'xml', 'text' => 'txt', 'tap' => 'text',
             'clover' => 'xml', 'crap4j' => 'xml',
         ];
-        if (in_array("{$report}-{$format}", ['coverage-html', 'coverage-xml'])) {
-            return "{$report}-{$format}/";
+        if ("{$report}-{$format}" == 'coverage-html') {
+            return ["{$report}-{$format}/", "{$report}-{$format}/index.html"];
+        } elseif ("{$report}-{$format}" == 'coverage-xml') {
+            return ["{$report}-{$format}/", null];
+        } else {
+            $extension = array_key_exists($format, $extensions) ? $extensions[$format] : $format;
+            return ["{$report}-{$format}.{$extension}", null];
         }
-        $extension = array_key_exists($format, $extensions) ? $extensions[$format] : $format;
-        return "{$report}-{$format}.{$extension}";
     }
 }
