@@ -18,7 +18,7 @@ class Phpunit extends \Edge\QA\Tools\Tool
         $args = array();
         $configFile = $this->config->path('phpunit.config');
         if ($configFile) {
-            $args['configuration'] = $configFile;
+            $args['configuration'] = \Edge\QA\escapePath($configFile);
         }
         if ($this->options->isSavedToFiles) {
             $extensions = [
