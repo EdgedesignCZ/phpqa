@@ -30,8 +30,8 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
         assertThat(
             $expectedOptions,
             is([
-                'both' => $this->ignore($tool, 'app/migrations,vendor', 'autoload.php,RoboFile.php'),
-                'dirs' => $this->ignore($tool, 'app/migrations,vendor', ''),
+                'both' => $this->ignore($tool, 'app/config,vendor', 'autoload.php,RoboFile.php'),
+                'dirs' => $this->ignore($tool, 'app/config,vendor', ''),
                 'files' => $this->ignore($tool, '', 'autoload.php,RoboFile.php'),
             ])
         );
@@ -43,32 +43,32 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
             array(
                 'phpcs',
                 array(
-                    'both' => ' --ignore=*/app/migrations/*,*/vendor/*,autoload.php,RoboFile.php',
-                    'dirs' => ' --ignore=*/app/migrations/*,*/vendor/*',
+                    'both' => ' --ignore=*/app/config/*,*/vendor/*,autoload.php,RoboFile.php',
+                    'dirs' => ' --ignore=*/app/config/*,*/vendor/*',
                     'files' => ' --ignore=autoload.php,RoboFile.php'
                 )
             ),
             array(
                 'pdepend',
                 array(
-                    'both' => ' --ignore=/app/migrations/,/vendor/,/autoload.php,/RoboFile.php',
-                    'dirs' => ' --ignore=/app/migrations/,/vendor/',
+                    'both' => ' --ignore=/app/config/,/vendor/,/autoload.php,/RoboFile.php',
+                    'dirs' => ' --ignore=/app/config/,/vendor/',
                     'files' => ' --ignore=/autoload.php,/RoboFile.php'
                 )
             ),
             array(
                 'phpmd',
                 array(
-                    'both' => ' --exclude /app/migrations/,/vendor/,/autoload.php,/RoboFile.php',
-                    'dirs' => ' --exclude /app/migrations/,/vendor/',
+                    'both' => ' --exclude /app/config/,/vendor/,/autoload.php,/RoboFile.php',
+                    'dirs' => ' --exclude /app/config/,/vendor/',
                     'files' => ' --exclude /autoload.php,/RoboFile.php'
                 )
             ),
             'pdepend + windows' => array(
                 'pdepend',
                 array(
-                    'both' => ' --ignore=app\migrations\*,vendor\*,autoload.php,RoboFile.php',
-                    'dirs' => ' --ignore=app\migrations\*,vendor\*',
+                    'both' => ' --ignore=app\config\*,vendor\*,autoload.php,RoboFile.php',
+                    'dirs' => ' --ignore=app\config\*,vendor\*',
                     'files' => ' --ignore=autoload.php,RoboFile.php'
                 ),
                 'Windows'
@@ -76,8 +76,8 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
             'phpmd + windows' => array(
                 'phpmd',
                 array(
-                    'both' => ' --exclude=app\migrations\*,vendor\*,autoload.php,RoboFile.php',
-                    'dirs' => ' --exclude=app\migrations\*,vendor\*',
+                    'both' => ' --exclude=app\config\*,vendor\*,autoload.php,RoboFile.php',
+                    'dirs' => ' --exclude=app\config\*,vendor\*',
                     'files' => ' --exclude=autoload.php,RoboFile.php'
                 ),
                 'WIN32'
@@ -85,32 +85,32 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
             array(
                 'phpmetrics',
                 array(
-                    'both' => ' --excluded-dirs="app/migrations|vendor|autoload.php|RoboFile.php"',
-                    'dirs' => ' --excluded-dirs="app/migrations|vendor"',
+                    'both' => ' --excluded-dirs="app/config|vendor|autoload.php|RoboFile.php"',
+                    'dirs' => ' --excluded-dirs="app/config|vendor"',
                     'files' => ' --excluded-dirs="autoload.php|RoboFile.php"'
                 )
             ),
             array(
                 'phpmetrics2',
                 array(
-                    'both' => ' --exclude="app/migrations,vendor,autoload.php,RoboFile.php"',
-                    'dirs' => ' --exclude="app/migrations,vendor"',
+                    'both' => ' --exclude="app/config,vendor,autoload.php,RoboFile.php"',
+                    'dirs' => ' --exclude="app/config,vendor"',
                     'files' => ' --exclude="autoload.php,RoboFile.php"'
                 )
             ),
             array(
                 'bergmann',
                 array(
-                    'both' => ' --exclude=app/migrations --exclude=vendor --exclude=autoload.php --exclude=RoboFile.php',
-                    'dirs' => ' --exclude=app/migrations --exclude=vendor',
+                    'both' => ' --exclude=app/config --exclude=vendor --exclude=autoload.php --exclude=RoboFile.php',
+                    'dirs' => ' --exclude=app/config --exclude=vendor',
                     'files' => ' --exclude=autoload.php --exclude=RoboFile.php'
                 )
             ),
             array(
                 'parallelLint',
                 array(
-                    'both' => ' --exclude app/migrations --exclude vendor --exclude autoload.php --exclude RoboFile.php',
-                    'dirs' => ' --exclude app/migrations --exclude vendor',
+                    'both' => ' --exclude app/config --exclude vendor --exclude autoload.php --exclude RoboFile.php',
+                    'dirs' => ' --exclude app/config --exclude vendor',
                     'files' => ' --exclude autoload.php --exclude RoboFile.php'
                 )
             ),
@@ -119,11 +119,11 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
                 array(
                     'both' => [
                         'file' => ['autoload.php', 'RoboFile.php'],
-                        'directory' => ['app/migrations', 'vendor'],
+                        'directory' => ['app/config', 'vendor'],
                     ],
                     'dirs' => [
                         'file' => [],
-                        'directory' => ['app/migrations', 'vendor'],
+                        'directory' => ['app/config', 'vendor'],
                     ],
                     'files' => [
                         'file' => ['autoload.php', 'RoboFile.php'],
