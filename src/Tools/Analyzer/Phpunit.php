@@ -21,19 +21,27 @@ class Phpunit extends \Edge\QA\Tools\Tool
             $args['configuration'] = \Edge\QA\escapePath($configFile);
         }
         if ($this->options->isSavedToFiles) {
-            $extensions = [
-                'junit' => 'xml', 'text' => 'txt', 'tap' => 'text',
-                'clover' => 'xml', 'crap4j' => 'xml',
-            ];
             foreach ($this->config->value('phpunit.reports.file') as $report => $formats) {
                 foreach ($formats as $format) {
-                    $extension = array_key_exists($format, $extensions) ? $extensions[$format] : $format;
-                    $filename = "{$report}-{$format}.{$extension}";
+                    $filename = $this->getFile($report, $format);
                     $args["{$report}-{$format}"] = $this->options->toFile($filename);
                     $this->tool->userReports["{$report}.{$format}"] = $this->options->rawFile($filename);
                 }
             }
         }
         return $args;
+    }
+
+    private function getFile($report, $format)
+    {
+        static $extensions = [
+            'junit' => 'xml', 'text' => 'txt', 'tap' => 'text',
+            'clover' => 'xml', 'crap4j' => 'xml',
+        ];
+        if (in_array("{$report}-{$format}", ['coverage-html', 'coverage-xml'])) {
+            return "{$report}-{$format}/";
+        }
+        $extension = array_key_exists($format, $extensions) ? $extensions[$format] : $format;
+        return "{$report}-{$format}.{$extension}";
     }
 }
