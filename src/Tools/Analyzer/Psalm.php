@@ -28,6 +28,7 @@ class Psalm extends \Edge\QA\Tools\Tool
         $args = array(
             'config' => $psalmFile,
             'show-info' => $this->config->value('psalm.showInfo') ? 'true' : 'false',
+            'use-ini-default' => '',
         );
         if ($this->options->isSavedToFiles) {
             $args['report'] = $this->options->toFile('psalm.xml');
