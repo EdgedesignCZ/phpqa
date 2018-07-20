@@ -76,9 +76,9 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
             'phpmd + windows' => array(
                 'phpmd',
                 array(
-                    'both' => ' --exclude=app\config\*,vendor\*,autoload.php,RoboFile.php',
-                    'dirs' => ' --exclude=app\config\*,vendor\*',
-                    'files' => ' --exclude=autoload.php,RoboFile.php'
+                    'both' => ' --exclude app\config\*,vendor\*,autoload.php,RoboFile.php',
+                    'dirs' => ' --exclude app\config\*,vendor\*',
+                    'files' => ' --exclude autoload.php,RoboFile.php'
                 ),
                 'WIN32'
             ),

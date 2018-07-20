@@ -35,7 +35,7 @@ class IgnoredPaths
     public function pdepend()
     {
         if ($this->isWindows) {
-            return $this->pdependWindowsFilter('ignore');
+            return $this->pdependWindowsFilter('ignore=');
         }
         return $this->ignore(' --ignore=/', '/,/', '/', ',/');
     }
@@ -43,14 +43,14 @@ class IgnoredPaths
     public function phpmd()
     {
         if ($this->isWindows) {
-            return $this->pdependWindowsFilter('exclude');
+            return $this->pdependWindowsFilter('exclude ');
         }
         return $this->ignore(" --exclude /", '/,/', '/', ',/');
     }
 
     private function pdependWindowsFilter($option)
     {
-        return str_replace('/', '\\', $this->ignore(" --{$option}=", '\*,', '\*', ','));
+        return str_replace('/', '\\', $this->ignore(" --{$option}", '\*,', '\*', ','));
     }
 
     public function phpmetrics()
