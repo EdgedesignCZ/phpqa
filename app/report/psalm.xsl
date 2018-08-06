@@ -36,8 +36,8 @@
                     <xsl:value-of select="message/text()" /><br />
                     <span class="text-muted"><xsl:value-of select="type/text()" /></span>
                 </td>
-                <td><xsl:value-of select="line_number" /></td>
-                <td><xsl:value-of select="column" /></td>
+                <td><xsl:value-of select="line_from" /></td>
+                <td><xsl:value-of select="line_to" /></td>
             </tr>
             <tr style="display:none">
                 <xsl:attribute name="id">
@@ -203,8 +203,8 @@
                                                 Only errors
                                             </label>
                                         </th>
-                                        <th>Line</th>
-                                        <th>Column</th>
+                                        <th>Line From</th>
+                                        <th>Line To</th>
                                     </tr>
                                 </thead>
                                 <xsl:for-each select="//item[file_name[not(preceding::file_name/. = .)]]">
