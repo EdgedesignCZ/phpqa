@@ -52,7 +52,7 @@ class Phpstan extends \Edge\QA\Tools\Tool
         return array(
             'analyze',
             'ansi' => '',
-            'errorFormat' => 'checkstyle',
+            'error-format' => 'checkstyle',
             'level' => $this->config->value('phpstan.level'),
             'configuration' => $neonFile,
             $this->options->getAnalyzedDirs(' '),
