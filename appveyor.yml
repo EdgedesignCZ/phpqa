@@ -52,5 +52,5 @@ build: off
 deploy: off
 
 artifacts:
-  - path: C:\projects\phpqa\build
+  - path: build
     name: phpqa
