@@ -3,6 +3,7 @@
 namespace Edge\QA\Tools\Analyzer;
 
 use Edge\QA\OutputMode;
+use Edge\QA\Tools\GetVersions;
 
 class Phpstan extends \Edge\QA\Tools\Tool
 {
@@ -52,10 +53,17 @@ class Phpstan extends \Edge\QA\Tools\Tool
         return array(
             'analyze',
             'ansi' => '',
-            'errorFormat' => 'checkstyle',
+            $this->getErrorFormatOption() => 'checkstyle',
             'level' => $this->config->value('phpstan.level'),
             'configuration' => $neonFile,
             $this->options->getAnalyzedDirs(' '),
         );
+    }
+
+    private function getErrorFormatOption()
+    {
+        $versions = new GetVersions();
+        $phsptanVersion = $versions->getToolVersion(self::$SETTINGS);
+        return $phsptanVersion && version_compare($phsptanVersion, '0.10.3', '<') ?  'errorFormat' : 'error-format';
     }
 }

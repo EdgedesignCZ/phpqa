@@ -3,10 +3,15 @@
 namespace Edge\QA\Tools;
 
 use Symfony\Component\Process\Process;
-use Edge\QA\Config;
 
 class GetVersions
 {
+    public function getToolVersion(array $toolSettings)
+    {
+        $versions = $this->__invoke(['tool' => $toolSettings + ['customBinary' => null]]);
+        return  $versions['tool']['version_normalized'];
+    }
+
     public function __invoke(array $tools)
     {
         $composer = [
