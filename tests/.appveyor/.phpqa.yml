@@ -1,0 +1,14 @@
+phpcs:
+    ignoreWarnings: true
+    reports:
+        file:
+            info: phpcs-info.txt
+            full: phpcs-full.txt
+
+phpunit:
+    binary: ../../vendor/phpunit/phpunit/phpunit.bat
+    config: ../../phpunit.xml
+    reports:
+        file:
+            log: [junit]
+            testdox: [html, text]
