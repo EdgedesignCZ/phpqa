@@ -6,7 +6,7 @@ phpcs:
             full: phpcs-full.txt
 
 phpunit:
-    binary: ../../vendor/phpunit/phpunit/phpunit.bat
+    binary: ../../vendor/bin/phpunit.bat
     config: ../../phpunit.xml
     reports:
         file:
