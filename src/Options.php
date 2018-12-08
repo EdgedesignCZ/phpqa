@@ -52,12 +52,12 @@ class Options
     {
         $paths = array_filter(array_map(
             function ($relativeDir) {
-                return realpath(getcwd() . '/' . trim($relativeDir, '"'));
+                return realpath(getcwd() . DIRECTORY_SEPARATOR . trim($relativeDir, '"'));
             },
             $this->analyzedDirs
         ));
         $commonPath = commonPath($paths);
-        return $commonPath ? "{$commonPath}/" : '';
+        return $commonPath ? ($commonPath . DIRECTORY_SEPARATOR) : '';
     }
 
     public function getAnalyzedDirs($separator = null)

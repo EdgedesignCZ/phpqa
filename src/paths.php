@@ -17,17 +17,21 @@ function commonPath(array $dirs)
     if (!$dirs) {
         return;
     }
+    $isNotWindows = strtoupper(substr(PHP_OS, 0, 3)) != 'WIN';
 
     $dirsCount = array();
     foreach ($dirs as $i => $path) {
-        $dirs[$i] = explode('/', $path);
-        unset($dirs[$i][0]);
+        $dirs[$i] = explode(DIRECTORY_SEPARATOR, $path);
+        if ($isNotWindows) {
+            unset($dirs[$i][0]);
+        }
         $dirsCount[$i] = count($dirs[$i]);
     }
 
     $minDirsCount = min($dirsCount);
     for ($i = 0; $i < count($dirs); $i++) {
-        $dirs[$i] = '/' . implode('/', array_slice($dirs[$i], 0, $minDirsCount));
+        $firstSlash = $isNotWindows ? DIRECTORY_SEPARATOR : '';
+        $dirs[$i] = $firstSlash . implode(DIRECTORY_SEPARATOR, array_slice($dirs[$i], 0, $minDirsCount));
     }
 
     $commonDirs = array_unique($dirs);
