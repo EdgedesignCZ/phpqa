@@ -46,6 +46,11 @@ test_script:
     - cd C:\projects\phpqa
     - php phpqa tools
     - php phpqa --verbose --report --config tests/.travis
+    - dir build
 
 build: off
 deploy: off
+
+artifacts:
+  - path: C:\projects\phpqa\build
+    name: phpqa
