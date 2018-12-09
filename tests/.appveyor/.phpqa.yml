@@ -1,5 +1,13 @@
+phpmd:
+    allowedErrorsCount: 0
+phpcpd:
+    allowedErrorsCount: 0
+phpunit:
+    allowedErrorsCount: 0
+
 phpcs:
-    ignoreWarnings: true
+    allowedErrorsCount: 1
+    ignoreWarnings: false
     reports:
         file:
             info: phpcs-info.txt
