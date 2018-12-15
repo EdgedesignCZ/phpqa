@@ -40,8 +40,16 @@ class Tools
             if (count($handlers) > 1) {
                 $handlers = array_filter(
                     $handlers,
-                    function (array $config) {
-                        return isset($config['internalClass']) ? class_exists($config['internalClass']) : true;
+                    function (array $config) use ($tool) {
+                        if (!isset($config['internalClass'])) {
+                            return true;
+                        }
+                        if (!is_string($config['internalClass'])) {
+                            throw new \RuntimeException(
+                                "'{$tool}' has multiple handlers - 'internalClass' can't be array (string expected)"
+                            );
+                        }
+                        return class_exists($config['internalClass']);
                     }
                 );
             }
