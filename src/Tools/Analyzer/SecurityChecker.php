@@ -8,7 +8,7 @@ class SecurityChecker extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' => '=',
-        'internalClass' => ['SensioLabs\Security\SecurityChecker'],
+        'internalClass' => 'SensioLabs\Security\SecurityChecker',
         'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
         'composer' => 'sensiolabs/security-checker',
     );
