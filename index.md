@@ -8,6 +8,7 @@ Analyze PHP code with one command.
 [![Total Downloads](https://poser.pugx.org/edgedesign/phpqa/downloads)](https://packagist.org/packages/edgedesign/phpqa)
 [![PHP runtimes](https://php-eye.com/badge/edgedesign/phpqa/tested.svg)](https://php-eye.com/package/edgedesign/phpqa)
 [![Build Status](https://travis-ci.org/EdgedesignCZ/phpqa.svg)](https://travis-ci.org/EdgedesignCZ/phpqa)
+[![Windows status](https://ci.appveyor.com/api/projects/status/t9f05uk4cjcg294o?svg=true&passingText=Windows)](https://ci.appveyor.com/project/zdenekdrahos/phpqa)
 
 ## Requirements
 
@@ -129,9 +130,9 @@ Beware that the image is as lean as possible. That can be a problem for running 
 In that case, you might miss PHP extensions for database etc (_you can [install phpqa](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/get-phpqa-binary#L40) in another [php image](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/.gitlab-ci.yml#L28)_). 
 
 ```bash
-docker run --rm -it zdenekdrahos/phpqa:v1.19.0 phpqa tools
+docker run --rm -it zdenekdrahos/phpqa:v1.20.0 phpqa tools
 # using a tool without phpqa
-docker run --rm -it zdenekdrahos/phpqa:v1.19.0 phploc -v
+docker run --rm -it zdenekdrahos/phpqa:v1.20.0 phploc -v
 ```
 
 There are also available images [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/) and [sparkfabrik/docker-phpqa](https://hub.docker.com/r/sparkfabrik/docker-phpqa/).
@@ -197,6 +198,14 @@ Define number of allowed errors for each tools and watch the build:
 phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,parallel-lint:0,phpstan:0,phpmetrics,phploc,pdepend
 ```
 
+Number of allowed errors can be also defined in [.phpqa.yml](#advanced-configuration---phpqayml).
+
+```yaml
+phpcs:
+    # can be overriden by CLI: phpqa --tools phpcs:1
+    allowedErrorsCount: 0
+```
+
 **File mode**
 
 ![screenshot from 2016-07-23 13 53 34](https://cloud.githubusercontent.com/assets/7994022/17077767/e18bcb2a-50dc-11e6-86bc-0dfc8e22d98c.png)
@@ -238,6 +247,7 @@ Tool | Settings | Default Value | Your value
 [psalm.deadCode](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Enable or not `--find-dead-code` option  of psalm | `false` | Boolean value
 [psalm.threads](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Set the number of process to use in parallel (option `--threads` of psalm) (Only if `--execution == parallel` for phpqa) | `1` | Number (>= 1)
 [psalm.showInfo](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
+`<tool>.allowedErrorsCount` | Number of allowed errors, see [exit code](#exit-code) | `null` | Integer value
 
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:
@@ -415,7 +425,7 @@ stages:
 
 test:
   stage: test
-  image: zdenekdrahos/phpqa:v1.19.0
+  image: zdenekdrahos/phpqa:v1.20.0
   variables:
     BACKEND_QA: "*/backend/var/QA"
     BACKEND_CACHE: $CI_PROJECT_DIR/.composercache
