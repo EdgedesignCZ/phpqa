@@ -1,6 +1,21 @@
 
 # Changelog
 
+## v1.20.0
+
+* [#157](https://github.com/EdgedesignCZ/phpqa/pull/157) - support Psalm 3.x _([#158](https://github.com/EdgedesignCZ/phpqa/pull/158) internalClass refactoring)_
+* [#156](https://github.com/EdgedesignCZ/phpqa/pull/156) - upgrade phpcs, enable defining allowed errors count in . phpqa.yml
+* [#150](https://github.com/EdgedesignCZ/phpqa/issues/150) - phpstan - use --errorFormat only if version < 0.10.3
+* [#149](https://github.com/EdgedesignCZ/phpqa/pull/149) - fix displaying psalm issue line numbers
+* [#147](https://github.com/EdgedesignCZ/phpqa/issues/147) - phpmd - fix excluding files on Windows
+* [#145](https://github.com/EdgedesignCZ/phpqa/pull/145) - fix psalm issues (v2 compatibility - [#142](https://github.com/EdgedesignCZ/phpqa/issues/142) stopOnFirstError, UntypedParam, [#144](https://github.com/EdgedesignCZ/phpqa/issues/144)/[#146](https://github.com/EdgedesignCZ/phpqa/issues/146) --use-ini-defaults)
+* [#140](https://github.com/EdgedesignCZ/phpqa/issues/140) - fix ignoring subdirectories on Windows
+* [#138](https://github.com/EdgedesignCZ/phpqa/pull/138) - fix phpunit issues ([#136](https://github.com/EdgedesignCZ/phpqa/issues/136) spaces in path, [#137](https://github.com/EdgedesignCZ/phpqa/issues/137) html/xml coverage directory)
+* _CI_
+    * [#139](https://github.com/EdgedesignCZ/phpqa/pull/139) - fix installing phpstan
+    * [#154](https://github.com/EdgedesignCZ/phpqa/pull/154) - fix phpunit CVE, add php 7.3
+    * [#141](https://github.com/EdgedesignCZ/phpqa/issues/141) - Windows build on Appveyor
+
 ## v1.19.0
 
 * **HTML reports**

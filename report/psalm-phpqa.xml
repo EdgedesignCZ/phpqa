@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<psalm name="Psalm config for edgedesign/phpqa" stopOnFirstError="false" useDocblockTypes="true" totallyTyped="false">
+<psalm name="Psalm config for edgedesign/phpqa" useDocblockTypes="true" totallyTyped="false">
   <projectFiles>
     <ignoreFiles>
       <file name="src/Task/NonParallelExecV0.php"/>
@@ -53,7 +53,6 @@
     <MissingPropertyType errorLevel="suppress"/>
     <MissingClosureReturnType errorLevel="suppress"/>
     <MissingConstructor errorLevel="suppress"/>
-    <UntypedParam errorLevel="suppress"/>
     <PossiblyUnusedParam errorLevel="info"/>
     <!-- false positive -->
     <UnusedVariable errorLevel="info"/>

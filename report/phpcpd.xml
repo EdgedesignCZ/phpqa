@@ -17,6 +17,20 @@
         assertThat(file_get_contents($this-&gt;output), $assertOutput);
 </codefragment>
   </duplication>
+  <duplication lines="2" tokens="18">
+    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="125"/>
+    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="137"/>
+    <codefragment>        $options = $this-&gt;overrideOptions(array('tools' =&gt; 'phpcs:1,pdepend'));
+        $tools = $this-&gt;buildRunningTools($options, array('phpcs' =&gt; [], 'pdepend' =&gt; []));
+</codefragment>
+  </duplication>
+  <duplication lines="2" tokens="13">
+    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="127"/>
+    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="139"/>
+    <codefragment>        assertThat($tools['phpcs']-&gt;getAllowedErrorsCount(), is(1));
+        assertThat($tools['pdepend']-&gt;getAllowedErrorsCount(), is(nullValue()));
+</codefragment>
+  </duplication>
   <duplication lines="4" tokens="11">
     <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="11"/>
     <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="44"/>
@@ -29,7 +43,7 @@
   <duplication lines="4" tokens="11">
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpmd.php" line="5"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpstan.php" line="7"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpstan.php" line="8"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="7"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="5"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/SecurityChecker.php" line="7"/>
@@ -127,8 +141,8 @@
 </codefragment>
   </duplication>
   <duplication lines="5" tokens="13">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/GetVersions.php" line="50"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/GetVersions.php" line="70"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/GetVersions.php" line="55"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/GetVersions.php" line="75"/>
     <codefragment>            $versionCommand = "{$customBinary} --version";
             $version = $this-&gt;loadVersionFromConsoleCommand($versionCommand);
             $composerInfo = [

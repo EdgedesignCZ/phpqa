@@ -38,6 +38,21 @@
   </item>
   <item>
     <severity>info</severity>
+    <line_number>24</line_number>
+    <type>DeprecatedMethod</type>
+    <message>The method Robo\Common\OutputAwareTrait::getOutput has been marked as deprecated</message>
+    <file_name>src/CodeAnalysisTasks.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php</file_path>
+    <snippet>        $versions = new Task\TableVersions($this-&gt;getOutput());</snippet>
+    <selected_text>$this-&gt;getOutput()</selected_text>
+    <from>484</from>
+    <to>502</to>
+    <snippet_from>441</snippet_from>
+    <snippet_to>504</snippet_to>
+    <column>44</column>
+  </item>
+  <item>
+    <severity>info</severity>
     <line_number>40</line_number>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find public calls to method Edge\QA\CodeAnalysisTasks::ci</message>
@@ -100,6 +115,36 @@
   </item>
   <item>
     <severity>info</severity>
+    <line_number>81</line_number>
+    <type>DeprecatedMethod</type>
+    <message>The method Robo\Common\InputAwareTrait::getInput has been marked as deprecated</message>
+    <file_name>src/CodeAnalysisTasks.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php</file_path>
+    <snippet>        $opts['report'] = $this-&gt;getInput()-&gt;hasParameterOption('--report') ? ($opts['report'] ?: true) : false;</snippet>
+    <selected_text>$this-&gt;getInput()</selected_text>
+    <from>2645</from>
+    <to>2662</to>
+    <snippet_from>2619</snippet_from>
+    <snippet_to>2731</snippet_to>
+    <column>27</column>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_number>122</line_number>
+    <type>DeprecatedMethod</type>
+    <message>The method Robo\Common\OutputAwareTrait::getOutput has been marked as deprecated</message>
+    <file_name>src/CodeAnalysisTasks.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php</file_path>
+    <snippet>        $assetsLoader = new Task\AssetsLoader($this-&gt;getOutput());</snippet>
+    <selected_text>$this-&gt;getOutput()</selected_text>
+    <from>4033</from>
+    <to>4051</to>
+    <snippet_from>3987</snippet_from>
+    <snippet_to>4053</snippet_to>
+    <column>47</column>
+  </item>
+  <item>
+    <severity>info</severity>
     <line_number>159</line_number>
     <type>UndefinedConstant</type>
     <message>Const PHPQA_USED_COMMAND is not defined</message>
@@ -112,6 +157,21 @@
     <snippet_from>5623</snippet_from>
     <snippet_to>5708</snippet_to>
     <column>67</column>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_number>170</line_number>
+    <type>DeprecatedMethod</type>
+    <message>The method Robo\Common\OutputAwareTrait::getOutput has been marked as deprecated</message>
+    <file_name>src/CodeAnalysisTasks.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php</file_path>
+    <snippet>        $summary = new Task\TableSummary($this-&gt;getOutput());</snippet>
+    <selected_text>$this-&gt;getOutput()</selected_text>
+    <from>6037</from>
+    <to>6055</to>
+    <snippet_from>5996</snippet_from>
+    <snippet_to>6057</snippet_to>
+    <column>42</column>
   </item>
   <item>
     <severity>error</severity>
@@ -467,10 +527,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/IgnoredPaths.php</file_path>
     <snippet>    private function pdependWindowsFilter($option)</snippet>
     <selected_text>$option</selected_text>
-    <from>1237</from>
-    <to>1244</to>
-    <snippet_from>1195</snippet_from>
-    <snippet_to>1245</snippet_to>
+    <from>1239</from>
+    <to>1246</to>
+    <snippet_from>1197</snippet_from>
+    <snippet_to>1247</snippet_to>
     <column>43</column>
   </item>
   <item>
@@ -482,10 +542,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/IgnoredPaths.php</file_path>
     <snippet>    private function ignore($before, $dirSeparator, $after, $fileSeparator = null)</snippet>
     <selected_text>$before</selected_text>
-    <from>2022</from>
-    <to>2029</to>
-    <snippet_from>1994</snippet_from>
-    <snippet_to>2076</snippet_to>
+    <from>2047</from>
+    <to>2054</to>
+    <snippet_from>2019</snippet_from>
+    <snippet_to>2101</snippet_to>
     <column>29</column>
   </item>
   <item>
@@ -497,10 +557,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/IgnoredPaths.php</file_path>
     <snippet>    private function ignore($before, $dirSeparator, $after, $fileSeparator = null)</snippet>
     <selected_text>$dirSeparator</selected_text>
-    <from>2031</from>
-    <to>2044</to>
-    <snippet_from>1994</snippet_from>
-    <snippet_to>2076</snippet_to>
+    <from>2056</from>
+    <to>2069</to>
+    <snippet_from>2019</snippet_from>
+    <snippet_to>2101</snippet_to>
     <column>38</column>
   </item>
   <item>
@@ -512,10 +572,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/IgnoredPaths.php</file_path>
     <snippet>    private function ignore($before, $dirSeparator, $after, $fileSeparator = null)</snippet>
     <selected_text>$after</selected_text>
-    <from>2046</from>
-    <to>2052</to>
-    <snippet_from>1994</snippet_from>
-    <snippet_to>2076</snippet_to>
+    <from>2071</from>
+    <to>2077</to>
+    <snippet_from>2019</snippet_from>
+    <snippet_to>2101</snippet_to>
     <column>53</column>
   </item>
   <item>
@@ -527,10 +587,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/IgnoredPaths.php</file_path>
     <snippet>    private function ignore($before, $dirSeparator, $after, $fileSeparator = null)</snippet>
     <selected_text>$fileSeparator</selected_text>
-    <from>2054</from>
-    <to>2068</to>
-    <snippet_from>1994</snippet_from>
-    <snippet_to>2076</snippet_to>
+    <from>2079</from>
+    <to>2093</to>
+    <snippet_from>2019</snippet_from>
+    <snippet_to>2101</snippet_to>
     <column>61</column>
   </item>
   <item>
@@ -542,10 +602,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/IgnoredPaths.php</file_path>
     <snippet>    private function implode(array $input, $before, $separator, $after = '')</snippet>
     <selected_text>$before</selected_text>
-    <from>2711</from>
-    <to>2718</to>
-    <snippet_from>2668</snippet_from>
-    <snippet_to>2744</snippet_to>
+    <from>2736</from>
+    <to>2743</to>
+    <snippet_from>2693</snippet_from>
+    <snippet_to>2769</snippet_to>
     <column>44</column>
   </item>
   <item>
@@ -557,10 +617,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/IgnoredPaths.php</file_path>
     <snippet>    private function implode(array $input, $before, $separator, $after = '')</snippet>
     <selected_text>$separator</selected_text>
-    <from>2720</from>
-    <to>2730</to>
-    <snippet_from>2668</snippet_from>
-    <snippet_to>2744</snippet_to>
+    <from>2745</from>
+    <to>2755</to>
+    <snippet_from>2693</snippet_from>
+    <snippet_to>2769</snippet_to>
     <column>53</column>
   </item>
   <item>
@@ -572,10 +632,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/IgnoredPaths.php</file_path>
     <snippet>    private function implode(array $input, $before, $separator, $after = '')</snippet>
     <selected_text>$after</selected_text>
-    <from>2732</from>
-    <to>2738</to>
-    <snippet_from>2668</snippet_from>
-    <snippet_to>2744</snippet_to>
+    <from>2757</from>
+    <to>2763</to>
+    <snippet_from>2693</snippet_from>
+    <snippet_to>2769</snippet_to>
     <column>65</column>
   </item>
   <item>
@@ -632,10 +692,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Options.php</file_path>
     <snippet>    public function getAnalyzedDirs($separator = null)</snippet>
     <selected_text>$separator</selected_text>
-    <from>1816</from>
-    <to>1826</to>
-    <snippet_from>1780</snippet_from>
-    <snippet_to>1834</snippet_to>
+    <from>1851</from>
+    <to>1861</to>
+    <snippet_from>1815</snippet_from>
+    <snippet_to>1869</snippet_to>
     <column>37</column>
   </item>
   <item>
@@ -647,85 +707,85 @@
     <file_path>/mnt/DATA/www/phpqa/src/Options.php</file_path>
     <snippet>    private function loadTools($inputTools)</snippet>
     <selected_text>$inputTools</selected_text>
-    <from>1971</from>
-    <to>1982</to>
-    <snippet_from>1940</snippet_from>
-    <snippet_to>1983</snippet_to>
+    <from>2006</from>
+    <to>2017</to>
+    <snippet_from>1975</snippet_from>
+    <snippet_to>2018</snippet_to>
     <column>32</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>105</line_number>
+    <line_number>106</line_number>
     <type>MissingClosureParamType</type>
     <message>Parameter $a has no provided type</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Options.php</file_path>
     <snippet>            function ($a, $b) use ($keys) {</snippet>
     <selected_text>$a</selected_text>
-    <from>3380</from>
-    <to>3382</to>
-    <snippet_from>3358</snippet_from>
-    <snippet_to>3401</snippet_to>
+    <from>3530</from>
+    <to>3532</to>
+    <snippet_from>3508</snippet_from>
+    <snippet_to>3551</snippet_to>
     <column>23</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>105</line_number>
+    <line_number>106</line_number>
     <type>MissingClosureParamType</type>
     <message>Parameter $b has no provided type</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Options.php</file_path>
     <snippet>            function ($a, $b) use ($keys) {</snippet>
     <selected_text>$b</selected_text>
-    <from>3384</from>
-    <to>3386</to>
-    <snippet_from>3358</snippet_from>
-    <snippet_to>3401</snippet_to>
+    <from>3534</from>
+    <to>3536</to>
+    <snippet_from>3508</snippet_from>
+    <snippet_to>3551</snippet_to>
     <column>27</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>106</line_number>
+    <line_number>107</line_number>
     <type>InvalidOperand</type>
     <message>Cannot add a numeric type to a non-numeric type false</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Options.php</file_path>
     <snippet>                return array_search($a, $keys) - array_search($b, $keys);</snippet>
     <selected_text>array_search($a, $keys) - array_search($b, $keys)</selected_text>
-    <from>3425</from>
-    <to>3474</to>
-    <snippet_from>3402</snippet_from>
-    <snippet_to>3475</snippet_to>
+    <from>3575</from>
+    <to>3624</to>
+    <snippet_from>3552</snippet_from>
+    <snippet_to>3625</snippet_to>
     <column>24</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>112</line_number>
+    <line_number>113</line_number>
     <type>MissingParamType</type>
     <message>Parameter $file has no provided type</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Options.php</file_path>
     <snippet>    public function toFile($file)</snippet>
     <selected_text>$file</selected_text>
-    <from>3560</from>
-    <to>3565</to>
-    <snippet_from>3533</snippet_from>
-    <snippet_to>3566</snippet_to>
+    <from>3710</from>
+    <to>3715</to>
+    <snippet_from>3683</snippet_from>
+    <snippet_to>3716</snippet_to>
     <column>28</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>117</line_number>
+    <line_number>118</line_number>
     <type>MissingParamType</type>
     <message>Parameter $file has no provided type</message>
     <file_name>src/Options.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Options.php</file_path>
     <snippet>    public function rawFile($file)</snippet>
     <selected_text>$file</selected_text>
-    <from>3658</from>
-    <to>3663</to>
-    <snippet_from>3630</snippet_from>
-    <snippet_to>3664</snippet_to>
+    <from>3808</from>
+    <to>3813</to>
+    <snippet_from>3780</snippet_from>
+    <snippet_to>3814</snippet_to>
     <column>29</column>
   </item>
   <item>
@@ -894,19 +954,19 @@
     <column>37</column>
   </item>
   <item>
-    <severity>error</severity>
+    <severity>info</severity>
     <line_number>11</line_number>
-    <type>MissingParamType</type>
-    <message>Parameter $command has no provided type</message>
+    <type>InvalidReturnType</type>
+    <message>The declared return type 'Robo\Task\Base\ParallelExec' for Edge\QA\Task\ParallelExec::process is incorrect, got 'false|Symfony\Component\Process\Process'</message>
     <file_name>src/Task/ParallelExec.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Task/ParallelExec.php</file_path>
     <snippet>    public function process($command)</snippet>
-    <selected_text>$command</selected_text>
-    <from>225</from>
-    <to>233</to>
+    <selected_text>public function process($command)</selected_text>
+    <from>201</from>
+    <to>234</to>
     <snippet_from>197</snippet_from>
     <snippet_to>234</snippet_to>
-    <column>29</column>
+    <column>5</column>
   </item>
   <item>
     <severity>error</severity>
@@ -1138,6 +1198,21 @@
   </item>
   <item>
     <severity>info</severity>
+    <line_number>21</line_number>
+    <type>UndefinedClass</type>
+    <message>Class or interface PHP_CodeSniffer does not exist</message>
+    <file_name>src/Tools/Analyzer/Phpcs.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php</file_path>
+    <snippet>        return $this-&gt;buildPhpcs(\PHP_CodeSniffer::getInstalledStandards());</snippet>
+    <selected_text>\PHP_CodeSniffer</selected_text>
+    <from>557</from>
+    <to>573</to>
+    <snippet_from>524</snippet_from>
+    <snippet_to>600</snippet_to>
+    <column>34</column>
+  </item>
+  <item>
+    <severity>info</severity>
     <line_number>5</line_number>
     <type>UnusedClass</type>
     <message>Class Edge\QA\Tools\Analyzer\PhpcsV3 is never used</message>
@@ -1231,46 +1306,17 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_number>9</line_number>
-    <type>PossiblyUnusedProperty</type>
-    <message>Cannot find public calls to property Edge\QA\Tools\Analyzer\Phpstan::$SETTINGS</message>
-    <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
-    <file_path>/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
-    <snippet>    public static $SETTINGS = array(
-        'optionSeparator' =&gt; ' ',
-        'internalClass' =&gt; 'PHPStan\Analyser\Analyser',
-        'outputMode' =&gt; OutputMode::XML_CONSOLE_OUTPUT,
-        'xml' =&gt; ['phpstan.xml'],
-        'errorsXPath' =&gt; '//checkstyle/file/error',
-        'composer' =&gt; 'phpstan/phpstan',
-    );</snippet>
-    <selected_text>$SETTINGS = array(
-        'optionSeparator' =&gt; ' ',
-        'internalClass' =&gt; 'PHPStan\Analyser\Analyser',
-        'outputMode' =&gt; OutputMode::XML_CONSOLE_OUTPUT,
-        'xml' =&gt; ['phpstan.xml'],
-        'errorsXPath' =&gt; '//checkstyle/file/error',
-        'composer' =&gt; 'phpstan/phpstan',
-    )</selected_text>
-    <from>129</from>
-    <to>426</to>
-    <snippet_from>111</snippet_from>
-    <snippet_to>427</snippet_to>
-    <column>19</column>
-  </item>
-  <item>
-    <severity>error</severity>
-    <line_number>22</line_number>
+    <line_number>23</line_number>
     <type>MissingClosureParamType</type>
     <message>Parameter $relativeDir has no provided type</message>
     <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
     <snippet>                function ($relativeDir) {</snippet>
     <selected_text>$relativeDir</selected_text>
-    <from>612</from>
-    <to>624</to>
-    <snippet_from>586</snippet_from>
-    <snippet_to>627</snippet_to>
+    <from>643</from>
+    <to>655</to>
+    <snippet_from>617</snippet_from>
+    <snippet_to>658</snippet_to>
     <column>27</column>
   </item>
   <item>
@@ -1300,6 +1346,57 @@
   </item>
   <item>
     <severity>error</severity>
+    <line_number>35</line_number>
+    <type>MissingParamType</type>
+    <message>Parameter $report has no provided type</message>
+    <file_name>src/Tools/Analyzer/Phpunit.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpunit.php</file_path>
+    <snippet>    private function getFile($report, $format)</snippet>
+    <selected_text>$report</selected_text>
+    <from>1161</from>
+    <to>1168</to>
+    <snippet_from>1132</snippet_from>
+    <snippet_to>1178</snippet_to>
+    <column>30</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>35</line_number>
+    <type>MissingParamType</type>
+    <message>Parameter $format has no provided type</message>
+    <file_name>src/Tools/Analyzer/Phpunit.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpunit.php</file_path>
+    <snippet>    private function getFile($report, $format)</snippet>
+    <selected_text>$format</selected_text>
+    <from>1170</from>
+    <to>1177</to>
+    <snippet_from>1132</snippet_from>
+    <snippet_to>1178</snippet_to>
+    <column>39</column>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_number>37</line_number>
+    <type>UnusedVariable</type>
+    <message>Variable $extensions is never referenced</message>
+    <file_name>src/Tools/Analyzer/Phpunit.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpunit.php</file_path>
+    <snippet>        static $extensions = [
+            'junit' =&gt; 'xml', 'text' =&gt; 'txt', 'tap' =&gt; 'text',
+            'clover' =&gt; 'xml', 'crap4j' =&gt; 'xml',
+        ];</snippet>
+    <selected_text>static $extensions = [
+            'junit' =&gt; 'xml', 'text' =&gt; 'txt', 'tap' =&gt; 'text',
+            'clover' =&gt; 'xml', 'crap4j' =&gt; 'xml',
+        ];</selected_text>
+    <from>1193</from>
+    <to>1340</to>
+    <snippet_from>1185</snippet_from>
+    <snippet_to>1340</snippet_to>
+    <column>9</column>
+  </item>
+  <item>
+    <severity>error</severity>
     <line_number>10</line_number>
     <type>PossiblyUnusedProperty</type>
     <message>Cannot find public calls to property Edge\QA\Tools\Analyzer\Psalm::$SETTINGS</message>
@@ -1310,64 +1407,64 @@
         'xml' =&gt; ['psalm.xml'],
         'errorsXPath' =&gt; '//item/severity[text()=\'error\']',
         'composer' =&gt; 'vimeo/psalm',
-        'internalClass' =&gt; 'Psalm\Checker\ProjectChecker',
+        'internalClass' =&gt; 'Psalm\CodeLocation',
     );</snippet>
     <selected_text>$SETTINGS = array(
         'optionSeparator' =&gt; '=',
         'xml' =&gt; ['psalm.xml'],
         'errorsXPath' =&gt; '//item/severity[text()=\'error\']',
         'composer' =&gt; 'vimeo/psalm',
-        'internalClass' =&gt; 'Psalm\Checker\ProjectChecker',
+        'internalClass' =&gt; 'Psalm\CodeLocation',
     )</selected_text>
     <from>142</from>
-    <to>390</to>
+    <to>380</to>
     <snippet_from>124</snippet_from>
-    <snippet_to>391</snippet_to>
+    <snippet_to>381</snippet_to>
     <column>19</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>45</line_number>
+    <line_number>46</line_number>
     <type>MissingParamType</type>
     <message>Parameter $rawXml has no provided type</message>
     <file_name>src/Tools/Analyzer/Psalm.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/Analyzer/Psalm.php</file_path>
     <snippet>    private function updateProjectFiles($rawXml)</snippet>
     <selected_text>$rawXml</selected_text>
-    <from>1397</from>
-    <to>1404</to>
-    <snippet_from>1357</snippet_from>
-    <snippet_to>1405</snippet_to>
+    <from>1425</from>
+    <to>1432</to>
+    <snippet_from>1385</snippet_from>
+    <snippet_to>1433</snippet_to>
     <column>41</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>56</line_number>
+    <line_number>57</line_number>
     <type>UnusedVariable</type>
     <message>Variable $dir is never referenced</message>
     <file_name>src/Tools/Analyzer/Psalm.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/Analyzer/Psalm.php</file_path>
     <snippet>        foreach ($this-&gt;options-&gt;getAnalyzedDirs() as $dir) {</snippet>
     <selected_text>$dir</selected_text>
-    <from>1732</from>
-    <to>1736</to>
-    <snippet_from>1678</snippet_from>
-    <snippet_to>1739</snippet_to>
+    <from>1760</from>
+    <to>1764</to>
+    <snippet_from>1706</snippet_from>
+    <snippet_to>1767</snippet_to>
     <column>55</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>63</line_number>
+    <line_number>64</line_number>
     <type>UnusedVariable</type>
     <message>Variable $path is never referenced</message>
     <file_name>src/Tools/Analyzer/Psalm.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/Analyzer/Psalm.php</file_path>
     <snippet>            foreach ($paths as $path) {</snippet>
     <selected_text>$path</selected_text>
-    <from>1981</from>
-    <to>1986</to>
-    <snippet_from>1950</snippet_from>
-    <snippet_to>1989</snippet_to>
+    <from>2009</from>
+    <to>2014</to>
+    <snippet_from>1978</snippet_from>
+    <snippet_to>2017</snippet_to>
     <column>32</column>
   </item>
   <item>
@@ -1379,170 +1476,170 @@
     <file_path>/mnt/DATA/www/phpqa/src/Tools/Analyzer/SecurityChecker.php</file_path>
     <snippet>    public static $SETTINGS = array(
         'optionSeparator' =&gt; '=',
-        'internalClass' =&gt; ['SensioLabs\Security\SecurityChecker'],
+        'internalClass' =&gt; 'SensioLabs\Security\SecurityChecker',
         'outputMode' =&gt; OutputMode::RAW_CONSOLE_OUTPUT,
         'composer' =&gt; 'sensiolabs/security-checker',
     );</snippet>
     <selected_text>$SETTINGS = array(
         'optionSeparator' =&gt; '=',
-        'internalClass' =&gt; ['SensioLabs\Security\SecurityChecker'],
+        'internalClass' =&gt; 'SensioLabs\Security\SecurityChecker',
         'outputMode' =&gt; OutputMode::RAW_CONSOLE_OUTPUT,
         'composer' =&gt; 'sensiolabs/security-checker',
     )</selected_text>
     <from>137</from>
-    <to>372</to>
+    <to>370</to>
     <snippet_from>119</snippet_from>
-    <snippet_to>373</snippet_to>
+    <snippet_to>371</snippet_to>
     <column>19</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>14</line_number>
+    <line_number>19</line_number>
     <type>UndefinedConstant</type>
     <message>Const PHPQA_VERSION is not defined</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>                'version' =&gt; PHPQA_VERSION,</snippet>
     <selected_text>PHPQA_VERSION</selected_text>
-    <from>258</from>
-    <to>271</to>
-    <snippet_from>229</snippet_from>
-    <snippet_to>272</snippet_to>
+    <from>455</from>
+    <to>468</to>
+    <snippet_from>426</snippet_from>
+    <snippet_to>469</snippet_to>
     <column>30</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>15</line_number>
+    <line_number>20</line_number>
     <type>UndefinedConstant</type>
     <message>Const PHPQA_VERSION is not defined</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>                'version_normalized' =&gt; PHPQA_VERSION,</snippet>
     <selected_text>PHPQA_VERSION</selected_text>
-    <from>313</from>
-    <to>326</to>
-    <snippet_from>273</snippet_from>
-    <snippet_to>327</snippet_to>
+    <from>510</from>
+    <to>523</to>
+    <snippet_from>470</snippet_from>
+    <snippet_to>524</snippet_to>
     <column>41</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>29</line_number>
+    <line_number>34</line_number>
     <type>UndefinedConstant</type>
     <message>Const COMPOSER_BINARY_DIR is not defined</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>        $installedJson = COMPOSER_BINARY_DIR . '/../composer/installed.json';</snippet>
     <selected_text>COMPOSER_BINARY_DIR</selected_text>
-    <from>849</from>
-    <to>868</to>
-    <snippet_from>824</snippet_from>
-    <snippet_to>901</snippet_to>
+    <from>1046</from>
+    <to>1065</to>
+    <snippet_from>1021</snippet_from>
+    <snippet_to>1098</snippet_to>
     <column>26</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>47</line_number>
+    <line_number>52</line_number>
     <type>MissingParamType</type>
     <message>Parameter $tool has no provided type</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    private function analyzeTool($tool, $composerPackage, array $composerPackages, $customBinary = null)</snippet>
     <selected_text>$tool</selected_text>
-    <from>1321</from>
-    <to>1326</to>
-    <snippet_from>1288</snippet_from>
-    <snippet_to>1392</snippet_to>
+    <from>1518</from>
+    <to>1523</to>
+    <snippet_from>1485</snippet_from>
+    <snippet_to>1589</snippet_to>
     <column>34</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>47</line_number>
+    <line_number>52</line_number>
     <type>MissingParamType</type>
     <message>Parameter $composerPackage has no provided type</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    private function analyzeTool($tool, $composerPackage, array $composerPackages, $customBinary = null)</snippet>
     <selected_text>$composerPackage</selected_text>
-    <from>1328</from>
-    <to>1344</to>
-    <snippet_from>1288</snippet_from>
-    <snippet_to>1392</snippet_to>
+    <from>1525</from>
+    <to>1541</to>
+    <snippet_from>1485</snippet_from>
+    <snippet_to>1589</snippet_to>
     <column>41</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>47</line_number>
+    <line_number>52</line_number>
     <type>MissingParamType</type>
     <message>Parameter $customBinary has no provided type</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    private function analyzeTool($tool, $composerPackage, array $composerPackages, $customBinary = null)</snippet>
     <selected_text>$customBinary</selected_text>
-    <from>1371</from>
-    <to>1384</to>
-    <snippet_from>1288</snippet_from>
-    <snippet_to>1392</snippet_to>
+    <from>1568</from>
+    <to>1581</to>
+    <snippet_from>1485</snippet_from>
+    <snippet_to>1589</snippet_to>
     <column>84</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>102</line_number>
+    <line_number>107</line_number>
     <type>MissingClosureParamType</type>
     <message>Parameter $author has no provided type</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>                function ($author) {</snippet>
     <selected_text>$author</selected_text>
-    <from>3691</from>
-    <to>3698</to>
-    <snippet_from>3665</snippet_from>
-    <snippet_to>3701</snippet_to>
+    <from>3888</from>
+    <to>3895</to>
+    <snippet_from>3862</snippet_from>
+    <snippet_to>3898</snippet_to>
     <column>27</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>110</line_number>
+    <line_number>115</line_number>
     <type>MissingParamType</type>
     <message>Parameter $command has no provided type</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    private function loadVersionFromConsoleCommand($command)</snippet>
     <selected_text>$command</selected_text>
-    <from>3879</from>
-    <to>3887</to>
-    <snippet_from>3828</snippet_from>
-    <snippet_to>3888</snippet_to>
+    <from>4076</from>
+    <to>4084</to>
+    <snippet_from>4025</snippet_from>
+    <snippet_to>4085</snippet_to>
     <column>52</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>118</line_number>
+    <line_number>123</line_number>
     <type>MissingParamType</type>
     <message>Parameter $string has no provided type</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    private function getFirstLine($string)</snippet>
     <selected_text>$string</selected_text>
-    <from>4118</from>
-    <to>4125</to>
-    <snippet_from>4084</snippet_from>
-    <snippet_to>4126</snippet_to>
+    <from>4315</from>
+    <to>4322</to>
+    <snippet_from>4281</snippet_from>
+    <snippet_to>4323</snippet_to>
     <column>35</column>
   </item>
   <item>
     <severity>error</severity>
-    <line_number>123</line_number>
+    <line_number>128</line_number>
     <type>MissingParamType</type>
     <message>Parameter $text has no provided type</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    private function extractVersion($text)</snippet>
     <selected_text>$text</selected_text>
-    <from>4214</from>
-    <to>4219</to>
-    <snippet_from>4178</snippet_from>
-    <snippet_to>4220</snippet_to>
+    <from>4411</from>
+    <to>4416</to>
+    <snippet_from>4375</snippet_from>
+    <snippet_to>4417</snippet_to>
     <column>37</column>
   </item>
   <item>
@@ -1667,47 +1764,47 @@
   </item>
   <item>
     <severity>error</severity>
-    <line_number>71</line_number>
+    <line_number>79</line_number>
     <type>InvalidFunctionCall</type>
     <message>Cannot treat type object as callable</message>
     <file_name>src/Tools/Tools.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/Tools.php</file_path>
     <snippet>        $args = $handler($tool);</snippet>
     <selected_text>$handler($tool)</selected_text>
-    <from>2247</from>
-    <to>2262</to>
-    <snippet_from>2231</snippet_from>
-    <snippet_to>2263</snippet_to>
+    <from>2663</from>
+    <to>2678</to>
+    <snippet_from>2647</snippet_from>
+    <snippet_to>2679</snippet_to>
     <column>17</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>76</line_number>
+    <line_number>84</line_number>
     <type>PossiblyUnusedParam</type>
     <message>Param #0 is never referenced in this method</message>
     <file_name>src/Tools/Tools.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/Tools.php</file_path>
     <snippet>    public function getReport(RunningTool $tool)</snippet>
     <selected_text>$tool</selected_text>
-    <from>2352</from>
-    <to>2357</to>
-    <snippet_from>2310</snippet_from>
-    <snippet_to>2358</snippet_to>
+    <from>2768</from>
+    <to>2773</to>
+    <snippet_from>2726</snippet_from>
+    <snippet_to>2774</snippet_to>
     <column>43</column>
   </item>
   <item>
     <severity>info</severity>
-    <line_number>81</line_number>
+    <line_number>89</line_number>
     <type>PossiblyUnusedMethod</type>
     <message>Cannot find public calls to method Edge\QA\Tools\Tools::getAssets</message>
     <file_name>src/Tools/Tools.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/Tools.php</file_path>
     <snippet>    public function getAssets()</snippet>
     <selected_text>public function getAssets()</selected_text>
-    <from>2431</from>
-    <to>2458</to>
-    <snippet_from>2427</snippet_from>
-    <snippet_to>2458</snippet_to>
+    <from>2847</from>
+    <to>2874</to>
+    <snippet_from>2843</snippet_from>
+    <snippet_to>2874</snippet_to>
     <column>5</column>
   </item>
   <item>
@@ -2206,6 +2303,66 @@
     <column>54</column>
   </item>
   <item>
+    <severity>error</severity>
+    <line_number>133</line_number>
+    <type>MissingClosureParamType</type>
+    <message>Parameter $config has no provided type</message>
+    <file_name>tests/OptionsTest.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
+    <snippet>        $config = $this-&gt;givenConfig(function ($config) {</snippet>
+    <selected_text>$config</selected_text>
+    <from>4844</from>
+    <to>4851</to>
+    <snippet_from>4797</snippet_from>
+    <snippet_to>4854</snippet_to>
+    <column>48</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>143</line_number>
+    <type>MissingParamType</type>
+    <message>Parameter $config has no provided type</message>
+    <file_name>tests/OptionsTest.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
+    <snippet>    private function buildRunningTools(Options $o, array $tools, $config = null)</snippet>
+    <selected_text>$config</selected_text>
+    <from>5404</from>
+    <to>5411</to>
+    <snippet_from>5339</snippet_from>
+    <snippet_to>5419</snippet_to>
+    <column>66</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>146</line_number>
+    <type>MissingClosureParamType</type>
+    <message>Parameter $config has no provided type</message>
+    <file_name>tests/OptionsTest.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
+    <snippet>            $config = $this-&gt;givenConfig(function ($config) {</snippet>
+    <selected_text>$config</selected_text>
+    <from>5501</from>
+    <to>5508</to>
+    <snippet_from>5450</snippet_from>
+    <snippet_to>5511</snippet_to>
+    <column>52</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>153</line_number>
+    <type>MissingParamType</type>
+    <message>Parameter $setMethods has no provided type</message>
+    <file_name>tests/OptionsTest.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/tests/OptionsTest.php</file_path>
+    <snippet>    private function givenConfig($setMethods = null)</snippet>
+    <selected_text>$setMethods</selected_text>
+    <from>5710</from>
+    <to>5721</to>
+    <snippet_from>5677</snippet_from>
+    <snippet_to>5729</snippet_to>
+    <column>34</column>
+  </item>
+  <item>
     <severity>info</severity>
     <line_number>5</line_number>
     <type>UnusedClass</type>
@@ -2309,5 +2466,20 @@
     <snippet_from>2251</snippet_from>
     <snippet_to>2349</snippet_to>
     <column>66</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>3</line_number>
+    <type>MissingFile</type>
+    <message>Cannot find file /mnt/DATA/www/phpqa/tests/experiments/vendor/autoload.php to include</message>
+    <file_name>tests/experiments/win-paths.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/tests/experiments/win-paths.php</file_path>
+    <snippet>require_once __DIR__ . '/vendor/autoload.php';</snippet>
+    <selected_text>require_once __DIR__ . '/vendor/autoload.php'</selected_text>
+    <from>7</from>
+    <to>52</to>
+    <snippet_from>7</snippet_from>
+    <snippet_to>53</snippet_to>
+    <column>1</column>
   </item>
 </report>

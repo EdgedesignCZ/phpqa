@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2018-06-14T14:30:24" pdepend="@package_version@">
+<dependencies generated="2018-12-22T13:23:22" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -29,6 +29,7 @@
       </efferent>
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
+        <type namespace="Edge\QA" name="Options"/>
         <type namespace="Edge\QA" name="ConfigTest"/>
         <type namespace="Edge\QA\Tools" name="Tool"/>
         <type namespace="Edge\QA\Tools" name="Tools"/>
@@ -46,6 +47,7 @@
     <class name="Options">
       <efferent>
         <type namespace="Edge\QA" name="IgnoredPaths"/>
+        <type namespace="Edge\QA" name="Config"/>
         <type namespace="Edge\QA" name="RunningTool"/>
       </efferent>
       <afferent>
@@ -99,6 +101,7 @@
       <efferent>
         <type namespace="" name="PHPUnit_Framework_TestCase"/>
         <type namespace="Edge\QA" name="Options"/>
+        <type namespace="Prophecy" name="Argument"/>
       </efferent>
       <afferent/>
       <file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php"/>
@@ -213,6 +216,7 @@
       </efferent>
       <afferent>
         <type namespace="Edge\QA\Tools" name="Tools"/>
+        <type namespace="Edge\QA\Tools\Analyzer" name="Phpstan"/>
       </afferent>
       <file name="/mnt/DATA/www/phpqa/src/Tools/GetVersions.php"/>
     </class>
@@ -242,6 +246,7 @@
     <class name="Tools">
       <efferent>
         <type namespace="Edge\QA" name="Config"/>
+        <type namespace="" name="RuntimeException"/>
         <type namespace="Edge\QA" name="Options"/>
         <type namespace="Edge\QA" name="RunningTool"/>
         <type namespace="Edge\QA\Tools" name="AnalyzeResults"/>
@@ -332,6 +337,7 @@
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
         <type namespace="Nette\Neon" name="Neon"/>
+        <type namespace="Edge\QA\Tools" name="GetVersions"/>
       </efferent>
       <afferent/>
       <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpstan.php"/>

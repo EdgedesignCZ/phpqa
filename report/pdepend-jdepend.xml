@@ -7,10 +7,10 @@
         <ConcreteClasses>12</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>2</Ca>
-        <Ce>5</Ce>
+        <Ce>6</Ce>
         <A>0</A>
-        <I>0.71428571428571</I>
-        <D>0.28571428571429</D>
+        <I>0.75</I>
+        <D>0.25</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/mnt/DATA/www/phpqa/RoboFile.php">RoboFile</Class>
@@ -31,6 +31,7 @@
         <Package></Package>
         <Package>Edge\QA\Task</Package>
         <Package>Edge\QA\Tools</Package>
+        <Package>Prophecy</Package>
         <Package>Robo</Package>
         <Package>Symfony\Component\Yaml</Package>
       </DependsUpon>
@@ -79,10 +80,10 @@
         <ConcreteClasses>3</ConcreteClasses>
         <AbstractClasses>1</AbstractClasses>
         <Ca>2</Ca>
-        <Ce>2</Ce>
+        <Ce>3</Ce>
         <A>0.25</A>
-        <I>0.5</I>
-        <D>0.25</D>
+        <I>0.6</I>
+        <D>0.15</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/mnt/DATA/www/phpqa/src/Tools/AnalyzeResults.php">AnalyzeResults</Class>
@@ -93,6 +94,7 @@
         <Class sourceFile="/mnt/DATA/www/phpqa/src/Tools/Tool.php">Tool</Class>
       </AbstractClasses>
       <DependsUpon>
+        <Package></Package>
         <Package>Edge\QA</Package>
         <Package>Symfony\Component\Process</Package>
       </DependsUpon>

@@ -27,6 +27,7 @@ Edge\QA\Options
  [x] Execute
  [x] Build root path
  [x] Load allowed errors count
+ [x] Load errors count from config
 
 Edge\QA\Paths
  [x] Path to binary is escaped
