@@ -89,6 +89,22 @@ class Config
         );
     }
 
+    public function pathsOrValues($path)
+    {
+        return $this->get(
+            $path,
+            function ($values, $dir) {
+                return array_map(
+                    function ($pathOrValue) use ($dir) {
+                        $realpath = realpath("{$dir}{$pathOrValue}");
+                        return $realpath ? $realpath : $pathOrValue;
+                    },
+                    (array) $values
+                );
+            }
+        );
+    }
+
     public function csv($path)
     {
         return $this->get(

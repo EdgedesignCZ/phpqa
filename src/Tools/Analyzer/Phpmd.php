@@ -13,10 +13,12 @@ class Phpmd extends \Edge\QA\Tools\Tool
 
     public function __invoke()
     {
+        $rulesets = $this->config->pathsOrValues('phpmd.standard');
+
         $args = array(
             $this->options->getAnalyzedDirs(','),
             $this->options->isSavedToFiles ? 'xml' : 'text',
-            \Edge\QA\escapePath($this->config->path('phpmd.standard')),
+            \Edge\QA\escapePath(implode(',', $rulesets)),
             $this->options->ignore->phpmd(),
             'suffixes' => $this->config->csv('extensions')
         );
