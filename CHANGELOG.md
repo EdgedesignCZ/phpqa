@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.21.1
+
+* [6ef3519](https://github.com/EdgedesignCZ/phpqa/commit/6ef3519) Fix docker build
+
 ## v1.21.0
 
 * [#164](https://github.com/EdgedesignCZ/phpqa/pull/164) - add support for multiple phpmd rulesets
