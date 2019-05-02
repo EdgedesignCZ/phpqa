@@ -1,6 +1,13 @@
 
 # Changelog
 
+## v1.21.0
+
+* [#162](https://github.com/EdgedesignCZ/phpqa/pull/164) - add support for multiple phpmd rulesets
+* [#162](https://github.com/EdgedesignCZ/phpqa/issues/162) - fix security-checker on travis
+* _CI_
+    * [#163](https://github.com/EdgedesignCZ/phpqa/pull/163) - drop hhvm support on Travis
+
 ## v1.20.0
 
 * [#157](https://github.com/EdgedesignCZ/phpqa/pull/157) - support Psalm 3.x _([#158](https://github.com/EdgedesignCZ/phpqa/pull/158) internalClass refactoring)_
