@@ -3,10 +3,10 @@
 
 ## v1.21.0
 
-* [#162](https://github.com/EdgedesignCZ/phpqa/pull/164) - add support for multiple phpmd rulesets
+* [#164](https://github.com/EdgedesignCZ/phpqa/pull/164) - add support for multiple phpmd rulesets
 * [#162](https://github.com/EdgedesignCZ/phpqa/issues/162) - fix security-checker on travis
 * _CI_
-    * [#163](https://github.com/EdgedesignCZ/phpqa/pull/163) - drop hhvm support on Travis
+    * [#163](https://github.com/EdgedesignCZ/phpqa/pull/163), [#167](https://github.com/EdgedesignCZ/phpqa/pull/167) - drop hhvm support on Travis, fix security-checker vulnerabilities
 
 ## v1.20.0
 
