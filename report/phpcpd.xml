@@ -54,7 +54,7 @@
 </codefragment>
   </duplication>
   <duplication lines="3" tokens="13">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpmd.php" line="21"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpmd.php" line="23"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="36"/>
     <codefragment>            'suffixes' =&gt; $this-&gt;config-&gt;csv('extensions')
         );

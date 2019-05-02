@@ -1,42 +1,42 @@
 
 PHP CODE SNIFFER INFORMATION REPORT
 ----------------------------------------------------------------------
-Blank lines at end of control structure: 0 [154/154, 100%]
+Blank lines at end of control structure: 0 [153/153, 100%]
 
-Blank lines at start of control structure: 0 [154/154, 100%]
+Blank lines at start of control structure: 0 [153/153, 100%]
 
-CamelCase method name: yes [140/140, 100%]
+CamelCase method name: yes [141/141, 100%]
 
 Class defined in namespace: yes [38/38, 100%]
 
 Class opening brace placement: new line [38/38, 100%]
 
-Closure opening brace placement: same line [16/16, 100%]
+Closure opening brace placement: same line [18/18, 100%]
 
 Constant name case: upper [5/5, 100%]
 
-Control structure defined inline: no [152/152, 100%]
+Control structure defined inline: no [151/151, 100%]
 
 Declarations and side effects mixed: no [44/44, 100%]
 
 EOL char: \n [44/44, 100%]
 
-Function opening brace placement: new line [175/175, 100%]
+Function opening brace placement: new line [176/176, 100%]
 
-Line indent: spaces [2098/2098, 100%]
+Line indent: spaces [2110/2110, 100%]
 
 Line length:
-	80 or less => 2,238 ( 93.76%)
-	81-120     =>   148 (  6.20%)
+	80 or less => 2,250 ( 93.79%)
+	81-120     =>   148 (  6.17%)
 	121-150    =>     1 (  0.04%)
 	------------------------------
-	total      => 2,387 (100.00%)
+	total      => 2,399 (100.00%)
 
 Multiple statements on same line:
-	no    =>  799 ( 99.88%)
-	yes   =>    1 (  0.13%)
+	no    =>  802 ( 99.88%)
+	yes   =>    1 (  0.12%)
 	------------------------
-	total =>  800 (100.00%)
+	total =>  803 (100.00%)
 
 Number of newlines at EOF: 1 [44/44, 100%]
 
@@ -46,15 +46,15 @@ PHP closing tag at end of PHP-only file: no [44/44, 100%]
 
 PHP constant case: lower [101/101, 100%]
 
-PHP keyword case: lower [1105/1105, 100%]
+PHP keyword case: lower [1112/1112, 100%]
 
 PHP short open tag used: no [44/44, 100%]
 
 PascalCase class name: yes [38/38, 100%]
 
-Spaces after control structure open parenthesis: 0 [134/134, 100%]
+Spaces after control structure open parenthesis: 0 [133/133, 100%]
 
-Spaces before control structure close parenthesis: 0 [134/134, 100%]
+Spaces before control structure close parenthesis: 0 [133/133, 100%]
 
 Use of ELSE IF or ELSEIF: elseif [6/6, 100%]
 

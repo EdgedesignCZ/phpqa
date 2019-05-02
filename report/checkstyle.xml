@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<checkstyle version="3.4.0">
+<checkstyle version="3.4.2">
 <file name="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php">
  <error line="47" column="136" severity="warning" message="Line exceeds 120 characters; contains 136 characters" source="Generic.Files.LineLength.TooLong"/>
 </file>

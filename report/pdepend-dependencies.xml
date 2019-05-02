@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2018-12-22T13:23:22" pdepend="@package_version@">
+<dependencies generated="2019-05-02T17:50:57" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>

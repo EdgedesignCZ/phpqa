@@ -28,12 +28,12 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
-        <Package></Package>
+        <Package>Robo</Package>
         <Package>Edge\QA\Task</Package>
         <Package>Edge\QA\Tools</Package>
-        <Package>Prophecy</Package>
-        <Package>Robo</Package>
+        <Package></Package>
         <Package>Symfony\Component\Yaml</Package>
+        <Package>Prophecy</Package>
       </DependsUpon>
       <UsedBy>
         <Package>Edge\QA\Task</Package>
@@ -61,14 +61,14 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
-        <Package></Package>
-        <Package>Consolidation\Log</Package>
-        <Package>Edge\QA</Package>
         <Package>Robo</Package>
+        <Package>Edge\QA</Package>
+        <Package></Package>
         <Package>Robo\Task\Base</Package>
+        <Package>Symfony\Component\Process</Package>
+        <Package>Consolidation\Log</Package>
         <Package>Symfony\Component\Console\Helper</Package>
         <Package>Symfony\Component\Console\Output</Package>
-        <Package>Symfony\Component\Process</Package>
       </DependsUpon>
       <UsedBy>
         <Package>Edge\QA</Package>
@@ -94,8 +94,8 @@
         <Class sourceFile="/mnt/DATA/www/phpqa/src/Tools/Tool.php">Tool</Class>
       </AbstractClasses>
       <DependsUpon>
-        <Package></Package>
         <Package>Edge\QA</Package>
+        <Package></Package>
         <Package>Symfony\Component\Process</Package>
       </DependsUpon>
       <UsedBy>
@@ -132,9 +132,9 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
-        <Package></Package>
         <Package>Edge\QA\Tools</Package>
         <Package>Nette\Neon</Package>
+        <Package></Package>
         <Package>PHP_CodeSniffer\Util</Package>
       </DependsUpon>
       <UsedBy/>
