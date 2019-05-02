@@ -1,4 +1,4 @@
-FROM composer
+FROM composer:1.8.0
 
 RUN apk add --update libxslt-dev && \
     docker-php-ext-install xsl
