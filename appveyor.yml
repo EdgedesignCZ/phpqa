@@ -41,6 +41,7 @@ install:
     # install
     - cd c:\projects\phpqa
     - appveyor-retry composer install --no-progress --profile
+    - appveyor-retry composer require friendsofphp/php-cs-fixer:~2.2 --no-progress --profile
 
 test_script:
     - cd C:\projects\phpqa
