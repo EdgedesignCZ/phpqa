@@ -143,6 +143,10 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
 
     private function shouldStopPhpqa()
     {
-        $this->setExpectedException('Exception');
+        if (method_exists($this, 'setExpectedException')) {
+            $this->setExpectedException('Exception');
+        } else {
+            $this->expectException('Exception');
+        }
     }
 }

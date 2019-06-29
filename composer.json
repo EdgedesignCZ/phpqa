@@ -53,7 +53,10 @@
         "files": ["src/report.php", "src/paths.php"]
     },
     "autoload-dev": {
-        "files": ["vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php"]
+        "files": [
+            "tests/phpunit-compatibility.php",
+            "vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php"
+        ]
     },
     "config": {
         "optimize-autoloader": true
