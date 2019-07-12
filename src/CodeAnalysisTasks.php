@@ -51,7 +51,14 @@ trait CodeAnalysisTasks
             'execution' => 'parallel'
         )
     ) {
-        $this->loadConfig($opts);
+        $config = $this->loadConfig($opts);
+        if (!$opts['analyzedDirs']) {
+          $opts['analyzedDirs'] = $config->csv('analyzedDirs');
+        }
+        if (!$opts['ignoredFiles']) {
+          $opts['ignoredFiles'] = $config->csv('ignoredFiles');
+        }
+
         $this->loadOptions($opts);
         $this->ciClean();
         $this->runTools();
@@ -68,6 +75,7 @@ trait CodeAnalysisTasks
         $this->tools = new Tools($config, function ($text) {
             $this->say($text);
         });
+        return $config;
     }
 
     private function loadOptions(array $opts)
