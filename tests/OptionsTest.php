@@ -131,34 +131,8 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         assertThat($tools['pdepend']->getAllowedErrorsCount(), is(nullValue()));
     }
 
-    public function testLoadErrorsCountFromConfig()
+    private function buildRunningTools(Options $o, array $tools)
     {
-        $config = $this->givenConfig(function ($config) {
-            $config->value('phpcs.allowedErrorsCount')->willReturn(0);
-            $config->value('pdepend.allowedErrorsCount')->willReturn(2);
-        });
-        $options = $this->overrideOptions(array('tools' => 'phpcs:1,pdepend'));
-        $tools = $this->buildRunningTools($options, array('phpcs' => [], 'pdepend' => []), $config);
-        assertThat($tools['phpcs']->getAllowedErrorsCount(), is(1));
-        assertThat($tools['pdepend']->getAllowedErrorsCount(), is(2));
-    }
-
-    private function buildRunningTools(Options $o, array $tools, $config = null)
-    {
-        if (!$config) {
-            $config = $this->givenConfig(function ($config) {
-                $config->value(\Prophecy\Argument::any())->willReturn(null);
-            });
-        }
-        return $o->buildRunningTools($tools, $config);
-    }
-
-    private function givenConfig($setMethods = null)
-    {
-        $config = $this->prophesize('Edge\QA\Config');
-        if ($setMethods) {
-            $setMethods($config);
-        }
-        return $config->reveal();
+        return $o->buildRunningTools($tools);
     }
 }

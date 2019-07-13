@@ -15,8 +15,6 @@ phpqa:
 phpcs:
     # alternatively you can use an array to define multiple rule sets (https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage#specifying-a-coding-standard)
     standard: PSR2
-    # can be overriden by CLI: phpqa --tools phpcs:1
-    allowedErrorsCount: null
     # number of allowed errors is compared with warnings+errors, or just errors from checkstyle.xml
     ignoreWarnings: false
     # https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting
@@ -30,7 +28,6 @@ phpcs:
             # ./vendor/owner/package/src/MySummaryReport.php: phpcs-summary.html
 
 php-cs-fixer:
-    allowedErrorsCount: null
     # http://cs.sensiolabs.org/#usage
     rules: '@PSR2'
     allowRiskyRules: false
@@ -40,7 +37,6 @@ php-cs-fixer:
     config: null
 
 phpmd:
-    allowedErrorsCount: null
     # alternatively you can use an array to define multiple rule sets (https://phpmd.org/documentation/index.html#using-multiple-rule-sets)
     standard: app/phpmd.xml
 
@@ -48,7 +44,6 @@ pdepend:
     # coverageReport: build/coverage-clover.xml
 
 phpcpd:
-    allowedErrorsCount: null
     minLines: 5
     minTokens: 70
 
@@ -61,13 +56,11 @@ phpmetrics:
     # composer: composer.json
 
 phpstan:
-    allowedErrorsCount: null
     level: 0
     # https://github.com/phpstan/phpstan#configuration
     # standard: tests/.travis/phpstan.neon
 
 phpunit:
-    allowedErrorsCount: null
     # binary: vendor/bin/phpunit
     binary: null
     # phpunit.xml

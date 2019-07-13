@@ -200,9 +200,10 @@ phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,parallel-lint:0,phpstan:0,phpmet
 Number of allowed errors can be also defined in [.phpqa.yml](#advanced-configuration---phpqayml).
 
 ```yaml
-phpcs:
+phpqa:
     # can be overriden by CLI: phpqa --tools phpcs:1
-    allowedErrorsCount: 0
+    tools:
+        - phpcs:0
 ```
 
 **File mode**
@@ -246,7 +247,6 @@ Tool | Settings | Default Value | Your value
 [psalm.deadCode](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Enable or not `--find-dead-code` option  of psalm | `false` | Boolean value
 [psalm.threads](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Set the number of process to use in parallel (option `--threads` of psalm) (Only if `--execution == parallel` for phpqa) | `1` | Number (>= 1)
 [psalm.showInfo](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
-`<tool>.allowedErrorsCount` | Number of allowed errors, see [exit code](#exit-code) | `null` | Integer value
 
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:

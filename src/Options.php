@@ -80,14 +80,13 @@ class Options
         }
     }
 
-    public function buildRunningTools(array $tools, Config $c)
+    public function buildRunningTools(array $tools)
     {
         $allowed = array();
         foreach ($tools as $tool => $config) {
             if (array_key_exists($tool, $this->allowedTools)) {
                 $preload = [
-                    'allowedErrorsCount' => $this->allowedTools[$tool] !== null
-                        ? $this->allowedTools[$tool] : $c->value("{$tool}.allowedErrorsCount"),
+                    'allowedErrorsCount' => $this->allowedTools[$tool],
                     'xml' => array_key_exists('xml', $config) ? array_map([$this, 'rawFile'], $config['xml']) : []
                 ];
                 $runningTool = new RunningTool($tool, $preload + $config);

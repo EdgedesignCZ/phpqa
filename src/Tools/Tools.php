@@ -60,7 +60,7 @@ class Tools
     public function getExecutableTools(Options $o)
     {
         if (!$this->selectedTools) {
-            $this->selectedTools = $o->buildRunningTools($this->tools, $this->config);
+            $this->selectedTools = $o->buildRunningTools($this->tools);
         }
         return array_filter(
             $this->selectedTools,
