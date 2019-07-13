@@ -1,5 +1,7 @@
 phpcs:
-    standard: phpcs.xml
+    standard:
+        - PSR2
+        - phpcs.xml
     reports:
         cli:
             - full

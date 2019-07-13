@@ -1,4 +1,5 @@
 phpcs:
+    # alternatively you can use an array to define multiple rule sets (https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage#specifying-a-coding-standard)
     standard: PSR2
     # can be overriden by CLI: phpqa --tools phpcs:1
     allowedErrorsCount: null

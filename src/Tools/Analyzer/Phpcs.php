@@ -24,13 +24,10 @@ class Phpcs extends \Edge\QA\Tools\Tool
     protected function buildPhpcs(array $installedStandards)
     {
         $this->tool->errorsType = $this->config->value('phpcs.ignoreWarnings') === true;
-        $standard = $this->config->value('phpcs.standard');
-        if (!in_array($standard, $installedStandards)) {
-            $standard = \Edge\QA\escapePath($this->config->path('phpcs.standard'));
-        }
+        $standards = $this->config->pathsOrValues('phpcs.standard');
         $args = array(
             '-p',
-            'standard' => $standard,
+            'standard' => \Edge\QA\escapePath(implode(',', $standards)),
             $this->options->ignore->phpcs(),
             $this->options->getAnalyzedDirs(' '),
             'extensions' => $this->config->csv('extensions')
