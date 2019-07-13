@@ -18,11 +18,6 @@ class Phpcs extends \Edge\QA\Tools\Tool
 
     public function __invoke()
     {
-        return $this->buildPhpcs(\PHP_CodeSniffer::getInstalledStandards());
-    }
-
-    protected function buildPhpcs(array $installedStandards)
-    {
         $this->tool->errorsType = $this->config->value('phpcs.ignoreWarnings') === true;
         $standards = $this->config->pathsOrValues('phpcs.standard');
         $args = array(
