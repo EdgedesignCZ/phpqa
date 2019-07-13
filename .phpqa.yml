@@ -1,3 +1,17 @@
+# phpqa default CLI options, can be overriden by CLI: phpqa --tools phpcs:1
+phpqa:
+    analyzedDirs: ./
+    buildDir: build/
+    ignoredDirs: vendor
+    ignoredFiles: ""
+    report: false
+    execution: parallel
+    output: file
+    tools: phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpcpd,phpstan,phpunit,psalm,security-checker,parallel-lint
+    # array definition and allowed errors count is supported too
+    # tools: [phploc, phpcs:0]
+    verbose: false
+
 phpcs:
     # alternatively you can use an array to define multiple rule sets (https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage#specifying-a-coding-standard)
     standard: PSR2

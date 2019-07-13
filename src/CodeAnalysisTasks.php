@@ -29,26 +29,27 @@ trait CodeAnalysisTasks
      * @description Executes QA tools
      * @option $analyzedDir DEPRECATED, use --analyzedDirs
      * @option $analyzedDirs csv path(s) to analyzed directories @default ./ @example src,tests
-     * @option $buildDir path to output directory
-     * @option $ignoredDirs csv @example CI,bin,vendor
+     * @option $buildDir path to output directory @default build/
+     * @option $ignoredDirs csv @example CI,bin,vendor @default vendor
      * @option $ignoredFiles csv @example RoboFile.php
-     * @option $tools csv with optional definition of allowed errors count @example phploc,phpmd:1,phpcs:0
-     * @option $output output format @example cli
+     * @option $tools csv with optional definition of allowed errors count @example phploc,phpmd:1,phpcs:0 @default phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpcpd,phpstan,phpunit,psalm,security-checker,parallel-lint
+     * @option $output output format @example cli @default file
+     * @option execution output format @example no-parallel @default parallel
      * @option $config path directory with .phpqa.yml, @default current working directory
      * @option $report build HTML report (only when output format is file), 'offline' for bundling assets with report
      */
     public function ci(
         $opts = array(
-            'analyzedDir' => '',
-            'analyzedDirs' => '',
-            'buildDir' => 'build/',
-            'ignoredDirs' => 'vendor',
-            'ignoredFiles' => '',
-            'tools' => 'phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpcpd,phpstan,phpunit,psalm,security-checker,parallel-lint',
-            'output' => 'file',
-            'config' => '',
-            'report' => '',
-            'execution' => 'parallel'
+            'analyzedDir' => null,
+            'analyzedDirs' => null,
+            'buildDir' => null,
+            'ignoredDirs' => null,
+            'ignoredFiles' => null,
+            'tools' => null,
+            'output' => null,
+            'config' => null,
+            'report' => null,
+            'execution' => null
         )
     ) {
         $cliOptions = $this->normalizeCliOptions($opts);
@@ -83,7 +84,44 @@ trait CodeAnalysisTasks
         if (!array_key_exists('report', $cliOptions)) {
             return; // hotfix for `phpqa tools`
         }
-        $this->options = new Options($cliOptions);
+
+        // rather keep it because .phpqa.yml can be changed?
+        $availableOptions = [
+            'tools' => [
+                'phpmetrics',
+                'phploc',
+                'phpcs',
+                'php-cs-fixer',
+                'phpmd',
+                'pdepend',
+                'phpcpd',
+                'phpstan',
+                'phpunit',
+                'psalm',
+                'security-checker',
+                'parallel-lint'
+            ],
+            'analyzedDirs' => '', // TODO: yaml options is never used because of normalizeCliOptions
+            'buildDir' => 'build/',
+            'ignoredDirs' => 'vendor',
+            'ignoredFiles' => '',
+            'output' => 'file',
+            'report' => false,
+            'execution' => 'parallel',
+            'verbose' => false,
+        ];
+        $options = [];
+        foreach ($availableOptions as $option => $defaultValue) {
+            if ($cliOptions[$option]) {
+                $options[$option] = $cliOptions[$option];
+            } else {
+                $options[$option] = $config->value("phpqa.{$option}") ?: $defaultValue;
+                if (is_array($options[$option])) {
+                    $options[$option] = implode(',', $options[$option]);
+                }
+            }
+        }
+        $this->options = new Options($options);
     }
 
     private function ciClean()
