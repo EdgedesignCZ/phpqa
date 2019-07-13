@@ -1,4 +1,5 @@
 phpcs:
+    standard: phpcs.xml
     reports:
         cli:
             - full

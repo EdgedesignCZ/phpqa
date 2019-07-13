@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<ruleset name="phpqa">
+    <description>The coding standard for phpqa PHP source code</description>
+    <rule ref="PSR1" />
+    <rule ref="PSR2" />
+</ruleset>
