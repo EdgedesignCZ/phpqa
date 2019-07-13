@@ -51,8 +51,8 @@ trait CodeAnalysisTasks
             'execution' => 'parallel'
         )
     ) {
-        $this->loadConfig($opts);
-        $this->loadOptions($opts);
+        $cliOptions = $this->normalizeCliOptions($opts);
+        $this->loadConfig($cliOptions);
         $this->ciClean();
         $this->runTools();
         if ($this->options->hasReport) {
@@ -61,25 +61,29 @@ trait CodeAnalysisTasks
         return $this->buildSummary();
     }
 
-    private function loadConfig(array $opts)
+    private function normalizeCliOptions(array $options)
     {
-        $config = new Config();
-        $config->loadUserConfig($opts['config']);
-        $this->tools = new Tools($config, function ($text) {
-            $this->say($text);
-        });
-    }
-
-    private function loadOptions(array $opts)
-    {
-        if (!$opts['analyzedDirs']) {
-            $opts['analyzedDirs'] = $opts['analyzedDir'] ?: './';
-            if ($opts['analyzedDir']) {
+        if (!$options['analyzedDirs']) {
+            $options['analyzedDirs'] = $options['analyzedDir'] ?: './';
+            if ($options['analyzedDir']) {
                 $this->yell("Option --analyzedDir is deprecated, please use option --analyzedDirs");
             }
         }
-        $opts['report'] = $this->getInput()->hasParameterOption('--report') ? ($opts['report'] ?: true) : false;
-        $this->options = new Options($opts);
+        $options['report'] = $this->getInput()->hasParameterOption('--report') ? ($options['report'] ?: true) : false;
+        return $options;
+    }
+
+    private function loadConfig(array $cliOptions)
+    {
+        $config = new Config();
+        $config->loadUserConfig($cliOptions['config']);
+        $this->tools = new Tools($config, function ($text) {
+            $this->say($text);
+        });
+        if (!array_key_exists('report', $cliOptions)) {
+            return; // hotfix for `phpqa tools`
+        }
+        $this->options = new Options($cliOptions);
     }
 
     private function ciClean()
