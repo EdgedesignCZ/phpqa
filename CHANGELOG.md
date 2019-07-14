@@ -1,6 +1,48 @@
 
 # Changelog
 
+## v1.22.0
+
+* **.phpqa.yml**
+    * [#173](https://github.com/EdgedesignCZ/phpqa/issues/173) Support multiple phpcs standards
+        ```yaml
+        phpcs:
+            standard:
+                - PSR2
+                - phpcs.xml
+        ```
+    * [#175](https://github.com/EdgedesignCZ/phpqa/issues/175) Optional phpqa configuration in yml file instead of CLI options<br />
+        _Alternatives:_
+        ```bash
+        # CLI options
+        phpqa --verbose --report --tools phploc,phpcs:0
+        # load "CLI options" from yaml file
+        phpqa --config ./
+        ```
+        ```yaml
+        # ./.phpqa.yml
+        phpqa:
+            report: true
+            verbose: true
+            tools:
+                - phploc
+                - phpcs:0
+        ```
+    * [#177](https://github.com/EdgedesignCZ/phpqa/pull/177) _Configuration changes_
+        * [b450040](https://github.com/EdgedesignCZ/phpqa/commit/b450040#diff-04c6e90faac2675aa89e2176d2eec7d8) **BC** `allowedErrorsCount` is no longer supported, configure errors count in `phpqa.tools`
+        * [de736d6](https://github.com/EdgedesignCZ/phpqa/commit/de736d6) Extensions should be configured in `phpqa.extensions`
+        ```yaml
+        # preferred configuration
+        phpqa:
+            extensions: php
+
+        # deprecated configuration
+        extensions: php
+        ```
+* _Internal_
+    * [#172](https://github.com/EdgedesignCZ/phpqa/pull/172) CI - test php-cs-fixer on Windows, fix Travis php7.1 build (support phpunit > 5, security-checker)
+    * [29262ef](https://github.com/EdgedesignCZ/phpqa/commit/29262ef) Delete php-eye badge
+
 ## v1.21.1
 
 * [6ef3519](https://github.com/EdgedesignCZ/phpqa/commit/6ef3519) Fix docker build
