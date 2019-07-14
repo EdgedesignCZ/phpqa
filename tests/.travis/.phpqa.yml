@@ -3,7 +3,13 @@ phpqa:
     verbose: true
     analyzedDirs:
         - ./
-        - ./phpqa
+        # - ./phpqa - causes psalm fatal error
+        # Problem parsing /home/travis/build/EdgedesignCZ/phpqa/build/psalm-phpqa.xml:
+        # /home/travis/build/EdgedesignCZ/phpqa//./phpqa is not a directory 
+        # https://travis-ci.org/EdgedesignCZ/phpqa/jobs/558458321#L1003
+        # Fatal error: Uncaught UnexpectedValueException: RecursiveDirectoryIterator::__construct(/home/travis/build/EdgedesignCZ/phpqa/phpqa/):
+        # failed to open dir: No such file or directory
+        # https://travis-ci.org/EdgedesignCZ/phpqa/jobs/558458320#L799
     tools:
         - phpmetrics:0
         - phploc
