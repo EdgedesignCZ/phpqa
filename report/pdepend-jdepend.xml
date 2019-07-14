@@ -28,15 +28,15 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
-        <Package>Symfony\Component\Yaml</Package>
-        <Package></Package>
-        <Package>Edge\QA\Tools</Package>
         <Package>Edge\QA\Task</Package>
+        <Package>Edge\QA\Tools</Package>
         <Package>Robo</Package>
+        <Package></Package>
+        <Package>Symfony\Component\Yaml</Package>
       </DependsUpon>
       <UsedBy>
-        <Package>Edge\QA\Tools</Package>
         <Package>Edge\QA\Task</Package>
+        <Package>Edge\QA\Tools</Package>
       </UsedBy>
     </Package>
     <Package name="Edge\QA\Task">
@@ -60,14 +60,14 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
-        <Package>Symfony\Component\Console\Output</Package>
-        <Package>Symfony\Component\Console\Helper</Package>
-        <Package>Consolidation\Log</Package>
-        <Package>Symfony\Component\Process</Package>
-        <Package>Robo\Task\Base</Package>
-        <Package></Package>
         <Package>Edge\QA</Package>
         <Package>Robo</Package>
+        <Package></Package>
+        <Package>Robo\Task\Base</Package>
+        <Package>Symfony\Component\Process</Package>
+        <Package>Consolidation\Log</Package>
+        <Package>Symfony\Component\Console\Helper</Package>
+        <Package>Symfony\Component\Console\Output</Package>
       </DependsUpon>
       <UsedBy>
         <Package>Edge\QA</Package>
@@ -93,9 +93,9 @@
         <Class sourceFile="/mnt/DATA/www/phpqa/src/Tools/Tool.php">Tool</Class>
       </AbstractClasses>
       <DependsUpon>
-        <Package>Symfony\Component\Process</Package>
-        <Package></Package>
         <Package>Edge\QA</Package>
+        <Package></Package>
+        <Package>Symfony\Component\Process</Package>
       </DependsUpon>
       <UsedBy>
         <Package>Edge\QA</Package>
@@ -131,9 +131,9 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
+        <Package>Edge\QA\Tools</Package>
         <Package>Nette\Neon</Package>
         <Package></Package>
-        <Package>Edge\QA\Tools</Package>
       </DependsUpon>
       <UsedBy/>
     </Package>
@@ -141,25 +141,26 @@
   <Cycles>
     <Package Name="Edge\QA">
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Tools</Package>
+      <Package>Edge\QA\Task</Package>
       <Package>Edge\QA</Package>
     </Package>
     <Package Name="Edge\QA\Task">
       <Package>Edge\QA\Task</Package>
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Tools</Package>
-      <Package>Edge\QA</Package>
+      <Package>Edge\QA\Task</Package>
     </Package>
     <Package Name="Edge\QA\Tools">
       <Package>Edge\QA\Tools</Package>
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Tools</Package>
+      <Package>Edge\QA\Task</Package>
+      <Package>Edge\QA</Package>
     </Package>
     <Package Name="Edge\QA\Tools\Analyzer">
       <Package>Edge\QA\Tools\Analyzer</Package>
       <Package>Edge\QA\Tools</Package>
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Tools</Package>
+      <Package>Edge\QA\Task</Package>
+      <Package>Edge\QA</Package>
     </Package>
   </Cycles>
 </PDepend>
