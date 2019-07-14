@@ -1,5 +1,6 @@
 # phpqa default CLI options, can be overriden by CLI: phpqa --tools phpcs:1
 phpqa:
+    # CLI options
     analyzedDirs: ./
     buildDir: build/
     ignoredDirs: vendor
@@ -11,6 +12,11 @@ phpqa:
     # array definition and allowed errors count is supported too
     # tools: [phploc, phpcs:0]
     verbose: false
+
+    # Other config
+    # Php file extensions to parse.
+    extensions:
+        - php
 
 phpcs:
     # alternatively you can use an array to define multiple rule sets (https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage#specifying-a-coding-standard)
@@ -76,10 +82,6 @@ psalm:
     deadCode: false
     threads: 1
     showInfo: true
-
-# Php file extensions to parse.
-extensions:
-    - php
 
 # paths are relative to .phpqa.yml, so don't copy-paste this section if you don't have custom templates
 report:

@@ -89,7 +89,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
     {
         $config = new Config();
         $config->loadUserConfig(__DIR__);
-        $extensions = $config->csv('extensions');
+        $extensions = $config->csv('phpqa.extensions');
         assertThat($extensions, equalTo('php,inc,module'));
     }
 
@@ -123,7 +123,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpcs.standard'), is('PSR2'));
         assertThat($config->value('phpmd.standard'), is('my-standard.xml'));
         assertThat($config->value('phpcpd.lines'), is(53));
-        assertThat($config->csv('extensions'), is('php,inc'));
+        assertThat($config->csv('phpqa.extensions'), is('php,inc'));
     }
 
     public function testAutodetectConfigInCurrentDirectory()

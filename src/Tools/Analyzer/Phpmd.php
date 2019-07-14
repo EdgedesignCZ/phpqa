@@ -20,7 +20,7 @@ class Phpmd extends \Edge\QA\Tools\Tool
             $this->options->isSavedToFiles ? 'xml' : 'text',
             \Edge\QA\escapePath(implode(',', $rulesets)),
             $this->options->ignore->phpmd(),
-            'suffixes' => $this->config->csv('extensions')
+            'suffixes' => $this->config->csv('phpqa.extensions')
         );
         if ($this->options->isSavedToFiles) {
             $args['reportfile'] = $this->tool->getEscapedXmlFile();

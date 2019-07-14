@@ -23,7 +23,7 @@ class PhpMetrics extends \Edge\QA\Tools\Tool
         $args = array(
             $analyzedDir,
             $this->options->ignore->phpmetrics(),
-            'extensions' => $this->config->csv('extensions')
+            'extensions' => $this->config->csv('phpqa.extensions')
         );
         if ($this->options->isSavedToFiles) {
             $this->tool->htmlReport = $this->options->rawFile('phpmetrics.html');

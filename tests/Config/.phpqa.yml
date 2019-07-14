@@ -1,3 +1,7 @@
+phpqa:
+    # Php file extensions to parse.
+    extensions: php,inc,module
+
 # should override default standard
 phpcs:
     standard: Zend
@@ -8,9 +12,6 @@ phpmd:
 
 # should ignore empty values
 phpcpd:
-
-# Php file extensions to parse.
-extensions: php,inc,module
 
 # invalid binary
 phpunit:

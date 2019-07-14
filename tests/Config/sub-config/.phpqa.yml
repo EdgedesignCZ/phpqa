@@ -7,4 +7,6 @@ phpcpd:
     lines: 53
 
 # Php file extensions to parse.
-extensions: php,inc
+extensions:
+    - php
+    - inc

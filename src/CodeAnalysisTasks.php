@@ -82,6 +82,9 @@ trait CodeAnalysisTasks
         if (!array_key_exists('report', $cliOptions)) {
             return; // hotfix for `phpqa tools`
         }
+        if ($config->csv('extensions')) {
+            $this->yell("Configuring root extensions .phpqa.yml is deprecated, please move it to phpqa.extensions");
+        }
 
         // rather keep it because .phpqa.yml can be changed?
         $availableOptions = [

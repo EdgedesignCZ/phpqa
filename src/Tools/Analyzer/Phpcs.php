@@ -25,7 +25,7 @@ class Phpcs extends \Edge\QA\Tools\Tool
             'standard' => \Edge\QA\escapePath(implode(',', $standards)),
             $this->options->ignore->phpcs(),
             $this->options->getAnalyzedDirs(' '),
-            'extensions' => $this->config->csv('extensions')
+            'extensions' => $this->config->csv('phpqa.extensions')
         );
         if ($this->options->isSavedToFiles) {
             $reports = ['checkstyle' => 'checkstyle.xml'] + $this->config->value('phpcs.reports.file');

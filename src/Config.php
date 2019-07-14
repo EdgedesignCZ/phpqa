@@ -107,12 +107,19 @@ class Config
 
     public function csv($path)
     {
-        return $this->get(
-            $path,
-            function ($value) {
-                return (is_array($value) ? implode(',', $value) : $value);
-            }
-        );
+        $csv = function ($path) {
+            return $this->get(
+                $path,
+                function ($value) {
+                    return is_array($value) ? implode(',', $value) : $value;
+                }
+            );
+        };
+        if ($path == 'phpqa.extensions') {
+            // hotfix for loading legacy extensions without BC
+            return $csv(str_replace('phpqa.', '', $path)) ?: $csv($path);
+        }
+        return $csv($path);
     }
 
     private function get($path, $extractor)

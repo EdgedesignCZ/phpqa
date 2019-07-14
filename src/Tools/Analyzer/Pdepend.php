@@ -18,7 +18,7 @@ class Pdepend extends \Edge\QA\Tools\Tool
             'dependency-xml' => $this->options->toFile('pdepend-dependencies.xml'),
             'jdepend-chart' => $this->options->toFile('pdepend-jdepend.svg'),
             'overview-pyramid' => $this->options->toFile('pdepend-pyramid.svg'),
-            'suffix' => $this->config->csv('extensions'),
+            'suffix' => $this->config->csv('phpqa.extensions'),
             $this->options->ignore->pdepend()
         );
         $coverageReport = $this->config->value('pdepend.coverageReport');
