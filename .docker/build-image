@@ -21,8 +21,13 @@ load_docker_variables () {
 
 build_docker_image () {
     set -e
-    docker login --username $DOCKER_USER --password $DOCKER_TOKEN
     time docker build --file $DOCKER_FILE --tag $DOCKER_TAG $APP_DIR
+
+    if [ -z "$TRAVIS_TAG" ]; then
+        echo "Docker image is published only if the current build is for a git tag"
+        exit 0
+    fi
+    docker login --username $DOCKER_USER --password $DOCKER_TOKEN
     time docker push $DOCKER_TAG
 }
 

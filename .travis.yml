@@ -42,7 +42,7 @@ deploy:
     script: .docker/build-image
     skip_cleanup: true
     on:
-      tags: true
+      all_branches: true
       php: 7.0
 # http://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/
 cache:
