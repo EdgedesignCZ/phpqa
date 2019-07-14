@@ -17,27 +17,13 @@
         assertThat(file_get_contents($this-&gt;output), $assertOutput);
 </codefragment>
   </duplication>
-  <duplication lines="2" tokens="18">
-    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="125"/>
-    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="137"/>
-    <codefragment>        $options = $this-&gt;overrideOptions(array('tools' =&gt; 'phpcs:1,pdepend'));
-        $tools = $this-&gt;buildRunningTools($options, array('phpcs' =&gt; [], 'pdepend' =&gt; []));
-</codefragment>
-  </duplication>
-  <duplication lines="2" tokens="13">
-    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="127"/>
-    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="139"/>
-    <codefragment>        assertThat($tools['phpcs']-&gt;getAllowedErrorsCount(), is(1));
-        assertThat($tools['pdepend']-&gt;getAllowedErrorsCount(), is(nullValue()));
-</codefragment>
-  </duplication>
-  <duplication lines="4" tokens="11">
-    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="11"/>
-    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="44"/>
-    <codefragment>        'buildDir' =&gt; 'build/',
+  <duplication lines="4" tokens="12">
+    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="10"/>
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="105"/>
+    <codefragment>        'analyzedDirs' =&gt; './',
+        'buildDir' =&gt; 'build/',
         'ignoredDirs' =&gt; 'vendor',
         'ignoredFiles' =&gt; '',
-        'tools' =&gt; 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="11">
@@ -55,8 +41,8 @@
   </duplication>
   <duplication lines="3" tokens="13">
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpmd.php" line="23"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="36"/>
-    <codefragment>            'suffixes' =&gt; $this-&gt;config-&gt;csv('extensions')
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="28"/>
+    <codefragment>            'suffixes' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
 </codefragment>
@@ -101,9 +87,9 @@
 </codefragment>
   </duplication>
   <duplication lines="3" tokens="14">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="36"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="28"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="26"/>
-    <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('extensions')
+    <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
 </codefragment>
@@ -125,9 +111,9 @@
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="24">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="36"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="28"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="16"/>
-    <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('extensions')
+    <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
             $reports = ['checkstyle' =&gt; 'checkstyle.xml'] + $this-&gt;config-&gt;value('phpcs.reports.file');
@@ -136,7 +122,7 @@
   <duplication lines="2" tokens="10">
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Pdepend.php" line="21"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/ParallelLint.php" line="20"/>
-    <codefragment>            'suffix' =&gt; $this-&gt;config-&gt;csv('extensions'),
+    <codefragment>            'suffix' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions'),
             $this-&gt;options-&gt;ignore-&gt;pdepend()
 </codefragment>
   </duplication>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2019-05-02T17:50:57" pdepend="@package_version@">
+<dependencies generated="2019-07-14T10:26:42" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -29,7 +29,6 @@
       </efferent>
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
-        <type namespace="Edge\QA" name="Options"/>
         <type namespace="Edge\QA" name="ConfigTest"/>
         <type namespace="Edge\QA\Tools" name="Tool"/>
         <type namespace="Edge\QA\Tools" name="Tools"/>
@@ -47,7 +46,6 @@
     <class name="Options">
       <efferent>
         <type namespace="Edge\QA" name="IgnoredPaths"/>
-        <type namespace="Edge\QA" name="Config"/>
         <type namespace="Edge\QA" name="RunningTool"/>
       </efferent>
       <afferent>
@@ -101,7 +99,6 @@
       <efferent>
         <type namespace="" name="PHPUnit_Framework_TestCase"/>
         <type namespace="Edge\QA" name="Options"/>
-        <type namespace="Prophecy" name="Argument"/>
       </efferent>
       <afferent/>
       <file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php"/>
@@ -304,7 +301,6 @@
     <class name="Phpcs">
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
-        <type namespace="" name="PHP_CodeSniffer"/>
       </efferent>
       <afferent>
         <type namespace="Edge\QA\Tools\Analyzer" name="PhpcsV3"/>
@@ -314,7 +310,6 @@
     <class name="PhpcsV3">
       <efferent>
         <type namespace="Edge\QA\Tools\Analyzer" name="Phpcs"/>
-        <type namespace="PHP_CodeSniffer\Util" name="Standards"/>
       </efferent>
       <afferent/>
       <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpcsV3.php"/>

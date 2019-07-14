@@ -7,10 +7,10 @@
         <ConcreteClasses>12</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>2</Ca>
-        <Ce>6</Ce>
+        <Ce>5</Ce>
         <A>0</A>
-        <I>0.75</I>
-        <D>0.25</D>
+        <I>0.71428571428571</I>
+        <D>0.28571428571429</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/mnt/DATA/www/phpqa/RoboFile.php">RoboFile</Class>
@@ -28,16 +28,15 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
-        <Package>Robo</Package>
-        <Package>Edge\QA\Task</Package>
-        <Package>Edge\QA\Tools</Package>
-        <Package></Package>
         <Package>Symfony\Component\Yaml</Package>
-        <Package>Prophecy</Package>
+        <Package></Package>
+        <Package>Edge\QA\Tools</Package>
+        <Package>Edge\QA\Task</Package>
+        <Package>Robo</Package>
       </DependsUpon>
       <UsedBy>
-        <Package>Edge\QA\Task</Package>
         <Package>Edge\QA\Tools</Package>
+        <Package>Edge\QA\Task</Package>
       </UsedBy>
     </Package>
     <Package name="Edge\QA\Task">
@@ -61,14 +60,14 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
-        <Package>Robo</Package>
-        <Package>Edge\QA</Package>
-        <Package></Package>
-        <Package>Robo\Task\Base</Package>
-        <Package>Symfony\Component\Process</Package>
-        <Package>Consolidation\Log</Package>
-        <Package>Symfony\Component\Console\Helper</Package>
         <Package>Symfony\Component\Console\Output</Package>
+        <Package>Symfony\Component\Console\Helper</Package>
+        <Package>Consolidation\Log</Package>
+        <Package>Symfony\Component\Process</Package>
+        <Package>Robo\Task\Base</Package>
+        <Package></Package>
+        <Package>Edge\QA</Package>
+        <Package>Robo</Package>
       </DependsUpon>
       <UsedBy>
         <Package>Edge\QA</Package>
@@ -94,9 +93,9 @@
         <Class sourceFile="/mnt/DATA/www/phpqa/src/Tools/Tool.php">Tool</Class>
       </AbstractClasses>
       <DependsUpon>
-        <Package>Edge\QA</Package>
-        <Package></Package>
         <Package>Symfony\Component\Process</Package>
+        <Package></Package>
+        <Package>Edge\QA</Package>
       </DependsUpon>
       <UsedBy>
         <Package>Edge\QA</Package>
@@ -109,7 +108,7 @@
         <ConcreteClasses>14</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>0</Ca>
-        <Ce>4</Ce>
+        <Ce>3</Ce>
         <A>0</A>
         <I>1</I>
         <D>0</D>
@@ -132,10 +131,9 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
-        <Package>Edge\QA\Tools</Package>
         <Package>Nette\Neon</Package>
         <Package></Package>
-        <Package>PHP_CodeSniffer\Util</Package>
+        <Package>Edge\QA\Tools</Package>
       </DependsUpon>
       <UsedBy/>
     </Package>
@@ -143,26 +141,25 @@
   <Cycles>
     <Package Name="Edge\QA">
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Task</Package>
+      <Package>Edge\QA\Tools</Package>
       <Package>Edge\QA</Package>
     </Package>
     <Package Name="Edge\QA\Task">
       <Package>Edge\QA\Task</Package>
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Task</Package>
+      <Package>Edge\QA\Tools</Package>
+      <Package>Edge\QA</Package>
     </Package>
     <Package Name="Edge\QA\Tools">
       <Package>Edge\QA\Tools</Package>
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Task</Package>
-      <Package>Edge\QA</Package>
+      <Package>Edge\QA\Tools</Package>
     </Package>
     <Package Name="Edge\QA\Tools\Analyzer">
       <Package>Edge\QA\Tools\Analyzer</Package>
       <Package>Edge\QA\Tools</Package>
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Task</Package>
-      <Package>Edge\QA</Package>
+      <Package>Edge\QA\Tools</Package>
     </Package>
   </Cycles>
 </PDepend>

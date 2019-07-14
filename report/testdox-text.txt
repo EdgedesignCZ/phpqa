@@ -1,7 +1,7 @@
 Edge\QA\Config
  [x] Load default config
  [x] Build absolute path
- [ ] Override default config
+ [x] Override default config
  [x] Allow partial update of tools
  [x] Ignore non existent user config
  [x] No exception when cwd has no config
@@ -10,7 +10,7 @@ Edge\QA\Config
  [x] Use cwd if no directory is specified
  [x] Throw exception when binary does not exist
  [x] Throw exception when wrong binary is used
- [x] Multiple config
+ [ ] Multiple config
  [x] Autodetect config in current directory
  [x] Ignore autodetected config if user config is specified
 
@@ -27,7 +27,6 @@ Edge\QA\Options
  [x] Execute
  [x] Build root path
  [x] Load allowed errors count
- [x] Load errors count from config
 
 Edge\QA\Paths
  [x] Path to binary is escaped

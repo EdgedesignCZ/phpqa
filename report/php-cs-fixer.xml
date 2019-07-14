@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PHP CS Fixer" tests="37" assertions="97" failures="97" errors="0" time="3.259">
+  <testsuite name="PHP CS Fixer" tests="37" assertions="93" failures="93" errors="0" time="3.060">
     <testcase name="tests/IgnoredPathsTest" file="tests/IgnoredPathsTest.php" assertions="3">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
@@ -39,18 +39,16 @@
 * trailing_comma_in_multiline_array
 * blank_line_before_statement]]></failure>
     </testcase>
-    <testcase name="src/CodeAnalysisTasks" file="src/CodeAnalysisTasks.php" assertions="4">
+    <testcase name="src/CodeAnalysisTasks" file="src/CodeAnalysisTasks.php" assertions="3">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
 * concat_space
 * single_quote
-* trailing_comma_in_multiline_array
 * blank_line_before_statement]]></failure>
     </testcase>
-    <testcase name="src/Config" file="src/Config.php" assertions="4">
+    <testcase name="src/Config" file="src/Config.php" assertions="3">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
-* no_unneeded_control_parentheses
 * concat_space
 * yoda_style
 * blank_line_before_statement]]></failure>
@@ -87,12 +85,10 @@
 * trailing_comma_in_multiline_array
 * yoda_style]]></failure>
     </testcase>
-    <testcase name="src/Tools/Analyzer/PhpcsV3" file="src/Tools/Analyzer/PhpcsV3.php" assertions="3">
+    <testcase name="src/Tools/Analyzer/PhpcsV3" file="src/Tools/Analyzer/PhpcsV3.php" assertions="1">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
-* concat_space
-* single_line_comment_style
-* blank_line_before_statement]]></failure>
+* single_line_comment_style]]></failure>
     </testcase>
     <testcase name="src/Tools/Analyzer/Phploc" file="src/Tools/Analyzer/Phploc.php" assertions="1">
       <failure type="code_style"><![CDATA[applied fixers:

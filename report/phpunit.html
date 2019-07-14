@@ -1,20 +1,20 @@
 <h1>phpunit</h1>
 <pre id="cli">PHPUnit 4.8.36 by Sebastian Bergmann and contributors.
 
-..E.........................................................SSS.
+...........E................................................SSS.
 
-Time: 1.42 seconds, Memory: 12.00MB
+Time: 1.48 seconds, Memory: 12.00MB
 
 There was 1 error:
 
-1) Edge\QA\ConfigTest::testOverrideDefaultConfig
-Hamcrest\AssertionError: Expected: is &lt;5&gt;
-     but: was &lt;2&gt;
+1) Edge\QA\ConfigTest::testMultipleConfig
+Hamcrest\AssertionError: Expected: is &quot;php,inc&quot;
+     but: was &quot;php,inc,module&quot;
 
 /mnt/DATA/www/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:115
 /mnt/DATA/www/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:52
 /mnt/DATA/www/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php:28
-/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php:49
+/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php:126
 
 FAILURES!
 Tests: 64, Assertions: 4, Errors: 1, Skipped: 3.

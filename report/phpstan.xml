@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle>
+<file name="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php">
+ <error line="149" column="1" severity="error" message="Call to an undefined method Edge\QA\ConfigTest::expectException()."/>
+</file>
 <file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php">
  <error line="24" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
 </file>
