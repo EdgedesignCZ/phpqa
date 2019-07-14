@@ -64,11 +64,9 @@ trait CodeAnalysisTasks
 
     private function normalizeCliOptions(array $options)
     {
-        if (!$options['analyzedDirs']) {
-            $options['analyzedDirs'] = $options['analyzedDir'] ?: './';
-            if ($options['analyzedDir']) {
-                $this->yell("Option --analyzedDir is deprecated, please use option --analyzedDirs");
-            }
+        if (!$options['analyzedDirs'] && $options['analyzedDir']) {
+            $options['analyzedDirs'] = $options['analyzedDir'];
+            $this->yell("Option --analyzedDir is deprecated, please use option --analyzedDirs");
         }
         $options['report'] = $this->getInput()->hasParameterOption('--report') ? ($options['report'] ?: true) : false;
         return $options;
@@ -99,9 +97,9 @@ trait CodeAnalysisTasks
                 'phpunit',
                 'psalm',
                 'security-checker',
-                'parallel-lint'
+                'parallel-lint',
             ],
-            'analyzedDirs' => '', // TODO: yaml options is never used because of normalizeCliOptions
+            'analyzedDirs' => './',
             'buildDir' => 'build/',
             'ignoredDirs' => 'vendor',
             'ignoredFiles' => '',
