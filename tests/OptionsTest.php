@@ -120,6 +120,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
             'current dir + analyzed dir + slash' => array('src', getcwd() . "{$dirSeparator}src{$dirSeparator}"),
             'find common root from multiple dirs' => array('src,tests', getcwd() . $dirSeparator),
             'no path when dir is invalid' => array('./non-existent-directory', ''),
+            'file directory + skip invalid dir' => ['./non-existent-directory,phpqa', getcwd() . $dirSeparator],
         );
     }
 

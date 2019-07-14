@@ -1,6 +1,9 @@
 phpqa:
     report: true
     verbose: true
+    analyzedDirs:
+        - ./
+        - ./phpqa
     tools:
         - phpmetrics:0
         - phploc

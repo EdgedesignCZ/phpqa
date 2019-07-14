@@ -12,20 +12,22 @@ function escapePath($path)
     return "\"{$path}\"";
 }
 
-function commonPath(array $dirs)
+function commonPath(array $dirsOrFiles)
 {
-    if (!$dirs) {
+    if (!$dirsOrFiles) {
         return;
     }
     $isNotWindows = strtoupper(substr(PHP_OS, 0, 3)) != 'WIN';
 
-    $dirsCount = array();
-    foreach ($dirs as $i => $path) {
+    $dirs = [];
+    $dirsCount = [];
+    foreach (array_values($dirsOrFiles) as $i => $fileOrDir) {
+        $path = is_dir($fileOrDir) ? $fileOrDir : dirname($fileOrDir);
         $dirs[$i] = explode(DIRECTORY_SEPARATOR, $path);
         if ($isNotWindows) {
             unset($dirs[$i][0]);
         }
-        $dirsCount[$i] = count($dirs[$i]);
+        $dirsCount[] = count($dirs[$i]);
     }
 
     $minDirsCount = min($dirsCount);
