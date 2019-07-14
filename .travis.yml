@@ -40,7 +40,7 @@ script:
 deploy:
   - provider: script
     script: .docker/build-image
-    skip_cleanup: true
+    skip_cleanup: false
     on:
       all_branches: true
       php: 7.0
