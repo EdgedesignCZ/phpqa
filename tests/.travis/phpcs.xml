@@ -3,4 +3,16 @@
     <description>The coding standard for phpqa PHP source code</description>
     <rule ref="PSR1" />
     <rule ref="PSR2" />
+
+    <rule ref="Generic.Files.LineLength.TooLong">
+        <exclude-pattern>*/src/CodeAnalysisTasks.php</exclude-pattern>
+    </rule>
+
+    <rule ref="PSR1.Files.SideEffects.FoundWithSymbols">
+        <exclude-pattern>*/phpqa</exclude-pattern>
+    </rule>
+
+    <rule ref="PSR1.Classes.ClassDeclaration.MissingNamespace">
+        <exclude-pattern>*/phpqa</exclude-pattern>
+    </rule>
 </ruleset>

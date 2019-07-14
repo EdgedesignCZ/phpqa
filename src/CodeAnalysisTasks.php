@@ -13,12 +13,12 @@ trait CodeAnalysisTasks
 
     /**
      * @description Current versions
-     * @option $config path directory with .phpqa.yml, @default current working directory
+     * @option $config path directory with .phpqa.yml, <comment>@default</comment> <info>current working directory</info>
      */
     public function tools(
-        $opts = array(
-            'config' => '',
-        )
+        $opts = [
+            'config' => null,
+        ]
     ) {
         $this->loadConfig($opts);
         $versions = new Task\TableVersions($this->getOutput());
@@ -27,19 +27,19 @@ trait CodeAnalysisTasks
 
     /**
      * @description Executes QA tools
-     * @option $analyzedDir DEPRECATED, use --analyzedDirs
-     * @option $analyzedDirs csv path(s) to analyzed directories @default ./ @example src,tests
-     * @option $buildDir path to output directory @default build/
-     * @option $ignoredDirs csv @example CI,bin,vendor @default vendor
-     * @option $ignoredFiles csv @example RoboFile.php
-     * @option $tools csv with optional definition of allowed errors count @example phploc,phpmd:1,phpcs:0 @default phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpcpd,phpstan,phpunit,psalm,security-checker,parallel-lint
-     * @option $output output format @example cli @default file
-     * @option execution output format @example no-parallel @default parallel
-     * @option $config path directory with .phpqa.yml, @default current working directory
-     * @option $report build HTML report (only when output format is file), 'offline' for bundling assets with report
+     * @option $analyzedDir <error>DEPRECATED, use --analyzedDirs</error>
+     * @option $analyzedDirs csv path(s) to analyzed directories <comment>@default</comment> <info>./</info> <comment>@example</comment> src,tests
+     * @option $buildDir path to output directory <comment>@default</comment> <info>build/</info>
+     * @option $ignoredDirs csv <comment>@default</comment> <info>vendor</info> <comment>@example</comment> CI,bin,vendor
+     * @option $ignoredFiles csv <comment>@example</comment> RoboFile.php
+     * @option $tools csv with optional definition of allowed errors count <comment>@default</comment> <info>phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpcpd,phpstan,phpunit,psalm,security-checker,parallel-lint</info> <comment>@example</comment> phploc,phpmd:1,phpcs:0
+     * @option $output output format <comment>@default</comment> <info>file</info> <comment>@example</comment> cli
+     * @option $execution output format <comment>@default</comment> <info>parallel</info> <comment>@example</comment> no-parallel
+     * @option $config path directory with .phpqa.yml, <comment>@default</comment> <info>current working directory</info>
+     * @option $report build HTML report (only when output format is file), 'offline' for bundling assets with report <comment>@example</comment> offline
      */
     public function ci(
-        $opts = array(
+        $opts = [
             'analyzedDir' => null,
             'analyzedDirs' => null,
             'buildDir' => null,
@@ -49,8 +49,8 @@ trait CodeAnalysisTasks
             'output' => null,
             'config' => null,
             'report' => null,
-            'execution' => null
-        )
+            'execution' => null,
+        ]
     ) {
         $cliOptions = $this->normalizeCliOptions($opts);
         $this->loadConfig($cliOptions);
