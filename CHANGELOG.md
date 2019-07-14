@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.22.1
+
+* [#178](https://github.com/EdgedesignCZ/phpqa/pull/178) Fix docker build, prevent docker errors on release
+
 ## v1.22.0
 
 * **.phpqa.yml**
