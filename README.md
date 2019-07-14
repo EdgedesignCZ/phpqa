@@ -164,6 +164,8 @@ docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoredDi
 | `phpqa --report offline` | Build html reports with [bundled assets](https://github.com/EdgedesignCZ/phpqa/issues/95). **New in v1.16** |
 | `phpqa tools` | Show versions of available tools |
 
+_Tip:_ CLI options can be defined in [.phpqa.yml](#advanced-configuration---phpqayml)
+
 ## Output modes
 
 Tool | `--output file` (default) - generated files | `--output cli` |
@@ -219,6 +221,20 @@ _Tip_: override [`phpcs.ignoreWarnings`](#advanced-configuration---phpqayml) if 
 _Tip_: use [`echo $?`](https://gist.github.com/zdenekdrahos/5368eea304ed3fa6070bc77772779738) for displaying exit code.
 
 ## Advanced configuration - `.phpqa.yml`
+
+Provide [CLI options](#analyze) from [`.phpqa.yml`](/.phpqa.yml):
+
+| CLI option | .phpqa.yml |
+| ---------- | ---------- |
+| `phpqa --analyzedDirs ./` | `phpqa.analyzedDirs: ./` |
+| `phpqa --buildDir ./build	` | `phpqa.buildDir: ./build` |
+| `phpqa --ignoredDirs build,vendor` | `phpqa.ignoredDirs: build,vendor` |
+| `phpqa --ignoredFiles RoboFile.php` | `phpqa.ignoredFiles: RoboFile.php` |
+| `phpqa --tools phploc,phpcs:0` | `phpqa.tools: phploc,phpcs:0` |
+| `phpqa --report` | `phpqa.report: true` |
+| `phpqa --execution no-parallel` | `phpqa.execution: no-parallel` |
+| `phpqa --output cli	` | `phpqa.output: cli` |
+| `phpqa --verbose` | `phpqa.verbose: true` |
 
 Override tools' settings with [`.phpqa.yml`](/.phpqa.yml):
 

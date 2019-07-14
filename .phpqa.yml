@@ -1,6 +1,6 @@
-# phpqa default CLI options, can be overriden by CLI: phpqa --tools phpcs:1
 phpqa:
-    # CLI options
+    # default CLI options - https://github.com/EdgedesignCZ/phpqa#analyze
+    # can be overriden by CLI: phpqa --tools phpcs:1
     analyzedDirs: ./
     buildDir: build/
     ignoredDirs: vendor
