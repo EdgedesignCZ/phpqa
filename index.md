@@ -129,9 +129,9 @@ Beware that the image is as lean as possible. That can be a problem for running 
 In that case, you might miss PHP extensions for database etc (_you can [install phpqa](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/get-phpqa-binary#L40) in another [php image](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/.gitlab-ci.yml#L28)_). 
 
 ```bash
-docker run --rm -it zdenekdrahos/phpqa:v1.21.1 phpqa tools
+docker run --rm -it zdenekdrahos/phpqa:v1.22.0 phpqa tools
 # using a tool without phpqa
-docker run --rm -it zdenekdrahos/phpqa:v1.21.1 phploc -v
+docker run --rm -it zdenekdrahos/phpqa:v1.22.0 phploc -v
 ```
 
 There are also available images [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/) and [sparkfabrik/docker-phpqa](https://hub.docker.com/r/sparkfabrik/docker-phpqa/).
@@ -163,6 +163,8 @@ docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoredDi
 | `phpqa --report` | Build [html reports](#html-reports) |
 | `phpqa --report offline` | Build html reports with [bundled assets](https://github.com/EdgedesignCZ/phpqa/issues/95). **New in v1.16** |
 | `phpqa tools` | Show versions of available tools |
+
+_Tip:_ CLI options can be defined in [.phpqa.yml](#advanced-configuration---phpqayml)
 
 ## Output modes
 
@@ -200,9 +202,10 @@ phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,parallel-lint:0,phpstan:0,phpmet
 Number of allowed errors can be also defined in [.phpqa.yml](#advanced-configuration---phpqayml).
 
 ```yaml
-phpcs:
+phpqa:
     # can be overriden by CLI: phpqa --tools phpcs:1
-    allowedErrorsCount: 0
+    tools:
+        - phpcs:0
 ```
 
 **File mode**
@@ -219,12 +222,26 @@ _Tip_: use [`echo $?`](https://gist.github.com/zdenekdrahos/5368eea304ed3fa6070b
 
 ## Advanced configuration - `.phpqa.yml`
 
+Provide [CLI options](#analyze) from [`.phpqa.yml`](/.phpqa.yml):
+
+| CLI option | .phpqa.yml |
+| ---------- | ---------- |
+| `phpqa --analyzedDirs ./` | `phpqa.analyzedDirs: ./` |
+| `phpqa --buildDir ./build	` | `phpqa.buildDir: ./build` |
+| `phpqa --ignoredDirs build,vendor` | `phpqa.ignoredDirs: build,vendor` |
+| `phpqa --ignoredFiles RoboFile.php` | `phpqa.ignoredFiles: RoboFile.php` |
+| `phpqa --tools phploc,phpcs:0` | `phpqa.tools: phploc,phpcs:0` |
+| `phpqa --report` | `phpqa.report: true` |
+| `phpqa --execution no-parallel` | `phpqa.execution: no-parallel` |
+| `phpqa --output cli	` | `phpqa.output: cli` |
+| `phpqa --verbose` | `phpqa.verbose: true` |
+
 Override tools' settings with [`.phpqa.yml`](/.phpqa.yml):
 
 Tool | Settings | Default Value | Your value
 ---- | -------- | ------------- | ----------- |
-[extensions](https://github.com/EdgedesignCZ/phpqa/blob/master/.phpqa.yml#L49) | PHP File extensions | php | Name of php file to parse, you can specify it like a string `php,inc,modules` or like a yaml array.
-[phpcs.standard](https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard) | Coding standard | PSR2 | Name of existing standard (`PEAR`, `PHPCS`, `PSR1`, `PSR2`, `Squiz`,  `Zend`), or path to your coding standard
+[phpqa.extensions](https://github.com/EdgedesignCZ/phpqa/blob/master/.phpqa.yml#L49) | PHP File extensions | php | Name of php file to parse, you can specify it like a string `php,inc,modules` or like a yaml array.
+[phpcs.standard](https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard) | Coding standard | PSR2 | Name of existing standard (`PEAR`, `PHPCS`, `PSR1`, `PSR2`, `Squiz`,  `Zend`), or path to your coding standard. To specify [multiple standards](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage#specifying-a-coding-standard), you can use an array
 [phpcs.ignoreWarnings](https://github.com/EdgedesignCZ/phpqa/issues/53) | If number of allowed errors is compared with warnings+errors, or just errors from `checkstyle.xml` | `false` | Boolean value
 [phpcs.reports](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) | Report types | [`full`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) report in [cli mode](#output-modes), [`checkstyle`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-a-checkstyle-report) in [file mode](#output-modes) | Predefined [report types](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) or [custom reports](https://github.com/wikidi/codesniffer#examples)
 [php-cs-fixer.rules](http://cs.sensiolabs.org/#usage) | Coding standard rules | `@PSR2` | String value
@@ -236,7 +253,7 @@ Tool | Settings | Default Value | Your value
 [phpmetrics.junit](https://github.com/EdgedesignCZ/phpqa/pull/125) | phpmetrics v2 evaluates metrics according to JUnit logs | `null` | Path to JUnit xml
 [phpmetrics.composer](https://github.com/EdgedesignCZ/phpqa/pull/123) | phpmetrics v2 analyzes composer dependencies | `null` | Path to composer.json when the file is not included in `analyzedDirs`
 [pdepend.coverageReport](https://github.com/EdgedesignCZ/phpqa/pull/124) | Load Clover style CodeCoverage report | `null` | Path to report produced by PHPUnit's `--coverage-clover` option
-[phpmd](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset
+[phpmd.standard](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset. To specify [multiple rule sets](https://phpmd.org/documentation/index.html#using-multiple-rule-sets), you can use an array
 [phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens |
 [phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file | Level 0, `%currentWorkingDirectory%/phpstan.neon` | Take a look at [phpqa config in tests/.travis](/tests/.travis/) |
 [phpunit.binary](https://github.com/EdgedesignCZ/phpqa/blob/4947416/.phpqa.yml#L40) | Phpunit binary  | phpqa's phpunit | Path to phpunit executable in your project, typically [`vendor/bin/phpunit`](https://gitlab.com/costlocker/integrations/blob/master/basecamp/backend/.phpqa.yml#L2) |
@@ -246,7 +263,6 @@ Tool | Settings | Default Value | Your value
 [psalm.deadCode](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Enable or not `--find-dead-code` option  of psalm | `false` | Boolean value
 [psalm.threads](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Set the number of process to use in parallel (option `--threads` of psalm) (Only if `--execution == parallel` for phpqa) | `1` | Number (>= 1)
 [psalm.showInfo](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
-`<tool>.allowedErrorsCount` | Number of allowed errors, see [exit code](#exit-code) | `null` | Integer value
 
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:
@@ -424,7 +440,7 @@ stages:
 
 test:
   stage: test
-  image: zdenekdrahos/phpqa:v1.21.1
+  image: zdenekdrahos/phpqa:v1.22.0
   variables:
     BACKEND_QA: "*/backend/var/QA"
     BACKEND_CACHE: $CI_PROJECT_DIR/.composercache
