@@ -5,6 +5,8 @@
 
 * [#180](https://github.com/EdgedesignCZ/phpqa/issues/180) **`php-cs-fixer.config` BC** - `php-cs-fixer.config` is relative to `.phpqa.yml`, previously it was relative to `cwd`
 * [#182](https://github.com/EdgedesignCZ/phpqa/issues/182) Fix loading composer's versions if project has custom bin-dir
+* _CI_
+    * [#183](https://github.com/EdgedesignCZ/phpqa/pull/183) - Fix Windows build on Appveyor
 
 ## v1.22.1
 
