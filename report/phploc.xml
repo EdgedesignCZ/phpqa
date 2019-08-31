@@ -36,10 +36,10 @@
   <attributeAccesses>346</attributeAccesses>
   <staticAttributeAccesses>2</staticAttributeAccesses>
   <instanceAttributeAccesses>344</instanceAttributeAccesses>
-  <globalAccesses>2</globalAccesses>
+  <globalAccesses>1</globalAccesses>
   <globalVariableAccesses>0</globalVariableAccesses>
   <superGlobalVariableAccesses>0</superGlobalVariableAccesses>
-  <globalConstantAccesses>2</globalConstantAccesses>
+  <globalConstantAccesses>1</globalConstantAccesses>
   <classCcnMin>1</classCcnMin>
   <classCcnAvg>5.5526315789474</classCcnAvg>
   <classCcnMax>21</classCcnMax>

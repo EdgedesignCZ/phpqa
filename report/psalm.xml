@@ -1557,15 +1557,15 @@
     <severity>info</severity>
     <line_number>34</line_number>
     <type>UndefinedConstant</type>
-    <message>Const COMPOSER_BINARY_DIR is not defined</message>
+    <message>Const COMPOSER_VENDOR_DIR is not defined</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
-    <snippet>        $installedJson = COMPOSER_BINARY_DIR . '/../composer/installed.json';</snippet>
-    <selected_text>COMPOSER_BINARY_DIR</selected_text>
+    <snippet>        $installedJson = COMPOSER_VENDOR_DIR . '/composer/installed.json';</snippet>
+    <selected_text>COMPOSER_VENDOR_DIR</selected_text>
     <from>1046</from>
     <to>1065</to>
     <snippet_from>1021</snippet_from>
-    <snippet_to>1098</snippet_to>
+    <snippet_to>1095</snippet_to>
     <column>26</column>
   </item>
   <item>
@@ -1577,10 +1577,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    private function analyzeTool($tool, $composerPackage, array $composerPackages, $customBinary = null)</snippet>
     <selected_text>$tool</selected_text>
-    <from>1518</from>
-    <to>1523</to>
-    <snippet_from>1485</snippet_from>
-    <snippet_to>1589</snippet_to>
+    <from>1515</from>
+    <to>1520</to>
+    <snippet_from>1482</snippet_from>
+    <snippet_to>1586</snippet_to>
     <column>34</column>
   </item>
   <item>
@@ -1592,10 +1592,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    private function analyzeTool($tool, $composerPackage, array $composerPackages, $customBinary = null)</snippet>
     <selected_text>$composerPackage</selected_text>
-    <from>1525</from>
-    <to>1541</to>
-    <snippet_from>1485</snippet_from>
-    <snippet_to>1589</snippet_to>
+    <from>1522</from>
+    <to>1538</to>
+    <snippet_from>1482</snippet_from>
+    <snippet_to>1586</snippet_to>
     <column>41</column>
   </item>
   <item>
@@ -1607,10 +1607,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    private function analyzeTool($tool, $composerPackage, array $composerPackages, $customBinary = null)</snippet>
     <selected_text>$customBinary</selected_text>
-    <from>1568</from>
-    <to>1581</to>
-    <snippet_from>1485</snippet_from>
-    <snippet_to>1589</snippet_to>
+    <from>1565</from>
+    <to>1578</to>
+    <snippet_from>1482</snippet_from>
+    <snippet_to>1586</snippet_to>
     <column>84</column>
   </item>
   <item>
@@ -1622,10 +1622,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>                function ($author) {</snippet>
     <selected_text>$author</selected_text>
-    <from>3888</from>
-    <to>3895</to>
-    <snippet_from>3862</snippet_from>
-    <snippet_to>3898</snippet_to>
+    <from>3885</from>
+    <to>3892</to>
+    <snippet_from>3859</snippet_from>
+    <snippet_to>3895</snippet_to>
     <column>27</column>
   </item>
   <item>
@@ -1637,10 +1637,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    private function loadVersionFromConsoleCommand($command)</snippet>
     <selected_text>$command</selected_text>
-    <from>4076</from>
-    <to>4084</to>
-    <snippet_from>4025</snippet_from>
-    <snippet_to>4085</snippet_to>
+    <from>4073</from>
+    <to>4081</to>
+    <snippet_from>4022</snippet_from>
+    <snippet_to>4082</snippet_to>
     <column>52</column>
   </item>
   <item>
@@ -1652,10 +1652,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    private function getFirstLine($string)</snippet>
     <selected_text>$string</selected_text>
-    <from>4315</from>
-    <to>4322</to>
-    <snippet_from>4281</snippet_from>
-    <snippet_to>4323</snippet_to>
+    <from>4312</from>
+    <to>4319</to>
+    <snippet_from>4278</snippet_from>
+    <snippet_to>4320</snippet_to>
     <column>35</column>
   </item>
   <item>
@@ -1667,10 +1667,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    private function extractVersion($text)</snippet>
     <selected_text>$text</selected_text>
-    <from>4411</from>
-    <to>4416</to>
-    <snippet_from>4375</snippet_from>
-    <snippet_to>4417</snippet_to>
+    <from>4408</from>
+    <to>4413</to>
+    <snippet_from>4372</snippet_from>
+    <snippet_to>4414</snippet_to>
     <column>37</column>
   </item>
   <item>

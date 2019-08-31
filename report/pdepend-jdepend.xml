@@ -60,14 +60,14 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
+        <Package>Symfony\Component\Process</Package>
+        <Package>Symfony\Component\Console\Output</Package>
+        <Package>Symfony\Component\Console\Helper</Package>
+        <Package>Consolidation\Log</Package>
+        <Package>Robo\Task\Base</Package>
         <Package>Edge\QA</Package>
         <Package>Robo</Package>
         <Package></Package>
-        <Package>Robo\Task\Base</Package>
-        <Package>Symfony\Component\Process</Package>
-        <Package>Consolidation\Log</Package>
-        <Package>Symfony\Component\Console\Helper</Package>
-        <Package>Symfony\Component\Console\Output</Package>
       </DependsUpon>
       <UsedBy>
         <Package>Edge\QA</Package>
@@ -93,13 +93,13 @@
         <Class sourceFile="/mnt/DATA/www/phpqa/src/Tools/Tool.php">Tool</Class>
       </AbstractClasses>
       <DependsUpon>
+        <Package>Symfony\Component\Process</Package>
         <Package>Edge\QA</Package>
         <Package></Package>
-        <Package>Symfony\Component\Process</Package>
       </DependsUpon>
       <UsedBy>
-        <Package>Edge\QA</Package>
         <Package>Edge\QA\Tools\Analyzer</Package>
+        <Package>Edge\QA</Package>
       </UsedBy>
     </Package>
     <Package name="Edge\QA\Tools\Analyzer">
