@@ -17,7 +17,7 @@ class PhpCsFixer extends \Edge\QA\Tools\Tool
 
     public function __invoke()
     {
-        $configFile = $this->config->value('php-cs-fixer.config');
+        $configFile = $this->config->path('php-cs-fixer.config');
         if ($configFile) {
             $analyzedDir = $this->options->getAnalyzedDirs(' ');
         } else {

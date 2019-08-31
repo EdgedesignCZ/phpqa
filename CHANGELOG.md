@@ -1,6 +1,10 @@
 
 # Changelog
 
+## unreleased
+
+* [#180](https://github.com/EdgedesignCZ/phpqa/issues/180) **`php-cs-fixer.config` BC** - `php-cs-fixer.config` is relative to `.phpqa.yml`, previously it was relative to `cwd`
+
 ## v1.22.1
 
 * [#178](https://github.com/EdgedesignCZ/phpqa/pull/178) Fix docker build, prevent docker errors on release
