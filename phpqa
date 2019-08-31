@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-define('PHPQA_VERSION', '1.22.1');
+define('PHPQA_VERSION', '1.23.0');
 define('PHPQA_USED_COMMAND', implode(' ', $argv));
 
 if (file_exists(__DIR__ . '/vendor/autoload.php')) {
