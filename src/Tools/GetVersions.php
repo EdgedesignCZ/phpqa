@@ -31,7 +31,7 @@ class GetVersions
 
     private function findComposerPackages()
     {
-        $installedJson = COMPOSER_BINARY_DIR . '/../composer/installed.json';
+        $installedJson = COMPOSER_VENDOR_DIR . '/composer/installed.json';
         if (!is_file($installedJson)) {
             return [];
         }
