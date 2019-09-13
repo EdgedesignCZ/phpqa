@@ -38,7 +38,7 @@ class PhpCsFixer extends \Edge\QA\Tools\Tool
             'format' => $this->options->isSavedToFiles ? 'junit' : 'txt',
         ];
         if ($configFile) {
-            $args['config'] = $configFile;
+            $args['config'] = \Edge\QA\escapePath($configFile);
         } else {
             $args += [
                 'rules' => $this->config->value('php-cs-fixer.rules'),
