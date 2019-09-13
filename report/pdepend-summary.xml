@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metrics generated="2019-08-31T10:01:57" pdepend="@package_version@" ahh="0.66666666666667" andc="0.41025641025641" calls="575" ccn="352" ccn2="363" cloc="74" clsa="1" clsc="35" eloc="2306" fanout="57" leafs="29" lloc="1120" loc="2731" maxDIT="4" ncloc="2657" noc="36" nof="7" noi="0" nom="156" nop="4" roots="4">
+<metrics generated="2019-09-13T16:55:19" pdepend="@package_version@" ahh="0.66666666666667" andc="0.41025641025641" calls="576" ccn="352" ccn2="363" cloc="74" clsa="1" clsc="35" eloc="2306" fanout="57" leafs="29" lloc="1120" loc="2731" maxDIT="4" ncloc="2657" noc="36" nof="7" noi="0" nom="156" nop="4" roots="4">
   <files>
     <file name="/mnt/DATA/www/phpqa/RoboFile.php" loc="10" cloc="0" eloc="7" lloc="3" ncloc="10"/>
     <file name="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" loc="217" cloc="22" eloc="181" lloc="75" ncloc="195"/>
@@ -303,7 +303,7 @@
     </class>
     <class name="PhpCsFixer" fqname="Edge\QA\Tools\Analyzer\PhpCsFixer" start="7" end="53" loc="47" cloc="0" eloc="34" lloc="15" ncloc="47" dit="1" noam="0" nocc="0" noom="0" nom="1" cr="0.15" rcr="0.15980769230769" ca="0" cbo="0" ce="0" impl="0" cis="2" csz="2" npm="1" vars="1" varsi="4" varsnp="1" wmc="7" wmci="11" wmcnp="7">
       <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpCsFixer.php"/>
-      <method name="__invoke" start="18" end="52" ccn="7" ccn2="7" loc="35" cloc="0" eloc="34" lloc="15" ncloc="35" npath="36" hnt="48" hnd="114" hv="327.97872067991" hd="9.6" hl="0.10416666666667" he="3148.5957185271" ht="174.92198436262" hb="0.071607197824103" hi="34.164450070824" mi="48.034869066455"/>
+      <method name="__invoke" start="18" end="52" ccn="7" ccn2="7" loc="35" cloc="0" eloc="34" lloc="15" ncloc="35" npath="36" hnt="52" hnd="121" hv="359.78088833828" hd="10.264150943396" hl="0.097426470588235" he="3692.8453444533" ht="205.15807469185" hb="0.079637843598565" hi="35.052182135899" mi="47.753441197342"/>
     </class>
     <class name="PhpMetrics" fqname="Edge\QA\Tools\Analyzer\PhpMetrics" start="7" end="42" loc="36" cloc="0" eloc="25" lloc="15" ncloc="36" dit="1" noam="0" nocc="0" noom="0" nom="1" cr="0.15" rcr="0.15980769230769" ca="0" cbo="0" ce="0" impl="0" cis="2" csz="2" npm="1" vars="1" varsi="4" varsnp="1" wmc="4" wmci="8" wmcnp="4">
       <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php"/>

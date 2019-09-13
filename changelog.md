@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.23.1
+
+* [#184](https://github.com/EdgedesignCZ/phpqa/issues/184) Fix supporting `php-cs-fixer.config` path with spaces
+
 ## v1.23.0
 
 * [#180](https://github.com/EdgedesignCZ/phpqa/issues/180) **`php-cs-fixer.config` BC** - `php-cs-fixer.config` is relative to `.phpqa.yml`, previously it was relative to `cwd`
