@@ -421,13 +421,28 @@
     <message>Parameter $path has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Config.php</file_path>
-    <snippet>    public function csv($path)</snippet>
+    <snippet>    public function csv($path, $separator = ',')</snippet>
     <selected_text>$path</selected_text>
     <from>3132</from>
     <to>3137</to>
     <snippet_from>3108</snippet_from>
-    <snippet_to>3138</snippet_to>
+    <snippet_to>3156</snippet_to>
     <column>25</column>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_number>108</line_number>
+    <type>MissingParamType</type>
+    <message>Parameter $separator has no provided type</message>
+    <file_name>src/Config.php</file_name>
+    <file_path>/mnt/DATA/www/phpqa/src/Config.php</file_path>
+    <snippet>    public function csv($path, $separator = ',')</snippet>
+    <selected_text>$separator</selected_text>
+    <from>3139</from>
+    <to>3149</to>
+    <snippet_from>3108</snippet_from>
+    <snippet_to>3156</snippet_to>
+    <column>32</column>
   </item>
   <item>
     <severity>error</severity>
@@ -436,12 +451,12 @@
     <message>Parameter $path has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Config.php</file_path>
-    <snippet>        $csv = function ($path) {</snippet>
+    <snippet>        $csv = function ($path) use ($separator) {</snippet>
     <selected_text>$path</selected_text>
-    <from>3170</from>
-    <to>3175</to>
-    <snippet_from>3145</snippet_from>
-    <snippet_to>3178</snippet_to>
+    <from>3188</from>
+    <to>3193</to>
+    <snippet_from>3163</snippet_from>
+    <snippet_to>3213</snippet_to>
     <column>26</column>
   </item>
   <item>
@@ -451,12 +466,12 @@
     <message>Parameter $value has no provided type</message>
     <file_name>src/Config.php</file_name>
     <file_path>/mnt/DATA/www/phpqa/src/Config.php</file_path>
-    <snippet>                function ($value) {</snippet>
+    <snippet>                function ($value) use ($separator) {</snippet>
     <selected_text>$value</selected_text>
-    <from>3259</from>
-    <to>3265</to>
-    <snippet_from>3233</snippet_from>
-    <snippet_to>3268</snippet_to>
+    <from>3294</from>
+    <to>3300</to>
+    <snippet_from>3268</snippet_from>
+    <snippet_to>3320</snippet_to>
     <column>27</column>
   </item>
   <item>
@@ -468,10 +483,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Config.php</file_path>
     <snippet>    private function get($path, $extractor)</snippet>
     <selected_text>$path</selected_text>
-    <from>3450</from>
-    <to>3455</to>
-    <snippet_from>3425</snippet_from>
-    <snippet_to>3468</snippet_to>
+    <from>3509</from>
+    <to>3514</to>
+    <snippet_from>3484</snippet_from>
+    <snippet_to>3527</snippet_to>
     <column>26</column>
   </item>
   <item>
@@ -483,10 +498,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Config.php</file_path>
     <snippet>    private function get($path, $extractor)</snippet>
     <selected_text>$extractor</selected_text>
-    <from>3457</from>
-    <to>3467</to>
-    <snippet_from>3425</snippet_from>
-    <snippet_to>3468</snippet_to>
+    <from>3516</from>
+    <to>3526</to>
+    <snippet_from>3484</snippet_from>
+    <snippet_to>3527</snippet_to>
     <column>33</column>
   </item>
   <item>
@@ -498,10 +513,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Config.php</file_path>
     <snippet>    private function findInConfig(array $config, $path)</snippet>
     <selected_text>$path</selected_text>
-    <from>3751</from>
-    <to>3756</to>
-    <snippet_from>3702</snippet_from>
-    <snippet_to>3757</snippet_to>
+    <from>3810</from>
+    <to>3815</to>
+    <snippet_from>3761</snippet_from>
+    <snippet_to>3816</snippet_to>
     <column>50</column>
   </item>
   <item>
@@ -513,10 +528,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Config.php</file_path>
     <snippet>    private function throwInvalidPath($source, $path)</snippet>
     <selected_text>$source</selected_text>
-    <from>4072</from>
-    <to>4079</to>
-    <snippet_from>4034</snippet_from>
-    <snippet_to>4087</snippet_to>
+    <from>4131</from>
+    <to>4138</to>
+    <snippet_from>4093</snippet_from>
+    <snippet_to>4146</snippet_to>
     <column>39</column>
   </item>
   <item>
@@ -528,10 +543,10 @@
     <file_path>/mnt/DATA/www/phpqa/src/Config.php</file_path>
     <snippet>    private function throwInvalidPath($source, $path)</snippet>
     <selected_text>$path</selected_text>
-    <from>4081</from>
-    <to>4086</to>
-    <snippet_from>4034</snippet_from>
-    <snippet_to>4087</snippet_to>
+    <from>4140</from>
+    <to>4145</to>
+    <snippet_from>4093</snippet_from>
+    <snippet_to>4146</snippet_to>
     <column>48</column>
   </item>
   <item>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metrics generated="2019-09-13T16:55:19" pdepend="@package_version@" ahh="0.66666666666667" andc="0.41025641025641" calls="576" ccn="352" ccn2="363" cloc="74" clsa="1" clsc="35" eloc="2306" fanout="57" leafs="29" lloc="1120" loc="2731" maxDIT="4" ncloc="2657" noc="36" nof="7" noi="0" nom="156" nop="4" roots="4">
+<metrics generated="2019-11-02T13:32:39" pdepend="@package_version@" ahh="0.66666666666667" andc="0.41025641025641" calls="576" ccn="350" ccn2="361" cloc="74" clsa="1" clsc="35" eloc="2306" fanout="57" leafs="29" lloc="1120" loc="2731" maxDIT="4" ncloc="2657" noc="36" nof="7" noi="0" nom="156" nop="4" roots="4">
   <files>
     <file name="/mnt/DATA/www/phpqa/RoboFile.php" loc="10" cloc="0" eloc="7" lloc="3" ncloc="10"/>
     <file name="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" loc="217" cloc="22" eloc="181" lloc="75" ncloc="195"/>
@@ -58,7 +58,7 @@
       <method name="buildHtmlReport" start="163" end="209" ccn="5" ccn2="5" loc="47" cloc="0" eloc="45" lloc="11" ncloc="47" npath="9" hnt="70" hnd="189" hv="529.35696969548" hd="12.807692307692" hl="0.078078078078078" he="6779.841188792" ht="376.65784382178" hb="0.11940570926645" hi="41.331174811058" mi="44.192643297416"/>
       <method name="buildSummary" start="211" end="215" ccn="1" ccn2="1" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="1" hnt="13" hnd="18" hv="54.20902501875" hd="5.5" hl="0.18181818181818" he="298.14963760313" ht="16.563868755729" hb="0.014876528632881" hi="9.8561863670455" mi="74.590189958517"/>
     </trait>
-    <class name="Config" fqname="Edge\QA\Config" start="7" end="147" loc="141" cloc="3" eloc="109" lloc="57" ncloc="138" dit="0" noam="0" nocc="0" noom="0" nom="12" cr="0.15" rcr="0.15" ca="4" cbo="2" ce="2" impl="0" cis="7" csz="14" npm="7" vars="2" varsi="2" varsnp="0" wmc="31" wmci="31" wmcnp="17">
+    <class name="Config" fqname="Edge\QA\Config" start="7" end="147" loc="141" cloc="3" eloc="109" lloc="57" ncloc="138" dit="0" noam="0" nocc="0" noom="0" nom="12" cr="0.15" rcr="0.15" ca="4" cbo="2" ce="2" impl="0" cis="7" csz="14" npm="7" vars="2" varsi="2" varsnp="0" wmc="29" wmci="29" wmcnp="15">
       <file name="/mnt/DATA/www/phpqa/src/Config.php"/>
       <method name="__construct" start="12" end="16" ccn="2" ccn2="2" loc="5" cloc="0" eloc="4" lloc="2" ncloc="5" npath="2" hnt="13" hnd="15" hv="50.789577742911" hd="5.25" hl="0.19047619047619" he="266.64528315028" ht="14.813626841682" hb="0.01380918397707" hi="9.674205284364" mi="74.653822959465"/>
       <method name="loadUserConfig" start="18" end="26" ccn="3" ccn2="3" loc="9" cloc="1" eloc="7" lloc="4" ncloc="8" npath="4" hnt="20" hnd="31" hv="99.083926207738" hd="6.0714285714286" hl="0.16470588235294" he="601.58098054698" ht="33.421165585943" hb="0.023754258418374" hi="16.319705493039" mi="67.185512272992"/>
@@ -68,7 +68,7 @@
       <method name="value" start="68" end="76" ccn="1" ccn2="1" loc="9" cloc="0" eloc="8" lloc="3" ncloc="9" npath="1" hnt="9" hnd="12" hv="32.26466250649" hd="9" hl="0.11111111111111" he="290.38196255841" ht="16.132331253245" hb="0.014617008607043" hi="3.5849625007212" mi="69.601397397727"/>
       <method name="path" start="78" end="90" ccn="2" ccn2="2" loc="13" cloc="0" eloc="12" lloc="6" ncloc="13" npath="1" hnt="17" hnd="38" hv="89.214767728541" hd="10.833333333333" hl="0.092307692307692" he="966.49331705919" ht="53.694073169955" hb="0.032584519078636" hi="8.2352093287884" mi="62.532789497"/>
       <method name="pathsOrValues" start="92" end="106" ccn="2" ccn2="2" loc="15" cloc="0" eloc="14" lloc="6" ncloc="15" npath="2" hnt="18" hnd="34" hv="91.574331142506" hd="10.454545454545" hl="0.095652173913043" he="957.36800739893" ht="53.187111522163" hb="0.032379093478368" hi="8.7592838484136" mi="60.993032769448"/>
-      <method name="csv" start="108" end="119" ccn="4" ccn2="4" loc="12" cloc="0" eloc="11" lloc="6" ncloc="12" npath="2" hnt="21" hnd="50" hv="118.52097998527" hd="7.5" hl="0.13333333333333" he="888.90734988952" ht="49.383741660529" hb="0.03081648330776" hi="15.802797331369" mi="59.939651056156"/>
+      <method name="csv" start="108" end="119" ccn="2" ccn2="2" loc="12" cloc="0" eloc="11" lloc="6" ncloc="12" npath="2" hnt="15" hnd="30" hv="73.603358934128" hd="6.9090909090909" hl="0.14473684210526" he="508.53229809034" ht="28.251794338352" hb="0.021236899219078" hi="10.653117740466" mi="63.942049787288"/>
       <method name="get" start="121" end="129" ccn="3" ccn2="3" loc="9" cloc="0" eloc="8" lloc="4" ncloc="9" npath="3" hnt="20" hnd="29" hv="97.159619902551" hd="8.5" hl="0.11764705882353" he="825.85676917169" ht="45.880931620649" hb="0.02934147219042" hi="11.430543517947" mi="65.980116974347"/>
       <method name="findInConfig" start="131" end="141" ccn="3" ccn2="4" loc="11" cloc="0" eloc="10" lloc="6" ncloc="11" npath="4" hnt="22" hnd="40" hv="117.08241808752" hd="9.75" hl="0.1025641025641" he="1141.5535763533" ht="63.419643130741" hb="0.036409072130397" hi="12.008453137182" mi="63.164418301754"/>
       <method name="throwInvalidPath" start="143" end="146" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="13" hnd="16" hv="52" hd="5.8333333333333" hl="0.17142857142857" he="303.33333333333" ht="16.851851851852" hb="0.01504846388525" hi="8.9142857142857" mi="77.442113208745"/>
@@ -228,7 +228,7 @@
     </class>
     <class name="NonParallelExecV1" fqname="Edge\QA\Task\NonParallelExecV1" start="19" end="70" loc="52" cloc="0" eloc="41" lloc="29" ncloc="52" dit="3" noam="2" nocc="1" noom="0" nom="2" cr="0.2775" rcr="0.385875" ca="0" cbo="3" ce="3" impl="0" cis="1" csz="2" npm="1" vars="0" varsi="0" varsnp="0" wmc="9" wmci="10" wmcnp="7">
       <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php"/>
-      <method name="run" start="21" end="58" ccn="7" ccn2="7" loc="38" cloc="0" eloc="32" lloc="25" ncloc="38" npath="36" hnt="51" hnd="121" hv="352.862025101" hd="12.927083333333" hl="0.077356970185334" he="4561.4768036494" ht="253.41537798052" hb="0.091681644025059" hi="27.296337155275" mi="48.687606011716"/>
+      <method name="run" start="21" end="58" ccn="7" ccn2="7" loc="38" cloc="0" eloc="32" lloc="25" ncloc="38" npath="36" hnt="52" hnd="124" hv="361.61820814012" hd="14.25" hl="0.070175438596491" he="5153.0594659967" ht="286.28108144426" hb="0.099446350078446" hi="25.37671636071" mi="48.312289865626"/>
       <method name="printProcessResult" start="60" end="69" ccn="2" ccn2="2" loc="10" cloc="0" eloc="9" lloc="4" ncloc="10" npath="2" hnt="17" hnd="35" hv="87.197811288064" hd="5.9230769230769" hl="0.16883116883117" he="516.47934378315" ht="28.693296876842" hb="0.021457578823084" hi="14.721708399284" mi="65.327736752955"/>
     </class>
     <class name="ParallelExec" fqname="Edge\QA\Task\ParallelExec" start="9" end="16" loc="8" cloc="0" eloc="4" lloc="2" ncloc="8" dit="2" noam="1" nocc="1" noom="0" nom="1" cr="0.385875" rcr="0.2775" ca="0" cbo="0" ce="0" impl="0" cis="1" csz="1" npm="1" vars="0" varsi="0" varsnp="0" wmc="1" wmci="1" wmcnp="1">
@@ -307,7 +307,7 @@
     </class>
     <class name="PhpMetrics" fqname="Edge\QA\Tools\Analyzer\PhpMetrics" start="7" end="42" loc="36" cloc="0" eloc="25" lloc="15" ncloc="36" dit="1" noam="0" nocc="0" noom="0" nom="1" cr="0.15" rcr="0.15980769230769" ca="0" cbo="0" ce="0" impl="0" cis="2" csz="2" npm="1" vars="1" varsi="4" varsnp="1" wmc="4" wmci="8" wmcnp="4">
       <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php"/>
-      <method name="__invoke" start="16" end="41" ccn="4" ccn2="4" loc="26" cloc="0" eloc="25" lloc="15" ncloc="26" npath="6" hnt="45" hnd="104" hv="301.51978731635" hd="8.195652173913" hl="0.12201591511936" he="2471.151300397" ht="137.28618335539" hb="0.060927258421003" hi="36.790212776" mi="51.607173269288"/>
+      <method name="__invoke" start="16" end="41" ccn="4" ccn2="4" loc="26" cloc="0" eloc="25" lloc="15" ncloc="26" npath="6" hnt="46" hnd="114" hv="314.31294065158" hd="8.32" hl="0.12019230769231" he="2615.0836662211" ht="145.28242590117" hb="0.063270675431004" hi="37.777997674469" mi="51.480811833061"/>
     </class>
     <class name="PhpMetricsV2" fqname="Edge\QA\Tools\Analyzer\PhpMetricsV2" start="5" end="42" loc="38" cloc="0" eloc="26" lloc="17" ncloc="38" dit="1" noam="0" nocc="0" noom="0" nom="1" cr="0.15" rcr="0.15980769230769" ca="0" cbo="0" ce="0" impl="0" cis="2" csz="2" npm="1" vars="1" varsi="4" varsnp="1" wmc="6" wmci="10" wmcnp="6">
       <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php"/>

@@ -26,8 +26,8 @@ Function opening brace placement: new line [172/172, 100%]
 Line indent: spaces [2126/2126, 100%]
 
 Line length:
-	80 or less  => 2,270 ( 93.84%)
-	81-120      =>   142 (  5.87%)
+	80 or less  => 2,268 ( 93.76%)
+	81-120      =>   144 (  5.95%)
 	121-150     =>     5 (  0.21%)
 	151 or more =>     2 (  0.08%)
 	-------------------------------
@@ -47,7 +47,7 @@ PHP closing tag at end of PHP-only file: no [45/45, 100%]
 
 PHP constant case: lower [110/110, 100%]
 
-PHP keyword case: lower [1103/1103, 100%]
+PHP keyword case: lower [1105/1105, 100%]
 
 PHP short open tag used: no [45/45, 100%]
 

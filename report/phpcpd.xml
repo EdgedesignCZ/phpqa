@@ -86,14 +86,6 @@
                 $this-&gt;writeln("&lt;error&gt;php-cs-fixer analyzes only first directory {$analyzedDir}&lt;/error&gt;");
 </codefragment>
   </duplication>
-  <duplication lines="3" tokens="14">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="28"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="26"/>
-    <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
-        );
-        if ($this-&gt;options-&gt;isSavedToFiles) {
-</codefragment>
-  </duplication>
   <duplication lines="2" tokens="13">
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phploc.php" line="16"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcpd.php" line="18"/>
@@ -110,13 +102,19 @@
             $this-&gt;options-&gt;ignore-&gt;bergmann(),
 </codefragment>
   </duplication>
-  <duplication lines="4" tokens="24">
+  <duplication lines="3" tokens="14">
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="28"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="16"/>
     <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
-            $reports = ['checkstyle' =&gt; 'checkstyle.xml'] + $this-&gt;config-&gt;value('phpcs.reports.file');
+</codefragment>
+  </duplication>
+  <duplication lines="2" tokens="16">
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="28"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="18"/>
+    <codefragment>        if ($this-&gt;options-&gt;isSavedToFiles) {
+            $this-&gt;tool-&gt;htmlReport = $this-&gt;options-&gt;rawFile('phpmetrics.html');
 </codefragment>
   </duplication>
   <duplication lines="2" tokens="10">
