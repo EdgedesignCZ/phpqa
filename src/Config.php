@@ -105,13 +105,13 @@ class Config
         );
     }
 
-    public function csv($path)
+    public function csv($path, $separator = ',')
     {
-        $csv = function ($path) {
+        $csv = function ($path) use ($separator) {
             return $this->get(
                 $path,
-                function ($value) {
-                    return is_array($value) ? implode(',', $value) : $value;
+                function ($value) use ($separator) {
+                    return is_array($value) ? implode($separator, $value) : $value;
                 }
             );
         };
