@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.23.2
+
+* [#187](https://github.com/EdgedesignCZ/phpqa/issues/187) phpmetrics - fix analyzing multiple extensions in v1
+
 ## v1.23.1
 
 * [#184](https://github.com/EdgedesignCZ/phpqa/issues/184) Fix supporting `php-cs-fixer.config` path with spaces
