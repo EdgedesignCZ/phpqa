@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<metrics generated="2019-11-02T13:32:39" pdepend="@package_version@" ahh="0.66666666666667" andc="0.41025641025641" calls="576" ccn="350" ccn2="361" cloc="74" clsa="1" clsc="35" eloc="2306" fanout="57" leafs="29" lloc="1120" loc="2731" maxDIT="4" ncloc="2657" noc="36" nof="7" noi="0" nom="156" nop="4" roots="4">
+<metrics generated="2019-11-30T12:19:26" pdepend="@package_version@" ahh="0.66666666666667" andc="0.41025641025641" calls="576" ccn="350" ccn2="361" cloc="74" clsa="1" clsc="35" eloc="2305" fanout="57" leafs="29" lloc="1118" loc="2730" maxDIT="4" ncloc="2656" noc="36" nof="7" noi="0" nom="156" nop="4" roots="4">
   <files>
     <file name="/mnt/DATA/www/phpqa/RoboFile.php" loc="10" cloc="0" eloc="7" lloc="3" ncloc="10"/>
     <file name="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" loc="217" cloc="22" eloc="181" lloc="75" ncloc="195"/>
@@ -18,7 +18,7 @@
     <file name="/mnt/DATA/www/phpqa/src/report.php" loc="66" cloc="0" eloc="55" lloc="40" ncloc="66"/>
     <file name="/mnt/DATA/www/phpqa/src/Task/AssetsLoader.php" loc="62" cloc="1" eloc="53" lloc="34" ncloc="61"/>
     <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV0.php" loc="42" cloc="1" eloc="33" lloc="18" ncloc="41"/>
-    <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php" loc="71" cloc="10" eloc="51" lloc="35" ncloc="61"/>
+    <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php" loc="70" cloc="10" eloc="50" lloc="33" ncloc="60"/>
     <file name="/mnt/DATA/www/phpqa/src/Task/ParallelExec.php" loc="17" cloc="4" eloc="10" lloc="4" ncloc="13"/>
     <file name="/mnt/DATA/www/phpqa/src/Task/RoboAdapter.php" loc="40" cloc="0" eloc="35" lloc="18" ncloc="40"/>
     <file name="/mnt/DATA/www/phpqa/src/Task/TableSummary.php" loc="75" cloc="1" eloc="62" lloc="30" ncloc="74"/>
@@ -226,9 +226,9 @@
       <method name="stopProgressIndicator" start="25" end="28" ccn="1" ccn2="1" loc="4" cloc="0" eloc="3" lloc="1" ncloc="4" npath="1" hnt="6" hnd="7" hv="16.844129532346" hd="5" hl="0.2" he="84.220647661728" ht="4.678924870096" hb="0.0064045870052382" hi="3.3688259064691" mi="80.869982152958"/>
       <method name="printProcessResult" start="30" end="40" ccn="2" ccn2="2" loc="11" cloc="0" eloc="10" lloc="5" ncloc="11" npath="2" hnt="18" hnd="38" hv="94.462695241985" hd="6" hl="0.16666666666667" he="566.77617145191" ht="31.487565080662" hb="0.022828977887724" hi="15.743782540331" mi="64.086231291207"/>
     </class>
-    <class name="NonParallelExecV1" fqname="Edge\QA\Task\NonParallelExecV1" start="19" end="70" loc="52" cloc="0" eloc="41" lloc="29" ncloc="52" dit="3" noam="2" nocc="1" noom="0" nom="2" cr="0.2775" rcr="0.385875" ca="0" cbo="3" ce="3" impl="0" cis="1" csz="2" npm="1" vars="0" varsi="0" varsnp="0" wmc="9" wmci="10" wmcnp="7">
+    <class name="NonParallelExecV1" fqname="Edge\QA\Task\NonParallelExecV1" start="19" end="70" loc="51" cloc="0" eloc="40" lloc="27" ncloc="51" dit="3" noam="2" nocc="1" noom="0" nom="2" cr="0.2775" rcr="0.385875" ca="0" cbo="3" ce="3" impl="0" cis="1" csz="2" npm="1" vars="0" varsi="0" varsnp="0" wmc="9" wmci="10" wmcnp="7">
       <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php"/>
-      <method name="run" start="21" end="58" ccn="7" ccn2="7" loc="38" cloc="0" eloc="32" lloc="25" ncloc="38" npath="36" hnt="52" hnd="124" hv="361.61820814012" hd="14.25" hl="0.070175438596491" he="5153.0594659967" ht="286.28108144426" hb="0.099446350078446" hi="25.37671636071" mi="48.312289865626"/>
+      <method name="run" start="21" end="58" ccn="7" ccn2="7" loc="37" cloc="0" eloc="31" lloc="23" ncloc="37" npath="36" hnt="51" hnd="121" hv="352.862025101" hd="12.927083333333" hl="0.077356970185334" he="4561.4768036494" ht="253.41537798052" hb="0.091681644025059" hi="27.296337155275" mi="48.687606011716"/>
       <method name="printProcessResult" start="60" end="69" ccn="2" ccn2="2" loc="10" cloc="0" eloc="9" lloc="4" ncloc="10" npath="2" hnt="17" hnd="35" hv="87.197811288064" hd="5.9230769230769" hl="0.16883116883117" he="516.47934378315" ht="28.693296876842" hb="0.021457578823084" hi="14.721708399284" mi="65.327736752955"/>
     </class>
     <class name="ParallelExec" fqname="Edge\QA\Task\ParallelExec" start="9" end="16" loc="8" cloc="0" eloc="4" lloc="2" ncloc="8" dit="2" noam="1" nocc="1" noom="0" nom="1" cr="0.385875" rcr="0.2775" ca="0" cbo="0" ce="0" impl="0" cis="1" csz="1" npm="1" vars="0" varsi="0" varsnp="0" wmc="1" wmci="1" wmcnp="1">
