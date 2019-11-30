@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.23.3
+
+* [#191](https://github.com/EdgedesignCZ/phpqa/pull/191) upgrade phpmd, restrict min Robo version _([#189](https://github.com/EdgedesignCZ/phpqa/issues/189), [#190](https://github.com/EdgedesignCZ/phpqa/issues/190))_
+
 ## v1.23.2
 
 * [#187](https://github.com/EdgedesignCZ/phpqa/issues/187) phpmetrics - fix analyzing multiple extensions in v1
