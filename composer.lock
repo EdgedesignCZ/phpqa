@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "16ca0043b212200366b1aa9be1467fb1",
+    "content-hash": "92055fab58f1b19a77087744923c8585",
     "packages": [
         {
             "name": "consolidation/robo",
