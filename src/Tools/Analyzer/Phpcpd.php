@@ -26,7 +26,16 @@ class Phpcpd extends \Edge\QA\Tools\Tool
             $this->options->getAnalyzedDirs(' '),
             'min-lines' => $this->config->value('phpcpd.minLines'),
             'min-tokens' => $this->config->value('phpcpd.minTokens'),
-            'names' => $phpcpdNames,
+        );
+        $phpcpdNames = array_map(
+            function ($extension) {
+                return "*.{$extension}";
+            },
+            array_filter(explode(',', $this->config->csv('phpqa.extensions')))
+        );
+        if ($phpcpdNames) {
+            $args['names'] = \Edge\QA\escapePath(implode(',', $phpcpdNames));
+        }
         );
         if ($this->options->isSavedToFiles) {
             $args['log-pmd'] = $this->tool->getEscapedXmlFile();
