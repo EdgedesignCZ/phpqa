@@ -48,6 +48,17 @@ function xmlToHtml(array $xmlDocuments, $style, $outputFile, array $params = [])
     }
 }
 
+function xmlXpath($xmlFile, $xpathQuery)
+{
+    convertPhpErrorsToExceptions();
+    try {
+        $xml = simplexml_load_file($xmlFile);
+        return [false, $xml->xpath($xpathQuery)];
+    } catch (Exception $e) {
+        return [true, $e->getMessage()];
+    }
+}
+
 function convertPhpErrorsToExceptions()
 {
     static $isNotLoaded = true;

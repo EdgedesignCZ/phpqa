@@ -84,11 +84,14 @@ class RunningTool
         } elseif (!$xpath) {
             return [true, ''];
         } elseif (!file_exists($this->getMainXml())) {
-            return [false, 0];
+            return [$this->areErrorsIgnored(), "XML [{$this->getMainXml()}] not found"];
         }
 
-        $xml = simplexml_load_file($this->getMainXml());
-        $errorsCount = count($xml->xpath($xpath));
+        list($isInvalidXml, $xpathOrError) = xmlXpath($this->getMainXml(), $xpath);
+        if ($isInvalidXml) {
+            return [$this->areErrorsIgnored(), $xpathOrError];
+        }
+        $errorsCount = count($xpathOrError);
         return $this->evaluteErrorsCount($errorsCount);
     }
 

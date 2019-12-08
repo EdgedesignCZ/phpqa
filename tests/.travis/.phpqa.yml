@@ -14,8 +14,7 @@ phpqa:
         - phpmetrics:0
         - phploc
         - phpcs:0
-        # fails on travis 7.2 without an error, works in docker image, no idea why, check the commit 73f6976
-        # - php-cs-fixer:0
+        - php-cs-fixer
         - phpmd:0
         - pdepend
         - phpcpd:0

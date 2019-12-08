@@ -20,13 +20,25 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
         assertThat($tool->analyzeResult(), is([true, '']));
     }
 
-    public function testMarkFailureWhenXmlFileDoesNotExist()
+    /** @dataProvider provideAllowedErrorsForNonexistentFile */
+    public function testMarkFailureWhenXmlFileDoesNotExist($allowedErrors, $expectedIsOk)
     {
         $tool = new RunningTool('tool', [
             'xml' => ['non-existent.xml'],
             'errorsXPath' => '//errors/error',
+            'allowedErrorsCount' => $allowedErrors,
         ]);
-        assertThat($tool->analyzeResult(), is([false, 0]));
+        list($isOk, $error) = $tool->analyzeResult();
+        assertThat($isOk, is($expectedIsOk));
+        assertThat($error, containsString('not found'));
+    }
+
+    public function provideAllowedErrorsForNonexistentFile()
+    {
+        return [
+            'success when allowed errors are not defined' => [null, true],
+            'success when errors count are defined' => [$this->errorsCountInXmlFile, false],
+        ];
     }
 
     /** @dataProvider provideAllowedErrors */
