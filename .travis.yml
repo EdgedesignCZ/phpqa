@@ -30,7 +30,7 @@ install:
         composer require sensiolabs/security-checker:~5;
     fi
     # test installing suggested tools like docker image
-    if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.0" ]]; then
+    if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.2" ]]; then
         bin/suggested-tools.sh install --prefer-dist;
     fi
 script:
@@ -43,7 +43,7 @@ deploy:
     skip_cleanup: false
     on:
       all_branches: true
-      php: 7.0
+      php: 7.2
 # http://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/
 cache:
   directories:
