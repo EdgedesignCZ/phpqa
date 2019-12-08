@@ -22,6 +22,7 @@ load_docker_variables () {
 build_docker_image () {
     set -e
     time docker build --file $DOCKER_FILE --tag $DOCKER_TAG $APP_DIR
+    docker run --rm -it $DOCKER_TAG phpqa tools
 
     if [ -z "$TRAVIS_TAG" ]; then
         echo "Docker image is published only if the current build is for a git tag"

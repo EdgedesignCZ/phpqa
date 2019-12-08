@@ -37,6 +37,7 @@ script:
   - vendor/phpunit/phpunit/phpunit
   - ./phpqa tools
   - bin/ci.sh
+  - ls -lAh build
 deploy:
   - provider: script
     script: .docker/build-image
