@@ -12,6 +12,7 @@ matrix:
     - php: 7.1
     - php: 7.2
     - php: 7.3
+    - php: 7.4
 install:
   - if [ -n "$GITHUB_OAUTH_TOKEN" ]; then composer config -g github-oauth.github.com ${GITHUB_OAUTH_TOKEN}; fi;
   - composer install --no-interaction
