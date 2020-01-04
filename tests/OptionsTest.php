@@ -55,22 +55,31 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
     }
 
     /** @dataProvider provideInternalClass */
-    public function testIsSuggestedToolInstalled($internalClass, $isInstalled)
+    public function testIsSuggestedToolInstalled(array $classes, $isInstalled)
     {
-        $tools = $this->buildRunningTools(
-            $this->fileOutput,
-            ['pdepend' => ['internalClass' => $internalClass]]
-        );
+        $tools = $this->buildRunningTools($this->fileOutput, ['pdepend' => $classes]);
         assertThat($tools['pdepend']->isExecutable, is($isInstalled));
     }
 
     public function provideInternalClass()
     {
         return [
-            'no class is available' => ['UnknownTool\UnknownClass', false],
-            'at least one class is available' => [['UnknownTool\UnknownClass', __CLASS__], true],
-            'one class must be available' => [['UnknownTool\UnknownClass' => false, __CLASS__ => false], true],
-            'all classes must be available' => [['UnknownTool\UnknownClass' => true, __CLASS__ => true], false],
+            'internal class is available' => [
+                ['internalClass' => 'UnknownTool\UnknownClass'],
+                false
+            ],
+            'at least one internal class is available' => [
+                ['internalClass' => ['UnknownTool\UnknownClass', __CLASS__]],
+                true
+            ],
+            'dependency is available' => [
+                ['internalClass' => __CLASS__, 'internalDependencies' => [__CLASS__]],
+                true
+            ],
+            'dependency is not available' => [
+                ['internalClass' => __CLASS__, 'internalDependencies' => ['UnknownTool\UnknownClass']],
+                false
+            ],
         ];
     }
 

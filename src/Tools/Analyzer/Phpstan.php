@@ -9,11 +9,14 @@ class Phpstan extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' => ' ',
-        'internalClass' => ['PHPStan\Analyser\Analyser' => true, 'Nette\Neon\Neon' => true],// TODO: better syntax
+        'internalClass' => 'PHPStan\Analyser\Analyser',
         'outputMode' => OutputMode::XML_CONSOLE_OUTPUT,
         'xml' => ['phpstan.xml'],
         'errorsXPath' => '//checkstyle/file/error',
         'composer' => 'phpstan/phpstan',
+        'internalDependencies' => [
+            'Nette\Neon\Neon',
+        ],
     );
 
     public function __invoke()

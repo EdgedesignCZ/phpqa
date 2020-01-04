@@ -6,6 +6,7 @@ class RunningTool
 {
     private $tool;
     private $internalClasses;
+    private $internalDependencies;
     private $optionSeparator;
     private $outputMode;
 
@@ -29,9 +30,11 @@ class RunningTool
             'allowedErrorsCount' => null,
             'outputMode' => OutputMode::HANDLED_BY_TOOL,
             'internalClass' => null,
+            'internalDependencies' => [],
         ];
         $this->tool = $tool;
-        $this->internalClasses = $config['internalClass'] ? ((array) $config['internalClass']) : array();
+        $this->internalClasses = $config['internalClass'] ? ((array) $config['internalClass']) : [];
+        $this->internalDependencies = $config['internalDependencies'] ? ((array) $config['internalDependencies']) : [];
         $this->optionSeparator = $config['optionSeparator'];
         $this->xmlFiles = $config['xml'];
         $this->errorsXPath = is_array($config['errorsXPath'])
@@ -42,27 +45,21 @@ class RunningTool
 
     public function isInstalled()
     {
-        if (!$this->internalClasses) {
+        return $this->isAtLeastOneClassInstalled($this->internalClasses)
+            && $this->isAtLeastOneClassInstalled($this->internalDependencies);
+    }
+
+    private function isAtLeastOneClassInstalled(array $classes)
+    {
+        if (!$classes) {
             return true;
         }
-        $availableClasses = 0;
-        $requiredClasses = 0;
-        foreach ($this->internalClasses as $key => $value) {
-            if (is_bool($value)) {
-                $class = $key;
-                $isRequired = $value;
-            } else {
-                $class = $value;
-                $isRequired = false;
-            }
+        foreach ($classes as $class) {
             if (class_exists($class)) {
-                $availableClasses++;
-            }
-            if ($isRequired) {
-                $requiredClasses++;
+                return true;
             }
         }
-        return $availableClasses && $availableClasses >= $requiredClasses;
+        return false;
     }
 
     public function hasOutput($outputMode)
