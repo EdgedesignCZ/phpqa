@@ -73,11 +73,11 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
                 true
             ],
             'dependency is available' => [
-                ['internalClass' => __CLASS__, 'internalDependencies' => [__CLASS__]],
+                ['internalClass' => __CLASS__, 'internalDependencies' => ['package' => __CLASS__]],
                 true
             ],
             'dependency is not available' => [
-                ['internalClass' => __CLASS__, 'internalDependencies' => ['UnknownTool\UnknownClass']],
+                ['internalClass' => __CLASS__, 'internalDependencies' => ['package' => 'UnknownTool\UnknownClass']],
                 false
             ],
         ];

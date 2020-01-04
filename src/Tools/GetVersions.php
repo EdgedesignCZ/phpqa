@@ -22,9 +22,13 @@ class GetVersions
             ]
         ] + $this->findComposerPackages();
         $versions = [];
-        $versions['phpqa'] = $this->analyzeTool('phpqa', 'edgedesign/phpqa', $composer);
+        $versions['phpqa'] = $this->analyzeTool('phpqa', ['edgedesign/phpqa'], $composer);
         foreach ($tools as $tool => $config) {
-            $versions[$tool] = $this->analyzeTool($tool, $config['composer'], $composer, $config['customBinary']);
+            $packages = array_merge(
+                [$config['composer']],
+                array_key_exists('internalDependencies', $config) ? array_keys($config['internalDependencies']) : []
+            );
+            $versions[$tool] = $this->analyzeTool($tool, $packages, $composer, $config['customBinary']);
         }
         return $versions;
     }
@@ -49,8 +53,16 @@ class GetVersions
         return $tools;
     }
 
-    private function analyzeTool($tool, $composerPackage, array $composerPackages, $customBinary = null)
+    private function analyzeTool($tool, array $requiredPackages, array $composerPackages, $customBinary = null)
     {
+        $toolPackage = reset($requiredPackages);
+        $notInstalledPackages = implode(' ', array_filter(
+            $requiredPackages,
+            function ($package) use ($composerPackages) {
+                return !array_key_exists($package, $composerPackages);
+            }
+        ));
+
         if ($customBinary) {
             $versionCommand = "{$customBinary} --version";
             $version = $this->loadVersionFromConsoleCommand($versionCommand);
@@ -59,27 +71,32 @@ class GetVersions
                 'version_normalized' => $version,
                 'authors' => [(object) ['name' => "<comment>{$versionCommand}</comment>"]],
             ];
-        } elseif (array_key_exists($composerPackage, $composerPackages)) {
-            $composerInfo = get_object_vars($composerPackages[$composerPackage]) + [
-                'version_normalized' => '',
-                'authors' => [(object) ['name' => '']],
-            ];
-        } elseif ($composerPackages) {
-            $composerInfo = [
-                'version' => '',
-                'version_normalized' => '<error>not installed</error>',
-                'authors' => [(object) ['name' => "<info>composer require {$composerPackage}</info>"]],
-            ];
-        } else {
+        } elseif (!$composerPackages) {
             $binary = \Edge\QA\pathToBinary($tool);
             $versionCommand = $tool == 'parallel-lint' ? $binary : "{$binary} --version";
             $version = $this->loadVersionFromConsoleCommand($versionCommand);
             $composerInfo = [
                 'version' => $version,
                 'version_normalized' => $version ?: '<error>not installed</error>',
-                'authors' => [(object) ['name' => $versionCommand
-                    ? "<comment>{$versionCommand}</comment>"
-                    : "<info>composer require {$composerPackage}</info>"]],
+                'authors' => [
+                    (object) [
+                        'name' => $versionCommand
+                            ? "<comment>{$versionCommand}</comment>"
+                            : "<info>composer require {$notInstalledPackages}</info>"
+                    ]
+                ],
+            ];
+        } elseif ($notInstalledPackages) {
+            $composerInfo = [
+                'version' => '',
+                'version_normalized' => '<error>not installed</error>',
+                'authors' => [(object) ['name' => "<info>composer require {$notInstalledPackages}</info>"]],
+            ];
+        } else {
+            $toolPackage = reset($requiredPackages);
+            $composerInfo = get_object_vars($composerPackages[$toolPackage]) + [
+                'version_normalized' => '',
+                'authors' => [(object) ['name' => '']],
             ];
         }
 
@@ -87,7 +104,7 @@ class GetVersions
             'version' => $composerInfo['version'],
             'version_normalized' => $this->normalizeVersion($composerInfo),
             'authors' => $this->groupAuthors($composerInfo['authors']),
-            'composer' => $composerPackage,
+            'composer' => implode(' ', $requiredPackages),
         );
     }
 

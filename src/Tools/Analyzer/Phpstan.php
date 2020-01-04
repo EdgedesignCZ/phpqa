@@ -15,7 +15,7 @@ class Phpstan extends \Edge\QA\Tools\Tool
         'errorsXPath' => '//checkstyle/file/error',
         'composer' => 'phpstan/phpstan',
         'internalDependencies' => [
-            'Nette\Neon\Neon',
+            'nette/neon' => 'Nette\Neon\Neon',
         ],
     );
 
