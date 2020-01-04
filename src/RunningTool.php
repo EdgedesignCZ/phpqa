@@ -45,12 +45,24 @@ class RunningTool
         if (!$this->internalClasses) {
             return true;
         }
-        foreach ($this->internalClasses as $class) {
+        $availableClasses = 0;
+        $requiredClasses = 0;
+        foreach ($this->internalClasses as $key => $value) {
+            if (is_bool($value)) {
+                $class = $key;
+                $isRequired = $value;
+            } else {
+                $class = $value;
+                $isRequired = false;
+            }
             if (class_exists($class)) {
-                return true;
+                $availableClasses++;
+            }
+            if ($isRequired) {
+                $requiredClasses++;
             }
         }
-        return false;
+        return $availableClasses && $availableClasses >= $requiredClasses;
     }
 
     public function hasOutput($outputMode)

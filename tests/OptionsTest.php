@@ -54,13 +54,24 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         assertThat($this->buildRunningTools($cliOutput, array('pdepend' => [])), is(emptyArray()));
     }
 
-    public function testIgnoreNotInstalledTool()
+    /** @dataProvider provideInternalClass */
+    public function testIsSuggestedToolInstalled($internalClass, $isInstalled)
     {
         $tools = $this->buildRunningTools(
             $this->fileOutput,
-            array('pdepend' => ['internalClass' => 'UnknownTool\UnknownClass'])
+            ['pdepend' => ['internalClass' => $internalClass]]
         );
-        assertThat($tools['pdepend']->isExecutable, is(false));
+        assertThat($tools['pdepend']->isExecutable, is($isInstalled));
+    }
+
+    public function provideInternalClass()
+    {
+        return [
+            'no class is available' => ['UnknownTool\UnknownClass', false],
+            'at least one class is available' => [['UnknownTool\UnknownClass', __CLASS__], true],
+            'one class must be available' => [['UnknownTool\UnknownClass' => false, __CLASS__ => false], true],
+            'all classes must be available' => [['UnknownTool\UnknownClass' => true, __CLASS__ => true], false],
+        ];
     }
 
     /** @dataProvider provideOutputs */
