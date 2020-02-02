@@ -4,7 +4,10 @@
 define('PHPQA_VERSION', '1.23.3');
 define('PHPQA_USED_COMMAND', implode(' ', $argv));
 
-if (file_exists(__DIR__ . '/vendor/autoload.php')) {
+if (getenv('COMPOSER_BIN_DIR') && getenv('COMPOSER_VENDOR_DIR')) {
+    define('COMPOSER_VENDOR_DIR', getenv('COMPOSER_VENDOR_DIR'));
+    define('COMPOSER_BINARY_DIR', getenv('COMPOSER_BIN_DIR'));
+} elseif (file_exists(__DIR__ . '/vendor/autoload.php')) {
     define('COMPOSER_VENDOR_DIR', __DIR__ . "/vendor/");
     define('COMPOSER_BINARY_DIR', __DIR__ . "/vendor/bin/");
 } elseif (file_exists(__DIR__ . '/../../autoload.php')) {
