@@ -131,6 +131,12 @@ class GetVersions
 
     private function loadVersionFromConsoleCommand($command)
     {
+        // Since symfony/process 5.x, Process' constructor argument $command is typed as array and
+        // setCommandLine has been removed since then, easy way to detect if symfony/process > 5.0.0
+        if (!method_exists('Symfony\\Component\\Process\\Process', 'setCommandLine')) {
+            $command = [$command];
+        }
+
         $process = new Process($command);
         $process->run();
         $firstLine = $this->getFirstLine($process->getOutput());
