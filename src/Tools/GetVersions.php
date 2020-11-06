@@ -41,8 +41,13 @@ class GetVersions
         }
 
         $installedTools = json_decode((string) file_get_contents($installedJson));
-        if (!is_array($installedTools)) {
+        if (!is_array($installedTools) && !is_object($installedTools)) {
             return [];
+        }
+
+        // Composer 2 has the tools under a key "packages"
+        if(is_object($installedTools)) {
+            $installedTools = $installedTools->packages;
         }
 
         $tools = array();
