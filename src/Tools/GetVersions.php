@@ -40,7 +40,11 @@ class GetVersions
             return [];
         }
 
-        $installedTools = json_decode((string) file_get_contents($installedJson));
+        $parsedInstalledJson = json_decode((string) file_get_contents($installedJson));
+
+        // Has a "packages" key in Composer 2
+        $installedTools = $parsedInstalledJson->packages ? $parsedInstalledJson->packages : $parsedInstalledJson;
+
         if (!is_array($installedTools)) {
             return [];
         }
