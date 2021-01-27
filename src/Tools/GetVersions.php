@@ -24,11 +24,17 @@ class GetVersions
         $versions = [];
         $versions['phpqa'] = $this->analyzeTool('phpqa', ['edgedesign/phpqa'], $composer);
         foreach ($tools as $tool => $config) {
-            $packages = array_merge(
-                [$config['composer']],
-                array_key_exists('internalDependencies', $config) ? array_keys($config['internalDependencies']) : []
-            );
-            $versions[$tool] = $this->analyzeTool($tool, $packages, $composer, $config['customBinary']);
+            $toolVersion = ['version' => '', 'version_normalized' => '', 'authors' => '', 'composer' => ''];
+
+            if (isset($config['composer'])) {
+                $packages = array_merge(
+                    [$config['composer']],
+                    array_key_exists('internalDependencies', $config) ? array_keys($config['internalDependencies']) : []
+                );
+                $toolVersion = $this->analyzeTool($tool, $packages, $composer, $config['customBinary']);
+            }
+
+            $versions[$tool] = $toolVersion;
         }
         return $versions;
     }

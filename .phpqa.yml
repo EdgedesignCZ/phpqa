@@ -8,7 +8,7 @@ phpqa:
     report: false
     execution: parallel
     output: file
-    tools: phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpcpd,phpstan,phpunit,psalm,security-checker,parallel-lint
+    tools: phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpcpd,phpstan,phpunit,psalm,security-checker,local-php-security-checker,parallel-lint
     # array definition and allowed errors count is supported too
     # tools: [phploc, phpcs:0]
     verbose: false
@@ -126,3 +126,4 @@ tool:
     phpunit: Edge\QA\Tools\Analyzer\Phpunit
     psalm: Edge\QA\Tools\Analyzer\Psalm
     security-checker: Edge\QA\Tools\Analyzer\SecurityChecker
+    local-php-security-checker: Edge\QA\Tools\Analyzer\LocalSecurityChecker

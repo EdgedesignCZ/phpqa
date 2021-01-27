@@ -22,6 +22,7 @@ phpqa:
         - phpunit:0
         - psalm
         - security-checker:0
+        - local-php-security-checker:0
         - parallel-lint:0
 
 phpcs:

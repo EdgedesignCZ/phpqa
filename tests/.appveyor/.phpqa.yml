@@ -1,5 +1,5 @@
 phpqa:
-    tools: phpmetrics,phploc,phpcs:0,php-cs-fixer,phpmd:0,pdepend,phpcpd:0,phpstan,phpunit:0,psalm,security-checker,parallel-lint
+    tools: phpmetrics,phploc,phpcs:0,php-cs-fixer,phpmd:0,pdepend,phpcpd:0,phpstan,phpunit:0,psalm,security-checker,local-php-security-checker,parallel-lint
 
 phpcs:
     standard: ../.travis/phpcs.xml

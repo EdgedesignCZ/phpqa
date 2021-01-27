@@ -18,7 +18,13 @@ then
         # symfony 3
         composer require jakub-onderka/php-parallel-lint jakub-onderka/php-console-highlighter phpstan/phpstan nette/neon friendsofphp/php-cs-fixer:~2.2 vimeo/psalm sensiolabs/security-checker
     fi
+
+    # Special case of local-php-security-checker who have no composer install
+    rm -f bin/local-php-security-checker
+    curl -s https://api.github.com/repos/fabpot/local-php-security-checker/releases/latest | grep -E "browser_download_url(.+)linux_386" | cut -d : -f 2,3 | tr -d \" | wget -i -
+    mv local-php-security-checker_* bin/local-php-security-checker
 else
     echo "Removing suggested tools"
     composer remove jakub-onderka/php-parallel-lint jakub-onderka/php-console-highlighter phpstan/phpstan friendsofphp/php-cs-fixer vimeo/psalm sensiolabs/security-checker
+    rm -f bin/local-php-security-checker
 fi
