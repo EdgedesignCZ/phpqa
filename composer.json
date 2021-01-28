@@ -34,7 +34,7 @@
         "phpmetrics/phpmetrics": "*"
     },
     "suggest": {
-        "sensiolabs/security-checker": "Check composer.lock for known security issues",
+        "enlightn/security-checker": "Check composer.lock for known security issues",
         "friendsofphp/php-cs-fixer": "A tool to automatically fix PHP coding standards issues",
         "phpunit/phpunit": "The PHP Unit Testing framework",
         "phpstan/phpstan": "PHP Static Analysis Tool - discover bugs in your code without running it!",

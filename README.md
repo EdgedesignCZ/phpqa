@@ -49,7 +49,7 @@ you want to use them.
 
 Tool | PHP | Supported since | Description |
 ---- | --- | --------------- | ----------- |
-[security-checker](https://github.com/sensiolabs/security-checker) | `>= 5.3` | `1.16` | Check composer.lock for known security issues |
+[security-checker](https://github.com/enlightn/security-checker) | `>= 5.6` | `1.24` | Check composer.lock for known security issues |
 [php-cs-fixer](http://cs.sensiolabs.org/) | [`>= 5.3`](https://github.com/EdgedesignCZ/phpqa/pull/66#discussion_r115206573) | `1.12` | Automatically detect and fix PHP coding standards issues |
 [phpunit](https://github.com/phpunit/phpunit) | `>= 5.3` | `1.13` | The PHP Unit Testing framework |
 [phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it |

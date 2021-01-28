@@ -8,9 +8,9 @@ class SecurityChecker extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' => '=',
-        'internalClass' => 'SensioLabs\Security\SecurityChecker',
+        'internalClass' => 'Enlightn\SecurityChecker\AdvisoryAnalyzer',
         'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
-        'composer' => 'sensiolabs/security-checker',
+        'composer' => 'enlightn/security-checker',
     );
 
     public function __invoke()
