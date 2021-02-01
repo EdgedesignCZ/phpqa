@@ -21,7 +21,7 @@ phpqa:
         - phpstan
         - phpunit:0
         - psalm
-        - security-checker:0
+        - security-checker
         - parallel-lint:0
 
 phpcs:
