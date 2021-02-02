@@ -1,3 +1,3 @@
 #!/bin/sh
 
-./phpqa --config tests/.travis
+./phpqa --config tests/.ci

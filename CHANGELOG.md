@@ -181,7 +181,7 @@
 ## v1.11.0
 
 * [#54](https://github.com/EdgedesignCZ/phpqa/pull/54) Advanced phpcs configuration
-    * define [custom reports](https://github.com/EdgedesignCZ/phpqa/blob/master/tests/.travis/.phpqa.yml#L2) in `phpcs.reports`
+    * define [custom reports](https://github.com/EdgedesignCZ/phpqa/blob/master/tests/.ci/.phpqa.yml#L2) in `phpcs.reports`
     * [#53](https://github.com/EdgedesignCZ/phpqa/issues/53) - allow ignoring warnings in `phpcs.ignoreWarnings`
 
 ## v1.10.0
