@@ -50,7 +50,7 @@ jobs:
             composer remove phpunit/phpunit --dev --no-interaction && composer remove sebastian/phpcpd --no-interaction;
             # 2) update tools
             composer update;
-            # 3) reinstall sebastian...
+            # 3) reinstall sebastian... (phpcpd v4)
             composer require phpunit/phpunit:~7.0 --dev && composer require sebastian/phpcpd;
             # 4) install suggested tools
             bin/suggested-tools.sh install;
@@ -60,8 +60,8 @@ jobs:
             composer remove phpunit/phpunit --dev --no-interaction && composer remove sebastian/phpcpd --no-interaction;
             # 2) update tools
             composer update;
-            # 3) reinstall latest versions TODO: phpcpd v6
-            composer require phpunit/phpunit --dev;
+            # 3) reinstall latest versions (phpcpd v6)
+            composer require phpunit/phpunit --dev && composer require sebastian/phpcpd;
             # 4) install suggested tools
             bin/suggested-tools.sh install;
             # 5) fix new php versions
@@ -90,10 +90,7 @@ jobs:
         CI_PHP_VERSION: ${{ matrix.php }}
       run: |
         vendor/phpunit/phpunit/phpunit
-        if [[ ${CI_PHP_VERSION:0:3} == "7.4" ]]; then
-            # TODO: revert when phpcpd v6 is supported
-            ./phpqa --config tests/.ci --tools "phpmetrics:0,phploc,phpcs:0,php-cs-fixer,phpmd:0,pdepend,phpcpd,phpstan,phpunit:0,psalm,security-checker,parallel-lint:0"
-        elif [[ ${CI_PHP_VERSION:0:3} == "8" ]]; then
+        if [[ ${CI_PHP_VERSION:0:3} == "8" ]]; then
             # TODO: enable phpqa when robo v2 is supported
             mkdir -p build
         else
