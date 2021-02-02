@@ -7,55 +7,63 @@ on:
       - master
 
 jobs:
-  build:
+  phpqa:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        php: [5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4]
+        stability: [prefer-stable]
+
     steps:
     - uses: actions/checkout@v2
-    - name: Debug
-      run: pwd && ls -lAh
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php }}
+        extensions: xsl
+        coverage: none
+        # TODO: ? https://github.com/EdgedesignCZ/phpqa/runs/1813676801?check_suite_focus=true#step:6:28 ?
+        tools: composer:v1
+
+    - name: Cache composer
+      uses: actions/cache@v2
+      with:
+        path: |
+            ~/.composer/cache
+            vendor
+        key: php-${{ matrix.php }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: "php-${{ matrix.php }}-composer-"
+
+    - name: Install dependencies
+      env:
+        CI_PHP_VERSION: ${{ matrix.php }}
+      run: |
+        composer install --no-interaction --no-progress
+        if [[ ${CI_PHP_VERSION:0:3} == "7.1" ]]; then
+            # 1) delete sebastian dependency hell
+            composer remove phpunit/phpunit --dev --no-interaction && composer remove sebastian/phpcpd --no-interaction;
+            # 2) update tools
+            composer update;
+            # 3) reinstall sebastian...
+            composer require phpunit/phpunit:~7.0 --dev && composer require sebastian/phpcpd;
+            # 4) install suggested tools
+            bin/suggested-tools.sh install;
+        fi
+        # test installing suggested tools like docker image
+        if [[ ${CI_PHP_VERSION:0:3} == "7.2" ]]; then
+            bin/suggested-tools.sh install --prefer-dist;
+        fi
+
+    - name: Run tests
+      run: |
+        vendor/phpunit/phpunit/phpunit
+        ./phpqa tools
+        bin/ci.sh
+        ls -lAh build
 
 # DEPRECATED TRAVIS
-#sudo: required
-#dist: trusty
-#language: php
-#services:
-#  - docker
-#matrix:
-#  include:
-#    - php: 5.4
-#    - php: 5.5
-#    - php: 5.6
-#    - php: 7.0
-#    - php: 7.1
-#    - php: 7.2
-#    - php: 7.3
-#    - php: 7.4
-#install:
-#  - if [ -n "$GITHUB_OAUTH_TOKEN" ]; then composer config -g github-oauth.github.com ${GITHUB_OAUTH_TOKEN}; fi;
-#  - composer install --no-interaction
-#  - |
-#    # test latest tool versions (needs symfony3 components)
-#    if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.1" ]]; then
-#        # 1) delete sebastian dependency hell
-#        composer remove phpunit/phpunit --dev --no-interaction && composer remove sebastian/phpcpd --no-interaction;
-#        # 2) update tools
-#        composer update;
-#        # 3) reinstall sebastian...
-#        composer require phpunit/phpunit:~7.0 --dev && composer require sebastian/phpcpd;
-#        # 4) install suggested tools
-#        bin/suggested-tools.sh install;
-#        # 5) hotfix CI issues - see commit 48dd427
-#        composer require sensiolabs/security-checker:~5;
-#    fi
-#    # test installing suggested tools like docker image
-#    if [[ ${TRAVIS_PHP_VERSION:0:3} == "7.2" ]]; then
-#        bin/suggested-tools.sh install --prefer-dist;
-#    fi
-#script:
-#  - vendor/phpunit/phpunit/phpunit
-#  - ./phpqa tools
-#  - bin/ci.sh
-#  - ls -lAh build
 #deploy:
 #  - provider: script
 #    script: .docker/build-image
@@ -63,9 +71,3 @@ jobs:
 #    on:
 #      all_branches: true
 #      php: 7.2
-## http://blog.wyrihaximus.net/2015/07/composer-cache-on-travis/
-#cache:
-#  directories:
-#    - vendor
-#    - $HOME/.composer/cache
-#
