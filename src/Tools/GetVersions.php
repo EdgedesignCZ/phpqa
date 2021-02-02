@@ -40,7 +40,8 @@ class GetVersions
             return [];
         }
 
-        $installedTools = json_decode((string) file_get_contents($installedJson));
+        $rawTools = json_decode((string) file_get_contents($installedJson));
+        $installedTools = is_object($rawTools) ? $rawTools->packages : $rawTools;
         if (!is_array($installedTools)) {
             return [];
         }
