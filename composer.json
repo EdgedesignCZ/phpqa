@@ -39,8 +39,8 @@
         "phpunit/phpunit": "The PHP Unit Testing framework",
         "phpstan/phpstan": "PHP Static Analysis Tool - discover bugs in your code without running it!",
         "vimeo/psalm": "A static analysis tool for finding errors in PHP applications",
-        "jakub-onderka/php-parallel-lint": "Check PHP syntax",
-        "jakub-onderka/php-console-highlighter": "Colored output in parallel-lint"
+        "php-parallel-lint/php-parallel-lint": "Check PHP syntax",
+        "php-parallel-lint/php-console-highlighter": "Colored output in parallel-lint"
     },
     "require-dev": {
         "hamcrest/hamcrest-php": ">=2.0.1",

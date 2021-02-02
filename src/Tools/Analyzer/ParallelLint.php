@@ -10,7 +10,7 @@ class ParallelLint extends \Edge\QA\Tools\Tool
         'optionSeparator' => ' ',
         'internalClass' => 'JakubOnderka\PhpParallelLint\ParallelLint',
         'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
-        'composer' => 'jakub-onderka/php-parallel-lint',
+        'composer' => 'php-parallel-lint/php-parallel-lint',
     );
 
     public function __invoke()
