@@ -65,8 +65,6 @@ class Phpstan extends \Edge\QA\Tools\Tool
 
     private function getErrorFormatOption()
     {
-        $versions = new GetVersions();
-        $phsptanVersion = $versions->getToolVersion(self::$SETTINGS);
-        return $phsptanVersion && version_compare($phsptanVersion, '0.10.3', '<') ?  'errorFormat' : 'error-format';
+        return $this->toolVersionIs('<', '0.10.3') ?  'errorFormat' : 'error-format';
     }
 }

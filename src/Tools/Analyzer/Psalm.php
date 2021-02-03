@@ -47,6 +47,11 @@ class Psalm extends \Edge\QA\Tools\Tool
     {
         $xml = new SimpleXMLElement($rawXml);
 
+        $attributes = $xml->attributes();
+        if (!isset($attributes['resolveFromConfigFile']) && $this->toolVersionIs('>=', '4')) {
+            $xml->addAttribute('resolveFromConfigFile', 'false');
+        }
+
         if (!isset($xml->projectFiles)) {
             $xml->addChild('projectFiles');
         }

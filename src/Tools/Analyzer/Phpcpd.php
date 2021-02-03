@@ -21,7 +21,7 @@ class Phpcpd extends \Edge\QA\Tools\Tool
             'min-lines' => $this->config->value('phpcpd.minLines'),
             'min-tokens' => $this->config->value('phpcpd.minTokens'),
         );
-        $isOlderVersion = $this->isOlderVersionThanV6();
+        $isOlderVersion = $this->toolVersionIs('<', '6');
         $phpcpdNames = array_map(
             function ($extension) use ($isOlderVersion) {
                 return $isOlderVersion ? "*.{$extension}" : ".{$extension}";
@@ -39,12 +39,5 @@ class Phpcpd extends \Edge\QA\Tools\Tool
             $args['log-pmd'] = $this->tool->getEscapedXmlFile();
         }
         return $args;
-    }
-
-    private function isOlderVersionThanV6()
-    {
-        $versions = new GetVersions();
-        $composerVersion = $versions->getToolVersion(self::$SETTINGS);
-        return $composerVersion && version_compare($composerVersion, '6', '<');
     }
 }

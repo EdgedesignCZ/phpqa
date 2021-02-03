@@ -35,6 +35,13 @@ abstract class Tool
         return \Edge\QA\escapePath($file);
     }
 
+    protected function toolVersionIs($operator, $version)
+    {
+        $versions = new GetVersions();
+        $composerVersion = $versions->getToolVersion(static::$SETTINGS);
+        return $composerVersion && version_compare($composerVersion, $version, $operator);
+    }
+
     protected function writeln($text)
     {
         $this->presenter->__invoke($text);
