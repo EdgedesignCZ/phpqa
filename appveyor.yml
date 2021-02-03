@@ -4,6 +4,7 @@ environment:
     matrix:
         - php_version: 7.2.20
 
+skip_branch_with_pr: true
 branches:
     except:
         - gh-pages
