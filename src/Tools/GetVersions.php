@@ -132,10 +132,19 @@ class GetVersions
 
     private function loadVersionFromConsoleCommand($command)
     {
-        $process = new Process($command);
+        $process = $this->createSymfonyProcess($command);
         $process->run();
         $firstLine = $this->getFirstLine($process->getOutput());
         return $this->extractVersion($firstLine);
+    }
+
+    private function createSymfonyProcess($command)
+    {
+        if (!method_exists('Symfony\Component\Process\Process', 'setCommandLine')) {
+            return new Process([$command]);
+        } else {
+            return new Process($command);
+        }
     }
 
     private function getFirstLine($string)

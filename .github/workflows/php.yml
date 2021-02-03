@@ -74,28 +74,14 @@ jobs:
         echo
 
     - name: Show versions
-      env:
-        CI_PHP_VERSION: ${{ matrix.php }}
       run: |
         composer outdated --direct --all
-        if [[ ${CI_PHP_VERSION:0:3} == "8" ]]; then
-            # TODO: enable phpqa when robo v2 is supported
-            echo "Old robo causes fatal errors on php8..."
-        else
-            ./phpqa tools
-        fi
+        ./phpqa tools
 
     - name: Run tests
-      env:
-        CI_PHP_VERSION: ${{ matrix.php }}
       run: |
         vendor/phpunit/phpunit/phpunit
-        if [[ ${CI_PHP_VERSION:0:3} == "8" ]]; then
-            # TODO: enable phpqa when robo v2 is supported
-            mkdir -p build
-        else
-            bin/ci.sh
-        fi
+        bin/ci.sh
         ls -lAh build
 
     - name: Upload QA files

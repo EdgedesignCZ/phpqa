@@ -19,7 +19,7 @@
     "require": {
         "php": ">=5.4",
         "ext-xsl": "*",
-        "consolidation/robo": "~0.5|~1",
+        "consolidation/robo": "~0.5|~1|~2",
         "phpmd/phpmd" : "*",
         "phploc/phploc": "*",
         "symfony/dependency-injection": ">=2.8.50",
@@ -27,7 +27,7 @@
         "symfony/process": ">=2.8",
         "symfony/finder": ">=2.8",
         "symfony/yaml": ">=2.8",
-        "twig/twig": "~1.38|~2.7",
+        "twig/twig": "~1.38|~2.7|~3",
         "pdepend/pdepend": "*",
         "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "*",
