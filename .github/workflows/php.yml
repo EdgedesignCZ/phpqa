@@ -72,7 +72,18 @@ jobs:
             bin/suggested-tools.sh install --prefer-dist;
         fi
         echo
+
+    - name: Show versions
+      env:
+        CI_PHP_VERSION: ${{ matrix.php }}
+      run: |
         composer outdated --direct --all
+        if [[ ${CI_PHP_VERSION:0:3} == "8" ]]; then
+            # TODO: enable phpqa when robo v2 is supported
+            echo "Old robo causes fatal errors on php8..."
+        else
+            ./phpqa tools
+        fi
 
     - name: Run tests
       env:
@@ -80,14 +91,12 @@ jobs:
       run: |
         vendor/phpunit/phpunit/phpunit
         if [[ ${CI_PHP_VERSION:0:3} == "7.4" ]]; then
-            ./phpqa tools
             # TODO: revert when phpcpd v6 is supported
             ./phpqa --config tests/.ci --tools "phpmetrics:0,phploc,phpcs:0,php-cs-fixer,phpmd:0,pdepend,phpcpd,phpstan,phpunit:0,psalm,security-checker,parallel-lint:0"
         elif [[ ${CI_PHP_VERSION:0:3} == "8" ]]; then
             # TODO: enable phpqa when robo v2 is supported
             mkdir -p build
         else
-            ./phpqa tools
             bin/ci.sh
         fi
         ls -lAh build
