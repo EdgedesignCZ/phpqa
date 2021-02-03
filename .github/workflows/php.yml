@@ -63,6 +63,12 @@ jobs:
         bin/ci.sh
         ls -lAh build
 
+    - name: Upload QA files
+      uses: actions/upload-artifact@v2
+      with:
+        name: phpqa-${{ matrix.php }}
+        path: build
+
 # DEPRECATED TRAVIS
 #deploy:
 #  - provider: script
