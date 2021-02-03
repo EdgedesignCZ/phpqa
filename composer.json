@@ -54,7 +54,7 @@
     },
     "autoload-dev": {
         "files": [
-            "tests/phpunit-compatibility.php",
+            "tests/.phpunit/fix-testcase.php",
             "vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php"
         ]
     },

@@ -51,16 +51,37 @@ jobs:
             # 4) install suggested tools
             bin/suggested-tools.sh install;
         fi
+        if [[ ${CI_PHP_VERSION:0:3} == "7.4" ]]; then
+            # 1) delete sebastian dependency hell
+            composer remove phpunit/phpunit --dev --no-interaction && composer remove sebastian/phpcpd --no-interaction;
+            # 2) update tools
+            composer update;
+            # 3) reinstall latest versions TODO: phpcpd v6
+            composer require phpunit/phpunit --dev;
+            # 4) install suggested tools
+            bin/suggested-tools.sh install;
+            # 5) fix new php versions
+            php tests/.phpunit/fix-typehints.php
+        fi
         # test installing suggested tools like docker image
         if [[ ${CI_PHP_VERSION:0:3} == "7.2" ]]; then
             bin/suggested-tools.sh install --prefer-dist;
         fi
+        echo
+        composer outdated --direct --all
 
     - name: Run tests
+      env:
+        CI_PHP_VERSION: ${{ matrix.php }}
       run: |
         vendor/phpunit/phpunit/phpunit
-        ./phpqa tools
-        bin/ci.sh
+            ./phpqa tools
+        if [[ ${CI_PHP_VERSION:0:3} == "7.4" ]]; then
+            # TODO: revert when phpcpd v6 is supported
+            ./phpqa --config tests/.ci --tools "phpmetrics:0,phploc,phpcs:0,php-cs-fixer,phpmd:0,pdepend,phpcpd,phpstan,phpunit:0,psalm,security-checker,parallel-lint:0"
+        else
+            bin/ci.sh
+        fi
         ls -lAh build
 
     - name: Upload QA files
