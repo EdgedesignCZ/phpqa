@@ -12,7 +12,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4]
+        php: [5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0]
         stability: [prefer-stable]
 
     steps:
@@ -40,7 +40,11 @@ jobs:
       env:
         CI_PHP_VERSION: ${{ matrix.php }}
       run: |
-        composer install --no-interaction --no-progress
+        if [[ ${CI_PHP_VERSION:0:1} == "8" ]]; then
+            composer install --no-interaction --no-progress --ignore-platform-reqs
+        else
+            composer install --no-interaction --no-progress
+        fi
         if [[ ${CI_PHP_VERSION:0:3} == "7.1" ]]; then
             # 1) delete sebastian dependency hell
             composer remove phpunit/phpunit --dev --no-interaction && composer remove sebastian/phpcpd --no-interaction;
@@ -51,7 +55,7 @@ jobs:
             # 4) install suggested tools
             bin/suggested-tools.sh install;
         fi
-        if [[ ${CI_PHP_VERSION:0:3} == "7.4" ]]; then
+        if [ ${CI_PHP_VERSION:0:3} == "7.4" ] || [ ${CI_PHP_VERSION:0:1} == "8" ]; then
             # 1) delete sebastian dependency hell
             composer remove phpunit/phpunit --dev --no-interaction && composer remove sebastian/phpcpd --no-interaction;
             # 2) update tools
@@ -75,11 +79,15 @@ jobs:
         CI_PHP_VERSION: ${{ matrix.php }}
       run: |
         vendor/phpunit/phpunit/phpunit
-            ./phpqa tools
         if [[ ${CI_PHP_VERSION:0:3} == "7.4" ]]; then
+            ./phpqa tools
             # TODO: revert when phpcpd v6 is supported
             ./phpqa --config tests/.ci --tools "phpmetrics:0,phploc,phpcs:0,php-cs-fixer,phpmd:0,pdepend,phpcpd,phpstan,phpunit:0,psalm,security-checker,parallel-lint:0"
+        elif [[ ${CI_PHP_VERSION:0:3} == "8" ]]; then
+            # TODO: enable phpqa when robo v2 is supported
+            mkdir -p build
         else
+            ./phpqa tools
             bin/ci.sh
         fi
         ls -lAh build

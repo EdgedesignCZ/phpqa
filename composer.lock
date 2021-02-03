@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "92055fab58f1b19a77087744923c8585",
+    "content-hash": "a60c62c4d611b18bb75af69f32687fda",
     "packages": [
         {
             "name": "consolidation/robo",
@@ -1036,6 +1036,7 @@
             ],
             "description": "FinderFacade is a convenience wrapper for Symfony's Finder component.",
             "homepage": "https://github.com/sebastianbergmann/finder-facade",
+            "abandoned": true,
             "time": "2016-02-17T07:02:23+00:00"
         },
         {
@@ -1961,20 +1962,20 @@
         },
         {
             "name": "hamcrest/hamcrest-php",
-            "version": "v2.0.0",
+            "version": "v2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/hamcrest/hamcrest-php.git",
-                "reference": "776503d3a8e85d4f9a1148614f95b7a608b046ad"
+                "reference": "8c3d0a3f6af734494ad8f6fbbee0ba92422859f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/hamcrest/hamcrest-php/zipball/776503d3a8e85d4f9a1148614f95b7a608b046ad",
-                "reference": "776503d3a8e85d4f9a1148614f95b7a608b046ad",
+                "url": "https://api.github.com/repos/hamcrest/hamcrest-php/zipball/8c3d0a3f6af734494ad8f6fbbee0ba92422859f3",
+                "reference": "8c3d0a3f6af734494ad8f6fbbee0ba92422859f3",
                 "shasum": ""
             },
             "require": {
-                "php": "^5.3|^7.0"
+                "php": "^5.3|^7.0|^8.0"
             },
             "replace": {
                 "cordoval/hamcrest-php": "*",
@@ -1982,14 +1983,13 @@
                 "kodova/hamcrest-php": "*"
             },
             "require-dev": {
-                "phpunit/php-file-iterator": "1.3.3",
-                "phpunit/phpunit": "~4.0",
-                "satooshi/php-coveralls": "^1.0"
+                "phpunit/php-file-iterator": "^1.4 || ^2.0",
+                "phpunit/phpunit": "^4.8.36 || ^5.7 || ^6.5 || ^7.0"
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.0-dev"
+                    "dev-master": "2.1-dev"
                 }
             },
             "autoload": {
@@ -1999,13 +1999,13 @@
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "BSD"
+                "BSD-3-Clause"
             ],
             "description": "This is the PHP port of Hamcrest Matchers",
             "keywords": [
                 "test"
             ],
-            "time": "2016-01-20T08:20:44+00:00"
+            "time": "2020-07-09T08:09:16+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -2316,6 +2316,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2017-12-04T08:55:13+00:00"
         },
         {

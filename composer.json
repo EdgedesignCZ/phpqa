@@ -43,7 +43,7 @@
         "jakub-onderka/php-console-highlighter": "Colored output in parallel-lint"
     },
     "require-dev": {
-        "hamcrest/hamcrest-php": "*",
+        "hamcrest/hamcrest-php": ">=2.0.1",
         "phpunit/phpunit": "~4.8.28"
     },
     "autoload": {
