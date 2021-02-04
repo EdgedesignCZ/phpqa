@@ -69,10 +69,13 @@ jobs:
         fi
         # test installing suggested tools like docker image
         if [[ ${CI_PHP_VERSION:0:3} == "7.2" ]]; then
-            PSALM_VERSION=":~2" bin/suggested-tools.sh install --prefer-dist;
+            bin/suggested-tools.sh install --prefer-dist;
         fi
-        if [ ${CI_PHP_VERSION:0:3} == "5.4" ] || [ ${CI_PHP_VERSION:0:3} == "5.6" ]; then
+        if [[ ${CI_PHP_VERSION:0:3} == "5.6" ]]; then
             PHP7=no bin/suggested-tools.sh install --prefer-dist;
+        fi
+        if [[ ${CI_PHP_VERSION:0:3} == "5.4" ]]; then
+            PHP7=no SYMFONY2=yes bin/suggested-tools.sh install --prefer-dist;
         fi
         echo
 

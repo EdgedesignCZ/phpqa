@@ -9,25 +9,25 @@ mode="$1"
 requireMode="$2"
 
 PHP7=${PHP7:-"yes"}
-PSALM_VERSION=${PSALM_VERSION:-""}
+SYMFONY2=${SYMFONY2:-"no"}
 
 if [ $mode = "install" ]
 then
     echo "Installing suggested tools"
-    TOOLS="php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter sensiolabs/security-checker vimeo/psalm$PSALM_VERSION"
+    # psalm 0.2 for php 5.4, v2 can be minimum when php5.4 and symfony2 components are dropped
+    TOOLS="php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter sensiolabs/security-checker vimeo/psalm:>=0.2 friendsofphp/php-cs-fixer:>=2"
     if [[ ${PHP7} == "yes" ]]; then
         TOOLS="${TOOLS} phpstan/phpstan nette/neon"
     fi
-    echo $TOOLS
-    echo
-
-    if [ ! -z "$requireMode" ]; then
-        # docker build OR travis + php 7.0 OR symfony2 (default composer.lock)
-        composer require symfony/filesystem:~2 symfony/process:~2 symfony/finder:~2 $TOOLS friendsofphp/php-cs-fixer:~2.2 $requireMode 
-    else
-        # symfony 3
-        composer require $TOOLS friendsofphp/php-cs-fixer
+    if [[ ${SYMFONY2} == "yes" ]]; then
+        # https://github.com/EdgedesignCZ/phpqa/commit/94e9b49
+        # https://github.com/EdgedesignCZ/phpqa/commit/13a8025
+        TOOLS="${TOOLS} symfony/filesystem:~2 symfony/process:~2 symfony/finder:~2"
     fi
+    echo
+    echo "composer require $TOOLS $requireMode"
+    echo
+    composer require $TOOLS $requireMode
 else
     echo "Removing suggested tools"
     composer remove php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter phpstan/phpstan friendsofphp/php-cs-fixer vimeo/psalm sensiolabs/security-checker
