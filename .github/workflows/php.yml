@@ -51,7 +51,7 @@ jobs:
             # 2) update tools
             composer update;
             # 3) reinstall sebastian... (phpcpd v4)
-            composer require phpunit/phpunit:~7.0 --dev && composer require sebastian/phpcpd;
+            composer require phpunit/phpunit --dev && composer require sebastian/phpcpd;
             # 4) install suggested tools
             bin/suggested-tools.sh install;
         fi
@@ -69,7 +69,10 @@ jobs:
         fi
         # test installing suggested tools like docker image
         if [[ ${CI_PHP_VERSION:0:3} == "7.2" ]]; then
-            bin/suggested-tools.sh install --prefer-dist;
+            PSALM_VERSION=":~2" bin/suggested-tools.sh install --prefer-dist;
+        fi
+        if [ ${CI_PHP_VERSION:0:3} == "5.4" ] || [ ${CI_PHP_VERSION:0:3} == "5.6" ]; then
+            PHP7=no bin/suggested-tools.sh install --prefer-dist;
         fi
         echo
 
