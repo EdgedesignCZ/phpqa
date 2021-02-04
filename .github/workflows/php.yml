@@ -45,26 +45,9 @@ jobs:
         else
             composer install --no-interaction --no-progress
         fi
-        if [[ ${CI_PHP_VERSION:0:3} == "7.1" ]]; then
-            # 1) delete sebastian dependency hell
-            composer remove phpunit/phpunit --dev --no-interaction && composer remove sebastian/phpcpd --no-interaction;
-            # 2) update tools
+        if [ ${CI_PHP_VERSION:0:3} == "7.1" ] || [ ${CI_PHP_VERSION:0:3} == "7.4" ] || [ ${CI_PHP_VERSION:0:1} == "8" ]; then
             composer update;
-            # 3) reinstall sebastian... (phpcpd v4)
-            composer require phpunit/phpunit --dev && composer require sebastian/phpcpd;
-            # 4) install suggested tools
             bin/suggested-tools.sh install;
-        fi
-        if [ ${CI_PHP_VERSION:0:3} == "7.4" ] || [ ${CI_PHP_VERSION:0:1} == "8" ]; then
-            # 1) delete sebastian dependency hell
-            composer remove phpunit/phpunit --dev --no-interaction && composer remove sebastian/phpcpd --no-interaction;
-            # 2) update tools
-            composer update;
-            # 3) reinstall latest versions (phpcpd v6)
-            composer require phpunit/phpunit --dev && composer require sebastian/phpcpd;
-            # 4) install suggested tools
-            bin/suggested-tools.sh install;
-            # 5) fix new php versions
             php tests/.phpunit/fix-typehints.php
         fi
         # test installing suggested tools like docker image
