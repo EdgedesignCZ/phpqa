@@ -15,7 +15,7 @@ jobs:
         php:
           - 5.4 # default composer.lock + suggested-tools
           - 5.5 # default composer.lock
-          - 5.6 # default composer.lock + suggested-tools TODO: test updated composer.lock
+          - 5.6 # updated composer.lock + suggested-tools
           - 7.0 # default composer.lock
           - 7.1 # updated composer.lock + suggested-tools
           - 7.2 # default composer.lock + suggested-tools
@@ -60,8 +60,7 @@ jobs:
             bin/suggested-tools.sh install;
         fi
         if [[ ${CI_PHP_VERSION:0:3} == "5.6" ]]; then
-            # TODO: composer update -> psalm troubles
-            # https://github.com/EdgedesignCZ/phpqa/pull/220/checks?check_run_id=1830691807#step:5:162
+            composer update
             PHP7=no bin/suggested-tools.sh install;
         fi
         if [[ ${CI_PHP_VERSION:0:3} == "5.4" ]]; then

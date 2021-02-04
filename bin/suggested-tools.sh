@@ -14,10 +14,9 @@ SYMFONY2=${SYMFONY2:-"no"}
 if [ $mode = "install" ]
 then
     echo "Installing suggested tools"
-    # psalm 0.2 for php 5.4, v2 can be minimum when php5.4 and symfony2 components are dropped
-    TOOLS="php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter sensiolabs/security-checker vimeo/psalm:>=0.2 friendsofphp/php-cs-fixer:>=2"
+    TOOLS="php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter sensiolabs/security-checker friendsofphp/php-cs-fixer:>=2"
     if [[ ${PHP7} == "yes" ]]; then
-        TOOLS="${TOOLS} phpstan/phpstan nette/neon"
+        TOOLS="${TOOLS} vimeo/psalm:>=2 phpstan/phpstan nette/neon"
     fi
     if [[ ${SYMFONY2} == "yes" ]]; then
         # https://github.com/EdgedesignCZ/phpqa/commit/94e9b49
