@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Usage:
 #  $ bin/suggested-tools.sh install
@@ -6,7 +6,7 @@
 #  $ bin/suggested-tools.sh remove
 
 mode="$1"
-requireMode="$2"
+COMPOSER_REQUIRE_MODES="$2"
 
 PHP7=${PHP7:-"yes"}
 SYMFONY2=${SYMFONY2:-"no"}
@@ -25,9 +25,9 @@ then
         TOOLS="${TOOLS} symfony/filesystem:~2 symfony/process:~2 symfony/finder:~2"
     fi
     echo
-    echo "composer require $TOOLS $requireMode"
+    echo "composer require $TOOLS $COMPOSER_REQUIRE_MODES"
     echo
-    composer require $TOOLS $requireMode
+    composer require $TOOLS $COMPOSER_REQUIRE_MODES
 else
     echo "Removing suggested tools"
     composer remove php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter phpstan/phpstan friendsofphp/php-cs-fixer vimeo/psalm sensiolabs/security-checker

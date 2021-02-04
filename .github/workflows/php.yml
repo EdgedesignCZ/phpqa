@@ -12,7 +12,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: [5.4, 5.5, 5.6, 7.0, 7.1, 7.2, 7.3, 7.4, 8.0]
+        php:
+          - 5.4 # default composer.lock + suggested-tools
+          - 5.5 # default composer.lock
+          - 5.6 # default composer.lock + suggested-tools TODO: test updated composer.lock
+          - 7.0 # default composer.lock
+          - 7.1 # updated composer.lock + suggested-tools
+          - 7.2 # default composer.lock + suggested-tools
+          - 7.3 # default composer.lock
+          - 7.4 # updated composer.lock + suggested-tools
+          - 8.0 # updated composer.lock + suggested-tools
         stability: [prefer-stable]
 
     steps:
@@ -40,27 +49,24 @@ jobs:
       env:
         CI_PHP_VERSION: ${{ matrix.php }}
       run: |
-        if [[ ${CI_PHP_VERSION:0:1} == "8" ]]; then
-            composer install --no-interaction --no-progress --ignore-platform-reqs
-        else
-            composer install --no-interaction --no-progress
-        fi
+        composer install --no-interaction --no-progress --ignore-platform-reqs;
         if [ ${CI_PHP_VERSION:0:3} == "7.1" ] || [ ${CI_PHP_VERSION:0:3} == "7.4" ] || [ ${CI_PHP_VERSION:0:1} == "8" ]; then
             composer update;
             bin/suggested-tools.sh install;
-            php tests/.phpunit/fix-typehints.php
+            php tests/.phpunit/fix-typehints.php;
         fi
         # test installing suggested tools like docker image
         if [[ ${CI_PHP_VERSION:0:3} == "7.2" ]]; then
-            bin/suggested-tools.sh install --prefer-dist;
+            bin/suggested-tools.sh install;
         fi
         if [[ ${CI_PHP_VERSION:0:3} == "5.6" ]]; then
-            PHP7=no bin/suggested-tools.sh install --prefer-dist;
+            # TODO: composer update -> psalm troubles
+            # https://github.com/EdgedesignCZ/phpqa/pull/220/checks?check_run_id=1830691807#step:5:162
+            PHP7=no bin/suggested-tools.sh install;
         fi
         if [[ ${CI_PHP_VERSION:0:3} == "5.4" ]]; then
-            PHP7=no SYMFONY2=yes bin/suggested-tools.sh install --prefer-dist;
+            PHP7=no SYMFONY2=yes bin/suggested-tools.sh install;
         fi
-        echo
 
     - name: Show versions
       run: |
