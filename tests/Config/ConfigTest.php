@@ -23,12 +23,14 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->path('phpmetrics.config'), is(nullValue()));
         assertThat($config->path('phpmd.standard'), is(nonEmptyString()));
         assertThat($config->value('phpstan.level'), identicalTo(0));
+        assertThat($config->value('phpstan.memoryLimit'), is(nullValue()));
         assertThat($config->value('phpunit.config'), is(nullValue()));
         assertThat($config->value('phpunit.reports.file'), is(emptyArray()));
         assertThat($config->value('psalm.config'), is(nonEmptyString()));
         assertThat($config->value('psalm.deadCode'), identicalTo(false));
         assertThat($config->value('psalm.threads'), identicalTo(1));
         assertThat($config->value('psalm.showInfo'), identicalTo(true));
+        assertThat($config->value('psalm.memoryLimit'), is(nullValue()));
         assertThat($config->value('phpmetrics.config'), is(nullValue()));
         assertThat($config->value('phpmetrics.junit'), is(nullValue()));
         assertThat($config->value('phpmetrics.composer'), is(nullValue()));

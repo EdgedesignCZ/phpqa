@@ -255,7 +255,7 @@ Tool | Settings | Default Value | Your value
 [pdepend.coverageReport](https://github.com/EdgedesignCZ/phpqa/pull/124) | Load Clover style CodeCoverage report | `null` | Path to report produced by PHPUnit's `--coverage-clover` option
 [phpmd.standard](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset. To specify [multiple rule sets](https://phpmd.org/documentation/index.html#using-multiple-rule-sets), you can use an array
 [phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens |
-[phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file | Level 0, `%currentWorkingDirectory%/phpstan.neon` | Take a look at [phpqa config in tests/.ci](/tests/.ci/) |
+[phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file, memory limit | Level 0, `%currentWorkingDirectory%/phpstan.neon`, memoryLimit: null | Take a look at [phpqa config in tests/.ci](/tests/.ci/) |
 [phpunit.binary](https://github.com/EdgedesignCZ/phpqa/blob/4947416/.phpqa.yml#L40) | Phpunit binary  | phpqa's phpunit | Path to phpunit executable in your project, typically [`vendor/bin/phpunit`](https://gitlab.com/costlocker/integrations/blob/master/basecamp/backend/.phpqa.yml#L2) |
 [phpunit.config](https://phpunit.de/manual/current/en/organizing-tests.html#organizing-tests.xml-configuration) | PHPUnit configuration, `analyzedDirs` and `ignoredDirs` are not used, you have to specify test suites in XML file | `null` | Path to `phpunit.xml` file
 [phpunit.reports](https://phpunit.de/manual/current/en/textui.html) | Report types  | no report | List of reports and formats, corresponds with CLI option, e.g. `--log-junit` is `log: [junit]` in `.phpqa.yml` |
@@ -263,6 +263,7 @@ Tool | Settings | Default Value | Your value
 [psalm.deadCode](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Enable or not `--find-dead-code` option  of psalm | `false` | Boolean value
 [psalm.threads](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Set the number of process to use in parallel (option `--threads` of psalm) (Only if `--execution == parallel` for phpqa) | `1` | Number (>= 1)
 [psalm.showInfo](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
+[psalm.memoryLimit](https://github.com/vimeo/psalm/issues/842) | Custom memory limit, ignore unless you are getting `Fatal error: Allowed memory size of ... bytes exhausted` | `null` | String value, e.g. `'1024M'`, `'1G'`
 
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:

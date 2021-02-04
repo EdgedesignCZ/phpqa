@@ -63,6 +63,8 @@ phpmetrics:
 
 phpstan:
     level: 0
+    # https://github.com/phpstan/phpstan/issues/1880
+    memoryLimit: null
     # https://github.com/phpstan/phpstan#configuration
     # standard: tests/.ci/phpstan.neon
 
@@ -82,6 +84,8 @@ psalm:
     deadCode: false
     threads: 1
     showInfo: true
+    # no memory limit = using ini defaults (https://github.com/EdgedesignCZ/phpqa/issues/144
+    memoryLimit: null
 
 # paths are relative to .phpqa.yml, so don't copy-paste this section if you don't have custom templates
 report:

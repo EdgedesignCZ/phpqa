@@ -28,7 +28,6 @@ class Psalm extends \Edge\QA\Tools\Tool
         $args = array(
             'config' => $psalmFile,
             'show-info' => $this->config->value('psalm.showInfo') ? 'true' : 'false',
-            'use-ini-defaults' => '',
         );
         if ($this->options->isSavedToFiles) {
             $args['report'] = $this->options->toFile('psalm.xml');
@@ -38,6 +37,11 @@ class Psalm extends \Edge\QA\Tools\Tool
         }
         if ($this->options->isParallel && ((int) $this->config->value('psalm.threads')) > 1) {
             $args['threads'] = $this->config->value('psalm.threads');
+        }
+        if (!$this->config->value('psalm.memoryLimit')) {
+            $args['use-ini-defaults'] = '';
+        } elseif ($this->toolVersionIs('>=', '3.14')) {
+            $args['memory-limit'] = $this->config->value('psalm.memoryLimit');
         }
 
         return $args;

@@ -53,7 +53,7 @@ class Phpstan extends \Edge\QA\Tools\Tool
         $phpstanConfig = "# Configuration generated in phpqa\n" . \Nette\Neon\Neon::encode($config);
         $neonFile = $this->saveDynamicConfig($phpstanConfig, 'neon');
 
-        return array(
+        $args = array(
             'analyze',
             'ansi' => '',
             $this->getErrorFormatOption() => 'checkstyle',
@@ -61,6 +61,10 @@ class Phpstan extends \Edge\QA\Tools\Tool
             'configuration' => $neonFile,
             $this->options->getAnalyzedDirs(' '),
         );
+        if ($this->config->value('phpstan.memoryLimit')) {
+            $args['memory-limit'] = $this->config->value('phpstan.memoryLimit');
+        }
+        return $args;
     }
 
     private function getErrorFormatOption()

@@ -43,6 +43,7 @@ psalm:
 
 phpstan:
     level: 7
+    # memoryLimit: 1G
     # https://github.com/phpstan/phpstan#configuration
     standard: phpstan.neon
 
