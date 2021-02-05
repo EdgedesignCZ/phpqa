@@ -1,5 +1,9 @@
 <?php
 
+if (version_compare(PHP_VERSION, '7.1.0', '<')) {
+    return;
+}
+
 $files = [
     'OptionsTest.php',
     'Report/ReportTest.php',

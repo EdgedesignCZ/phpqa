@@ -12,16 +12,19 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php:
-          - 5.4 # default composer.lock + suggested-tools
-          - 5.5 # default composer.lock
-          - 5.6 # updated composer.lock + suggested-tools
-          - 7.0 # default composer.lock
-          - 7.1 # updated composer.lock + suggested-tools
-          - 7.2 # default composer.lock + suggested-tools
-          - 7.3 # default composer.lock
-          - 7.4 # updated composer.lock + suggested-tools
-          - 8.0 # updated composer.lock + suggested-tools
+        php: [5.5]
+        include:    
+          # PHP5
+          - { php: 5.4, areSuggestedToolsInstalled: yes, areSymfony2ComponentsUsed: yes }
+          - { php: 5.6, isComposerUpdated: yes, areSuggestedToolsInstalled: yes }
+          # PHP7
+          - { php: 7.0 }
+          - { php: 7.1, isComposerUpdated: yes, areSuggestedToolsInstalled: yes }
+          - { php: 7.2, areSuggestedToolsInstalled: yes }
+          - { php: 7.3 }
+          - { php: 7.4, isComposerUpdated: yes, areSuggestedToolsInstalled: yes }
+          # PHP8
+          - { php: 8.0, isComposerUpdated: yes, areSuggestedToolsInstalled: yes }
         stability: [prefer-stable]
 
     steps:
@@ -47,25 +50,16 @@ jobs:
 
     - name: Install dependencies
       env:
-        CI_PHP_VERSION: ${{ matrix.php }}
+        PHP_VERSION: ${{ matrix.php }}
+        USE_SYMFONY2_COMPONENTS: ${{ matrix.areSymfony2ComponentsUsed || 'no' }}
+        UPDATE_COMPOSER: ${{ matrix.isComposerUpdated || 'no' }}
+        INSTALL_SUGGESTED_TOOLS: ${{ matrix.areSuggestedToolsInstalled || 'no' }}
       run: |
         composer install --no-interaction --no-progress --ignore-platform-reqs;
-        if [ ${CI_PHP_VERSION:0:3} == "7.1" ] || [ ${CI_PHP_VERSION:0:3} == "7.4" ] || [ ${CI_PHP_VERSION:0:1} == "8" ]; then
-            composer update;
-            bin/suggested-tools.sh install;
-            php tests/.phpunit/fix-typehints.php;
+        if [[ $INSTALL_SUGGESTED_TOOLS == "yes" ]]; then
+            PHP_VERSION=$PHP_VERSION USE_SYMFONY2_COMPONENTS=$USE_SYMFONY2_COMPONENTS UPDATE_COMPOSER=$UPDATE_COMPOSER bin/suggested-tools.sh install;
         fi
-        # test installing suggested tools like docker image
-        if [[ ${CI_PHP_VERSION:0:3} == "7.2" ]]; then
-            bin/suggested-tools.sh install;
-        fi
-        if [[ ${CI_PHP_VERSION:0:3} == "5.6" ]]; then
-            composer update
-            PHP7=no bin/suggested-tools.sh install;
-        fi
-        if [[ ${CI_PHP_VERSION:0:3} == "5.4" ]]; then
-            PHP7=no SYMFONY2=yes bin/suggested-tools.sh install;
-        fi
+        php tests/.phpunit/fix-typehints.php;
 
     - name: Show versions
       run: |
