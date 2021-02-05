@@ -34,7 +34,7 @@ jobs:
       uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php }}
-        extensions: xsl
+        extensions: xsl, zip, json
         coverage: none
         # TODO: ? https://github.com/EdgedesignCZ/phpqa/runs/1813676801?check_suite_focus=true#step:6:28 ?
         tools: composer:v1

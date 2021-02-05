@@ -44,9 +44,13 @@ show_help() {
 }
 
 get_tools () {
-    TOOLS="php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter enlightn/security-checker friendsofphp/php-cs-fixer:>=2"
+    TOOLS="php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter friendsofphp/php-cs-fixer:>=2"
     if [[ ${PHP_VERSION:0:1} != "5" ]]; then
         TOOLS="${TOOLS} vimeo/psalm:>=2 phpstan/phpstan nette/neon"
+    fi
+    if [[ $UPDATE_COMPOSER == "yes" ]]; then
+        # security-checker does not support symfony2, so it cannot be installed on default composer.lock
+        TOOLS="${TOOLS} enlightn/security-checker"
     fi
     echo $TOOLS
 }
