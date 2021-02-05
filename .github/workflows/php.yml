@@ -15,7 +15,7 @@ jobs:
         php: [5.5]
         include:    
           # PHP5
-          - { php: 5.4, areSuggestedToolsInstalled: yes, areSymfony2ComponentsUsed: yes }
+          - { php: 5.4, areSuggestedToolsInstalled: yes }
           - { php: 5.6, isComposerUpdated: yes, areSuggestedToolsInstalled: yes }
           # PHP7
           - { php: 7.0 }
@@ -51,13 +51,12 @@ jobs:
     - name: Install dependencies
       env:
         PHP_VERSION: ${{ matrix.php }}
-        USE_SYMFONY2_COMPONENTS: ${{ matrix.areSymfony2ComponentsUsed || 'no' }}
         UPDATE_COMPOSER: ${{ matrix.isComposerUpdated || 'no' }}
         INSTALL_SUGGESTED_TOOLS: ${{ matrix.areSuggestedToolsInstalled || 'no' }}
       run: |
         composer install --no-interaction --no-progress --ignore-platform-reqs;
         if [[ $INSTALL_SUGGESTED_TOOLS == "yes" ]]; then
-            PHP_VERSION=$PHP_VERSION USE_SYMFONY2_COMPONENTS=$USE_SYMFONY2_COMPONENTS UPDATE_COMPOSER=$UPDATE_COMPOSER bin/suggested-tools.sh install;
+            PHP_VERSION=$PHP_VERSION UPDATE_COMPOSER=$UPDATE_COMPOSER bin/suggested-tools.sh install;
         fi
         php tests/.phpunit/fix-typehints.php;
 
