@@ -47,7 +47,7 @@ install:
 
 test_script:
     - cd C:\projects\phpqa
-    - php phpqa tools
+    - php phpqa tools --config tests/.appveyor
     - php phpqa --verbose --report --config tests/.appveyor
     - dir build
 

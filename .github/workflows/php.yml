@@ -64,7 +64,7 @@ jobs:
     - name: Show versions
       run: |
         composer outdated --direct --all
-        ./phpqa tools
+        ./phpqa tools --config tests/.ci 
 
     - name: Run tests
       run: |

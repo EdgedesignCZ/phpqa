@@ -140,8 +140,8 @@ class GetVersions
 
     private function createSymfonyProcess($command)
     {
-        if (!method_exists('Symfony\Component\Process\Process', 'setCommandLine')) {
-            return new Process([$command]);
+        if (method_exists('Symfony\Component\Process\Process', 'fromShellCommandline')) {
+            return Process::fromShellCommandline($command);
         } else {
             return new Process($command);
         }
