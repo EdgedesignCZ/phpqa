@@ -1,33 +1,496 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle>
-<file name="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php">
- <error line="149" column="1" severity="error" message="Call to an undefined method Edge\QA\ConfigTest::expectException()."/>
+<file name="src/CodeAnalysisTasks.php">
+  <error line="18" column="1" severity="error" message="Method Edge\QA\RoboFile::tools() has no return typehint specified." />
+  <error line="18" column="1" severity="error" message="Method Edge\QA\RoboFile::tools() has parameter $opts with no typehint specified." />
+  <error line="41" column="1" severity="error" message="Method Edge\QA\RoboFile::ci() has no return typehint specified." />
+  <error line="41" column="1" severity="error" message="Method Edge\QA\RoboFile::ci() has parameter $opts with no typehint specified." />
+  <error line="65" column="1" severity="error" message="Method Edge\QA\RoboFile::normalizeCliOptions() has no return typehint specified." />
+  <error line="65" column="1" severity="error" message="Method Edge\QA\RoboFile::normalizeCliOptions() has parameter $options with no value type specified in iterable type array." />
+  <error line="75" column="1" severity="error" message="Method Edge\QA\RoboFile::loadConfig() has no return typehint specified." />
+  <error line="75" column="1" severity="error" message="Method Edge\QA\RoboFile::loadConfig() has parameter $cliOptions with no value type specified in iterable type array." />
+  <error line="128" column="1" severity="error" message="Method Edge\QA\RoboFile::ciClean() has no return typehint specified." />
+  <error line="138" column="1" severity="error" message="Method Edge\QA\RoboFile::runTools() has no return typehint specified." />
+  <error line="160" column="1" severity="error" message="Method Edge\QA\RoboFile::toolToExec() should return Robo\Task\Base\Exec but returns Robo\Collection\CollectionBuilder|Robo\Task\Base\Exec." />
+  <error line="163" column="1" severity="error" message="Method Edge\QA\RoboFile::buildHtmlReport() has no return typehint specified." />
+  <error line="211" column="1" severity="error" message="Method Edge\QA\RoboFile::buildSummary() has no return typehint specified." />
 </file>
-<file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php">
- <error line="24" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
+<file name="src/Config.php">
+  <error line="9" column="1" severity="error" message="Property Edge\QA\Config::$configs has no typehint specified." />
+  <error line="10" column="1" severity="error" message="Property Edge\QA\Config::$cwd has no typehint specified." />
+  <error line="12" column="1" severity="error" message="Method Edge\QA\Config::__construct() has parameter $cwd with no typehint specified." />
+  <error line="18" column="1" severity="error" message="Method Edge\QA\Config::loadUserConfig() has no return typehint specified." />
+  <error line="18" column="1" severity="error" message="Method Edge\QA\Config::loadUserConfig() has parameter $directories with no typehint specified." />
+  <error line="28" column="1" severity="error" message="Method Edge\QA\Config::loadConfig() has no return typehint specified." />
+  <error line="28" column="1" severity="error" message="Method Edge\QA\Config::loadConfig() has parameter $directory with no typehint specified." />
+  <error line="28" column="1" severity="error" message="Method Edge\QA\Config::loadConfig() has parameter $isUserDirectory with no typehint specified." />
+  <error line="45" column="1" severity="error" message="Method Edge\QA\Config::mergeConfigs() has no return typehint specified." />
+  <error line="45" column="1" severity="error" message="Method Edge\QA\Config::mergeConfigs() has parameter $key with no typehint specified." />
+  <error line="55" column="1" severity="error" message="Method Edge\QA\Config::getCustomBinary() has no return typehint specified." />
+  <error line="55" column="1" severity="error" message="Method Edge\QA\Config::getCustomBinary() has parameter $tool with no typehint specified." />
+  <error line="68" column="1" severity="error" message="Method Edge\QA\Config::value() has no return typehint specified." />
+  <error line="68" column="1" severity="error" message="Method Edge\QA\Config::value() has parameter $path with no typehint specified." />
+  <error line="78" column="1" severity="error" message="Method Edge\QA\Config::path() has no return typehint specified." />
+  <error line="78" column="1" severity="error" message="Method Edge\QA\Config::path() has parameter $path with no typehint specified." />
+  <error line="92" column="1" severity="error" message="Method Edge\QA\Config::pathsOrValues() has no return typehint specified." />
+  <error line="92" column="1" severity="error" message="Method Edge\QA\Config::pathsOrValues() has parameter $path with no typehint specified." />
+  <error line="108" column="1" severity="error" message="Method Edge\QA\Config::csv() has no return typehint specified." />
+  <error line="108" column="1" severity="error" message="Method Edge\QA\Config::csv() has parameter $path with no typehint specified." />
+  <error line="108" column="1" severity="error" message="Method Edge\QA\Config::csv() has parameter $separator with no typehint specified." />
+  <error line="121" column="1" severity="error" message="Method Edge\QA\Config::get() has no return typehint specified." />
+  <error line="121" column="1" severity="error" message="Method Edge\QA\Config::get() has parameter $extractor with no typehint specified." />
+  <error line="121" column="1" severity="error" message="Method Edge\QA\Config::get() has parameter $path with no typehint specified." />
+  <error line="131" column="1" severity="error" message="Method Edge\QA\Config::findInConfig() has no return typehint specified." />
+  <error line="131" column="1" severity="error" message="Method Edge\QA\Config::findInConfig() has parameter $config with no value type specified in iterable type array." />
+  <error line="131" column="1" severity="error" message="Method Edge\QA\Config::findInConfig() has parameter $path with no typehint specified." />
+  <error line="143" column="1" severity="error" message="Method Edge\QA\Config::throwInvalidPath() has no return typehint specified." />
+  <error line="143" column="1" severity="error" message="Method Edge\QA\Config::throwInvalidPath() has parameter $path with no typehint specified." />
+  <error line="143" column="1" severity="error" message="Method Edge\QA\Config::throwInvalidPath() has parameter $source with no typehint specified." />
 </file>
-<file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php">
- <error line="34" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
+<file name="src/IgnoredPaths.php">
+  <error line="7" column="1" severity="error" message="Property Edge\QA\IgnoredPaths::$ignoreDirs has no typehint specified." />
+  <error line="8" column="1" severity="error" message="Property Edge\QA\IgnoredPaths::$ignoreFiles has no typehint specified." />
+  <error line="9" column="1" severity="error" message="Property Edge\QA\IgnoredPaths::$ignoreBoth has no typehint specified." />
+  <error line="10" column="1" severity="error" message="Property Edge\QA\IgnoredPaths::$isWindows has no typehint specified." />
+  <error line="12" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::__construct() has parameter $ignoredDirs with no typehint specified." />
+  <error line="12" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::__construct() has parameter $ignoredFiles with no typehint specified." />
+  <error line="20" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::setOS() has no return typehint specified." />
+  <error line="20" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::setOS() has parameter $os with no typehint specified." />
+  <error line="25" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::csvToArray() has no return typehint specified." />
+  <error line="25" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::csvToArray() has parameter $csv with no typehint specified." />
+  <error line="27" column="1" severity="error" message="Parameter #2 $callback of function array_filter expects callable(mixed, mixed): bool, 'trim' given." />
+  <error line="30" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::phpcs() has no return typehint specified." />
+  <error line="35" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::pdepend() has no return typehint specified." />
+  <error line="43" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::phpmd() has no return typehint specified." />
+  <error line="51" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::pdependWindowsFilter() has no return typehint specified." />
+  <error line="51" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::pdependWindowsFilter() has parameter $option with no typehint specified." />
+  <error line="56" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::phpmetrics() has no return typehint specified." />
+  <error line="61" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::phpmetrics2() has no return typehint specified." />
+  <error line="66" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::bergmann() has no return typehint specified." />
+  <error line="71" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::parallelLint() has no return typehint specified." />
+  <error line="76" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::phpstan() has no return typehint specified." />
+  <error line="81" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::psalm() has no return typehint specified." />
+  <error line="89" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::ignore() has no return typehint specified." />
+  <error line="89" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::ignore() has parameter $after with no typehint specified." />
+  <error line="89" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::ignore() has parameter $before with no typehint specified." />
+  <error line="89" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::ignore() has parameter $dirSeparator with no typehint specified." />
+  <error line="89" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::ignore() has parameter $fileSeparator with no typehint specified." />
+  <error line="104" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::implode() has no return typehint specified." />
+  <error line="104" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::implode() has parameter $after with no typehint specified." />
+  <error line="104" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::implode() has parameter $before with no typehint specified." />
+  <error line="104" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::implode() has parameter $input with no value type specified in iterable type array." />
+  <error line="104" column="1" severity="error" message="Method Edge\QA\IgnoredPaths::implode() has parameter $separator with no typehint specified." />
 </file>
-<file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php">
- <error line="35" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
+<file name="src/Options.php">
+  <error line="14" column="1" severity="error" message="Property Edge\QA\Options::$allowedTools type has no value type specified in iterable type array." />
+  <error line="28" column="1" severity="error" message="Method Edge\QA\Options::__construct() has parameter $options with no value type specified in iterable type array." />
+  <error line="35" column="1" severity="error" message="Method Edge\QA\Options::loadOutput() has no return typehint specified." />
+  <error line="35" column="1" severity="error" message="Method Edge\QA\Options::loadOutput() has parameter $options with no value type specified in iterable type array." />
+  <error line="51" column="1" severity="error" message="Method Edge\QA\Options::getCommonRootPath() has no return typehint specified." />
+  <error line="63" column="1" severity="error" message="Method Edge\QA\Options::getAnalyzedDirs() has no return typehint specified." />
+  <error line="63" column="1" severity="error" message="Method Edge\QA\Options::getAnalyzedDirs() has parameter $separator with no typehint specified." />
+  <error line="68" column="1" severity="error" message="Method Edge\QA\Options::loadTools() has no return typehint specified." />
+  <error line="68" column="1" severity="error" message="Method Edge\QA\Options::loadTools() has parameter $inputTools with no typehint specified." />
+  <error line="83" column="1" severity="error" message="Method Edge\QA\Options::buildRunningTools() has no return typehint specified." />
+  <error line="83" column="1" severity="error" message="Method Edge\QA\Options::buildRunningTools() has parameter $tools with no value type specified in iterable type array." />
+  <error line="100" column="1" severity="error" message="Method Edge\QA\Options::sortTools() has no return typehint specified." />
+  <error line="100" column="1" severity="error" message="Method Edge\QA\Options::sortTools() has parameter $allowed with no value type specified in iterable type array." />
+  <error line="112" column="1" severity="error" message="Method Edge\QA\Options::toFile() has no return typehint specified." />
+  <error line="112" column="1" severity="error" message="Method Edge\QA\Options::toFile() has parameter $file with no typehint specified." />
+  <error line="117" column="1" severity="error" message="Method Edge\QA\Options::rawFile() has no return typehint specified." />
+  <error line="117" column="1" severity="error" message="Method Edge\QA\Options::rawFile() has parameter $file with no typehint specified." />
 </file>
-<file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php">
- <error line="36" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
+<file name="src/RunningTool.php">
+  <error line="7" column="1" severity="error" message="Property Edge\QA\RunningTool::$tool has no typehint specified." />
+  <error line="8" column="1" severity="error" message="Property Edge\QA\RunningTool::$internalClasses has no typehint specified." />
+  <error line="9" column="1" severity="error" message="Property Edge\QA\RunningTool::$internalDependencies has no typehint specified." />
+  <error line="10" column="1" severity="error" message="Property Edge\QA\RunningTool::$optionSeparator has no typehint specified." />
+  <error line="11" column="1" severity="error" message="Property Edge\QA\RunningTool::$outputMode has no typehint specified." />
+  <error line="13" column="1" severity="error" message="Property Edge\QA\RunningTool::$xmlFiles has no typehint specified." />
+  <error line="14" column="1" severity="error" message="Property Edge\QA\RunningTool::$errorsXPath has no typehint specified." />
+  <error line="15" column="1" severity="error" message="Property Edge\QA\RunningTool::$errorsType has no typehint specified." />
+  <error line="16" column="1" severity="error" message="Property Edge\QA\RunningTool::$allowedErrorsCount has no typehint specified." />
+  <error line="18" column="1" severity="error" message="Property Edge\QA\RunningTool::$htmlReport has no typehint specified." />
+  <error line="19" column="1" severity="error" message="Property Edge\QA\RunningTool::$userReports has no typehint specified." />
+  <error line="20" column="1" severity="error" message="Property Edge\QA\RunningTool::$isExecutable has no typehint specified." />
+  <error line="22" column="1" severity="error" message="Property Edge\QA\RunningTool::$process type has no value type specified in iterable type Symfony\Component\Process\Process." />
+  <error line="24" column="1" severity="error" message="Method Edge\QA\RunningTool::__construct() has parameter $tool with no typehint specified." />
+  <error line="24" column="1" severity="error" message="Method Edge\QA\RunningTool::__construct() has parameter $toolConfig with no value type specified in iterable type array." />
+  <error line="46" column="1" severity="error" message="Method Edge\QA\RunningTool::isInstalled() has no return typehint specified." />
+  <error line="52" column="1" severity="error" message="Method Edge\QA\RunningTool::isAtLeastOneClassInstalled() has no return typehint specified." />
+  <error line="52" column="1" severity="error" message="Method Edge\QA\RunningTool::isAtLeastOneClassInstalled() has parameter $classes with no value type specified in iterable type array." />
+  <error line="65" column="1" severity="error" message="Method Edge\QA\RunningTool::hasOutput() has no return typehint specified." />
+  <error line="65" column="1" severity="error" message="Method Edge\QA\RunningTool::hasOutput() has parameter $outputMode with no typehint specified." />
+  <error line="70" column="1" severity="error" message="Method Edge\QA\RunningTool::buildOption() has no return typehint specified." />
+  <error line="70" column="1" severity="error" message="Method Edge\QA\RunningTool::buildOption() has parameter $arg with no typehint specified." />
+  <error line="70" column="1" severity="error" message="Method Edge\QA\RunningTool::buildOption() has parameter $value with no typehint specified." />
+  <error line="79" column="1" severity="error" message="Method Edge\QA\RunningTool::getAllowedErrorsCount() has no return typehint specified." />
+  <error line="84" column="1" severity="error" message="Method Edge\QA\RunningTool::analyzeResult() has no return typehint specified." />
+  <error line="84" column="1" severity="error" message="Method Edge\QA\RunningTool::analyzeResult() has parameter $hasNoOutput with no typehint specified." />
+  <error line="107" column="1" severity="error" message="Method Edge\QA\RunningTool::evaluteErrorsCount() has no return typehint specified." />
+  <error line="107" column="1" severity="error" message="Method Edge\QA\RunningTool::evaluteErrorsCount() has parameter $errorsCount with no typehint specified." />
+  <error line="113" column="1" severity="error" message="Method Edge\QA\RunningTool::areErrorsIgnored() has no return typehint specified." />
+  <error line="118" column="1" severity="error" message="Method Edge\QA\RunningTool::getXmlFiles() has no return typehint specified." />
+  <error line="123" column="1" severity="error" message="Method Edge\QA\RunningTool::getEscapedXmlFile() has no return typehint specified." />
+  <error line="128" column="1" severity="error" message="Method Edge\QA\RunningTool::getMainXml() has no return typehint specified." />
+  <error line="133" column="1" severity="error" message="Method Edge\QA\RunningTool::getHtmlRootReports() has no return typehint specified." />
 </file>
-<file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php">
- <error line="37" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
+<file name="src/Task/AssetsLoader.php">
+  <error line="11" column="1" severity="error" message="Property Edge\QA\Task\AssetsLoader::$output has no typehint specified." />
+  <error line="18" column="1" severity="error" message="Method Edge\QA\Task\AssetsLoader::__invoke() has no return typehint specified." />
+  <error line="18" column="1" severity="error" message="Method Edge\QA\Task\AssetsLoader::__invoke() has parameter $assets with no value type specified in iterable type array." />
+  <error line="37" column="1" severity="error" message="Method Edge\QA\Task\AssetsLoader::downloadUrl() has no return typehint specified." />
+  <error line="37" column="1" severity="error" message="Method Edge\QA\Task\AssetsLoader::downloadUrl() has parameter $url with no typehint specified." />
+  <error line="55" column="1" severity="error" message="Method Edge\QA\Task\AssetsLoader::writeln() has no return typehint specified." />
+  <error line="55" column="1" severity="error" message="Method Edge\QA\Task\AssetsLoader::writeln() has parameter $color with no typehint specified." />
+  <error line="55" column="1" severity="error" message="Method Edge\QA\Task\AssetsLoader::writeln() has parameter $text with no typehint specified." />
 </file>
-<file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php">
- <error line="50" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
+<file name="src/Task/ParallelExec.php">
+  <error line="14" column="1" severity="error" message="Method Edge\QA\Task\ParallelExec::process() should return $this(Edge\QA\Task\ParallelExec) but returns Symfony\Component\Process\Process|false." />
 </file>
-<file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php">
- <error line="57" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput."/>
+<file name="src/Task/TableSummary.php">
+  <error line="11" column="1" severity="error" message="Property Edge\QA\Task\TableSummary::$output has no typehint specified." />
+  <error line="18" column="1" severity="error" message="Method Edge\QA\Task\TableSummary::__invoke() has no return typehint specified." />
+  <error line="18" column="1" severity="error" message="Method Edge\QA\Task\TableSummary::__invoke() has parameter $results with no value type specified in iterable type array." />
+  <error line="46" column="1" severity="error" message="Method Edge\QA\Task\TableSummary::result() has no return typehint specified." />
+  <error line="46" column="1" severity="error" message="Method Edge\QA\Task\TableSummary::result() has parameter $results with no value type specified in iterable type array." />
+  <error line="62" column="1" severity="error" message="Method Edge\QA\Task\TableSummary::getStatus() has no return typehint specified." />
+  <error line="62" column="1" severity="error" message="Method Edge\QA\Task\TableSummary::getStatus() has parameter $isOk with no typehint specified." />
+  <error line="68" column="1" severity="error" message="Method Edge\QA\Task\TableSummary::writeln() has no return typehint specified." />
+  <error line="68" column="1" severity="error" message="Method Edge\QA\Task\TableSummary::writeln() has parameter $color with no typehint specified." />
+  <error line="68" column="1" severity="error" message="Method Edge\QA\Task\TableSummary::writeln() has parameter $text with no typehint specified." />
 </file>
-<file name="/mnt/DATA/www/phpqa/src/invalid/1.php">
- <error line="3" column="1" severity="error" message="Syntax error, unexpected ';', expecting T_VARIABLE or '{' or '$' on line 3"/>
+<file name="src/Task/TableVersions.php">
+  <error line="10" column="1" severity="error" message="Property Edge\QA\Task\TableVersions::$output has no typehint specified." />
+  <error line="17" column="1" severity="error" message="Method Edge\QA\Task\TableVersions::__invoke() has no return typehint specified." />
+  <error line="17" column="1" severity="error" message="Method Edge\QA\Task\TableVersions::__invoke() has parameter $versions with no value type specified in iterable type array." />
 </file>
-<file name="/mnt/DATA/www/phpqa/src/invalid/2.php">
- <error line="3" column="1" severity="error" message="Syntax error, unexpected T_ECHO on line 3"/>
+<file name="src/Tools/AnalyzeResults.php">
+  <error line="9" column="1" severity="error" message="Property Edge\QA\Tools\AnalyzeResults::$options has no typehint specified." />
+  <error line="19" column="1" severity="error" message="Method Edge\QA\Tools\AnalyzeResults::__invoke() has no return typehint specified." />
+</file>
+<file name="src/Tools/Analyzer/ParallelLint.php">
+  <error line="9" column="1" severity="error" message="Property Edge\QA\Tools\Analyzer\ParallelLint::$SETTINGS has no typehint specified." />
+  <error line="16" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\ParallelLint::__invoke() has no return typehint specified." />
+</file>
+<file name="src/Tools/Analyzer/Pdepend.php">
+  <error line="7" column="1" severity="error" message="Property Edge\QA\Tools\Analyzer\Pdepend::$SETTINGS has no typehint specified." />
+  <error line="13" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Pdepend::__invoke() has no return typehint specified." />
+</file>
+<file name="src/Tools/Analyzer/PhpCsFixer.php">
+  <error line="9" column="1" severity="error" message="Property Edge\QA\Tools\Analyzer\PhpCsFixer::$SETTINGS has no typehint specified." />
+  <error line="18" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\PhpCsFixer::__invoke() has no return typehint specified." />
+</file>
+<file name="src/Tools/Analyzer/PhpMetrics.php">
+  <error line="9" column="1" severity="error" message="Property Edge\QA\Tools\Analyzer\PhpMetrics::$SETTINGS has no typehint specified." />
+  <error line="16" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\PhpMetrics::__invoke() has no return typehint specified." />
+</file>
+<file name="src/Tools/Analyzer/PhpMetricsV2.php">
+  <error line="7" column="1" severity="error" message="Property Edge\QA\Tools\Analyzer\PhpMetricsV2::$SETTINGS has no typehint specified." />
+  <error line="12" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\PhpMetricsV2::__invoke() has no return typehint specified." />
+</file>
+<file name="src/Tools/Analyzer/Phpcpd.php">
+  <error line="9" column="1" severity="error" message="Property Edge\QA\Tools\Analyzer\Phpcpd::$SETTINGS has no typehint specified." />
+  <error line="16" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Phpcpd::__invoke() has no return typehint specified." />
+</file>
+<file name="src/Tools/Analyzer/Phploc.php">
+  <error line="7" column="1" severity="error" message="Property Edge\QA\Tools\Analyzer\Phploc::$SETTINGS has no typehint specified." />
+  <error line="13" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Phploc::__invoke() has no return typehint specified." />
+</file>
+<file name="src/Tools/Analyzer/Phpmd.php">
+  <error line="7" column="1" severity="error" message="Property Edge\QA\Tools\Analyzer\Phpmd::$SETTINGS has no typehint specified." />
+  <error line="14" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Phpmd::__invoke() has no return typehint specified." />
+</file>
+<file name="src/Tools/Analyzer/Phpstan.php">
+  <error line="10" column="1" severity="error" message="Property Edge\QA\Tools\Analyzer\Phpstan::$SETTINGS has no typehint specified." />
+  <error line="22" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Phpstan::__invoke() has no return typehint specified." />
+  <error line="35" column="1" severity="error" message="Parameter #1 $input of static method Nette\Neon\Neon::decode() expects string, string|false given." />
+  <error line="70" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Phpstan::getErrorFormatOption() has no return typehint specified." />
+</file>
+<file name="src/Tools/Analyzer/Phpunit.php">
+  <error line="9" column="1" severity="error" message="Property Edge\QA\Tools\Analyzer\Phpunit::$SETTINGS has no typehint specified." />
+  <error line="16" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Phpunit::__invoke() has no return typehint specified." />
+  <error line="35" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Phpunit::getFile() has no return typehint specified." />
+  <error line="35" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Phpunit::getFile() has parameter $format with no typehint specified." />
+  <error line="35" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Phpunit::getFile() has parameter $report with no typehint specified." />
+</file>
+<file name="src/Tools/Analyzer/Psalm.php">
+  <error line="10" column="1" severity="error" message="Property Edge\QA\Tools\Analyzer\Psalm::$SETTINGS has no typehint specified." />
+  <error line="18" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Psalm::__invoke() has no return typehint specified." />
+  <error line="50" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Psalm::updateProjectFiles() has no return typehint specified." />
+  <error line="50" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Psalm::updateProjectFiles() has parameter $rawXml with no typehint specified." />
+  <error line="83" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\Psalm::simpleXMLToPrettyString() has no return typehint specified." />
+</file>
+<file name="src/Tools/Analyzer/SecurityChecker.php">
+  <error line="9" column="1" severity="error" message="Property Edge\QA\Tools\Analyzer\SecurityChecker::$SETTINGS has no typehint specified." />
+  <error line="16" column="1" severity="error" message="Method Edge\QA\Tools\Analyzer\SecurityChecker::__invoke() has no return typehint specified." />
+</file>
+<file name="src/Tools/GetVersions.php">
+  <error line="9" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::getToolVersion() has no return typehint specified." />
+  <error line="9" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::getToolVersion() has parameter $toolSettings with no value type specified in iterable type array." />
+  <error line="15" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::__invoke() has no return typehint specified." />
+  <error line="15" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::__invoke() has parameter $tools with no value type specified in iterable type array." />
+  <error line="36" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::findComposerPackages() has no return typehint specified." />
+  <error line="44" column="1" severity="error" message="Access to an undefined property object::$packages." />
+  <error line="57" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::analyzeTool() has no return typehint specified." />
+  <error line="57" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::analyzeTool() has parameter $composerPackages with no value type specified in iterable type array." />
+  <error line="57" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::analyzeTool() has parameter $customBinary with no typehint specified." />
+  <error line="57" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::analyzeTool() has parameter $requiredPackages with no value type specified in iterable type array." />
+  <error line="57" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::analyzeTool() has parameter $tool with no typehint specified." />
+  <error line="112" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::normalizeVersion() has no return typehint specified." />
+  <error line="112" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::normalizeVersion() has parameter $composerInfo with no value type specified in iterable type array." />
+  <error line="120" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::groupAuthors() has no return typehint specified." />
+  <error line="120" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::groupAuthors() has parameter $composerAuthors with no value type specified in iterable type array." />
+  <error line="133" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::loadVersionFromConsoleCommand() has no return typehint specified." />
+  <error line="133" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::loadVersionFromConsoleCommand() has parameter $command with no typehint specified." />
+  <error line="141" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::createSymfonyProcess() has no return typehint specified." />
+  <error line="141" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::createSymfonyProcess() has parameter $command with no typehint specified." />
+  <error line="150" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::getFirstLine() has no return typehint specified." />
+  <error line="150" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::getFirstLine() has parameter $string with no typehint specified." />
+  <error line="155" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::extractVersion() has no return typehint specified." />
+  <error line="155" column="1" severity="error" message="Method Edge\QA\Tools\GetVersions::extractVersion() has parameter $text with no typehint specified." />
+</file>
+<file name="src/Tools/Tool.php">
+  <error line="20" column="1" severity="error" message="Method Edge\QA\Tools\Tool::__construct() has parameter $presenter with no typehint specified." />
+  <error line="28" column="1" severity="error" message="Method Edge\QA\Tools\Tool::__invoke() has no return typehint specified." />
+  <error line="30" column="1" severity="error" message="Method Edge\QA\Tools\Tool::saveDynamicConfig() has no return typehint specified." />
+  <error line="30" column="1" severity="error" message="Method Edge\QA\Tools\Tool::saveDynamicConfig() has parameter $config with no typehint specified." />
+  <error line="30" column="1" severity="error" message="Method Edge\QA\Tools\Tool::saveDynamicConfig() has parameter $fileExtension with no typehint specified." />
+  <error line="38" column="1" severity="error" message="Method Edge\QA\Tools\Tool::toolVersionIs() has no return typehint specified." />
+  <error line="38" column="1" severity="error" message="Method Edge\QA\Tools\Tool::toolVersionIs() has parameter $operator with no typehint specified." />
+  <error line="38" column="1" severity="error" message="Method Edge\QA\Tools\Tool::toolVersionIs() has parameter $version with no typehint specified." />
+  <error line="41" column="1" severity="error" message="Access to an undefined static property Edge\QA\Tools\Tool::$SETTINGS." />
+  <error line="45" column="1" severity="error" message="Method Edge\QA\Tools\Tool::writeln() has no return typehint specified." />
+  <error line="45" column="1" severity="error" message="Method Edge\QA\Tools\Tool::writeln() has parameter $text with no typehint specified." />
+</file>
+<file name="src/Tools/Tools.php">
+  <error line="11" column="1" severity="error" message="Property Edge\QA\Tools\Tools::$config has no typehint specified." />
+  <error line="12" column="1" severity="error" message="Property Edge\QA\Tools\Tools::$tools has no typehint specified." />
+  <error line="13" column="1" severity="error" message="Property Edge\QA\Tools\Tools::$selectedTools has no typehint specified." />
+  <error line="14" column="1" severity="error" message="Property Edge\QA\Tools\Tools::$presenter has no typehint specified." />
+  <error line="16" column="1" severity="error" message="Method Edge\QA\Tools\Tools::__construct() has parameter $presenter with no typehint specified." />
+  <error line="24" column="1" severity="error" message="Method Edge\QA\Tools\Tools::loadTools() has no return typehint specified." />
+  <error line="36" column="1" severity="error" message="Access to an undefined static property class-string&lt;Edge\QA\Tools\Tool&gt;|Edge\QA\Tools\Tool::$SETTINGS." />
+  <error line="60" column="1" severity="error" message="Method Edge\QA\Tools\Tools::getExecutableTools() has no return typehint specified." />
+  <error line="73" column="1" severity="error" message="Method Edge\QA\Tools\Tools::buildCommand() has no return typehint specified." />
+  <error line="84" column="1" severity="error" message="Method Edge\QA\Tools\Tools::getReport() has no return typehint specified." />
+  <error line="89" column="1" severity="error" message="Method Edge\QA\Tools\Tools::getAssets() has no return typehint specified." />
+  <error line="94" column="1" severity="error" message="Method Edge\QA\Tools\Tools::getSummary() has no return typehint specified." />
+  <error line="100" column="1" severity="error" message="Method Edge\QA\Tools\Tools::getVersions() has no return typehint specified." />
+</file>
+<file name="src/invalid/1.php">
+  <error line="3" column="1" severity="error" message="Syntax error, unexpected ';', expecting T_VARIABLE or '{' or '$' on line 3" />
+</file>
+<file name="src/invalid/2.php">
+  <error line="3" column="1" severity="error" message="Syntax error, unexpected T_ECHO on line 3" />
+</file>
+<file name="src/paths.php">
+  <error line="5" column="1" severity="error" message="Function Edge\QA\pathToBinary() has no return typehint specified." />
+  <error line="5" column="1" severity="error" message="Function Edge\QA\pathToBinary() has parameter $tool with no typehint specified." />
+  <error line="10" column="1" severity="error" message="Function Edge\QA\escapePath() has no return typehint specified." />
+  <error line="10" column="1" severity="error" message="Function Edge\QA\escapePath() has parameter $path with no typehint specified." />
+  <error line="15" column="1" severity="error" message="Function Edge\QA\commonPath() has no return typehint specified." />
+  <error line="15" column="1" severity="error" message="Function Edge\QA\commonPath() has parameter $dirsOrFiles with no value type specified in iterable type array." />
+  <error line="36" column="1" severity="error" message="Parameter #1 $input of function array_slice expects array, array&lt;int, string&gt;|string given." />
+</file>
+<file name="src/report.php">
+  <error line="9" column="1" severity="error" message="Function Edge\QA\twigToHtml() has no return typehint specified." />
+  <error line="9" column="1" severity="error" message="Function Edge\QA\twigToHtml() has parameter $outputFile with no typehint specified." />
+  <error line="9" column="1" severity="error" message="Function Edge\QA\twigToHtml() has parameter $params with no value type specified in iterable type array." />
+  <error line="9" column="1" severity="error" message="Function Edge\QA\twigToHtml() has parameter $template with no typehint specified." />
+  <error line="12" column="1" severity="error" message="Instantiated class Twig_Loader_Filesystem not found." />
+  <error line="18" column="1" severity="error" message="Call to method render() on an unknown class Twig_Environment." />
+  <error line="22" column="1" severity="error" message="Function Edge\QA\xmlToHtml() has no return typehint specified." />
+  <error line="22" column="1" severity="error" message="Function Edge\QA\xmlToHtml() has parameter $outputFile with no typehint specified." />
+  <error line="22" column="1" severity="error" message="Function Edge\QA\xmlToHtml() has parameter $params with no value type specified in iterable type array." />
+  <error line="22" column="1" severity="error" message="Function Edge\QA\xmlToHtml() has parameter $style with no typehint specified." />
+  <error line="22" column="1" severity="error" message="Function Edge\QA\xmlToHtml() has parameter $xmlDocuments with no value type specified in iterable type array." />
+  <error line="54" column="1" severity="error" message="Function Edge\QA\xmlXpath() has no return typehint specified." />
+  <error line="54" column="1" severity="error" message="Function Edge\QA\xmlXpath() has parameter $xmlFile with no typehint specified." />
+  <error line="54" column="1" severity="error" message="Function Edge\QA\xmlXpath() has parameter $xpathQuery with no typehint specified." />
+  <error line="59" column="1" severity="error" message="Cannot call method xpath() on SimpleXMLElement|false." />
+  <error line="65" column="1" severity="error" message="Function Edge\QA\convertPhpErrorsToExceptions() has no return typehint specified." />
+  <error line="74" column="1" severity="error" message="Function Edge\QA\phpErrorToException() has no return typehint specified." />
+  <error line="74" column="1" severity="error" message="Function Edge\QA\phpErrorToException() has parameter $filename with no typehint specified." />
+  <error line="74" column="1" severity="error" message="Function Edge\QA\phpErrorToException() has parameter $lineno with no typehint specified." />
+  <error line="74" column="1" severity="error" message="Function Edge\QA\phpErrorToException() has parameter $message with no typehint specified." />
+  <error line="74" column="1" severity="error" message="Function Edge\QA\phpErrorToException() has parameter $severity with no typehint specified." />
+</file>
+<file name="tests/Config/ConfigTest.php">
+  <error line="8" column="1" severity="error" message="Property Edge\QA\ConfigTest::$defaultToolsCount has no typehint specified." />
+  <error line="10" column="1" severity="error" message="Method Edge\QA\ConfigTest::testLoadDefaultConfig() has no return typehint specified." />
+  <error line="13" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="14" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="15" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="16" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="17" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="18" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="19" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="20" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="21" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="22" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="23" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="24" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="25" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="26" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="27" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="28" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="29" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="30" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="31" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="32" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="33" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="34" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="35" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="36" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="37" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="38" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="41" column="1" severity="error" message="Method Edge\QA\ConfigTest::testBuildAbsolutePath() has no return typehint specified." />
+  <error line="44" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="47" column="1" severity="error" message="Method Edge\QA\ConfigTest::testOverrideDefaultConfig() has no return typehint specified." />
+  <error line="51" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="52" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="53" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="54" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="57" column="1" severity="error" message="Method Edge\QA\ConfigTest::testAllowPartialUpdateOfTools() has no return typehint specified." />
+  <error line="60" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="61" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="63" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="64" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="67" column="1" severity="error" message="Method Edge\QA\ConfigTest::testIgnoreNonExistentUserConfig() has no return typehint specified." />
+  <error line="75" column="1" severity="error" message="Method Edge\QA\ConfigTest::testNoExceptionWhenCwdHasNoConfig() has no return typehint specified." />
+  <error line="82" column="1" severity="error" message="Method Edge\QA\ConfigTest::testThrowExceptionWhenFileDoesNotExist() has no return typehint specified." />
+  <error line="90" column="1" severity="error" message="Method Edge\QA\ConfigTest::testConfigCsvString() has no return typehint specified." />
+  <error line="95" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="98" column="1" severity="error" message="Method Edge\QA\ConfigTest::testUseCwdIfNoDirectoryIsSpecified() has no return typehint specified." />
+  <error line="104" column="1" severity="error" message="Method Edge\QA\ConfigTest::testThrowExceptionWhenBinaryDoesNotExist() has no return typehint specified." />
+  <error line="112" column="1" severity="error" message="Method Edge\QA\ConfigTest::testThrowExceptionWhenWrongBinaryIsUsed() has no return typehint specified." />
+  <error line="120" column="1" severity="error" message="Method Edge\QA\ConfigTest::testMultipleConfig() has no return typehint specified." />
+  <error line="125" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="126" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="127" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="128" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="131" column="1" severity="error" message="Method Edge\QA\ConfigTest::testAutodetectConfigInCurrentDirectory() has no return typehint specified." />
+  <error line="135" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="138" column="1" severity="error" message="Method Edge\QA\ConfigTest::testIgnoreAutodetectedConfigIfUserConfigIsSpecified() has no return typehint specified." />
+  <error line="143" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="146" column="1" severity="error" message="Method Edge\QA\ConfigTest::shouldStopPhpqa() has no return typehint specified." />
+</file>
+<file name="tests/IgnoredPathsTest.php">
+  <error line="7" column="1" severity="error" message="Property Edge\QA\IgnoredPathsTest::$operatingSystem has no typehint specified." />
+  <error line="9" column="1" severity="error" message="Method Edge\QA\IgnoredPathsTest::ignore() has no return typehint specified." />
+  <error line="9" column="1" severity="error" message="Method Edge\QA\IgnoredPathsTest::ignore() has parameter $dirs with no typehint specified." />
+  <error line="9" column="1" severity="error" message="Method Edge\QA\IgnoredPathsTest::ignore() has parameter $files with no typehint specified." />
+  <error line="9" column="1" severity="error" message="Method Edge\QA\IgnoredPathsTest::ignore() has parameter $tool with no typehint specified." />
+  <error line="17" column="1" severity="error" message="Method Edge\QA\IgnoredPathsTest::testNoOptionWhenNothingIsIgnored() has no return typehint specified." />
+  <error line="17" column="1" severity="error" message="Method Edge\QA\IgnoredPathsTest::testNoOptionWhenNothingIsIgnored() has parameter $tool with no typehint specified." />
+  <error line="20" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="22" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="27" column="1" severity="error" message="Method Edge\QA\IgnoredPathsTest::testIgnoreDirectoriesAndFiles() has no return typehint specified." />
+  <error line="27" column="1" severity="error" message="Method Edge\QA\IgnoredPathsTest::testIgnoreDirectoriesAndFiles() has parameter $expectedOptions with no typehint specified." />
+  <error line="27" column="1" severity="error" message="Method Edge\QA\IgnoredPathsTest::testIgnoreDirectoriesAndFiles() has parameter $os with no typehint specified." />
+  <error line="27" column="1" severity="error" message="Method Edge\QA\IgnoredPathsTest::testIgnoreDirectoriesAndFiles() has parameter $tool with no typehint specified." />
+  <error line="30" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="40" column="1" severity="error" message="Method Edge\QA\IgnoredPathsTest::provideTools() has no return typehint specified." />
+</file>
+<file name="tests/OptionsTest.php">
+  <error line="9" column="1" severity="error" message="Property Edge\QA\OptionsTest::$defaultOptions has no typehint specified." />
+  <error line="24" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
+  <error line="27" column="1" severity="error" message="Method Edge\QA\OptionsTest::overrideOptions() has no return typehint specified." />
+  <error line="27" column="1" severity="error" message="Method Edge\QA\OptionsTest::overrideOptions() has parameter $options with no value type specified in iterable type array." />
+  <error line="32" column="1" severity="error" message="Method Edge\QA\OptionsTest::testEscapePaths() has no return typehint specified." />
+  <error line="34" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
+  <error line="34" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="35" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
+  <error line="35" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="36" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
+  <error line="36" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="37" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
+  <error line="37" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="40" column="1" severity="error" message="Method Edge\QA\OptionsTest::testRespectToolsOrderDefinedInOption() has no return typehint specified." />
+  <error line="44" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="47" column="1" severity="error" message="Method Edge\QA\OptionsTest::testIgnorePdependInCliOutput() has no return typehint specified." />
+  <error line="50" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
+  <error line="50" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="51" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="55" column="1" severity="error" message="Method Edge\QA\OptionsTest::testIsSuggestedToolInstalled() has no return typehint specified." />
+  <error line="55" column="1" severity="error" message="Method Edge\QA\OptionsTest::testIsSuggestedToolInstalled() has parameter $classes with no value type specified in iterable type array." />
+  <error line="55" column="1" severity="error" message="Method Edge\QA\OptionsTest::testIsSuggestedToolInstalled() has parameter $isInstalled with no typehint specified." />
+  <error line="57" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
+  <error line="58" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="61" column="1" severity="error" message="Method Edge\QA\OptionsTest::provideInternalClass() has no return typehint specified." />
+  <error line="84" column="1" severity="error" message="Method Edge\QA\OptionsTest::testBuildOutput() has no return typehint specified." />
+  <error line="84" column="1" severity="error" message="Method Edge\QA\OptionsTest::testBuildOutput() has parameter $hasReport with no typehint specified." />
+  <error line="84" column="1" severity="error" message="Method Edge\QA\OptionsTest::testBuildOutput() has parameter $isOutputPrinted with no typehint specified." />
+  <error line="84" column="1" severity="error" message="Method Edge\QA\OptionsTest::testBuildOutput() has parameter $isSavedToFiles with no typehint specified." />
+  <error line="84" column="1" severity="error" message="Method Edge\QA\OptionsTest::testBuildOutput() has parameter $opts with no value type specified in iterable type array." />
+  <error line="87" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="88" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="89" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="92" column="1" severity="error" message="Method Edge\QA\OptionsTest::provideOutputs() has no return typehint specified." />
+  <error line="111" column="1" severity="error" message="Method Edge\QA\OptionsTest::testExecute() has no return typehint specified." />
+  <error line="111" column="1" severity="error" message="Method Edge\QA\OptionsTest::testExecute() has parameter $isParallel with no typehint specified." />
+  <error line="111" column="1" severity="error" message="Method Edge\QA\OptionsTest::testExecute() has parameter $opts with no value type specified in iterable type array." />
+  <error line="114" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="117" column="1" severity="error" message="Method Edge\QA\OptionsTest::provideExecutionMode() has no return typehint specified." />
+  <error line="127" column="1" severity="error" message="Method Edge\QA\OptionsTest::testBuildRootPath() has no return typehint specified." />
+  <error line="127" column="1" severity="error" message="Method Edge\QA\OptionsTest::testBuildRootPath() has parameter $analyzedDirs with no typehint specified." />
+  <error line="127" column="1" severity="error" message="Method Edge\QA\OptionsTest::testBuildRootPath() has parameter $expectedRoot with no typehint specified." />
+  <error line="130" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="133" column="1" severity="error" message="Method Edge\QA\OptionsTest::provideAnalyzedDir() has no return typehint specified." />
+  <error line="144" column="1" severity="error" message="Method Edge\QA\OptionsTest::testLoadAllowedErrorsCount() has no return typehint specified." />
+  <error line="148" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="149" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="152" column="1" severity="error" message="Method Edge\QA\OptionsTest::buildRunningTools() has no return typehint specified." />
+  <error line="152" column="1" severity="error" message="Method Edge\QA\OptionsTest::buildRunningTools() has parameter $tools with no value type specified in iterable type array." />
+</file>
+<file name="tests/PathsTest.php">
+  <error line="7" column="1" severity="error" message="Method Edge\QA\PathsTest::testPathToBinaryIsEscaped() has no return typehint specified." />
+  <error line="10" column="1" severity="error" message="Function allOf invoked with 2 parameters, 0 required." />
+  <error line="10" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+</file>
+<file name="tests/Report/ReportTest.php">
+  <error line="7" column="1" severity="error" message="Property Edge\QA\ReportTest::$output has no typehint specified." />
+  <error line="8" column="1" severity="error" message="Property Edge\QA\ReportTest::$phplocXsl has no typehint specified." />
+  <error line="9" column="1" severity="error" message="Property Edge\QA\ReportTest::$xmlParams has no typehint specified." />
+  <error line="17" column="1" severity="error" message="Method Edge\QA\ReportTest::testConvertTwigToHtml() has no return typehint specified." />
+  <error line="20" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="24" column="1" severity="error" message="Method Edge\QA\ReportTest::testConvertXmlToHtml() has no return typehint specified." />
+  <error line="24" column="1" severity="error" message="Method Edge\QA\ReportTest::testConvertXmlToHtml() has parameter $assertOutput with no typehint specified." />
+  <error line="24" column="1" severity="error" message="Method Edge\QA\ReportTest::testConvertXmlToHtml() has parameter $xml with no typehint specified." />
+  <error line="27" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="30" column="1" severity="error" message="Method Edge\QA\ReportTest::provideXml() has no return typehint specified." />
+  <error line="38" column="1" severity="error" message="Method Edge\QA\ReportTest::testIgnoreMissingXmlDocuments() has no return typehint specified." />
+  <error line="41" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+</file>
+<file name="tests/RunningToolTest.php">
+  <error line="7" column="1" severity="error" message="Property Edge\QA\RunningToolTest::$errorsCountInXmlFile has no typehint specified." />
+  <error line="9" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testBuildOptionWithDefinedSeparator() has no return typehint specified." />
+  <error line="12" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="13" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="14" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="17" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testMarkSuccessWhenXPathIsNotDefined() has no return typehint specified." />
+  <error line="20" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="24" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testMarkFailureWhenXmlFileDoesNotExist() has no return typehint specified." />
+  <error line="24" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testMarkFailureWhenXmlFileDoesNotExist() has parameter $allowedErrors with no typehint specified." />
+  <error line="24" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testMarkFailureWhenXmlFileDoesNotExist() has parameter $expectedIsOk with no typehint specified." />
+  <error line="32" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="33" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="36" column="1" severity="error" message="Method Edge\QA\RunningToolTest::provideAllowedErrorsForNonexistentFile() has no return typehint specified." />
+  <error line="45" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testCompareAllowedCountWithErrorsCountFromXml() has no return typehint specified." />
+  <error line="45" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testCompareAllowedCountWithErrorsCountFromXml() has parameter $allowedErrors with no typehint specified." />
+  <error line="45" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testCompareAllowedCountWithErrorsCountFromXml() has parameter $isOk with no typehint specified." />
+  <error line="52" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="55" column="1" severity="error" message="Method Edge\QA\RunningToolTest::provideAllowedErrors() has no return typehint specified." />
+  <error line="64" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testRuntimeSelectionOfErrorXpath() has no return typehint specified." />
+  <error line="75" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="79" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testAnalyzeExitCodeInCliMode() has no return typehint specified." />
+  <error line="79" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testAnalyzeExitCodeInCliMode() has parameter $allowedErrors with no typehint specified." />
+  <error line="79" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testAnalyzeExitCodeInCliMode() has parameter $exitCode with no typehint specified." />
+  <error line="79" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testAnalyzeExitCodeInCliMode() has parameter $expectedResult with no value type specified in iterable type array." />
+  <error line="90" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
+  <error line="93" column="1" severity="error" message="Method Edge\QA\RunningToolTest::provideProcess() has no return typehint specified." />
+  <error line="102" column="1" severity="error" message="Method Edge\QA\RunningToolTest::testCreateUniqueIdForUserReport() has no return typehint specified." />
+  <error line="107" column="1" severity="error" message="Function assertThat invoked with 2 parameters, 0 required." />
 </file>
 </checkstyle>

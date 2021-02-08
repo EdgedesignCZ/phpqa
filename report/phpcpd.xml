@@ -1,52 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd-cpd>
-  <duplication lines="4" tokens="12">
-    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="82"/>
-    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="104"/>
-    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="112"/>
-    <codefragment>        $config = new Config();
-        $config-&gt;loadUserConfig(__DIR__);
-        $this-&gt;shouldStopPhpqa();
-        $config-&gt;path('phpcs.standard');
-</codefragment>
-  </duplication>
-  <duplication lines="2" tokens="10">
-    <file path="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" line="26"/>
-    <file path="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" line="40"/>
-    <codefragment>        xmlToHtml([__DIR__ . "/{$xml}"], $this-&gt;phplocXsl, $this-&gt;output, $this-&gt;xmlParams);
-        assertThat(file_get_contents($this-&gt;output), $assertOutput);
-</codefragment>
-  </duplication>
-  <duplication lines="4" tokens="12">
-    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="10"/>
-    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="105"/>
-    <codefragment>        'analyzedDirs' =&gt; './',
-        'buildDir' =&gt; 'build/',
-        'ignoredDirs' =&gt; 'vendor',
-        'ignoredFiles' =&gt; '',
-</codefragment>
-  </duplication>
-  <duplication lines="4" tokens="11">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpmd.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpstan.php" line="8"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="7"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/SecurityChecker.php" line="7"/>
-    <codefragment>class Phpmd extends \Edge\QA\Tools\Tool
-{
-    public static $SETTINGS = array(
-        'optionSeparator' =&gt; ' ',
-</codefragment>
-  </duplication>
-  <duplication lines="3" tokens="13">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpmd.php" line="23"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="28"/>
-    <codefragment>            'suffixes' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
-        );
-        if ($this-&gt;options-&gt;isSavedToFiles) {
-</codefragment>
-  </duplication>
   <duplication lines="9" tokens="21">
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="7"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpcsV3.php" line="7"/>
@@ -61,20 +14,82 @@
         'composer' =&gt; 'squizlabs/php_codesniffer',
 </codefragment>
   </duplication>
+  <duplication lines="8" tokens="14">
+    <file path="/mnt/DATA/www/phpqa/src/Task/AssetsLoader.php" line="11"/>
+    <file path="/mnt/DATA/www/phpqa/src/Task/TableSummary.php" line="11"/>
+    <file path="/mnt/DATA/www/phpqa/src/Task/TableVersions.php" line="10"/>
+    <codefragment>    private $output;
+    
+    public function __construct(OutputInterface $o)
+    {
+        $this-&gt;output = $o;
+    }
+
+    public function __invoke(Options $o, array $assets)
+</codefragment>
+  </duplication>
+  <duplication lines="5" tokens="13">
+    <file path="/mnt/DATA/www/phpqa/src/Tools/GetVersions.php" line="68"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/GetVersions.php" line="77"/>
+    <codefragment>            $versionCommand = "{$customBinary} --version";
+            $version = $this-&gt;loadVersionFromConsoleCommand($versionCommand);
+            $composerInfo = [
+                'version' =&gt; $version,
+                'version_normalized' =&gt; $version,
+</codefragment>
+  </duplication>
+  <duplication lines="5" tokens="18">
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="12"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phploc.php" line="13"/>
+    <codefragment>    public function __invoke()
+    {
+        $args = array(
+            $this-&gt;options-&gt;ignore-&gt;phpmetrics2(),
+            'extensions' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
+</codefragment>
+  </duplication>
   <duplication lines="5" tokens="14">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpmd.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phploc.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Pdepend.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpCsFixer.php" line="7"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcpd.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Psalm.php" line="8"/>
     <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/ParallelLint.php" line="7"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpunit.php" line="7"/>
-    <codefragment>class Phpmd extends \Edge\QA\Tools\Tool
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpCsFixer.php" line="7"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="5"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phploc.php" line="5"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpmd.php" line="5"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpstan.php" line="8"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Psalm.php" line="8"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/SecurityChecker.php" line="7"/>
+    <codefragment>class ParallelLint extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' =&gt; ' ',
-        'xml' =&gt; ['phpmd.xml'],
+        'internalClass' =&gt; 'JakubOnderka\PhpParallelLint\ParallelLint',
+</codefragment>
+  </duplication>
+  <duplication lines="4" tokens="12">
+    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="105"/>
+    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="10"/>
+    <codefragment>            'analyzedDirs' =&gt; './',
+            'buildDir' =&gt; 'build/',
+            'ignoredDirs' =&gt; 'vendor',
+            'ignoredFiles' =&gt; '',
+</codefragment>
+  </duplication>
+  <duplication lines="4" tokens="12">
+    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="84"/>
+    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="106"/>
+    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="114"/>
+    <codefragment>        $config = new Config();
+        $config-&gt;loadUserConfig(__DIR__);
+        $this-&gt;shouldStopPhpqa();
+        $config-&gt;path('phpcs.standard');
+</codefragment>
+  </duplication>
+  <duplication lines="4" tokens="11">
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="12"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcpd.php" line="16"/>
+    <codefragment>    public function __invoke()
+    {
+        $args = array(
+            $this-&gt;options-&gt;ignore-&gt;phpmetrics2(),
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="16">
@@ -86,52 +101,17 @@
                 $this-&gt;writeln("&lt;error&gt;php-cs-fixer analyzes only first directory {$analyzedDir}&lt;/error&gt;");
 </codefragment>
   </duplication>
-  <duplication lines="2" tokens="13">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phploc.php" line="16"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcpd.php" line="18"/>
-    <codefragment>            $this-&gt;options-&gt;ignore-&gt;bergmann(),
-            $this-&gt;options-&gt;getAnalyzedDirs(' '),
-</codefragment>
-  </duplication>
   <duplication lines="4" tokens="11">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phploc.php" line="13"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="12"/>
-    <codefragment>    public function __invoke()
-    {
-        $args = array(
-            $this-&gt;options-&gt;ignore-&gt;bergmann(),
-</codefragment>
-  </duplication>
-  <duplication lines="3" tokens="14">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="28"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="16"/>
-    <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
-        );
-        if ($this-&gt;options-&gt;isSavedToFiles) {
-</codefragment>
-  </duplication>
-  <duplication lines="2" tokens="16">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="28"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="18"/>
-    <codefragment>        if ($this-&gt;options-&gt;isSavedToFiles) {
-            $this-&gt;tool-&gt;htmlReport = $this-&gt;options-&gt;rawFile('phpmetrics.html');
-</codefragment>
-  </duplication>
-  <duplication lines="2" tokens="10">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Pdepend.php" line="21"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/ParallelLint.php" line="20"/>
-    <codefragment>            'suffix' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions'),
-            $this-&gt;options-&gt;ignore-&gt;pdepend()
-</codefragment>
-  </duplication>
-  <duplication lines="5" tokens="13">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/GetVersions.php" line="55"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/GetVersions.php" line="75"/>
-    <codefragment>            $versionCommand = "{$customBinary} --version";
-            $version = $this-&gt;loadVersionFromConsoleCommand($versionCommand);
-            $composerInfo = [
-                'version' =&gt; $version,
-                'version_normalized' =&gt; $version,
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/ParallelLint.php" line="7"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Pdepend.php" line="5"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="7"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="5"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcpd.php" line="7"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpunit.php" line="7"/>
+    <codefragment>class ParallelLint extends \Edge\QA\Tools\Tool
+{
+    public static $SETTINGS = array(
+        'optionSeparator' =&gt; ' ',
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="10">
@@ -143,18 +123,34 @@
         $this-&gt;getOutput()-&gt;writeln($process-&gt;getOutput(), OutputInterface::OUTPUT_RAW);
 </codefragment>
   </duplication>
-  <duplication lines="8" tokens="14">
-    <file path="/mnt/DATA/www/phpqa/src/Task/TableSummary.php" line="11"/>
-    <file path="/mnt/DATA/www/phpqa/src/Task/AssetsLoader.php" line="11"/>
-    <file path="/mnt/DATA/www/phpqa/src/Task/TableVersions.php" line="10"/>
-    <codefragment>    private $output;
-    
-    public function __construct(OutputInterface $o)
-    {
-        $this-&gt;output = $o;
-    }
-
-    public function __invoke(array $results)
+  <duplication lines="3" tokens="14">
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="16"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="28"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpmd.php" line="23"/>
+    <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
+        );
+        if ($this-&gt;options-&gt;isSavedToFiles) {
+</codefragment>
+  </duplication>
+  <duplication lines="2" tokens="10">
+    <file path="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" line="26"/>
+    <file path="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" line="40"/>
+    <codefragment>        xmlToHtml([__DIR__ . "/{$xml}"], $this-&gt;phplocXsl, $this-&gt;output, $this-&gt;xmlParams);
+        assertThat(file_get_contents($this-&gt;output), $assertOutput);
+</codefragment>
+  </duplication>
+  <duplication lines="2" tokens="10">
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/ParallelLint.php" line="20"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Pdepend.php" line="21"/>
+    <codefragment>            "-e {$this-&gt;config-&gt;csv('phpqa.extensions')}",
+            $this-&gt;options-&gt;getAnalyzedDirs(' '),
+</codefragment>
+  </duplication>
+  <duplication lines="2" tokens="16">
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="28"/>
+    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="18"/>
+    <codefragment>        if ($this-&gt;options-&gt;isSavedToFiles) {
+            $this-&gt;tool-&gt;htmlReport = $this-&gt;options-&gt;rawFile('phpmetrics.html');
 </codefragment>
   </duplication>
 </pmd-cpd>

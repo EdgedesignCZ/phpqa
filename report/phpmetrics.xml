@@ -1,14 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project loc="2728" lloc="802" cyclomaticComplexity="6.4" maintainabilityIndex="62.96" volume="957.86" vocabulary="46.14" difficulty="12.83" effort="17699.57" bugs="0.32" time="983.28" intelligentContent="65.6" commentWeight="6.78" length="161.91" lcom="1.67" instability="0.38" efferentCoupling="0.93" afferentCoupling="0.23" sysc="6.3" rsysc="1.08" dc="4.16" rdc="0.64" sc="2.14" rsc="0.44" noc="36" noca="1" nocc="35" noi="0" nom="161">
-  <modules>
-    <module loc="2728" lloc="802" cyclomaticComplexity="6.4" maintainabilityIndex="62.96" volume="957.86" vocabulary="46.14" difficulty="12.83" effort="17699.57" bugs="0.32" time="983.28" intelligentContent="65.6" commentWeight="6.78" length="161.91" lcom="1.67" instability="0.38" efferentCoupling="0.93" afferentCoupling="0.23" sysc="6.3" rsysc="1.08" dc="4.16" rdc="0.64" sc="2.14" rsc="0.44" noc="36" noca="1" nocc="35" noi="0" nom="161" namespace="."/>
-    <module loc="620" lloc="173" cyclomaticComplexity="2" maintainabilityIndex="67.55" volume="888.07" vocabulary="33.67" difficulty="10.51" effort="14751.48" bugs="0.3" time="819.44" intelligentContent="69.19" commentWeight="5.79" length="155" lcom="3.67" instability="0.44" efferentCoupling="0.44" afferentCoupling="0" sysc="5.61" rsysc="0.63" dc="2.94" rdc="0.4" sc="2.67" rsc="0.23" noc="6" noca="0" nocc="6" noi="0" nom="49" namespace="./tests"/>
-    <module loc="152" lloc="81" cyclomaticComplexity="2" maintainabilityIndex="40.04" volume="2979.89" vocabulary="66" difficulty="21.1" effort="62885.88" bugs="0.99" time="3494" intelligentContent="141.2" commentWeight="6.27" length="493" lcom="11" instability="1" efferentCoupling="1" afferentCoupling="0" sysc="14" rsysc="0.93" dc="0" rdc="0" sc="14" rsc="0.93" noc="1" noca="0" nocc="1" noi="0" nom="15" namespace="./tests/Config"/>
-    <module loc="31" lloc="5" cyclomaticComplexity="2" maintainabilityIndex="78.86" volume="81.1" vocabulary="10" difficulty="6.57" effort="788.09" bugs="0.03" time="44" intelligentContent="12.46" commentWeight="0" length="23" lcom="0" instability="0" efferentCoupling="0" afferentCoupling="0" sysc="0" rsysc="0" dc="0" rdc="0" sc="0" rsc="0" noc="0" noca="0" nocc="0" noi="0" nom="0" namespace="./tests/experiments"/>
-    <module loc="50" lloc="14" cyclomaticComplexity="2" maintainabilityIndex="66.22" volume="586.68" vocabulary="39" difficulty="8.9" effort="5223.34" bugs="0.2" time="290" intelligentContent="65.9" commentWeight="10.87" length="111" lcom="3" instability="0" efferentCoupling="0" afferentCoupling="0" sysc="3" rsysc="0.5" dc="3" rdc="0.5" sc="0" rsc="0" noc="1" noca="0" nocc="1" noi="0" nom="6" namespace="./tests/Report"/>
-    <module loc="2099" lloc="626" cyclomaticComplexity="7.76" maintainabilityIndex="61.23" volume="1004.86" vocabulary="50.67" difficulty="13.83" effort="19039.41" bugs="0.33" time="1057.73" intelligentContent="64.5" commentWeight="7.26" length="168.36" lcom="1.18" instability="0.37" efferentCoupling="1.09" afferentCoupling="0.3" sysc="6.68" rsysc="1.23" dc="4.62" rdc="0.72" sc="2.06" rsc="0.51" noc="29" noca="1" nocc="28" noi="0" nom="112" namespace="./src"/>
-    <module loc="918" lloc="254" cyclomaticComplexity="6" maintainabilityIndex="61.34" volume="777.36" vocabulary="43.78" difficulty="13.03" effort="13161.69" bugs="0.26" time="731.22" intelligentContent="54.69" commentWeight="4.28" length="137" lcom="1.28" instability="0.26" efferentCoupling="0.89" afferentCoupling="0.17" sysc="4.83" rsysc="1.14" dc="2.66" rdc="0.68" sc="2.17" rsc="0.46" noc="18" noca="1" nocc="17" noi="0" nom="43" namespace="./src/Tools"/>
-    <module loc="573" lloc="150" cyclomaticComplexity="5.14" maintainabilityIndex="62.04" volume="610.67" vocabulary="39.14" difficulty="11.74" effort="9005.56" bugs="0.2" time="500.36" intelligentContent="48.43" commentWeight="2.1" length="111.57" lcom="1" instability="0.13" efferentCoupling="0.36" afferentCoupling="0.07" sysc="1.57" rsysc="0.74" dc="0.86" rdc="0.5" sc="0.71" rsc="0.24" noc="14" noca="0" nocc="14" noi="0" nom="18" namespace="./src/Tools/Analyzer"/>
-    <module loc="331" lloc="108" cyclomaticComplexity="5.29" maintainabilityIndex="69.63" volume="662.55" vocabulary="42.57" difficulty="10.89" effort="9118.83" bugs="0.22" time="506.57" intelligentContent="58.86" commentWeight="13.34" length="118.43" lcom="1.14" instability="0.86" efferentCoupling="2.29" afferentCoupling="0" sysc="5.52" rsysc="1.83" dc="2.09" rdc="0.65" sc="3.43" rsc="1.18" noc="6" noca="0" nocc="6" noi="0" nom="18" namespace="./src/Task"/>
-  </modules>
-</project>
+<pmd version="@package_version@" timestamp="2021-02-08T10:53:08+01:00">
+  <file name="Edge\QA\">
+    <violation beginline="1" rule="Stable Dependencies Principle" ruleset="Stable Dependencies Principle" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="3">Packages should depend in the direction of stability.
+
+This package is more stable (0.667) than 1 package(s) that it depends on.
+The packages that are more stable are
+
+* Edge\QA\Task (0.909)</violation>
+  </file>
+  <file name="Edge\QA\ConfigTest">
+    <violation beginline="1" rule="Blob / God object" ruleset="Blob / God object" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="2">A blob object (or "god class") does not follow the Single responsibility principle.
+
+* object has lot of public methods  (14, excluding getters and setters)
+* object has a high Lack of cohesion of methods (LCOM=11)
+* object knows everything (and use lot of external classes)
+
+Maybe you should reducing the number of methods splitting this object in many sub objects.</violation>
+    <violation beginline="1" rule="Probably bugged" ruleset="Probably bugged" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="3">This component contains in theory 0.41 bugs.
+
+* Calculation is based on number of operators, operands, cyclomatic complexity
+* See more details at https://en.wikipedia.org/wiki/Halstead_complexity_measures
+*  testsuites has dependency to this class.
+
+Maybe you should check your unit tests for this class.</violation>
+  </file>
+  <file name="Edge\QA\RunningToolTest">
+    <violation beginline="1" rule="Blob / God object" ruleset="Blob / God object" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="2">A blob object (or "god class") does not follow the Single responsibility principle.
+
+* object has lot of public methods  (10, excluding getters and setters)
+* object has a high Lack of cohesion of methods (LCOM=8)
+* object knows everything (and use lot of external classes)
+
+Maybe you should reducing the number of methods splitting this object in many sub objects.</violation>
+  </file>
+  <file name="Edge\QA\OptionsTest">
+    <violation beginline="1" rule="Probably bugged" ruleset="Probably bugged" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="3">This component contains in theory 0.38 bugs.
+
+* Calculation is based on number of operators, operands, cyclomatic complexity
+* See more details at https://en.wikipedia.org/wiki/Halstead_complexity_measures
+*  testsuites has dependency to this class.
+
+Maybe you should check your unit tests for this class.</violation>
+  </file>
+  <file name="Edge\QA\CodeAnalysisTasks">
+    <violation beginline="1" rule="Probably bugged" ruleset="Probably bugged" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="3">This component contains in theory 0.59 bugs.
+
+* Calculation is based on number of operators, operands, cyclomatic complexity
+* See more details at https://en.wikipedia.org/wiki/Halstead_complexity_measures
+*  testsuites has dependency to this class.
+
+Maybe you should check your unit tests for this class.</violation>
+  </file>
+  <file name="Edge\QA\Config">
+    <violation beginline="1" rule="Probably bugged" ruleset="Probably bugged" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="3">This component contains in theory 0.4 bugs.
+
+* Calculation is based on number of operators, operands, cyclomatic complexity
+* See more details at https://en.wikipedia.org/wiki/Halstead_complexity_measures
+*  testsuites has dependency to this class.
+
+Maybe you should check your unit tests for this class.</violation>
+  </file>
+  <file name="Edge\QA\Tools\">
+    <violation beginline="1" rule="Stable Dependencies Principle" ruleset="Stable Dependencies Principle" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="3">Packages should depend in the direction of stability.
+
+This package is more stable (0.3) than 1 package(s) that it depends on.
+The packages that are more stable are
+
+* Edge\QA (0.667)</violation>
+  </file>
+  <file name="Edge\QA\Tools\GetVersions">
+    <violation beginline="1" rule="Probably bugged" ruleset="Probably bugged" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="3">This component contains in theory 0.51 bugs.
+
+* Calculation is based on number of operators, operands, cyclomatic complexity
+* See more details at https://en.wikipedia.org/wiki/Halstead_complexity_measures
+*  testsuites has dependency to this class.
+
+Maybe you should check your unit tests for this class.</violation>
+  </file>
+</pmd>

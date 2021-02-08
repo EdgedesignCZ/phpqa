@@ -4,85 +4,93 @@
     <meta charset="UTF-8">
     <title>PhpMetrics report</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/3.0.3/normalize.css">
     <link rel="stylesheet" href="css/milligram.min.css">
     <link rel="stylesheet" href="css/style.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="css/roboto.css">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/material-icons.css">
+    <link rel="stylesheet" href="css/graph-carousel.css">
 </head>
 <body>
 
 
-<div id="wrapper" class="">
-    <div id="contentliquid">
-        <div id="content">
+<header class="headerbar">
+    <div class="headerbarInner">
+        <div class="float-left navigation-title">
+            <a href="http://www.phpmetrics.org/">
+                <h1 class="title">PhpMetrics</h1>
+                <span class="subtitle">
+                Static analyzer for PHP
+            </span>
+            </a>
+        </div>
+        <ul class="navigation-list float-right">
+            <li class="navigation-item">
+                <a class="navigation-link" href="http://www.phpmetrics.org/documentation/index.html">Documentation</a>
+                <a class="navigation-link" href="https://www.github.com/phpmetrics/phpmetrics">Support</a>
+            </li>
+        </ul>
+    </div>
+</header>
 
-            <!-- Menu -->
-            <nav class="navigation">
-                <section class="container">
-
-                    <a class="navigation-title" href="http://phpmetrics.org/">
-                        <img class="img" src="images/logo.png" height="30" alt="PhpMetrics" title="PhpMetrics">
-                        <h1 class="title">PhpMetrics</h1>
-                    </a>
-
-                    <ul class="navigation-list float-right">
-                        <li class="navigation-item">
-                            <a class="navigation-link" href="http://www.phpmetrics.org/documentation/index.html"
-                               data-popover="">Support</a>
-                        </li>
-                    </ul>
-                    <a class="hidden-xs github" href="https://github.com/phpmetrics/phpmetrics"
-                       title="PhpMetrics on Github" target="blank">
-                        <svg width="80" height="80" viewBox="0 0 250 250" class="github">
-                            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-                            <path
-                                d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-                                fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-                            <path
-                                d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-                                fill="currentColor" class="octo-body"></path>
-                        </svg>
-                    </a>
-                </section>
-            </nav>
+<a class="hidden-xs github" href="https://github.com/phpmetrics/phpmetrics"
+   title="PhpMetrics on Github" target="blank">
+    <svg width="80" height="80" viewBox="0 0 250 250" class="github">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+            d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+            fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path
+            d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+            fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
 
 
-            <!-- Page -->
-            <div class="container ">
+<div class="page">
+    <div class="content content-first">
+        <div class="report-details">
+            Created at 2021-02-08 10:53:08        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+        </div>
+
+        
     <div class="row">
         <div class="column">
             <div class="bloc bloc-number">
+                <div class="label">Average weighted method count by class <small>(CC)</small></div>
                 <div class="number">
-                    2.38                </div>
-                <div class="label">Average cyclomatic complexity by class </div>
-            </div>
+                    9.5                </div>
+                            </div>
         </div>
         <div class="column">
             <div class="bloc bloc-number">
+                <div class="label">Average cyclomatic complexity by class</div>
                 <div class="number">
-                    32.99                </div>
-                <div class="label">Average relative System complexity </div>
-            </div>
+                    5.95                </div>
+                            </div>
         </div>
         <div class="column">
             <div class="bloc bloc-number">
+                <div class="label">Average relative System complexity</div>
                 <div class="number">
-                    0.1                </div>
-                <div class="label">Average bugs by class
-                    <small>(Halstead)</small>                 </div>
-            </div>
+                    73.61                </div>
+                            </div>
         </div>
         <div class="column">
             <div class="bloc bloc-number">
+                <div class="label">Average bugs by class<small>(Halstead)</small></div>
                 <div class="number">
-                    0.3                </div>
-                <div class="label">average defects by class
-                    <small>(Kan)</small>                 </div>
-            </div>
+                    0.17                </div>
+                            </div>
+        </div>
+        <div class="column">
+            <div class="bloc bloc-number">
+                <div class="label">average defects by class <small>(Kan)</small></div>
+                <div class="number">
+                    0.5                </div>
+                            </div>
         </div>
     </div>
-
 
     <div class="row">
         <div class="column">
@@ -91,140 +99,1346 @@
                     <thead>
                     <tr>
                         <th>Class</th>
-                        <th class="js-sort-number">Cyclomatic</th>
-                        <th class="js-sort-number">Relative system complexity</th>
+                        <th class="js-sort-number">WMC</th>
+                        <th class="js-sort-number">Class cycl.</th>
+                        <th class="js-sort-number">Max method cycl.</th>
                         <th class="js-sort-number">Relative data complexity</th>
                         <th class="js-sort-number">Relative structural complexity</th>
                         <th class="js-sort-number">Bugs</th>
                         <th class="js-sort-number">Defects</th>
+                        <th class="js-sort-number">Relative system complexity</th>
                     </tr>
                     </thead>
                                             <tr>
-                            <td>Edge\QA\IgnoredPathsTest</td>
-                            <td>1</td>
-                                                        <td>5.17</td>
-                            <td>1.17</td>
-                            <td>4</td>
-                            <td>0.15</td>
-                            <td>0.15</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\IgnoredPathsTest</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.19);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    9.94                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.32);");">
+                                    0.94                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    9                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.27);");">
+                                    0.27                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.22                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\ConfigTest</td>
-                            <td>1</td>
-                                                        <td>25</td>
-                            <td>0</td>
-                            <td>25</td>
-                            <td>0.08</td>
-                            <td>0.15</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\ConfigTest</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.5);");">
+                                    16                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
+                                    64                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
+                                    64                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.41);");">
+                                    0.41                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.22                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\RunningToolTest</td>
-                            <td>1</td>
-                                                        <td>49.34</td>
-                            <td>0.34</td>
-                            <td>49</td>
-                            <td>0.14</td>
-                            <td>0.15</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\PathsTest</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.11);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0.15                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\ReportTest</td>
-                            <td>2</td>
-                                                        <td>1.33</td>
-                            <td>1.33</td>
-                            <td>0</td>
-                            <td>0.06</td>
-                            <td>0.22</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\RunningToolTest</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.34);");">
+                                    11                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.07);");">
+                                    81.37                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.12);");">
+                                    0.37                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.07);");">
+                                    81                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.24);");">
+                                    0.24                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.22                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\OptionsTest</td>
-                            <td>1</td>
-                                                        <td>49.72</td>
-                            <td>0.72</td>
-                            <td>49</td>
-                            <td>0.27</td>
-                            <td>0.15</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\ReportTest</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    7                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1.33                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.45);");">
+                                    1.33                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.07);");">
+                                    0.07                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.22                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\RoboFile</td>
-                            <td>1</td>
-                                                        <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0</td>
-                            <td>0.15</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\OptionsTest</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.47);");">
+                                    15                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.11);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    49.86                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.29);");">
+                                    0.86                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    49                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
+                                    0.38                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0.15                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\Config</td>
-                            <td>6</td>
-                                                        <td>26.4</td>
-                            <td>1.4</td>
-                            <td>25</td>
-                            <td>0.17</td>
-                            <td>0.89</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\RoboFile</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0.15                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\Options</td>
-                            <td>6</td>
-                                                        <td>17.58</td>
-                            <td>1.58</td>
-                            <td>16</td>
-                            <td>0.28</td>
-                            <td>0.82</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\CodeAnalysisTasks</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.91);");">
+                                    29                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
+                                    21                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.78);");">
+                                    7                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
+                                    1156.16                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    0.16                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
+                                    1156                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.59);");">
+                                    0.59                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
+                                    1.91                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\Task\TableSummary</td>
-                            <td>7</td>
-                                                        <td>81.54</td>
-                            <td>0.54</td>
-                            <td>81</td>
-                            <td>0.24</td>
-                            <td>0.73</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\Config</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.91);");">
+                                    29                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.85);");">
+                                    18                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.44);");">
+                                    4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    51.05                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.69);");">
+                                    2.05                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    49                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.4);");">
+                                    0.4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.76);");">
+                                    1.49                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\Task\ToolVersions</td>
-                            <td>8</td>
-                                                        <td>225.64</td>
-                            <td>0.64</td>
-                            <td>225</td>
-                            <td>0.31</td>
-                            <td>1.12</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\OutputMode</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0.15                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\Task\NonParallelExec</td>
-                            <td>9</td>
-                                                        <td>169.07</td>
-                            <td>0.07</td>
-                            <td>169</td>
-                            <td>0.11</td>
-                            <td>1.12</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\Options</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.66);");">
+                                    21                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.6);");">
+                                    13                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.56);");">
+                                    5                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    26.65                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.55);");">
+                                    1.65                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    25                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.34);");">
+                                    0.34                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.34);");">
+                                    0.75                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\Task\ParallelExec</td>
-                            <td>1</td>
-                                                        <td>2</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>0</td>
-                            <td>0.15</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\Tools\Tool</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    7                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    9.95                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.32);");">
+                                    0.95                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    9                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.08);");">
+                                    0.08                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0.15                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\IgnoredPaths</td>
-                            <td>3</td>
-                                                        <td>12.48</td>
-                            <td>3.48</td>
-                            <td>9</td>
-                            <td>0.19</td>
-                            <td>0.29</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\Tools\Tools</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.47);");">
+                                    15                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.35);");">
+                                    8                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.67);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    37.55                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.52);");">
+                                    1.55                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    36                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    0.22                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.33);");">
+                                    0.73                                    </span>
+                                </td>
+                                                                                </tr>
                                             <tr>
-                            <td>Edge\QA\RunningTool</td>
-                            <td>3</td>
-                                                        <td>27.42</td>
-                            <td>2.42</td>
-                            <td>25</td>
-                            <td>0.19</td>
-                            <td>0.29</td>
-                        </tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\Phpmd</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.33);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    25.17                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
+                                    0.17                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    25                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    0.05                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.22                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\Phpcs</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.19);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.67);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    49.13                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.13                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    49                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.14);");">
+                                    0.14                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
+                                    0.82                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\PhpcsV3</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    0.01                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0.15                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\Phploc</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    9.25                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.08);");">
+                                    0.25                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    9                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    0.02                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.22                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\Pdepend</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    25.17                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
+                                    0.17                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    25                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.07);");">
+                                    0.07                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.22                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\Phpstan</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.19);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.2);");">
+                                    5                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.44);");">
+                                    4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
+                                    64.44                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
+                                    0.44                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
+                                    64                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.18);");">
+                                    0.18                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.08);");">
+                                    0.29                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\PhpCsFixer</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    7                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.3);");">
+                                    7                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.78);");">
+                                    7                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    16.2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.07);");">
+                                    0.2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    16                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.14);");">
+                                    0.14                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.16);");">
+                                    0.43                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\PhpMetrics</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
+                                    4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.44);");">
+                                    4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    49.13                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.13                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    49                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.11);");">
+                                    0.11                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.12);");">
+                                    0.36                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\Phpcpd</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.19);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.67);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    36.29                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
+                                    0.29                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    36                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.11);");">
+                                    0.11                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.12);");">
+                                    0.36                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\PhpMetricsV2</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.19);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.67);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    49.13                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.13                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    49                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.12);");">
+                                    0.12                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.16);");">
+                                    0.43                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\Psalm</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.56);");">
+                                    18                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.75);");">
+                                    16                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
+                                    9                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    256.22                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.07);");">
+                                    0.22                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    256                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.26);");">
+                                    0.26                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.71);");">
+                                    1.4                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\ParallelLint</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.11);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    9.25                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.08);");">
+                                    0.25                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    9                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    0.02                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0.15                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\SecurityChecker</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.33);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1.5                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.17);");">
+                                    0.5                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    0.05                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.17);");">
+                                    0.45                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\Analyzer\Phpunit</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.31);");">
+                                    10                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.4);");">
+                                    9                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.67);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    25.83                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.28);");">
+                                    0.83                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    25                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.19);");">
+                                    0.19                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
+                                    0.82                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\GetVersions</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.75);");">
+                                    24                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.7);");">
+                                    15                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.78);");">
+                                    7                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    145.32                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.44);");">
+                                    1.32                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.12);");">
+                                    144                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.51);");">
+                                    0.51                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.46);");">
+                                    0.96                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Tools\AnalyzeResults</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    7                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.67);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    16.4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    0.4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    16                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    0.13                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.21);");">
+                                    0.52                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Task\RoboAdapter</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    8                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.44);");">
+                                    4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    17.4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.47);");">
+                                    1.4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    16                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.06);");">
+                                    0.06                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.12);");">
+                                    0.36                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Task\TableSummary</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.38);");">
+                                    12                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.35);");">
+                                    8                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.44);");">
+                                    4                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    36.6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.2);");">
+                                    0.6                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    36                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.19);");">
+                                    0.19                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.29);");">
+                                    0.66                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Task\NonParallelExecV0</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.16);");">
+                                    5                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    49.06                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    0.06                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    49                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.04                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.04);");">
+                                    0.22                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Task\NonParallelExecV1</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.28);");">
+                                    9                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.35);");">
+                                    8                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.78);");">
+                                    7                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.28);");">
+                                    324.08                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    0.08                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.28);");">
+                                    324                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.11);");">
+                                    0.11                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.55);");">
+                                    1.12                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Task\AssetsLoader</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    8                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.2);");">
+                                    5                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.33);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    25.75                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    0.75                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    25                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    0.13                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.25);");">
+                                    0.59                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Task\TableVersions</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.05);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.22);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    9.25                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.08);");">
+                                    0.25                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.01);");">
+                                    9                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    0.03                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.13);");">
+                                    0.38                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\Task\ParallelExec</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.11);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    2                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.34);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    1                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                    0.15                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\IgnoredPaths</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.66);");">
+                                    21                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.3);");">
+                                    7                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.33);");">
+                                    3                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    27.98                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
+                                    2.98                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.02);");">
+                                    25                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.28);");">
+                                    0.28                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.16);");">
+                                    0.43                                    </span>
+                                </td>
+                                                                                </tr>
+                                            <tr>
+                            <td><span class="path">Edge\QA\RunningTool</span></td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 1);");">
+                                    32                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.9);");">
+                                    19                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.89);");">
+                                    8                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    38.94                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.99);");">
+                                    2.94                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.03);");">
+                                    36                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.34);");">
+                                    0.34                                    </span>
+                                </td>
+                                                            <td>
+                                    <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.46);");">
+                                    0.96                                    </span>
+                                </td>
+                                                                                </tr>
                                     </table>
             </div>
         </div>
@@ -233,12 +1447,11 @@
 
 </div>
 
-
 <!-- Sidebar -->
 <div id="sidebar">
     <div class="content">
         <div class="logo">
-            <a href="http://phpmetrics.org"><img src="http://www.phpmetrics.org/images/phpmetrics-maintenability.png"
+            <a href="http://www.phpmetrics.org"><img src="images/phpmetrics-maintenability.png"
                                                  alt="Logo PhpMetrics"/></a>
             <h1>PhpMetrics</h1>
         </div>
@@ -256,6 +1469,21 @@
                     </a>
                 </li>
                 <li>
+                    <a href="violations.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/>
+                        </svg>
+                        Violations (9)
+                    </a>
+                </li>
+                                    <li>
+                        <a href="composer.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="24px" height="24px"><path d="M0 0h24v24H0z" fill="none"/><path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/></svg>
+                            Composer
+                        </a>
+                    </li>
+                                                <li>
                     <a href="loc.html">
                         <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
                              xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -321,15 +1549,24 @@
                     </a>
                 </li>
                 <li>
-                    <a href="violations.html">
-                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 0h24v24H0z" fill="none"/>
-                            <path d="M20 8h-2.81c-.45-.78-1.07-1.45-1.82-1.96L17 4.41 15.59 3l-2.17 2.17C12.96 5.06 12.49 5 12 5c-.49 0-.96.06-1.41.17L8.41 3 7 4.41l1.62 1.63C7.88 6.55 7.26 7.22 6.81 8H4v2h2.09c-.05.33-.09.66-.09 1v1H4v2h2v1c0 .34.04.67.09 1H4v2h2.81c1.04 1.79 2.97 3 5.19 3s4.15-1.21 5.19-3H20v-2h-2.09c.05-.33.09-.66.09-1v-1h2v-2h-2v-1c0-.34-.04-.67-.09-1H20V8zm-6 8h-4v-2h4v2zm0-4h-4v-2h4v2z"/>
+                    <a href="packages.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
+                             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <path d="M11 9.16V2c-5 .5-9 4.79-9 10s4 9.5 9 10v-7.16c-1-.41-2-1.52-2-2.84s1-2.43 2-2.84zM14.86 11H22c-.48-4.75-4-8.53-9-9v7.16c1 .3 1.52.98 1.86 1.84zM13 14.84V22c5-.47 8.52-4.25 9-9h-7.14c-.34.86-.86 1.54-1.86 1.84z"/>
                         </svg>
-                        Violations (0)
+                        Package oriented metrics
                     </a>
                 </li>
-                                                <li>
+                <li>
+                    <a href="package_relations.html">
+                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
+                             xmlns="http://www.w3.org/2000/svg">
+                            <path d="M17 20.41L18.41 19 15 15.59 13.59 17 17 20.41zM7.5 8H11v5.59L5.59 19 7 20.41l6-6V8h3.5L12 3.5 7.5 8z"/>
+                        </svg>
+                        Package relations
+                    </a>
+                </li>
+                                <!--<li>
                     <a href="all.html">
                         <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"
                              xmlns="http://www.w3.org/2000/svg">
@@ -338,7 +1575,7 @@
                         </svg>
                         All metrics
                     </a>
-                </li>
+                </li>-->
                 <!--                <li>-->
                 <!--                    <a href="#">-->
                 <!--                        <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24"-->
@@ -350,7 +1587,7 @@
                 <!--                        Third party-->
                 <!--                    </a>-->
                 <!--                </li>-->
-                <li class="sep">
+                <!--<li class="sep">
                     <a href="panel.html">
                         <svg fill="#FFFFFF" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                             <path d="M0 0h24v24H0z" fill="none"/>
@@ -358,27 +1595,26 @@
                         </svg>
                         TV Panel
                     </a>
-                </li>
+                </li>-->
             </ul>
         </div>
     </div>
 </div>
 </div>
 
-
-<footer>
-    <a href="http://phpmetrics.org">PhpMetrics v2.0.0</a>, by <a href="http://blog.lepine.pro">Jean-François Lépine</a>.
-    <br/>March 4th, 2017 18:10:11</footer>
-
 <script type="text/javascript" src="js/functions.js"></script>
-<script type="text/javascript" src="https://d3js.org/d3.v3.js"></script>
-<script type="text/javascript" src="https://d3js.org/d3.hexbin.v0.js"></script>
-<script type="text/javascript" src="js/tabled.min.js"></script>
+<script type="text/javascript" src="js/d3.v3.js"></script>
+<script type="text/javascript" src="js/d3.hexbin.v0.js"></script>
 <script type="text/javascript" src="js/sort-table.min.js"></script>
 <script type="text/javascript" src="js/graph-maintainability.js"></script>
+<script type="text/javascript" src="js/graph-carousel.js"></script>
+<script type="text/javascript" src="js/graph-licenses.js"></script>
+<script type="text/javascript" src="js/FileSaver.min.js"></script>
 
+<script src="js/clusterize.min.js"></script>
+<link rel="stylesheet" href="css/clusterize.css">
 
-<script type="text/javascript" src="js/classes.js"></script>
+<script type="text/javascript" src="classes.js"></script>
 
 <script type="text/javascript">
     var accessibilityEnabled = false;

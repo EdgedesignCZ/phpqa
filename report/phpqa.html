@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>phpqa report - v1.23.3</title>
+    <title>phpqa report - v1.24.0</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
@@ -49,11 +49,12 @@
                         &nbsp;<span class="caret"></span>&nbsp;
                     </a>
                     <ul class="dropdown-menu">
-                                                                        <li><a href="#phpmetrics" data-iframe-tab="link-overview">Overview</a></li>
-                                                                                                <li><a href="#phpmetrics" data-iframe-tab="link-score">Score</a></li>
-                                                                                                <li><a href="#phpmetrics" data-iframe-tab="link-relations">Relations map</a></li>
-                                                                                                <li><a href="#phpmetrics" data-iframe-tab="link-repartition">Repartition</a></li>
-                                                                                                <li><a href="#phpmetrics" data-iframe-tab="link-explore">Explore</a></li>
+                                                                        <li><a href="#phpmetrics" data-iframe-tab="index.html">Overview</a></li>
+                                                                                                <li><a href="#phpmetrics" data-iframe-tab="violations.html">Violations</a></li>
+                                                                                                <li><a href="#phpmetrics" data-iframe-tab="loc.html">Size &amp; volume</a></li>
+                                                                                                <li><a href="#phpmetrics" data-iframe-tab="complexity.html">Complexity &amp; defects</a></li>
+                                                                                                <li><a href="#phpmetrics" data-iframe-tab="oop.html">Object oriented metrics</a></li>
+                                                                                                <li><a href="#phpmetrics" data-iframe-tab="relations.html">Object relations</a></li>
                                                                                             </ul>
                 </li>
                                                                                 <li><a href="#phploc">phploc</a></li>
@@ -158,7 +159,7 @@
                                                                                             </ul>
             <ul class="nav navbar-right visible-md-block visible-lg-block">
                 <p class="navbar-text">
-                    <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa" class="text-muted">v1.23.3</a>
+                    <a target="_blank" href="https://github.com/EdgedesignCZ/phpqa" class="text-muted">v1.24.0</a>
                 </p>
             </ul>
         </div>
@@ -170,7 +171,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-10">
-                        <h2>Summary <span class="badge">2019-11-30 12:19</span></h2>
+                        <h2>Summary <span class="badge">2021-02-08 10:53</span></h2>
                         <table class="table table-striped text-center">
                             <thead>
                                 <tr>
@@ -185,27 +186,27 @@
                                                                                                                                 <tr class="">
                                     <th class="text-left">
                                         <a href="#phpmetrics" data-tool-link class="">phpmetrics</a>
-                                        <a href="https://packagist.org/packages/phpmetrics/phpmetrics#v1.10.0" target="_blank">
+                                        <a href="https://packagist.org/packages/phpmetrics/phpmetrics#v2.7.4" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="Jean-François Lépine">
-                                                v1.10.0
+                                                v2.7.4
                                             </span>
                                         </a>
                                     </th>
                                     <td>0</td>
                                     <td>
-                                                                                                                        <small class="text-success">==</a>
+                                                                                                                        <small class="text-success">></a>
                                                                                                                     </td>
-                                    <td>0</td>
-                                                                                                                                                                    <td>
-                                                <span class="label label-success">✓</span>
-                                            </td>
-                                                                                                                                                        </tr>
+                                    <td></td>
+                                                                        <td data-toggle="tooltip" data-placement="left" title="Analyzing errors count is not supported">
+                                        <span class="label label-info">–</a>
+                                    </td>
+                                                                    </tr>
                                                                                                                                 <tr class="">
                                     <th class="text-left">
                                         <a href="#phploc" data-tool-link class="">phploc</a>
-                                        <a href="https://packagist.org/packages/phploc/phploc#3.0.1" target="_blank">
+                                        <a href="https://packagist.org/packages/phploc/phploc#7.0.2" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="Sebastian Bergmann">
-                                                3.0.1
+                                                7.0.2
                                             </span>
                                         </a>
                                     </th>
@@ -220,9 +221,9 @@
                                                                                                                                 <tr class="">
                                     <th class="text-left">
                                         <a href="#phpcs" data-tool-link class="">phpcs</a>
-                                        <a href="https://packagist.org/packages/squizlabs/php_codesniffer#3.4.2" target="_blank">
+                                        <a href="https://packagist.org/packages/squizlabs/php_codesniffer#3.5.8" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="Greg Sherwood">
-                                                3.4.2
+                                                3.5.8
                                             </span>
                                         </a>
                                     </th>
@@ -238,9 +239,9 @@
                                                                                                                                 <tr class="">
                                     <th class="text-left">
                                         <a href="#php-cs-fixer" data-tool-link class="text-danger">php-cs-fixer</a>
-                                        <a href="https://packagist.org/packages/friendsofphp/php-cs-fixer#v2.14.2" target="_blank">
-                                            <span class="badge" data-toggle="tooltip" data-placement="right" title="Dariusz Rumiński,Fabien Potencier">
-                                                v2.14.2
+                                        <a href="https://packagist.org/packages/friendsofphp/php-cs-fixer#v2.18.2" target="_blank">
+                                            <span class="badge" data-toggle="tooltip" data-placement="right" title="Fabien Potencier,Dariusz Rumiński">
+                                                v2.18.2
                                             </span>
                                         </a>
                                     </th>
@@ -256,9 +257,9 @@
                                                                                                                                 <tr class="">
                                     <th class="text-left">
                                         <a href="#phpmd" data-tool-link class="text-danger">phpmd</a>
-                                        <a href="https://packagist.org/packages/phpmd/phpmd#2.7.0" target="_blank">
+                                        <a href="https://packagist.org/packages/phpmd/phpmd#2.9.1" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="Manuel Pichler,Marc Würth,Other contributors">
-                                                2.7.0
+                                                2.9.1
                                             </span>
                                         </a>
                                     </th>
@@ -274,9 +275,9 @@
                                                                                                                                 <tr class="">
                                     <th class="text-left">
                                         <a href="#pdepend" data-tool-link class="">pdepend</a>
-                                        <a href="https://packagist.org/packages/pdepend/pdepend#2.5.2" target="_blank">
+                                        <a href="https://packagist.org/packages/pdepend/pdepend#2.8.0" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="">
-                                                2.5.2
+                                                2.8.0
                                             </span>
                                         </a>
                                     </th>
@@ -291,9 +292,9 @@
                                                                                                                                 <tr class="">
                                     <th class="text-left">
                                         <a href="#phpcpd" data-tool-link class="text-danger">phpcpd</a>
-                                        <a href="https://packagist.org/packages/sebastian/phpcpd#3.0.1" target="_blank">
+                                        <a href="https://packagist.org/packages/sebastian/phpcpd#6.0.3" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="Sebastian Bergmann">
-                                                3.0.1
+                                                6.0.3
                                             </span>
                                         </a>
                                     </th>
@@ -301,7 +302,7 @@
                                     <td>
                                                                                                                         <small class="text-danger"><</a>
                                                                                                                     </td>
-                                    <td>16</td>
+                                    <td>15</td>
                                                                                                                                                                     <td data-toggle="tooltip" data-placement="left" title="Errors count is greater than 0">
                                                 <span class="label label-danger">x</a>
                                             </td>
@@ -309,9 +310,9 @@
                                                                                                                                 <tr class="">
                                     <th class="text-left">
                                         <a href="#phpstan" data-tool-link class="text-danger">phpstan</a>
-                                        <a href="https://packagist.org/packages/phpstan/phpstan#0.8.5" target="_blank">
+                                        <a href="https://packagist.org/packages/phpstan/phpstan nette/neon#0.12.73" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="">
-                                                0.8.5
+                                                0.12.73
                                             </span>
                                         </a>
                                     </th>
@@ -319,7 +320,7 @@
                                     <td>
                                                                                                                         <small class="text-danger"><</a>
                                                                                                                     </td>
-                                    <td>10</td>
+                                    <td>423</td>
                                                                                                                                                                     <td data-toggle="tooltip" data-placement="left" title="Errors count is greater than 0">
                                                 <span class="label label-danger">x</a>
                                             </td>
@@ -327,9 +328,9 @@
                                                                                                                                 <tr class="">
                                     <th class="text-left">
                                         <a href="#phpunit" data-tool-link class="text-danger">phpunit</a>
-                                        <a href="https://packagist.org/packages/phpunit/phpunit#4.8.36" target="_blank">
+                                        <a href="https://packagist.org/packages/phpunit/phpunit#9.5.2" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="&quot;/mnt/DATA/www/phpqa/vendor/phpunit/phpunit/phpunit&quot; --version">
-                                                4.8.36
+                                                9.5.2
                                             </span>
                                         </a>
                                     </th>
@@ -345,42 +346,42 @@
                                                                                                                                 <tr class="">
                                     <th class="text-left">
                                         <a href="#psalm" data-tool-link class="">psalm</a>
-                                        <a href="https://packagist.org/packages/vimeo/psalm#0.3.93" target="_blank">
+                                        <a href="https://packagist.org/packages/vimeo/psalm#4.4.1" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="Matthew Brown">
-                                                0.3.93
+                                                4.4.1
                                             </span>
                                         </a>
                                     </th>
                                     <td></td>
                                     <td>
                                                                             </td>
-                                    <td>129</td>
-                                                                                                                    <td data-toggle="tooltip" data-placement="left" title="Allowed errors are not specified. Use &#039;psalm:129&#039; for passing the build and analyzing errors">
+                                    <td>142</td>
+                                                                                                                    <td data-toggle="tooltip" data-placement="left" title="Allowed errors are not specified. Use &#039;psalm:142&#039; for passing the build and analyzing errors">
                                             <span class="label label-info">✓</span>
                                         </td>
                                                                                                             </tr>
                                                                                                                                 <tr class="">
                                     <th class="text-left">
-                                        <a href="#security-checker" data-tool-link class="text-danger">security-checker</a>
-                                        <a href="https://packagist.org/packages/sensiolabs/security-checker#v5.0.3" target="_blank">
-                                            <span class="badge" data-toggle="tooltip" data-placement="right" title="Fabien Potencier">
-                                                v5.0.3
+                                        <a href="#security-checker" data-tool-link class="">security-checker</a>
+                                        <a href="https://packagist.org/packages/enlightn/security-checker#v1.4" target="_blank">
+                                            <span class="badge" data-toggle="tooltip" data-placement="right" title="Paras Malhotra,Miguel Piedrafita">
+                                                v1.4
                                             </span>
                                         </a>
                                     </th>
                                     <td>0</td>
                                     <td>
-                                                                                                                        <small class="text-danger"><</a>
+                                                                                                                        <small class="text-success">==</a>
                                                                                                                     </td>
-                                    <td>1</td>
-                                                                                                                                                                    <td data-toggle="tooltip" data-placement="left" title="Errors count is greater than 0">
-                                                <span class="label label-danger">x</a>
+                                    <td>0</td>
+                                                                                                                                                                    <td>
+                                                <span class="label label-success">✓</span>
                                             </td>
                                                                                                                                                         </tr>
                                                                                                                                                                 <tr class="disabled">
                                     <td class="text-left text-muted">parallel-lint</td>
                                     <td colspan="3">
-                                        <code>composer require jakub-onderka/php-parallel-lint</code>
+                                        <code>composer require php-parallel-lint/php-parallel-lint</code>
                                     </td>
                                     <td data-toggle="tooltip" data-placement="left" title="parallel-lint is not installed">
                                         <span class="label label-default">?</a>
@@ -389,16 +390,16 @@
                                                                                                 <tr class="danger">
                                     <th class="text-left">
                                         <a href="#phpqa" data-tool-link class="text-danger">phpqa</a>
-                                        <a href="https://packagist.org/packages/edgedesign/phpqa#1.23.3" target="_blank">
+                                        <a href="https://packagist.org/packages/edgedesign/phpqa#1.24.0" target="_blank">
                                             <span class="badge" data-toggle="tooltip" data-placement="right" title="Zdeněk Drahoš">
-                                                1.23.3
+                                                1.24.0
                                             </span>
                                         </a>
                                     </th>
                                     <td></td>
                                     <td>
                                                                             </td>
-                                    <td>196</td>
+                                    <td>620</td>
                                                                                                                                                                     <td data-toggle="tooltip" data-placement="left" title="">
                                                 <span class="label label-danger">x</a>
                                             </td>
@@ -407,7 +408,7 @@
                         </table>
                         <h4>Would you like to run phpqa again?</h4>
                         <pre><code>cd &quot;/mnt/DATA/www/phpqa&quot; &amp;&amp; \
-./phpqa --config tests/.travis</code></pre>
+./phpqa --config tests/.ci</code></pre>
                     </div>
                     <div class="col-sm-2">
                         <div class="well">
@@ -432,7 +433,7 @@
                                                                 <li><a href="./phploc.xml" target="_blank">/phploc.xml</a></li>
                                                                 <li><a href="./phpmd.html" target="_blank">/phpmd.html</a></li>
                                                                 <li><a href="./phpmd.xml" target="_blank">/phpmd.xml</a></li>
-                                                                <li><a href="./phpmetrics.html" target="_blank">/phpmetrics.html</a></li>
+                                                                <li><a href="./phpmetrics" target="_blank">/phpmetrics</a></li>
                                                                 <li><a href="./phpmetrics.xml" target="_blank">/phpmetrics.xml</a></li>
                                                                 <li><a href="./phpstan-phpqa.neon" target="_blank">/phpstan-phpqa.neon</a></li>
                                                                 <li><a href="./phpstan.html" target="_blank">/phpstan.html</a></li>
@@ -452,7 +453,7 @@
             </div>
         </div>
                         <div role="tabpanel" class="tab-pane" id="phpmetrics">
-            <iframe data-tool id="iframe-phpmetrics" data-src="phpmetrics.html"></iframe>
+            <iframe data-tool id="iframe-phpmetrics" data-src="phpmetrics/index.html"></iframe>
         </div>
                                         <div role="tabpanel" class="tab-pane" id="phploc">
             <iframe data-tool id="iframe-phploc" data-src="phploc.html"></iframe>
@@ -522,7 +523,8 @@
             '#phpcpd': openBootstrap,
             '#phploc': openBootstrap,
             '#phpmetrics': function(window, tab, iframe) {
-                                window.document.getElementById(tab).onclick();
+                                var url = $('#iframe-phpmetrics').attr('data-src').replace('index.html', tab);
+                iframe.src = url;
                             },
             '#psalm': openBootstrap,
         };
