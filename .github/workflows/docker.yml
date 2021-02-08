@@ -1,13 +1,15 @@
 name: PHPQA Docker
 
+# `push tag && master branch` is complicated... (checkout + fetch-depth:0 + find git branch from detached state)
+# https://dh1tw.de/2019/12/real-life-ci/cd-pipelines-with-github-actions/#insufficient-filtering
+# Release build is not visible from commit, but it's better than manually building docker images
+# https://stackoverflow.com/a/59894223, https://stackoverflow.com/a/57983436
 on:
-  push:
-    tags:
-      - 'v*.*.*'
+  release:
+    types: [created]
 
 jobs:
   phpqa:
-    if: github.event.base_ref == 'refs/heads/master'
     runs-on: ubuntu-20.04
 
     steps:
