@@ -1,13 +1,13 @@
 name: PHPQA Docker
 
 on:
-  # TODO: master branch with tag
   push:
-    branches:
-      - docker-2021
+    tags:
+      - 'v*.*.*'
 
 jobs:
   phpqa:
+    if: github.event.base_ref == 'refs/heads/master'
     runs-on: ubuntu-20.04
 
     steps:
