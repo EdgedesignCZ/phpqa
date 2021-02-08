@@ -35,7 +35,7 @@ load_docker_variables () {
 build_docker_image () {
     set -e
     time docker build --file $DOCKER_FILE --tag $DOCKER_TAG $APP_DIR
-    docker run --rm -t $DOCKER_TAG phpqa tools
+    docker run --rm -t $DOCKER_TAG sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
 
     if [ -z "$GIT_TAG" ]; then
         echo "Docker image is published only if the current build is for a git tag"
