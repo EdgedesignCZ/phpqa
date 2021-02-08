@@ -1,7 +1,7 @@
 #!/usr/bin/env php
 <?php
 
-define('PHPQA_VERSION', '1.23.3');
+define('PHPQA_VERSION', '1.24.0');
 define('PHPQA_USED_COMMAND', implode(' ', $argv));
 
 if (getenv('COMPOSER_BIN_DIR') && getenv('COMPOSER_VENDOR_DIR')) {

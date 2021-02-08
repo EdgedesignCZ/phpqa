@@ -1,6 +1,25 @@
 
 # Changelog
 
+## v1.24.0
+
+* **tools**
+    * upgrade pdepend, phpmd, psalm [#218](https://github.com/EdgedesignCZ/phpqa/pull/218)
+    * refactoring testing different php versions and installing suggested tools [#220](https://github.com/EdgedesignCZ/phpqa/pull/220)
+    * _phpcpd_ - support extensions configuration [#193](https://github.com/EdgedesignCZ/phpqa/pull/193), ~~[#192](https://github.com/EdgedesignCZ/phpqa/pull/192)~~, enable v6 [#206](https://github.com/EdgedesignCZ/phpqa/issues/211), [#209](https://github.com/EdgedesignCZ/phpqa/pull/209)
+    * _phpstan_ - fix supporting v0.12 [#194](https://github.com/EdgedesignCZ/phpqa/pull/194), require neon dependency [#196](https://github.com/EdgedesignCZ/phpqa/issues/196), [#197](https://github.com/EdgedesignCZ/phpqa/pull/197)
+    * _security-checker_ - replace the abandoned Sensiolabs security checker with the Enlightn security checker [#216](https://github.com/EdgedesignCZ/phpqa/issues/216), [#215](https://github.com/EdgedesignCZ/phpqa/pull/215), ~~[#214](https://github.com/EdgedesignCZ/phpqa/pull/214)~~
+    * _parallel-lint_ - don't use abandoned parallel-lint packages [#207](https://github.com/EdgedesignCZ/phpqa/pull/207)
+    * _psalm/phpstan_ - memory-limit for psalm and phpstan [#202](https://github.com/EdgedesignCZ/phpqa/issues/202)
+* **composer** 
+    * fix loading versions installed by composer 2.0 [#212](https://github.com/EdgedesignCZ/phpqa/pull/212), [#213](https://github.com/EdgedesignCZ/phpqa/pull/213)
+    * allow to define vendor and vendor-bin with environment variables [#198](https://github.com/EdgedesignCZ/phpqa/pull/198)
+    * enable symfony5 [#205](https://github.com/EdgedesignCZ/phpqa/issues/205), twig3 [#203](https://github.com/EdgedesignCZ/phpqa/issues/203), robo3 [#208](https://github.com/EdgedesignCZ/phpqa/pull/208)
+* _internal_
+    * migrate from travis to github actions, add php 7.4/8.0 [#195](https://github.com/EdgedesignCZ/phpqa/pull/195), [#217](https://github.com/EdgedesignCZ/phpqa/pull/217), [#219](https://github.com/EdgedesignCZ/phpqa/pull/219), [#221](https://github.com/EdgedesignCZ/phpqa/pull/221)
+    * build default and updated docker image [#222](https://github.com/EdgedesignCZ/phpqa/pull/222)    
+    * update docs _(docker helper, present copyright year)_ [#199](https://github.com/EdgedesignCZ/phpqa/issues/199), [#210](https://github.com/EdgedesignCZ/phpqa/issues/210), [#223](https://github.com/EdgedesignCZ/phpqa/pull/223)
+
 ## v1.23.3
 
 * [#191](https://github.com/EdgedesignCZ/phpqa/pull/191) upgrade phpmd, restrict min Robo version _([#189](https://github.com/EdgedesignCZ/phpqa/issues/189), [#190](https://github.com/EdgedesignCZ/phpqa/issues/190))_
