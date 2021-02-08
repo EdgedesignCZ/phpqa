@@ -32,6 +32,7 @@ copy_artifacts() {
     cp -R build/*.xml $repository/report
     cp -R build/*.neon $repository/report
     cp -R build/*.txt $repository/report
+    cp -R build/phpmetrics $repository/report/
 }
 
 copy_changelog() {
