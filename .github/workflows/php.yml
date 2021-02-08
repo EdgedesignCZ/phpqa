@@ -77,12 +77,3 @@ jobs:
       with:
         name: phpqa-${{ matrix.php }}
         path: build
-
-# DEPRECATED TRAVIS
-#deploy:
-#  - provider: script
-#    script: .docker/build-image
-#    skip_cleanup: false
-#    on:
-#      all_branches: true
-#      php: 7.2

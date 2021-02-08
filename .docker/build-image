@@ -1,17 +1,30 @@
 #!/usr/bin/env bash
+#
+# CI_GIT_REF=<refs/heads/feature-branch|refs/tags/v...> CI_COMMIT_SHA=$(git rev-parse --short HEAD) .docker/build-image
 
 APP_DIR="./"
 DOCKER_REPO="zdenekdrahos/phpqa"
 DOCKER_FILE=".docker/Dockerfile"
 DOCKER_TAG=""
+GIT_VERSION=""
+GIT_TAG=""
 
 run () {
+    analyze_git_ref
     load_docker_variables
     build_docker_image
 }
 
+analyze_git_ref () {
+    GIT_TAG=""
+    if [[ "${CI_GIT_REF:0:10}" = "refs/tags/" ]]; then
+        GIT_TAG=${CI_GIT_REF:10}
+    fi
+    GIT_VERSION="${GIT_TAG:-${CI_COMMIT_SHA:0:7}}"
+}
+
 load_docker_variables () {
-    DOCKER_TAG="$DOCKER_REPO:${TRAVIS_TAG:-${TRAVIS_COMMIT:0:7}}"
+    DOCKER_TAG="$DOCKER_REPO:$GIT_VERSION"
 
     echo "Dockefile: $DOCKER_FILE"
     echo "Build context: $APP_DIR"
@@ -22,9 +35,9 @@ load_docker_variables () {
 build_docker_image () {
     set -e
     time docker build --file $DOCKER_FILE --tag $DOCKER_TAG $APP_DIR
-    docker run --rm -it $DOCKER_TAG phpqa tools
+    docker run --rm -t $DOCKER_TAG phpqa tools
 
-    if [ -z "$TRAVIS_TAG" ]; then
+    if [ -z "$GIT_TAG" ]; then
         echo "Docker image is published only if the current build is for a git tag"
         exit 0
     fi

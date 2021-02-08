@@ -1,0 +1,22 @@
+name: PHPQA Docker
+
+on:
+  # TODO: master branch with tag
+  push:
+    branches:
+      - docker-2021
+
+jobs:
+  phpqa:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build docker
+      env:
+        CI_GIT_REF: ${{ github.ref }}
+        CI_COMMIT_SHA: ${{ github.sha }}
+        DOCKER_USER: ${{ secrets.DOCKER_USER }}
+        DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+      run: |
+        .docker/build-image
