@@ -123,19 +123,32 @@ qa/phpqa
 
 ### Docker
 
-Official docker image is https://hub.docker.com/r/zdenekdrahos/phpqa/.
-The image can be used at [Gitlab CI](#gitlabci---docker-installation--composer-cache--artifacts).
-Beware that the image is as lean as possible. That can be a problem for running PHPUnit tests.
-In that case, you might miss PHP extensions for database etc (_you can [install phpqa](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/get-phpqa-binary#L40) in another [php image](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/.gitlab-ci.yml#L28)_). 
+Official docker image repository is https://hub.docker.com/r/zdenekdrahos/phpqa/.
+Images can be used at [Gitlab CI](#gitlabci---docker-installation--composer-cache--artifacts).
 
 ```bash
-docker run --rm -it zdenekdrahos/phpqa:v1.23.3 phpqa tools
+docker run --rm -it zdenekdrahos/phpqa:v1.24.0-php7.2 phpqa tools
 # using a tool without phpqa
-docker run --rm -it zdenekdrahos/phpqa:v1.23.3 phploc -v
+docker run --rm -it zdenekdrahos/phpqa:v1.24.0-php7.2 phploc -v
+```
+
+| Image | PHP version | Composer version | Tools versions | 
+| ----- | ----------- | ---------------- | ----- |
+| `zdenekdrahos/phpqa:v1.24.0-php7.2` | 7.2 | 1.8.0 | Versions that supports symfony2 components from default composer.lock. Not [latest versions](https://github.com/EdgedesignCZ/phpqa/issues/159#issuecomment-452794397). |
+| `zdenekdrahos/phpqa:v1.24.0-php7.4` | 7.4 | 2.0.7 | Generally, latest versions available at the moment. If you need different versions, then [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/210) |
+
+Beware that images as lean as possible. That can be a problem for running PHPUnit tests.
+In that case, you might need different PHP version, miss PHP extensions for database etc.
+You can [install phpqa](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/get-phpqa-binary#L40) in another [php image](https://gitlab.com/costlocker/integrations/blob/213aab7/.ci/.gitlab-ci.yml#L28)
+Or [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/168#issuecomment-489180974).
+
+```bash
+docker run --rm -it zdenekdrahos/phpqa:v1.24.0-php7.2 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
+docker run --rm -it zdenekdrahos/phpqa:v1.24.0-php7.4 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
 ```
 
 There are also available images [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/) and [sparkfabrik/docker-phpqa](https://hub.docker.com/r/sparkfabrik/docker-phpqa/).
-`phpqa` is used as [an entrypoint](https://docs.docker.com/engine/reference/builder/#entrypoint) (_I haven't been able to use these images at Gitlab CI_).
+`phpqa` is used as [an entrypoint](https://docs.docker.com/engine/reference/builder/#entrypoint) (_I haven't been able to use these images at Gitlab CI + [Windows probably needs different environment variable](https://github.com/EdgedesignCZ/phpqa/issues/199#issuecomment-590258608)_).
 
 ```bash
 docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoredDirs vendor,build,migrations,test
