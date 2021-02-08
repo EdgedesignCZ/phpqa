@@ -19,4 +19,5 @@ jobs:
         DOCKER_USER: ${{ secrets.DOCKER_USER }}
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
       run: |
-        .docker/build-image
+        PHP_VERSION=7.2 .docker/build-image
+        PHP_VERSION=7.4 .docker/build-image
