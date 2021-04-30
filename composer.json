@@ -19,7 +19,7 @@
     "require": {
         "php": ">=5.4",
         "ext-xsl": "*",
-        "consolidation/robo": "~0.5|~1|~2",
+        "consolidation/robo": "~0.5|>=1",
         "phpmd/phpmd" : "*",
         "phploc/phploc": "*",
         "symfony/dependency-injection": ">=2.8.50",
