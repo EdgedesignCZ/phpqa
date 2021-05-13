@@ -39,4 +39,21 @@ class GetVersionsTest extends \PHPUnit_Framework_TestCase
             'no version' => ['irrelevant text', 'irrelevant text'],
         ];
     }
+
+    /** @dataProvider provideComparedVersions */
+    public function testCompareVersions($toolVersion, $operator, $version, $expectedResult)
+    {
+        assertThat(GetVersions::compareVersions($toolVersion, $operator, $version), is($expectedResult));
+    }
+
+    public function provideComparedVersions()
+    {
+        return [
+            'no version' => ['', '>', '1', false],
+            'is lower?' => ['7', '<', '6', false],
+            'is greater than dev version' => ['4', '>=', '4.x', true],
+            'semver is greater than' => ['4.1', '>=', '4', true],
+            'dev version is greater than' => ['4.x', '>=', '4', false], // TODO: true
+        ];
+    }
 }

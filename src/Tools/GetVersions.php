@@ -6,10 +6,11 @@ use Symfony\Component\Process\Process;
 
 class GetVersions
 {
-    public function getToolVersion(array $toolSettings)
+    public function hasToolVersion(array $toolSettings, $operator, $version)
     {
         $versions = $this->__invoke(['tool' => $toolSettings + ['customBinary' => null]]);
-        return  $versions['tool']['version_normalized'];
+        $toolVersion = $versions['tool']['version_normalized'];
+        return self::compareVersions($toolVersion, $operator, $version);
     }
 
     public function __invoke(array $tools)
@@ -165,5 +166,10 @@ class GetVersions
     public static function normalizeSemver($semver)
     {
         return preg_replace('/\.0$/s', '', $semver);
+    }
+
+    public static function compareVersions($toolVersion, $operator, $version)
+    {
+        return $toolVersion && version_compare($toolVersion, $version, $operator);
     }
 }

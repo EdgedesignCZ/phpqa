@@ -38,8 +38,7 @@ abstract class Tool
     protected function toolVersionIs($operator, $version)
     {
         $versions = new GetVersions();
-        $composerVersion = $versions->getToolVersion(static::$SETTINGS);
-        return $composerVersion && version_compare($composerVersion, $version, $operator);
+        return $versions->hasToolVersion(static::$SETTINGS, $operator, $version);
     }
 
     protected function writeln($text)
