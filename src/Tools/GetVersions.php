@@ -134,8 +134,7 @@ class GetVersions
     {
         $process = $this->createSymfonyProcess($command);
         $process->run();
-        $firstLine = $this->getFirstLine($process->getOutput());
-        return $this->extractVersion($firstLine);
+        return self::extractVersionFromConsole($process->getOutput());
     }
 
     private function createSymfonyProcess($command)
@@ -147,21 +146,20 @@ class GetVersions
         }
     }
 
-    private function getFirstLine($string)
+    public static function extractVersionFromConsole($text)
     {
-        return strtok($string, "\n");
-    }
-
-    private function extractVersion($text)
-    {
-        return str_replace(
-            array(
-                ' by Sebastian Bergmann and contributors.',
-                'PHPUnit '
-            ),
-            '',
-            $text
-        );
+        $regexes = [
+            'semver' => '(\d+\.\d+(\.\d+)?)',
+            'dev version' => '(\d+\.x)',
+        ];
+        foreach ($regexes as $regex) {
+            $match = [];
+            preg_match($regex, $text, $match);
+            if ($match) {
+                return self::normalizeSemver($match[0]);
+            }
+        }
+        return $text;
     }
 
     public static function normalizeSemver($semver)
