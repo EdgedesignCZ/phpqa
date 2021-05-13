@@ -8,7 +8,7 @@ phpqa:
     report: false
     execution: parallel
     output: file
-    tools: phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpcpd,phpstan,phpunit,psalm,security-checker,parallel-lint
+    tools: phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpcpd,phpstan,phpunit,psalm,security-checker,parallel-lint,deptrac
     # array definition and allowed errors count is supported too
     # tools: [phploc, phpcs:0]
     verbose: false
@@ -87,6 +87,9 @@ psalm:
     # no memory limit = using ini defaults (https://github.com/EdgedesignCZ/phpqa/issues/144
     memoryLimit: null
 
+deptrac:
+    depfile: null # depfile.yml (https://github.com/qossmic/deptrac#the-depfile)
+
 # paths are relative to .phpqa.yml, so don't copy-paste this section if you don't have custom templates
 report:
     phploc: app/report/phploc.xsl
@@ -130,3 +133,4 @@ tool:
     phpunit: Edge\QA\Tools\Analyzer\Phpunit
     psalm: Edge\QA\Tools\Analyzer\Psalm
     security-checker: Edge\QA\Tools\Analyzer\SecurityChecker
+    deptrac: Edge\QA\Tools\Analyzer\Deptrac

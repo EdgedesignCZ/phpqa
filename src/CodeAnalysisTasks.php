@@ -101,6 +101,7 @@ trait CodeAnalysisTasks
                 'psalm',
                 'security-checker',
                 'parallel-lint',
+                'deptrac',
             ],
             'analyzedDirs' => './',
             'buildDir' => 'build/',

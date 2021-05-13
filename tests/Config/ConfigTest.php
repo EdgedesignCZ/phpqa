@@ -5,7 +5,7 @@ namespace Edge\QA;
 /** @SuppressWarnings(PHPMD.TooManyPublicMethods) */
 class ConfigTest extends \PHPUnit_Framework_TestCase
 {
-    private $defaultToolsCount = 12;
+    private $defaultToolsCount = 13;
 
     public function testLoadDefaultConfig()
     {
@@ -36,6 +36,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpmetrics.composer'), is(nullValue()));
         assertThat($config->value('phpmetrics.git'), identicalTo(false));
         assertThat($config->value('pdepend.coverageReport'), is(nullValue()));
+        assertThat($config->value('deptrac.depfile'), is(nullValue()));
     }
 
     public function testBuildAbsolutePath()

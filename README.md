@@ -55,6 +55,7 @@ Tool | PHP | Supported since | Description |
 [phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it |
 [psalm](https://github.com/vimeo/psalm) | `>= 5.6` | `1.14` | A static analysis tool for finding errors in PHP applications |
 [parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files |
+[deptrac](https://github.com/qossmic/deptrac) | `>= 7.2` | `1.25` | Enforce rules for dependencies between software layers |
 [MacFJA/phpqa-extensions](https://github.com/MacFJA/phpqa-extensions) | - | - | PHP Assumptions, Magic Number Detector, ... |
 
 _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
@@ -193,6 +194,7 @@ php-cs-fixer | [php-cs-fixer.html](https://edgedesigncz.github.io/phpqa/report/p
 parallel-lint | [parallel-lint.html](https://edgedesigncz.github.io/phpqa/report/parallel-lint.html) | [✓](https://github.com/JakubOnderka/PHP-Parallel-Lint#example-output) |
 phpstan | [phpstan.html](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon) | [✓](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon "Generated configuration is saved in current working directory") |
 psalm | [psalm.html](https://edgedesigncz.github.io/phpqa/report/psalm.html), [psalm.xml](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-phpqa.xml](https://edgedesigncz.github.io/phpqa/report/psalm-phpqa.xml) | [✓](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-phpqa.xml](https://edgedesigncz.github.io/phpqa/report/psalm-phpqa.xml "Generated configuration is saved in current working directory") |
+deptrac | [deptrac.html](https://edgedesigncz.github.io/phpqa/report/deptrac.html) |
 
 ## Exit code
 
@@ -277,6 +279,7 @@ Tool | Settings | Default Value | Your value
 [psalm.threads](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Set the number of process to use in parallel (option `--threads` of psalm) (Only if `--execution == parallel` for phpqa) | `1` | Number (>= 1)
 [psalm.showInfo](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
 [psalm.memoryLimit](https://github.com/vimeo/psalm/issues/842) | Custom memory limit, ignore unless you are getting `Fatal error: Allowed memory size of ... bytes exhausted` | `null` | String value, e.g. `'1024M'`, `'1G'`
+[deptrac.depfile](https://github.com/vimeo/psalm/wiki/Configuration) | Complete [deptract config](https://github.com/qossmic/deptrac#getting-started) _(phpqa won't update source and excluded files)_ | `null` | Path to `depfile.yml` file
 
 ### Files
 

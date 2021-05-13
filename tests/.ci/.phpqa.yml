@@ -23,6 +23,7 @@ phpqa:
         - psalm
         - security-checker:0
         - parallel-lint:0
+        - deptrac
 
 phpcs:
     standard:
@@ -46,6 +47,9 @@ phpstan:
     # memoryLimit: 1G
     # https://github.com/phpstan/phpstan#configuration
     standard: phpstan.neon
+
+deptrac:
+    depfile: depfile.yaml
 
 phpunit:
     binary: ../../vendor/phpunit/phpunit/phpunit
