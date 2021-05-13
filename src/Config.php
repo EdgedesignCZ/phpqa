@@ -54,15 +54,11 @@ class Config
 
     public function getCustomBinary($tool)
     {
-        $binary = $this->path("{$tool}.binary");
-        if ($binary) {
-            $filename = basename($binary);
-            if (is_bool(strpos($filename, "{$tool}"))) {
-                throw new \RuntimeException("Invalid '{$tool}' binary ('{$tool}' not found in '{$binary}')");
-            }
-            return $binary;
+        try {
+            return $this->path("{$tool}.binary");
+        } catch (\RuntimeException $e) {
+            return null;
         }
-        return null;
     }
 
     public function value($path)

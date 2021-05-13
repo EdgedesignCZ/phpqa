@@ -101,20 +101,18 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         $config->loadUserConfig('');
     }
 
-    public function testThrowExceptionWhenBinaryDoesNotExist()
+    public function testIgnoreInvalidBinaryDoesNotExist()
     {
         $config = new Config();
         $config->loadUserConfig(__DIR__);
-        $this->shouldStopPhpqa();
-        $config->getCustomBinary('phpunit');
+        assertThat($config->getCustomBinary('phpunit'), is(nullValue()));
     }
 
-    public function testThrowExceptionWhenWrongBinaryIsUsed()
+    public function testToolAndBinaryNameMightNotMatch()
     {
         $config = new Config();
         $config->loadUserConfig(__DIR__);
-        $this->shouldStopPhpqa();
-        $config->getCustomBinary('phpmetrics');
+        assertThat($config->getCustomBinary('phpmetrics'), is(notNullValue()));
     }
 
     public function testMultipleConfig()
