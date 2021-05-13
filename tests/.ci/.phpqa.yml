@@ -54,3 +54,10 @@ phpunit:
         file:
             log: [junit]
             testdox: [html, text]
+
+# example for running phpmetrics:v1, if v2 is installed in composer
+# $ phpqa --config tests/.ci/ --tools phpmetricsV1,phpmetrics
+#phpmetricsV1:
+#    binary: /usr/local/bin/phpmetrics.phar
+#tool:
+#    phpmetricsV1: Edge\QA\Tools\Analyzer\PhpMetrics

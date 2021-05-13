@@ -278,6 +278,8 @@ Tool | Settings | Default Value | Your value
 [psalm.showInfo](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
 [psalm.memoryLimit](https://github.com/vimeo/psalm/issues/842) | Custom memory limit, ignore unless you are getting `Fatal error: Allowed memory size of ... bytes exhausted` | `null` | String value, e.g. `'1024M'`, `'1G'`
 
+### Files
+
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:
 
@@ -305,6 +307,36 @@ Also, path inside configuration file are relative to where the configuration fil
 so if you have a package that bundle a custom tool, the `.phpqa.yml` in the package can refers files within it.
 ```bash
 phpqa --config ~/phpqa/,my-config/,$(pwd)
+```
+
+### Custom binary
+
+Every tool can define custom binary. Use phar or global tool, if you have troubles with dependencies, e.g.:
+
+* can't install something because of symfony components or php version
+* phpstan does not work, if phpmetrics v1 is installed in composer _(`Hoa main file (Core.php) must be included once.`)_ -> use phar for phpmetrics
+
+Generally, composer installation is preferred because of detecting version.
+Phar works too, but it might be tricky. If a tool has composer package with phar
+_(e.g. [vimeo/phar](https://packagist.org/packages/psalm/phar))_, use it instead of custom binary:
+
+```yaml
+psalm:
+    binary: /usr/local/bin/psalm.phar
+```
+
+Possibilities are infinite. You can [define new tool](https://github.com/EdgedesignCZ/phpqa/blob/master/.phpqa.yml#L120)
+and run it. For example I like `exploring codebase` in phpmetrics v1 and composer info in v2.
+Install phpmetrics v2 in composer and use phar for v1 to avoid phpstan conflicts:
+
+```bash
+$ cat tests/.ci/.phpqa.yml
+phpmetricsV1:
+    binary: /usr/local/bin/phpmetrics.phar
+tool:
+    phpmetricsV1: Edge\QA\Tools\Analyzer\PhpMetrics
+
+$ phpqa --config tests/.ci/ --tools phpmetricsV1,phpmetrics
 ```
 
 ## HTML reports
@@ -478,6 +510,6 @@ Contributions from others would be very much appreciated! Send
 
 ## License
 
-Copyright (c) 2015, 2016, 2017, 2018 Edgedesign.cz. MIT Licensed,
+Copyright (c) 2015 - present Edgedesign.cz. MIT Licensed,
 see [LICENSE](/LICENSE) for details.
 
