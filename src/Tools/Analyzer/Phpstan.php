@@ -8,7 +8,6 @@ class Phpstan extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' => ' ',
-        'internalClass' => 'PHPStan\Analyser\Analyser',
         'outputMode' => OutputMode::XML_CONSOLE_OUTPUT,
         'xml' => ['phpstan.xml'],
         'errorsXPath' => '//checkstyle/file/error',

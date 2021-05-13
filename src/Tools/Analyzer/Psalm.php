@@ -12,7 +12,6 @@ class Psalm extends \Edge\QA\Tools\Tool
         'xml' => ['psalm.xml'],
         'errorsXPath' => '//item/severity[text()=\'error\']',
         'composer' => 'vimeo/psalm',
-        'internalClass' => 'Psalm\CodeLocation',
     );
 
     public function __invoke()

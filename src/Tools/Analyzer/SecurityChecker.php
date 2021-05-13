@@ -8,7 +8,6 @@ class SecurityChecker extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' => '=',
-        'internalClass' => 'Enlightn\SecurityChecker\AdvisoryAnalyzer',
         'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
         'composer' => 'enlightn/security-checker',
     );

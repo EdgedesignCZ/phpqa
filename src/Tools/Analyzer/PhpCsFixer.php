@@ -8,7 +8,6 @@ class PhpCsFixer extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' => ' ',
-        'internalClass' => 'PhpCsFixer\Config',
         'outputMode' => OutputMode::XML_CONSOLE_OUTPUT,
         'composer' => 'friendsofphp/php-cs-fixer',
         'xml' => ['php-cs-fixer.xml'],

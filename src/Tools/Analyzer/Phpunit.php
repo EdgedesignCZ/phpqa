@@ -8,7 +8,6 @@ class Phpunit extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' => '=',
-        'internalClass' => ['PHPUnit_Framework_TestCase', 'PHPUnit\Framework\TestCase'],
         'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
         'composer' => 'phpunit/phpunit',
     );
