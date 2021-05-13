@@ -2,10 +2,18 @@
 
 namespace Edge\QA;
 
-function pathToComposerBinary($tool)
+function buildToolBinary($tool, $customBinary = null)
 {
-    $binary = COMPOSER_BINARY_DIR . $tool;
-    return is_file($binary) ? $binary : null;
+    return buildSafeBinary($customBinary ?: (COMPOSER_BINARY_DIR . $tool));
+}
+
+function buildSafeBinary($unsafeBinary)
+{
+    if (!$unsafeBinary || !is_file($unsafeBinary)) {
+        return "";
+    } else {
+        return escapePath($unsafeBinary);
+    }
 }
 
 function escapePath($path)

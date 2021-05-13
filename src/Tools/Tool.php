@@ -41,7 +41,7 @@ abstract class Tool
         $customBinary = $this->config->getCustomBinary((string) $this->tool);
         $settings = static::$SETTINGS + [
             'hasCustomBinary' => (bool) $customBinary,
-            'runBinary' => $customBinary ?: \Edge\QA\pathToComposerBinary((string) $this->tool),
+            'runBinary' => \Edge\QA\buildToolBinary((string) $this->tool, $customBinary),
         ];
         return $versions->hasToolVersion($settings, $operator, $version);
     }

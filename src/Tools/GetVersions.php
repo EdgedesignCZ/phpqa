@@ -67,7 +67,6 @@ class GetVersions
         ));
 
         if ($binaries['hasCustomBinary']) {
-            $binary = \Edge\QA\escapePath($binaries['runBinary']);
             $versionCommand = "{$binaries['runBinary']} --version";
             $version = $this->loadVersionFromConsoleCommand($versionCommand);
             $composerInfo = [
@@ -76,8 +75,7 @@ class GetVersions
                 'authors' => [(object) ['name' => "<comment>{$versionCommand}</comment>"]],
             ];
         } elseif (!$composerPackages) {
-            $binary = \Edge\QA\escapePath($binaries['runBinary']);
-            $versionCommand = $tool == 'parallel-lint' ? $binary : "{$binary} --version";
+            $versionCommand = $tool == 'parallel-lint' ? $binaries['runBinary'] : "{$binaries['runBinary']} --version";
             $version = $this->loadVersionFromConsoleCommand($versionCommand);
             $composerInfo = [
                 'version' => $version,
