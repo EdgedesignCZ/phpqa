@@ -2,8 +2,6 @@
 
 namespace Edge\QA\Tools\Analyzer;
 
-use Edge\QA\Tools\GetVersions;
-
 class Phpcpd extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(

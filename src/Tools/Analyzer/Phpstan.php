@@ -3,7 +3,6 @@
 namespace Edge\QA\Tools\Analyzer;
 
 use Edge\QA\OutputMode;
-use Edge\QA\Tools\GetVersions;
 
 class Phpstan extends \Edge\QA\Tools\Tool
 {

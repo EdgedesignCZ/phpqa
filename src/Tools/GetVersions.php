@@ -114,7 +114,7 @@ class GetVersions
         if ($composerInfo['version_normalized'] == '9999999-dev') {
             return $composerInfo['version'];
         }
-        return preg_replace('/\.0$/s', '', $composerInfo['version_normalized']);
+        return self::normalizeSemver($composerInfo['version_normalized']);
     }
 
     private function groupAuthors(array $composerAuthors)
@@ -162,5 +162,10 @@ class GetVersions
             '',
             $text
         );
+    }
+
+    public static function normalizeSemver($semver)
+    {
+        return preg_replace('/\.0$/s', '', $semver);
     }
 }
