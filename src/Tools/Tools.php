@@ -30,9 +30,11 @@ class Tools
                     if (!is_subclass_of($handler, $abstractTool)) {
                         die("Invalid handler for {$tool}. {$handler} is not subclass of '{$abstractTool}'\n");
                     }
+                    $customBinary = $this->config->getCustomBinary($tool);
                     return [
                         'handler' => $handler,
-                        'customBinary' => $this->config->getCustomBinary($tool),
+                        'hasCustomBinary' => (bool) $customBinary,
+                        'runBinary' => $customBinary ?: \Edge\QA\pathToComposerBinary($tool),
                     ] + $handler::$SETTINGS;
                 },
                 (array) $handler
@@ -72,11 +74,7 @@ class Tools
 
     public function buildCommand(RunningTool $tool, Options $o)
     {
-        $customBinary = $this->tools[(string) $tool]['customBinary'];
-        $binary = $customBinary
-            ? \Edge\QA\escapePath($customBinary)
-            : \Edge\QA\escapedPathToComposerBinary((string) $tool);
-
+        $binary = \Edge\QA\escapePath($this->tools[(string) $tool]['runBinary']);
         $handlerClass = $this->tools[(string) $tool]['handler'];
         $handler = new $handlerClass($this->config, $o, $tool, $this->presenter);
         $args = $handler($tool);

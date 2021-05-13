@@ -90,7 +90,8 @@ class Options
                     'xml' => array_key_exists('xml', $config) ? array_map([$this, 'rawFile'], $config['xml']) : []
                 ];
                 $runningTool = new RunningTool($tool, $preload + $config);
-                $runningTool->isExecutable = $runningTool->isInstalled() || isset($config['customBinary']);
+                $runningTool->isExecutable =
+                    $config['runBinary'] && ($config['hasCustomBinary'] || $runningTool->isInstalled());
                 $allowed[$tool] = $runningTool;
             }
         }

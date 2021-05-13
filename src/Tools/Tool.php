@@ -38,8 +38,10 @@ abstract class Tool
     protected function toolVersionIs($operator, $version)
     {
         $versions = new GetVersions();
+        $customBinary = $this->config->getCustomBinary((string) $this->tool);
         $settings = static::$SETTINGS + [
-            'customBinary' => $this->config->getCustomBinary((string) $this->tool),
+            'hasCustomBinary' => (bool) $customBinary,
+            'runBinary' => $customBinary ?: \Edge\QA\pathToComposerBinary((string) $this->tool),
         ];
         return $versions->hasToolVersion($settings, $operator, $version);
     }

@@ -23,13 +23,15 @@ class GetVersions
             ]
         ] + $this->findComposerPackages();
         $versions = [];
-        $versions['phpqa'] = $this->analyzeTool('phpqa', ['edgedesign/phpqa'], $composer);
+        $versions['phpqa'] = $this->analyzeTool('phpqa', ['edgedesign/phpqa'], $composer, [
+            'hasCustomBinary' => false,
+        ]);
         foreach ($tools as $tool => $config) {
             $packages = array_merge(
                 [$config['composer']],
                 array_key_exists('internalDependencies', $config) ? array_keys($config['internalDependencies']) : []
             );
-            $versions[$tool] = $this->analyzeTool($tool, $packages, $composer, $config['customBinary']);
+            $versions[$tool] = $this->analyzeTool($tool, $packages, $composer, $config);
         }
         return $versions;
     }
@@ -55,7 +57,7 @@ class GetVersions
         return $tools;
     }
 
-    private function analyzeTool($tool, array $requiredPackages, array $composerPackages, $customBinary = null)
+    private function analyzeTool($tool, array $requiredPackages, array $composerPackages, array $binaries)
     {
         $notInstalledPackages = implode(' ', array_filter(
             $requiredPackages,
@@ -64,9 +66,9 @@ class GetVersions
             }
         ));
 
-        if ($customBinary) {
-            $binary = \Edge\QA\escapePath($customBinary);
-            $versionCommand = "{$customBinary} --version";
+        if ($binaries['hasCustomBinary']) {
+            $binary = \Edge\QA\escapePath($binaries['runBinary']);
+            $versionCommand = "{$binaries['runBinary']} --version";
             $version = $this->loadVersionFromConsoleCommand($versionCommand);
             $composerInfo = [
                 'version' => $version,
@@ -74,7 +76,7 @@ class GetVersions
                 'authors' => [(object) ['name' => "<comment>{$versionCommand}</comment>"]],
             ];
         } elseif (!$composerPackages) {
-            $binary = \Edge\QA\escapedPathToComposerBinary($tool);
+            $binary = \Edge\QA\escapePath($binaries['runBinary']);
             $versionCommand = $tool == 'parallel-lint' ? $binary : "{$binary} --version";
             $version = $this->loadVersionFromConsoleCommand($versionCommand);
             $composerInfo = [

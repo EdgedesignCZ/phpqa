@@ -154,6 +154,12 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
 
     private function buildRunningTools(Options $o, array $tools)
     {
+        foreach (array_keys($tools) as $tool) {
+            $tools[$tool] += [
+                'hasCustomBinary' => false,
+                'runBinary' => 'irrelevant',
+            ];
+        }
         return $o->buildRunningTools($tools);
     }
 }
