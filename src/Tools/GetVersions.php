@@ -135,7 +135,12 @@ class GetVersions
     {
         $process = $this->createSymfonyProcess($command);
         $process->run();
-        return self::extractVersionFromConsole($process->getOutput());
+        if ($process->getOutput()) {
+            return self::extractVersionFromConsole($process->getOutput());
+        } elseif ($process->getErrorOutput()) {
+            return trim($process->getErrorOutput());
+        }
+        return "{$process->getExitCode()} {$process->getExitCodeText()}";
     }
 
     private function createSymfonyProcess($command)
