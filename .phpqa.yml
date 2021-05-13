@@ -120,7 +120,7 @@ report:
 tool:
     phpmetrics: [Edge\QA\Tools\Analyzer\PhpMetrics, Edge\QA\Tools\Analyzer\PhpMetricsV2]
     phploc: Edge\QA\Tools\Analyzer\Phploc
-    phpcs: [Edge\QA\Tools\Analyzer\Phpcs, Edge\QA\Tools\Analyzer\PhpcsV3]
+    phpcs: Edge\QA\Tools\Analyzer\Phpcs
     php-cs-fixer: Edge\QA\Tools\Analyzer\PhpCsFixer
     phpmd: Edge\QA\Tools\Analyzer\Phpmd
     pdepend: Edge\QA\Tools\Analyzer\Pdepend

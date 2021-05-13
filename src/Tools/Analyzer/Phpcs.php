@@ -13,7 +13,6 @@ class Phpcs extends \Edge\QA\Tools\Tool
             true => '//checkstyle/file/error[@severity="error"]',
         ],
         'composer' => 'squizlabs/php_codesniffer',
-        'internalClass' => 'PHP_CodeSniffer',
     );
 
     public function __invoke()

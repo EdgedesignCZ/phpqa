@@ -20,13 +20,7 @@
             <directory name="src/Tools/Analyzer" />
             <directory name="src/Task" />
           </errorLevel> 
-        </UnusedClass> 
-        <UndefinedClass>
-          <errorLevel type="info">
-            <file name="src/Tools/Analyzer/Phpcs.php" />
-            <file name="src/Tools/Analyzer/PhpcsV3.php" />
-          </errorLevel>
-        </UndefinedClass>
+        </UnusedClass>
         <PossiblyUnusedMethod>
           <errorLevel type="info">
             <file name="src/CodeAnalysisTasks.php" />
@@ -43,11 +37,6 @@
             <file name="src/Task/ParallelExec.php" />
           </errorLevel>
         </InvalidReturnType>
-        <UnresolvableInclude>
-          <errorLevel type="info">
-            <file name="src/Tools/Analyzer/PhpcsV3.php" />
-          </errorLevel>
-        </UnresolvableInclude>
         <DeprecatedMethod errorLevel="info" /> 
 
         <!-- Ignored rules -->
