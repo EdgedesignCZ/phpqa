@@ -53,7 +53,7 @@ class GetVersionsTest extends \PHPUnit_Framework_TestCase
             'is lower?' => ['7', '<', '6', false],
             'is greater than dev version' => ['4', '>=', '4.x', true],
             'semver is greater than' => ['4.1', '>=', '4', true],
-            'dev version is greater than' => ['4.x', '>=', '4', false], // TODO: true
+            'dev version is greater than' => ['4.x', '>=', '4', true],
         ];
     }
 }

@@ -8,7 +8,7 @@ class GetVersions
 {
     public function hasToolVersion(array $toolSettings, $operator, $version)
     {
-        $versions = $this->__invoke(['tool' => $toolSettings + ['customBinary' => null]]);
+        $versions = $this->__invoke(['tool' => $toolSettings]);
         $toolVersion = $versions['tool']['version_normalized'];
         return self::compareVersions($toolVersion, $operator, $version);
     }
@@ -170,6 +170,6 @@ class GetVersions
 
     public static function compareVersions($toolVersion, $operator, $version)
     {
-        return $toolVersion && version_compare($toolVersion, $version, $operator);
+        return $toolVersion && version_compare(str_replace(".x", "", $toolVersion), $version, $operator);
     }
 }

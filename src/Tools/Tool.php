@@ -38,7 +38,10 @@ abstract class Tool
     protected function toolVersionIs($operator, $version)
     {
         $versions = new GetVersions();
-        return $versions->hasToolVersion(static::$SETTINGS, $operator, $version);
+        $settings = static::$SETTINGS + [
+            'customBinary' => $this->config->getCustomBinary((string) $this->tool),
+        ];
+        return $versions->hasToolVersion($settings, $operator, $version);
     }
 
     protected function writeln($text)
