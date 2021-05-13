@@ -72,7 +72,10 @@ class Tools
 
     public function buildCommand(RunningTool $tool, Options $o)
     {
-        $binary = $this->tools[(string) $tool]['customBinary'] ?: \Edge\QA\pathToBinary((string) $tool);
+        $customBinary = $this->tools[(string) $tool]['customBinary'];
+        $binary = $customBinary
+            ? \Edge\QA\escapePath($customBinary)
+            : \Edge\QA\escapedPathToComposerBinary((string) $tool);
 
         $handlerClass = $this->tools[(string) $tool]['handler'];
         $handler = new $handlerClass($this->config, $o, $tool, $this->presenter);

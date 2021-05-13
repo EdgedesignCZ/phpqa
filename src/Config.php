@@ -60,7 +60,7 @@ class Config
             if (is_bool(strpos($filename, "{$tool}"))) {
                 throw new \RuntimeException("Invalid '{$tool}' binary ('{$tool}' not found in '{$binary}')");
             }
-            return escapePath($binary);
+            return $binary;
         }
         return null;
     }

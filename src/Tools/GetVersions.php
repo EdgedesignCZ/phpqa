@@ -57,7 +57,6 @@ class GetVersions
 
     private function analyzeTool($tool, array $requiredPackages, array $composerPackages, $customBinary = null)
     {
-        $toolPackage = reset($requiredPackages);
         $notInstalledPackages = implode(' ', array_filter(
             $requiredPackages,
             function ($package) use ($composerPackages) {
@@ -66,6 +65,7 @@ class GetVersions
         ));
 
         if ($customBinary) {
+            $binary = \Edge\QA\escapePath($customBinary);
             $versionCommand = "{$customBinary} --version";
             $version = $this->loadVersionFromConsoleCommand($versionCommand);
             $composerInfo = [
@@ -74,7 +74,7 @@ class GetVersions
                 'authors' => [(object) ['name' => "<comment>{$versionCommand}</comment>"]],
             ];
         } elseif (!$composerPackages) {
-            $binary = \Edge\QA\pathToBinary($tool);
+            $binary = \Edge\QA\escapedPathToComposerBinary($tool);
             $versionCommand = $tool == 'parallel-lint' ? $binary : "{$binary} --version";
             $version = $this->loadVersionFromConsoleCommand($versionCommand);
             $composerInfo = [
