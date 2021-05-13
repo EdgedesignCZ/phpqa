@@ -11,8 +11,10 @@ function buildSafeBinary($unsafeBinary)
 {
     if (!$unsafeBinary || !is_file($unsafeBinary)) {
         return "";
-    } else {
+    } elseif (is_executable($unsafeBinary)) {
         return escapePath($unsafeBinary);
+    } else {
+        return 'php ' . escapePath($unsafeBinary);
     }
 }
 
