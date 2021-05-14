@@ -75,7 +75,6 @@
                                     <td><xsl:value-of select="$group"/></td>
                                     <td><xsl:value-of select="count(key('error-category', $group))" /></td>
                                     <td><xsl:value-of select="count(key('file-category', $group))" /></td>
-                                    <td></td>
                                 </tr>
                             </xsl:for-each>
                             <tfoot>
@@ -201,7 +200,7 @@
                             <xsl:for-each select="/pmd/error">
                                 <tr>
                                     <td><strong data-file=""><xsl:value-of select="@filename" /></strong></td>
-                                    <td><xsl:value-of select="@msg" /></td>
+                                    <td><span data-file=""><xsl:value-of select="@msg" /></span></td>
                                 </tr>
                             </xsl:for-each>
                         </table>
