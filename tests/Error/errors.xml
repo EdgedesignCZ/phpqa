@@ -2,5 +2,6 @@
 <errors version="2.6.0">
     <error severity="error">first</error>
     <error severity="warning">second</error>
+    <warning>third</warning>
 </errors>
 

@@ -45,6 +45,7 @@ php-cs-fixer:
 phpmd:
     # alternatively you can use an array to define multiple rule sets (https://phpmd.org/documentation/index.html#using-multiple-rule-sets)
     standard: app/phpmd.xml
+    ignoreParsingErrors: true
 
 pdepend:
     # coverageReport: build/coverage-clover.xml

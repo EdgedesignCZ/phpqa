@@ -83,24 +83,23 @@ class RunningTool
 
     public function analyzeResult($hasNoOutput = false)
     {
-        $xpath = $this->errorsXPath[$this->errorsType];
+        $xpaths = $this->errorsXPath[$this->errorsType];
 
         if ($hasNoOutput ||
             $this->hasOutput(OutputMode::RAW_CONSOLE_OUTPUT) ||
             $this->hasOutput(OutputMode::CUSTOM_OUTPUT_AND_EXIT_CODE)
         ) {
             return $this->evaluteErrorsCount($this->process->getExitCode() ? 1 : 0);
-        } elseif (!$xpath) {
+        } elseif (!$xpaths) {
             return [true, ''];
         } elseif (!file_exists($this->getMainXml())) {
             return [$this->areErrorsIgnored(), "XML [{$this->getMainXml()}] not found"];
         }
 
-        list($isInvalidXml, $xpathOrError) = xmlXpath($this->getMainXml(), $xpath);
-        if ($isInvalidXml) {
-            return [$this->areErrorsIgnored(), $xpathOrError];
+        list($errorsCount, $xmlError) = xmlXpaths($this->getMainXml(), (array) $xpaths);
+        if ($xmlError) {
+            return [$this->areErrorsIgnored(), $xmlError];
         }
-        $errorsCount = count($xpathOrError);
         return $this->evaluteErrorsCount($errorsCount);
     }
 

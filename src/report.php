@@ -51,14 +51,18 @@ function xmlToHtml(array $xmlDocuments, $style, $outputFile, array $params = [])
     }
 }
 
-function xmlXpath($xmlFile, $xpathQuery)
+function xmlXpaths($xmlFile, array $xpathQueries)
 {
     convertPhpErrorsToExceptions();
+    $matchedElements = 0;
     try {
         $xml = simplexml_load_file($xmlFile);
-        return [false, $xml->xpath($xpathQuery)];
+        foreach ($xpathQueries as $xpathQuery) {
+            $matchedElements += count($xml->xpath($xpathQuery));
+        }
+        return [$matchedElements, ''];
     } catch (Exception $e) {
-        return [true, $e->getMessage()];
+        return [0, $e->getMessage()];
     }
 }
 

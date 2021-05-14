@@ -26,6 +26,9 @@ phpqa:
         - parallel-lint:0
         - deptrac
 
+phpmd:
+    ignoreParsingErrors: false
+
 phpcs:
     standard:
         - PSR2

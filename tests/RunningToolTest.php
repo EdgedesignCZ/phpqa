@@ -2,6 +2,7 @@
 
 namespace Edge\QA;
 
+/** @SuppressWarnings(PHPMD.TooManyPublicMethods) */
 class RunningToolTest extends \PHPUnit_Framework_TestCase
 {
     private $errorsCountInXmlFile = 2;
@@ -73,6 +74,27 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
         ]);
         $tool->errorsType = true;
         assertThat($tool->analyzeResult(), is([false, 1]));
+    }
+
+    /** @dataProvider provideMultipleXpaths */
+    public function testMultipleXpaths(array $xpaths, array $expectedResult)
+    {
+        $tool = new RunningTool('tool', [
+            'xml' => ['tests/Error/errors.xml'],
+            'errorsXPath' => [
+                null => $xpaths,
+            ],
+            'allowedErrorsCount' => 3,
+        ]);
+        assertThat($tool->analyzeResult(), is($expectedResult));
+    }
+
+    public function provideMultipleXpaths()
+    {
+        return [
+            'multiple elements' => [['//errors/error', '//errors/warning'], [true, 2 + 1]],
+            'invalid xpath' => [[null], [false, 'SimpleXMLElement::xpath(): Invalid expression']],
+        ];
     }
 
     /** @dataProvider provideProcess */

@@ -22,6 +22,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->path('php-cs-fixer.config'), is(nullValue()));
         assertThat($config->path('phpmetrics.config'), is(nullValue()));
         assertThat($config->path('phpmd.standard'), is(nonEmptyString()));
+        assertThat($config->value('phpmd.ignoreParsingErrors'), is(true));
         assertThat($config->value('phpstan.level'), identicalTo(0));
         assertThat($config->value('phpstan.memoryLimit'), is(nullValue()));
         assertThat($config->value('phpunit.config'), is(nullValue()));
