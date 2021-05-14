@@ -43,7 +43,7 @@ psalm:
     deadCode: true
 
 phpstan:
-    level: 7
+    level: 5 # last level without type hints
     # memoryLimit: 1G
     # https://github.com/phpstan/phpstan#configuration
     standard: phpstan.neon

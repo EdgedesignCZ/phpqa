@@ -1,17 +1,28 @@
-# Required config for analyzing root directory (RobotLoader. throws Nette\InvalidStateException: Ambiguous class)
-#   phpqa --report --output cli --tools phpstan --analyzedDirs ./ --ignoredDirs=vendor
-
-parameters: 
-    bootstrap: %currentWorkingDirectory%/vendor/autoload.php
-    autoload_directories: 
-        - %currentWorkingDirectory%/tests 
-    autoload_files:
-        - %currentWorkingDirectory%/RoboFile.php
+parameters:
+    reportUnmatchedIgnoredErrors: false
     # exclude robo v0/v1 compatibility classes - it's not possible to analyze them with phsptan (only one robo version is installed)
     excludes_analyse:
+        - %currentWorkingDirectory%/src/Task/ParallelExec.php
         - %currentWorkingDirectory%/src/Task/NonParallelExecV0.php
         - %currentWorkingDirectory%/src/Task/NonParallelExecV1.php
         - %currentWorkingDirectory%/src/Task/RoboAdapter.php
     ignoreErrors:
-        - '#Call to an undefined method Prophecy\\Prophecy\\ObjectProphecy::[a-zA-Z0-9_]+\(\)#'
-        - '#Constant [A-Z_]+ not found#'
+        # constants from phpqa
+        - message: '#Constant COMPOSER_(.+) not found.#'
+          path: %currentWorkingDirectory%/src
+        - message: '#Constant PHPQA_(.+) not found.#'
+          path: %currentWorkingDirectory%/src
+        # phpqa specifics (multiple versions, compatibility classes, dynamic tools, ...)
+        - message: '#Call to an undefined static method#'
+          path: %currentWorkingDirectory%/src/Tools/GetVersions.php
+        - message: '#class Twig#'
+          path: %currentWorkingDirectory%/src/report.php
+        # multiple phpunit versions + hamcrest + prophecy
+        - message: '#Call to an undefined method(.+)Exception#'
+          path: %currentWorkingDirectory%/tests/Config/ConfigTest.php
+        - message: '#Function assertThat invoked with 2 parameters, 0 required.#'
+          path: %currentWorkingDirectory%/tests
+        - message: '#Function allOf invoked with (.+) parameters, 0 required.#'
+          path: %currentWorkingDirectory%/tests
+        - message: '#Call to an undefined method Prophecy#'
+          path: %currentWorkingDirectory%/tests

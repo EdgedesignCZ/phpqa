@@ -16,6 +16,8 @@ abstract class Tool
     protected $tool;
     /** @var \Closure */
     private $presenter;
+    /** @var array */
+    public static $SETTINGS = array();
 
     public function __construct(Config $c, Options $o, RunningTool $t, $presenter)
     {

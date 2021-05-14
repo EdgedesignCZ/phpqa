@@ -24,7 +24,9 @@ class IgnoredPaths
 
     private function csvToArray($csv)
     {
-        return array_filter(explode(',', $csv), 'trim');
+        return array_filter(explode(',', $csv), function ($value) {
+            return (bool) trim($value);
+        });
     }
 
     public function phpcs()
