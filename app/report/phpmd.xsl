@@ -25,6 +25,9 @@
                     .priority-3 {background: #f0ad4e;}
                     .priority-4 {background: #5bc0de;}
                     .priority-5 {background: #5bc0de;}
+                    .alert {
+                        margin: 1em 0;
+                    }
                 </style>
                 <script>
                 var onDocumentReady = [
@@ -60,6 +63,12 @@
                 <div class="tab-content">
 
                     <div role="tabpanel" class="tab-pane active" id="overview">
+                        <xsl:if test="count(/pmd/error) > 0">
+                            <div class="alert alert-danger">
+                                <strong>Errors are not analyzed in <xsl:value-of select="count(/pmd/error)" /> file(s)!</strong>
+                                PHPMD cannot parse the file(s). Check <a href="#parsing" data-toggle="tab">Parsing Errors</a>
+                            </div>
+                        </xsl:if>
                         <table class="table table-striped">
                             <thead>
                                 <tr>
