@@ -55,6 +55,7 @@ Tool | PHP | Supported since | Description |
 [phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it |
 [psalm](https://github.com/vimeo/psalm) | `>= 5.6` | `1.14` | A static analysis tool for finding errors in PHP applications |
 [parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files |
+[deptrac](https://github.com/qossmic/deptrac) | `>= 7.2` | `1.25` | Enforce rules for dependencies between software layers |
 [MacFJA/phpqa-extensions](https://github.com/MacFJA/phpqa-extensions) | - | - | PHP Assumptions, Magic Number Detector, ... |
 
 _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
@@ -127,15 +128,15 @@ Official docker image repository is https://hub.docker.com/r/zdenekdrahos/phpqa/
 Images can be used at [Gitlab CI](#gitlabci---docker-installation--composer-cache--artifacts).
 
 ```bash
-docker run --rm -it zdenekdrahos/phpqa:v1.24.0-php7.2 phpqa tools
+docker run --rm -it zdenekdrahos/phpqa:v1.25.0-php7.2 phpqa tools
 # using a tool without phpqa
-docker run --rm -it zdenekdrahos/phpqa:v1.24.0-php7.2 phploc -v
+docker run --rm -it zdenekdrahos/phpqa:v1.25.0-php7.2 phploc -v
 ```
 
 | Image | PHP version | Composer version | Tools versions | 
 | ----- | ----------- | ---------------- | ----- |
-| `zdenekdrahos/phpqa:v1.24.0-php7.2` | 7.2 | 1.8.0 | Versions that supports symfony2 components from default composer.lock. Not [latest versions](https://github.com/EdgedesignCZ/phpqa/issues/159#issuecomment-452794397). |
-| `zdenekdrahos/phpqa:v1.24.0-php7.4` | 7.4 | 2.0.7 | Generally, latest versions available at the moment. If you need different versions, then [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/210) |
+| `zdenekdrahos/phpqa:v1.25.0-php7.2` | 7.2 | 1.8.0 | Versions that supports symfony2 components from default composer.lock. Not [latest versions](https://github.com/EdgedesignCZ/phpqa/issues/159#issuecomment-452794397). |
+| `zdenekdrahos/phpqa:v1.25.0-php7.4` | 7.4 | 2.0.7 | Generally, latest versions available at the moment. If you need different versions, then [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/210) |
 
 Beware that images as lean as possible. That can be a problem for running PHPUnit tests.
 In that case, you might need different PHP version, miss PHP extensions for database etc.
@@ -143,8 +144,8 @@ You can [install phpqa](https://gitlab.com/costlocker/integrations/blob/213aab7/
 Or [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/168#issuecomment-489180974).
 
 ```bash
-docker run --rm -it zdenekdrahos/phpqa:v1.24.0-php7.2 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
-docker run --rm -it zdenekdrahos/phpqa:v1.24.0-php7.4 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
+docker run --rm -it zdenekdrahos/phpqa:v1.25.0-php7.2 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
+docker run --rm -it zdenekdrahos/phpqa:v1.25.0-php7.4 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
 ```
 
 There are also available images [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/) and [sparkfabrik/docker-phpqa](https://hub.docker.com/r/sparkfabrik/docker-phpqa/).
@@ -193,6 +194,7 @@ php-cs-fixer | [php-cs-fixer.html](https://edgedesigncz.github.io/phpqa/report/p
 parallel-lint | [parallel-lint.html](https://edgedesigncz.github.io/phpqa/report/parallel-lint.html) | [✓](https://github.com/JakubOnderka/PHP-Parallel-Lint#example-output) |
 phpstan | [phpstan.html](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon) | [✓](https://edgedesigncz.github.io/phpqa/report/phpstan.html), [phpstan-phpqa.neon](https://edgedesigncz.github.io/phpqa/report/phpstan-phpqa.neon "Generated configuration is saved in current working directory") |
 psalm | [psalm.html](https://edgedesigncz.github.io/phpqa/report/psalm.html), [psalm.xml](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-phpqa.xml](https://edgedesigncz.github.io/phpqa/report/psalm-phpqa.xml) | [✓](https://edgedesigncz.github.io/phpqa/report/psalm.xml), [psalm-phpqa.xml](https://edgedesigncz.github.io/phpqa/report/psalm-phpqa.xml "Generated configuration is saved in current working directory") |
+deptrac | [deptrac.html](https://edgedesigncz.github.io/phpqa/report/deptrac.html) | ✗ |
 
 ## Exit code
 
@@ -214,7 +216,7 @@ phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,parallel-lint:0,phpstan:0,phpmet
 
 Number of allowed errors can be also defined in [.phpqa.yml](#advanced-configuration---phpqayml).
 
-```yaml
+```ruby
 phpqa:
     # can be overriden by CLI: phpqa --tools phpcs:1
     tools:
@@ -249,34 +251,7 @@ Provide [CLI options](#analyze) from [`.phpqa.yml`](/.phpqa.yml):
 | `phpqa --output cli	` | `phpqa.output: cli` |
 | `phpqa --verbose` | `phpqa.verbose: true` |
 
-Override tools' settings with [`.phpqa.yml`](/.phpqa.yml):
-
-Tool | Settings | Default Value | Your value
----- | -------- | ------------- | ----------- |
-[phpqa.extensions](https://github.com/EdgedesignCZ/phpqa/blob/master/.phpqa.yml#L49) | PHP File extensions | php | Name of php file to parse, you can specify it like a string `php,inc,modules` or like a yaml array.
-[phpcs.standard](https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard) | Coding standard | PSR2 | Name of existing standard (`PEAR`, `PHPCS`, `PSR1`, `PSR2`, `Squiz`,  `Zend`), or path to your coding standard. To specify [multiple standards](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage#specifying-a-coding-standard), you can use an array
-[phpcs.ignoreWarnings](https://github.com/EdgedesignCZ/phpqa/issues/53) | If number of allowed errors is compared with warnings+errors, or just errors from `checkstyle.xml` | `false` | Boolean value
-[phpcs.reports](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) | Report types | [`full`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) report in [cli mode](#output-modes), [`checkstyle`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-a-checkstyle-report) in [file mode](#output-modes) | Predefined [report types](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) or [custom reports](https://github.com/wikidi/codesniffer#examples)
-[php-cs-fixer.rules](http://cs.sensiolabs.org/#usage) | Coding standard rules | `@PSR2` | String value
-[php-cs-fixer.allowRiskyRules](http://cs.sensiolabs.org/#usage) | Whether risky rules may run  | `false` | Boolean value
-[php-cs-fixer.config](http://cs.sensiolabs.org/#usage) | Load configuration from [file](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/.php_cs.dist) | `null` | Path to `.phpcs` file
-[php-cs-fixer.isDryRun](http://cs.sensiolabs.org/#usage) | If code is just analyzed or fixers are applied  | `true` | Boolean value
-[phpmetrics.config](https://github.com/EdgedesignCZ/phpqa/issues/74) | Configuration for phpmetrics v1  | `null` | Path to `.phpmetrics.yml` file
-[phpmetrics.git](https://github.com/EdgedesignCZ/phpqa/pull/122) | phpmetrics v2 analyses based on Git History   | `null` | Boolean value or path to git binary
-[phpmetrics.junit](https://github.com/EdgedesignCZ/phpqa/pull/125) | phpmetrics v2 evaluates metrics according to JUnit logs | `null` | Path to JUnit xml
-[phpmetrics.composer](https://github.com/EdgedesignCZ/phpqa/pull/123) | phpmetrics v2 analyzes composer dependencies | `null` | Path to composer.json when the file is not included in `analyzedDirs`
-[pdepend.coverageReport](https://github.com/EdgedesignCZ/phpqa/pull/124) | Load Clover style CodeCoverage report | `null` | Path to report produced by PHPUnit's `--coverage-clover` option
-[phpmd.standard](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset. To specify [multiple rule sets](https://phpmd.org/documentation/index.html#using-multiple-rule-sets), you can use an array
-[phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens |
-[phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file, memory limit | Level 0, `%currentWorkingDirectory%/phpstan.neon`, memoryLimit: null | Take a look at [phpqa config in tests/.ci](/tests/.ci/) |
-[phpunit.binary](https://github.com/EdgedesignCZ/phpqa/blob/4947416/.phpqa.yml#L40) | Phpunit binary  | phpqa's phpunit | Path to phpunit executable in your project, typically [`vendor/bin/phpunit`](https://gitlab.com/costlocker/integrations/blob/master/basecamp/backend/.phpqa.yml#L2) |
-[phpunit.config](https://phpunit.de/manual/current/en/organizing-tests.html#organizing-tests.xml-configuration) | PHPUnit configuration, `analyzedDirs` and `ignoredDirs` are not used, you have to specify test suites in XML file | `null` | Path to `phpunit.xml` file
-[phpunit.reports](https://phpunit.de/manual/current/en/textui.html) | Report types  | no report | List of reports and formats, corresponds with CLI option, e.g. `--log-junit` is `log: [junit]` in `.phpqa.yml` |
-[psalm.config](https://github.com/vimeo/psalm/wiki/Configuration) | Psalm configuration, `analyzedDirs` and `ignoredDirs` are appended to `projectFiles` | [Predefined config](/app/psalm.xml) | Path to `psalm.xml` file
-[psalm.deadCode](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Enable or not `--find-dead-code` option  of psalm | `false` | Boolean value
-[psalm.threads](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Set the number of process to use in parallel (option `--threads` of psalm) (Only if `--execution == parallel` for phpqa) | `1` | Number (>= 1)
-[psalm.showInfo](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
-[psalm.memoryLimit](https://github.com/vimeo/psalm/issues/842) | Custom memory limit, ignore unless you are getting `Fatal error: Allowed memory size of ... bytes exhausted` | `null` | String value, e.g. `'1024M'`, `'1G'`
+### Files
 
 `.phpqa.yml` is automatically detected in current working directory, but you can specify
 directory via option:
@@ -306,6 +281,67 @@ so if you have a package that bundle a custom tool, the `.phpqa.yml` in the pack
 ```bash
 phpqa --config ~/phpqa/,my-config/,$(pwd)
 ```
+
+### Custom binary
+
+Every tool can define custom binary. Use phar or global tool, if you have troubles with dependencies, e.g.:
+
+* can't install something because of symfony components or php version
+* phpstan does not work, if phpmetrics v1 is installed in composer _(`Hoa main file (Core.php) must be included once.`)_ -> use phar for phpmetrics
+
+Generally, composer installation is preferred because of detecting version.
+Phar works too, but it might be tricky. If a tool has composer package with phar
+_(e.g. [vimeo/phar](https://packagist.org/packages/psalm/phar))_, use it instead of custom binary:
+
+```ruby
+psalm:
+    binary: /usr/local/bin/psalm.phar
+```
+
+Possibilities are infinite. You can [define new tool](https://github.com/EdgedesignCZ/phpqa/blob/master/.phpqa.yml#L120)
+and run it. For example I like `exploring codebase` in phpmetrics v1 and composer info in v2.
+Install phpmetrics v2 in composer and use phar for v1 to avoid phpstan conflicts:
+
+```bash
+$ cat tests/.ci/.phpqa.yml
+phpmetricsV1:
+    binary: /usr/local/bin/phpmetrics.phar
+tool:
+    phpmetricsV1: Edge\QA\Tools\Analyzer\PhpMetrics
+
+$ phpqa --config tests/.ci/ --tools phpmetricsV1,phpmetrics
+```
+
+### Override tools' settings
+
+Tool | Settings | Default Value | Your value
+---- | -------- | ------------- | ----------- |
+[phpqa.extensions](https://github.com/EdgedesignCZ/phpqa/blob/master/.phpqa.yml#L49) | PHP File extensions | php | Name of php file to parse, you can specify it like a string `php,inc,modules` or like a yaml array.
+[phpcs.standard](https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard) | Coding standard | PSR2 | Name of existing standard (`PEAR`, `PHPCS`, `PSR1`, `PSR2`, `Squiz`,  `Zend`), or path to your coding standard. To specify [multiple standards](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage#specifying-a-coding-standard), you can use an array
+[phpcs.ignoreWarnings](https://github.com/EdgedesignCZ/phpqa/issues/53) | If number of allowed errors is compared with warnings+errors, or just errors from `checkstyle.xml` | `false` | Boolean value
+[phpcs.reports](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) | Report types | [`full`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) report in [cli mode](#output-modes), [`checkstyle`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-a-checkstyle-report) in [file mode](#output-modes) | Predefined [report types](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) or [custom reports](https://github.com/wikidi/codesniffer#examples)
+[php-cs-fixer.rules](http://cs.sensiolabs.org/#usage) | Coding standard rules | `@PSR2` | String value
+[php-cs-fixer.allowRiskyRules](http://cs.sensiolabs.org/#usage) | Whether risky rules may run  | `false` | Boolean value
+[php-cs-fixer.config](http://cs.sensiolabs.org/#usage) | Load configuration from [file](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/.php_cs.dist) | `null` | Path to `.phpcs` file
+[php-cs-fixer.isDryRun](http://cs.sensiolabs.org/#usage) | If code is just analyzed or fixers are applied  | `true` | Boolean value
+[phpmetrics.config](https://github.com/EdgedesignCZ/phpqa/issues/74) | Configuration for phpmetrics v1  | `null` | Path to `.phpmetrics.yml` file
+[phpmetrics.git](https://github.com/EdgedesignCZ/phpqa/pull/122) | phpmetrics v2 analyses based on Git History   | `null` | Boolean value or path to git binary
+[phpmetrics.junit](https://github.com/EdgedesignCZ/phpqa/pull/125) | phpmetrics v2 evaluates metrics according to JUnit logs | `null` | Path to JUnit xml
+[phpmetrics.composer](https://github.com/EdgedesignCZ/phpqa/pull/123) | phpmetrics v2 analyzes composer dependencies | `null` | Path to composer.json when the file is not included in `analyzedDirs`
+[pdepend.coverageReport](https://github.com/EdgedesignCZ/phpqa/pull/124) | Load Clover style CodeCoverage report | `null` | Path to report produced by PHPUnit's `--coverage-clover` option
+[phpmd.standard](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset. To specify [multiple rule sets](https://phpmd.org/documentation/index.html#using-multiple-rule-sets), you can use an array
+[phpmd.ignoreParsingErrors](https://github.com/EdgedesignCZ/phpqa/issues/230) | If parsing errors affect exit code, or just violations | `true` | Boolean value
+[phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens |
+[phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file, memory limit | Level 0, `%currentWorkingDirectory%/phpstan.neon`, memoryLimit: null | Take a look at [phpqa config in tests/.ci](/tests/.ci/) |
+[phpunit.binary](https://github.com/EdgedesignCZ/phpqa/blob/4947416/.phpqa.yml#L40) | Phpunit binary  | phpqa's phpunit | Path to phpunit executable in your project, typically [`vendor/bin/phpunit`](https://gitlab.com/costlocker/integrations/blob/master/basecamp/backend/.phpqa.yml#L2) |
+[phpunit.config](https://phpunit.de/manual/current/en/organizing-tests.html#organizing-tests.xml-configuration) | PHPUnit configuration, `analyzedDirs` and `ignoredDirs` are not used, you have to specify test suites in XML file | `null` | Path to `phpunit.xml` file
+[phpunit.reports](https://phpunit.de/manual/current/en/textui.html) | Report types  | no report | List of reports and formats, corresponds with CLI option, e.g. `--log-junit` is `log: [junit]` in `.phpqa.yml` |
+[psalm.config](https://github.com/vimeo/psalm/wiki/Configuration) | Psalm configuration, `analyzedDirs` and `ignoredDirs` are appended to `projectFiles` | [Predefined config](/app/psalm.xml) | Path to `psalm.xml` file
+[psalm.deadCode](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Enable or not `--find-dead-code` option  of psalm | `false` | Boolean value
+[psalm.threads](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Set the number of process to use in parallel (option `--threads` of psalm) (Only if `--execution == parallel` for phpqa) | `1` | Number (>= 1)
+[psalm.showInfo](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
+[psalm.memoryLimit](https://github.com/vimeo/psalm/issues/842) | Custom memory limit, ignore unless you are getting `Fatal error: Allowed memory size of ... bytes exhausted` | `null` | String value, e.g. `'1024M'`, `'1G'`
+[deptrac.depfile](https://github.com/vimeo/psalm/wiki/Configuration) | Complete [deptract config](https://github.com/qossmic/deptrac#getting-started) _(phpqa won't update source and excluded files)_ | `null` | Path to `depfile.yml` file
 
 ## HTML reports
 
@@ -454,7 +490,7 @@ stages:
 
 test:
   stage: test
-  image: zdenekdrahos/phpqa:v1.24.0-php7.2
+  image: zdenekdrahos/phpqa:v1.25.0-php7.2
   variables:
     BACKEND_QA: "*/backend/var/QA"
     BACKEND_CACHE: $CI_PROJECT_DIR/.composercache
@@ -471,6 +507,43 @@ test:
     - $BACKEND_QA
 ```
 
+### Github actions - docker installation + composer cache + artifacts
+
+```ruby
+name: QA
+
+on: [push]
+
+jobs:
+  qa:
+    container: zdenekdrahos/phpqa:v1.25.0-php7.4
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      # composer is not necessary, if you are not running phpunit/psalm/phpstan
+      - name: Cache composer
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.composer/cache
+            vendor
+          key: php-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: "php-composer-74"
+      - name: Install dependencies
+        run: |
+          composer install --no-interaction --no-progress --ignore-platform-reqs;
+
+      - name: phpqa
+        run: phpqa --report --tools phpunit:0,phpcs:0,phpmd:0,psalm:0,phpstan:0 --buildDir build --analyzedDirs ./ --ignoredDirs build,vendor
+
+      - name: Upload QA files
+        uses: actions/upload-artifact@v2
+        with:
+          name: phpqa
+          path: build
+```
+
 ## Contributing
 
 Contributions from others would be very much appreciated! Send 
@@ -478,6 +551,6 @@ Contributions from others would be very much appreciated! Send
 
 ## License
 
-Copyright (c) 2015, 2016, 2017, 2018 Edgedesign.cz. MIT Licensed,
+Copyright (c) 2015 - present Edgedesign.cz. MIT Licensed,
 see [LICENSE](/LICENSE) for details.
 
