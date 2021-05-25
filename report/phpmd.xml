@@ -1,10 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<pmd version="@package_version@" timestamp="2021-02-08T09:52:55+00:00">
-  <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php">
+<pmd version="@package_version@" tool="phpmd" timestamp="2021-05-25T07:51:48+00:00">
+  <file name="/Users/www/zd/phpqa/src/Task/NonParallelExecV1.php">
     <violation beginline="23" endline="23" rule="ExitExpression" ruleset="Design Rules" externalInfoUrl="https://phpmd.org/rules/design.html#exitexpression" priority="1">
       The method run() contains an exit expression.
     </violation>
   </file>
-  <error filename="/mnt/DATA/www/phpqa/src/invalid/1.php" msg="Unexpected token: ;, line: 3, col: 7, file: /mnt/DATA/www/phpqa/src/invalid/1.php." />
-  <error filename="/mnt/DATA/www/phpqa/src/invalid/2.php" msg="Unexpected token: echo, line: 3, col: 1, file: /mnt/DATA/www/phpqa/src/invalid/2.php." />
+  <error filename="/Users/www/zd/phpqa/src/invalid/new-feature.php" msg="Unexpected end of token stream in file: /Users/www/zd/phpqa/src/invalid/new-feature.php." />
+  <error filename="" msg="Unexpected token: ;, line: 3, col: 7, file: /Users/www/zd/phpqa/src/invalid/php-syntax.php.
+#0 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(7322): PDepend\Source\Parser\UnexpectedTokenException-&gt;__construct(Object(PDepend\Source\Tokenizer\Token), Object(PDepend\Source\AST\ASTCompilationUnit))
+#1 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(7288): PDepend\Source\Language\PHP\AbstractPHPParser-&gt;getUnexpectedTokenException()
+#2 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(4998): PDepend\Source\Language\PHP\AbstractPHPParser-&gt;consumeToken(4)
+#3 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(4974): PDepend\Source\Language\PHP\AbstractPHPParser-&gt;parseCompoundVariable(Object(PDepend\Source\Tokenizer\Token))
+#4 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(4904): PDepend\Source\Language\PHP\AbstractPHPParser-&gt;parseCompoundVariableOrVariableVariable()
+#5 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(4518): PDepend\Source\Language\PHP\AbstractPHPParser-&gt;parseCompoundVariableOrVariableVariableOrVariable()
+#6 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(4483): PDepend\Source\Language\PHP\AbstractPHPParser-&gt;parseVariableOrFunctionPostfixOrMemberPrimaryPrefix()
+#7 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(2772): PDepend\Source\Language\PHP\AbstractPHPParser-&gt;parseVariableOrConstantOrPrimaryPrefix()
+#8 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(2665): PDepend\Source\Language\PHP\AbstractPHPParser-&gt;parseOptionalExpression()
+#9 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(3909): PDepend\Source\Language\PHP\AbstractPHPParser-&gt;parseExpressionList(Object(PDepend\Source\AST\ASTEchoStatement))
+#10 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(5989): PDepend\Source\Language\PHP\AbstractPHPParser-&gt;parseEchoStatement()
+#11 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Source/Language/PHP/AbstractPHPParser.php(397): PDepend\Source\Language\PHP\AbstractPHPParser-&gt;parseOptionalStatement()
+#12 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(587): PDepend\Source\Language\PHP\AbstractPHPParser-&gt;parse()
+#13 /Users/www/zd/phpqa/vendor/pdepend/pdepend/src/main/php/PDepend/Engine.php(335): PDepend\Engine-&gt;performParseProcess()
+#14 /Users/www/zd/phpqa/vendor/phpmd/phpmd/src/main/php/PHPMD/Parser.php(95): PDepend\Engine-&gt;analyze()
+#15 /Users/www/zd/phpqa/vendor/phpmd/phpmd/src/main/php/PHPMD/PHPMD.php(240): PHPMD\Parser-&gt;parse(Object(PHPMD\Report))
+#16 /Users/www/zd/phpqa/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(136): PHPMD\PHPMD-&gt;processFiles('./', '/Users/www/zd/p...', Array, Object(PHPMD\RuleSetFactory), Object(PHPMD\Report))
+#17 /Users/www/zd/phpqa/vendor/phpmd/phpmd/src/main/php/PHPMD/TextUI/Command.php(184): PHPMD\TextUI\Command-&gt;run(Object(PHPMD\TextUI\CommandLineOptions), Object(PHPMD\RuleSetFactory))
+#18 /Users/www/zd/phpqa/vendor/phpmd/phpmd/src/bin/phpmd(61): PHPMD\TextUI\Command::main(Array)
+#19 {main}" />
 </pmd>

@@ -1,5 +1,21 @@
 
-FILE: /mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php
+FILE: /Users/www/zd/phpqa/src/invalid/new-feature.php
+----------------------------------------------------------------------
+FOUND 4 ERRORS AFFECTING 4 LINES
+----------------------------------------------------------------------
+ 1 | ERROR | [x] Expected 1 space(s) after closing parenthesis; found
+   |       |     0
+ 2 | ERROR | [x] Expected 1 space(s) after closing parenthesis; found
+   |       |     0
+ 4 | ERROR | [x] Expected 1 space(s) after ELSE keyword; 0 found
+ 5 | ERROR | [x] A closing tag is not permitted at the end of a PHP
+   |       |     file
+----------------------------------------------------------------------
+PHPCBF CAN FIX THE 4 MARKED SNIFF VIOLATIONS AUTOMATICALLY
+----------------------------------------------------------------------
+
+
+FILE: /Users/www/zd/phpqa/src/Task/NonParallelExecV1.php
 ----------------------------------------------------------------------
 FOUND 1 ERROR AFFECTING 1 LINE
 ----------------------------------------------------------------------

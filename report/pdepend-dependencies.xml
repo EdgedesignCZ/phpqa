@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2021-02-08T10:52:56" pdepend="@package_version@">
+<dependencies generated="2021-05-25T07:51:48" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
         <type namespace="Robo" name="Tasks"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/RoboFile.php"/>
+      <file name="/Users/www/zd/phpqa/RoboFile.php"/>
     </class>
     <trait name="CodeAnalysisTasks">
       <efferent>
@@ -20,7 +20,7 @@
         <type namespace="Edge\QA\Task" name="TableSummary"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php"/>
+      <file name="/Users/www/zd/phpqa/src/CodeAnalysisTasks.php"/>
     </trait>
     <class name="Config">
       <efferent>
@@ -33,7 +33,7 @@
         <type namespace="Edge\QA\Tools" name="Tool"/>
         <type namespace="Edge\QA\Tools" name="Tools"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/Config.php"/>
+      <file name="/Users/www/zd/phpqa/src/Config.php"/>
     </class>
     <class name="IgnoredPaths">
       <efferent/>
@@ -41,7 +41,7 @@
         <type namespace="Edge\QA" name="Options"/>
         <type namespace="Edge\QA" name="IgnoredPathsTest"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/IgnoredPaths.php"/>
+      <file name="/Users/www/zd/phpqa/src/IgnoredPaths.php"/>
     </class>
     <class name="Options">
       <efferent>
@@ -56,7 +56,7 @@
         <type namespace="Edge\QA\Tools" name="Tool"/>
         <type namespace="Edge\QA\Tools" name="Tools"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/Options.php"/>
+      <file name="/Users/www/zd/phpqa/src/Options.php"/>
     </class>
     <class name="OutputMode">
       <efferent/>
@@ -64,7 +64,7 @@
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
         <type namespace="Edge\QA" name="RunningTool"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/OutputMode.php"/>
+      <file name="/Users/www/zd/phpqa/src/OutputMode.php"/>
     </class>
     <class name="RunningTool">
       <efferent>
@@ -77,7 +77,7 @@
         <type namespace="Edge\QA\Tools" name="Tool"/>
         <type namespace="Edge\QA\Tools" name="Tools"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/RunningTool.php"/>
+      <file name="/Users/www/zd/phpqa/src/RunningTool.php"/>
     </class>
     <class name="ConfigTest">
       <efferent>
@@ -85,7 +85,7 @@
         <type namespace="Edge\QA" name="Config"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php"/>
+      <file name="/Users/www/zd/phpqa/tests/Config/ConfigTest.php"/>
     </class>
     <class name="IgnoredPathsTest">
       <efferent>
@@ -93,7 +93,7 @@
         <type namespace="Edge\QA" name="IgnoredPaths"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php"/>
+      <file name="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php"/>
     </class>
     <class name="OptionsTest">
       <efferent>
@@ -101,21 +101,21 @@
         <type namespace="Edge\QA" name="Options"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/tests/OptionsTest.php"/>
+      <file name="/Users/www/zd/phpqa/tests/OptionsTest.php"/>
     </class>
     <class name="PathsTest">
       <efferent>
         <type namespace="" name="PHPUnit_Framework_TestCase"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/tests/PathsTest.php"/>
+      <file name="/Users/www/zd/phpqa/tests/PathsTest.php"/>
     </class>
     <class name="ReportTest">
       <efferent>
         <type namespace="" name="PHPUnit_Framework_TestCase"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php"/>
+      <file name="/Users/www/zd/phpqa/tests/Report/ReportTest.php"/>
     </class>
     <class name="RunningToolTest">
       <efferent>
@@ -123,7 +123,7 @@
         <type namespace="Edge\QA" name="RunningTool"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/tests/RunningToolTest.php"/>
+      <file name="/Users/www/zd/phpqa/tests/RunningToolTest.php"/>
     </class>
   </package>
   <package name="Edge\QA\Task">
@@ -137,7 +137,7 @@
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/Task/AssetsLoader.php"/>
+      <file name="/Users/www/zd/phpqa/src/Task/AssetsLoader.php"/>
     </class>
     <class name="NonParallelExecV0">
       <efferent>
@@ -147,7 +147,7 @@
         <type namespace="Symfony\Component\Console\Output" name="OutputInterface"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV0.php"/>
+      <file name="/Users/www/zd/phpqa/src/Task/NonParallelExecV0.php"/>
     </class>
     <class name="NonParallelExecV1">
       <efferent>
@@ -159,7 +159,7 @@
       <afferent>
         <type namespace="Edge\QA\Task" name="NonParallelExecV0"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php"/>
+      <file name="/Users/www/zd/phpqa/src/Task/NonParallelExecV1.php"/>
     </class>
     <class name="ParallelExec">
       <efferent>
@@ -168,12 +168,12 @@
       <afferent>
         <type namespace="Edge\QA\Task" name="NonParallelExecV1"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/Task/ParallelExec.php"/>
+      <file name="/Users/www/zd/phpqa/src/Task/ParallelExec.php"/>
     </class>
     <trait name="RoboAdapter">
       <efferent/>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Task/RoboAdapter.php"/>
+      <file name="/Users/www/zd/phpqa/src/Task/RoboAdapter.php"/>
     </trait>
     <class name="TableSummary">
       <efferent>
@@ -184,7 +184,7 @@
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/Task/TableSummary.php"/>
+      <file name="/Users/www/zd/phpqa/src/Task/TableSummary.php"/>
     </class>
     <class name="TableVersions">
       <efferent>
@@ -194,7 +194,7 @@
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/Task/TableVersions.php"/>
+      <file name="/Users/www/zd/phpqa/src/Task/TableVersions.php"/>
     </class>
   </package>
   <package name="Edge\QA\Tools">
@@ -205,7 +205,7 @@
       <afferent>
         <type namespace="Edge\QA\Tools" name="Tools"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/AnalyzeResults.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/AnalyzeResults.php"/>
     </class>
     <class name="GetVersions">
       <efferent>
@@ -214,8 +214,9 @@
       <afferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
         <type namespace="Edge\QA\Tools" name="Tools"/>
+        <type namespace="Edge\QA\Tools" name="GetVersionsTest"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/GetVersions.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/GetVersions.php"/>
     </class>
     <class name="Tool">
       <efferent>
@@ -225,6 +226,7 @@
         <type namespace="Edge\QA\Tools" name="GetVersions"/>
       </efferent>
       <afferent>
+        <type namespace="Edge\QA\Tools\Analyzer" name="Deptrac"/>
         <type namespace="Edge\QA\Tools\Analyzer" name="ParallelLint"/>
         <type namespace="Edge\QA\Tools\Analyzer" name="Pdepend"/>
         <type namespace="Edge\QA\Tools\Analyzer" name="PhpCsFixer"/>
@@ -239,7 +241,7 @@
         <type namespace="Edge\QA\Tools\Analyzer" name="Psalm"/>
         <type namespace="Edge\QA\Tools\Analyzer" name="SecurityChecker"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Tool.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Tool.php"/>
     </class>
     <class name="Tools">
       <efferent>
@@ -253,81 +255,87 @@
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
       </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Tools.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Tools.php"/>
+    </class>
+    <class name="GetVersionsTest">
+      <efferent>
+        <type namespace="" name="PHPUnit_Framework_TestCase"/>
+        <type namespace="Edge\QA\Tools" name="GetVersions"/>
+      </efferent>
+      <afferent/>
+      <file name="/Users/www/zd/phpqa/tests/GetVersionsTest.php"/>
     </class>
   </package>
   <package name="Edge\QA\Tools\Analyzer">
+    <class name="Deptrac">
+      <efferent>
+        <type namespace="Edge\QA\Tools" name="Tool"/>
+      </efferent>
+      <afferent/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/Deptrac.php"/>
+    </class>
     <class name="ParallelLint">
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/ParallelLint.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/ParallelLint.php"/>
     </class>
     <class name="Pdepend">
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Pdepend.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/Pdepend.php"/>
     </class>
     <class name="PhpCsFixer">
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpCsFixer.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpCsFixer.php"/>
     </class>
     <class name="PhpMetrics">
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetrics.php"/>
     </class>
     <class name="PhpMetricsV2">
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetricsV2.php"/>
     </class>
     <class name="Phpcpd">
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcpd.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcpd.php"/>
     </class>
     <class name="Phpcs">
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
       </efferent>
-      <afferent>
-        <type namespace="Edge\QA\Tools\Analyzer" name="PhpcsV3"/>
-      </afferent>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php"/>
-    </class>
-    <class name="PhpcsV3">
-      <efferent>
-        <type namespace="Edge\QA\Tools\Analyzer" name="Phpcs"/>
-      </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpcsV3.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcs.php"/>
     </class>
     <class name="Phploc">
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phploc.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/Phploc.php"/>
     </class>
     <class name="Phpmd">
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpmd.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpmd.php"/>
     </class>
     <class name="Phpstan">
       <efferent>
@@ -335,14 +343,14 @@
         <type namespace="Nette\Neon" name="Neon"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpstan.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php"/>
     </class>
     <class name="Phpunit">
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpunit.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpunit.php"/>
     </class>
     <class name="Psalm">
       <efferent>
@@ -351,14 +359,14 @@
         <type namespace="" name="DOMDocument"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Psalm.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php"/>
     </class>
     <class name="SecurityChecker">
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
       </efferent>
       <afferent/>
-      <file name="/mnt/DATA/www/phpqa/src/Tools/Analyzer/SecurityChecker.php"/>
+      <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/SecurityChecker.php"/>
     </class>
   </package>
 </dependencies>

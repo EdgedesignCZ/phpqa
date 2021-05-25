@@ -1,121 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="" tests="68" assertions="4" errors="1" warnings="0" failures="0" skipped="3" time="0.742787">
-    <testsuite name="Project Test Suite" tests="68" assertions="4" errors="1" warnings="0" failures="0" skipped="3" time="0.742787">
-      <testsuite name="Edge\QA\ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" tests="14" assertions="4" errors="1" warnings="0" failures="0" skipped="0" time="0.459709">
-        <testcase name="testLoadDefaultConfig" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="10" assertions="0" time="0.078925"/>
-        <testcase name="testBuildAbsolutePath" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="41" assertions="0" time="0.025197"/>
-        <testcase name="testOverrideDefaultConfig" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="47" assertions="0" time="0.026659"/>
-        <testcase name="testAllowPartialUpdateOfTools" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="57" assertions="0" time="0.022745"/>
-        <testcase name="testIgnoreNonExistentUserConfig" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="67" assertions="1" time="0.021517"/>
-        <testcase name="testNoExceptionWhenCwdHasNoConfig" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="75" assertions="0" time="0.023408"/>
-        <testcase name="testThrowExceptionWhenFileDoesNotExist" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="82" assertions="1" time="0.024178"/>
-        <testcase name="testConfigCsvString" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="90" assertions="0" time="0.022969"/>
-        <testcase name="testUseCwdIfNoDirectoryIsSpecified" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="98" assertions="0" time="0.029678"/>
-        <testcase name="testThrowExceptionWhenBinaryDoesNotExist" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="104" assertions="1" time="0.027297"/>
-        <testcase name="testThrowExceptionWhenWrongBinaryIsUsed" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="112" assertions="1" time="0.031018"/>
-        <testcase name="testMultipleConfig" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="120" assertions="0" time="0.072279">
+  <testsuite name="" tests="87" assertions="2" errors="1" warnings="0" failures="0" skipped="3" time="0.077873">
+    <testsuite name="Project Test Suite" tests="87" assertions="2" errors="1" warnings="0" failures="0" skipped="3" time="0.077873">
+      <testsuite name="Edge\QA\ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" tests="14" assertions="2" errors="1" warnings="0" failures="0" skipped="0" time="0.038335">
+        <testcase name="testLoadDefaultConfig" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="10" assertions="0" time="0.006685"/>
+        <testcase name="testBuildAbsolutePath" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="43" assertions="0" time="0.000788"/>
+        <testcase name="testOverrideDefaultConfig" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="49" assertions="0" time="0.000831"/>
+        <testcase name="testAllowPartialUpdateOfTools" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="59" assertions="0" time="0.000808"/>
+        <testcase name="testIgnoreNonExistentUserConfig" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="69" assertions="1" time="0.000905"/>
+        <testcase name="testNoExceptionWhenCwdHasNoConfig" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="77" assertions="0" time="0.000665"/>
+        <testcase name="testThrowExceptionWhenFileDoesNotExist" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="84" assertions="1" time="0.002296"/>
+        <testcase name="testConfigCsvString" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="92" assertions="0" time="0.002724"/>
+        <testcase name="testUseCwdIfNoDirectoryIsSpecified" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="100" assertions="0" time="0.001737"/>
+        <testcase name="testIgnoreInvalidBinaryDoesNotExist" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="106" assertions="0" time="0.000824"/>
+        <testcase name="testToolAndBinaryNameMightNotMatch" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="113" assertions="0" time="0.000787"/>
+        <testcase name="testMultipleConfig" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="120" assertions="0" time="0.001145">
           <error type="Hamcrest\AssertionError">Edge\QA\ConfigTest::testMultipleConfig
 Hamcrest\AssertionError: Expected: is "php,inc"
      but: was "php,inc,module"
 
-/mnt/DATA/www/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:115
-/mnt/DATA/www/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:52
-/mnt/DATA/www/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php:28
-/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php:128</error>
+/Users/www/zd/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:115
+/Users/www/zd/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:52
+/Users/www/zd/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php:28
+/Users/www/zd/phpqa/tests/Config/ConfigTest.php:128</error>
         </testcase>
-        <testcase name="testAutodetectConfigInCurrentDirectory" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="131" assertions="0" time="0.026352"/>
-        <testcase name="testIgnoreAutodetectedConfigIfUserConfigIsSpecified" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="138" assertions="0" time="0.027486"/>
+        <testcase name="testAutodetectConfigInCurrentDirectory" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="131" assertions="0" time="0.015092"/>
+        <testcase name="testIgnoreAutodetectedConfigIfUserConfigIsSpecified" class="Edge\QA\ConfigTest" classname="Edge.QA.ConfigTest" file="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="138" assertions="0" time="0.003048"/>
       </testsuite>
-      <testsuite name="Edge\QA\IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" tests="20" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.006422">
-        <testsuite name="Edge\QA\IgnoredPathsTest::testNoOptionWhenNothingIsIgnored" tests="10" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.002962">
-          <testcase name="testNoOptionWhenNothingIsIgnored with data set #0" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000503"/>
-          <testcase name="testNoOptionWhenNothingIsIgnored with data set #1" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000168"/>
-          <testcase name="testNoOptionWhenNothingIsIgnored with data set #2" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000165"/>
-          <testcase name="testNoOptionWhenNothingIsIgnored with data set &quot;pdepend + windows&quot;" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000156"/>
-          <testcase name="testNoOptionWhenNothingIsIgnored with data set &quot;phpmd + windows&quot;" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000794"/>
-          <testcase name="testNoOptionWhenNothingIsIgnored with data set #3" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000494"/>
-          <testcase name="testNoOptionWhenNothingIsIgnored with data set #4" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000201"/>
-          <testcase name="testNoOptionWhenNothingIsIgnored with data set #5" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000155"/>
-          <testcase name="testNoOptionWhenNothingIsIgnored with data set #6" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000153"/>
-          <testcase name="testNoOptionWhenNothingIsIgnored with data set #7" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000173"/>
+      <testsuite name="Edge\QA\Tools\GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" tests="17" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000841">
+        <testsuite name="Edge\QA\Tools\GetVersionsTest::testNormalizeVersion" tests="3" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000319">
+          <testcase name="testNormalizeVersion with data set &quot;full semver&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="8" assertions="0" time="0.000239"/>
+          <testcase name="testNormalizeVersion with data set &quot;minor release&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="8" assertions="0" time="0.000045"/>
+          <testcase name="testNormalizeVersion with data set &quot;major release&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="8" assertions="0" time="0.000035"/>
         </testsuite>
-        <testsuite name="Edge\QA\IgnoredPathsTest::testIgnoreDirectoriesAndFiles" tests="10" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.003460">
-          <testcase name="testIgnoreDirectoriesAndFiles with data set #0" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000279"/>
-          <testcase name="testIgnoreDirectoriesAndFiles with data set #1" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000661"/>
-          <testcase name="testIgnoreDirectoriesAndFiles with data set #2" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000621"/>
-          <testcase name="testIgnoreDirectoriesAndFiles with data set &quot;pdepend + windows&quot;" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000394"/>
-          <testcase name="testIgnoreDirectoriesAndFiles with data set &quot;phpmd + windows&quot;" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000354"/>
-          <testcase name="testIgnoreDirectoriesAndFiles with data set #3" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000303"/>
-          <testcase name="testIgnoreDirectoriesAndFiles with data set #4" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000229"/>
-          <testcase name="testIgnoreDirectoriesAndFiles with data set #5" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000196"/>
-          <testcase name="testIgnoreDirectoriesAndFiles with data set #6" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000198"/>
-          <testcase name="testIgnoreDirectoriesAndFiles with data set #7" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/mnt/DATA/www/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000225"/>
+        <testsuite name="Edge\QA\Tools\GetVersionsTest::testCliVersion" tests="9" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000345">
+          <testcase name="testCliVersion with data set &quot;semver at the end&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="23" assertions="0" time="0.000047"/>
+          <testcase name="testCliVersion with data set &quot;semver at the start&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="23" assertions="0" time="0.000037"/>
+          <testcase name="testCliVersion with data set &quot;semver at 2nd line&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="23" assertions="0" time="0.000034"/>
+          <testcase name="testCliVersion with data set &quot;custom format&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="23" assertions="0" time="0.000036"/>
+          <testcase name="testCliVersion with data set &quot;no space&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="23" assertions="0" time="0.000039"/>
+          <testcase name="testCliVersion with data set &quot;dev version&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="23" assertions="0" time="0.000037"/>
+          <testcase name="testCliVersion with data set &quot;prefer semver (semver + dev)&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="23" assertions="0" time="0.000037"/>
+          <testcase name="testCliVersion with data set &quot;prefer semver (dev + semver)&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="23" assertions="0" time="0.000044"/>
+          <testcase name="testCliVersion with data set &quot;no version&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="23" assertions="0" time="0.000034"/>
+        </testsuite>
+        <testsuite name="Edge\QA\Tools\GetVersionsTest::testCompareVersions" tests="5" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000177">
+          <testcase name="testCompareVersions with data set &quot;no version&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="44" assertions="0" time="0.000043"/>
+          <testcase name="testCompareVersions with data set &quot;is lower?&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="44" assertions="0" time="0.000029"/>
+          <testcase name="testCompareVersions with data set &quot;is greater than dev version&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="44" assertions="0" time="0.000038"/>
+          <testcase name="testCompareVersions with data set &quot;semver is greater than&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="44" assertions="0" time="0.000035"/>
+          <testcase name="testCompareVersions with data set &quot;dev version is greater than&quot;" class="Edge\QA\Tools\GetVersionsTest" classname="Edge.QA.Tools.GetVersionsTest" file="/Users/www/zd/phpqa/tests/GetVersionsTest.php" line="44" assertions="0" time="0.000032"/>
         </testsuite>
       </testsuite>
-      <testsuite name="Edge\QA\OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" tests="17" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.010074">
-        <testcase name="testEscapePaths" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="32" assertions="0" time="0.000677"/>
-        <testcase name="testRespectToolsOrderDefinedInOption" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="40" assertions="0" time="0.000643"/>
-        <testcase name="testIgnorePdependInCliOutput" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="47" assertions="0" time="0.000395"/>
-        <testsuite name="Edge\QA\OptionsTest::testIsSuggestedToolInstalled" tests="4" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.001007">
-          <testcase name="testIsSuggestedToolInstalled with data set &quot;internal class is available&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="55" assertions="0" time="0.000278"/>
-          <testcase name="testIsSuggestedToolInstalled with data set &quot;at least one internal class is available&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="55" assertions="0" time="0.000254"/>
-          <testcase name="testIsSuggestedToolInstalled with data set &quot;dependency is available&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="55" assertions="0" time="0.000228"/>
-          <testcase name="testIsSuggestedToolInstalled with data set &quot;dependency is not available&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="55" assertions="0" time="0.000247"/>
+      <testsuite name="Edge\QA\IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" tests="20" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.002285">
+        <testsuite name="Edge\QA\IgnoredPathsTest::testNoOptionWhenNothingIsIgnored" tests="10" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.001103">
+          <testcase name="testNoOptionWhenNothingIsIgnored with data set #0" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000157"/>
+          <testcase name="testNoOptionWhenNothingIsIgnored with data set #1" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000041"/>
+          <testcase name="testNoOptionWhenNothingIsIgnored with data set #2" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000130"/>
+          <testcase name="testNoOptionWhenNothingIsIgnored with data set &quot;pdepend + windows&quot;" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000109"/>
+          <testcase name="testNoOptionWhenNothingIsIgnored with data set &quot;phpmd + windows&quot;" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000106"/>
+          <testcase name="testNoOptionWhenNothingIsIgnored with data set #3" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000106"/>
+          <testcase name="testNoOptionWhenNothingIsIgnored with data set #4" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000107"/>
+          <testcase name="testNoOptionWhenNothingIsIgnored with data set #5" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000117"/>
+          <testcase name="testNoOptionWhenNothingIsIgnored with data set #6" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000113"/>
+          <testcase name="testNoOptionWhenNothingIsIgnored with data set #7" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="17" assertions="0" time="0.000118"/>
         </testsuite>
-        <testsuite name="Edge\QA\OptionsTest::testBuildOutput" tests="2" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000604">
-          <testcase name="testBuildOutput with data set &quot;ignore verbose and report in CLI output&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="84" assertions="0" time="0.000308"/>
-          <testcase name="testBuildOutput with data set &quot;respect verbose mode and report in FILE output&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="84" assertions="0" time="0.000296"/>
+        <testsuite name="Edge\QA\IgnoredPathsTest::testIgnoreDirectoriesAndFiles" tests="10" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.001182">
+          <testcase name="testIgnoreDirectoriesAndFiles with data set #0" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000137"/>
+          <testcase name="testIgnoreDirectoriesAndFiles with data set #1" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000121"/>
+          <testcase name="testIgnoreDirectoriesAndFiles with data set #2" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000120"/>
+          <testcase name="testIgnoreDirectoriesAndFiles with data set &quot;pdepend + windows&quot;" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000122"/>
+          <testcase name="testIgnoreDirectoriesAndFiles with data set &quot;phpmd + windows&quot;" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000116"/>
+          <testcase name="testIgnoreDirectoriesAndFiles with data set #3" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000109"/>
+          <testcase name="testIgnoreDirectoriesAndFiles with data set #4" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000112"/>
+          <testcase name="testIgnoreDirectoriesAndFiles with data set #5" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000112"/>
+          <testcase name="testIgnoreDirectoriesAndFiles with data set #6" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000112"/>
+          <testcase name="testIgnoreDirectoriesAndFiles with data set #7" class="Edge\QA\IgnoredPathsTest" classname="Edge.QA.IgnoredPathsTest" file="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="27" assertions="0" time="0.000121"/>
         </testsuite>
-        <testsuite name="Edge\QA\OptionsTest::testExecute" tests="3" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000776">
-          <testcase name="testExecute with data set &quot;parallel execution is default mode&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="111" assertions="0" time="0.000292"/>
-          <testcase name="testExecute with data set &quot;parallel execution&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="111" assertions="0" time="0.000240"/>
-          <testcase name="testExecute with data set &quot;dont use parallelism if execution is other word&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="111" assertions="0" time="0.000244"/>
-        </testsuite>
-        <testsuite name="Edge\QA\OptionsTest::testBuildRootPath" tests="4" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.005626">
-          <testcase name="testBuildRootPath with data set &quot;current dir + analyzed dir + slash&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="127" assertions="0" time="0.000324"/>
-          <testcase name="testBuildRootPath with data set &quot;find common root from multiple dirs&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="127" assertions="0" time="0.000303"/>
-          <testcase name="testBuildRootPath with data set &quot;no path when dir is invalid&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="127" assertions="0" time="0.000310"/>
-          <testcase name="testBuildRootPath with data set &quot;file directory + skip invalid dir&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="127" assertions="0" time="0.004689"/>
-        </testsuite>
-        <testcase name="testLoadAllowedErrorsCount" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="144" assertions="0" time="0.000346"/>
       </testsuite>
-      <testsuite name="Edge\QA\PathsTest" file="/mnt/DATA/www/phpqa/tests/PathsTest.php" tests="1" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000561">
-        <testcase name="testPathToBinaryIsEscaped" class="Edge\QA\PathsTest" classname="Edge.QA.PathsTest" file="/mnt/DATA/www/phpqa/tests/PathsTest.php" line="7" assertions="0" time="0.000561"/>
+      <testsuite name="Edge\QA\OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" tests="17" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.004660">
+        <testcase name="testEscapePaths" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="32" assertions="0" time="0.000468"/>
+        <testcase name="testRespectToolsOrderDefinedInOption" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="40" assertions="0" time="0.000488"/>
+        <testcase name="testIgnorePdependInCliOutput" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="47" assertions="0" time="0.000172"/>
+        <testsuite name="Edge\QA\OptionsTest::testIsSuggestedToolInstalled" tests="4" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000544">
+          <testcase name="testIsSuggestedToolInstalled with data set &quot;internal class is available&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="55" assertions="0" time="0.000153"/>
+          <testcase name="testIsSuggestedToolInstalled with data set &quot;at least one internal class is available&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="55" assertions="0" time="0.000133"/>
+          <testcase name="testIsSuggestedToolInstalled with data set &quot;dependency is available&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="55" assertions="0" time="0.000128"/>
+          <testcase name="testIsSuggestedToolInstalled with data set &quot;dependency is not available&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="55" assertions="0" time="0.000130"/>
+        </testsuite>
+        <testsuite name="Edge\QA\OptionsTest::testBuildOutput" tests="2" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000158">
+          <testcase name="testBuildOutput with data set &quot;ignore verbose and report in CLI output&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="84" assertions="0" time="0.000113"/>
+          <testcase name="testBuildOutput with data set &quot;respect verbose mode and report in FILE output&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="84" assertions="0" time="0.000044"/>
+        </testsuite>
+        <testsuite name="Edge\QA\OptionsTest::testExecute" tests="3" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000124">
+          <testcase name="testExecute with data set &quot;parallel execution is default mode&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="111" assertions="0" time="0.000040"/>
+          <testcase name="testExecute with data set &quot;parallel execution&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="111" assertions="0" time="0.000045"/>
+          <testcase name="testExecute with data set &quot;dont use parallelism if execution is other word&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="111" assertions="0" time="0.000038"/>
+        </testsuite>
+        <testsuite name="Edge\QA\OptionsTest::testBuildRootPath" tests="4" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.002634">
+          <testcase name="testBuildRootPath with data set &quot;current dir + analyzed dir + slash&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="127" assertions="0" time="0.000068"/>
+          <testcase name="testBuildRootPath with data set &quot;find common root from multiple dirs&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="127" assertions="0" time="0.000083"/>
+          <testcase name="testBuildRootPath with data set &quot;no path when dir is invalid&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="127" assertions="0" time="0.000064"/>
+          <testcase name="testBuildRootPath with data set &quot;file directory + skip invalid dir&quot;" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="127" assertions="0" time="0.002420"/>
+        </testsuite>
+        <testcase name="testLoadAllowedErrorsCount" class="Edge\QA\OptionsTest" classname="Edge.QA.OptionsTest" file="/Users/www/zd/phpqa/tests/OptionsTest.php" line="144" assertions="0" time="0.000072"/>
       </testsuite>
-      <testsuite name="Edge\QA\ReportTest" file="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" tests="4" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.262586">
-        <testcase name="testConvertTwigToHtml" class="Edge\QA\ReportTest" classname="Edge.QA.ReportTest" file="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" line="17" assertions="0" time="0.236932"/>
-        <testsuite name="Edge\QA\ReportTest::testConvertXmlToHtml" tests="2" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.025458">
-          <testcase name="testConvertXmlToHtml with data set &quot;create html&quot;" class="Edge\QA\ReportTest" classname="Edge.QA.ReportTest" file="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" line="24" assertions="0" time="0.023828"/>
-          <testcase name="testConvertXmlToHtml with data set &quot;create empty file if something went south&quot;" class="Edge\QA\ReportTest" classname="Edge.QA.ReportTest" file="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" line="24" assertions="0" time="0.001630"/>
-        </testsuite>
-        <testcase name="testIgnoreMissingXmlDocuments" class="Edge\QA\ReportTest" classname="Edge.QA.ReportTest" file="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" line="38" assertions="0" time="0.000195"/>
+      <testsuite name="Edge\QA\PathsTest" file="/Users/www/zd/phpqa/tests/PathsTest.php" tests="1" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000236">
+        <testcase name="testPathToBinaryIsEscaped" class="Edge\QA\PathsTest" classname="Edge.QA.PathsTest" file="/Users/www/zd/phpqa/tests/PathsTest.php" line="7" assertions="0" time="0.000236"/>
       </testsuite>
-      <testsuite name="Edge\QA\RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" tests="12" assertions="0" errors="0" warnings="0" failures="0" skipped="3" time="0.003436">
-        <testcase name="testBuildOptionWithDefinedSeparator" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" line="9" assertions="0" time="0.000245"/>
-        <testcase name="testMarkSuccessWhenXPathIsNotDefined" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" line="17" assertions="0" time="0.000170"/>
-        <testsuite name="Edge\QA\RunningToolTest::testMarkFailureWhenXmlFileDoesNotExist" tests="2" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000423">
-          <testcase name="testMarkFailureWhenXmlFileDoesNotExist with data set &quot;success when allowed errors are not defined&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" line="24" assertions="0" time="0.000241"/>
-          <testcase name="testMarkFailureWhenXmlFileDoesNotExist with data set &quot;success when errors count are defined&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" line="24" assertions="0" time="0.000182"/>
+      <testsuite name="Edge\QA\ReportTest" file="/Users/www/zd/phpqa/tests/Report/ReportTest.php" tests="4" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.030171">
+        <testcase name="testConvertTwigToHtml" class="Edge\QA\ReportTest" classname="Edge.QA.ReportTest" file="/Users/www/zd/phpqa/tests/Report/ReportTest.php" line="17" assertions="0" time="0.026356"/>
+        <testsuite name="Edge\QA\ReportTest::testConvertXmlToHtml" tests="2" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.003569">
+          <testcase name="testConvertXmlToHtml with data set &quot;create html&quot;" class="Edge\QA\ReportTest" classname="Edge.QA.ReportTest" file="/Users/www/zd/phpqa/tests/Report/ReportTest.php" line="24" assertions="0" time="0.002515"/>
+          <testcase name="testConvertXmlToHtml with data set &quot;create empty file if something went south&quot;" class="Edge\QA\ReportTest" classname="Edge.QA.ReportTest" file="/Users/www/zd/phpqa/tests/Report/ReportTest.php" line="24" assertions="0" time="0.001054"/>
         </testsuite>
-        <testsuite name="Edge\QA\RunningToolTest::testCompareAllowedCountWithErrorsCountFromXml" tests="3" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000821">
-          <testcase name="testCompareAllowedCountWithErrorsCountFromXml with data set &quot;success when allowed errors are not defined&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" line="45" assertions="0" time="0.000321"/>
-          <testcase name="testCompareAllowedCountWithErrorsCountFromXml with data set &quot;success when errors count &lt;= allowed count&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" line="45" assertions="0" time="0.000253"/>
-          <testcase name="testCompareAllowedCountWithErrorsCountFromXml with data set &quot;failure when errors count &gt; allowed count&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" line="45" assertions="0" time="0.000247"/>
+        <testcase name="testIgnoreMissingXmlDocuments" class="Edge\QA\ReportTest" classname="Edge.QA.ReportTest" file="/Users/www/zd/phpqa/tests/Report/ReportTest.php" line="38" assertions="0" time="0.000246"/>
+      </testsuite>
+      <testsuite name="Edge\QA\RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" tests="14" assertions="0" errors="0" warnings="0" failures="0" skipped="3" time="0.001345">
+        <testcase name="testBuildOptionWithDefinedSeparator" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="10" assertions="0" time="0.000143"/>
+        <testcase name="testMarkSuccessWhenXPathIsNotDefined" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="18" assertions="0" time="0.000114"/>
+        <testsuite name="Edge\QA\RunningToolTest::testMarkFailureWhenXmlFileDoesNotExist" tests="2" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000250">
+          <testcase name="testMarkFailureWhenXmlFileDoesNotExist with data set &quot;success when allowed errors are not defined&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="25" assertions="0" time="0.000149"/>
+          <testcase name="testMarkFailureWhenXmlFileDoesNotExist with data set &quot;success when errors count are defined&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="25" assertions="0" time="0.000101"/>
         </testsuite>
-        <testcase name="testRuntimeSelectionOfErrorXpath" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" line="64" assertions="0" time="0.000358"/>
-        <testsuite name="Edge\QA\RunningToolTest::testAnalyzeExitCodeInCliMode" tests="3" assertions="0" errors="0" warnings="0" failures="0" skipped="3" time="0.001211">
-          <testcase name="testAnalyzeExitCodeInCliMode with data set &quot;success when exit code = 0&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" line="79" assertions="0" time="0.000598">
+        <testsuite name="Edge\QA\RunningToolTest::testCompareAllowedCountWithErrorsCountFromXml" tests="3" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000293">
+          <testcase name="testCompareAllowedCountWithErrorsCountFromXml with data set &quot;success when allowed errors are not defined&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="46" assertions="0" time="0.000136"/>
+          <testcase name="testCompareAllowedCountWithErrorsCountFromXml with data set &quot;success when errors count &lt;= allowed count&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="46" assertions="0" time="0.000080"/>
+          <testcase name="testCompareAllowedCountWithErrorsCountFromXml with data set &quot;failure when errors count &gt; allowed count&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="46" assertions="0" time="0.000076"/>
+        </testsuite>
+        <testcase name="testRuntimeSelectionOfErrorXpath" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="65" assertions="0" time="0.000088"/>
+        <testsuite name="Edge\QA\RunningToolTest::testMultipleXpaths" tests="2" assertions="0" errors="0" warnings="0" failures="0" skipped="0" time="0.000175">
+          <testcase name="testMultipleXpaths with data set &quot;multiple elements&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="80" assertions="0" time="0.000083"/>
+          <testcase name="testMultipleXpaths with data set &quot;invalid xpath&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="80" assertions="0" time="0.000091"/>
+        </testsuite>
+        <testsuite name="Edge\QA\RunningToolTest::testAnalyzeExitCodeInCliMode" tests="3" assertions="0" errors="0" warnings="0" failures="0" skipped="3" time="0.000246">
+          <testcase name="testAnalyzeExitCodeInCliMode with data set &quot;success when exit code = 0&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="101" assertions="0" time="0.000173">
             <skipped/>
           </testcase>
-          <testcase name="testAnalyzeExitCodeInCliMode with data set &quot;success when exit code &lt;= allowed code&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" line="79" assertions="0" time="0.000300">
+          <testcase name="testAnalyzeExitCodeInCliMode with data set &quot;success when exit code &lt;= allowed code&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="101" assertions="0" time="0.000037">
             <skipped/>
           </testcase>
-          <testcase name="testAnalyzeExitCodeInCliMode with data set &quot;failure when errors count &gt; allowed count but errors count is always one&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" line="79" assertions="0" time="0.000314">
+          <testcase name="testAnalyzeExitCodeInCliMode with data set &quot;failure when errors count &gt; allowed count but errors count is always one&quot;" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="101" assertions="0" time="0.000035">
             <skipped/>
           </testcase>
         </testsuite>
-        <testcase name="testCreateUniqueIdForUserReport" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/mnt/DATA/www/phpqa/tests/RunningToolTest.php" line="102" assertions="0" time="0.000208"/>
+        <testcase name="testCreateUniqueIdForUserReport" class="Edge\QA\RunningToolTest" classname="Edge.QA.RunningToolTest" file="/Users/www/zd/phpqa/tests/RunningToolTest.php" line="124" assertions="0" time="0.000036"/>
       </testsuite>
     </testsuite>
   </testsuite>

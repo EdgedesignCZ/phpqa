@@ -50,7 +50,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2021-02-08 10:53:08        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2021-05-25 07:51:56        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -252,17 +252,12 @@
         "name": "Edge\\QA",
         "size": 3000,
         "relations": [
-            "global",
             "Robo",
+            "global",
+            "Symfony\\Component\\Yaml",
             "Edge\\QA\\Task",
-            "Edge\\QA\\Tools",
-            "Symfony\\Component\\Yaml"
+            "Edge\\QA\\Tools"
         ]
-    },
-    {
-        "name": "global",
-        "size": 3000,
-        "relations": []
     },
     {
         "name": "Robo",
@@ -270,31 +265,36 @@
         "relations": []
     },
     {
+        "name": "global",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "Symfony\\Component\\Yaml",
+        "size": 3000,
+        "relations": []
+    },
+    {
         "name": "Edge\\QA\\Task",
         "size": 3000,
         "relations": [
-            "global",
             "Symfony\\Component\\Console\\Output",
             "Symfony\\Component\\Console\\Helper",
-            "Symfony\\Component\\Process",
+            "Robo\\Task\\Base",
             "Robo",
+            "Symfony\\Component\\Process",
             "Edge\\QA",
-            "Robo\\Task\\Base"
+            "global"
         ]
     },
     {
         "name": "Edge\\QA\\Tools",
         "size": 3000,
         "relations": [
-            "Edge\\QA",
             "global",
+            "Edge\\QA",
             "Symfony\\Component\\Process"
         ]
-    },
-    {
-        "name": "Symfony\\Component\\Yaml",
-        "size": 3000,
-        "relations": []
     },
     {
         "name": "Symfony\\Component\\Process",

@@ -1,23 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd-cpd>
-  <duplication lines="9" tokens="21">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="7"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpcsV3.php" line="7"/>
-    <codefragment>    public static $SETTINGS = array(
-        'optionSeparator' =&gt; '=',
-        'xml' =&gt; ['checkstyle.xml'],
-        'errorsXPath' =&gt; [
-            # ignoreWarnings =&gt; xpath
-            false =&gt; '//checkstyle/file/error',
-            true =&gt; '//checkstyle/file/error[@severity="error"]',
-        ],
-        'composer' =&gt; 'squizlabs/php_codesniffer',
-</codefragment>
-  </duplication>
   <duplication lines="8" tokens="14">
-    <file path="/mnt/DATA/www/phpqa/src/Task/AssetsLoader.php" line="11"/>
-    <file path="/mnt/DATA/www/phpqa/src/Task/TableSummary.php" line="11"/>
-    <file path="/mnt/DATA/www/phpqa/src/Task/TableVersions.php" line="10"/>
+    <file path="/Users/www/zd/phpqa/src/Task/AssetsLoader.php" line="11"/>
+    <file path="/Users/www/zd/phpqa/src/Task/TableSummary.php" line="11"/>
+    <file path="/Users/www/zd/phpqa/src/Task/TableVersions.php" line="10"/>
     <codefragment>    private $output;
     
     public function __construct(OutputInterface $o)
@@ -28,10 +14,22 @@
     public function __invoke(Options $o, array $assets)
 </codefragment>
   </duplication>
-  <duplication lines="5" tokens="13">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/GetVersions.php" line="68"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/GetVersions.php" line="77"/>
-    <codefragment>            $versionCommand = "{$customBinary} --version";
+  <duplication lines="6" tokens="19">
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Deptrac.php" line="7"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpunit.php" line="7"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/SecurityChecker.php" line="7"/>
+    <codefragment>class Deptrac extends \Edge\QA\Tools\Tool
+{
+    public static $SETTINGS = array(
+        'optionSeparator' =&gt; '=',
+        'outputMode' =&gt; OutputMode::RAW_CONSOLE_OUTPUT,
+        'composer' =&gt; 'qossmic/deptrac-shim',
+</codefragment>
+  </duplication>
+  <duplication lines="5" tokens="16">
+    <file path="/Users/www/zd/phpqa/src/Tools/GetVersions.php" line="70"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/GetVersions.php" line="78"/>
+    <codefragment>            $versionCommand = "{$binaries['runBinary']} --version";
             $version = $this-&gt;loadVersionFromConsoleCommand($versionCommand);
             $composerInfo = [
                 'version' =&gt; $version,
@@ -39,8 +37,8 @@
 </codefragment>
   </duplication>
   <duplication lines="5" tokens="18">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="12"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phploc.php" line="13"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="12"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phploc.php" line="13"/>
     <codefragment>    public function __invoke()
     {
         $args = array(
@@ -48,44 +46,33 @@
             'extensions' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
 </codefragment>
   </duplication>
-  <duplication lines="5" tokens="14">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/ParallelLint.php" line="7"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpCsFixer.php" line="7"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phploc.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpmd.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpstan.php" line="8"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Psalm.php" line="8"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/SecurityChecker.php" line="7"/>
-    <codefragment>class ParallelLint extends \Edge\QA\Tools\Tool
+  <duplication lines="5" tokens="16">
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Deptrac.php" line="7"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpCsFixer.php" line="7"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcs.php" line="5"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phploc.php" line="5"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpmd.php" line="5"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php" line="7"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php" line="8"/>
+    <codefragment>class Deptrac extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
-        'optionSeparator' =&gt; ' ',
-        'internalClass' =&gt; 'JakubOnderka\PhpParallelLint\ParallelLint',
+        'optionSeparator' =&gt; '=',
+        'outputMode' =&gt; OutputMode::RAW_CONSOLE_OUTPUT,
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="12">
-    <file path="/mnt/DATA/www/phpqa/src/CodeAnalysisTasks.php" line="105"/>
-    <file path="/mnt/DATA/www/phpqa/tests/OptionsTest.php" line="10"/>
+    <file path="/Users/www/zd/phpqa/src/CodeAnalysisTasks.php" line="106"/>
+    <file path="/Users/www/zd/phpqa/tests/OptionsTest.php" line="10"/>
     <codefragment>            'analyzedDirs' =&gt; './',
             'buildDir' =&gt; 'build/',
             'ignoredDirs' =&gt; 'vendor',
             'ignoredFiles' =&gt; '',
 </codefragment>
   </duplication>
-  <duplication lines="4" tokens="12">
-    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="84"/>
-    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="106"/>
-    <file path="/mnt/DATA/www/phpqa/tests/Config/ConfigTest.php" line="114"/>
-    <codefragment>        $config = new Config();
-        $config-&gt;loadUserConfig(__DIR__);
-        $this-&gt;shouldStopPhpqa();
-        $config-&gt;path('phpcs.standard');
-</codefragment>
-  </duplication>
   <duplication lines="4" tokens="11">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="12"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcpd.php" line="16"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="12"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcpd.php" line="14"/>
     <codefragment>    public function __invoke()
     {
         $args = array(
@@ -93,8 +80,8 @@
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="16">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpCsFixer.php" line="24"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="18"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpCsFixer.php" line="23"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="18"/>
     <codefragment>            $analyzedDirs = $this-&gt;options-&gt;getAnalyzedDirs();
             $analyzedDir = reset($analyzedDirs);
             if (count($analyzedDirs) &gt; 1) {
@@ -102,53 +89,70 @@
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="11">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/ParallelLint.php" line="7"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Pdepend.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="7"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="5"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcpd.php" line="7"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpunit.php" line="7"/>
-    <codefragment>class ParallelLint extends \Edge\QA\Tools\Tool
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Deptrac.php" line="7"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/ParallelLint.php" line="7"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Pdepend.php" line="5"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="7"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="5"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcpd.php" line="5"/>
+    <codefragment>class Deptrac extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
-        'optionSeparator' =&gt; ' ',
+        'optionSeparator' =&gt; '=',
 </codefragment>
   </duplication>
   <duplication lines="4" tokens="10">
-    <file path="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV0.php" line="33"/>
-    <file path="/mnt/DATA/www/phpqa/src/Task/NonParallelExecV1.php" line="62"/>
+    <file path="/Users/www/zd/phpqa/src/Task/NonParallelExecV0.php" line="33"/>
+    <file path="/Users/www/zd/phpqa/src/Task/NonParallelExecV1.php" line="62"/>
     <codefragment>        $this-&gt;printTaskInfo(
             "Output for &lt;fg=white;bg=magenta&gt; " . $process-&gt;getCommandLine()." &lt;/fg=white;bg=magenta&gt;"
         );
         $this-&gt;getOutput()-&gt;writeln($process-&gt;getOutput(), OutputInterface::OUTPUT_RAW);
 </codefragment>
   </duplication>
+  <duplication lines="3" tokens="10">
+    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="51"/>
+    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="108"/>
+    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="115"/>
+    <codefragment>        $config = new Config();
+        $config-&gt;loadUserConfig(__DIR__);
+        assertThat($config-&gt;value('phpcpd.minLines'), is(5));
+</codefragment>
+  </duplication>
+  <duplication lines="3" tokens="13">
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcs.php" line="18"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpmd.php" line="18"/>
+    <codefragment>    public function __invoke()
+    {
+        $this-&gt;tool-&gt;errorsType = $this-&gt;config-&gt;value('phpcs.ignoreWarnings') === true;
+</codefragment>
+  </duplication>
   <duplication lines="3" tokens="14">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="16"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpcs.php" line="28"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Phpmd.php" line="23"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="16"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcs.php" line="27"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpmd.php" line="28"/>
     <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
 </codefragment>
   </duplication>
   <duplication lines="2" tokens="10">
-    <file path="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" line="26"/>
-    <file path="/mnt/DATA/www/phpqa/tests/Report/ReportTest.php" line="40"/>
+    <file path="/Users/www/zd/phpqa/tests/Report/ReportTest.php" line="26"/>
+    <file path="/Users/www/zd/phpqa/tests/Report/ReportTest.php" line="40"/>
     <codefragment>        xmlToHtml([__DIR__ . "/{$xml}"], $this-&gt;phplocXsl, $this-&gt;output, $this-&gt;xmlParams);
         assertThat(file_get_contents($this-&gt;output), $assertOutput);
 </codefragment>
   </duplication>
   <duplication lines="2" tokens="10">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/ParallelLint.php" line="20"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/Pdepend.php" line="21"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/ParallelLint.php" line="19"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Pdepend.php" line="21"/>
     <codefragment>            "-e {$this-&gt;config-&gt;csv('phpqa.extensions')}",
             $this-&gt;options-&gt;getAnalyzedDirs(' '),
 </codefragment>
   </duplication>
   <duplication lines="2" tokens="16">
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="28"/>
-    <file path="/mnt/DATA/www/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="18"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="28"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="18"/>
     <codefragment>        if ($this-&gt;options-&gt;isSavedToFiles) {
             $this-&gt;tool-&gt;htmlReport = $this-&gt;options-&gt;rawFile('phpmetrics.html');
 </codefragment>

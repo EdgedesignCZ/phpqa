@@ -50,7 +50,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2021-02-08 10:53:08        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2021-05-25 07:51:56        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -249,11 +249,23 @@
 
     var relations = [
     {
-        "name": "\\Edge\\QA\\IgnoredPathsTest",
+        "name": "\\Edge\\QA\\RoboFile",
+        "size": 3000,
+        "relations": [
+            "\\Robo\\Tasks"
+        ]
+    },
+    {
+        "name": "\\Robo\\Tasks",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Edge\\QA\\Tools\\GetVersionsTest",
         "size": 3000,
         "relations": [
             "\\PHPUnit_Framework_TestCase",
-            "\\Edge\\QA\\IgnoredPaths"
+            "\\Edge\\QA\\Tools\\GetVersions"
         ]
     },
     {
@@ -262,7 +274,22 @@
         "relations": []
     },
     {
-        "name": "\\Edge\\QA\\IgnoredPaths",
+        "name": "\\Edge\\QA\\Tools\\GetVersions",
+        "size": 3000,
+        "relations": [
+            "\\Symfony\\Component\\Process\\Process"
+        ]
+    },
+    {
+        "name": "\\Edge\\QA\\RunningToolTest",
+        "size": 3000,
+        "relations": [
+            "\\PHPUnit_Framework_TestCase",
+            "\\Edge\\QA\\RunningTool"
+        ]
+    },
+    {
+        "name": "\\Edge\\QA\\RunningTool",
         "size": 3000,
         "relations": []
     },
@@ -280,31 +307,17 @@
         "relations": []
     },
     {
-        "name": "\\Edge\\QA\\PathsTest",
-        "size": 3000,
-        "relations": [
-            "\\PHPUnit_Framework_TestCase"
-        ]
-    },
-    {
-        "name": "\\Edge\\QA\\RunningToolTest",
+        "name": "\\Edge\\QA\\IgnoredPathsTest",
         "size": 3000,
         "relations": [
             "\\PHPUnit_Framework_TestCase",
-            "\\Edge\\QA\\RunningTool"
+            "\\Edge\\QA\\IgnoredPaths"
         ]
     },
     {
-        "name": "\\Edge\\QA\\RunningTool",
+        "name": "\\Edge\\QA\\IgnoredPaths",
         "size": 3000,
         "relations": []
-    },
-    {
-        "name": "\\Edge\\QA\\ReportTest",
-        "size": 3000,
-        "relations": [
-            "\\PHPUnit_Framework_TestCase"
-        ]
     },
     {
         "name": "\\Edge\\QA\\OptionsTest",
@@ -317,75 +330,37 @@
     {
         "name": "\\Edge\\QA\\Options",
         "size": 3000,
+        "relations": [
+            "\\Edge\\QA\\IgnoredPaths",
+            "\\Edge\\QA\\RunningTool"
+        ]
+    },
+    {
+        "name": "\\Edge\\QA\\ReportTest",
+        "size": 3000,
+        "relations": [
+            "\\PHPUnit_Framework_TestCase"
+        ]
+    },
+    {
+        "name": "\\Edge\\QA\\PathsTest",
+        "size": 3000,
+        "relations": [
+            "\\PHPUnit_Framework_TestCase"
+        ]
+    },
+    {
+        "name": "\\Edge\\QA\\Tools\\Tool",
+        "size": 3000,
         "relations": []
     },
     {
-        "name": "\\Edge\\QA\\RoboFile",
-        "size": 3000,
-        "relations": [
-            "\\Robo\\Tasks"
-        ]
-    },
-    {
-        "name": "\\Robo\\Tasks",
+        "name": "\\Edge\\QA\\Tools\\AnalyzeResults",
         "size": 3000,
         "relations": []
-    },
-    {
-        "name": "\\Edge\\QA\\CodeAnalysisTasks",
-        "size": 3000,
-        "relations": [
-            "\\Edge\\QA\\Task\\TableVersions",
-            "\\Edge\\QA\\Config",
-            "\\Edge\\QA\\Tools\\Tools",
-            "\\Edge\\QA\\Options",
-            "\\Edge\\QA\\RunningTool",
-            "\\Edge\\QA\\Task\\AssetsLoader",
-            "\\Edge\\QA\\Task\\TableSummary"
-        ]
-    },
-    {
-        "name": "\\Edge\\QA\\Task\\TableVersions",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Component\\Console\\Output\\OutputInterface",
-            "\\Symfony\\Component\\Console\\Helper\\Table"
-        ]
     },
     {
         "name": "\\Edge\\QA\\Tools\\Tools",
-        "size": 3000,
-        "relations": [
-            "\\Edge\\QA\\Config",
-            "\\RuntimeException",
-            "\\Edge\\QA\\Options",
-            "\\Edge\\QA\\RunningTool",
-            "\\handlerClass",
-            "\\Edge\\QA\\Tools\\AnalyzeResults",
-            "\\Edge\\QA\\Tools\\GetVersions"
-        ]
-    },
-    {
-        "name": "\\Edge\\QA\\Task\\AssetsLoader",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Component\\Console\\Output\\OutputInterface",
-            "\\Edge\\QA\\Options",
-            "\\Symfony\\Component\\Console\\Helper\\ProgressBar",
-            "\\InvalidArgumentException"
-        ]
-    },
-    {
-        "name": "\\Edge\\QA\\Task\\TableSummary",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Component\\Console\\Output\\OutputInterface",
-            "\\Symfony\\Component\\Console\\Helper\\Table",
-            "\\Symfony\\Component\\Console\\Helper\\TableSeparator"
-        ]
-    },
-    {
-        "name": "\\Symfony\\Component\\Yaml\\Yaml",
         "size": 3000,
         "relations": []
     },
@@ -395,62 +370,24 @@
         "relations": []
     },
     {
-        "name": "\\Edge\\QA\\OutputMode",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Edge\\QA\\Tools\\Tool",
-        "size": 3000,
-        "relations": []
-    },
-    {
-        "name": "\\Edge\\QA\\Tools\\GetVersions",
-        "size": 3000,
-        "relations": [
-            "\\Symfony\\Component\\Process\\Process"
-        ]
-    },
-    {
         "name": "\\handlerClass",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "\\Edge\\QA\\Tools\\AnalyzeResults",
-        "size": 3000,
-        "relations": [
-            "\\Edge\\QA\\Options"
-        ]
-    },
-    {
-        "name": "\\Edge\\QA\\Tools\\Analyzer\\Phpmd",
-        "size": 3000,
-        "relations": [
-            "\\Edge\\QA\\Tools\\Tool"
-        ]
-    },
-    {
-        "name": "\\Edge\\QA\\Tools\\Analyzer\\Phpcs",
+        "name": "\\Symfony\\Component\\Process\\Process",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "\\Edge\\QA\\Tools\\Analyzer\\PhpcsV3",
-        "size": 3000,
-        "relations": [
-            "\\Edge\\QA\\Tools\\Analyzer\\Phpcs"
-        ]
-    },
-    {
-        "name": "\\Edge\\QA\\Tools\\Analyzer\\Phploc",
+        "name": "\\Edge\\QA\\Tools\\Analyzer\\Phpunit",
         "size": 3000,
         "relations": [
             "\\Edge\\QA\\Tools\\Tool"
         ]
     },
     {
-        "name": "\\Edge\\QA\\Tools\\Analyzer\\Pdepend",
+        "name": "\\Edge\\QA\\Tools\\Analyzer\\Phploc",
         "size": 3000,
         "relations": [
             "\\Edge\\QA\\Tools\\Tool"
@@ -470,7 +407,35 @@
         "relations": []
     },
     {
+        "name": "\\Edge\\QA\\Tools\\Analyzer\\ParallelLint",
+        "size": 3000,
+        "relations": [
+            "\\Edge\\QA\\Tools\\Tool"
+        ]
+    },
+    {
+        "name": "\\Edge\\QA\\Tools\\Analyzer\\Pdepend",
+        "size": 3000,
+        "relations": [
+            "\\Edge\\QA\\Tools\\Tool"
+        ]
+    },
+    {
         "name": "\\Edge\\QA\\Tools\\Analyzer\\PhpCsFixer",
+        "size": 3000,
+        "relations": [
+            "\\Edge\\QA\\Tools\\Tool"
+        ]
+    },
+    {
+        "name": "\\Edge\\QA\\Tools\\Analyzer\\Phpmd",
+        "size": 3000,
+        "relations": [
+            "\\Edge\\QA\\Tools\\Tool"
+        ]
+    },
+    {
+        "name": "\\Edge\\QA\\Tools\\Analyzer\\Deptrac",
         "size": 3000,
         "relations": [
             "\\Edge\\QA\\Tools\\Tool"
@@ -491,7 +456,21 @@
         ]
     },
     {
+        "name": "\\Edge\\QA\\Tools\\Analyzer\\Phpcs",
+        "size": 3000,
+        "relations": [
+            "\\Edge\\QA\\Tools\\Tool"
+        ]
+    },
+    {
         "name": "\\Edge\\QA\\Tools\\Analyzer\\PhpMetricsV2",
+        "size": 3000,
+        "relations": [
+            "\\Edge\\QA\\Tools\\Tool"
+        ]
+    },
+    {
+        "name": "\\Edge\\QA\\Tools\\Analyzer\\SecurityChecker",
         "size": 3000,
         "relations": [
             "\\Edge\\QA\\Tools\\Tool"
@@ -517,40 +496,17 @@
         "relations": []
     },
     {
-        "name": "\\Edge\\QA\\Tools\\Analyzer\\ParallelLint",
-        "size": 3000,
-        "relations": [
-            "\\Edge\\QA\\Tools\\Tool"
-        ]
-    },
-    {
-        "name": "\\Edge\\QA\\Tools\\Analyzer\\SecurityChecker",
-        "size": 3000,
-        "relations": [
-            "\\Edge\\QA\\Tools\\Tool"
-        ]
-    },
-    {
-        "name": "\\Edge\\QA\\Tools\\Analyzer\\Phpunit",
-        "size": 3000,
-        "relations": [
-            "\\Edge\\QA\\Tools\\Tool"
-        ]
-    },
-    {
-        "name": "\\Symfony\\Component\\Process\\Process",
+        "name": "\\Edge\\QA\\OutputMode",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "\\Edge\\QA\\Task\\RoboAdapter",
+        "name": "\\Symfony\\Component\\Yaml\\Yaml",
         "size": 3000,
-        "relations": [
-            "\\class"
-        ]
+        "relations": []
     },
     {
-        "name": "\\class",
+        "name": "\\Edge\\QA\\Task\\TableSummary",
         "size": 3000,
         "relations": []
     },
@@ -570,37 +526,32 @@
         "relations": []
     },
     {
-        "name": "\\Edge\\QA\\Task\\NonParallelExecV0",
-        "size": 3000,
-        "relations": [
-            "\\Edge\\QA\\Task\\NonParallelExecV1",
-            "\\Symfony\\Component\\Console\\Helper\\ProgressBar",
-            "\\Symfony\\Component\\Process\\Process"
-        ]
-    },
-    {
-        "name": "\\Edge\\QA\\Task\\NonParallelExecV1",
-        "size": 3000,
-        "relations": [
-            "\\Edge\\QA\\Task\\ParallelExec",
-            "\\Robo\\Result",
-            "\\Symfony\\Component\\Process\\Process"
-        ]
-    },
-    {
-        "name": "\\Symfony\\Component\\Console\\Helper\\ProgressBar",
+        "name": "\\Edge\\QA\\Task\\ParallelExec",
         "size": 3000,
         "relations": []
     },
     {
-        "name": "\\Edge\\QA\\Task\\ParallelExec",
+        "name": "\\Robo\\Task\\Base\\ParallelExec",
         "size": 3000,
-        "relations": [
-            "\\Robo\\Task\\Base\\ParallelExec"
-        ]
+        "relations": []
+    },
+    {
+        "name": "\\Edge\\QA\\Task\\NonParallelExecV1",
+        "size": 3000,
+        "relations": []
     },
     {
         "name": "\\Robo\\Result",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Edge\\QA\\Task\\AssetsLoader",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Symfony\\Component\\Console\\Helper\\ProgressBar",
         "size": 3000,
         "relations": []
     },
@@ -610,9 +561,43 @@
         "relations": []
     },
     {
-        "name": "\\Robo\\Task\\Base\\ParallelExec",
+        "name": "\\Edge\\QA\\Task\\NonParallelExecV0",
+        "size": 3000,
+        "relations": [
+            "\\Edge\\QA\\Task\\NonParallelExecV1",
+            "\\Symfony\\Component\\Console\\Helper\\ProgressBar",
+            "\\Symfony\\Component\\Process\\Process"
+        ]
+    },
+    {
+        "name": "\\Edge\\QA\\Task\\TableVersions",
         "size": 3000,
         "relations": []
+    },
+    {
+        "name": "\\Edge\\QA\\Task\\RoboAdapter",
+        "size": 3000,
+        "relations": [
+            "\\class"
+        ]
+    },
+    {
+        "name": "\\class",
+        "size": 3000,
+        "relations": []
+    },
+    {
+        "name": "\\Edge\\QA\\CodeAnalysisTasks",
+        "size": 3000,
+        "relations": [
+            "\\Edge\\QA\\Task\\TableVersions",
+            "\\Edge\\QA\\Config",
+            "\\Edge\\QA\\Tools\\Tools",
+            "\\Edge\\QA\\Options",
+            "\\Edge\\QA\\RunningTool",
+            "\\Edge\\QA\\Task\\AssetsLoader",
+            "\\Edge\\QA\\Task\\TableSummary"
+        ]
     }
 ];
 

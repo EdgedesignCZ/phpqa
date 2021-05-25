@@ -39,11 +39,31 @@
             <li style="color: #555753;">✓ Throw exception when file does not exist</li>
             <li style="color: #555753;">✓ Config csv string</li>
             <li style="color: #555753;">✓ Use cwd if no directory is specified</li>
-            <li style="color: #555753;">✓ Throw exception when binary does not exist</li>
-            <li style="color: #555753;">✓ Throw exception when wrong binary is used</li>
+            <li style="color: #555753;">✓ Ignore invalid binary does not exist</li>
+            <li style="color: #555753;">✓ Tool and binary name might not match</li>
             <li style="color: #ef2929;">❌ Multiple config</li>
             <li style="color: #555753;">✓ Autodetect config in current directory</li>
             <li style="color: #555753;">✓ Ignore autodetected config if user config is specified</li>
+        </ul>
+        <h2 id="Edge\QA\Tools\GetVersionsTest">Get Versions (Edge\QA\Tools\GetVersions)</h2>
+        <ul>
+            <li style="color: #555753;">✓ Normalize version with data set "full semver"</li>
+            <li style="color: #555753;">✓ Normalize version with data set "minor release"</li>
+            <li style="color: #555753;">✓ Normalize version with data set "major release"</li>
+            <li style="color: #555753;">✓ Cli version with data set "semver at the end"</li>
+            <li style="color: #555753;">✓ Cli version with data set "semver at the start"</li>
+            <li style="color: #555753;">✓ Cli version with data set "semver at 2nd line"</li>
+            <li style="color: #555753;">✓ Cli version with data set "custom format"</li>
+            <li style="color: #555753;">✓ Cli version with data set "no space"</li>
+            <li style="color: #555753;">✓ Cli version with data set "dev version"</li>
+            <li style="color: #555753;">✓ Cli version with data set "prefer semver (semver + dev)"</li>
+            <li style="color: #555753;">✓ Cli version with data set "prefer semver (dev + semver)"</li>
+            <li style="color: #555753;">✓ Cli version with data set "no version"</li>
+            <li style="color: #555753;">✓ Compare versions with data set "no version"</li>
+            <li style="color: #555753;">✓ Compare versions with data set "is lower?"</li>
+            <li style="color: #555753;">✓ Compare versions with data set "is greater than dev version"</li>
+            <li style="color: #555753;">✓ Compare versions with data set "semver is greater than"</li>
+            <li style="color: #555753;">✓ Compare versions with data set "dev version is greater than"</li>
         </ul>
         <h2 id="Edge\QA\IgnoredPathsTest">Ignored Paths (Edge\QA\IgnoredPaths)</h2>
         <ul>
@@ -109,6 +129,8 @@
             <li style="color: #555753;">✓ Compare allowed count with errors count from xml with data set "success when errors count <= allowed count"</li>
             <li style="color: #555753;">✓ Compare allowed count with errors count from xml with data set "failure when errors count > allowed count"</li>
             <li style="color: #555753;">✓ Runtime selection of error xpath</li>
+            <li style="color: #555753;">✓ Multiple xpaths with data set "multiple elements"</li>
+            <li style="color: #555753;">✓ Multiple xpaths with data set "invalid xpath"</li>
             <li style="color: #ef2929;">❌ Analyze exit code in cli mode with data set "success when exit code = 0"</li>
             <li style="color: #ef2929;">❌ Analyze exit code in cli mode with data set "success when exit code <= allowed code"</li>
             <li style="color: #ef2929;">❌ Analyze exit code in cli mode with data set "failure when errors count > allowed count but errors count is always one"</li>

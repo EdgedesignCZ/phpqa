@@ -8,11 +8,30 @@ Config (Edge\QA\Config)
  [x] Throw exception when file does not exist
  [x] Config csv string
  [x] Use cwd if no directory is specified
- [x] Throw exception when binary does not exist
- [x] Throw exception when wrong binary is used
+ [x] Ignore invalid binary does not exist
+ [x] Tool and binary name might not match
  [ ] Multiple config
  [x] Autodetect config in current directory
  [x] Ignore autodetected config if user config is specified
+
+Get Versions (Edge\QA\Tools\GetVersions)
+ [x] Normalize version with data set "full semver"
+ [x] Normalize version with data set "minor release"
+ [x] Normalize version with data set "major release"
+ [x] Cli version with data set "semver at the end"
+ [x] Cli version with data set "semver at the start"
+ [x] Cli version with data set "semver at 2nd line"
+ [x] Cli version with data set "custom format"
+ [x] Cli version with data set "no space"
+ [x] Cli version with data set "dev version"
+ [x] Cli version with data set "prefer semver (semver + dev)"
+ [x] Cli version with data set "prefer semver (dev + semver)"
+ [x] Cli version with data set "no version"
+ [x] Compare versions with data set "no version"
+ [x] Compare versions with data set "is lower?"
+ [x] Compare versions with data set "is greater than dev version"
+ [x] Compare versions with data set "semver is greater than"
+ [x] Compare versions with data set "dev version is greater than"
 
 Ignored Paths (Edge\QA\IgnoredPaths)
  [x] No option when nothing is ignored with data set #0
@@ -73,6 +92,8 @@ Running Tool (Edge\QA\RunningTool)
  [x] Compare allowed count with errors count from xml with data set "success when errors count <= allowed count"
  [x] Compare allowed count with errors count from xml with data set "failure when errors count > allowed count"
  [x] Runtime selection of error xpath
+ [x] Multiple xpaths with data set "multiple elements"
+ [x] Multiple xpaths with data set "invalid xpath"
  [ ] Analyze exit code in cli mode with data set "success when exit code = 0"
  [ ] Analyze exit code in cli mode with data set "success when exit code <= allowed code"
  [ ] Analyze exit code in cli mode with data set "failure when errors count > allowed count but errors count is always one"

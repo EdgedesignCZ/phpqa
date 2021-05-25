@@ -1,63 +1,67 @@
 
 PHP CODE SNIFFER INFORMATION REPORT
 ----------------------------------------------------------------------
-Blank lines at end of control structure: 0 [172/172, 100%]
+Blank lines at end of control structure: 0 [184/184, 100%]
 
-Blank lines at start of control structure: 0 [172/172, 100%]
+Blank lines at start of control structure: 0 [184/184, 100%]
 
-CamelCase method name: yes [143/143, 100%]
+CamelCase method name: yes [152/152, 100%]
 
-Class defined in namespace: yes [38/38, 100%]
+Class defined in namespace: yes [39/39, 100%]
 
-Class opening brace placement: new line [38/38, 100%]
+Class opening brace placement: new line [39/39, 100%]
 
-Closure opening brace placement: same line [19/19, 100%]
+Closure opening brace placement: same line [20/20, 100%]
 
 Constant name case: upper [5/5, 100%]
 
-Control structure defined inline: no [168/168, 100%]
+Control structure defined inline: no [178/178, 100%]
 
-Declarations and side effects mixed: no [44/44, 100%]
+Declarations and side effects mixed: no [45/45, 100%]
 
-EOL char: \n [44/44, 100%]
+EOL char: \n [45/45, 100%]
 
-Function opening brace placement: new line [178/178, 100%]
+Function opening brace placement: new line [189/189, 100%]
 
-Line indent: spaces [2237/2237, 100%]
+Line indent: spaces [2350/2350, 100%]
 
 Line length:
-	80 or less  => 2,366 ( 93.55%)
-	81-120      =>   156 (  6.17%)
-	121-150     =>     5 (  0.20%)
+	80 or less  => 2,482 ( 93.52%)
+	81-120      =>   165 (  6.22%)
+	121-150     =>     5 (  0.19%)
 	151 or more =>     2 (  0.08%)
 	-------------------------------
-	total       => 2,529 (100.00%)
+	total       => 2,654 (100.00%)
 
 Multiple statements on same line:
-	no    =>  836 ( 99.88%)
+	no    =>  859 ( 99.88%)
 	yes   =>    1 (  0.12%)
 	------------------------
-	total =>  837 (100.00%)
+	total =>  860 (100.00%)
 
 Number of newlines at EOF: 1 [44/44, 100%]
 
-One class per file: yes [38/38, 100%]
+One class per file: yes [39/39, 100%]
 
-PHP closing tag at end of PHP-only file: no [44/44, 100%]
+PHP closing tag at end of PHP-only file:
+	no    => 44 ( 97.78%)
+	yes   =>  1 (  2.22%)
+	----------------------
+	total => 45 (100.00%)
 
-PHP constant case: lower [102/102, 100%]
+PHP constant case: lower [114/114, 100%]
 
-PHP keyword case: lower [1146/1146, 100%]
+PHP keyword case: lower [1208/1208, 100%]
 
-PHP short open tag used: no [44/44, 100%]
+PHP short open tag used: no [51/51, 100%]
 
-PascalCase class name: yes [38/38, 100%]
+PascalCase class name: yes [39/39, 100%]
 
-Spaces after control structure open parenthesis: 0 [147/147, 100%]
+Spaces after control structure open parenthesis: 0 [156/156, 100%]
 
-Spaces before control structure close parenthesis: 0 [147/147, 100%]
+Spaces before control structure close parenthesis: 0 [156/156, 100%]
 
-Use of ELSE IF or ELSEIF: elseif [7/7, 100%]
+Use of ELSE IF or ELSEIF: elseif [9/9, 100%]
 
 ----------------------------------------------------------------------
 
