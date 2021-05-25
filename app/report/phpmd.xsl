@@ -33,7 +33,7 @@
                 var onDocumentReady = [
                     function () {
                         $('[data-file]').each(function () {
-                            var pathWithoutRoot = $(this).text().replace('<xsl:value-of select="$root-directory"></xsl:value-of>', '');
+                            var pathWithoutRoot = $(this).text().replaceAll('<xsl:value-of select="$root-directory"></xsl:value-of>', '');
                             $(this).text(pathWithoutRoot);
                         });
                     }
