@@ -1,6 +1,24 @@
 
 # Changelog
 
+## v1.25.0
+
+* **tools**
+  * support Robo v3.X [#226](https://github.com/EdgedesignCZ/phpqa/issues/226), [#227](https://github.com/EdgedesignCZ/phpqa/pull/227)
+  * upgrade pdepend, phpmd _(partial php7.4 and php8 syntax)_ [#231](https://github.com/EdgedesignCZ/phpqa/pull/231) 
+  * drop support for phpcs v2 _(php8 syntax in phpcs 3.6)_ [#232](https://github.com/EdgedesignCZ/phpqa/pull/232)
+  * refine handling phpmd parsing errors _(visual warning in html, enable counting them for exit code)_ [#230](https://github.com/EdgedesignCZ/phpqa/issues/230), [#237](https://github.com/EdgedesignCZ/phpqa/pull/237)
+  * add deptrac [#229](https://github.com/EdgedesignCZ/phpqa/issues/229), [#235](https://github.com/EdgedesignCZ/phpqa/issues/235)
+* **custom binaries**
+  * refine loading versions from custom binaries [#233](https://github.com/EdgedesignCZ/phpqa/pull/233)
+  * run custom binaries, refactoring [#234](https://github.com/EdgedesignCZ/phpqa/pull/234)
+* **html reports**
+  * fix replacing text with multiple file paths, hotfix bootstrap menu with many tools [#239](https://github.com/EdgedesignCZ/phpqa/pull/239)
+* _internal_
+  * CI - building docker images after release - [#224](https://github.com/EdgedesignCZ/phpqa/pull/224)
+  * CI - fix phpstan/psalm config [#236](https://github.com/EdgedesignCZ/phpqa/pull/236)
+  * Refine docs _(github actions example, .phpqa.yml config)_ [#238](https://github.com/EdgedesignCZ/phpqa/pull/238)    
+
 ## v1.24.0
 
 * **tools**
@@ -14,7 +32,7 @@
 * **composer** 
     * fix loading versions installed by composer 2.0 [#212](https://github.com/EdgedesignCZ/phpqa/pull/212), [#213](https://github.com/EdgedesignCZ/phpqa/pull/213)
     * allow to define vendor and vendor-bin with environment variables [#198](https://github.com/EdgedesignCZ/phpqa/pull/198)
-    * enable symfony5 [#205](https://github.com/EdgedesignCZ/phpqa/issues/205), twig3 [#203](https://github.com/EdgedesignCZ/phpqa/issues/203), robo3 [#208](https://github.com/EdgedesignCZ/phpqa/pull/208)
+    * enable symfony5 [#205](https://github.com/EdgedesignCZ/phpqa/issues/205), twig3 [#203](https://github.com/EdgedesignCZ/phpqa/issues/203), robo2 [#208](https://github.com/EdgedesignCZ/phpqa/pull/208)
 * _internal_
     * migrate from travis to github actions, add php 7.4/8.0 [#195](https://github.com/EdgedesignCZ/phpqa/pull/195), [#217](https://github.com/EdgedesignCZ/phpqa/pull/217), [#219](https://github.com/EdgedesignCZ/phpqa/pull/219), [#221](https://github.com/EdgedesignCZ/phpqa/pull/221)
     * build default and updated docker image [#222](https://github.com/EdgedesignCZ/phpqa/pull/222)    
