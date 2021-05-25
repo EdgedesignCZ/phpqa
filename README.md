@@ -507,6 +507,43 @@ test:
     - $BACKEND_QA
 ```
 
+### Github actions - docker installation + composer cache + artifacts
+
+```yaml
+name: QA
+
+on: [push]
+
+jobs:
+  qa:
+    container: zdenekdrahos/phpqa:v1.24.0-php7.4
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      
+      # composer is not necessary, if you are not running phpunit/psalm/phpstan
+      - name: Cache composer
+        uses: actions/cache@v2
+        with:
+          path: |
+            ~/.composer/cache
+            vendor
+          key: php-composer-${{ hashFiles('**/composer.lock') }}
+          restore-keys: "php-composer-74"
+      - name: Install dependencies
+        run: |
+          composer install --no-interaction --no-progress --ignore-platform-reqs;
+
+      - name: phpqa
+        run: phpqa --report --tools phpunit:0,phpcs:0,phpmd:0,psalm:0,phpstan:0 --buildDir build --analyzedDirs ./ --ignoredDirs build,vendor
+
+      - name: Upload QA files
+        uses: actions/upload-artifact@v2
+        with:
+          name: phpqa
+          path: build
+```
+
 ## Contributing
 
 Contributions from others would be very much appreciated! Send
