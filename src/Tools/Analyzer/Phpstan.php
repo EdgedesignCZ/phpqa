@@ -44,7 +44,7 @@ class Phpstan extends \Edge\QA\Tools\Tool
         }
 
         $config['parameters']['excludePaths'] = array_merge(
-            $config['parameters']['excludePaths'],
+            $config['parameters']['excludePaths']['analyseAndScan'] ?? $config['parameters']['excludePaths'],
             $createAbsolutePaths($this->options->ignore->phpstan())
         );
 
