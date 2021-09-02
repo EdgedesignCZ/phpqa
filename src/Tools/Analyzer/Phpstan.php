@@ -32,19 +32,23 @@ class Phpstan extends \Edge\QA\Tools\Tool
         if (file_exists($defaultConfig)) {
             $config = \Nette\Neon\Neon::decode(file_get_contents($defaultConfig));
             $config['parameters'] += [
-                'excludePaths' => [],
+                'excludePaths' => [
+                    'analyseAndScan' => [],
+                ],
             ];
         } else {
             $config = [
                 'parameters' => [
                     'autoload_directories' => $createAbsolutePaths($this->options->getAnalyzedDirs()),
-                    'excludePaths'         => [],
+                    'excludePaths'         => [
+                        'analyseAndScan' => [],
+                    ],
                 ],
             ];
         }
 
-        $config['parameters']['excludePaths'] = array_merge(
-            $config['parameters']['excludePaths']['analyseAndScan'] ?? $config['parameters']['excludePaths'],
+        $config['parameters']['excludePaths']['analyseAndScan'] = array_merge(
+            isset($config['parameters']['excludePaths']['analyseAndScan']) ? $config['parameters']['excludePaths']['analyseAndScan'] : [],
             $createAbsolutePaths($this->options->ignore->phpstan())
         );
 
