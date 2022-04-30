@@ -91,6 +91,9 @@ psalm:
 deptrac:
     depfile: null # depfile.yml (https://github.com/qossmic/deptrac#the-depfile)
 
+security-checker:
+    composerLock: null # use it if composer.lock is not in current working directory or analyzed directory
+
 # paths are relative to .phpqa.yml, so don't copy-paste this section if you don't have custom templates
 report:
     phploc: app/report/phploc.xsl

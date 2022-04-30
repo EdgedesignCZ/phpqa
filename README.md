@@ -342,6 +342,7 @@ Tool | Settings | Default Value | Your value
 [psalm.showInfo](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
 [psalm.memoryLimit](https://github.com/vimeo/psalm/issues/842) | Custom memory limit, ignore unless you are getting `Fatal error: Allowed memory size of ... bytes exhausted` | `null` | String value, e.g. `'1024M'`, `'1G'`
 [deptrac.depfile](https://github.com/vimeo/psalm/wiki/Configuration) | Complete [deptract config](https://github.com/qossmic/deptrac#getting-started) _(phpqa won't update source and excluded files)_ | `null` | Path to `depfile.yml` file
+[composer.lock](https://github.com/EdgedesignCZ/phpqa/blob/master/.phpqa.yml#L94) | Use it if composer.lock is not in current working directory or analyzed directory | `null` | Path to `composer.lock` file
 
 ## HTML reports
 

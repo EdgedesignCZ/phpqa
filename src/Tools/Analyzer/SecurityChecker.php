@@ -14,18 +14,26 @@ class SecurityChecker extends \Edge\QA\Tools\Tool
 
     public function __invoke()
     {
-        $composerLock = getcwd() . "/composer.lock";
-        foreach ($this->options->getAnalyzedDirs() as $escapedDir) {
-            $dir = rtrim(trim($escapedDir, '"'), '/');
-            $path = "{$dir}/composer.lock";
-            if (file_exists($path)) {
-                $composerLock = $path;
-                break;
-            }
-        }
+        $composerLockFromConfig = $this->config->path('security-checker.composerLock');
+        $composerLock = file_exists($composerLockFromConfig)
+            ? $composerLockFromConfig
+            : $this->detectComposerLock();
+
         return [
             'security:check',
             $composerLock,
         ];
+    }
+
+    private function detectComposerLock()
+    {
+        foreach ($this->options->getAnalyzedDirs() as $escapedDir) {
+            $dir = rtrim(trim($escapedDir, '"'), '/');
+            $path = "{$dir}/composer.lock";
+            if (file_exists($path)) {
+                return $path;
+            }
+        }
+        return getcwd() . '/composer.lock';
     }
 }
