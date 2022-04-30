@@ -28,23 +28,14 @@ class Phpstan extends \Edge\QA\Tools\Tool
             )));
         };
 
-        $defaultConfig = $this->config->path('phpstan.standard') ?: (getcwd() . '/phpstan.neon');
-        if (file_exists($defaultConfig)) {
-            $config = \Nette\Neon\Neon::decode(file_get_contents($defaultConfig));
-            $config['parameters'] += [
-                'excludes_analyse' => [],
-            ];
-        } else {
-            $config = [
-                'parameters' => [
-                    'autoload_directories' => $createAbsolutePaths($this->options->getAnalyzedDirs()),
-                    'excludes_analyse'     => [],
-                ],
-            ];
-        }
+        $defaultConfigFile = $this->config->path('phpstan.standard') ?: (getcwd() . '/phpstan.neon');
+        $existingConfig = file_exists($defaultConfigFile)
+            ? \Nette\Neon\Neon::decode(file_get_contents($defaultConfigFile))
+            : [];
 
-        $config['parameters']['excludes_analyse'] = array_merge(
-            $config['parameters']['excludes_analyse'],
+        $config = self::buildConfig(
+            $existingConfig,
+            $createAbsolutePaths($this->options->getAnalyzedDirs()),
             $createAbsolutePaths($this->options->ignore->phpstan())
         );
 
@@ -68,5 +59,29 @@ class Phpstan extends \Edge\QA\Tools\Tool
     private function getErrorFormatOption()
     {
         return $this->toolVersionIs('<', '0.10.3') ?  'errorFormat' : 'error-format';
+    }
+
+    public static function buildConfig($existingConfig, $autoloadDirectories, $ignoredPaths)
+    {
+        if ($existingConfig !== []) {
+            $config = $existingConfig;
+            $config['parameters'] += [
+                'excludes_analyse' => [],
+            ];
+        } else {
+            $config = [
+                'parameters' => [
+                    'autoload_directories' => $autoloadDirectories,
+                    'excludes_analyse' => [],
+                ],
+            ];
+        }
+
+        $config['parameters']['excludes_analyse'] = array_merge(
+            $config['parameters']['excludes_analyse'],
+            $ignoredPaths
+        );
+
+        return $config;
     }
 }
