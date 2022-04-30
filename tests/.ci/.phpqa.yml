@@ -16,7 +16,7 @@ phpqa:
         - phploc
         - phpcs:0
         - php-cs-fixer
-        - phpmd:15
+        - phpmd:0
         - pdepend
         - phpcpd:0
         - phpstan
@@ -27,6 +27,7 @@ phpqa:
         - deptrac
 
 phpmd:
+    standard: phpmd.xml
     ignoreParsingErrors: false
 
 phpcs:
