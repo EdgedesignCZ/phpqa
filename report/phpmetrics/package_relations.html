@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/roboto.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/material-icons.css">
-    <link rel="stylesheet" href="css/graph-carousel.css">
 </head>
 <body>
 
@@ -17,7 +16,7 @@
 <header class="headerbar">
     <div class="headerbarInner">
         <div class="float-left navigation-title">
-            <a href="http://www.phpmetrics.org/">
+            <a href="https://github.com/phpmetrics/phpmetrics">
                 <h1 class="title">PhpMetrics</h1>
                 <span class="subtitle">
                 Static analyzer for PHP
@@ -26,8 +25,8 @@
         </div>
         <ul class="navigation-list float-right">
             <li class="navigation-item">
-                <a class="navigation-link" href="http://www.phpmetrics.org/documentation/index.html">Documentation</a>
                 <a class="navigation-link" href="https://www.github.com/phpmetrics/phpmetrics">Support</a>
+                <a class="navigation-link" href="https://phpmetrics.github.io/website/">Documentation</a>
             </li>
         </ul>
     </div>
@@ -50,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2021-05-25 07:51:56        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2022-04-30 09:16:19        , with PHPMetrics v2.8.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
@@ -71,7 +70,7 @@
 <div id="sidebar">
     <div class="content">
         <div class="logo">
-            <a href="http://www.phpmetrics.org"><img src="images/phpmetrics-maintenability.png"
+            <a href="https://github.com/phpmetrics/phpmetrics"><img src="images/phpmetrics-maintenability.png"
                                                  alt="Logo PhpMetrics"/></a>
             <h1>PhpMetrics</h1>
         </div>
@@ -227,7 +226,6 @@
 <script type="text/javascript" src="js/d3.hexbin.v0.js"></script>
 <script type="text/javascript" src="js/sort-table.min.js"></script>
 <script type="text/javascript" src="js/graph-maintainability.js"></script>
-<script type="text/javascript" src="js/graph-carousel.js"></script>
 <script type="text/javascript" src="js/graph-licenses.js"></script>
 <script type="text/javascript" src="js/FileSaver.min.js"></script>
 
@@ -305,10 +303,16 @@
         "name": "Edge\\QA\\Tools\\Analyzer",
         "size": 3000,
         "relations": [
+            "PHPUnit\\Framework",
             "Edge\\QA\\Tools",
             "Nette\\Neon",
             "global"
         ]
+    },
+    {
+        "name": "PHPUnit\\Framework",
+        "size": 3000,
+        "relations": []
     },
     {
         "name": "Nette\\Neon",

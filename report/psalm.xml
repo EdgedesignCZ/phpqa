@@ -2158,50 +2158,6 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>106</line_from>
-    <line_to>106</line_to>
-    <type>MissingClosureParamType</type>
-    <message>Parameter $a has no provided type</message>
-    <file_name>src/Options.php</file_name>
-    <file_path>/Users/www/zd/phpqa/src/Options.php</file_path>
-    <snippet>            function ($a, $b) use ($keys) {</snippet>
-    <selected_text>$a</selected_text>
-    <from>3457</from>
-    <to>3459</to>
-    <snippet_from>3435</snippet_from>
-    <snippet_to>3478</snippet_to>
-    <column_from>23</column_from>
-    <column_to>25</column_to>
-    <error_level>2</error_level>
-    <shortcode>153</shortcode>
-    <link>https://psalm.dev/153</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>106</line_from>
-    <line_to>106</line_to>
-    <type>MissingClosureParamType</type>
-    <message>Parameter $b has no provided type</message>
-    <file_name>src/Options.php</file_name>
-    <file_path>/Users/www/zd/phpqa/src/Options.php</file_path>
-    <snippet>            function ($a, $b) use ($keys) {</snippet>
-    <selected_text>$b</selected_text>
-    <from>3461</from>
-    <to>3463</to>
-    <snippet_from>3435</snippet_from>
-    <snippet_to>3478</snippet_to>
-    <column_from>27</column_from>
-    <column_to>29</column_to>
-    <error_level>2</error_level>
-    <shortcode>153</shortcode>
-    <link>https://psalm.dev/153</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
     <line_from>107</line_from>
     <line_to>107</line_to>
     <type>PossiblyFalseOperand</type>
@@ -2601,7 +2557,7 @@
     <line_from>22</line_from>
     <line_to>22</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\RunningTool::$process is not defined in constructor of Edge\QA\RunningTool and in any private or final methods called in the constructor</message>
+    <message>Property Edge\QA\RunningTool::$process is not defined in constructor of Edge\QA\RunningTool or in any private or final methods called in the constructor</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    public $process;</snippet>
@@ -3670,28 +3626,6 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>7</line_from>
-    <line_to>7</line_to>
-    <type>UnusedClass</type>
-    <message>Class Edge\QA\Tools\Analyzer\Phpstan is never used</message>
-    <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
-    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
-    <snippet>class Phpstan extends \Edge\QA\Tools\Tool</snippet>
-    <selected_text>Phpstan</selected_text>
-    <from>73</from>
-    <to>80</to>
-    <snippet_from>67</snippet_from>
-    <snippet_to>108</snippet_to>
-    <column_from>7</column_from>
-    <column_to>14</column_to>
-    <error_level>-2</error_level>
-    <shortcode>75</shortcode>
-    <link>https://psalm.dev/075</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
     <line_from>22</line_from>
     <line_to>22</line_to>
     <type>MissingClosureReturnType</type>
@@ -3714,23 +3648,155 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>68</line_from>
-    <line_to>68</line_to>
+    <line_from>59</line_from>
+    <line_to>59</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Tools\Analyzer\Phpstan::getErrorFormatOption does not have a return type, expecting "error-format"|"errorFormat"</message>
     <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
     <snippet>    private function getErrorFormatOption()</snippet>
     <selected_text>getErrorFormatOption</selected_text>
-    <from>2288</from>
-    <to>2308</to>
-    <snippet_from>2267</snippet_from>
-    <snippet_to>2310</snippet_to>
+    <from>1967</from>
+    <to>1987</to>
+    <snippet_from>1946</snippet_from>
+    <snippet_to>1989</snippet_to>
     <column_from>22</column_from>
     <column_to>42</column_to>
     <error_level>2</error_level>
     <shortcode>50</shortcode>
     <link>https://psalm.dev/050</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>64</line_from>
+    <line_to>64</line_to>
+    <type>MissingReturnType</type>
+    <message>Method Edge\QA\Tools\Analyzer\Phpstan::buildConfig does not have a return type</message>
+    <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
+    <snippet>    public static function buildConfig($existingConfig, $autoloadDirectories, $ignoredPaths)</snippet>
+    <selected_text>buildConfig</selected_text>
+    <from>2116</from>
+    <to>2127</to>
+    <snippet_from>2089</snippet_from>
+    <snippet_to>2181</snippet_to>
+    <column_from>28</column_from>
+    <column_to>39</column_to>
+    <error_level>2</error_level>
+    <shortcode>50</shortcode>
+    <link>https://psalm.dev/050</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>64</line_from>
+    <line_to>64</line_to>
+    <type>MissingParamType</type>
+    <message>Parameter $existingConfig has no provided type</message>
+    <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
+    <snippet>    public static function buildConfig($existingConfig, $autoloadDirectories, $ignoredPaths)</snippet>
+    <selected_text>$existingConfig</selected_text>
+    <from>2128</from>
+    <to>2143</to>
+    <snippet_from>2089</snippet_from>
+    <snippet_to>2181</snippet_to>
+    <column_from>40</column_from>
+    <column_to>55</column_to>
+    <error_level>2</error_level>
+    <shortcode>154</shortcode>
+    <link>https://psalm.dev/154</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>64</line_from>
+    <line_to>64</line_to>
+    <type>MissingParamType</type>
+    <message>Parameter $autoloadDirectories has no provided type</message>
+    <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
+    <snippet>    public static function buildConfig($existingConfig, $autoloadDirectories, $ignoredPaths)</snippet>
+    <selected_text>$autoloadDirectories</selected_text>
+    <from>2145</from>
+    <to>2165</to>
+    <snippet_from>2089</snippet_from>
+    <snippet_to>2181</snippet_to>
+    <column_from>57</column_from>
+    <column_to>77</column_to>
+    <error_level>2</error_level>
+    <shortcode>154</shortcode>
+    <link>https://psalm.dev/154</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>64</line_from>
+    <line_to>64</line_to>
+    <type>MissingParamType</type>
+    <message>Parameter $ignoredPaths has no provided type</message>
+    <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
+    <snippet>    public static function buildConfig($existingConfig, $autoloadDirectories, $ignoredPaths)</snippet>
+    <selected_text>$ignoredPaths</selected_text>
+    <from>2167</from>
+    <to>2180</to>
+    <snippet_from>2089</snippet_from>
+    <snippet_to>2181</snippet_to>
+    <column_from>79</column_from>
+    <column_to>92</column_to>
+    <error_level>2</error_level>
+    <shortcode>154</shortcode>
+    <link>https://psalm.dev/154</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>91</line_from>
+    <line_to>91</line_to>
+    <type>InvalidArrayOffset</type>
+    <message>Cannot access value on variable $config['parameters'] using offset value of 'excludes_analyse', expecting 'autoload_directories' or 'excludePaths'</message>
+    <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
+    <snippet>        } elseif (isset($config['parameters']['excludes_analyse'])) {</snippet>
+    <selected_text>$config['parameters']['excludes_analyse']</selected_text>
+    <from>3152</from>
+    <to>3193</to>
+    <snippet_from>3128</snippet_from>
+    <snippet_to>3197</snippet_to>
+    <column_from>25</column_from>
+    <column_to>66</column_to>
+    <error_level>6</error_level>
+    <shortcode>115</shortcode>
+    <link>https://psalm.dev/115</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>93</line_from>
+    <line_to>93</line_to>
+    <type>InvalidArrayOffset</type>
+    <message>Cannot access value on variable $config['parameters'] using offset value of 'excludes_analyse', expecting 'autoload_directories' or 'excludePaths'</message>
+    <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
+    <snippet>                $config['parameters']['excludes_analyse'],</snippet>
+    <selected_text>$config['parameters']['excludes_analyse']</selected_text>
+    <from>3283</from>
+    <to>3324</to>
+    <snippet_from>3267</snippet_from>
+    <snippet_to>3325</snippet_to>
+    <column_from>17</column_from>
+    <column_to>58</column_to>
+    <error_level>6</error_level>
+    <shortcode>115</shortcode>
+    <link>https://psalm.dev/115</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -3934,6 +4000,28 @@
   </item>
   <item>
     <severity>info</severity>
+    <line_from>87</line_from>
+    <line_to>87</line_to>
+    <type>ArgumentTypeCoercion</type>
+    <message>Argument 1 of DOMDocument::loadXML expects non-empty-string, parent type string provided</message>
+    <file_name>src/Tools/Analyzer/Psalm.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php</file_path>
+    <snippet>        $dom-&gt;loadXML((string) $xml-&gt;asXML());</snippet>
+    <selected_text>(string) $xml-&gt;asXML()</selected_text>
+    <from>2832</from>
+    <to>2854</to>
+    <snippet_from>2810</snippet_from>
+    <snippet_to>2856</snippet_to>
+    <column_from>23</column_from>
+    <column_to>45</column_to>
+    <error_level>3</error_level>
+    <shortcode>193</shortcode>
+    <link>https://psalm.dev/193</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
     <line_from>7</line_from>
     <line_to>7</line_to>
     <type>UnusedClass</type>
@@ -3951,6 +4039,28 @@
     <error_level>-2</error_level>
     <shortcode>75</shortcode>
     <link>https://psalm.dev/075</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>28</line_from>
+    <line_to>28</line_to>
+    <type>MissingReturnType</type>
+    <message>Method Edge\QA\Tools\Analyzer\SecurityChecker::detectComposerLock does not have a return type, expecting non-empty-string</message>
+    <file_name>src/Tools/Analyzer/SecurityChecker.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/SecurityChecker.php</file_path>
+    <snippet>    private function detectComposerLock()</snippet>
+    <selected_text>detectComposerLock</selected_text>
+    <from>686</from>
+    <to>704</to>
+    <snippet_from>665</snippet_from>
+    <snippet_to>706</snippet_to>
+    <column_from>22</column_from>
+    <column_to>40</column_to>
+    <error_level>2</error_level>
+    <shortcode>50</shortcode>
+    <link>https://psalm.dev/050</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -4311,7 +4421,7 @@
     <line_from>148</line_from>
     <line_to>148</line_to>
     <type>ArgumentTypeCoercion</type>
-    <message>Argument 1 of method_exists expects class-string|object, parent type "Symfony\Component\Process\Process" provided</message>
+    <message>Argument 1 of method_exists expects class-string|object, parent type "Symfony\\Component\\Process\\Process" provided</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>        if (method_exists('Symfony\Component\Process\Process', 'fromShellCommandline')) {</snippet>
@@ -4902,6 +5012,28 @@
   </item>
   <item>
     <severity>info</severity>
+    <line_from>30</line_from>
+    <line_to>30</line_to>
+    <type>ArgumentTypeCoercion</type>
+    <message>Argument 2 of is_subclass_of expects class-string, parent type "Edge\\QA\\Tools\\Tool" provided</message>
+    <file_name>src/Tools/Tools.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Tools.php</file_path>
+    <snippet>                    if (!is_subclass_of($handler, $abstractTool)) {</snippet>
+    <selected_text>$abstractTool</selected_text>
+    <from>734</from>
+    <to>747</to>
+    <snippet_from>684</snippet_from>
+    <snippet_to>751</snippet_to>
+    <column_from>51</column_from>
+    <column_to>64</column_to>
+    <error_level>3</error_level>
+    <shortcode>193</shortcode>
+    <link>https://psalm.dev/193</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
     <line_from>58</line_from>
     <line_to>58</line_to>
     <type>MissingPropertyType</type>
@@ -5125,7 +5257,7 @@
     <line_from>1</line_from>
     <line_to>1</line_to>
     <type>RedundantCondition</type>
-    <message>if (true) is redundant</message>
+    <message>Operand of type true is always true</message>
     <file_name>src/invalid/new-feature.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/invalid/new-feature.php</file_path>
     <snippet>?php if (true): ?&gt;</snippet>
@@ -5147,7 +5279,7 @@
     <line_from>2</line_from>
     <line_to>2</line_to>
     <type>RedundantCondition</type>
-    <message>if (true) is redundant</message>
+    <message>Operand of type true is always true</message>
     <file_name>src/invalid/new-feature.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/invalid/new-feature.php</file_path>
     <snippet>    &lt;?php if (true): ?&gt;</snippet>
@@ -5367,7 +5499,7 @@
     <line_from>47</line_from>
     <line_to>47</line_to>
     <type>PossiblyInvalidArgument</type>
-    <message>Argument 1 of array_slice expects array&lt;array-key, mixed&gt;, possibly different type false|non-empty-list&lt;string&gt;|string provided</message>
+    <message>Argument 1 of array_slice expects array&lt;array-key, mixed&gt;, possibly different type non-empty-list&lt;string&gt;|string provided</message>
     <file_name>src/paths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/paths.php</file_path>
     <snippet>        $dirs[$i] = $firstSlash . implode(DIRECTORY_SEPARATOR, array_slice($dirs[$i], 0, $minDirsCount));</snippet>
@@ -5411,7 +5543,7 @@
     <line_from>52</line_from>
     <line_to>52</line_to>
     <type>PossiblyInvalidArgument</type>
-    <message>Argument 1 of dirname expects string, possibly different type false|non-empty-list&lt;string&gt;|string provided</message>
+    <message>Argument 1 of dirname expects string, possibly different type non-empty-list&lt;string&gt;|string provided</message>
     <file_name>src/paths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/paths.php</file_path>
     <snippet>        $commonDirs = array_unique(array_map('dirname', $commonDirs));</snippet>
@@ -5785,7 +5917,7 @@
     <line_from>6</line_from>
     <line_to>6</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\ConfigTest::$backupStaticAttributes is not defined in constructor of Edge\QA\ConfigTest and in any methods called in the constructor</message>
+    <message>Property Edge\QA\ConfigTest::$backupStaticAttributes is not defined in constructor of Edge\QA\ConfigTest or in any methods called in the constructor</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>class ConfigTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -5807,7 +5939,7 @@
     <line_from>6</line_from>
     <line_to>6</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\ConfigTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\ConfigTest and in any methods called in the constructor</message>
+    <message>Property Edge\QA\ConfigTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\ConfigTest or in any methods called in the constructor</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>class ConfigTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -5870,18 +6002,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>43</line_from>
-    <line_to>43</line_to>
+    <line_from>44</line_from>
+    <line_to>44</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testBuildAbsolutePath does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testBuildAbsolutePath()</snippet>
     <selected_text>testBuildAbsolutePath</selected_text>
-    <from>2398</from>
-    <to>2419</to>
-    <snippet_from>2378</snippet_from>
-    <snippet_to>2421</snippet_to>
+    <from>2484</from>
+    <to>2505</to>
+    <snippet_from>2464</snippet_from>
+    <snippet_to>2507</snippet_to>
     <column_from>21</column_from>
     <column_to>42</column_to>
     <error_level>2</error_level>
@@ -5892,18 +6024,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>49</line_from>
-    <line_to>49</line_to>
+    <line_from>50</line_from>
+    <line_to>50</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testOverrideDefaultConfig does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testOverrideDefaultConfig()</snippet>
     <selected_text>testOverrideDefaultConfig</selected_text>
-    <from>2565</from>
-    <to>2590</to>
-    <snippet_from>2545</snippet_from>
-    <snippet_to>2592</snippet_to>
+    <from>2651</from>
+    <to>2676</to>
+    <snippet_from>2631</snippet_from>
+    <snippet_to>2678</snippet_to>
     <column_from>21</column_from>
     <column_to>46</column_to>
     <error_level>2</error_level>
@@ -5914,18 +6046,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>59</line_from>
-    <line_to>59</line_to>
+    <line_from>60</line_from>
+    <line_to>60</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testAllowPartialUpdateOfTools does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testAllowPartialUpdateOfTools()</snippet>
     <selected_text>testAllowPartialUpdateOfTools</selected_text>
-    <from>3000</from>
-    <to>3029</to>
-    <snippet_from>2980</snippet_from>
-    <snippet_to>3031</snippet_to>
+    <from>3086</from>
+    <to>3115</to>
+    <snippet_from>3066</snippet_from>
+    <snippet_to>3117</snippet_to>
     <column_from>21</column_from>
     <column_to>50</column_to>
     <error_level>2</error_level>
@@ -5936,18 +6068,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>69</line_from>
-    <line_to>69</line_to>
+    <line_from>70</line_from>
+    <line_to>70</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testIgnoreNonExistentUserConfig does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testIgnoreNonExistentUserConfig()</snippet>
     <selected_text>testIgnoreNonExistentUserConfig</selected_text>
-    <from>3475</from>
-    <to>3506</to>
-    <snippet_from>3455</snippet_from>
-    <snippet_to>3508</snippet_to>
+    <from>3561</from>
+    <to>3592</to>
+    <snippet_from>3541</snippet_from>
+    <snippet_to>3594</snippet_to>
     <column_from>21</column_from>
     <column_to>52</column_to>
     <error_level>2</error_level>
@@ -5958,18 +6090,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>77</line_from>
-    <line_to>77</line_to>
+    <line_from>78</line_from>
+    <line_to>78</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testNoExceptionWhenCwdHasNoConfig does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testNoExceptionWhenCwdHasNoConfig()</snippet>
     <selected_text>testNoExceptionWhenCwdHasNoConfig</selected_text>
-    <from>3718</from>
-    <to>3751</to>
-    <snippet_from>3698</snippet_from>
-    <snippet_to>3753</snippet_to>
+    <from>3804</from>
+    <to>3837</to>
+    <snippet_from>3784</snippet_from>
+    <snippet_to>3839</snippet_to>
     <column_from>21</column_from>
     <column_to>54</column_to>
     <error_level>2</error_level>
@@ -5980,18 +6112,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>84</line_from>
-    <line_to>84</line_to>
+    <line_from>85</line_from>
+    <line_to>85</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testThrowExceptionWhenFileDoesNotExist does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testThrowExceptionWhenFileDoesNotExist()</snippet>
     <selected_text>testThrowExceptionWhenFileDoesNotExist</selected_text>
-    <from>3931</from>
-    <to>3969</to>
-    <snippet_from>3911</snippet_from>
-    <snippet_to>3971</snippet_to>
+    <from>4017</from>
+    <to>4055</to>
+    <snippet_from>3997</snippet_from>
+    <snippet_to>4057</snippet_to>
     <column_from>21</column_from>
     <column_to>59</column_to>
     <error_level>2</error_level>
@@ -6002,18 +6134,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>92</line_from>
-    <line_to>92</line_to>
+    <line_from>93</line_from>
+    <line_to>93</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testConfigCsvString does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testConfigCsvString()</snippet>
     <selected_text>testConfigCsvString</selected_text>
-    <from>4154</from>
-    <to>4173</to>
-    <snippet_from>4134</snippet_from>
-    <snippet_to>4175</snippet_to>
+    <from>4240</from>
+    <to>4259</to>
+    <snippet_from>4220</snippet_from>
+    <snippet_to>4261</snippet_to>
     <column_from>21</column_from>
     <column_to>40</column_to>
     <error_level>2</error_level>
@@ -6024,18 +6156,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>100</line_from>
-    <line_to>100</line_to>
+    <line_from>101</line_from>
+    <line_to>101</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testUseCwdIfNoDirectoryIsSpecified does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testUseCwdIfNoDirectoryIsSpecified()</snippet>
     <selected_text>testUseCwdIfNoDirectoryIsSpecified</selected_text>
-    <from>4399</from>
-    <to>4433</to>
-    <snippet_from>4379</snippet_from>
-    <snippet_to>4435</snippet_to>
+    <from>4485</from>
+    <to>4519</to>
+    <snippet_from>4465</snippet_from>
+    <snippet_to>4521</snippet_to>
     <column_from>21</column_from>
     <column_to>55</column_to>
     <error_level>2</error_level>
@@ -6046,18 +6178,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>106</line_from>
-    <line_to>106</line_to>
+    <line_from>107</line_from>
+    <line_to>107</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testIgnoreInvalidBinaryDoesNotExist does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testIgnoreInvalidBinaryDoesNotExist()</snippet>
     <selected_text>testIgnoreInvalidBinaryDoesNotExist</selected_text>
-    <from>4538</from>
-    <to>4573</to>
-    <snippet_from>4518</snippet_from>
-    <snippet_to>4575</snippet_to>
+    <from>4624</from>
+    <to>4659</to>
+    <snippet_from>4604</snippet_from>
+    <snippet_to>4661</snippet_to>
     <column_from>21</column_from>
     <column_to>56</column_to>
     <error_level>2</error_level>
@@ -6068,18 +6200,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>113</line_from>
-    <line_to>113</line_to>
+    <line_from>114</line_from>
+    <line_to>114</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testToolAndBinaryNameMightNotMatch does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testToolAndBinaryNameMightNotMatch()</snippet>
     <selected_text>testToolAndBinaryNameMightNotMatch</selected_text>
-    <from>4757</from>
-    <to>4791</to>
-    <snippet_from>4737</snippet_from>
-    <snippet_to>4793</snippet_to>
+    <from>4843</from>
+    <to>4877</to>
+    <snippet_from>4823</snippet_from>
+    <snippet_to>4879</snippet_to>
     <column_from>21</column_from>
     <column_to>55</column_to>
     <error_level>2</error_level>
@@ -6090,18 +6222,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>120</line_from>
-    <line_to>120</line_to>
+    <line_from>121</line_from>
+    <line_to>121</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testMultipleConfig does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testMultipleConfig()</snippet>
     <selected_text>testMultipleConfig</selected_text>
-    <from>4981</from>
-    <to>4999</to>
-    <snippet_from>4961</snippet_from>
-    <snippet_to>5001</snippet_to>
+    <from>5067</from>
+    <to>5085</to>
+    <snippet_from>5047</snippet_from>
+    <snippet_to>5087</snippet_to>
     <column_from>21</column_from>
     <column_to>39</column_to>
     <error_level>2</error_level>
@@ -6112,18 +6244,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>131</line_from>
-    <line_to>131</line_to>
+    <line_from>132</line_from>
+    <line_to>132</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testAutodetectConfigInCurrentDirectory does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testAutodetectConfigInCurrentDirectory()</snippet>
     <selected_text>testAutodetectConfigInCurrentDirectory</selected_text>
-    <from>5414</from>
-    <to>5452</to>
-    <snippet_from>5394</snippet_from>
-    <snippet_to>5454</snippet_to>
+    <from>5500</from>
+    <to>5538</to>
+    <snippet_from>5480</snippet_from>
+    <snippet_to>5540</snippet_to>
     <column_from>21</column_from>
     <column_to>59</column_to>
     <error_level>2</error_level>
@@ -6134,18 +6266,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>138</line_from>
-    <line_to>138</line_to>
+    <line_from>139</line_from>
+    <line_to>139</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testIgnoreAutodetectedConfigIfUserConfigIsSpecified does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testIgnoreAutodetectedConfigIfUserConfigIsSpecified()</snippet>
     <selected_text>testIgnoreAutodetectedConfigIfUserConfigIsSpecified</selected_text>
-    <from>5630</from>
-    <to>5681</to>
-    <snippet_from>5610</snippet_from>
-    <snippet_to>5683</snippet_to>
+    <from>5716</from>
+    <to>5767</to>
+    <snippet_from>5696</snippet_from>
+    <snippet_to>5769</snippet_to>
     <column_from>21</column_from>
     <column_to>72</column_to>
     <error_level>2</error_level>
@@ -6156,18 +6288,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>146</line_from>
-    <line_to>146</line_to>
+    <line_from>147</line_from>
+    <line_to>147</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::shouldStopPhpqa does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    private function shouldStopPhpqa()</snippet>
     <selected_text>shouldStopPhpqa</selected_text>
-    <from>5934</from>
-    <to>5949</to>
-    <snippet_from>5913</snippet_from>
-    <snippet_to>5951</snippet_to>
+    <from>6020</from>
+    <to>6035</to>
+    <snippet_from>5999</snippet_from>
+    <snippet_to>6037</snippet_to>
     <column_from>22</column_from>
     <column_to>37</column_to>
     <error_level>2</error_level>
@@ -6178,18 +6310,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>151</line_from>
-    <line_to>151</line_to>
+    <line_from>152</line_from>
+    <line_to>152</line_to>
     <type>ReservedWord</type>
     <message>void is a reserved word</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>            $this-&gt;expectException('Exception');</snippet>
     <selected_text>$this-&gt;expectException('Exception')</selected_text>
-    <from>6101</from>
-    <to>6136</to>
-    <snippet_from>6089</snippet_from>
-    <snippet_to>6137</snippet_to>
+    <from>6187</from>
+    <to>6222</to>
+    <snippet_from>6175</snippet_from>
+    <snippet_to>6223</snippet_to>
     <column_from>13</column_from>
     <column_to>48</column_to>
     <error_level>7</error_level>
@@ -6200,18 +6332,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>151</line_from>
-    <line_to>151</line_to>
+    <line_from>152</line_from>
+    <line_to>152</line_to>
     <type>ArgumentTypeCoercion</type>
     <message>Argument 1 of Edge\QA\ConfigTest::expectException expects class-string&lt;Throwable&gt;, parent type "Exception" provided</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>            $this-&gt;expectException('Exception');</snippet>
     <selected_text>'Exception'</selected_text>
-    <from>6124</from>
-    <to>6135</to>
-    <snippet_from>6089</snippet_from>
-    <snippet_to>6137</snippet_to>
+    <from>6210</from>
+    <to>6221</to>
+    <snippet_from>6175</snippet_from>
+    <snippet_to>6223</snippet_to>
     <column_from>36</column_from>
     <column_to>47</column_to>
     <error_level>3</error_level>
@@ -6247,7 +6379,7 @@
     <line_from>5</line_from>
     <line_to>5</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\Tools\GetVersionsTest::$backupStaticAttributes is not defined in constructor of Edge\QA\Tools\GetVersionsTest and in any methods called in the constructor</message>
+    <message>Property Edge\QA\Tools\GetVersionsTest::$backupStaticAttributes is not defined in constructor of Edge\QA\Tools\GetVersionsTest or in any methods called in the constructor</message>
     <file_name>tests/GetVersionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/GetVersionsTest.php</file_path>
     <snippet>class GetVersionsTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -6269,7 +6401,7 @@
     <line_from>5</line_from>
     <line_to>5</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\Tools\GetVersionsTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\Tools\GetVersionsTest and in any methods called in the constructor</message>
+    <message>Property Edge\QA\Tools\GetVersionsTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\Tools\GetVersionsTest or in any methods called in the constructor</message>
     <file_name>tests/GetVersionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/GetVersionsTest.php</file_path>
     <snippet>class GetVersionsTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -6599,7 +6731,7 @@
     <line_from>5</line_from>
     <line_to>5</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\IgnoredPathsTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\IgnoredPathsTest and in any methods called in the constructor</message>
+    <message>Property Edge\QA\IgnoredPathsTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\IgnoredPathsTest or in any methods called in the constructor</message>
     <file_name>tests/IgnoredPathsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/IgnoredPathsTest.php</file_path>
     <snippet>class IgnoredPathsTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -6621,7 +6753,7 @@
     <line_from>5</line_from>
     <line_to>5</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\IgnoredPathsTest::$backupStaticAttributes is not defined in constructor of Edge\QA\IgnoredPathsTest and in any methods called in the constructor</message>
+    <message>Property Edge\QA\IgnoredPathsTest::$backupStaticAttributes is not defined in constructor of Edge\QA\IgnoredPathsTest or in any methods called in the constructor</message>
     <file_name>tests/IgnoredPathsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/IgnoredPathsTest.php</file_path>
     <snippet>class IgnoredPathsTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -6907,7 +7039,7 @@
     <line_from>40</line_from>
     <line_to>40</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\IgnoredPathsTest::provideTools does not have a return type, expecting array{'pdepend + windows': array{"pdepend", array{both: " --ignore=app\config\*,vendor\*,autoload.php,RoboFile.php", dirs: " --ignore=app\config\*,vendor\*", files: " --ignore=autoload.php,RoboFile.php"}, "Windows"}, 'phpmd + windows': array{"phpmd", array{both: " --exclude app\config\*,vendor\*,autoload.php,RoboFile.php", dirs: " --exclude app\config\*,vendor\*", files: " --exclude autoload.php,RoboFile.php"}, "WIN32"}, 0: array{"phpcs", array{both: " --ignore=*/app/config/*,*/vendor/*,autoload.php,RoboFile.php", dirs: " --ignore=*/app/config/*,*/vendor/*", files: " --ignore=autoload.php,RoboFile.php"}}, 1: array{"pdepend", array{both: " --ignore=/app/config/,/vendor/,/autoload.php,/RoboFile.php", dirs: " --ignore=/app/config/,/vendor/", files: " --ignore=/autoload.php,/RoboFile.php"}}, 2: array{"phpmd", array{both: " --exclude /app/config/,/vendor/,/autoload.php,/RoboFile.php", dirs: " --exclude /app/config/,/vendor/", files: " --exclude /autoload.php,/RoboFile.php"}}, 3: array{"phpmetrics", array{both: " --excluded-dirs="app/config|vendor|autoload.php|RoboFile.php"", dirs: " --excluded-dirs="app/config|vendor"", files: " --excluded-dirs="autoload.php|RoboFile.php""}}, 4: array{"phpmetrics2", array{both: " --exclude="app/config,vendor,autoload.php,RoboFile.php"", dirs: " --exclude="app/config,vendor"", files: " --exclude="autoload.php,RoboFile.php""}}, 5: array{"bergmann", array{both: " --exclude=app/config --exclude=vendor --exclude=autoload.php --exclude=RoboFile...", dirs: " --exclude=app/config --exclude=vendor", files: " --exclude=autoload.php --exclude=RoboFile.php"}}, 6: array{"parallelLint", array{both: " --exclude app/config --exclude vendor --exclude autoload.php --exclude RoboFile...", dirs: " --exclude app/config --exclude vendor", files: " --exclude autoload.php --exclude RoboFile.php"}}, 7: array{"psalm", array{both: array{directory: array{"app/config", "vendor"}, file: array{"autoload.php", "RoboFile.php"}}, dirs: array{directory: array{"app/config", "vendor"}, file: array&lt;empty, empty&gt;}, files: array{directory: array&lt;empty, empty&gt;, file: array{"autoload.php", "RoboFile.php"}}}}}</message>
+    <message>Method Edge\QA\IgnoredPathsTest::provideTools does not have a return type, expecting array{'pdepend + windows': array{"pdepend", array{both: " --ignore=app\\config\\*,vendor\\*,autoload.php,RoboFile.php", dirs: " --ignore=app\\config\\*,vendor\\*", files: " --ignore=autoload.php,RoboFile.php"}, "Windows"}, 'phpmd + windows': array{"phpmd", array{both: " --exclude app\\config\\*,vendor\\*,autoload.php,RoboFile.php", dirs: " --exclude app\\config\\*,vendor\\*", files: " --exclude autoload.php,RoboFile.php"}, "WIN32"}, 0: array{"phpcs", array{both: " --ignore=*/app/config/*,*/vendor/*,autoload.php,RoboFile.php", dirs: " --ignore=*/app/config/*,*/vendor/*", files: " --ignore=autoload.php,RoboFile.php"}}, 1: array{"pdepend", array{both: " --ignore=/app/config/,/vendor/,/autoload.php,/RoboFile.php", dirs: " --ignore=/app/config/,/vendor/", files: " --ignore=/autoload.php,/RoboFile.php"}}, 2: array{"phpmd", array{both: " --exclude /app/config/,/vendor/,/autoload.php,/RoboFile.php", dirs: " --exclude /app/config/,/vendor/", files: " --exclude /autoload.php,/RoboFile.php"}}, 3: array{"phpmetrics", array{both: " --excluded-dirs=\"app/config|vendor|autoload.php|RoboFile.php\"", dirs: " --excluded-dirs=\"app/config|vendor\"", files: " --excluded-dirs=\"autoload.php|RoboFile.php\""}}, 4: array{"phpmetrics2", array{both: " --exclude=\"app/config,vendor,autoload.php,RoboFile.php\"", dirs: " --exclude=\"app/config,vendor\"", files: " --exclude=\"autoload.php,RoboFile.php\""}}, 5: array{"bergmann", array{both: " --exclude=app/config --exclude=vendor --exclude=autoload.php --exclude=RoboFile...", dirs: " --exclude=app/config --exclude=vendor", files: " --exclude=autoload.php --exclude=RoboFile.php"}}, 6: array{"parallelLint", array{both: " --exclude app/config --exclude vendor --exclude autoload.php --exclude RoboFile...", dirs: " --exclude app/config --exclude vendor", files: " --exclude autoload.php --exclude RoboFile.php"}}, 7: array{"psalm", array{both: array{directory: array{"app/config", "vendor"}, file: array{"autoload.php", "RoboFile.php"}}, dirs: array{directory: array{"app/config", "vendor"}, file: array&lt;empty, empty&gt;}, files: array{directory: array&lt;empty, empty&gt;, file: array{"autoload.php", "RoboFile.php"}}}}}</message>
     <file_name>tests/IgnoredPathsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/IgnoredPathsTest.php</file_path>
     <snippet>    public function provideTools()</snippet>
@@ -6951,7 +7083,7 @@
     <line_from>6</line_from>
     <line_to>6</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\OptionsTest::$backupStaticAttributes is not defined in constructor of Edge\QA\OptionsTest and in any methods called in the constructor</message>
+    <message>Property Edge\QA\OptionsTest::$backupStaticAttributes is not defined in constructor of Edge\QA\OptionsTest or in any methods called in the constructor</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/OptionsTest.php</file_path>
     <snippet>class OptionsTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -6973,7 +7105,7 @@
     <line_from>6</line_from>
     <line_to>6</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\OptionsTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\OptionsTest and in any methods called in the constructor</message>
+    <message>Property Edge\QA\OptionsTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\OptionsTest or in any methods called in the constructor</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/OptionsTest.php</file_path>
     <snippet>class OptionsTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -7259,7 +7391,7 @@
     <line_from>61</line_from>
     <line_to>61</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\OptionsTest::provideInternalClass does not have a return type, expecting array{'at least one internal class is available': array{array{internalClass: array{"UnknownTool\UnknownClass", Edge\QA\OptionsTest::class}}, true}, 'dependency is available': array{array{internalClass: Edge\QA\OptionsTest::class, internalDependencies: array{package: Edge\QA\OptionsTest::class}}, true}, 'dependency is not available': array{array{internalClass: Edge\QA\OptionsTest::class, internalDependencies: array{package: "UnknownTool\UnknownClass"}}, false}, 'internal class is available': array{array{internalClass: "UnknownTool\UnknownClass"}, false}}</message>
+    <message>Method Edge\QA\OptionsTest::provideInternalClass does not have a return type, expecting array{'at least one internal class is available': array{array{internalClass: array{"UnknownTool\\UnknownClass", Edge\QA\OptionsTest::class}}, true}, 'dependency is available': array{array{internalClass: Edge\QA\OptionsTest::class, internalDependencies: array{package: Edge\QA\OptionsTest::class}}, true}, 'dependency is not available': array{array{internalClass: Edge\QA\OptionsTest::class, internalDependencies: array{package: "UnknownTool\\UnknownClass"}}, false}, 'internal class is available': array{array{internalClass: "UnknownTool\\UnknownClass"}, false}}</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function provideInternalClass()</snippet>
@@ -7523,7 +7655,7 @@
     <line_from>133</line_from>
     <line_to>133</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\OptionsTest::provideAnalyzedDir does not have a return type, expecting array{'current dir + analyzed dir + slash': array{"src", non-empty-string}, 'file directory + skip invalid dir': array{"./non-existent-directory,phpqa", string}, 'find common root from multiple dirs': array{"src,tests", string}, 'no path when dir is invalid': array{"./non-existent-directory", ""}}</message>
+    <message>Method Edge\QA\OptionsTest::provideAnalyzedDir does not have a return type, expecting array{'current dir + analyzed dir + slash': array{"src", non-empty-string}, 'file directory + skip invalid dir': array{"./non-existent-directory,phpqa", non-empty-string}, 'find common root from multiple dirs': array{"src,tests", non-empty-string}, 'no path when dir is invalid': array{"./non-existent-directory", ""}}</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function provideAnalyzedDir()</snippet>
@@ -7589,7 +7721,7 @@
     <line_from>5</line_from>
     <line_to>5</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\PathsTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\PathsTest and in any methods called in the constructor</message>
+    <message>Property Edge\QA\PathsTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\PathsTest or in any methods called in the constructor</message>
     <file_name>tests/PathsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/PathsTest.php</file_path>
     <snippet>class PathsTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -7611,7 +7743,7 @@
     <line_from>5</line_from>
     <line_to>5</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\PathsTest::$backupStaticAttributes is not defined in constructor of Edge\QA\PathsTest and in any methods called in the constructor</message>
+    <message>Property Edge\QA\PathsTest::$backupStaticAttributes is not defined in constructor of Edge\QA\PathsTest or in any methods called in the constructor</message>
     <file_name>tests/PathsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/PathsTest.php</file_path>
     <snippet>class PathsTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -7677,7 +7809,7 @@
     <line_from>5</line_from>
     <line_to>5</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\ReportTest::$backupStaticAttributes is not defined in constructor of Edge\QA\ReportTest and in any private or final methods called in the constructor</message>
+    <message>Property Edge\QA\ReportTest::$backupStaticAttributes is not defined in constructor of Edge\QA\ReportTest or in any private or final methods called in the constructor</message>
     <file_name>tests/Report/ReportTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Report/ReportTest.php</file_path>
     <snippet>class ReportTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -7699,7 +7831,7 @@
     <line_from>5</line_from>
     <line_to>5</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\ReportTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\ReportTest and in any private or final methods called in the constructor</message>
+    <message>Property Edge\QA\ReportTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\ReportTest or in any private or final methods called in the constructor</message>
     <file_name>tests/Report/ReportTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Report/ReportTest.php</file_path>
     <snippet>class ReportTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -8007,7 +8139,7 @@
     <line_from>6</line_from>
     <line_to>6</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\RunningToolTest::$backupStaticAttributes is not defined in constructor of Edge\QA\RunningToolTest and in any methods called in the constructor</message>
+    <message>Property Edge\QA\RunningToolTest::$backupStaticAttributes is not defined in constructor of Edge\QA\RunningToolTest or in any methods called in the constructor</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>class RunningToolTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -8029,7 +8161,7 @@
     <line_from>6</line_from>
     <line_to>6</line_to>
     <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\RunningToolTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\RunningToolTest and in any methods called in the constructor</message>
+    <message>Property Edge\QA\RunningToolTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\RunningToolTest or in any methods called in the constructor</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>class RunningToolTest extends \PHPUnit_Framework_TestCase</snippet>
@@ -8479,7 +8611,7 @@
     <line_from>109</line_from>
     <line_to>109</line_to>
     <type>ArgumentTypeCoercion</type>
-    <message>Argument 1 of Edge\QA\RunningToolTest::prophesize expects class-string|null, parent type "Symfony\Component\Process\Process" provided</message>
+    <message>Argument 1 of Edge\QA\RunningToolTest::prophesize expects class-string|null, parent type "Symfony\\Component\\Process\\Process" provided</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>        $tool-&gt;process = $this-&gt;prophesize('Symfony\Component\Process\Process')</snippet>
@@ -8581,6 +8713,226 @@
     <error_level>2</error_level>
     <shortcode>45</shortcode>
     <link>https://psalm.dev/045</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>7</line_from>
+    <line_to>7</line_to>
+    <type>PropertyNotSetInConstructor</type>
+    <message>Property Edge\QA\Tools\Analyzer\PhpstanTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\Tools\Analyzer\PhpstanTest or in any methods called in the constructor</message>
+    <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
+    <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
+    <snippet>class PhpstanTest extends TestCase</snippet>
+    <selected_text>PhpstanTest</selected_text>
+    <from>81</from>
+    <to>92</to>
+    <snippet_from>75</snippet_from>
+    <snippet_to>109</snippet_to>
+    <column_from>7</column_from>
+    <column_to>18</column_to>
+    <error_level>2</error_level>
+    <shortcode>74</shortcode>
+    <link>https://psalm.dev/074</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>7</line_from>
+    <line_to>7</line_to>
+    <type>PropertyNotSetInConstructor</type>
+    <message>Property Edge\QA\Tools\Analyzer\PhpstanTest::$backupStaticAttributes is not defined in constructor of Edge\QA\Tools\Analyzer\PhpstanTest or in any methods called in the constructor</message>
+    <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
+    <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
+    <snippet>class PhpstanTest extends TestCase</snippet>
+    <selected_text>PhpstanTest</selected_text>
+    <from>81</from>
+    <to>92</to>
+    <snippet_from>75</snippet_from>
+    <snippet_to>109</snippet_to>
+    <column_from>7</column_from>
+    <column_to>18</column_to>
+    <error_level>2</error_level>
+    <shortcode>74</shortcode>
+    <link>https://psalm.dev/074</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>7</line_from>
+    <line_to>7</line_to>
+    <type>UnusedClass</type>
+    <message>Class Edge\QA\Tools\Analyzer\PhpstanTest is never used</message>
+    <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
+    <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
+    <snippet>class PhpstanTest extends TestCase</snippet>
+    <selected_text>PhpstanTest</selected_text>
+    <from>81</from>
+    <to>92</to>
+    <snippet_from>75</snippet_from>
+    <snippet_to>109</snippet_to>
+    <column_from>7</column_from>
+    <column_to>18</column_to>
+    <error_level>-2</error_level>
+    <shortcode>75</shortcode>
+    <link>https://psalm.dev/075</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>10</line_from>
+    <line_to>10</line_to>
+    <type>MissingPropertyType</type>
+    <message>Property Edge\QA\Tools\Analyzer\PhpstanTest::$autoloadDirectories does not have a declared type - consider array{string}</message>
+    <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
+    <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
+    <snippet>    private $autoloadDirectories = ['src/'];</snippet>
+    <selected_text>$autoloadDirectories</selected_text>
+    <from>125</from>
+    <to>145</to>
+    <snippet_from>113</snippet_from>
+    <snippet_to>157</snippet_to>
+    <column_from>13</column_from>
+    <column_to>33</column_to>
+    <error_level>2</error_level>
+    <shortcode>45</shortcode>
+    <link>https://psalm.dev/045</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>11</line_from>
+    <line_to>11</line_to>
+    <type>MissingPropertyType</type>
+    <message>Property Edge\QA\Tools\Analyzer\PhpstanTest::$ignoredPaths does not have a declared type - consider array{string}</message>
+    <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
+    <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
+    <snippet>    private $ignoredPaths = ['Test.php'];</snippet>
+    <selected_text>$ignoredPaths</selected_text>
+    <from>170</from>
+    <to>183</to>
+    <snippet_from>158</snippet_from>
+    <snippet_to>199</snippet_to>
+    <column_from>13</column_from>
+    <column_to>26</column_to>
+    <error_level>2</error_level>
+    <shortcode>45</shortcode>
+    <link>https://psalm.dev/045</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>14</line_from>
+    <line_to>14</line_to>
+    <type>MissingReturnType</type>
+    <message>Method Edge\QA\Tools\Analyzer\PhpstanTest::testBuildConfig does not have a return type, expecting void</message>
+    <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
+    <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
+    <snippet>    public function testBuildConfig($existingConfig, $expectedConfig)</snippet>
+    <selected_text>testBuildConfig</selected_text>
+    <from>260</from>
+    <to>275</to>
+    <snippet_from>240</snippet_from>
+    <snippet_to>309</snippet_to>
+    <column_from>21</column_from>
+    <column_to>36</column_to>
+    <error_level>2</error_level>
+    <shortcode>50</shortcode>
+    <link>https://psalm.dev/050</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>14</line_from>
+    <line_to>14</line_to>
+    <type>MissingParamType</type>
+    <message>Parameter $existingConfig has no provided type</message>
+    <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
+    <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
+    <snippet>    public function testBuildConfig($existingConfig, $expectedConfig)</snippet>
+    <selected_text>$existingConfig</selected_text>
+    <from>276</from>
+    <to>291</to>
+    <snippet_from>240</snippet_from>
+    <snippet_to>309</snippet_to>
+    <column_from>37</column_from>
+    <column_to>52</column_to>
+    <error_level>2</error_level>
+    <shortcode>154</shortcode>
+    <link>https://psalm.dev/154</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>14</line_from>
+    <line_to>14</line_to>
+    <type>MissingParamType</type>
+    <message>Parameter $expectedConfig has no provided type</message>
+    <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
+    <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
+    <snippet>    public function testBuildConfig($existingConfig, $expectedConfig)</snippet>
+    <selected_text>$expectedConfig</selected_text>
+    <from>293</from>
+    <to>308</to>
+    <snippet_from>240</snippet_from>
+    <snippet_to>309</snippet_to>
+    <column_from>54</column_from>
+    <column_to>69</column_to>
+    <error_level>2</error_level>
+    <shortcode>154</shortcode>
+    <link>https://psalm.dev/154</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>17</line_from>
+    <line_to>17</line_to>
+    <type>ReservedWord</type>
+    <message>void is a reserved word</message>
+    <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
+    <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
+    <snippet>        $this-&gt;assertEquals($expectedConfig, $config);</snippet>
+    <selected_text>$this-&gt;assertEquals($expectedConfig, $config)</selected_text>
+    <from>430</from>
+    <to>475</to>
+    <snippet_from>422</snippet_from>
+    <snippet_to>476</snippet_to>
+    <column_from>9</column_from>
+    <column_to>54</column_to>
+    <error_level>7</error_level>
+    <shortcode>95</shortcode>
+    <link>https://psalm.dev/095</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>20</line_from>
+    <line_to>20</line_to>
+    <type>MissingReturnType</type>
+    <message>Method Edge\QA\Tools\Analyzer\PhpstanTest::provideConfig does not have a return type, expecting array{'Deprecated excludes_analyse': array{existingConfig: array{parameters: array{excludes_analyse: array{"File.php"}, reportUnmatchedIgnoredErrors: false}}, expectedConfig: array{parameters: array{excludes_analyse: array{"File.php", "Test.php"}, reportUnmatchedIgnoredErrors: false}}}, 'No config': array{existingConfig: array&lt;empty, empty&gt;, expectedConfig: array{parameters: array{autoload_directories: mixed, excludePaths: array{analyseAndScan: mixed}}}}, 'No parameters in config': array{existingConfig: array{includes: mixed}, expectedConfig: array{includes: mixed, parameters: array{excludePaths: array{analyseAndScan: mixed}}}}, 'excludePaths + analyseAndScan': array{existingConfig: array{parameters: array{excludePaths: array{analyseAndScan: array{"File.php"}}}}, expectedConfig: array{parameters: array{excludePaths: array{analyseAndScan: array{"File.php", "Test.php"}}}}}, 'excludePaths shortcut': array{existingConfig: array{parameters: array{excludePaths: array{"File.php"}}}, expectedConfig: array{parameters: array{excludePaths: array{"File.php", "Test.php"}}}}}</message>
+    <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
+    <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
+    <snippet>    public function provideConfig()</snippet>
+    <selected_text>provideConfig</selected_text>
+    <from>504</from>
+    <to>517</to>
+    <snippet_from>484</snippet_from>
+    <snippet_to>519</snippet_to>
+    <column_from>21</column_from>
+    <column_to>34</column_to>
+    <error_level>2</error_level>
+    <shortcode>50</shortcode>
+    <link>https://psalm.dev/050</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>

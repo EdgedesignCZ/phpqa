@@ -20,6 +20,7 @@ var classes = [
         "parents": [
             "Robo\\Tasks"
         ],
+        "implements": [],
         "lcom": 0,
         "length": 0,
         "vocabulary": 0,
@@ -121,6 +122,7 @@ var classes = [
         "parents": [
             "PHPUnit_Framework_TestCase"
         ],
+        "implements": [],
         "lcom": 6,
         "length": 75,
         "vocabulary": 51,
@@ -149,6 +151,78 @@ var classes = [
         "totalDataComplexity": 13,
         "totalSystemComplexity": 19,
         "package": "Edge\\QA\\Tools\\",
+        "pageRank": 0.01,
+        "afferentCoupling": 0,
+        "efferentCoupling": 2,
+        "instability": 1,
+        "violations": {}
+    },
+    {
+        "name": "Edge\\QA\\Tools\\Analyzer\\PhpstanTest",
+        "interface": false,
+        "abstract": false,
+        "final": false,
+        "methods": [
+            {
+                "name": "testBuildConfig",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "provideConfig",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
+            }
+        ],
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 0,
+        "nbMethodsPublic": 2,
+        "nbMethodsGetter": 0,
+        "nbMethodsSetters": 0,
+        "wmc": 2,
+        "ccn": 1,
+        "ccnMethodMax": 1,
+        "externals": [
+            "PHPUnit\\Framework\\TestCase",
+            "Edge\\QA\\Tools\\Analyzer\\Phpstan"
+        ],
+        "parents": [
+            "PHPUnit\\Framework\\TestCase"
+        ],
+        "implements": [],
+        "lcom": 1,
+        "length": 67,
+        "vocabulary": 21,
+        "volume": 294.29,
+        "difficulty": 3.42,
+        "effort": 1006.77,
+        "level": 0.29,
+        "bugs": 0.1,
+        "time": 56,
+        "intelligentContent": 86.02,
+        "number_operators": 2,
+        "number_operands": 65,
+        "number_operators_unique": 2,
+        "number_operands_unique": 19,
+        "cloc": 1,
+        "loc": 16,
+        "lloc": 15,
+        "mi": 75.81,
+        "mIwoC": 56.92,
+        "commentWeight": 18.88,
+        "kanDefect": 0.15,
+        "relativeStructuralComplexity": 4,
+        "relativeDataComplexity": 0.67,
+        "relativeSystemComplexity": 4.67,
+        "totalStructuralComplexity": 8,
+        "totalDataComplexity": 1.33,
+        "totalSystemComplexity": 9.33,
+        "package": "Edge\\QA\\Tools\\Analyzer\\",
         "pageRank": 0.01,
         "afferentCoupling": 0,
         "efferentCoupling": 2,
@@ -269,6 +343,7 @@ var classes = [
         "parents": [
             "PHPUnit_Framework_TestCase"
         ],
+        "implements": [],
         "lcom": 10,
         "length": 153,
         "vocabulary": 55,
@@ -444,26 +519,27 @@ var classes = [
         "parents": [
             "PHPUnit_Framework_TestCase"
         ],
+        "implements": [],
         "lcom": 13,
-        "length": 209,
-        "vocabulary": 64,
-        "volume": 1254,
-        "difficulty": 6.07,
-        "effort": 7607.6,
-        "level": 0.16,
+        "length": 211,
+        "vocabulary": 65,
+        "volume": 1270.72,
+        "difficulty": 6.03,
+        "effort": 7665.98,
+        "level": 0.17,
         "bugs": 0.42,
-        "time": 423,
-        "intelligentContent": 206.7,
+        "time": 426,
+        "intelligentContent": 210.64,
         "number_operators": 27,
-        "number_operands": 182,
+        "number_operands": 184,
         "number_operators_unique": 4,
-        "number_operands_unique": 60,
+        "number_operands_unique": 61,
         "cloc": 1,
-        "loc": 135,
-        "lloc": 134,
-        "mi": 38.28,
-        "mIwoC": 31.64,
-        "commentWeight": 6.65,
+        "loc": 136,
+        "lloc": 135,
+        "mi": 38.15,
+        "mIwoC": 31.53,
+        "commentWeight": 6.62,
         "kanDefect": 0.22,
         "relativeStructuralComplexity": 64,
         "relativeDataComplexity": 0,
@@ -529,6 +605,7 @@ var classes = [
         "parents": [
             "PHPUnit_Framework_TestCase"
         ],
+        "implements": [],
         "lcom": 2,
         "length": 137,
         "vocabulary": 61,
@@ -692,6 +769,7 @@ var classes = [
         "parents": [
             "PHPUnit_Framework_TestCase"
         ],
+        "implements": [],
         "lcom": 5,
         "length": 194,
         "vocabulary": 74,
@@ -790,6 +868,7 @@ var classes = [
         "parents": [
             "PHPUnit_Framework_TestCase"
         ],
+        "implements": [],
         "lcom": 2,
         "length": 47,
         "vocabulary": 24,
@@ -853,6 +932,7 @@ var classes = [
         "parents": [
             "PHPUnit_Framework_TestCase"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 12,
         "vocabulary": 10,
@@ -945,6 +1025,7 @@ var classes = [
             "Edge\\QA\\Tools\\GetVersions"
         ],
         "parents": [],
+        "implements": [],
         "lcom": 1,
         "length": 63,
         "vocabulary": 26,
@@ -1004,13 +1085,14 @@ var classes = [
         "nbMethodsPublic": 1,
         "nbMethodsGetter": 0,
         "nbMethodsSetters": 1,
-        "wmc": 7,
+        "wmc": 6,
         "ccn": 6,
         "ccnMethodMax": 6,
         "externals": [
             "Edge\\QA\\Options"
         ],
         "parents": [],
+        "implements": [],
         "lcom": 1,
         "length": 80,
         "vocabulary": 28,
@@ -1130,6 +1212,7 @@ var classes = [
             "Edge\\QA\\Tools\\GetVersions"
         ],
         "parents": [],
+        "implements": [],
         "lcom": 1,
         "length": 136,
         "vocabulary": 38,
@@ -1262,6 +1345,7 @@ var classes = [
             "Symfony\\Component\\Process\\Process"
         ],
         "parents": [],
+        "implements": [],
         "lcom": 4,
         "length": 288,
         "vocabulary": 70,
@@ -1332,6 +1416,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 107,
         "vocabulary": 36,
@@ -1395,6 +1480,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 20,
         "vocabulary": 12,
@@ -1448,17 +1534,24 @@ var classes = [
                 "public": false,
                 "private": true,
                 "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "buildConfig",
+                "role": null,
+                "public": true,
+                "private": false,
+                "_type": "Hal\\Metric\\FunctionMetric"
             }
         ],
-        "nbMethodsIncludingGettersSetters": 2,
-        "nbMethods": 2,
+        "nbMethodsIncludingGettersSetters": 3,
+        "nbMethods": 3,
         "nbMethodsPrivate": 1,
-        "nbMethodsPublic": 1,
+        "nbMethodsPublic": 2,
         "nbMethodsGetter": 0,
         "nbMethodsSetters": 0,
-        "wmc": 6,
-        "ccn": 5,
-        "ccnMethodMax": 4,
+        "wmc": 11,
+        "ccn": 9,
+        "ccnMethodMax": 5,
         "externals": [
             "Edge\\QA\\Tools\\Tool",
             "Nette\\Neon\\Neon",
@@ -1467,38 +1560,39 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
-        "lcom": 1,
-        "length": 94,
-        "vocabulary": 48,
-        "volume": 524.99,
-        "difficulty": 4.36,
-        "effort": 2289.19,
-        "level": 0.23,
-        "bugs": 0.17,
-        "time": 127,
-        "intelligentContent": 120.4,
-        "number_operators": 19,
-        "number_operands": 75,
-        "number_operators_unique": 5,
-        "number_operands_unique": 43,
+        "implements": [],
+        "lcom": 2,
+        "length": 143,
+        "vocabulary": 54,
+        "volume": 822.95,
+        "difficulty": 7.25,
+        "effort": 5966.38,
+        "level": 0.14,
+        "bugs": 0.27,
+        "time": 331,
+        "intelligentContent": 113.51,
+        "number_operators": 27,
+        "number_operands": 116,
+        "number_operators_unique": 6,
+        "number_operands_unique": 48,
         "cloc": 0,
-        "loc": 32,
-        "lloc": 32,
-        "mi": 47.45,
-        "mIwoC": 47.45,
+        "loc": 45,
+        "lloc": 45,
+        "mi": 42.31,
+        "mIwoC": 42.31,
         "commentWeight": 0,
-        "kanDefect": 0.29,
-        "relativeStructuralComplexity": 64,
-        "relativeDataComplexity": 0.44,
-        "relativeSystemComplexity": 64.44,
-        "totalStructuralComplexity": 128,
-        "totalDataComplexity": 0.89,
-        "totalSystemComplexity": 128.89,
+        "kanDefect": 0.36,
+        "relativeStructuralComplexity": 81,
+        "relativeDataComplexity": 0.6,
+        "relativeSystemComplexity": 81.6,
+        "totalStructuralComplexity": 243,
+        "totalDataComplexity": 1.8,
+        "totalSystemComplexity": 244.8,
         "package": "Edge\\QA\\Tools\\Analyzer\\",
         "pageRank": 0.01,
-        "afferentCoupling": 0,
+        "afferentCoupling": 1,
         "efferentCoupling": 2,
-        "instability": 1,
+        "instability": 0.67,
         "violations": {}
     },
     {
@@ -1530,6 +1624,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 13,
         "vocabulary": 10,
@@ -1593,6 +1688,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 45,
         "vocabulary": 26,
@@ -1656,6 +1752,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 73,
         "vocabulary": 42,
@@ -1719,6 +1816,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 40,
         "vocabulary": 23,
@@ -1782,6 +1880,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 13,
         "vocabulary": 13,
@@ -1845,6 +1944,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 65,
         "vocabulary": 32,
@@ -1908,6 +2008,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 65,
         "vocabulary": 33,
@@ -1971,6 +2072,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 76,
         "vocabulary": 37,
@@ -2034,6 +2136,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 73,
         "vocabulary": 29,
@@ -2080,16 +2183,23 @@ var classes = [
                 "public": true,
                 "private": false,
                 "_type": "Hal\\Metric\\FunctionMetric"
+            },
+            {
+                "name": "detectComposerLock",
+                "role": null,
+                "public": false,
+                "private": true,
+                "_type": "Hal\\Metric\\FunctionMetric"
             }
         ],
-        "nbMethodsIncludingGettersSetters": 1,
-        "nbMethods": 1,
-        "nbMethodsPrivate": 0,
+        "nbMethodsIncludingGettersSetters": 2,
+        "nbMethods": 2,
+        "nbMethodsPrivate": 1,
         "nbMethodsPublic": 1,
         "nbMethodsGetter": 0,
         "nbMethodsSetters": 0,
-        "wmc": 3,
-        "ccn": 3,
+        "wmc": 5,
+        "ccn": 4,
         "ccnMethodMax": 3,
         "externals": [
             "Edge\\QA\\Tools\\Tool"
@@ -2097,33 +2207,34 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
-        "length": 29,
-        "vocabulary": 19,
-        "volume": 123.19,
-        "difficulty": 2.93,
-        "effort": 361.36,
-        "level": 0.34,
-        "bugs": 0.04,
-        "time": 20,
-        "intelligentContent": 42,
-        "number_operators": 7,
-        "number_operands": 22,
+        "length": 36,
+        "vocabulary": 21,
+        "volume": 158.12,
+        "difficulty": 3.18,
+        "effort": 502.27,
+        "level": 0.31,
+        "bugs": 0.05,
+        "time": 28,
+        "intelligentContent": 49.78,
+        "number_operators": 9,
+        "number_operands": 27,
         "number_operators_unique": 4,
-        "number_operands_unique": 15,
+        "number_operands_unique": 17,
         "cloc": 0,
-        "loc": 18,
-        "lloc": 18,
-        "mi": 57.58,
-        "mIwoC": 57.58,
+        "loc": 22,
+        "lloc": 22,
+        "mi": 54.78,
+        "mIwoC": 54.78,
         "commentWeight": 0,
         "kanDefect": 0.45,
-        "relativeStructuralComplexity": 1,
-        "relativeDataComplexity": 0.5,
-        "relativeSystemComplexity": 1.5,
-        "totalStructuralComplexity": 1,
-        "totalDataComplexity": 0.5,
-        "totalSystemComplexity": 1.5,
+        "relativeStructuralComplexity": 9,
+        "relativeDataComplexity": 0.75,
+        "relativeSystemComplexity": 9.75,
+        "totalStructuralComplexity": 18,
+        "totalDataComplexity": 1.5,
+        "totalSystemComplexity": 19.5,
         "package": "Edge\\QA\\Tools\\Analyzer\\",
         "pageRank": 0.01,
         "afferentCoupling": 0,
@@ -2177,6 +2288,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Tools\\Tool"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 136,
         "vocabulary": 52,
@@ -2316,11 +2428,12 @@ var classes = [
         "nbMethodsPublic": 7,
         "nbMethodsGetter": 3,
         "nbMethodsSetters": 0,
-        "wmc": 32,
+        "wmc": 29,
         "ccn": 19,
         "ccnMethodMax": 8,
         "externals": [],
         "parents": [],
+        "implements": [],
         "lcom": 1,
         "length": 182,
         "vocabulary": 48,
@@ -2372,6 +2485,7 @@ var classes = [
         "ccnMethodMax": 0,
         "externals": [],
         "parents": [],
+        "implements": [],
         "lcom": 0,
         "length": 4,
         "vocabulary": 4,
@@ -2522,11 +2636,12 @@ var classes = [
         "nbMethodsPublic": 10,
         "nbMethodsGetter": 1,
         "nbMethodsSetters": 0,
-        "wmc": 21,
+        "wmc": 20,
         "ccn": 7,
         "ccnMethodMax": 3,
         "externals": [],
         "parents": [],
+        "implements": [],
         "lcom": 1,
         "length": 151,
         "vocabulary": 50,
@@ -2666,6 +2781,7 @@ var classes = [
             "RuntimeException"
         ],
         "parents": [],
+        "implements": [],
         "lcom": 1,
         "length": 192,
         "vocabulary": 47,
@@ -2746,7 +2862,7 @@ var classes = [
         "nbMethodsPublic": 1,
         "nbMethodsGetter": 0,
         "nbMethodsSetters": 1,
-        "wmc": 12,
+        "wmc": 11,
         "ccn": 8,
         "ccnMethodMax": 4,
         "externals": [
@@ -2755,6 +2871,7 @@ var classes = [
             "Symfony\\Component\\Console\\Helper\\TableSeparator"
         ],
         "parents": [],
+        "implements": [],
         "lcom": 1,
         "length": 102,
         "vocabulary": 49,
@@ -2818,6 +2935,7 @@ var classes = [
         "parents": [
             "Robo\\Task\\Base\\ParallelExec"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 4,
         "vocabulary": 3,
@@ -2890,6 +3008,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Task\\ParallelExec"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 74,
         "vocabulary": 20,
@@ -2963,7 +3082,7 @@ var classes = [
         "nbMethodsPublic": 1,
         "nbMethodsGetter": 0,
         "nbMethodsSetters": 1,
-        "wmc": 8,
+        "wmc": 7,
         "ccn": 5,
         "ccnMethodMax": 3,
         "externals": [
@@ -2973,6 +3092,7 @@ var classes = [
             "InvalidArgumentException"
         ],
         "parents": [],
+        "implements": [],
         "lcom": 1,
         "length": 80,
         "vocabulary": 31,
@@ -3059,6 +3179,7 @@ var classes = [
         "parents": [
             "Edge\\QA\\Task\\NonParallelExecV1"
         ],
+        "implements": [],
         "lcom": 1,
         "length": 30,
         "vocabulary": 12,
@@ -3118,7 +3239,7 @@ var classes = [
         "nbMethodsPublic": 1,
         "nbMethodsGetter": 0,
         "nbMethodsSetters": 1,
-        "wmc": 3,
+        "wmc": 2,
         "ccn": 2,
         "ccnMethodMax": 2,
         "externals": [
@@ -3126,6 +3247,7 @@ var classes = [
             "Symfony\\Component\\Console\\Helper\\Table"
         ],
         "parents": [],
+        "implements": [],
         "lcom": 1,
         "length": 25,
         "vocabulary": 15,
@@ -3201,6 +3323,7 @@ var classes = [
             "class"
         ],
         "parents": [],
+        "implements": [],
         "lcom": 1,
         "length": 45,
         "vocabulary": 18,
@@ -3324,6 +3447,7 @@ var classes = [
             "Edge\\QA\\Task\\TableSummary"
         ],
         "parents": [],
+        "implements": [],
         "lcom": 1,
         "length": 281,
         "vocabulary": 80,
@@ -3442,6 +3566,7 @@ var classes = [
             "Edge\\QA\\RunningTool"
         ],
         "parents": [],
+        "implements": [],
         "lcom": 1,
         "length": 181,
         "vocabulary": 52,

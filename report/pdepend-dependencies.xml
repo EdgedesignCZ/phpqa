@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2021-05-25T07:51:48" pdepend="@package_version@">
+<dependencies generated="2022-04-30T09:16:14" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -342,7 +342,9 @@
         <type namespace="Edge\QA\Tools" name="Tool"/>
         <type namespace="Nette\Neon" name="Neon"/>
       </efferent>
-      <afferent/>
+      <afferent>
+        <type namespace="Edge\QA\Tools\Analyzer" name="PhpstanTest"/>
+      </afferent>
       <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php"/>
     </class>
     <class name="Phpunit">
@@ -367,6 +369,14 @@
       </efferent>
       <afferent/>
       <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/SecurityChecker.php"/>
+    </class>
+    <class name="PhpstanTest">
+      <efferent>
+        <type namespace="PHPUnit\Framework" name="TestCase"/>
+        <type namespace="Edge\QA\Tools\Analyzer" name="Phpstan"/>
+      </efferent>
+      <afferent/>
+      <file name="/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php"/>
     </class>
   </package>
 </dependencies>

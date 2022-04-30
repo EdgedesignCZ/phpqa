@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="PHP CS Fixer" tests="39" assertions="130" failures="130" errors="0" time="1.163">
+  <testsuite name="PHP CS Fixer" tests="40" assertions="130" failures="130" errors="0" time="1.124">
+    <testcase name="tests/Tools/Analyzer/PhpstanTest" file="tests/Tools/Analyzer/PhpstanTest.php" assertions="1">
+      <failure type="code_style"><![CDATA[applied fixers:
+---------------
+* braces]]></failure>
+    </testcase>
     <testcase name="tests/RunningToolTest" file="tests/RunningToolTest.php" assertions="1">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
@@ -96,9 +101,9 @@
 ---------------
 * array_syntax
 * concat_space
+* yoda_style
 * ternary_operator_spaces
-* blank_line_before_statement
-* binary_operator_spaces]]></failure>
+* blank_line_before_statement]]></failure>
     </testcase>
     <testcase name="src/Tools/Analyzer/ParallelLint" file="src/Tools/Analyzer/ParallelLint.php" assertions="1">
       <failure type="code_style"><![CDATA[applied fixers:
@@ -126,8 +131,8 @@
 * array_syntax
 * trailing_comma_in_multiline
 * yoda_style
-* single_line_comment_style
-* blank_line_before_statement]]></failure>
+* blank_line_before_statement
+* single_line_comment_style]]></failure>
     </testcase>
     <testcase name="src/Tools/Analyzer/Deptrac" file="src/Tools/Analyzer/Deptrac.php" assertions="1">
       <failure type="code_style"><![CDATA[applied fixers:
@@ -162,12 +167,11 @@
 * trailing_comma_in_multiline
 * blank_line_before_statement]]></failure>
     </testcase>
-    <testcase name="src/Tools/Analyzer/SecurityChecker" file="src/Tools/Analyzer/SecurityChecker.php" assertions="4">
+    <testcase name="src/Tools/Analyzer/SecurityChecker" file="src/Tools/Analyzer/SecurityChecker.php" assertions="3">
       <failure type="code_style"><![CDATA[applied fixers:
 ---------------
 * array_syntax
 * concat_space
-* single_quote
 * blank_line_before_statement]]></failure>
     </testcase>
     <testcase name="src/Tools/Analyzer/Psalm" file="src/Tools/Analyzer/Psalm.php" assertions="4">

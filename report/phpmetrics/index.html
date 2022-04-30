@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/roboto.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/material-icons.css">
-    <link rel="stylesheet" href="css/graph-carousel.css">
 </head>
 <body>
 
@@ -17,7 +16,7 @@
 <header class="headerbar">
     <div class="headerbarInner">
         <div class="float-left navigation-title">
-            <a href="http://www.phpmetrics.org/">
+            <a href="https://github.com/phpmetrics/phpmetrics">
                 <h1 class="title">PhpMetrics</h1>
                 <span class="subtitle">
                 Static analyzer for PHP
@@ -26,8 +25,8 @@
         </div>
         <ul class="navigation-list float-right">
             <li class="navigation-item">
-                <a class="navigation-link" href="http://www.phpmetrics.org/documentation/index.html">Documentation</a>
                 <a class="navigation-link" href="https://www.github.com/phpmetrics/phpmetrics">Support</a>
+                <a class="navigation-link" href="https://phpmetrics.github.io/website/">Documentation</a>
             </li>
         </ul>
     </div>
@@ -50,7 +49,7 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2021-05-25 07:51:56        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2022-04-30 09:16:19        , with PHPMetrics v2.8.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
             <div class="row">
@@ -67,7 +66,7 @@
         <div class="column">
             <div class="bloc bloc-number">
                                 <div class="label"><a href="loc.html">Lines of code</a></div>
-                <div class="number">1,824</div>
+                <div class="number">1,858</div>
                 <div class="bloc-action">
                     <a href="loc.html">View details &gt;</a>
                 </div>
@@ -76,7 +75,7 @@
         <div class="column">
             <div class="bloc bloc-number">
                                 <div class="label"><a href="oop.html">Classes</a></div>
-                <div class="number">39</div>
+                <div class="number">40</div>
                 <div class="bloc-action">
                     <a href="loc.html">View details &gt;</a>
                 </div>
@@ -89,7 +88,7 @@
         <div class="column">
             <div class="bloc bloc-number">
                                 <div class="label"><a href="complexity.html">Average cyclomatic complexity by class</a></div>
-                <div class="number">5.92</div>
+                <div class="number">5.93</div>
                 <div class="bloc-action">
                     <a href="complexity.html">View details &gt;</a>
                 </div>
@@ -129,23 +128,16 @@
                 <div class="column column-help-inner">
                     <div class="row">
                         <div class="column with-help">
-                            <div class="bloc-graph">
-                                <div class="bloc-graph-carousel">
-                                    <div class="bloc-graph-items">
-                                        <div class="bloc-graph-item first">
-                                            <div class="label">Maintainability / complexity</div>
-                                            <div id="svg-maintainability" class="svg-container"></div>
-                                        </div>
-                                        <div class="bloc-graph-item second">
-                                            <div class="label">Maintainability without comments / complexity</div>
-                                            <div id="svg-maintainability-without-comments" class="svg-container"></div>
-                                        </div>
-                                    </div>
+                            <div>
+                                <div class="label">
+                                    Maintainability / complexity
+                                    <small><a
+                                            data-current="with-comments"
+                                            onclick="toggleChartMaintainability(this)">
+                                                (with comments)
+                                    </a></small>
                                 </div>
-                                <div class="icon-container">
-                                    <span class="dot dot-first active" title="Maintainability / complexity"></span>
-                                    <span class="dot dot-second" title="Maintainability without comments / complexity"></span>
-                                </div>
+                                <div id="svg-maintainability" class="svg-container"></div>
                             </div>
                         </div>
                         <div class="column help">
@@ -169,7 +161,7 @@
                 <div class="help">
                     <div class="help-inner">
                         <p>
-                            Page Rank is a way to measure de importance of a class. There is no "good" or "bad" page rank. This metrics reflects interactions in your code.
+                            Page Rank is a way to measure the importance of a class. There is no "good" or "bad" page rank. This metric reflects interactions in your code.
                         </p>
                     </div>
                 </div>
@@ -185,7 +177,7 @@
                             <tbody id="contentClassRank" class="clusterize-content">
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.17);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.17);">
                                         0.18                                    </td>
                                     </td>
                                     <td>
@@ -196,7 +188,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.15);">
                                         0.16                                    </td>
                                     </td>
                                     <td>
@@ -207,7 +199,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.1);">
                                         0.11                                    </td>
                                     </td>
                                     <td>
@@ -218,7 +210,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.09);">
                                         0.1                                    </td>
                                     </td>
                                     <td>
@@ -229,18 +221,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.08);");">
-                                        0.09                                    </td>
-                                    </td>
-                                    <td>
-                                        <span class="path">Edge\QA\Tools\GetVersions</span>
-                                                                                <span class="badge" title="Maintainability Index">29.96</span>
-                                        <span class="badge" title="Maintainability Index (w/o comments)">29.96</span>
-                                    </td>
-                                </tr>
-                                                            <tr>
-                                    <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.08);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.08);">
                                         0.09                                    </td>
                                     </td>
                                     <td>
@@ -251,7 +232,18 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0.08);">
+                                        0.09                                    </td>
+                                    </td>
+                                    <td>
+                                        <span class="path">Edge\QA\Tools\GetVersions</span>
+                                                                                <span class="badge" title="Maintainability Index">29.96</span>
+                                        <span class="badge" title="Maintainability Index (w/o comments)">29.96</span>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -262,18 +254,18 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
                                         <span class="path">Edge\QA\Tools\Analyzer\SecurityChecker</span>
-                                                                                <span class="badge" title="Maintainability Index">57.58</span>
-                                        <span class="badge" title="Maintainability Index (w/o comments)">57.58</span>
+                                                                                <span class="badge" title="Maintainability Index">54.78</span>
+                                        <span class="badge" title="Maintainability Index (w/o comments)">54.78</span>
                                     </td>
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -284,7 +276,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -295,7 +287,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -306,7 +298,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -317,7 +309,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -328,7 +320,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -339,7 +331,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -350,7 +342,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -361,7 +353,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -372,7 +364,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -383,7 +375,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -394,7 +386,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -405,7 +397,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -416,7 +408,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -427,7 +419,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -438,7 +430,18 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
+                                        0.01                                    </td>
+                                    </td>
+                                    <td>
+                                        <span class="path">Edge\QA\Tools\Analyzer\PhpstanTest</span>
+                                                                                <span class="badge" title="Maintainability Index">75.81</span>
+                                        <span class="badge" title="Maintainability Index (w/o comments)">56.92</span>
+                                    </td>
+                                </tr>
+                                                            <tr>
+                                    <td>
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -449,18 +452,18 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
                                         <span class="path">Edge\QA\ConfigTest</span>
-                                                                                <span class="badge" title="Maintainability Index">38.28</span>
-                                        <span class="badge" title="Maintainability Index (w/o comments)">31.64</span>
+                                                                                <span class="badge" title="Maintainability Index">38.15</span>
+                                        <span class="badge" title="Maintainability Index (w/o comments)">31.53</span>
                                     </td>
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -471,7 +474,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -482,7 +485,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -493,7 +496,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -504,7 +507,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -515,7 +518,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -526,7 +529,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -537,7 +540,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -548,18 +551,18 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
                                         <span class="path">Edge\QA\Tools\Analyzer\Phpstan</span>
-                                                                                <span class="badge" title="Maintainability Index">47.45</span>
-                                        <span class="badge" title="Maintainability Index (w/o comments)">47.45</span>
+                                                                                <span class="badge" title="Maintainability Index">42.31</span>
+                                        <span class="badge" title="Maintainability Index (w/o comments)">42.31</span>
                                     </td>
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -570,7 +573,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -581,7 +584,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -592,7 +595,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -603,7 +606,7 @@
                                 </tr>
                                                             <tr>
                                     <td>
-                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);");">
+                                        <span class="badge"  style="background-color: hsla(203, 82%, 76%, 0);">
                                         0.01                                    </td>
                                     </td>
                                     <td>
@@ -644,8 +647,7 @@
     <script type="text/javascript">
         document.onreadystatechange = function () {
             if (document.readyState === 'complete') {
-                chartMaintainability(true);
-                chartMaintainability(false);
+                chartMaintainability();
 
                 new Clusterize({
                     scrollId: 'clusterizeClassRank',
@@ -664,7 +666,7 @@
 <div id="sidebar">
     <div class="content">
         <div class="logo">
-            <a href="http://www.phpmetrics.org"><img src="images/phpmetrics-maintenability.png"
+            <a href="https://github.com/phpmetrics/phpmetrics"><img src="images/phpmetrics-maintenability.png"
                                                  alt="Logo PhpMetrics"/></a>
             <h1>PhpMetrics</h1>
         </div>
@@ -820,7 +822,6 @@
 <script type="text/javascript" src="js/d3.hexbin.v0.js"></script>
 <script type="text/javascript" src="js/sort-table.min.js"></script>
 <script type="text/javascript" src="js/graph-maintainability.js"></script>
-<script type="text/javascript" src="js/graph-carousel.js"></script>
 <script type="text/javascript" src="js/graph-licenses.js"></script>
 <script type="text/javascript" src="js/FileSaver.min.js"></script>
 

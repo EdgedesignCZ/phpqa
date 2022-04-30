@@ -111,9 +111,9 @@
 </codefragment>
   </duplication>
   <duplication lines="3" tokens="10">
-    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="51"/>
-    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="108"/>
-    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="115"/>
+    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="52"/>
+    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="109"/>
+    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="116"/>
     <codefragment>        $config = new Config();
         $config-&gt;loadUserConfig(__DIR__);
         assertThat($config-&gt;value('phpcpd.minLines'), is(5));

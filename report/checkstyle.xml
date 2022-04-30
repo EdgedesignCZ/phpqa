@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<checkstyle version="3.6.0">
+<checkstyle version="3.6.2">
 <file name="/Users/www/zd/phpqa/src/invalid/new-feature.php">
  <error line="1" column="15" severity="error" message="Expected 1 space(s) after closing parenthesis; found 0" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
  <error line="2" column="19" severity="error" message="Expected 1 space(s) after closing parenthesis; found 0" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>

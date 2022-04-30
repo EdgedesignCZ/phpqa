@@ -99,3 +99,10 @@ Running Tool (Edge\QA\RunningTool)
  [ ] Analyze exit code in cli mode with data set "failure when errors count > allowed count but errors count is always one"
  [x] Create unique id for user report
 
+Phpstan (Edge\QA\Tools\Analyzer\Phpstan)
+ [x] Build config with data set "No config"
+ [x] Build config with data set "No parameters in config"
+ [x] Build config with data set "excludePaths shortcut"
+ [x] Build config with data set "excludePaths + analyseAndScan"
+ [x] Build config with data set "Deprecated excludes_analyse"
+

@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="css/roboto.css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/material-icons.css">
-    <link rel="stylesheet" href="css/graph-carousel.css">
 </head>
 <body>
 
@@ -17,7 +16,7 @@
 <header class="headerbar">
     <div class="headerbarInner">
         <div class="float-left navigation-title">
-            <a href="http://www.phpmetrics.org/">
+            <a href="https://github.com/phpmetrics/phpmetrics">
                 <h1 class="title">PhpMetrics</h1>
                 <span class="subtitle">
                 Static analyzer for PHP
@@ -26,8 +25,8 @@
         </div>
         <ul class="navigation-list float-right">
             <li class="navigation-item">
-                <a class="navigation-link" href="http://www.phpmetrics.org/documentation/index.html">Documentation</a>
                 <a class="navigation-link" href="https://www.github.com/phpmetrics/phpmetrics">Support</a>
+                <a class="navigation-link" href="https://phpmetrics.github.io/website/">Documentation</a>
             </li>
         </ul>
     </div>
@@ -50,21 +49,21 @@
 <div class="page">
     <div class="content content-first">
         <div class="report-details">
-            Created at 2021-05-25 07:51:56        , with PHPMetrics v2.7.4 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
+            Created at 2022-04-30 09:16:19        , with PHPMetrics v2.8.1 (<a href="https://twitter.com/Halleck45">Jean-François Lépine</a>).
         </div>
 
         
     <div class="row">
         <div class="column">
             <div class="bloc bloc-number">
-                <div class="number">1824</div>
+                <div class="number">1858</div>
                 <div class="label">lines of code </div>
             </div>
         </div>
         <div class="column">
             <div class="bloc bloc-number">
                 <div class="number">
-                    39                    <small> (100                        %)
+                    40                    <small> (100                        %)
                     </small>
                 </div>
                 <div class="label">classes </div>
@@ -152,14 +151,14 @@
                             <td>0.1</td>
                         </tr>
                                             <tr>
-                            <td>Edge\QA\Tools\GetVersions                                                                <span class="badge" title="Maintainability Index">29.96</span>
-                                <span class="badge" title="Maintainability Index (w/o comments)">29.96</span>
+                            <td>Edge\QA\Config                                                                <span class="badge" title="Maintainability Index">51.31</span>
+                                <span class="badge" title="Maintainability Index (w/o comments)">32.42</span>
                             </td>
                             <td>0.09</td>
                         </tr>
                                             <tr>
-                            <td>Edge\QA\Config                                                                <span class="badge" title="Maintainability Index">51.31</span>
-                                <span class="badge" title="Maintainability Index (w/o comments)">32.42</span>
+                            <td>Edge\QA\Tools\GetVersions                                                                <span class="badge" title="Maintainability Index">29.96</span>
+                                <span class="badge" title="Maintainability Index (w/o comments)">29.96</span>
                             </td>
                             <td>0.09</td>
                         </tr>
@@ -170,8 +169,8 @@
                             <td>0.01</td>
                         </tr>
                                             <tr>
-                            <td>Edge\QA\Tools\Analyzer\SecurityChecker                                                                <span class="badge" title="Maintainability Index">57.58</span>
-                                <span class="badge" title="Maintainability Index (w/o comments)">57.58</span>
+                            <td>Edge\QA\Tools\Analyzer\SecurityChecker                                                                <span class="badge" title="Maintainability Index">54.78</span>
+                                <span class="badge" title="Maintainability Index (w/o comments)">54.78</span>
                             </td>
                             <td>0.01</td>
                         </tr>
@@ -196,27 +195,15 @@
         <div class="column">
             <div class="bloc bloc-number">
                 <div class="number">
-                    5.92                </div>
+                    5.93                </div>
                 <div class="label">Average cyclomatic complexity by class </div>
             </div>
         </div>
         <div class="column">
-            <div class="bloc bloc-graph">
-                <div class="bloc-graph-carousel">
-                    <div class="bloc-graph-items">
-                        <h4 class="bloc-graph-item first">
-                            <h4>Maintainability / complexity</h4>
-                            <div id="svg-maintainability"></div>
-                        </div>
-                        <h4 class="bloc-graph-item second">
-                            <h4>Maintainability without comments / complexity</h4>
-                            <div id="svg-maintainability-without-comments"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="icon-container">
-                    <span class="dot dot-first active" title="Maintainability / complexity"></span>
-                    <span class="dot dot-second" title="Maintainability without comments / complexity"></span>
+            <div class="bloc">
+                <div>
+                    <h4>Maintainability / complexity</h4>
+                    <div id="svg-maintainability"></div>
                 </div>
             </div>
         </div>
@@ -225,8 +212,7 @@
     <script type="text/javascript">
         document.onreadystatechange = function () {
             if (document.readyState === 'complete') {
-                chartMaintainability(true);
-                chartMaintainability(false);
+                chartMaintainability();
             }
         };
     </script>
@@ -241,7 +227,6 @@
 <script type="text/javascript" src="js/d3.hexbin.v0.js"></script>
 <script type="text/javascript" src="js/sort-table.min.js"></script>
 <script type="text/javascript" src="js/graph-maintainability.js"></script>
-<script type="text/javascript" src="js/graph-carousel.js"></script>
 <script type="text/javascript" src="js/graph-licenses.js"></script>
 <script type="text/javascript" src="js/FileSaver.min.js"></script>
 
