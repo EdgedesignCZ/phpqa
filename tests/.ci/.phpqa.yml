@@ -16,7 +16,7 @@ phpqa:
         - phploc
         - phpcs:0
         - php-cs-fixer
-        - phpmd:0
+        - phpmd:15
         - pdepend
         - phpcpd:0
         - phpstan
