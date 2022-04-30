@@ -64,23 +64,40 @@ class Phpstan extends \Edge\QA\Tools\Tool
     public static function buildConfig($existingConfig, $autoloadDirectories, $ignoredPaths)
     {
         if ($existingConfig !== []) {
-            $config = $existingConfig;
-            $config['parameters'] += [
-                'excludes_analyse' => [],
+            $config = $existingConfig + [
+                'parameters' => [],
             ];
         } else {
             $config = [
                 'parameters' => [
                     'autoload_directories' => $autoloadDirectories,
-                    'excludes_analyse' => [],
+                    'excludePaths' => [
+                        'analyseAndScan' => [],
+                    ],
                 ],
             ];
         }
 
-        $config['parameters']['excludes_analyse'] = array_merge(
-            $config['parameters']['excludes_analyse'],
-            $ignoredPaths
-        );
+        if (isset($config['parameters']['excludePaths']['analyseAndScan'])) {
+            $config['parameters']['excludePaths']['analyseAndScan'] = array_merge(
+                $config['parameters']['excludePaths']['analyseAndScan'],
+                $ignoredPaths
+            );
+        } elseif (isset($config['parameters']['excludePaths'])) {
+            $config['parameters']['excludePaths'] = array_merge(
+                $config['parameters']['excludePaths'],
+                $ignoredPaths
+            );
+        } elseif (isset($config['parameters']['excludes_analyse'])) {
+            $config['parameters']['excludes_analyse'] = array_merge(
+                $config['parameters']['excludes_analyse'],
+                $ignoredPaths
+            );
+        } else {
+            $config['parameters']['excludePaths'] = [
+                'analyseAndScan' => $ignoredPaths,
+            ];
+        }
 
         return $config;
     }

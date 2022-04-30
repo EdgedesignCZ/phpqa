@@ -15,7 +15,6 @@ class PhpstanTest extends TestCase
     {
         $config = Phpstan::buildConfig($existingConfig, $this->autoloadDirectories, $this->ignoredPaths);
         $this->assertEquals($expectedConfig, $config);
-        assertThat($config, is($expectedConfig));
     }
 
     public function provideConfig()
@@ -26,11 +25,64 @@ class PhpstanTest extends TestCase
                 'expectedConfig' => [
                     'parameters' => [
                         'autoload_directories' => $this->autoloadDirectories,
-                        'excludes_analyse' => $this->ignoredPaths,
+                        'excludePaths' => [
+                            'analyseAndScan' => $this->ignoredPaths,
+                        ],
                     ],
                 ],
             ],
-            'Deprecated config' => [
+            'No parameters in config' => [
+                'existingConfig' => [
+                    'includes' => $this->autoloadDirectories,
+                ],
+                'expectedConfig' => [
+                    'includes' => $this->autoloadDirectories,
+                    'parameters' => [
+                        'excludePaths' => [
+                            'analyseAndScan' => $this->ignoredPaths,
+                        ],
+                    ],
+                ],
+            ],
+            'excludePaths shortcut' => [
+                'existingConfig' => [
+                    'parameters' => [
+                        'excludePaths' => [
+                            'File.php',
+                        ],
+                    ],
+                ],
+                'expectedConfig' => [
+                    'parameters' => [
+                        'excludePaths' => [
+                            'File.php',
+                            'Test.php',
+                        ],
+                    ],
+                ],
+            ],
+            'excludePaths + analyseAndScan' => [
+                'existingConfig' => [
+                    'parameters' => [
+                        'excludePaths' => [
+                            'analyseAndScan' => [
+                                'File.php',
+                            ],
+                        ],
+                    ],
+                ],
+                'expectedConfig' => [
+                    'parameters' => [
+                        'excludePaths' => [
+                            'analyseAndScan' => [
+                                'File.php',
+                                'Test.php',
+                            ],
+                        ],
+                    ],
+                ],
+            ],
+            'Deprecated excludes_analyse' => [
                 'existingConfig' => [
                     'parameters' => [
                         'reportUnmatchedIgnoredErrors' => false,
