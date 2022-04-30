@@ -1,11 +1,12 @@
 parameters:
     reportUnmatchedIgnoredErrors: false
     # exclude robo v0/v1 compatibility classes - it's not possible to analyze them with phsptan (only one robo version is installed)
-    excludes_analyse:
-        - %currentWorkingDirectory%/src/Task/ParallelExec.php
-        - %currentWorkingDirectory%/src/Task/NonParallelExecV0.php
-        - %currentWorkingDirectory%/src/Task/NonParallelExecV1.php
-        - %currentWorkingDirectory%/src/Task/RoboAdapter.php
+    excludePaths:
+        analyseAndScan:
+            - %currentWorkingDirectory%/src/Task/ParallelExec.php
+            - %currentWorkingDirectory%/src/Task/NonParallelExecV0.php
+            - %currentWorkingDirectory%/src/Task/NonParallelExecV1.php
+            - %currentWorkingDirectory%/src/Task/RoboAdapter.php
     ignoreErrors:
         # constants from phpqa
         - message: '#Constant COMPOSER_(.+) not found.#'
