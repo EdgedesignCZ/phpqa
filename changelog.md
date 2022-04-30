@@ -1,6 +1,15 @@
 
 # Changelog
 
+## v1.26.0
+
+* **tools**
+  * upgrade pdepend, phpmd, phpcs [#245](https://github.com/EdgedesignCZ/phpqa/pull/245)
+  * phpstan - use excludePaths instead of excludes_analyse [#241](https://github.com/EdgedesignCZ/phpqa/issues/241)
+  * security-checker - enable overriding composer.lock location [#248](https://github.com/EdgedesignCZ/phpqa/pull/248)
+* _internal_
+  * CI - add PHP 8.1 - [#246](https://github.com/EdgedesignCZ/phpqa/pull/246)
+
 ## v1.25.0
 
 * **tools**

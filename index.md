@@ -128,15 +128,15 @@ Official docker image repository is https://hub.docker.com/r/zdenekdrahos/phpqa/
 Images can be used at [Gitlab CI](#gitlabci---docker-installation--composer-cache--artifacts).
 
 ```bash
-docker run --rm -it zdenekdrahos/phpqa:v1.25.0-php7.2 phpqa tools
+docker run --rm -it zdenekdrahos/phpqa:v1.26.0-php7.2 phpqa tools
 # using a tool without phpqa
-docker run --rm -it zdenekdrahos/phpqa:v1.25.0-php7.2 phploc -v
+docker run --rm -it zdenekdrahos/phpqa:v1.26.0-php7.2 phploc -v
 ```
 
 | Image | PHP version | Composer version | Tools versions | 
 | ----- | ----------- | ---------------- | ----- |
-| `zdenekdrahos/phpqa:v1.25.0-php7.2` | 7.2 | 1.8.0 | Versions that supports symfony2 components from default composer.lock. Not [latest versions](https://github.com/EdgedesignCZ/phpqa/issues/159#issuecomment-452794397). |
-| `zdenekdrahos/phpqa:v1.25.0-php7.4` | 7.4 | 2.0.7 | Generally, latest versions available at the moment. If you need different versions, then [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/210) |
+| `zdenekdrahos/phpqa:v1.26.0-php7.2` | 7.2 | 1.8.0 | Versions that supports symfony2 components from default composer.lock. Not [latest versions](https://github.com/EdgedesignCZ/phpqa/issues/159#issuecomment-452794397). |
+| `zdenekdrahos/phpqa:v1.26.0-php7.4` | 7.4 | 2.0.7 | Generally, latest versions available at the moment. If you need different versions, then [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/210) |
 
 Beware that images as lean as possible. That can be a problem for running PHPUnit tests.
 In that case, you might need different PHP version, miss PHP extensions for database etc.
@@ -144,8 +144,8 @@ You can [install phpqa](https://gitlab.com/costlocker/integrations/blob/213aab7/
 Or [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/168#issuecomment-489180974).
 
 ```bash
-docker run --rm -it zdenekdrahos/phpqa:v1.25.0-php7.2 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
-docker run --rm -it zdenekdrahos/phpqa:v1.25.0-php7.4 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
+docker run --rm -it zdenekdrahos/phpqa:v1.26.0-php7.2 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
+docker run --rm -it zdenekdrahos/phpqa:v1.26.0-php7.4 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
 ```
 
 There are also available images [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/) and [sparkfabrik/docker-phpqa](https://hub.docker.com/r/sparkfabrik/docker-phpqa/).
@@ -342,6 +342,7 @@ Tool | Settings | Default Value | Your value
 [psalm.showInfo](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
 [psalm.memoryLimit](https://github.com/vimeo/psalm/issues/842) | Custom memory limit, ignore unless you are getting `Fatal error: Allowed memory size of ... bytes exhausted` | `null` | String value, e.g. `'1024M'`, `'1G'`
 [deptrac.depfile](https://github.com/vimeo/psalm/wiki/Configuration) | Complete [deptract config](https://github.com/qossmic/deptrac#getting-started) _(phpqa won't update source and excluded files)_ | `null` | Path to `depfile.yml` file
+[security-checker.composerLock](https://github.com/EdgedesignCZ/phpqa/blob/bdd49e3/.phpqa.yml#L94) | Use it if composer.lock is not in current working directory or analyzed directory | `null` | Path to `composer.lock` file
 
 ## HTML reports
 
@@ -490,7 +491,7 @@ stages:
 
 test:
   stage: test
-  image: zdenekdrahos/phpqa:v1.25.0-php7.2
+  image: zdenekdrahos/phpqa:v1.26.0-php7.2
   variables:
     BACKEND_QA: "*/backend/var/QA"
     BACKEND_CACHE: $CI_PROJECT_DIR/.composercache
@@ -516,7 +517,7 @@ on: [push]
 
 jobs:
   qa:
-    container: zdenekdrahos/phpqa:v1.25.0-php7.4
+    container: zdenekdrahos/phpqa:v1.26.0-php7.4
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
