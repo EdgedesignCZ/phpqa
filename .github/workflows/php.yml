@@ -25,6 +25,7 @@ jobs:
           - { php: 7.4, isComposerUpdated: yes, areSuggestedToolsInstalled: yes }
           # PHP8
           - { php: 8.0, isComposerUpdated: yes, areSuggestedToolsInstalled: yes }
+          - { php: 8.1, isComposerUpdated: yes, areSuggestedToolsInstalled: yes }
         stability: [prefer-stable]
 
     steps:
