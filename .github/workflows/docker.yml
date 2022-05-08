@@ -21,8 +21,9 @@ jobs:
       env:
         CI_GIT_REF: ${{ github.ref }}
         CI_COMMIT_SHA: ${{ github.sha }}
-        DOCKER_USER: ${{ secrets.DOCKER_USER }}
-        DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
+        DOCKER_USER: ${{ github.actor }}
+        DOCKER_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        DOCKER_REGISTRY: ghcr.io
       run: |
         PHP_VERSION=7.2 .docker/build-image
         PHP_VERSION=8.1 .docker/build-image

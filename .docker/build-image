@@ -3,8 +3,9 @@
 # CI_GIT_REF=<refs/heads/feature-branch|refs/tags/v...> CI_COMMIT_SHA=$(git rev-parse --short HEAD) .docker/build-image
 
 APP_DIR="./"
-DOCKER_REPO="zdenekdrahos/phpqa"
+DOCKER_REPO="edgedesigncz/phpqa"
 DOCKER_FILE=".docker/Dockerfile"
+DOCKER_REGISTRY=${DOCKER_REGISTRY:-"ghcr.io"}
 DOCKER_TAG=""
 GIT_VERSION=""
 GIT_TAG=""
@@ -37,7 +38,7 @@ load_docker_variables () {
         echo "PHP version $PHP_VERSION not supported"
         exit 1
     fi
-    DOCKER_TAG="$DOCKER_REPO:$GIT_VERSION-php$PHP_VERSION"
+    DOCKER_TAG="$DOCKER_REGISTRY/$DOCKER_REPO:$GIT_VERSION-php$PHP_VERSION"
 
     echo "Dockefile: $DOCKER_FILE"
     echo "Build vars: COMPOSER_VERSION=$COMPOSER_VERSION UPDATE_COMPOSER=$UPDATE_COMPOSER"
@@ -55,11 +56,7 @@ build_docker_image () {
         --build-arg "UPDATE_COMPOSER=$UPDATE_COMPOSER"
     docker run --rm -t $DOCKER_TAG sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
 
-    if [ -z "$GIT_TAG" ]; then
-        echo "Docker image is published only if the current build is for a git tag"
-        exit 0
-    fi
-    docker login --username $DOCKER_USER --password $DOCKER_TOKEN
+    docker login --username $DOCKER_USER --password $DOCKER_TOKEN $DOCKER_REGISTRY
     time docker push $DOCKER_TAG
 }
 
