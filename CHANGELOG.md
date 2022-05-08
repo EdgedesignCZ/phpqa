@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.26.1
+
+* **Docker** - php 8.1, github container registry
+
 ## v1.26.0
 
 * **tools**
