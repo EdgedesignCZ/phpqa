@@ -22,4 +22,4 @@ jobs:
         DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
       run: |
         PHP_VERSION=7.2 .docker/build-image
-        PHP_VERSION=7.4 .docker/build-image
+        PHP_VERSION=8.1 .docker/build-image

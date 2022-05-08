@@ -30,10 +30,12 @@ load_docker_variables () {
     if [[ $PHP_VERSION == "7.2" ]]; then
         COMPOSER_VERSION="1.8.0"
         UPDATE_COMPOSER="no"
-    else
-        PHP_VERSION="7.4"
-        COMPOSER_VERSION="2.0.7"
+    elif [[ $PHP_VERSION == "8.1" ]]; then
+        COMPOSER_VERSION="2.2.12"
         UPDATE_COMPOSER="yes"
+    else
+        echo "PHP version $PHP_VERSION not supported"
+        exit 1
     fi
     DOCKER_TAG="$DOCKER_REPO:$GIT_VERSION-php$PHP_VERSION"
 
