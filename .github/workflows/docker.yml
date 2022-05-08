@@ -7,9 +7,6 @@ name: PHPQA Docker
 on:
   release:
     types: [created]
-  push:
-    branches:
-      - docker-php8
 
 jobs:
   phpqa:

@@ -56,6 +56,10 @@ build_docker_image () {
         --build-arg "UPDATE_COMPOSER=$UPDATE_COMPOSER"
     docker run --rm -t $DOCKER_TAG sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
 
+    if [ -z "$GIT_TAG" ]; then
+        echo "Docker image is published only if the current build is for a git tag"
+        exit 0
+    fi
     docker login --username $DOCKER_USER --password $DOCKER_TOKEN $DOCKER_REGISTRY
     time docker push $DOCKER_TAG
 }
