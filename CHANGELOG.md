@@ -3,7 +3,7 @@
 
 ## v1.26.1
 
-* **Docker** - php 8.1, github container registry
+* **Docker** - php 8.1, github container registry [#249](https://github.com/EdgedesignCZ/phpqa/pull/249)
 
 ## v1.26.0
 
