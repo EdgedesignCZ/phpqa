@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.26.2
+
+* **tools** - upgrade phpcs _(support PHP 8.1 Enums)_ [#251](https://github.com/EdgedesignCZ/phpqa/pull/251)
+
 ## v1.26.1
 
 * **Docker** - php 8.1, github container registry [#249](https://github.com/EdgedesignCZ/phpqa/pull/249)
