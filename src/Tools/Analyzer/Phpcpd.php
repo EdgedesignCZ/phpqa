@@ -32,8 +32,7 @@ class Phpcpd extends \Edge\QA\Tools\Tool
         if ($phpcpdNames) {
             if ($isOlderVersion) {
                 $args['names'] = \Edge\QA\escapePath(implode(',', $phpcpdNames));
-            }
-            else {
+            } else {
                 foreach ($phpcpdNames as $name) {
                     $args[] = '--suffix "' . \Edge\QA\escapePath($name) . '"';
                 }
