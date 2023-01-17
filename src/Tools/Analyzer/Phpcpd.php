@@ -31,12 +31,12 @@ class Phpcpd extends \Edge\QA\Tools\Tool
         }
         if ($phpcpdNames) {
             if ($isOlderVersion) {
-              $args['names'] = \Edge\QA\escapePath(implode(',', $phpcpdNames));
+                $args['names'] = \Edge\QA\escapePath(implode(',', $phpcpdNames));
             }
             else {
-              foreach ($phpcpdNames as $name) {
-                $args[] = '--suffix "' . \Edge\QA\escapePath($name) . '"';
-              }
+                foreach ($phpcpdNames as $name) {
+                    $args[] = '--suffix "' . \Edge\QA\escapePath($name) . '"';
+                }
             }
         }
         if ($this->options->isSavedToFiles) {
