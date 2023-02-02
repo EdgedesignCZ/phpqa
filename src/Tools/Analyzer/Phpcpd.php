@@ -34,7 +34,7 @@ class Phpcpd extends \Edge\QA\Tools\Tool
                 $args['names'] = \Edge\QA\escapePath(implode(',', $phpcpdNames));
             } else {
                 foreach ($phpcpdNames as $name) {
-                    $args[] = '--suffix "' . \Edge\QA\escapePath($name) . '"';
+                    $args[] = sprintf('--suffix %s', \Edge\QA\escapePath($name));
                 }
             }
         }
