@@ -30,8 +30,13 @@ class Phpcpd extends \Edge\QA\Tools\Tool
             $args['progress'] = '';
         }
         if ($phpcpdNames) {
-            $namesOptions = $isOlderVersion ? 'names' : 'suffix';
-            $args[$namesOptions] = \Edge\QA\escapePath(implode(',', $phpcpdNames));
+            if ($isOlderVersion) {
+                $args['names'] = \Edge\QA\escapePath(implode(',', $phpcpdNames));
+            } else {
+                foreach ($phpcpdNames as $name) {
+                    $args[] = sprintf('--suffix %s', \Edge\QA\escapePath($name));
+                }
+            }
         }
         if ($this->options->isSavedToFiles) {
             $args['log-pmd'] = $this->tool->getEscapedXmlFile();
