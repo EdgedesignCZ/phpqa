@@ -2,7 +2,6 @@
 
 namespace Edge\QA\Task;
 
-use Consolidation\Log\ConsoleLogLevel;
 use Robo\Result;
 use Symfony\Component\Process\Process;
 
@@ -61,9 +60,9 @@ class NonParallelExecV1 extends ParallelExec
         $this->printTaskInfo(
             "Output for <fg=white;bg=magenta> " . $process->getCommandLine()." </fg=white;bg=magenta>"
         );
-        $this->printTaskOutput(ConsoleLogLevel::SUCCESS, $process->getOutput(), $this->getTaskContext());
+        $this->printTaskSuccess($process->getOutput(), $this->getTaskContext());
         if ($process->getErrorOutput()) {
-            $this->printTaskOutput(ConsoleLogLevel::ERROR, $process->getErrorOutput(), $this->getTaskContext());
+            $this->printTaskError($process->getErrorOutput(), $this->getTaskContext());
         }
     }
 }
