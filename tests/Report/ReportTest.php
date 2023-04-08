@@ -8,7 +8,7 @@ class ReportTest extends \PHPUnit_Framework_TestCase
     private $phplocXsl;
     private $xmlParams = ['bootstrap.min.css' => '','bootstrap.min.js' => '', 'jquery.min.js' => ''];
 
-    public function setUp()
+    public function setUp(): void
     {
         $this->output = __DIR__ . "/result.html";
         $this->phplocXsl = __DIR__ . "/../../app/report/phploc.xsl";
@@ -41,7 +41,7 @@ class ReportTest extends \PHPUnit_Framework_TestCase
         assertThat(file_exists($this->output), is(false));
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         if (file_exists($this->output)) {
             unlink($this->output);

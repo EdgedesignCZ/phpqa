@@ -16,16 +16,16 @@ jobs:
         include:    
           # PHP5
           - { php: 5.4, areSuggestedToolsInstalled: yes }
-          - { php: 5.6, isComposerUpdated: yes, areSuggestedToolsInstalled: yes, allowedSecurityErrors: 1 }
+          - { php: 5.6, areSuggestedToolsInstalled: yes, allowedSecurityErrors: 1 }
           # PHP7
           - { php: 7.0 }
-          - { php: 7.1, isComposerUpdated: yes, areSuggestedToolsInstalled: yes }
+          - { php: 7.1, areSuggestedToolsInstalled: yes }
           - { php: 7.2, areSuggestedToolsInstalled: yes }
           - { php: 7.3 }
-          - { php: 7.4, isComposerUpdated: yes, areSuggestedToolsInstalled: yes }
+          - { php: 7.4, areSuggestedToolsInstalled: yes }
           # PHP8
-          - { php: 8.0, isComposerUpdated: yes, areSuggestedToolsInstalled: yes }
-          - { php: 8.1, isComposerUpdated: yes, areSuggestedToolsInstalled: yes }
+          - { php: 8.0, areSuggestedToolsInstalled: yes }
+          - { php: 8.1, areSuggestedToolsInstalled: yes }
         stability: [prefer-stable]
 
     steps:
@@ -53,12 +53,12 @@ jobs:
     - name: Install dependencies
       env:
         PHP_VERSION: ${{ matrix.php }}
-        UPDATE_COMPOSER: ${{ matrix.isComposerUpdated || 'no' }}
         INSTALL_SUGGESTED_TOOLS: ${{ matrix.areSuggestedToolsInstalled || 'no' }}
       run: |
-        composer install --no-interaction --no-progress --ignore-platform-reqs;
         if [[ $INSTALL_SUGGESTED_TOOLS == "yes" ]]; then
-            PHP_VERSION=$PHP_VERSION UPDATE_COMPOSER=$UPDATE_COMPOSER bin/suggested-tools.sh install;
+            PHP_VERSION=$PHP_VERSION bin/suggested-tools.sh install;
+        else
+            composer install --no-interaction --no-progress;
         fi
         php tests/.phpunit/fix-typehints.php;
 

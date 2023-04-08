@@ -1,6 +1,6 @@
 <?php
 
-if (version_compare(PHP_VERSION, '7.1.0', '<')) {
+if (version_compare(PHP_VERSION, '7.1.0', '>=')) {
     return;
 }
 
@@ -12,12 +12,12 @@ foreach ($files as $file) {
     $path = __DIR__ . "/../{$file}";
     $compatiblePhp = str_replace(
         [
-            'function setUp()',
-            'function tearDown()',
-        ],
-        [
             'function setUp(): void',
             'function tearDown(): void',
+        ],
+        [
+            'function setUp()',
+            'function tearDown()',
         ],
         file_get_contents($path)
     );

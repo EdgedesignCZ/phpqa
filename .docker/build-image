@@ -11,7 +11,6 @@ GIT_VERSION=""
 GIT_TAG=""
 PHP_VERSION=${PHP_VERSION:-"7.2"}
 COMPOSER_VERSION=""
-UPDATE_COMPOSER=""
 
 run () {
     analyze_git_ref
@@ -30,10 +29,8 @@ analyze_git_ref () {
 load_docker_variables () {
     if [[ $PHP_VERSION == "7.2" ]]; then
         COMPOSER_VERSION="1.8.0"
-        UPDATE_COMPOSER="no"
     elif [[ $PHP_VERSION == "8.1" ]]; then
         COMPOSER_VERSION="2.2.12"
-        UPDATE_COMPOSER="yes"
     else
         echo "PHP version $PHP_VERSION not supported"
         exit 1
@@ -41,7 +38,7 @@ load_docker_variables () {
     DOCKER_TAG="$DOCKER_REGISTRY/$DOCKER_REPO:$GIT_VERSION-php$PHP_VERSION"
 
     echo "Dockefile: $DOCKER_FILE"
-    echo "Build vars: COMPOSER_VERSION=$COMPOSER_VERSION UPDATE_COMPOSER=$UPDATE_COMPOSER"
+    echo "Build vars: COMPOSER_VERSION=$COMPOSER_VERSION"
     echo "Build context: $APP_DIR"
     echo "Publish image: $DOCKER_TAG"
     echo
@@ -52,8 +49,7 @@ build_docker_image () {
     time docker build \
         --file $DOCKER_FILE \
         --tag $DOCKER_TAG $APP_DIR \
-        --build-arg "COMPOSER_VERSION=$COMPOSER_VERSION" \
-        --build-arg "UPDATE_COMPOSER=$UPDATE_COMPOSER"
+        --build-arg "COMPOSER_VERSION=$COMPOSER_VERSION"
     docker run --rm -t $DOCKER_TAG sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
 
     if [ -z "$GIT_TAG" ]; then

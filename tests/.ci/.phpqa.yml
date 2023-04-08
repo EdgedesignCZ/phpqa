@@ -18,7 +18,7 @@ phpqa:
         - php-cs-fixer
         - phpmd:0
         - pdepend
-        - phpcpd:0
+        - phpcpd
         - phpstan
         - phpunit:0
         - psalm
