@@ -40,7 +40,7 @@ show_help() {
 }
 
 get_tools () {
-    TOOLS="php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter friendsofphp/php-cs-fixer"
+    TOOLS="php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter friendsofphp/php-cs-fixer sebastian/phpcpd"
     if [[ ${PHP_VERSION:0:1} != "5" ]]; then
         TOOLS="${TOOLS} vimeo/psalm phpstan/phpstan nette/neon qossmic/deptrac-shim enlightn/security-checker"
     fi
