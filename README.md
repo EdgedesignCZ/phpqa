@@ -36,7 +36,6 @@ Will you create e.g. Jenkins project/task for each bundle?
 Tool| Description
 ----------------------------------------------------------------------- | ----------------------------- |
 [phploc](https://github.com/sebastianbergmann/phploc) | Measure the size of a PHP project |
-[phpcpd](https://github.com/sebastianbergmann/phpcpd) | Copy/Paste Detector (CPD) for PHP code |
 [phpcs](https://github.com/squizlabs/PHP_CodeSniffer) | Detect violations of a coding standard |
 [pdepend](https://github.com/pdepend/pdepend) | PHP adaptation of JDepend |
 [phpmd](https://github.com/phpmd/phpmd) | Scan PHP project for messy code |
@@ -57,6 +56,7 @@ Tool | PHP | Supported since | Description |
 [parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files |
 [deptrac](https://github.com/qossmic/deptrac) | `>= 7.2` | `1.25` | Enforce rules for dependencies between software layers |
 [MacFJA/phpqa-extensions](https://github.com/MacFJA/phpqa-extensions) | - | - | PHP Assumptions, Magic Number Detector, ... |
+[phpcpd](https://github.com/sebastianbergmann/phpcpd) | - | - | PCopy/Paste Detector (CPD) for PHP code |
 
 _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
 
