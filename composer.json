@@ -29,7 +29,6 @@
         "symfony/yaml": ">=2.8",
         "twig/twig": "~1.38|~2.7|~3",
         "pdepend/pdepend": "*",
-        "sebastian/phpcpd": "*",
         "squizlabs/php_codesniffer": "*",
         "phpmetrics/phpmetrics": "*"
     },

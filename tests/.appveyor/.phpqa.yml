@@ -1,5 +1,5 @@
 phpqa:
-    tools: phpmetrics,phploc,phpcs:0,php-cs-fixer,phpmd:0,pdepend,phpcpd:0,phpstan,phpunit:0,psalm,security-checker,parallel-lint
+    tools: phpmetrics,phploc,phpcs:0,php-cs-fixer,phpmd:0,pdepend,phpstan,phpunit:0,psalm,security-checker,parallel-lint
     ignoredFiles: tests/.phpunit/fix-psalm-testcase.php
 
 phpmd:

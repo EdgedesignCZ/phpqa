@@ -8,7 +8,7 @@ phpqa:
     report: false
     execution: parallel
     output: file
-    tools: phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpcpd,phpstan,phpunit,psalm,security-checker,parallel-lint,deptrac
+    tools: phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpstan,phpunit,psalm,security-checker,parallel-lint,deptrac
     # array definition and allowed errors count is supported too
     # tools: [phploc, phpcs:0]
     verbose: false
@@ -49,10 +49,6 @@ phpmd:
 
 pdepend:
     # coverageReport: build/coverage-clover.xml
-
-phpcpd:
-    minLines: 5
-    minTokens: 70
 
 phpmetrics:
     # v1
@@ -97,7 +93,6 @@ security-checker:
 # paths are relative to .phpqa.yml, so don't copy-paste this section if you don't have custom templates
 report:
     phploc: app/report/phploc.xsl
-    phpcpd: app/report/phpcpd.xsl
     phpcs: app/report/phpcs.xsl
     pdepend: app/report/pdepend.xsl
     phpmd: app/report/phpmd.xsl
@@ -131,7 +126,6 @@ tool:
     php-cs-fixer: Edge\QA\Tools\Analyzer\PhpCsFixer
     phpmd: Edge\QA\Tools\Analyzer\Phpmd
     pdepend: Edge\QA\Tools\Analyzer\Pdepend
-    phpcpd: Edge\QA\Tools\Analyzer\Phpcpd
     parallel-lint: Edge\QA\Tools\Analyzer\ParallelLint
     phpstan: Edge\QA\Tools\Analyzer\Phpstan
     phpunit: Edge\QA\Tools\Analyzer\Phpunit
