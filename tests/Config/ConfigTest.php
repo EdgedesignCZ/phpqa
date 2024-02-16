@@ -5,7 +5,7 @@ namespace Edge\QA;
 /** @SuppressWarnings(PHPMD.TooManyPublicMethods) */
 class ConfigTest extends \PHPUnit_Framework_TestCase
 {
-    private $defaultToolsCount = 13;
+    private $defaultToolsCount = 12;
 
     public function testLoadDefaultConfig()
     {
