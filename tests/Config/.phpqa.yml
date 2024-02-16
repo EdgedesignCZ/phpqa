@@ -10,9 +10,6 @@ phpcs:
 phpmd:
     standard: my-standard.xml
 
-# should ignore empty values
-phpcpd:
-
 # invalid binary
 phpunit:
     binary: non-existent-binary

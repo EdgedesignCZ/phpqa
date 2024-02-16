@@ -10,8 +10,6 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
     public function testLoadDefaultConfig()
     {
         $config = new Config();
-        assertThat($config->value('phpcpd.minLines'), is(greaterThan(0)));
-        assertThat($config->value('phpcpd.minTokens'), is(greaterThan(0)));
         assertThat($config->value('phpcs.standard'), is(nonEmptyString()));
         assertThat($config->value('phpcs.ignoreWarnings'), identicalTo(false));
         assertThat($config->value('phpcs.reports.cli'), is(nonEmptyArray()));
@@ -51,8 +49,6 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
     {
         $config = new Config();
         $config->loadUserConfig(__DIR__);
-        assertThat($config->value('phpcpd.minLines'), is(5));
-        assertThat($config->value('phpcpd.minTokens'), is(70));
         assertThat($config->value('phpcs.standard'), is('Zend'));
         assertThat($config->path('phpmd.standard'), is(__DIR__ . DIRECTORY_SEPARATOR . 'my-standard.xml'));
     }
@@ -125,7 +121,6 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
 
         assertThat($config->value('phpcs.standard'), is('PSR2'));
         assertThat($config->value('phpmd.standard'), is('my-standard.xml'));
-        assertThat($config->value('phpcpd.lines'), is(53));
         assertThat($config->csv('phpqa.extensions'), is('php,inc'));
     }
 

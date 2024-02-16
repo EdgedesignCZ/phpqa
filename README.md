@@ -36,7 +36,6 @@ Will you create e.g. Jenkins project/task for each bundle?
 Tool| Description
 ----------------------------------------------------------------------- | ----------------------------- |
 [phploc](https://github.com/sebastianbergmann/phploc) | Measure the size of a PHP project |
-[phpcpd](https://github.com/sebastianbergmann/phpcpd) | Copy/Paste Detector (CPD) for PHP code |
 [phpcs](https://github.com/squizlabs/PHP_CodeSniffer) | Detect violations of a coding standard |
 [pdepend](https://github.com/pdepend/pdepend) | PHP adaptation of JDepend |
 [phpmd](https://github.com/phpmd/phpmd) | Scan PHP project for messy code |
@@ -90,20 +89,6 @@ Of course you can add dependency to `require-dev` section in your `composer.json
 But I wouldn't recommend it. In my experience *one* QA tool which analyzes
 *N* projects is better than *N* projects with *N* analyzers. It's up to you
 how many repositories you want to update when new version is released.
-
-##### Symfony3 components
-
-Symfony3 is supported since [version 1.7](/CHANGELOG.md#v170).
-Install at least version `~3.0` of `sebastian/phpcpd`, otherwise you'll get error [`The helper "progress" is not defined.`](https://github.com/EdgedesignCZ/phpqa/issues/19)
-
-```json
-{
-    "require-dev": {
-        "edgedesign/phpqa": ">=1.7",
-        "sebastian/phpcpd": "~3.0"
-    }
-}
-```
 
 ##### Fake global installation in local project
 
@@ -168,7 +153,7 @@ docker run --rm -u $UID -v $PWD:/app eko3alpha/docker-phpqa --report --ignoredDi
 | `phpqa --ignoredDirs build,vendor` | Ignore directories |
 | `phpqa --ignoredFiles RoboFile.php` | Ignore files |
 | `phpqa --tools phploc,phpcs` | Run only selected tools |
-| `phpqa --tools phpmd:1,phpcs:0,phpcpd:0` | Check number of errors and [exit code](#exit-code). **New in v1.6** |
+| `phpqa --tools phpmd:1,phpcs:0` | Check number of errors and [exit code](#exit-code). **New in v1.6** |
 | `phpqa --verbose` | Show output from executed tools |
 | `phpqa --quiet` | Show no output at all |
 | `phpqa --output cli` | [CLI output](#output-modes) instead of creating files in `--buildDir` |
@@ -185,7 +170,6 @@ _Tip:_ CLI options can be defined in [.phpqa.yml](#advanced-configuration---phpq
 Tool | `--output file` (default) - generated files | `--output cli` |
 ---- | ------------------------- | -------------- |
 phploc | [phploc.xml](https://edgedesigncz.github.io/phpqa/report/phploc.xml) | [✓](https://github.com/sebastianbergmann/phploc#analyse-a-directory-and-print-the-result) |
-phpcpd | [phpcpd.xml](https://edgedesigncz.github.io/phpqa/report/phpcpd.xml) | [✓](https://github.com/sebastianbergmann/phpcpd#usage-example) |
 phpcs | [checkstyle.xml](https://edgedesigncz.github.io/phpqa/report/checkstyle.xml) | [full report](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) |
 pdepend | [pdepend-jdepend.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.xml), [pdepend-summary.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-summary.xml), [pdepend-dependencies.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-dependencies.xml), [pdepend-jdepend.svg](https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.svg), [pdepend-pyramid.svg](https://edgedesigncz.github.io/phpqa/report/pdepend-pyramid.svg) | ✗ |
 phpmd | [phpmd.xml](https://edgedesigncz.github.io/phpqa/report/phpmd.xml) | [✓](https://github.com/phpmd/phpmd/blob/master/src/main/php/PHPMD/Renderer/TextRenderer.php#L47) |
@@ -199,7 +183,7 @@ deptrac | [deptrac.html](https://edgedesigncz.github.io/phpqa/report/deptrac.htm
 ## Exit code
 
 `phpqa` can return non-zero exit code **since version 1.6**. It's optional feature that is by default turned off.
-You have to define number of allowed errors for *phpcpd, phpcs, phpmd* in `--tools`.
+You have to define number of allowed errors for *phpcs, phpmd* in `--tools`.
 
 [mode](#output-modes) | Supported version | What is analyzed? |
 --------------------- | ----------------- | ----------------- |
@@ -211,7 +195,7 @@ or [Circle CI](https://circleci.com/docs/manually/#overview) build should fail w
 Define number of allowed errors for each tools and watch the build:
 
 ```bash
-phpqa --report --tools phpcs:0,phpmd:0,phpcpd:0,parallel-lint:0,phpstan:0,phpmetrics,phploc,pdepend
+phpqa --report --tools phpcs:0,phpmd:0,parallel-lint:0,phpstan:0,phpmetrics,phploc,pdepend
 ```
 
 Number of allowed errors can be also defined in [.phpqa.yml](#advanced-configuration---phpqayml).
@@ -331,7 +315,6 @@ Tool | Settings | Default Value | Your value
 [pdepend.coverageReport](https://github.com/EdgedesignCZ/phpqa/pull/124) | Load Clover style CodeCoverage report | `null` | Path to report produced by PHPUnit's `--coverage-clover` option
 [phpmd.standard](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset. To specify [multiple rule sets](https://phpmd.org/documentation/index.html#using-multiple-rule-sets), you can use an array
 [phpmd.ignoreParsingErrors](https://github.com/EdgedesignCZ/phpqa/issues/230) | If parsing errors affect exit code, or just violations | `true` | Boolean value
-[phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens |
 [phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file, memory limit | Level 0, `%currentWorkingDirectory%/phpstan.neon`, memoryLimit: null | Take a look at [phpqa config in tests/.ci](/tests/.ci/) |
 [phpunit.binary](https://github.com/EdgedesignCZ/phpqa/blob/4947416/.phpqa.yml#L40) | Phpunit binary  | phpqa's phpunit | Path to phpunit executable in your project, typically [`vendor/bin/phpunit`](https://gitlab.com/costlocker/integrations/blob/master/basecamp/backend/.phpqa.yml#L2) |
 [phpunit.config](https://phpunit.de/manual/current/en/organizing-tests.html#organizing-tests.xml-configuration) | PHPUnit configuration, `analyzedDirs` and `ignoredDirs` are not used, you have to specify test suites in XML file | `null` | Path to `phpunit.xml` file
@@ -477,7 +460,7 @@ dependencies:
 test:
     override:
         - vendor/bin/phpunit --testdox-html ./var/tests/testdox.html --testdox-text ./var/tests/testdox.txt --log-junit $CIRCLE_TEST_REPORTS/phpunit/junit.xml
-        - qa/phpqa --report --verbose --buildDir var/QA --ignoredDirs vendor --tools=phpcs:0,phpmd:0,phpcpd:0,phploc,pdepend,phpmetrics
+        - qa/phpqa --report --verbose --buildDir var/QA --ignoredDirs vendor --tools=phpcs:0,phpmd:0,phploc,pdepend,phpmetrics
     post:
         - cp -r ./var/QA $CIRCLE_ARTIFACTS
         - cp -r ./var/tests $CIRCLE_ARTIFACTS

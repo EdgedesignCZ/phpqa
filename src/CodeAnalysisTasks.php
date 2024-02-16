@@ -32,7 +32,7 @@ trait CodeAnalysisTasks
      * @option $buildDir path to output directory <comment>@default</comment> <info>build/</info>
      * @option $ignoredDirs csv <comment>@default</comment> <info>vendor</info> <comment>@example</comment> CI,bin,vendor
      * @option $ignoredFiles csv <comment>@example</comment> RoboFile.php
-     * @option $tools csv with optional definition of allowed errors count <comment>@default</comment> <info>phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpcpd,phpstan,phpunit,psalm,security-checker,parallel-lint</info> <comment>@example</comment> phploc,phpmd:1,phpcs:0
+     * @option $tools csv with optional definition of allowed errors count <comment>@default</comment> <info>phpmetrics,phploc,phpcs,php-cs-fixer,phpmd,pdepend,phpstan,phpunit,psalm,security-checker,parallel-lint</info> <comment>@example</comment> phploc,phpmd:1,phpcs:0
      * @option $output output format <comment>@default</comment> <info>file</info> <comment>@example</comment> cli
      * @option $execution output format <comment>@default</comment> <info>parallel</info> <comment>@example</comment> no-parallel
      * @option $config path directory with .phpqa.yml, <comment>@default</comment> <info>current working directory</info>
@@ -95,7 +95,6 @@ trait CodeAnalysisTasks
                 'php-cs-fixer',
                 'phpmd',
                 'pdepend',
-                'phpcpd',
                 'phpstan',
                 'phpunit',
                 'psalm',

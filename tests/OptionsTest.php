@@ -11,7 +11,7 @@ class OptionsTest extends \PHPUnit_Framework_TestCase
         'buildDir' => 'build/',
         'ignoredDirs' => 'vendor',
         'ignoredFiles' => '',
-        'tools' => 'phploc,phpcpd,phpcs,pdepend,phpmd,phpmetrics',
+        'tools' => 'phploc,phpcs,pdepend,phpmd,phpmetrics',
         'output' => 'file',
         'config' => '',
         'verbose' => true,
