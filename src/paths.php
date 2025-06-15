@@ -4,7 +4,8 @@ namespace Edge\QA;
 
 function buildToolBinary($tool, $customBinary = null)
 {
-    return buildSafeBinary($customBinary ?: (COMPOSER_BINARY_DIR . $tool));
+    $composerBinaryName = file_exists(COMPOSER_BINARY_DIR . "{$tool}.phar") ? "{$tool}.phar" : $tool;
+    return buildSafeBinary($customBinary ?: (COMPOSER_BINARY_DIR . $composerBinaryName));
 }
 
 function buildSafeBinary($unsafeBinary)

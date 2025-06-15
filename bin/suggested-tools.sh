@@ -42,7 +42,7 @@ show_help() {
 get_tools () {
     TOOLS="php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter friendsofphp/php-cs-fixer"
     if [[ ${PHP_VERSION:0:1} != "5" ]]; then
-        TOOLS="${TOOLS} vimeo/psalm phpstan/phpstan nette/neon deptrac/deptrac enlightn/security-checker"
+        TOOLS="${TOOLS} psalm/phar phpstan/phpstan nette/neon deptrac/deptrac enlightn/security-checker"
     fi
     echo $TOOLS
 }

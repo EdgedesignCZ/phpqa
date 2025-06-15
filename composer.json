@@ -38,7 +38,7 @@
         "friendsofphp/php-cs-fixer": "A tool to automatically fix PHP coding standards issues",
         "phpunit/phpunit": "The PHP Unit Testing framework",
         "phpstan/phpstan": "PHP Static Analysis Tool - discover bugs in your code without running it!",
-        "vimeo/psalm": "A static analysis tool for finding errors in PHP applications",
+        "psalm/phar": "A static analysis tool for finding errors in PHP applications",
         "php-parallel-lint/php-parallel-lint": "Check PHP syntax",
         "php-parallel-lint/php-console-highlighter": "Colored output in parallel-lint",
         "deptrac/deptrac": "Enforce rules for dependencies between software layers"

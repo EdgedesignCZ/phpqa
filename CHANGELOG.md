@@ -186,7 +186,7 @@
 ## v1.15.0
 
 * **Optional tools**
-    * [#94](https://github.com/EdgedesignCZ/phpqa/pull/94) vimeo/psalm - dynamic configuration
+    * [#94](https://github.com/EdgedesignCZ/phpqa/pull/94) psalm - dynamic configuration
 * [#92](https://github.com/EdgedesignCZ/phpqa/pull/92) Improved reports (summary, [page load](https://github.com/EdgedesignCZ/phpqa/commit/96ea12438e1cb51362ad156a463fc7d5b9cff1a6))
     ![](https://user-images.githubusercontent.com/7994022/31012952-2121b600-a514-11e7-8a5c-3b9fadca7152.png)
 * Upgrade QA tools (phpcs)
@@ -197,7 +197,7 @@
 ## v1.14.0
 
 * **Optional tools**
-    * [#80](https://github.com/EdgedesignCZ/phpqa/issues/85) vimeo/psalm (stable)
+    * [#80](https://github.com/EdgedesignCZ/phpqa/issues/85) psalm (stable)
 * [#88](https://github.com/EdgedesignCZ/phpqa/issues/88) Allow using custom binary (e.g. `phpunit.binary`)    
     * show [skipped tools in summary](https://travis-ci.org/EdgedesignCZ/phpqa/jobs/278929601#L417)
     * refactoring printing versions in `phpqa tools`

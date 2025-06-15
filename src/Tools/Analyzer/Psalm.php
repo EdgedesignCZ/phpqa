@@ -11,7 +11,7 @@ class Psalm extends \Edge\QA\Tools\Tool
         'optionSeparator' => '=',
         'xml' => ['psalm.xml'],
         'errorsXPath' => '//item/severity[text()=\'error\']',
-        'composer' => 'vimeo/psalm',
+        'composer' => 'psalm/phar',
     );
 
     public function __invoke()
