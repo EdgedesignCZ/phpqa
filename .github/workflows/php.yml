@@ -27,6 +27,8 @@ jobs:
           - { php: 8.0, areSuggestedToolsInstalled: yes, allowedSecurityErrors: 1 }
           - { php: 8.1, areSuggestedToolsInstalled: yes }
           - { php: 8.2, areSuggestedToolsInstalled: yes }
+          - { php: 8.3, areSuggestedToolsInstalled: yes }
+          - { php: 8.4, areSuggestedToolsInstalled: yes }
         stability: [prefer-stable]
 
     steps:

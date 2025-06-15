@@ -24,3 +24,6 @@ jobs:
       run: |
         PHP_VERSION=7.2 .docker/build-image
         PHP_VERSION=8.1 .docker/build-image
+        PHP_VERSION=8.2 .docker/build-image
+        PHP_VERSION=8.3 .docker/build-image
+        PHP_VERSION=8.4 .docker/build-image
