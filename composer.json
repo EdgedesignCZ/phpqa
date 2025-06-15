@@ -41,7 +41,7 @@
         "vimeo/psalm": "A static analysis tool for finding errors in PHP applications",
         "php-parallel-lint/php-parallel-lint": "Check PHP syntax",
         "php-parallel-lint/php-console-highlighter": "Colored output in parallel-lint",
-        "qossmic/deptrac-shim": "Enforce rules for dependencies between software layers"
+        "deptrac/deptrac": "Enforce rules for dependencies between software layers"
     },
     "require-dev": {
         "hamcrest/hamcrest-php": ">=2.0.1",

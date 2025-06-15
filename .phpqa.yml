@@ -89,7 +89,7 @@ psalm:
     memoryLimit: null
 
 deptrac:
-    depfile: null # depfile.yml (https://github.com/qossmic/deptrac#the-depfile)
+    depfile: null # depfile.yml (https://github.com/deptrac/deptrac/blob/main/docs/index.md#configuration)
 
 security-checker:
     composerLock: null # use it if composer.lock is not in current working directory or analyzed directory

@@ -9,16 +9,22 @@ class Deptrac extends \Edge\QA\Tools\Tool
     public static $SETTINGS = array(
         'optionSeparator' => '=',
         'outputMode' => OutputMode::RAW_CONSOLE_OUTPUT,
-        'composer' => 'qossmic/deptrac-shim',
+        'composer' => 'deptrac/deptrac',
     );
 
     public function __invoke()
     {
-        return array(
+        $args = array(
             'analyze',
-            $this->config->path('deptrac.depfile'),
+        );
+        if ($this->toolVersionIs('<', '0.20.0')) {
+            $args[] = $this->config->path('deptrac.depfile');
+        } else {
+            $args['config-file'] = $this->config->path('deptrac.depfile');
+        }
+        return $args + [
             'formatter' => 'console',
             'report-uncovered' => '',
-        );
+        ];
     }
 }
