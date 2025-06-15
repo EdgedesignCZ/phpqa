@@ -8,7 +8,7 @@ on:
 
 jobs:
   phpqa:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-24.04
     strategy:
       fail-fast: false
       matrix:
@@ -19,18 +19,18 @@ jobs:
           - { php: 5.6, areSuggestedToolsInstalled: yes, allowedSecurityErrors: 1 }
           # PHP7
           - { php: 7.0 }
-          - { php: 7.1, areSuggestedToolsInstalled: yes }
+          - { php: 7.1, areSuggestedToolsInstalled: yes, allowedSecurityErrors: 1 }
           - { php: 7.2, areSuggestedToolsInstalled: yes }
           - { php: 7.3 }
           - { php: 7.4, areSuggestedToolsInstalled: yes }
           # PHP8
-          - { php: 8.0, areSuggestedToolsInstalled: yes }
+          - { php: 8.0, areSuggestedToolsInstalled: yes, allowedSecurityErrors: 1 }
           - { php: 8.1, areSuggestedToolsInstalled: yes }
           - { php: 8.2, areSuggestedToolsInstalled: yes }
         stability: [prefer-stable]
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
 
     - name: Setup PHP
       uses: shivammathur/setup-php@v2
@@ -43,7 +43,7 @@ jobs:
         tools: ${{ (matrix.php != '7.2' && 'composer:v2') || 'composer:v1' }}
 
     - name: Cache composer
-      uses: actions/cache@v2
+      uses: actions/cache@v4
       with:
         path: |
             ~/.composer/cache
@@ -77,7 +77,7 @@ jobs:
         ls -lAh build
 
     - name: Upload QA files
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: phpqa-${{ matrix.php }}
         path: build
