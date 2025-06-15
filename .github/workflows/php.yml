@@ -38,9 +38,7 @@ jobs:
         php-version: ${{ matrix.php }}
         extensions: xsl, zip, json
         coverage: none
-        # default composer.lock with symfony2 components + psalm = composer error
-        # https://github.com/EdgedesignCZ/phpqa/runs/1844081585?check_suite_focus=true#step:5:112
-        tools: ${{ (matrix.php != '7.2' && 'composer:v2') || 'composer:v1' }}
+        tools: composer:v2
 
     - name: Cache composer
       uses: actions/cache@v4
