@@ -2,7 +2,8 @@ ARG COMPOSER_VERSION=1.8.0
 FROM composer:$COMPOSER_VERSION
 
 RUN apk add --update libxslt-dev && \
-    docker-php-ext-install xsl
+    docker-php-ext-install xsl && \
+    composer self-update
 
 COPY ./composer.json ./bin/suggested-tools.sh /phpqa/
 RUN (cd /phpqa && \

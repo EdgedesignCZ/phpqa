@@ -33,22 +33,19 @@ Will you create e.g. Jenkins project/task for each bundle?
 
 ## Available [tools](https://github.com/ziadoz/awesome-php#code-analysis)
 
-Tool| Description
------------------------------------------------------------------------ | ----------------------------- |
-[phploc](https://github.com/sebastianbergmann/phploc) | Measure the size of a PHP project |
-[phpcpd](https://github.com/sebastianbergmann/phpcpd) | Copy/Paste Detector (CPD) for PHP code |
-[phpcs](https://github.com/squizlabs/PHP_CodeSniffer) | Detect violations of a coding standard |
-[pdepend](https://github.com/pdepend/pdepend) | PHP adaptation of JDepend |
-[phpmd](https://github.com/phpmd/phpmd) | Scan PHP project for messy code |
-[phpmetrics](https://github.com/Halleck45/PhpMetrics) | Static analysis tool for PHP |
+**Since version [1.27] no tools are preinstalled if you run `composer require`!**
 
-##### Suggested tools
-
-Newly added tools aren't preinstalled. You have to install relevant composer packages if
-you want to use them.
+You have to install relevant composer packages if you want to use them,
+or define `binary` path in `.phpqa.yml`, or use official docker image with preinstalled tools.
 
 Tool | PHP | Supported since | Description |
 ---- | --- | --------------- | ----------- |
+[phploc](https://github.com/sebastianbergmann/phploc) | `>= 5.4` | `1.0` | Measure the size of a PHP project |
+[phpcpd](https://github.com/sebastianbergmann/phpcpd) | `>= 5.4` | `1.0` | Copy/Paste Detector (CPD) for PHP code |
+[phpcs](https://github.com/squizlabs/PHP_CodeSniffer) | `>= 5.4` | `1.0` | Detect violations of a coding standard |
+[pdepend](https://github.com/pdepend/pdepend) | `>= 5.4` | `1.0` | PHP adaptation of JDepend |
+[phpmd](https://github.com/phpmd/phpmd) | `>= 5.4` | `1.0` | Scan PHP project for messy code |
+[phpmetrics](https://github.com/Halleck45/PhpMetrics) | `>= 5.4` | `1.0` | Static analysis tool for PHP |
 [security-checker](https://github.com/enlightn/security-checker) | `>= 5.6` | `1.24` | Check composer.lock for known security issues |
 [php-cs-fixer](http://cs.sensiolabs.org/) | [`>= 5.3`](https://github.com/EdgedesignCZ/phpqa/pull/66#discussion_r115206573) | `1.12` | Automatically detect and fix PHP coding standards issues |
 [phpunit](https://github.com/phpunit/phpunit) | `>= 5.3` | `1.13` | The PHP Unit Testing framework |

@@ -20,14 +20,14 @@ if (getenv('COMPOSER_BIN_DIR') && getenv('COMPOSER_VENDOR_DIR')) {
         "{$projectRoot}/" . getenv('COMPOSER_BIN_DIR'),
     ];
     foreach ($binPaths as $bin) {
-        if (is_file("{$bin}/phploc")) {
+        if (is_file("{$bin}/phpqa")) {
             define('COMPOSER_BINARY_DIR', "{$bin}/");
             break;
         }
     }
 }
 
-if (!defined('COMPOSER_BINARY_DIR') || !is_file(COMPOSER_BINARY_DIR . 'phploc')) {
+if (!defined('COMPOSER_BINARY_DIR') || !is_dir(COMPOSER_BINARY_DIR)) {
     die("Composer binary directory was not found (define path in environment variable 'COMPOSER_BIN_DIR')\n");
 }
 

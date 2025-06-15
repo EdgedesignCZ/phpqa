@@ -16,6 +16,7 @@ SELECTED_MODE="$1"
 COMPOSER_REQUIRE_MODES="$2"
 
 PHP_VERSION=${PHP_VERSION:-"7"}
+PREINSTALLED_TOOLS=${PREINSTALLED_TOOLS:-""}
 
 run () {
     TOOLS=$(get_tools)
@@ -40,9 +41,12 @@ show_help() {
 }
 
 get_tools () {
-    TOOLS="php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter friendsofphp/php-cs-fixer"
-    if [[ ${PHP_VERSION:0:1} != "5" ]]; then
-        TOOLS="${TOOLS} psalm/phar phpstan/phpstan nette/neon deptrac/deptrac enlightn/security-checker"
+    TOOLS="squizlabs/php_codesniffer phpmd/phpmd pdepend/pdepend phpmetrics/phpmetrics phploc/phploc sebastian/phpcpd"
+    if [[ $PREINSTALLED_TOOLS != "legacy" ]]; then
+        TOOLS="${TOOLS} php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter friendsofphp/php-cs-fixer"
+        if [[ ${PHP_VERSION:0:1} != "5" ]]; then
+            TOOLS="${TOOLS} psalm/phar phpstan/phpstan nette/neon deptrac/deptrac enlightn/security-checker"
+        fi
     fi
     echo $TOOLS
 }

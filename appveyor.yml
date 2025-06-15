@@ -42,7 +42,7 @@ install:
     - appveyor-retry appveyor DownloadFile https://getcomposer.org/composer.phar
     # install
     - cd c:\projects\phpqa
-    - appveyor-retry composer install --no-progress --profile
+    - appveyor-retry composer require squizlabs/php_codesniffer phpmd/phpmd pdepend/pdepend phpmetrics/phpmetrics phploc/phploc sebastian/phpcpd --no-progress --profile
 
 test_script:
     - cd C:\projects\phpqa

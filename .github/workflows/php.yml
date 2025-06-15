@@ -57,7 +57,7 @@ jobs:
         if [[ $INSTALL_SUGGESTED_TOOLS == "yes" ]]; then
             PHP_VERSION=$PHP_VERSION bin/suggested-tools.sh install;
         else
-            composer install --no-interaction --no-progress;
+            PREINSTALLED_TOOLS=legacy bin/suggested-tools.sh install;
         fi
         php tests/.phpunit/fix-typehints.php;
 

@@ -20,20 +20,10 @@
         "php": ">=5.4",
         "ext-xsl": "*",
         "consolidation/robo": "~0.5|>=1",
-        "phpmd/phpmd" : "*",
-        "phploc/phploc": "*",
-        "symfony/dependency-injection": ">=2.8.50",
-        "symfony/filesystem": ">=2.8",
-        "symfony/process": ">=2.8",
-        "symfony/finder": ">=2.8",
-        "symfony/yaml": ">=2.8",
-        "twig/twig": "~1.38|~2.7|~3",
-        "pdepend/pdepend": "*",
-        "sebastian/phpcpd": "*",
-        "squizlabs/php_codesniffer": "*",
-        "phpmetrics/phpmetrics": "*"
+        "twig/twig": "~1.38|~2.7|>=3"
     },
     "suggest": {
+        "squizlabs/php_codesniffer": "Detect coding standard violation (phpcs) and fix them (phpcbf)",
         "enlightn/security-checker": "Check composer.lock for known security issues",
         "friendsofphp/php-cs-fixer": "A tool to automatically fix PHP coding standards issues",
         "phpunit/phpunit": "The PHP Unit Testing framework",
@@ -41,7 +31,12 @@
         "psalm/phar": "A static analysis tool for finding errors in PHP applications",
         "php-parallel-lint/php-parallel-lint": "Check PHP syntax",
         "php-parallel-lint/php-console-highlighter": "Colored output in parallel-lint",
-        "deptrac/deptrac": "Enforce rules for dependencies between software layers"
+        "deptrac/deptrac": "Enforce rules for dependencies between software layers",
+        "phpmd/phpmd" : "user friendly metrics from pdepend",
+        "pdepend/pdepend": "Analyze you the quality of your design in terms of extensibility, reusability and maintainability",
+        "phpmetrics/phpmetrics": "Metrics about PHP project and classes in HTML report",
+        "phploc/phploc": "Abandoned measuring the size of a PHP project",
+        "sebastian/phpcpd": "Abandoned copy-paste detector"
     },
     "require-dev": {
         "hamcrest/hamcrest-php": ">=2.0.1",
