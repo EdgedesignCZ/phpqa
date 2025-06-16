@@ -64,6 +64,7 @@ phpmetrics:
 
 phpstan:
     level: 0
+    errorFormat: checkstyle
     # https://github.com/phpstan/phpstan/issues/1880
     memoryLimit: null
     # https://github.com/phpstan/phpstan#configuration

@@ -45,7 +45,8 @@ class Phpstan extends \Edge\QA\Tools\Tool
         $args = array(
             'analyze',
             'ansi' => '',
-            $this->getErrorFormatOption() => 'checkstyle',
+            // TODO: disable xml output if errorFormat != checkstyle
+            $this->getErrorFormatOption() => $this->config->value('phpstan.errorFormat') ?: 'checkstyle',
             'level' => $this->config->value('phpstan.level'),
             'configuration' => $neonFile,
             $this->options->getAnalyzedDirs(' '),

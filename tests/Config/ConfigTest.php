@@ -25,6 +25,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpmd.ignoreParsingErrors'), is(true));
         assertThat($config->value('phpstan.level'), identicalTo(0));
         assertThat($config->value('phpstan.memoryLimit'), is(nullValue()));
+        assertThat($config->value('phpstan.errorFormat'), is('checkstyle'));
         assertThat($config->value('phpunit.config'), is(nullValue()));
         assertThat($config->value('phpunit.reports.file'), is(emptyArray()));
         assertThat($config->value('psalm.config'), is(nonEmptyString()));
@@ -38,6 +39,7 @@ class ConfigTest extends \PHPUnit_Framework_TestCase
         assertThat($config->value('phpmetrics.git'), identicalTo(false));
         assertThat($config->value('pdepend.coverageReport'), is(nullValue()));
         assertThat($config->value('deptrac.depfile'), is(nullValue()));
+        assertThat($config->value('deptrac.reportUncovered'), is(true));
         assertThat($config->value('security-checker.composerLock'), is(nullValue()));
     }
 
