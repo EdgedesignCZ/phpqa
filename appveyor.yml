@@ -2,7 +2,7 @@ platform:
     - x64
 environment:
     matrix:
-        - php_version: 7.2.20
+        - php_version: 8.4.8
 
 skip_branch_with_pr: true
 branches:
