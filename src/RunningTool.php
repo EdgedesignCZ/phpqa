@@ -2,6 +2,8 @@
 
 namespace Edge\QA;
 
+use Edge\QA\Tools\Analyzer\Phpstan;
+
 class RunningTool
 {
     private $tool;
@@ -64,6 +66,9 @@ class RunningTool
 
     public function hasOutput($outputMode)
     {
+        if (!$this->outputMode && $this->tool === 'phpstan') {
+            $this->outputMode = Phpstan::$SETTINGS['outputMode'];
+        }
         return $this->outputMode == $outputMode;
     }
 

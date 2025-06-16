@@ -49,6 +49,8 @@ psalm:
 
 phpstan:
     level: 5 # last level without type hints
+    # only checkstyle has pretty html report in phqpa - https://phpstan.org/user-guide/output-format
+    errorFormat: table
     # memoryLimit: 1G
     # https://github.com/phpstan/phpstan#configuration
     standard: phpstan.neon

@@ -2,6 +2,8 @@
 
 namespace Edge\QA;
 
+use Edge\QA\Tools\Analyzer\Phpstan;
+
 /** @SuppressWarnings(PHPMD.TooManyPublicMethods) */
 class RunningToolTest extends \PHPUnit_Framework_TestCase
 {
@@ -127,5 +129,14 @@ class RunningToolTest extends \PHPUnit_Framework_TestCase
         $tool->userReports['dir/path.php'] = 'My report';
         $report = $tool->getHtmlRootReports()[0];
         assertThat($report['id'], is('phpcs-dir-path-php'));
+    }
+
+    public function testDynamicOutputModePhpstan()
+    {
+        $tool = new RunningTool('phpstan', [
+            'outputMode' => null,
+        ]);
+        Phpstan::$SETTINGS['outputMode'] = OutputMode::RAW_CONSOLE_OUTPUT;
+        assertThat($tool->hasOutput(OutputMode::RAW_CONSOLE_OUTPUT), is(true));
     }
 }

@@ -8,7 +8,7 @@ class Phpstan extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' => ' ',
-        'outputMode' => OutputMode::XML_CONSOLE_OUTPUT,
+        'outputMode' => null, // hotfix for dynamic output mode that depends on errorFormat
         'xml' => ['phpstan.xml'],
         'errorsXPath' => '//checkstyle/file/error',
         'composer' => 'phpstan/phpstan',
@@ -42,11 +42,14 @@ class Phpstan extends \Edge\QA\Tools\Tool
         $phpstanConfig = "# Configuration generated in phpqa\n" . \Nette\Neon\Neon::encode($config);
         $neonFile = $this->saveDynamicConfig($phpstanConfig, 'neon');
 
+        $errorFormat = $this->config->value('phpstan.errorFormat') ?: 'checkstyle';
+        self::$SETTINGS['outputMode'] = $errorFormat === 'checkstyle'
+            ? OutputMode::XML_CONSOLE_OUTPUT : OutputMode::RAW_CONSOLE_OUTPUT;
+
         $args = array(
             'analyze',
             'ansi' => '',
-            // TODO: disable xml output if errorFormat != checkstyle
-            $this->getErrorFormatOption() => $this->config->value('phpstan.errorFormat') ?: 'checkstyle',
+            $this->getErrorFormatOption() => $errorFormat,
             'level' => $this->config->value('phpstan.level'),
             'configuration' => $neonFile,
             $this->options->getAnalyzedDirs(' '),

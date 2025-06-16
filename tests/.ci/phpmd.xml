@@ -8,6 +8,7 @@
     <rule ref="rulesets/codesize.xml" />
     <rule ref="rulesets/controversial.xml">
         <exclude name="CamelCasePropertyName" />
+        <exclude name="CamelCaseVariableName" />
     </rule>
     <rule ref="rulesets/design.xml" />
     <rule ref="rulesets/unusedcode.xml" />
