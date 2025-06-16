@@ -14,7 +14,7 @@ phpcs:
             full: phpcs-full.txt
 
 phpunit:
-    binary: ../../vendor/bin/phpunit.bat
+    binary: ../../vendor/phpunit/phpunit/phpunit
     config: ../../phpunit.xml
     reports:
         file:
