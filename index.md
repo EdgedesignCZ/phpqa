@@ -7,7 +7,6 @@ Analyze PHP code with one command.
 [![Latest Stable Version](https://poser.pugx.org/edgedesign/phpqa/v/stable)](./changelog.html)
 [![Total Downloads](https://poser.pugx.org/edgedesign/phpqa/downloads)](https://packagist.org/packages/edgedesign/phpqa)
 [![Build Status](https://github.com/EdgedesignCZ/phpqa/workflows/PHPQA%20CI/badge.svg?branch=master)](https://github.com/EdgedesignCZ/phpqa/actions)
-[![Windows status](https://ci.appveyor.com/api/projects/status/t9f05uk4cjcg294o?svg=true&passingText=Windows)](https://ci.appveyor.com/project/zdenekdrahos/phpqa)
 
 ## Requirements
 
@@ -33,29 +32,26 @@ Will you create e.g. Jenkins project/task for each bundle?
 
 ## Available [tools](https://github.com/ziadoz/awesome-php#code-analysis)
 
-Tool| Description
------------------------------------------------------------------------ | ----------------------------- |
-[phploc](https://github.com/sebastianbergmann/phploc) | Measure the size of a PHP project |
-[phpcpd](https://github.com/sebastianbergmann/phpcpd) | Copy/Paste Detector (CPD) for PHP code |
-[phpcs](https://github.com/squizlabs/PHP_CodeSniffer) | Detect violations of a coding standard |
-[pdepend](https://github.com/pdepend/pdepend) | PHP adaptation of JDepend |
-[phpmd](https://github.com/phpmd/phpmd) | Scan PHP project for messy code |
-[phpmetrics](https://github.com/Halleck45/PhpMetrics) | Static analysis tool for PHP |
+**Since version [1.27] no tools are preinstalled if you run `composer require`!**
 
-##### Suggested tools 
-
-Newly added tools aren't preinstalled. You have to install relevant composer packages if
-you want to use them.
+You have to install relevant composer packages if you want to use them,
+or define `binary` path in `.phpqa.yml`, or use official docker image with preinstalled tools.
 
 Tool | PHP | Supported since | Description |
 ---- | --- | --------------- | ----------- |
+[phploc](https://github.com/sebastianbergmann/phploc) | `>= 5.4` | `1.0` | Measure the size of a PHP project |
+[phpcpd](https://github.com/sebastianbergmann/phpcpd) | `>= 5.4` | `1.0` | Copy/Paste Detector (CPD) for PHP code |
+[phpcs](https://github.com/squizlabs/PHP_CodeSniffer) | `>= 5.4` | `1.0` | Detect violations of a coding standard |
+[pdepend](https://github.com/pdepend/pdepend) | `>= 5.4` | `1.0` | PHP adaptation of JDepend |
+[phpmd](https://github.com/phpmd/phpmd) | `>= 5.4` | `1.0` | Scan PHP project for messy code |
+[phpmetrics](https://github.com/Halleck45/PhpMetrics) | `>= 5.4` | `1.0` | Static analysis tool for PHP |
 [security-checker](https://github.com/enlightn/security-checker) | `>= 5.6` | `1.24` | Check composer.lock for known security issues |
 [php-cs-fixer](http://cs.sensiolabs.org/) | [`>= 5.3`](https://github.com/EdgedesignCZ/phpqa/pull/66#discussion_r115206573) | `1.12` | Automatically detect and fix PHP coding standards issues |
 [phpunit](https://github.com/phpunit/phpunit) | `>= 5.3` | `1.13` | The PHP Unit Testing framework |
 [phpstan](https://github.com/phpstan/phpstan) | `>= 7.0` | `1.9` | Discover bugs in your code without running it |
 [psalm](https://github.com/vimeo/psalm) | `>= 5.6` | `1.14` | A static analysis tool for finding errors in PHP applications |
 [parallel-lint](https://github.com/JakubOnderka/PHP-Parallel-Lint) | `>= 5.4` | `1.9` | Check syntax of PHP files |
-[deptrac](https://github.com/qossmic/deptrac) | `>= 7.2` | `1.25` | Enforce rules for dependencies between software layers |
+[deptrac](https://github.com/deptrac/deptrac) | `>= 7.2` | `1.25` | Enforce rules for dependencies between software layers |
 [MacFJA/phpqa-extensions](https://github.com/MacFJA/phpqa-extensions) | - | - | PHP Assumptions, Magic Number Detector, ... |
 
 _Tip_: use [`bin/suggested-tools.sh install`](/bin/suggested-tools.sh) for installing the tools.
@@ -128,15 +124,18 @@ Official docker image repository is https://github.com/EdgedesignCZ/phpqa/pkgs/c
 Images can be used at [Gitlab CI](#gitlabci---docker-installation--composer-cache--artifacts).
 
 ```bash
-docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.26.1-php7.2 phpqa tools
+docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.27.0-php7.2 phpqa tools
 # using a tool without phpqa
-docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.26.1-php7.2 phploc -v
+docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.27.0-php7.2 phploc -v
 ```
 
-| Image | PHP version | Composer version | Tools versions | 
-| ----- | ----------- | ---------------- | ----- |
-| `ghcr.io/edgedesigncz/phpqa:v1.26.1-php7.2` | 7.2 | 1.8.0 | Versions that supports symfony2 components from default composer.lock. Not [latest versions](https://github.com/EdgedesignCZ/phpqa/issues/159#issuecomment-452794397). |
-| `ghcr.io/edgedesigncz/phpqa:v1.26.1-php8.1` | 8.1 | 2.2.12 | Generally, latest versions available at the moment. If you need different versions, then [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/210) |
+| Image | PHP version | Tools versions | 
+| ----- | ----------- | ----- |
+| `ghcr.io/edgedesigncz/phpqa:v1.27.0-php7.2` | 7.2 | Versions that supports symfony2 components. Not [latest versions](https://github.com/EdgedesignCZ/phpqa/issues/159#issuecomment-452794397). |
+| `ghcr.io/edgedesigncz/phpqa:v1.27.0-php8.1` | 8.1 | |
+| `ghcr.io/edgedesigncz/phpqa:v1.27.0-php8.2` | 8.2 | |
+| `ghcr.io/edgedesigncz/phpqa:v1.27.0-php8.3` | 8.3 | |
+| `ghcr.io/edgedesigncz/phpqa:v1.27.0-php8.4` | 8.4 | Generally, latest versions available at the moment. If you need different versions, then [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/210) |
 
 Beware that images as lean as possible. That can be a problem for running PHPUnit tests.
 In that case, you might need different PHP version, miss PHP extensions for database etc.
@@ -144,8 +143,8 @@ You can [install phpqa](https://gitlab.com/costlocker/integrations/blob/213aab7/
 Or [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/168#issuecomment-489180974).
 
 ```bash
-docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.26.1-php7.2 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
-docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.26.1-php8.1 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
+docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.27.0-php7.2 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
+docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.27.0-php8.4 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
 ```
 
 There are also available images [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/) and [sparkfabrik/docker-phpqa](https://hub.docker.com/r/sparkfabrik/docker-phpqa/).
@@ -332,16 +331,17 @@ Tool | Settings | Default Value | Your value
 [phpmd.standard](http://phpmd.org/documentation/creating-a-ruleset.html) | Ruleset | [Edgedesign's standard](/app/phpmd.xml) | Path to ruleset. To specify [multiple rule sets](https://phpmd.org/documentation/index.html#using-multiple-rule-sets), you can use an array
 [phpmd.ignoreParsingErrors](https://github.com/EdgedesignCZ/phpqa/issues/230) | If parsing errors affect exit code, or just violations | `true` | Boolean value
 [phpcpd](https://github.com/sebastianbergmann/phpcpd/blob/de9056615da6c1230f3294384055fa7d722c38fa/src/CLI/Command.php#L136) | Minimum number of lines/tokens for copy-paste detection | 5 lines, 70 tokens |
-[phpstan](https://github.com/phpstan/phpstan#configuration) | Level, config file, memory limit | Level 0, `%currentWorkingDirectory%/phpstan.neon`, memoryLimit: null | Take a look at [phpqa config in tests/.ci](/tests/.ci/) |
+[phpstan](https://github.com/phpstan/phpstan#configuration) | Level, error format, config file, memory limit | Level 0, checkstyle, `%currentWorkingDirectory%/phpstan.neon`, memoryLimit: null | Take a look at [phpqa config in tests/.ci](/tests/.ci/) |
 [phpunit.binary](https://github.com/EdgedesignCZ/phpqa/blob/4947416/.phpqa.yml#L40) | Phpunit binary  | phpqa's phpunit | Path to phpunit executable in your project, typically [`vendor/bin/phpunit`](https://gitlab.com/costlocker/integrations/blob/master/basecamp/backend/.phpqa.yml#L2) |
 [phpunit.config](https://phpunit.de/manual/current/en/organizing-tests.html#organizing-tests.xml-configuration) | PHPUnit configuration, `analyzedDirs` and `ignoredDirs` are not used, you have to specify test suites in XML file | `null` | Path to `phpunit.xml` file
 [phpunit.reports](https://phpunit.de/manual/current/en/textui.html) | Report types  | no report | List of reports and formats, corresponds with CLI option, e.g. `--log-junit` is `log: [junit]` in `.phpqa.yml` |
-[psalm.config](https://github.com/vimeo/psalm/wiki/Configuration) | Psalm configuration, `analyzedDirs` and `ignoredDirs` are appended to `projectFiles` | [Predefined config](/app/psalm.xml) | Path to `psalm.xml` file
-[psalm.deadCode](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Enable or not `--find-dead-code` option  of psalm | `false` | Boolean value
-[psalm.threads](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Set the number of process to use in parallel (option `--threads` of psalm) (Only if `--execution == parallel` for phpqa) | `1` | Number (>= 1)
-[psalm.showInfo](https://github.com/vimeo/psalm/wiki/Running-Psalm#command-line-options) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
+[psalm.config](https://psalm.dev/docs/running_psalm/configuration/) | Psalm configuration, `analyzedDirs` and `ignoredDirs` are appended to `projectFiles` | [Predefined config](/app/psalm.xml) | Path to `psalm.xml` file
+[psalm.deadCode](https://psalm.dev/docs/running_psalm/issues/UnusedClass/) | Enable or not `--find-dead-code` option  of psalm | `false` | Boolean value
+[psalm.threads](https://psalm.dev/docs/running_psalm/command_line_usage/#running-psalm-faster) | Set the number of process to use in parallel (option `--threads` of psalm) (Only if `--execution == parallel` for phpqa) | `1` | Number (>= 1)
+[psalm.showInfo](https://psalm.dev/docs/running_psalm/configuration/#reportinfo) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
 [psalm.memoryLimit](https://github.com/vimeo/psalm/issues/842) | Custom memory limit, ignore unless you are getting `Fatal error: Allowed memory size of ... bytes exhausted` | `null` | String value, e.g. `'1024M'`, `'1G'`
-[deptrac.depfile](https://github.com/vimeo/psalm/wiki/Configuration) | Complete [deptract config](https://github.com/qossmic/deptrac#getting-started) _(phpqa won't update source and excluded files)_ | `null` | Path to `depfile.yml` file
+[deptrac.depfile](https://deptrac.github.io/deptrac/#configuration) | Complete [deptrac config](https://deptrac.github.io/deptrac/configuration/) _(phpqa won't update source and excluded files)_ | `null` | Path to `deptrac.yml` file
+[deptrac.reportUncovered](https://deptrac.github.io/deptrac/concepts/#uncovered-dependencies) | Option to let you know about any uncovered dependencies | `true` | Boolean value
 [security-checker.composerLock](https://github.com/EdgedesignCZ/phpqa/blob/bdd49e3/.phpqa.yml#L94) | Use it if composer.lock is not in current working directory or analyzed directory | `null` | Path to `composer.lock` file
 
 ## HTML reports
@@ -491,7 +491,7 @@ stages:
 
 test:
   stage: test
-  image: ghcr.io/edgedesigncz/phpqa:v1.26.1-php7.2
+  image: ghcr.io/edgedesigncz/phpqa:v1.27.0-php7.2
   variables:
     BACKEND_QA: "*/backend/var/QA"
     BACKEND_CACHE: $CI_PROJECT_DIR/.composercache
@@ -517,7 +517,7 @@ on: [push]
 
 jobs:
   qa:
-    container: ghcr.io/edgedesigncz/phpqa:v1.26.1-php8.1
+    container: ghcr.io/edgedesigncz/phpqa:v1.27.0-php8.4
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

@@ -203,7 +203,7 @@
     <line_from>65</line_from>
     <line_to>65</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\CodeAnalysisTasks::normalizeCliOptions does not have a return type, expecting non-empty-array&lt;array-key, mixed&gt;</message>
+    <message>Method Edge\QA\CodeAnalysisTasks::normalizeCliOptions does not have a return type, expecting array{report: bool|non-empty-mixed, ...&lt;array-key, mixed&gt;}</message>
     <file_name>src/CodeAnalysisTasks.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/CodeAnalysisTasks.php</file_path>
     <snippet>    private function normalizeCliOptions(array $options)</snippet>
@@ -283,6 +283,28 @@
     <error_level>2</error_level>
     <shortcode>153</shortcode>
     <link>https://psalm.dev/153</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>117</line_from>
+    <line_to>117</line_to>
+    <type>PossiblyUndefinedArrayOffset</type>
+    <message>Possibly undefined array key $cliOptions[$option] on array{analyzedDirs?: mixed, buildDir?: mixed, execution?: mixed, ignoredDirs?: mixed, ignoredFiles?: mixed, output?: mixed, report?: mixed, tools?: mixed, verbose?: mixed, ...&lt;array-key, mixed&gt;}</message>
+    <file_name>src/CodeAnalysisTasks.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/CodeAnalysisTasks.php</file_path>
+    <snippet>            if ($cliOptions[$option]) {</snippet>
+    <selected_text>$cliOptions[$option]</selected_text>
+    <from>4505</from>
+    <to>4525</to>
+    <snippet_from>4489</snippet_from>
+    <snippet_to>4528</snippet_to>
+    <column_from>17</column_from>
+    <column_to>37</column_to>
+    <error_level>3</error_level>
+    <shortcode>167</shortcode>
+    <link>https://psalm.dev/167</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -467,7 +489,7 @@
     <line_from>9</line_from>
     <line_to>9</line_to>
     <type>MissingPropertyType</type>
-    <message>Property Edge\QA\Config::$configs does not have a declared type - consider array&lt;array-key, array&lt;array-key, array&gt;|mixed&gt;|mixed</message>
+    <message>Property Edge\QA\Config::$configs does not have a declared type - consider array</message>
     <file_name>src/Config.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Config.php</file_path>
     <snippet>    private $configs = array();</snippet>
@@ -489,7 +511,7 @@
     <line_from>10</line_from>
     <line_to>10</line_to>
     <type>MissingPropertyType</type>
-    <message>Property Edge\QA\Config::$cwd does not have a declared type - consider false|mixed|string</message>
+    <message>Property Edge\QA\Config::$cwd does not have a declared type - consider false|non-empty-mixed|string</message>
     <file_name>src/Config.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Config.php</file_path>
     <snippet>    private $cwd;</snippet>
@@ -635,6 +657,28 @@
     <error_level>2</error_level>
     <shortcode>154</shortcode>
     <link>https://psalm.dev/154</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>33</line_from>
+    <line_to>33</line_to>
+    <type>ReservedWord</type>
+    <message>mixed is a reserved word</message>
+    <file_name>src/Config.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Config.php</file_path>
+    <snippet>            $config = Yaml::parse((string) file_get_contents($configFile));</snippet>
+    <selected_text>Yaml::parse((string) file_get_contents($configFile))</selected_text>
+    <from>855</from>
+    <to>907</to>
+    <snippet_from>833</snippet_from>
+    <snippet_to>908</snippet_to>
+    <column_from>23</column_from>
+    <column_to>75</column_to>
+    <error_level>7</error_level>
+    <shortcode>95</shortcode>
+    <link>https://psalm.dev/095</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -926,6 +970,28 @@
   </item>
   <item>
     <severity>info</severity>
+    <line_from>80</line_from>
+    <line_to>80</line_to>
+    <type>RiskyTruthyFalsyComparison</type>
+    <message>Operand of type false|string contains type string, which can be falsy and truthy. This can cause possibly unexpected behavior. Use strict comparison instead.</message>
+    <file_name>src/Config.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Config.php</file_path>
+    <snippet>                if (!$realpath) {</snippet>
+    <selected_text>!$realpath</selected_text>
+    <from>2242</from>
+    <to>2252</to>
+    <snippet_from>2222</snippet_from>
+    <snippet_to>2255</snippet_to>
+    <column_from>21</column_from>
+    <column_to>31</column_to>
+    <error_level>2</error_level>
+    <shortcode>356</shortcode>
+    <link>https://psalm.dev/356</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
     <line_from>88</line_from>
     <line_to>88</line_to>
     <type>MissingReturnType</type>
@@ -1009,6 +1075,28 @@
     <error_level>2</error_level>
     <shortcode>153</shortcode>
     <link>https://psalm.dev/153</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>96</line_from>
+    <line_to>96</line_to>
+    <type>RiskyTruthyFalsyComparison</type>
+    <message>Operand of type false|string contains type string, which can be falsy and truthy. This can cause possibly unexpected behavior. Use strict comparison instead.</message>
+    <file_name>src/Config.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Config.php</file_path>
+    <snippet>                        return $realpath ? $realpath : $pathOrValue;</snippet>
+    <selected_text>$realpath</selected_text>
+    <from>2733</from>
+    <to>2742</to>
+    <snippet_from>2702</snippet_from>
+    <snippet_to>2770</snippet_to>
+    <column_from>32</column_from>
+    <column_to>41</column_to>
+    <error_level>2</error_level>
+    <shortcode>356</shortcode>
+    <link>https://psalm.dev/356</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -1501,7 +1589,7 @@
     <line_from>25</line_from>
     <line_to>25</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\IgnoredPaths::csvToArray does not have a return type, expecting array&lt;int, string&gt;</message>
+    <message>Method Edge\QA\IgnoredPaths::csvToArray does not have a return type, expecting array&lt;int&lt;0, max&gt;, string&gt;</message>
     <file_name>src/IgnoredPaths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/IgnoredPaths.php</file_path>
     <snippet>    private function csvToArray($csv)</snippet>
@@ -1611,7 +1699,7 @@
     <line_from>53</line_from>
     <line_to>53</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\IgnoredPaths::pdependWindowsFilter does not have a return type, expecting string</message>
+    <message>Method Edge\QA\IgnoredPaths::pdependWindowsFilter does not have a return type, expecting array&lt;array-key, string&gt;|string</message>
     <file_name>src/IgnoredPaths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/IgnoredPaths.php</file_path>
     <snippet>    private function pdependWindowsFilter($option)</snippet>
@@ -2004,6 +2092,28 @@
   </item>
   <item>
     <severity>info</severity>
+    <line_from>48</line_from>
+    <line_to>48</line_to>
+    <type>RiskyTruthyFalsyComparison</type>
+    <message>Operand of type false|mixed contains type mixed, which can be falsy and truthy. This can cause possibly unexpected behavior. Use strict comparison instead.</message>
+    <file_name>src/Options.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Options.php</file_path>
+    <snippet>        $this-&gt;isOfflineReport = $this-&gt;hasReport &amp;&amp; $options['report'] === 'offline';</snippet>
+    <selected_text>$this-&gt;hasReport</selected_text>
+    <from>1359</from>
+    <to>1375</to>
+    <snippet_from>1326</snippet_from>
+    <snippet_to>1412</snippet_to>
+    <column_from>34</column_from>
+    <column_to>50</column_to>
+    <error_level>2</error_level>
+    <shortcode>356</shortcode>
+    <link>https://psalm.dev/356</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
     <line_from>51</line_from>
     <line_to>51</line_to>
     <type>MissingReturnType</type>
@@ -2113,6 +2223,28 @@
     <other_references></other_references>
   </item>
   <item>
+    <severity>error</severity>
+    <line_from>72</line_from>
+    <line_to>72</line_to>
+    <type>PossiblyInvalidArgument</type>
+    <message>Argument 2 of explode expects string, but possibly different type array&lt;array-key, string&gt;|mixed|string provided</message>
+    <file_name>src/Options.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Options.php</file_path>
+    <snippet>        foreach (array_filter(explode(',', $tools)) as $tool) {</snippet>
+    <selected_text>$tools</selected_text>
+    <from>2203</from>
+    <to>2209</to>
+    <snippet_from>2160</snippet_from>
+    <snippet_to>2223</snippet_to>
+    <column_from>44</column_from>
+    <column_to>50</column_to>
+    <error_level>3</error_level>
+    <shortcode>92</shortcode>
+    <link>https://psalm.dev/092</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
     <severity>info</severity>
     <line_from>83</line_from>
     <line_to>83</line_to>
@@ -2161,7 +2293,7 @@
     <line_from>107</line_from>
     <line_to>107</line_to>
     <type>PossiblyFalseOperand</type>
-    <message>Left operand cannot be falsable, got false|int</message>
+    <message>Left operand cannot be falsable, got false|int&lt;0, max&gt;</message>
     <file_name>src/Options.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Options.php</file_path>
     <snippet>                return array_search($a, $keys) - array_search($b, $keys);</snippet>
@@ -2183,7 +2315,7 @@
     <line_from>107</line_from>
     <line_to>107</line_to>
     <type>PossiblyFalseOperand</type>
-    <message>Right operand cannot be falsable, got false|int</message>
+    <message>Right operand cannot be falsable, got false|int&lt;0, max&gt;</message>
     <file_name>src/Options.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Options.php</file_path>
     <snippet>                return array_search($a, $keys) - array_search($b, $keys);</snippet>
@@ -2290,64 +2422,20 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>7</line_from>
-    <line_to>7</line_to>
+    <line_from>9</line_from>
+    <line_to>9</line_to>
     <type>MissingPropertyType</type>
     <message>Property Edge\QA\RunningTool::$tool does not have a declared type - consider mixed</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    private $tool;</snippet>
     <selected_text>$tool</selected_text>
-    <from>59</from>
-    <to>64</to>
-    <snippet_from>47</snippet_from>
-    <snippet_to>65</snippet_to>
+    <from>96</from>
+    <to>101</to>
+    <snippet_from>84</snippet_from>
+    <snippet_to>102</snippet_to>
     <column_from>13</column_from>
     <column_to>18</column_to>
-    <error_level>2</error_level>
-    <shortcode>45</shortcode>
-    <link>https://psalm.dev/045</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>8</line_from>
-    <line_to>8</line_to>
-    <type>MissingPropertyType</type>
-    <message>Property Edge\QA\RunningTool::$internalClasses does not have a declared type - consider array</message>
-    <file_name>src/RunningTool.php</file_name>
-    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    private $internalClasses;</snippet>
-    <selected_text>$internalClasses</selected_text>
-    <from>78</from>
-    <to>94</to>
-    <snippet_from>66</snippet_from>
-    <snippet_to>95</snippet_to>
-    <column_from>13</column_from>
-    <column_to>29</column_to>
-    <error_level>2</error_level>
-    <shortcode>45</shortcode>
-    <link>https://psalm.dev/045</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>9</line_from>
-    <line_to>9</line_to>
-    <type>MissingPropertyType</type>
-    <message>Property Edge\QA\RunningTool::$internalDependencies does not have a declared type - consider array</message>
-    <file_name>src/RunningTool.php</file_name>
-    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    private $internalDependencies;</snippet>
-    <selected_text>$internalDependencies</selected_text>
-    <from>108</from>
-    <to>129</to>
-    <snippet_from>96</snippet_from>
-    <snippet_to>130</snippet_to>
-    <column_from>13</column_from>
-    <column_to>34</column_to>
     <error_level>2</error_level>
     <shortcode>45</shortcode>
     <link>https://psalm.dev/045</link>
@@ -2359,15 +2447,15 @@
     <line_from>10</line_from>
     <line_to>10</line_to>
     <type>MissingPropertyType</type>
-    <message>Property Edge\QA\RunningTool::$optionSeparator does not have a declared type - consider mixed</message>
+    <message>Property Edge\QA\RunningTool::$internalClasses does not have a declared type - consider array</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    private $optionSeparator;</snippet>
-    <selected_text>$optionSeparator</selected_text>
-    <from>143</from>
-    <to>159</to>
-    <snippet_from>131</snippet_from>
-    <snippet_to>160</snippet_to>
+    <snippet>    private $internalClasses;</snippet>
+    <selected_text>$internalClasses</selected_text>
+    <from>115</from>
+    <to>131</to>
+    <snippet_from>103</snippet_from>
+    <snippet_to>132</snippet_to>
     <column_from>13</column_from>
     <column_to>29</column_to>
     <error_level>2</error_level>
@@ -2381,17 +2469,39 @@
     <line_from>11</line_from>
     <line_to>11</line_to>
     <type>MissingPropertyType</type>
-    <message>Property Edge\QA\RunningTool::$outputMode does not have a declared type - consider mixed</message>
+    <message>Property Edge\QA\RunningTool::$internalDependencies does not have a declared type - consider array</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    private $outputMode;</snippet>
-    <selected_text>$outputMode</selected_text>
-    <from>173</from>
-    <to>184</to>
-    <snippet_from>161</snippet_from>
-    <snippet_to>185</snippet_to>
+    <snippet>    private $internalDependencies;</snippet>
+    <selected_text>$internalDependencies</selected_text>
+    <from>145</from>
+    <to>166</to>
+    <snippet_from>133</snippet_from>
+    <snippet_to>167</snippet_to>
     <column_from>13</column_from>
-    <column_to>24</column_to>
+    <column_to>34</column_to>
+    <error_level>2</error_level>
+    <shortcode>45</shortcode>
+    <link>https://psalm.dev/045</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>12</line_from>
+    <line_to>12</line_to>
+    <type>MissingPropertyType</type>
+    <message>Property Edge\QA\RunningTool::$optionSeparator does not have a declared type - consider mixed</message>
+    <file_name>src/RunningTool.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
+    <snippet>    private $optionSeparator;</snippet>
+    <selected_text>$optionSeparator</selected_text>
+    <from>180</from>
+    <to>196</to>
+    <snippet_from>168</snippet_from>
+    <snippet_to>197</snippet_to>
+    <column_from>13</column_from>
+    <column_to>29</column_to>
     <error_level>2</error_level>
     <shortcode>45</shortcode>
     <link>https://psalm.dev/045</link>
@@ -2403,39 +2513,17 @@
     <line_from>13</line_from>
     <line_to>13</line_to>
     <type>MissingPropertyType</type>
-    <message>Property Edge\QA\RunningTool::$xmlFiles does not have a declared type - consider mixed</message>
+    <message>Property Edge\QA\RunningTool::$outputMode does not have a declared type - consider mixed</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    private $xmlFiles;</snippet>
-    <selected_text>$xmlFiles</selected_text>
-    <from>199</from>
-    <to>208</to>
-    <snippet_from>187</snippet_from>
-    <snippet_to>209</snippet_to>
+    <snippet>    private $outputMode;</snippet>
+    <selected_text>$outputMode</selected_text>
+    <from>210</from>
+    <to>221</to>
+    <snippet_from>198</snippet_from>
+    <snippet_to>222</snippet_to>
     <column_from>13</column_from>
-    <column_to>22</column_to>
-    <error_level>2</error_level>
-    <shortcode>45</shortcode>
-    <link>https://psalm.dev/045</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>14</line_from>
-    <line_to>14</line_to>
-    <type>MissingPropertyType</type>
-    <message>Property Edge\QA\RunningTool::$errorsXPath does not have a declared type - consider array</message>
-    <file_name>src/RunningTool.php</file_name>
-    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    private $errorsXPath;</snippet>
-    <selected_text>$errorsXPath</selected_text>
-    <from>222</from>
-    <to>234</to>
-    <snippet_from>210</snippet_from>
-    <snippet_to>235</snippet_to>
-    <column_from>13</column_from>
-    <column_to>25</column_to>
+    <column_to>24</column_to>
     <error_level>2</error_level>
     <shortcode>45</shortcode>
     <link>https://psalm.dev/045</link>
@@ -2447,17 +2535,17 @@
     <line_from>15</line_from>
     <line_to>15</line_to>
     <type>MissingPropertyType</type>
-    <message>Property Edge\QA\RunningTool::$errorsType does not have a declared type</message>
+    <message>Property Edge\QA\RunningTool::$xmlFiles does not have a declared type - consider mixed</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    public $errorsType;</snippet>
-    <selected_text>$errorsType</selected_text>
-    <from>247</from>
-    <to>258</to>
-    <snippet_from>236</snippet_from>
-    <snippet_to>259</snippet_to>
-    <column_from>12</column_from>
-    <column_to>23</column_to>
+    <snippet>    private $xmlFiles;</snippet>
+    <selected_text>$xmlFiles</selected_text>
+    <from>236</from>
+    <to>245</to>
+    <snippet_from>224</snippet_from>
+    <snippet_to>246</snippet_to>
+    <column_from>13</column_from>
+    <column_to>22</column_to>
     <error_level>2</error_level>
     <shortcode>45</shortcode>
     <link>https://psalm.dev/045</link>
@@ -2469,17 +2557,39 @@
     <line_from>16</line_from>
     <line_to>16</line_to>
     <type>MissingPropertyType</type>
-    <message>Property Edge\QA\RunningTool::$allowedErrorsCount does not have a declared type - consider mixed</message>
+    <message>Property Edge\QA\RunningTool::$errorsXPath does not have a declared type - consider array</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    private $allowedErrorsCount;</snippet>
-    <selected_text>$allowedErrorsCount</selected_text>
-    <from>272</from>
-    <to>291</to>
-    <snippet_from>260</snippet_from>
-    <snippet_to>292</snippet_to>
+    <snippet>    private $errorsXPath;</snippet>
+    <selected_text>$errorsXPath</selected_text>
+    <from>259</from>
+    <to>271</to>
+    <snippet_from>247</snippet_from>
+    <snippet_to>272</snippet_to>
     <column_from>13</column_from>
-    <column_to>32</column_to>
+    <column_to>25</column_to>
+    <error_level>2</error_level>
+    <shortcode>45</shortcode>
+    <link>https://psalm.dev/045</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>17</line_from>
+    <line_to>17</line_to>
+    <type>MissingPropertyType</type>
+    <message>Property Edge\QA\RunningTool::$errorsType does not have a declared type</message>
+    <file_name>src/RunningTool.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
+    <snippet>    public $errorsType;</snippet>
+    <selected_text>$errorsType</selected_text>
+    <from>284</from>
+    <to>295</to>
+    <snippet_from>273</snippet_from>
+    <snippet_to>296</snippet_to>
+    <column_from>12</column_from>
+    <column_to>23</column_to>
     <error_level>2</error_level>
     <shortcode>45</shortcode>
     <link>https://psalm.dev/045</link>
@@ -2491,39 +2601,17 @@
     <line_from>18</line_from>
     <line_to>18</line_to>
     <type>MissingPropertyType</type>
-    <message>Property Edge\QA\RunningTool::$htmlReport does not have a declared type</message>
+    <message>Property Edge\QA\RunningTool::$allowedErrorsCount does not have a declared type - consider mixed</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    public $htmlReport;</snippet>
-    <selected_text>$htmlReport</selected_text>
-    <from>305</from>
-    <to>316</to>
-    <snippet_from>294</snippet_from>
-    <snippet_to>317</snippet_to>
-    <column_from>12</column_from>
-    <column_to>23</column_to>
-    <error_level>2</error_level>
-    <shortcode>45</shortcode>
-    <link>https://psalm.dev/045</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>19</line_from>
-    <line_to>19</line_to>
-    <type>MissingPropertyType</type>
-    <message>Property Edge\QA\RunningTool::$userReports does not have a declared type - consider array</message>
-    <file_name>src/RunningTool.php</file_name>
-    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    public $userReports = [];</snippet>
-    <selected_text>$userReports</selected_text>
-    <from>329</from>
-    <to>341</to>
-    <snippet_from>318</snippet_from>
-    <snippet_to>347</snippet_to>
-    <column_from>12</column_from>
-    <column_to>24</column_to>
+    <snippet>    private $allowedErrorsCount;</snippet>
+    <selected_text>$allowedErrorsCount</selected_text>
+    <from>309</from>
+    <to>328</to>
+    <snippet_from>297</snippet_from>
+    <snippet_to>329</snippet_to>
+    <column_from>13</column_from>
+    <column_to>32</column_to>
     <error_level>2</error_level>
     <shortcode>45</shortcode>
     <link>https://psalm.dev/045</link>
@@ -2535,17 +2623,39 @@
     <line_from>20</line_from>
     <line_to>20</line_to>
     <type>MissingPropertyType</type>
-    <message>Property Edge\QA\RunningTool::$isExecutable does not have a declared type</message>
+    <message>Property Edge\QA\RunningTool::$htmlReport does not have a declared type</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    public $isExecutable;</snippet>
-    <selected_text>$isExecutable</selected_text>
-    <from>359</from>
-    <to>372</to>
-    <snippet_from>348</snippet_from>
-    <snippet_to>373</snippet_to>
+    <snippet>    public $htmlReport;</snippet>
+    <selected_text>$htmlReport</selected_text>
+    <from>342</from>
+    <to>353</to>
+    <snippet_from>331</snippet_from>
+    <snippet_to>354</snippet_to>
     <column_from>12</column_from>
-    <column_to>25</column_to>
+    <column_to>23</column_to>
+    <error_level>2</error_level>
+    <shortcode>45</shortcode>
+    <link>https://psalm.dev/045</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>21</line_from>
+    <line_to>21</line_to>
+    <type>MissingPropertyType</type>
+    <message>Property Edge\QA\RunningTool::$userReports does not have a declared type - consider array</message>
+    <file_name>src/RunningTool.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
+    <snippet>    public $userReports = [];</snippet>
+    <selected_text>$userReports</selected_text>
+    <from>366</from>
+    <to>378</to>
+    <snippet_from>355</snippet_from>
+    <snippet_to>384</snippet_to>
+    <column_from>12</column_from>
+    <column_to>24</column_to>
     <error_level>2</error_level>
     <shortcode>45</shortcode>
     <link>https://psalm.dev/045</link>
@@ -2556,16 +2666,38 @@
     <severity>info</severity>
     <line_from>22</line_from>
     <line_to>22</line_to>
+    <type>MissingPropertyType</type>
+    <message>Property Edge\QA\RunningTool::$isExecutable does not have a declared type</message>
+    <file_name>src/RunningTool.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
+    <snippet>    public $isExecutable;</snippet>
+    <selected_text>$isExecutable</selected_text>
+    <from>396</from>
+    <to>409</to>
+    <snippet_from>385</snippet_from>
+    <snippet_to>410</snippet_to>
+    <column_from>12</column_from>
+    <column_to>25</column_to>
+    <error_level>2</error_level>
+    <shortcode>45</shortcode>
+    <link>https://psalm.dev/045</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>24</line_from>
+    <line_to>24</line_to>
     <type>PropertyNotSetInConstructor</type>
     <message>Property Edge\QA\RunningTool::$process is not defined in constructor of Edge\QA\RunningTool or in any private or final methods called in the constructor</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    public $process;</snippet>
     <selected_text>$process</selected_text>
-    <from>436</from>
-    <to>444</to>
-    <snippet_from>425</snippet_from>
-    <snippet_to>445</snippet_to>
+    <from>473</from>
+    <to>481</to>
+    <snippet_from>462</snippet_from>
+    <snippet_to>482</snippet_to>
     <column_from>12</column_from>
     <column_to>20</column_to>
     <error_level>2</error_level>
@@ -2576,18 +2708,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>24</line_from>
-    <line_to>24</line_to>
+    <line_from>26</line_from>
+    <line_to>26</line_to>
     <type>MissingParamType</type>
     <message>Parameter $tool has no provided type</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    public function __construct($tool, array $toolConfig)</snippet>
     <selected_text>$tool</selected_text>
-    <from>479</from>
-    <to>484</to>
-    <snippet_from>447</snippet_from>
-    <snippet_to>504</snippet_to>
+    <from>516</from>
+    <to>521</to>
+    <snippet_from>484</snippet_from>
+    <snippet_to>541</snippet_to>
     <column_from>33</column_from>
     <column_to>38</column_to>
     <error_level>2</error_level>
@@ -2598,18 +2730,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>41</line_from>
-    <line_to>41</line_to>
+    <line_from>43</line_from>
+    <line_to>43</line_to>
     <type>InvalidArrayOffset</type>
     <message>Cannot create offset of type mixed|null, expecting array-key</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>            ? $config['errorsXPath'] : [$this-&gt;errorsXPath =&gt; $config['errorsXPath']];</snippet>
     <selected_text>[$this-&gt;errorsXPath =&gt; $config['errorsXPath']]</selected_text>
-    <from>1284</from>
-    <to>1330</to>
-    <snippet_from>1245</snippet_from>
-    <snippet_to>1331</snippet_to>
+    <from>1321</from>
+    <to>1367</to>
+    <snippet_from>1282</snippet_from>
+    <snippet_to>1368</snippet_to>
     <column_from>40</column_from>
     <column_to>86</column_to>
     <error_level>6</error_level>
@@ -2620,18 +2752,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>41</line_from>
-    <line_to>41</line_to>
+    <line_from>43</line_from>
+    <line_to>43</line_to>
     <type>UninitializedProperty</type>
     <message>Cannot use uninitialized property $this-&gt;errorsXPath</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>            ? $config['errorsXPath'] : [$this-&gt;errorsXPath =&gt; $config['errorsXPath']];</snippet>
     <selected_text>$this-&gt;errorsXPath</selected_text>
-    <from>1285</from>
-    <to>1303</to>
-    <snippet_from>1245</snippet_from>
-    <snippet_to>1331</snippet_to>
+    <from>1322</from>
+    <to>1340</to>
+    <snippet_from>1282</snippet_from>
+    <snippet_to>1368</snippet_to>
     <column_from>41</column_from>
     <column_to>59</column_to>
     <error_level>7</error_level>
@@ -2642,18 +2774,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>46</line_from>
-    <line_to>46</line_to>
+    <line_from>48</line_from>
+    <line_to>48</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningTool::isInstalled does not have a return type, expecting bool</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    public function isInstalled()</snippet>
     <selected_text>isInstalled</selected_text>
-    <from>1477</from>
-    <to>1488</to>
-    <snippet_from>1457</snippet_from>
-    <snippet_to>1490</snippet_to>
+    <from>1514</from>
+    <to>1525</to>
+    <snippet_from>1494</snippet_from>
+    <snippet_to>1527</snippet_to>
     <column_from>21</column_from>
     <column_to>32</column_to>
     <error_level>2</error_level>
@@ -2664,18 +2796,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>52</line_from>
-    <line_to>52</line_to>
+    <line_from>54</line_from>
+    <line_to>54</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningTool::isAtLeastOneClassInstalled does not have a return type, expecting bool</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    private function isAtLeastOneClassInstalled(array $classes)</snippet>
     <selected_text>isAtLeastOneClassInstalled</selected_text>
-    <from>1677</from>
-    <to>1703</to>
-    <snippet_from>1656</snippet_from>
-    <snippet_to>1719</snippet_to>
+    <from>1714</from>
+    <to>1740</to>
+    <snippet_from>1693</snippet_from>
+    <snippet_to>1756</snippet_to>
     <column_from>22</column_from>
     <column_to>48</column_to>
     <error_level>2</error_level>
@@ -2730,18 +2862,62 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>70</line_from>
-    <line_to>70</line_to>
+    <line_from>67</line_from>
+    <line_to>67</line_to>
+    <type>MissingReturnType</type>
+    <message>Method Edge\QA\RunningTool::hasOutput does not have a return type, expecting bool</message>
+    <file_name>src/RunningTool.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
+    <snippet>    public function hasOutput($outputMode)</snippet>
+    <selected_text>hasOutput</selected_text>
+    <from>2004</from>
+    <to>2013</to>
+    <snippet_from>1984</snippet_from>
+    <snippet_to>2026</snippet_to>
+    <column_from>21</column_from>
+    <column_to>30</column_to>
+    <error_level>2</error_level>
+    <shortcode>50</shortcode>
+    <link>https://psalm.dev/050</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>67</line_from>
+    <line_to>67</line_to>
+    <type>MissingParamType</type>
+    <message>Parameter $outputMode has no provided type</message>
+    <file_name>src/RunningTool.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
+    <snippet>    public function hasOutput($outputMode)</snippet>
+    <selected_text>$outputMode</selected_text>
+    <from>2014</from>
+    <to>2025</to>
+    <snippet_from>1984</snippet_from>
+    <snippet_to>2026</snippet_to>
+    <column_from>31</column_from>
+    <column_to>42</column_to>
+    <error_level>2</error_level>
+    <shortcode>154</shortcode>
+    <link>https://psalm.dev/154</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>75</line_from>
+    <line_to>75</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningTool::buildOption does not have a return type, expecting non-empty-string</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    public function buildOption($arg, $value)</snippet>
     <selected_text>buildOption</selected_text>
-    <from>2072</from>
-    <to>2083</to>
-    <snippet_from>2052</snippet_from>
-    <snippet_to>2097</snippet_to>
+    <from>2248</from>
+    <to>2259</to>
+    <snippet_from>2228</snippet_from>
+    <snippet_to>2273</snippet_to>
     <column_from>21</column_from>
     <column_to>32</column_to>
     <error_level>2</error_level>
@@ -2752,18 +2928,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>70</line_from>
-    <line_to>70</line_to>
+    <line_from>75</line_from>
+    <line_to>75</line_to>
     <type>MissingParamType</type>
     <message>Parameter $arg has no provided type</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    public function buildOption($arg, $value)</snippet>
     <selected_text>$arg</selected_text>
-    <from>2084</from>
-    <to>2088</to>
-    <snippet_from>2052</snippet_from>
-    <snippet_to>2097</snippet_to>
+    <from>2260</from>
+    <to>2264</to>
+    <snippet_from>2228</snippet_from>
+    <snippet_to>2273</snippet_to>
     <column_from>33</column_from>
     <column_to>37</column_to>
     <error_level>2</error_level>
@@ -2774,18 +2950,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>70</line_from>
-    <line_to>70</line_to>
+    <line_from>75</line_from>
+    <line_to>75</line_to>
     <type>MissingParamType</type>
     <message>Parameter $value has no provided type</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    public function buildOption($arg, $value)</snippet>
     <selected_text>$value</selected_text>
-    <from>2090</from>
-    <to>2096</to>
-    <snippet_from>2052</snippet_from>
-    <snippet_to>2097</snippet_to>
+    <from>2266</from>
+    <to>2272</to>
+    <snippet_from>2228</snippet_from>
+    <snippet_to>2273</snippet_to>
     <column_from>39</column_from>
     <column_to>45</column_to>
     <error_level>2</error_level>
@@ -2796,18 +2972,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>79</line_from>
-    <line_to>79</line_to>
+    <line_from>84</line_from>
+    <line_to>84</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningTool::getAllowedErrorsCount does not have a return type</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    public function getAllowedErrorsCount()</snippet>
     <selected_text>getAllowedErrorsCount</selected_text>
-    <from>2290</from>
-    <to>2311</to>
-    <snippet_from>2270</snippet_from>
-    <snippet_to>2313</snippet_to>
+    <from>2466</from>
+    <to>2487</to>
+    <snippet_from>2446</snippet_from>
+    <snippet_to>2489</snippet_to>
     <column_from>21</column_from>
     <column_to>42</column_to>
     <error_level>2</error_level>
@@ -2818,18 +2994,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>84</line_from>
-    <line_to>84</line_to>
+    <line_from>89</line_from>
+    <line_to>89</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningTool::analyzeResult does not have a return type</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    public function analyzeResult($hasNoOutput = false)</snippet>
     <selected_text>analyzeResult</selected_text>
-    <from>2389</from>
-    <to>2402</to>
-    <snippet_from>2369</snippet_from>
-    <snippet_to>2424</snippet_to>
+    <from>2565</from>
+    <to>2578</to>
+    <snippet_from>2545</snippet_from>
+    <snippet_to>2600</snippet_to>
     <column_from>21</column_from>
     <column_to>34</column_to>
     <error_level>2</error_level>
@@ -2840,18 +3016,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>84</line_from>
-    <line_to>84</line_to>
+    <line_from>89</line_from>
+    <line_to>89</line_to>
     <type>MissingParamType</type>
     <message>Parameter $hasNoOutput has no provided type</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    public function analyzeResult($hasNoOutput = false)</snippet>
     <selected_text>$hasNoOutput</selected_text>
-    <from>2403</from>
-    <to>2415</to>
-    <snippet_from>2369</snippet_from>
-    <snippet_to>2424</snippet_to>
+    <from>2579</from>
+    <to>2591</to>
+    <snippet_from>2545</snippet_from>
+    <snippet_to>2600</snippet_to>
     <column_from>35</column_from>
     <column_to>47</column_to>
     <error_level>2</error_level>
@@ -2862,18 +3038,40 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>106</line_from>
-    <line_to>106</line_to>
+    <line_from>97</line_from>
+    <line_to>97</line_to>
+    <type>RiskyTruthyFalsyComparison</type>
+    <message>Operand of type int|null contains type int, which can be falsy and truthy. This can cause possibly unexpected behavior. Use strict comparison instead.</message>
+    <file_name>src/RunningTool.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
+    <snippet>            return $this-&gt;evaluteErrorsCount($this-&gt;process-&gt;getExitCode() ? 1 : 0);</snippet>
+    <selected_text>$this-&gt;process-&gt;getExitCode()</selected_text>
+    <from>2884</from>
+    <to>2913</to>
+    <snippet_from>2839</snippet_from>
+    <snippet_to>2923</snippet_to>
+    <column_from>46</column_from>
+    <column_to>75</column_to>
+    <error_level>2</error_level>
+    <shortcode>356</shortcode>
+    <link>https://psalm.dev/356</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>111</line_from>
+    <line_to>111</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\RunningTool::evaluteErrorsCount does not have a return type, expecting array{bool, mixed}</message>
+    <message>Method Edge\QA\RunningTool::evaluteErrorsCount does not have a return type, expecting list{bool, mixed}</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    private function evaluteErrorsCount($errorsCount)</snippet>
     <selected_text>evaluteErrorsCount</selected_text>
-    <from>3231</from>
-    <to>3249</to>
-    <snippet_from>3210</snippet_from>
-    <snippet_to>3263</snippet_to>
+    <from>3407</from>
+    <to>3425</to>
+    <snippet_from>3386</snippet_from>
+    <snippet_to>3439</snippet_to>
     <column_from>22</column_from>
     <column_to>40</column_to>
     <error_level>2</error_level>
@@ -2884,18 +3082,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>106</line_from>
-    <line_to>106</line_to>
+    <line_from>111</line_from>
+    <line_to>111</line_to>
     <type>MissingParamType</type>
     <message>Parameter $errorsCount has no provided type</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    private function evaluteErrorsCount($errorsCount)</snippet>
     <selected_text>$errorsCount</selected_text>
-    <from>3250</from>
-    <to>3262</to>
-    <snippet_from>3210</snippet_from>
-    <snippet_to>3263</snippet_to>
+    <from>3426</from>
+    <to>3438</to>
+    <snippet_from>3386</snippet_from>
+    <snippet_to>3439</snippet_to>
     <column_from>41</column_from>
     <column_to>53</column_to>
     <error_level>2</error_level>
@@ -2906,18 +3104,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>112</line_from>
-    <line_to>112</line_to>
+    <line_from>117</line_from>
+    <line_to>117</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningTool::areErrorsIgnored does not have a return type, expecting bool</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    private function areErrorsIgnored()</snippet>
     <selected_text>areErrorsIgnored</selected_text>
-    <from>3424</from>
-    <to>3440</to>
-    <snippet_from>3403</snippet_from>
-    <snippet_to>3442</snippet_to>
+    <from>3600</from>
+    <to>3616</to>
+    <snippet_from>3579</snippet_from>
+    <snippet_to>3618</snippet_to>
     <column_from>22</column_from>
     <column_to>38</column_to>
     <error_level>2</error_level>
@@ -2928,40 +3126,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>117</line_from>
-    <line_to>117</line_to>
-    <type>PossiblyUnusedMethod</type>
-    <message>Cannot find explicit calls to method Edge\QA\RunningTool::getXmlFiles (but did find some potential callers)</message>
-    <file_name>src/RunningTool.php</file_name>
-    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    public function getXmlFiles()</snippet>
-    <selected_text>getXmlFiles</selected_text>
-    <from>3531</from>
-    <to>3542</to>
-    <snippet_from>3511</snippet_from>
-    <snippet_to>3544</snippet_to>
-    <column_from>21</column_from>
-    <column_to>32</column_to>
-    <error_level>-2</error_level>
-    <shortcode>87</shortcode>
-    <link>https://psalm.dev/087</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>117</line_from>
-    <line_to>117</line_to>
+    <line_from>122</line_from>
+    <line_to>122</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningTool::getXmlFiles does not have a return type</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    public function getXmlFiles()</snippet>
     <selected_text>getXmlFiles</selected_text>
-    <from>3531</from>
-    <to>3542</to>
-    <snippet_from>3511</snippet_from>
-    <snippet_to>3544</snippet_to>
+    <from>3707</from>
+    <to>3718</to>
+    <snippet_from>3687</snippet_from>
+    <snippet_to>3720</snippet_to>
     <column_from>21</column_from>
     <column_to>32</column_to>
     <error_level>2</error_level>
@@ -2974,21 +3150,21 @@
     <severity>info</severity>
     <line_from>122</line_from>
     <line_to>122</line_to>
-    <type>MissingReturnType</type>
-    <message>Method Edge\QA\RunningTool::getEscapedXmlFile does not have a return type</message>
+    <type>PossiblyUnusedMethod</type>
+    <message>Cannot find explicit calls to method Edge\QA\RunningTool::getXmlFiles (but did find some potential callers)</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    public function getEscapedXmlFile()</snippet>
-    <selected_text>getEscapedXmlFile</selected_text>
-    <from>3610</from>
-    <to>3627</to>
-    <snippet_from>3590</snippet_from>
-    <snippet_to>3629</snippet_to>
+    <snippet>    public function getXmlFiles()</snippet>
+    <selected_text>getXmlFiles</selected_text>
+    <from>3707</from>
+    <to>3718</to>
+    <snippet_from>3687</snippet_from>
+    <snippet_to>3720</snippet_to>
     <column_from>21</column_from>
-    <column_to>38</column_to>
-    <error_level>2</error_level>
-    <shortcode>50</shortcode>
-    <link>https://psalm.dev/050</link>
+    <column_to>32</column_to>
+    <error_level>-2</error_level>
+    <shortcode>87</shortcode>
+    <link>https://psalm.dev/087</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -2997,17 +3173,17 @@
     <line_from>127</line_from>
     <line_to>127</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\RunningTool::getMainXml does not have a return type</message>
+    <message>Method Edge\QA\RunningTool::getEscapedXmlFile does not have a return type</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
-    <snippet>    private function getMainXml()</snippet>
-    <selected_text>getMainXml</selected_text>
-    <from>3712</from>
-    <to>3722</to>
-    <snippet_from>3691</snippet_from>
-    <snippet_to>3724</snippet_to>
-    <column_from>22</column_from>
-    <column_to>32</column_to>
+    <snippet>    public function getEscapedXmlFile()</snippet>
+    <selected_text>getEscapedXmlFile</selected_text>
+    <from>3786</from>
+    <to>3803</to>
+    <snippet_from>3766</snippet_from>
+    <snippet_to>3805</snippet_to>
+    <column_from>21</column_from>
+    <column_to>38</column_to>
     <error_level>2</error_level>
     <shortcode>50</shortcode>
     <link>https://psalm.dev/050</link>
@@ -3019,20 +3195,130 @@
     <line_from>132</line_from>
     <line_to>132</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\RunningTool::getHtmlRootReports does not have a return type, expecting list&lt;array{file: mixed, id: non-empty-string, name: mixed}&gt;</message>
+    <message>Method Edge\QA\RunningTool::getMainXml does not have a return type</message>
+    <file_name>src/RunningTool.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
+    <snippet>    private function getMainXml()</snippet>
+    <selected_text>getMainXml</selected_text>
+    <from>3888</from>
+    <to>3898</to>
+    <snippet_from>3867</snippet_from>
+    <snippet_to>3900</snippet_to>
+    <column_from>22</column_from>
+    <column_to>32</column_to>
+    <error_level>2</error_level>
+    <shortcode>50</shortcode>
+    <link>https://psalm.dev/050</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>137</line_from>
+    <line_to>137</line_to>
+    <type>MissingReturnType</type>
+    <message>Method Edge\QA\RunningTool::getHtmlRootReports does not have a return type, expecting list{0?: array{file: mixed, id: non-empty-string, name: mixed}, ...&lt;array{file: mixed, id: non-empty-string, name: mixed}&gt;}</message>
     <file_name>src/RunningTool.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
     <snippet>    public function getHtmlRootReports()</snippet>
     <selected_text>getHtmlRootReports</selected_text>
-    <from>3797</from>
-    <to>3815</to>
-    <snippet_from>3777</snippet_from>
-    <snippet_to>3817</snippet_to>
+    <from>3973</from>
+    <to>3991</to>
+    <snippet_from>3953</snippet_from>
+    <snippet_to>3993</snippet_to>
     <column_from>21</column_from>
     <column_to>39</column_to>
     <error_level>2</error_level>
     <shortcode>50</shortcode>
     <link>https://psalm.dev/050</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>142</line_from>
+    <line_to>142</line_to>
+    <type>PossiblyInvalidOperand</type>
+    <message>Cannot concatenate with a array&lt;array-key, string&gt;|string</message>
+    <file_name>src/RunningTool.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/RunningTool.php</file_path>
+    <snippet>                'id' =&gt; "{$this}-" . str_replace(['.', '/', '\\'], '-', $report),</snippet>
+    <selected_text>str_replace(['.', '/', '\\'], '-', $report)</selected_text>
+    <from>4146</from>
+    <to>4189</to>
+    <snippet_from>4109</snippet_from>
+    <snippet_to>4190</snippet_to>
+    <column_from>38</column_from>
+    <column_to>81</column_to>
+    <error_level>3</error_level>
+    <shortcode>163</shortcode>
+    <link>https://psalm.dev/163</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>22</line_from>
+    <line_to>22</line_to>
+    <type>UndefinedClass</type>
+    <message>Class, interface or enum named Symfony\Component\Console\Helper\ProgressBar does not exist</message>
+    <file_name>src/Task/AssetsLoader.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Task/AssetsLoader.php</file_path>
+    <snippet>            $progressBar = new ProgressBar($this-&gt;output);</snippet>
+    <selected_text>ProgressBar</selected_text>
+    <from>478</from>
+    <to>489</to>
+    <snippet_from>447</snippet_from>
+    <snippet_to>505</snippet_to>
+    <column_from>32</column_from>
+    <column_to>43</column_to>
+    <error_level>-1</error_level>
+    <shortcode>19</shortcode>
+    <link>https://psalm.dev/019</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>23</line_from>
+    <line_to>23</line_to>
+    <type>UndefinedClass</type>
+    <message>Class, interface or enum named Symfony\Component\Console\Helper\ProgressBar does not exist</message>
+    <file_name>src/Task/AssetsLoader.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Task/AssetsLoader.php</file_path>
+    <snippet>            $progressBar-&gt;start(count($assets));</snippet>
+    <selected_text>$progressBar</selected_text>
+    <from>518</from>
+    <to>530</to>
+    <snippet_from>506</snippet_from>
+    <snippet_to>554</snippet_to>
+    <column_from>13</column_from>
+    <column_to>25</column_to>
+    <error_level>-1</error_level>
+    <shortcode>19</shortcode>
+    <link>https://psalm.dev/019</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>29</line_from>
+    <line_to>29</line_to>
+    <type>UndefinedClass</type>
+    <message>Class, interface or enum named Symfony\Component\Console\Helper\ProgressBar does not exist</message>
+    <file_name>src/Task/AssetsLoader.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Task/AssetsLoader.php</file_path>
+    <snippet>                $progressBar-&gt;advance();</snippet>
+    <selected_text>$progressBar</selected_text>
+    <from>820</from>
+    <to>832</to>
+    <snippet_from>804</snippet_from>
+    <snippet_to>844</snippet_to>
+    <column_from>17</column_from>
+    <column_to>29</column_to>
+    <error_level>-1</error_level>
+    <shortcode>19</shortcode>
+    <link>https://psalm.dev/019</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -3077,6 +3363,28 @@
     <error_level>2</error_level>
     <shortcode>154</shortcode>
     <link>https://psalm.dev/154</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>42</line_from>
+    <line_to>42</line_to>
+    <type>RiskyTruthyFalsyComparison</type>
+    <message>Operand of type false|string contains type string, which can be falsy and truthy. This can cause possibly unexpected behavior. Use strict comparison instead.</message>
+    <file_name>src/Task/AssetsLoader.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Task/AssetsLoader.php</file_path>
+    <snippet>        if (ini_get('allow_url_fopen')) {</snippet>
+    <selected_text>ini_get('allow_url_fopen')</selected_text>
+    <from>1232</from>
+    <to>1258</to>
+    <snippet_from>1220</snippet_from>
+    <snippet_to>1261</snippet_to>
+    <column_from>13</column_from>
+    <column_to>39</column_to>
+    <error_level>2</error_level>
+    <shortcode>356</shortcode>
+    <link>https://psalm.dev/356</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -3173,7 +3481,7 @@
     <line_from>62</line_from>
     <line_to>62</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Task\TableSummary::getStatus does not have a return type, expecting "&lt;error&gt;x&lt;/error&gt;"|"&lt;info&gt;✓&lt;/info&gt;"</message>
+    <message>Method Edge\QA\Task\TableSummary::getStatus does not have a return type, expecting '&lt;error&gt;x&lt;/error&gt;'|'&lt;info&gt;✓&lt;/info&gt;'</message>
     <file_name>src/Task/TableSummary.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Task/TableSummary.php</file_path>
     <snippet>    private function getStatus($isOk)</snippet>
@@ -3455,6 +3763,28 @@
     <other_references></other_references>
   </item>
   <item>
+    <severity>error</severity>
+    <line_from>37</line_from>
+    <line_to>37</line_to>
+    <type>PossiblyInvalidOperand</type>
+    <message>Cannot concatenate with a array&lt;array-key, string&gt;|string</message>
+    <file_name>src/Tools/Analyzer/PhpMetricsV2.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetricsV2.php</file_path>
+    <snippet>            $analyzedDirs .= ",{$composer}," . str_replace('composer.json', 'composer.lock', $composer);</snippet>
+    <selected_text>str_replace('composer.json', 'composer.lock', $composer)</selected_text>
+    <from>1202</from>
+    <to>1258</to>
+    <snippet_from>1155</snippet_from>
+    <snippet_to>1259</snippet_to>
+    <column_from>48</column_from>
+    <column_to>104</column_to>
+    <error_level>3</error_level>
+    <shortcode>163</shortcode>
+    <link>https://psalm.dev/163</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
     <severity>info</severity>
     <line_from>5</line_from>
     <line_to>5</line_to>
@@ -3634,10 +3964,10 @@
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
     <snippet>        $createAbsolutePaths = function (array $relativeDirs) {</snippet>
     <selected_text>function (array $relativeDirs) {</selected_text>
-    <from>535</from>
-    <to>567</to>
-    <snippet_from>504</snippet_from>
-    <snippet_to>567</snippet_to>
+    <from>571</from>
+    <to>603</to>
+    <snippet_from>540</snippet_from>
+    <snippet_to>603</snippet_to>
     <column_from>32</column_from>
     <column_to>64</column_to>
     <error_level>2</error_level>
@@ -3648,18 +3978,40 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>59</line_from>
-    <line_to>59</line_to>
+    <line_from>33</line_from>
+    <line_to>33</line_to>
+    <type>ReservedWord</type>
+    <message>mixed is a reserved word</message>
+    <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
+    <snippet>            ? \Nette\Neon\Neon::decode(file_get_contents($defaultConfigFile))</snippet>
+    <selected_text>\Nette\Neon\Neon::decode(file_get_contents($defaultConfigFile))</selected_text>
+    <from>1037</from>
+    <to>1100</to>
+    <snippet_from>1023</snippet_from>
+    <snippet_to>1100</snippet_to>
+    <column_from>15</column_from>
+    <column_to>78</column_to>
+    <error_level>7</error_level>
+    <shortcode>95</shortcode>
+    <link>https://psalm.dev/095</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>63</line_from>
+    <line_to>63</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Tools\Analyzer\Phpstan::getErrorFormatOption does not have a return type, expecting "error-format"|"errorFormat"</message>
+    <message>Method Edge\QA\Tools\Analyzer\Phpstan::getErrorFormatOption does not have a return type, expecting 'error-format'|'errorFormat'</message>
     <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
     <snippet>    private function getErrorFormatOption()</snippet>
     <selected_text>getErrorFormatOption</selected_text>
-    <from>1967</from>
-    <to>1987</to>
-    <snippet_from>1946</snippet_from>
-    <snippet_to>1989</snippet_to>
+    <from>2237</from>
+    <to>2257</to>
+    <snippet_from>2216</snippet_from>
+    <snippet_to>2259</snippet_to>
     <column_from>22</column_from>
     <column_to>42</column_to>
     <error_level>2</error_level>
@@ -3670,18 +4022,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>64</line_from>
-    <line_to>64</line_to>
+    <line_from>68</line_from>
+    <line_to>68</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\Tools\Analyzer\Phpstan::buildConfig does not have a return type</message>
     <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
     <snippet>    public static function buildConfig($existingConfig, $autoloadDirectories, $ignoredPaths)</snippet>
     <selected_text>buildConfig</selected_text>
-    <from>2116</from>
-    <to>2127</to>
-    <snippet_from>2089</snippet_from>
-    <snippet_to>2181</snippet_to>
+    <from>2386</from>
+    <to>2397</to>
+    <snippet_from>2359</snippet_from>
+    <snippet_to>2451</snippet_to>
     <column_from>28</column_from>
     <column_to>39</column_to>
     <error_level>2</error_level>
@@ -3692,18 +4044,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>64</line_from>
-    <line_to>64</line_to>
+    <line_from>68</line_from>
+    <line_to>68</line_to>
     <type>MissingParamType</type>
     <message>Parameter $existingConfig has no provided type</message>
     <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
     <snippet>    public static function buildConfig($existingConfig, $autoloadDirectories, $ignoredPaths)</snippet>
     <selected_text>$existingConfig</selected_text>
-    <from>2128</from>
-    <to>2143</to>
-    <snippet_from>2089</snippet_from>
-    <snippet_to>2181</snippet_to>
+    <from>2398</from>
+    <to>2413</to>
+    <snippet_from>2359</snippet_from>
+    <snippet_to>2451</snippet_to>
     <column_from>40</column_from>
     <column_to>55</column_to>
     <error_level>2</error_level>
@@ -3714,18 +4066,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>64</line_from>
-    <line_to>64</line_to>
+    <line_from>68</line_from>
+    <line_to>68</line_to>
     <type>MissingParamType</type>
     <message>Parameter $autoloadDirectories has no provided type</message>
     <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
     <snippet>    public static function buildConfig($existingConfig, $autoloadDirectories, $ignoredPaths)</snippet>
     <selected_text>$autoloadDirectories</selected_text>
-    <from>2145</from>
-    <to>2165</to>
-    <snippet_from>2089</snippet_from>
-    <snippet_to>2181</snippet_to>
+    <from>2415</from>
+    <to>2435</to>
+    <snippet_from>2359</snippet_from>
+    <snippet_to>2451</snippet_to>
     <column_from>57</column_from>
     <column_to>77</column_to>
     <error_level>2</error_level>
@@ -3736,18 +4088,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>64</line_from>
-    <line_to>64</line_to>
+    <line_from>68</line_from>
+    <line_to>68</line_to>
     <type>MissingParamType</type>
     <message>Parameter $ignoredPaths has no provided type</message>
     <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
     <snippet>    public static function buildConfig($existingConfig, $autoloadDirectories, $ignoredPaths)</snippet>
     <selected_text>$ignoredPaths</selected_text>
-    <from>2167</from>
-    <to>2180</to>
-    <snippet_from>2089</snippet_from>
-    <snippet_to>2181</snippet_to>
+    <from>2437</from>
+    <to>2450</to>
+    <snippet_from>2359</snippet_from>
+    <snippet_to>2451</snippet_to>
     <column_from>79</column_from>
     <column_to>92</column_to>
     <error_level>2</error_level>
@@ -3758,42 +4110,20 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>91</line_from>
-    <line_to>91</line_to>
+    <line_from>95</line_from>
+    <line_to>95</line_to>
     <type>InvalidArrayOffset</type>
     <message>Cannot access value on variable $config['parameters'] using offset value of 'excludes_analyse', expecting 'autoload_directories' or 'excludePaths'</message>
     <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
     <snippet>        } elseif (isset($config['parameters']['excludes_analyse'])) {</snippet>
     <selected_text>$config['parameters']['excludes_analyse']</selected_text>
-    <from>3152</from>
-    <to>3193</to>
-    <snippet_from>3128</snippet_from>
-    <snippet_to>3197</snippet_to>
+    <from>3422</from>
+    <to>3463</to>
+    <snippet_from>3398</snippet_from>
+    <snippet_to>3467</snippet_to>
     <column_from>25</column_from>
     <column_to>66</column_to>
-    <error_level>6</error_level>
-    <shortcode>115</shortcode>
-    <link>https://psalm.dev/115</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>93</line_from>
-    <line_to>93</line_to>
-    <type>InvalidArrayOffset</type>
-    <message>Cannot access value on variable $config['parameters'] using offset value of 'excludes_analyse', expecting 'autoload_directories' or 'excludePaths'</message>
-    <file_name>src/Tools/Analyzer/Phpstan.php</file_name>
-    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php</file_path>
-    <snippet>                $config['parameters']['excludes_analyse'],</snippet>
-    <selected_text>$config['parameters']['excludes_analyse']</selected_text>
-    <from>3283</from>
-    <to>3324</to>
-    <snippet_from>3267</snippet_from>
-    <snippet_to>3325</snippet_to>
-    <column_from>17</column_from>
-    <column_to>58</column_to>
     <error_level>6</error_level>
     <shortcode>115</shortcode>
     <link>https://psalm.dev/115</link>
@@ -3849,7 +4179,7 @@
     <line_from>34</line_from>
     <line_to>34</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Tools\Analyzer\Phpunit::getFile does not have a return type, expecting array{non-empty-string, non-empty-string|null}</message>
+    <message>Method Edge\QA\Tools\Analyzer\Phpunit::getFile does not have a return type, expecting list{non-empty-string, non-empty-string|null}</message>
     <file_name>src/Tools/Analyzer/Phpunit.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Phpunit.php</file_path>
     <snippet>    private function getFile($report, $format)</snippet>
@@ -3942,10 +4272,10 @@
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php</file_path>
     <snippet>    private function updateProjectFiles($rawXml)</snippet>
     <selected_text>updateProjectFiles</selected_text>
-    <from>1566</from>
-    <to>1584</to>
-    <snippet_from>1545</snippet_from>
-    <snippet_to>1593</snippet_to>
+    <from>1565</from>
+    <to>1583</to>
+    <snippet_from>1544</snippet_from>
+    <snippet_to>1592</snippet_to>
     <column_from>22</column_from>
     <column_to>40</column_to>
     <error_level>2</error_level>
@@ -3964,15 +4294,103 @@
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php</file_path>
     <snippet>    private function updateProjectFiles($rawXml)</snippet>
     <selected_text>$rawXml</selected_text>
-    <from>1585</from>
-    <to>1592</to>
-    <snippet_from>1545</snippet_from>
-    <snippet_to>1593</snippet_to>
+    <from>1584</from>
+    <to>1591</to>
+    <snippet_from>1544</snippet_from>
+    <snippet_to>1592</snippet_to>
     <column_from>41</column_from>
     <column_to>48</column_to>
     <error_level>2</error_level>
     <shortcode>154</shortcode>
     <link>https://psalm.dev/154</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>58</line_from>
+    <line_to>58</line_to>
+    <type>TypeDoesNotContainType</type>
+    <message>Cannot resolve types for $xml-&gt;projectFiles with type SimpleXMLElement and !isset assertion</message>
+    <file_name>src/Tools/Analyzer/Psalm.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php</file_path>
+    <snippet>        if (!isset($xml-&gt;projectFiles)) {</snippet>
+    <selected_text>isset($xml-&gt;projectFiles)</selected_text>
+    <from>1873</from>
+    <to>1898</to>
+    <snippet_from>1860</snippet_from>
+    <snippet_to>1901</snippet_to>
+    <column_from>14</column_from>
+    <column_to>39</column_to>
+    <error_level>4</error_level>
+    <shortcode>56</shortcode>
+    <link>https://psalm.dev/056</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>61</line_from>
+    <line_to>61</line_to>
+    <type>TypeDoesNotContainType</type>
+    <message>Cannot resolve types for $xml-&gt;projectFiles-&gt;ignoreFiles with type SimpleXMLElement and !isset assertion</message>
+    <file_name>src/Tools/Analyzer/Psalm.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php</file_path>
+    <snippet>        if (!isset($xml-&gt;projectFiles-&gt;ignoreFiles)) {</snippet>
+    <selected_text>isset($xml-&gt;projectFiles-&gt;ignoreFiles)</selected_text>
+    <from>1969</from>
+    <to>2007</to>
+    <snippet_from>1956</snippet_from>
+    <snippet_to>2010</snippet_to>
+    <column_from>14</column_from>
+    <column_to>52</column_to>
+    <error_level>4</error_level>
+    <shortcode>56</shortcode>
+    <link>https://psalm.dev/056</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>68</line_from>
+    <line_to>68</line_to>
+    <type>PossiblyNullReference</type>
+    <message>Cannot call method addAttribute on possibly null value</message>
+    <file_name>src/Tools/Analyzer/Psalm.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php</file_path>
+    <snippet>                -&gt;addAttribute('name', trim($dir, '"'));</snippet>
+    <selected_text>addAttribute</selected_text>
+    <from>2230</from>
+    <to>2242</to>
+    <snippet_from>2212</snippet_from>
+    <snippet_to>2268</snippet_to>
+    <column_from>19</column_from>
+    <column_to>31</column_to>
+    <error_level>3</error_level>
+    <shortcode>83</shortcode>
+    <link>https://psalm.dev/083</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>75</line_from>
+    <line_to>75</line_to>
+    <type>PossiblyNullReference</type>
+    <message>Cannot call method addAttribute on possibly null value</message>
+    <file_name>src/Tools/Analyzer/Psalm.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php</file_path>
+    <snippet>                    -&gt;addAttribute('name', trim($path, '"'));</snippet>
+    <selected_text>addAttribute</selected_text>
+    <from>2499</from>
+    <to>2511</to>
+    <snippet_from>2477</snippet_from>
+    <snippet_to>2538</snippet_to>
+    <column_from>23</column_from>
+    <column_to>35</column_to>
+    <error_level>3</error_level>
+    <shortcode>83</shortcode>
+    <link>https://psalm.dev/083</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -3986,10 +4404,10 @@
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php</file_path>
     <snippet>    private function simpleXMLToPrettyString(SimpleXMLElement $xml)</snippet>
     <selected_text>simpleXMLToPrettyString</selected_text>
-    <from>2646</from>
-    <to>2669</to>
-    <snippet_from>2625</snippet_from>
-    <snippet_to>2692</snippet_to>
+    <from>2645</from>
+    <to>2668</to>
+    <snippet_from>2624</snippet_from>
+    <snippet_to>2691</snippet_to>
     <column_from>22</column_from>
     <column_to>45</column_to>
     <error_level>2</error_level>
@@ -4003,15 +4421,15 @@
     <line_from>87</line_from>
     <line_to>87</line_to>
     <type>ArgumentTypeCoercion</type>
-    <message>Argument 1 of DOMDocument::loadXML expects non-empty-string, parent type string provided</message>
+    <message>Argument 1 of DOMDocument::loadXML expects non-empty-string, but parent type string provided</message>
     <file_name>src/Tools/Analyzer/Psalm.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php</file_path>
     <snippet>        $dom-&gt;loadXML((string) $xml-&gt;asXML());</snippet>
     <selected_text>(string) $xml-&gt;asXML()</selected_text>
-    <from>2832</from>
-    <to>2854</to>
-    <snippet_from>2810</snippet_from>
-    <snippet_to>2856</snippet_to>
+    <from>2831</from>
+    <to>2853</to>
+    <snippet_from>2809</snippet_from>
+    <snippet_to>2855</snippet_to>
     <column_from>23</column_from>
     <column_to>45</column_to>
     <error_level>3</error_level>
@@ -4052,10 +4470,10 @@
     <file_path>/Users/www/zd/phpqa/src/Tools/Analyzer/SecurityChecker.php</file_path>
     <snippet>    private function detectComposerLock()</snippet>
     <selected_text>detectComposerLock</selected_text>
-    <from>686</from>
-    <to>704</to>
-    <snippet_from>665</snippet_from>
-    <snippet_to>706</snippet_to>
+    <from>713</from>
+    <to>731</to>
+    <snippet_from>692</snippet_from>
+    <snippet_to>733</snippet_to>
     <column_from>22</column_from>
     <column_to>40</column_to>
     <error_level>2</error_level>
@@ -4421,7 +4839,7 @@
     <line_from>148</line_from>
     <line_to>148</line_to>
     <type>ArgumentTypeCoercion</type>
-    <message>Argument 1 of method_exists expects class-string|object, parent type "Symfony\\Component\\Process\\Process" provided</message>
+    <message>Argument 1 of method_exists expects class-string|object, but parent type 'Symfony\\Component\\Process\\Process' provided</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>        if (method_exists('Symfony\Component\Process\Process', 'fromShellCommandline')) {</snippet>
@@ -4487,7 +4905,7 @@
     <line_from>171</line_from>
     <line_to>171</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Tools\GetVersions::normalizeSemver does not have a return type, expecting null|string</message>
+    <message>Method Edge\QA\Tools\GetVersions::normalizeSemver does not have a return type, expecting array&lt;array-key, string&gt;|null|string</message>
     <file_name>src/Tools/GetVersions.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/GetVersions.php</file_path>
     <snippet>    public static function normalizeSemver($semver)</snippet>
@@ -4611,6 +5029,50 @@
     <error_level>2</error_level>
     <shortcode>154</shortcode>
     <link>https://psalm.dev/154</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>178</line_from>
+    <line_to>178</line_to>
+    <type>PossiblyInvalidCast</type>
+    <message>array&lt;array-key, string&gt; cannot be cast to string</message>
+    <file_name>src/Tools/GetVersions.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/GetVersions.php</file_path>
+    <snippet>        return $toolVersion &amp;&amp; version_compare(str_replace(".x", "", $toolVersion), $version, $operator);</snippet>
+    <selected_text>str_replace(".x", "", $toolVersion)</selected_text>
+    <from>6215</from>
+    <to>6250</to>
+    <snippet_from>6168</snippet_from>
+    <snippet_to>6273</snippet_to>
+    <column_from>48</column_from>
+    <column_to>83</column_to>
+    <error_level>3</error_level>
+    <shortcode>190</shortcode>
+    <link>https://psalm.dev/190</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>178</line_from>
+    <line_to>178</line_to>
+    <type>PossiblyInvalidArgument</type>
+    <message>Argument 1 of version_compare expects string, but possibly different type array&lt;array-key, string&gt;|string provided</message>
+    <file_name>src/Tools/GetVersions.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/Tools/GetVersions.php</file_path>
+    <snippet>        return $toolVersion &amp;&amp; version_compare(str_replace(".x", "", $toolVersion), $version, $operator);</snippet>
+    <selected_text>str_replace(".x", "", $toolVersion)</selected_text>
+    <from>6215</from>
+    <to>6250</to>
+    <snippet_from>6168</snippet_from>
+    <snippet_to>6273</snippet_to>
+    <column_from>48</column_from>
+    <column_to>83</column_to>
+    <error_level>3</error_level>
+    <shortcode>92</shortcode>
+    <link>https://psalm.dev/092</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -4883,7 +5345,7 @@
     <line_from>13</line_from>
     <line_to>13</line_to>
     <type>MissingPropertyType</type>
-    <message>Property Edge\QA\Tools\Tools::$selectedTools does not have a declared type - consider mixed|null</message>
+    <message>Property Edge\QA\Tools\Tools::$selectedTools does not have a declared type</message>
     <file_name>src/Tools/Tools.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/Tools.php</file_path>
     <snippet>    private $selectedTools;</snippet>
@@ -5015,7 +5477,7 @@
     <line_from>30</line_from>
     <line_to>30</line_to>
     <type>ArgumentTypeCoercion</type>
-    <message>Argument 2 of is_subclass_of expects class-string, parent type "Edge\\QA\\Tools\\Tool" provided</message>
+    <message>Argument 2 of is_subclass_of expects class-string, but parent type 'Edge\\QA\\Tools\\Tool' provided</message>
     <file_name>src/Tools/Tools.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/Tools.php</file_path>
     <snippet>                    if (!is_subclass_of($handler, $abstractTool)) {</snippet>
@@ -5125,7 +5587,7 @@
     <line_from>75</line_from>
     <line_to>75</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Tools\Tools::buildCommand does not have a return type, expecting array{mixed, mixed}</message>
+    <message>Method Edge\QA\Tools\Tools::buildCommand does not have a return type, expecting list{mixed, mixed}</message>
     <file_name>src/Tools/Tools.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/Tools/Tools.php</file_path>
     <snippet>    public function buildCommand(RunningTool $tool, Options $o)</snippet>
@@ -5257,7 +5719,7 @@
     <line_from>1</line_from>
     <line_to>1</line_to>
     <type>RedundantCondition</type>
-    <message>Operand of type true is always true</message>
+    <message>Operand of type true is always truthy</message>
     <file_name>src/invalid/new-feature.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/invalid/new-feature.php</file_path>
     <snippet>?php if (true): ?&gt;</snippet>
@@ -5279,7 +5741,7 @@
     <line_from>2</line_from>
     <line_to>2</line_to>
     <type>RedundantCondition</type>
-    <message>Operand of type true is always true</message>
+    <message>Operand of type true is always truthy</message>
     <file_name>src/invalid/new-feature.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/invalid/new-feature.php</file_path>
     <snippet>    &lt;?php if (true): ?&gt;</snippet>
@@ -5370,12 +5832,34 @@
     <message>Const COMPOSER_BINARY_DIR is not defined</message>
     <file_name>src/paths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/paths.php</file_path>
-    <snippet>    return buildSafeBinary($customBinary ?: (COMPOSER_BINARY_DIR . $tool));</snippet>
+    <snippet>    $composerBinaryName = file_exists(COMPOSER_BINARY_DIR . "{$tool}.phar") ? "{$tool}.phar" : $tool;</snippet>
     <selected_text>COMPOSER_BINARY_DIR</selected_text>
-    <from>128</from>
-    <to>147</to>
+    <from>121</from>
+    <to>140</to>
     <snippet_from>83</snippet_from>
-    <snippet_to>158</snippet_to>
+    <snippet_to>184</snippet_to>
+    <column_from>39</column_from>
+    <column_to>58</column_to>
+    <error_level>-1</error_level>
+    <shortcode>20</shortcode>
+    <link>https://psalm.dev/020</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>8</line_from>
+    <line_to>8</line_to>
+    <type>UndefinedConstant</type>
+    <message>Const COMPOSER_BINARY_DIR is not defined</message>
+    <file_name>src/paths.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/paths.php</file_path>
+    <snippet>    return buildSafeBinary($customBinary ?: (COMPOSER_BINARY_DIR . $composerBinaryName));</snippet>
+    <selected_text>COMPOSER_BINARY_DIR</selected_text>
+    <from>230</from>
+    <to>249</to>
+    <snippet_from>185</snippet_from>
+    <snippet_to>274</snippet_to>
     <column_from>46</column_from>
     <column_to>65</column_to>
     <error_level>-1</error_level>
@@ -5386,18 +5870,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>10</line_from>
-    <line_to>10</line_to>
+    <line_from>11</line_from>
+    <line_to>11</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\buildSafeBinary does not have a return type</message>
     <file_name>src/paths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/paths.php</file_path>
     <snippet>function buildSafeBinary($unsafeBinary)</snippet>
     <selected_text>buildSafeBinary</selected_text>
-    <from>171</from>
-    <to>186</to>
-    <snippet_from>162</snippet_from>
-    <snippet_to>201</snippet_to>
+    <from>287</from>
+    <to>302</to>
+    <snippet_from>278</snippet_from>
+    <snippet_to>317</snippet_to>
     <column_from>10</column_from>
     <column_to>25</column_to>
     <error_level>2</error_level>
@@ -5408,18 +5892,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>10</line_from>
-    <line_to>10</line_to>
+    <line_from>11</line_from>
+    <line_to>11</line_to>
     <type>MissingParamType</type>
     <message>Parameter $unsafeBinary has no provided type</message>
     <file_name>src/paths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/paths.php</file_path>
     <snippet>function buildSafeBinary($unsafeBinary)</snippet>
     <selected_text>$unsafeBinary</selected_text>
-    <from>187</from>
-    <to>200</to>
-    <snippet_from>162</snippet_from>
-    <snippet_to>201</snippet_to>
+    <from>303</from>
+    <to>316</to>
+    <snippet_from>278</snippet_from>
+    <snippet_to>317</snippet_to>
     <column_from>26</column_from>
     <column_to>39</column_to>
     <error_level>2</error_level>
@@ -5430,18 +5914,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>21</line_from>
-    <line_to>21</line_to>
+    <line_from>22</line_from>
+    <line_to>22</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\escapePath does not have a return type, expecting non-empty-string</message>
     <file_name>src/paths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/paths.php</file_path>
     <snippet>function escapePath($path)</snippet>
     <selected_text>escapePath</selected_text>
-    <from>446</from>
-    <to>456</to>
-    <snippet_from>437</snippet_from>
-    <snippet_to>463</snippet_to>
+    <from>565</from>
+    <to>575</to>
+    <snippet_from>556</snippet_from>
+    <snippet_to>582</snippet_to>
     <column_from>10</column_from>
     <column_to>20</column_to>
     <error_level>2</error_level>
@@ -5452,18 +5936,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>21</line_from>
-    <line_to>21</line_to>
+    <line_from>22</line_from>
+    <line_to>22</line_to>
     <type>MissingParamType</type>
     <message>Parameter $path has no provided type</message>
     <file_name>src/paths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/paths.php</file_path>
     <snippet>function escapePath($path)</snippet>
     <selected_text>$path</selected_text>
-    <from>457</from>
-    <to>462</to>
-    <snippet_from>437</snippet_from>
-    <snippet_to>463</snippet_to>
+    <from>576</from>
+    <to>581</to>
+    <snippet_from>556</snippet_from>
+    <snippet_to>582</snippet_to>
     <column_from>21</column_from>
     <column_to>26</column_to>
     <error_level>2</error_level>
@@ -5474,18 +5958,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>26</line_from>
-    <line_to>26</line_to>
+    <line_from>27</line_from>
+    <line_to>27</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\commonPath does not have a return type, expecting null|string</message>
     <file_name>src/paths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/paths.php</file_path>
     <snippet>function commonPath(array $dirsOrFiles)</snippet>
     <selected_text>commonPath</selected_text>
-    <from>504</from>
-    <to>514</to>
-    <snippet_from>495</snippet_from>
-    <snippet_to>534</snippet_to>
+    <from>623</from>
+    <to>633</to>
+    <snippet_from>614</snippet_from>
+    <snippet_to>653</snippet_to>
     <column_from>10</column_from>
     <column_to>20</column_to>
     <error_level>2</error_level>
@@ -5496,18 +5980,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>47</line_from>
-    <line_to>47</line_to>
+    <line_from>48</line_from>
+    <line_to>48</line_to>
     <type>PossiblyInvalidArgument</type>
-    <message>Argument 1 of array_slice expects array&lt;array-key, mixed&gt;, possibly different type non-empty-list&lt;string&gt;|string provided</message>
+    <message>Argument 1 of array_slice expects array&lt;array-key, mixed&gt;, but possibly different type non-empty-list&lt;string&gt;|string provided</message>
     <file_name>src/paths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/paths.php</file_path>
     <snippet>        $dirs[$i] = $firstSlash . implode(DIRECTORY_SEPARATOR, array_slice($dirs[$i], 0, $minDirsCount));</snippet>
     <selected_text>$dirs[$i]</selected_text>
-    <from>1216</from>
-    <to>1225</to>
-    <snippet_from>1141</snippet_from>
-    <snippet_to>1246</snippet_to>
+    <from>1335</from>
+    <to>1344</to>
+    <snippet_from>1260</snippet_from>
+    <snippet_to>1365</snippet_to>
     <column_from>76</column_from>
     <column_to>85</column_to>
     <error_level>3</error_level>
@@ -5518,18 +6002,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>52</line_from>
-    <line_to>52</line_to>
+    <line_from>53</line_from>
+    <line_to>53</line_to>
     <type>PossiblyInvalidCast</type>
     <message>non-empty-list&lt;string&gt; cannot be cast to string</message>
     <file_name>src/paths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/paths.php</file_path>
     <snippet>        $commonDirs = array_unique(array_map('dirname', $commonDirs));</snippet>
     <selected_text>$commonDirs</selected_text>
-    <from>1388</from>
-    <to>1399</to>
-    <snippet_from>1332</snippet_from>
-    <snippet_to>1402</snippet_to>
+    <from>1507</from>
+    <to>1518</to>
+    <snippet_from>1451</snippet_from>
+    <snippet_to>1521</snippet_to>
     <column_from>57</column_from>
     <column_to>68</column_to>
     <error_level>3</error_level>
@@ -5540,18 +6024,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>52</line_from>
-    <line_to>52</line_to>
+    <line_from>53</line_from>
+    <line_to>53</line_to>
     <type>PossiblyInvalidArgument</type>
-    <message>Argument 1 of dirname expects string, possibly different type non-empty-list&lt;string&gt;|string provided</message>
+    <message>Argument 1 of dirname expects string, but possibly different type non-empty-list&lt;string&gt;|string provided</message>
     <file_name>src/paths.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/paths.php</file_path>
     <snippet>        $commonDirs = array_unique(array_map('dirname', $commonDirs));</snippet>
     <selected_text>$commonDirs</selected_text>
-    <from>1388</from>
-    <to>1399</to>
-    <snippet_from>1332</snippet_from>
-    <snippet_to>1402</snippet_to>
+    <from>1507</from>
+    <to>1518</to>
+    <snippet_from>1451</snippet_from>
+    <snippet_to>1521</snippet_to>
     <column_from>57</column_from>
     <column_to>68</column_to>
     <error_level>3</error_level>
@@ -5719,7 +6203,7 @@
     <line_from>54</line_from>
     <line_to>54</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\xmlXpaths does not have a return type, expecting array{int, string}</message>
+    <message>Method Edge\QA\xmlXpaths does not have a return type, expecting list{int&lt;0, max&gt;, string}</message>
     <file_name>src/report.php</file_name>
     <file_path>/Users/www/zd/phpqa/src/report.php</file_path>
     <snippet>function xmlXpaths($xmlFile, array $xpathQueries)</snippet>
@@ -5759,6 +6243,28 @@
     <other_references></other_references>
   </item>
   <item>
+    <severity>error</severity>
+    <line_from>61</line_from>
+    <line_to>61</line_to>
+    <type>PossiblyNullArgument</type>
+    <message>Argument 1 of count cannot be null, possibly null value provided</message>
+    <file_name>src/report.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/report.php</file_path>
+    <snippet>            $matchedElements += count($xml-&gt;xpath($xpathQuery));</snippet>
+    <selected_text>$xml-&gt;xpath($xpathQuery)</selected_text>
+    <from>1744</from>
+    <to>1768</to>
+    <snippet_from>1706</snippet_from>
+    <snippet_to>1770</snippet_to>
+    <column_from>39</column_from>
+    <column_to>63</column_to>
+    <error_level>3</error_level>
+    <shortcode>78</shortcode>
+    <link>https://psalm.dev/078</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
     <severity>info</severity>
     <line_from>69</line_from>
     <line_to>69</line_to>
@@ -5777,6 +6283,28 @@
     <error_level>2</error_level>
     <shortcode>50</shortcode>
     <link>https://psalm.dev/050</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>error</severity>
+    <line_from>73</line_from>
+    <line_to>73</line_to>
+    <type>PossiblyInvalidArgument</type>
+    <message>Argument 1 of set_error_handler expects callable(int, string, string=, int=, array&lt;array-key, mixed&gt;=):bool|null, but possibly different type impure-callable(mixed, mixed, mixed, mixed) provided</message>
+    <file_name>src/report.php</file_name>
+    <file_path>/Users/www/zd/phpqa/src/report.php</file_path>
+    <snippet>        set_error_handler('Edge\QA\phpErrorToException');</snippet>
+    <selected_text>'Edge\QA\phpErrorToException'</selected_text>
+    <from>2020</from>
+    <to>2049</to>
+    <snippet_from>1994</snippet_from>
+    <snippet_to>2051</snippet_to>
+    <column_from>27</column_from>
+    <column_to>56</column_to>
+    <error_level>3</error_level>
+    <shortcode>92</shortcode>
+    <link>https://psalm.dev/092</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -5914,50 +6442,6 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>6</line_from>
-    <line_to>6</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\ConfigTest::$backupStaticAttributes is not defined in constructor of Edge\QA\ConfigTest or in any methods called in the constructor</message>
-    <file_name>tests/Config/ConfigTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
-    <snippet>class ConfigTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>ConfigTest</selected_text>
-    <from>86</from>
-    <to>96</to>
-    <snippet_from>80</snippet_from>
-    <snippet_to>132</snippet_to>
-    <column_from>7</column_from>
-    <column_to>17</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>6</line_from>
-    <line_to>6</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\ConfigTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\ConfigTest or in any methods called in the constructor</message>
-    <file_name>tests/Config/ConfigTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
-    <snippet>class ConfigTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>ConfigTest</selected_text>
-    <from>86</from>
-    <to>96</to>
-    <snippet_from>80</snippet_from>
-    <snippet_to>132</snippet_to>
-    <column_from>7</column_from>
-    <column_to>17</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
     <line_from>8</line_from>
     <line_to>8</line_to>
     <type>MissingPropertyType</type>
@@ -6002,18 +6486,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>44</line_from>
-    <line_to>44</line_to>
+    <line_from>46</line_from>
+    <line_to>46</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testBuildAbsolutePath does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testBuildAbsolutePath()</snippet>
     <selected_text>testBuildAbsolutePath</selected_text>
-    <from>2484</from>
-    <to>2505</to>
-    <snippet_from>2464</snippet_from>
-    <snippet_to>2507</snippet_to>
+    <from>2634</from>
+    <to>2655</to>
+    <snippet_from>2614</snippet_from>
+    <snippet_to>2657</snippet_to>
     <column_from>21</column_from>
     <column_to>42</column_to>
     <error_level>2</error_level>
@@ -6024,18 +6508,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>50</line_from>
-    <line_to>50</line_to>
+    <line_from>52</line_from>
+    <line_to>52</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testOverrideDefaultConfig does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testOverrideDefaultConfig()</snippet>
     <selected_text>testOverrideDefaultConfig</selected_text>
-    <from>2651</from>
-    <to>2676</to>
-    <snippet_from>2631</snippet_from>
-    <snippet_to>2678</snippet_to>
+    <from>2801</from>
+    <to>2826</to>
+    <snippet_from>2781</snippet_from>
+    <snippet_to>2828</snippet_to>
     <column_from>21</column_from>
     <column_to>46</column_to>
     <error_level>2</error_level>
@@ -6046,18 +6530,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>60</line_from>
-    <line_to>60</line_to>
+    <line_from>62</line_from>
+    <line_to>62</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testAllowPartialUpdateOfTools does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testAllowPartialUpdateOfTools()</snippet>
     <selected_text>testAllowPartialUpdateOfTools</selected_text>
-    <from>3086</from>
-    <to>3115</to>
-    <snippet_from>3066</snippet_from>
-    <snippet_to>3117</snippet_to>
+    <from>3236</from>
+    <to>3265</to>
+    <snippet_from>3216</snippet_from>
+    <snippet_to>3267</snippet_to>
     <column_from>21</column_from>
     <column_to>50</column_to>
     <error_level>2</error_level>
@@ -6068,18 +6552,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>70</line_from>
-    <line_to>70</line_to>
+    <line_from>72</line_from>
+    <line_to>72</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testIgnoreNonExistentUserConfig does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testIgnoreNonExistentUserConfig()</snippet>
     <selected_text>testIgnoreNonExistentUserConfig</selected_text>
-    <from>3561</from>
-    <to>3592</to>
-    <snippet_from>3541</snippet_from>
-    <snippet_to>3594</snippet_to>
+    <from>3711</from>
+    <to>3742</to>
+    <snippet_from>3691</snippet_from>
+    <snippet_to>3744</snippet_to>
     <column_from>21</column_from>
     <column_to>52</column_to>
     <error_level>2</error_level>
@@ -6090,18 +6574,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>78</line_from>
-    <line_to>78</line_to>
+    <line_from>80</line_from>
+    <line_to>80</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testNoExceptionWhenCwdHasNoConfig does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testNoExceptionWhenCwdHasNoConfig()</snippet>
     <selected_text>testNoExceptionWhenCwdHasNoConfig</selected_text>
-    <from>3804</from>
-    <to>3837</to>
-    <snippet_from>3784</snippet_from>
-    <snippet_to>3839</snippet_to>
+    <from>3954</from>
+    <to>3987</to>
+    <snippet_from>3934</snippet_from>
+    <snippet_to>3989</snippet_to>
     <column_from>21</column_from>
     <column_to>54</column_to>
     <error_level>2</error_level>
@@ -6112,18 +6596,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>85</line_from>
-    <line_to>85</line_to>
+    <line_from>87</line_from>
+    <line_to>87</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testThrowExceptionWhenFileDoesNotExist does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testThrowExceptionWhenFileDoesNotExist()</snippet>
     <selected_text>testThrowExceptionWhenFileDoesNotExist</selected_text>
-    <from>4017</from>
-    <to>4055</to>
-    <snippet_from>3997</snippet_from>
-    <snippet_to>4057</snippet_to>
+    <from>4167</from>
+    <to>4205</to>
+    <snippet_from>4147</snippet_from>
+    <snippet_to>4207</snippet_to>
     <column_from>21</column_from>
     <column_to>59</column_to>
     <error_level>2</error_level>
@@ -6134,18 +6618,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>93</line_from>
-    <line_to>93</line_to>
+    <line_from>95</line_from>
+    <line_to>95</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testConfigCsvString does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testConfigCsvString()</snippet>
     <selected_text>testConfigCsvString</selected_text>
-    <from>4240</from>
-    <to>4259</to>
-    <snippet_from>4220</snippet_from>
-    <snippet_to>4261</snippet_to>
+    <from>4390</from>
+    <to>4409</to>
+    <snippet_from>4370</snippet_from>
+    <snippet_to>4411</snippet_to>
     <column_from>21</column_from>
     <column_to>40</column_to>
     <error_level>2</error_level>
@@ -6156,18 +6640,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>101</line_from>
-    <line_to>101</line_to>
+    <line_from>103</line_from>
+    <line_to>103</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testUseCwdIfNoDirectoryIsSpecified does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testUseCwdIfNoDirectoryIsSpecified()</snippet>
     <selected_text>testUseCwdIfNoDirectoryIsSpecified</selected_text>
-    <from>4485</from>
-    <to>4519</to>
-    <snippet_from>4465</snippet_from>
-    <snippet_to>4521</snippet_to>
+    <from>4635</from>
+    <to>4669</to>
+    <snippet_from>4615</snippet_from>
+    <snippet_to>4671</snippet_to>
     <column_from>21</column_from>
     <column_to>55</column_to>
     <error_level>2</error_level>
@@ -6178,18 +6662,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>107</line_from>
-    <line_to>107</line_to>
+    <line_from>109</line_from>
+    <line_to>109</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testIgnoreInvalidBinaryDoesNotExist does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testIgnoreInvalidBinaryDoesNotExist()</snippet>
     <selected_text>testIgnoreInvalidBinaryDoesNotExist</selected_text>
-    <from>4624</from>
-    <to>4659</to>
-    <snippet_from>4604</snippet_from>
-    <snippet_to>4661</snippet_to>
+    <from>4774</from>
+    <to>4809</to>
+    <snippet_from>4754</snippet_from>
+    <snippet_to>4811</snippet_to>
     <column_from>21</column_from>
     <column_to>56</column_to>
     <error_level>2</error_level>
@@ -6200,18 +6684,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>114</line_from>
-    <line_to>114</line_to>
+    <line_from>116</line_from>
+    <line_to>116</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testToolAndBinaryNameMightNotMatch does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testToolAndBinaryNameMightNotMatch()</snippet>
     <selected_text>testToolAndBinaryNameMightNotMatch</selected_text>
-    <from>4843</from>
-    <to>4877</to>
-    <snippet_from>4823</snippet_from>
-    <snippet_to>4879</snippet_to>
+    <from>4993</from>
+    <to>5027</to>
+    <snippet_from>4973</snippet_from>
+    <snippet_to>5029</snippet_to>
     <column_from>21</column_from>
     <column_to>55</column_to>
     <error_level>2</error_level>
@@ -6222,18 +6706,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>121</line_from>
-    <line_to>121</line_to>
+    <line_from>123</line_from>
+    <line_to>123</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testMultipleConfig does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testMultipleConfig()</snippet>
     <selected_text>testMultipleConfig</selected_text>
-    <from>5067</from>
-    <to>5085</to>
-    <snippet_from>5047</snippet_from>
-    <snippet_to>5087</snippet_to>
+    <from>5217</from>
+    <to>5235</to>
+    <snippet_from>5197</snippet_from>
+    <snippet_to>5237</snippet_to>
     <column_from>21</column_from>
     <column_to>39</column_to>
     <error_level>2</error_level>
@@ -6244,18 +6728,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>132</line_from>
-    <line_to>132</line_to>
+    <line_from>134</line_from>
+    <line_to>134</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testAutodetectConfigInCurrentDirectory does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testAutodetectConfigInCurrentDirectory()</snippet>
     <selected_text>testAutodetectConfigInCurrentDirectory</selected_text>
-    <from>5500</from>
-    <to>5538</to>
-    <snippet_from>5480</snippet_from>
-    <snippet_to>5540</snippet_to>
+    <from>5650</from>
+    <to>5688</to>
+    <snippet_from>5630</snippet_from>
+    <snippet_to>5690</snippet_to>
     <column_from>21</column_from>
     <column_to>59</column_to>
     <error_level>2</error_level>
@@ -6266,18 +6750,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>139</line_from>
-    <line_to>139</line_to>
+    <line_from>141</line_from>
+    <line_to>141</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::testIgnoreAutodetectedConfigIfUserConfigIsSpecified does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    public function testIgnoreAutodetectedConfigIfUserConfigIsSpecified()</snippet>
     <selected_text>testIgnoreAutodetectedConfigIfUserConfigIsSpecified</selected_text>
-    <from>5716</from>
-    <to>5767</to>
-    <snippet_from>5696</snippet_from>
-    <snippet_to>5769</snippet_to>
+    <from>5866</from>
+    <to>5917</to>
+    <snippet_from>5846</snippet_from>
+    <snippet_to>5919</snippet_to>
     <column_from>21</column_from>
     <column_to>72</column_to>
     <error_level>2</error_level>
@@ -6288,18 +6772,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>147</line_from>
-    <line_to>147</line_to>
+    <line_from>149</line_from>
+    <line_to>149</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\ConfigTest::shouldStopPhpqa does not have a return type, expecting void</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>    private function shouldStopPhpqa()</snippet>
     <selected_text>shouldStopPhpqa</selected_text>
-    <from>6020</from>
-    <to>6035</to>
-    <snippet_from>5999</snippet_from>
-    <snippet_to>6037</snippet_to>
+    <from>6170</from>
+    <to>6185</to>
+    <snippet_from>6149</snippet_from>
+    <snippet_to>6187</snippet_to>
     <column_from>22</column_from>
     <column_to>37</column_to>
     <error_level>2</error_level>
@@ -6310,18 +6794,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>152</line_from>
-    <line_to>152</line_to>
+    <line_from>154</line_from>
+    <line_to>154</line_to>
     <type>ReservedWord</type>
     <message>void is a reserved word</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>            $this-&gt;expectException('Exception');</snippet>
     <selected_text>$this-&gt;expectException('Exception')</selected_text>
-    <from>6187</from>
-    <to>6222</to>
-    <snippet_from>6175</snippet_from>
-    <snippet_to>6223</snippet_to>
+    <from>6337</from>
+    <to>6372</to>
+    <snippet_from>6325</snippet_from>
+    <snippet_to>6373</snippet_to>
     <column_from>13</column_from>
     <column_to>48</column_to>
     <error_level>7</error_level>
@@ -6332,18 +6816,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>152</line_from>
-    <line_to>152</line_to>
+    <line_from>154</line_from>
+    <line_to>154</line_to>
     <type>ArgumentTypeCoercion</type>
-    <message>Argument 1 of Edge\QA\ConfigTest::expectException expects class-string&lt;Throwable&gt;, parent type "Exception" provided</message>
+    <message>Argument 1 of Edge\QA\ConfigTest::expectException expects class-string&lt;Throwable&gt;, but parent type 'Exception' provided</message>
     <file_name>tests/Config/ConfigTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Config/ConfigTest.php</file_path>
     <snippet>            $this-&gt;expectException('Exception');</snippet>
     <selected_text>'Exception'</selected_text>
-    <from>6210</from>
-    <to>6221</to>
-    <snippet_from>6175</snippet_from>
-    <snippet_to>6223</snippet_to>
+    <from>6360</from>
+    <to>6371</to>
+    <snippet_from>6325</snippet_from>
+    <snippet_to>6373</snippet_to>
     <column_from>36</column_from>
     <column_to>47</column_to>
     <error_level>3</error_level>
@@ -6371,50 +6855,6 @@
     <error_level>-2</error_level>
     <shortcode>75</shortcode>
     <link>https://psalm.dev/075</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>5</line_from>
-    <line_to>5</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\Tools\GetVersionsTest::$backupStaticAttributes is not defined in constructor of Edge\QA\Tools\GetVersionsTest or in any methods called in the constructor</message>
-    <file_name>tests/GetVersionsTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/GetVersionsTest.php</file_path>
-    <snippet>class GetVersionsTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>GetVersionsTest</selected_text>
-    <from>39</from>
-    <to>54</to>
-    <snippet_from>33</snippet_from>
-    <snippet_to>90</snippet_to>
-    <column_from>7</column_from>
-    <column_to>22</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>5</line_from>
-    <line_to>5</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\Tools\GetVersionsTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\Tools\GetVersionsTest or in any methods called in the constructor</message>
-    <file_name>tests/GetVersionsTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/GetVersionsTest.php</file_path>
-    <snippet>class GetVersionsTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>GetVersionsTest</selected_text>
-    <from>39</from>
-    <to>54</to>
-    <snippet_from>33</snippet_from>
-    <snippet_to>90</snippet_to>
-    <column_from>7</column_from>
-    <column_to>22</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -6489,7 +6929,7 @@
     <line_from>13</line_from>
     <line_to>13</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Tools\GetVersionsTest::provideComposerVersion does not have a return type, expecting array{'full semver': array{"2.7.4", "2.7.4"}, 'major release': array{"2.0.0", "2.0"}, 'minor release': array{"2.7.0", "2.7"}}</message>
+    <message>Method Edge\QA\Tools\GetVersionsTest::provideComposerVersion does not have a return type, expecting array{'full semver': list{'2.7.4', '2.7.4'}, 'major release': list{'2.0.0', '2.0'}, 'minor release': list{'2.7.0', '2.7'}}</message>
     <file_name>tests/GetVersionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/GetVersionsTest.php</file_path>
     <snippet>    public function provideComposerVersion()</snippet>
@@ -6577,7 +7017,7 @@
     <line_from>28</line_from>
     <line_to>28</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Tools\GetVersionsTest::provideCliVersion does not have a return type, expecting array{'custom format': array{"irrelevant v1.10", "1.10"}, 'dev version': array{"irrelevant 4.x-dev@", "4.x"}, 'no space': array{"v1.13.7irrelevant", "1.13.7"}, 'no version': array{"irrelevant text", "irrelevant text"}, 'prefer semver (dev + semver)': array{"4.x-dev@ v1.13.7", "1.13.7"}, 'prefer semver (semver + dev)': array{"v1.13.7 4.x-dev@", "1.13.7"}, 'semver at 2nd line': array{"first\nirrele 4.8.36 vant\nsecond", "4.8.36"}, 'semver at the end': array{"irrelevant 0.12.86", "0.12.86"}, 'semver at the start': array{"0.12.86 irrelevant", "0.12.86"}}</message>
+    <message>Method Edge\QA\Tools\GetVersionsTest::provideCliVersion does not have a return type, expecting array{'custom format': list{'irrelevant v1.10', '1.10'}, 'dev version': list{'irrelevant 4.x-dev@', '4.x'}, 'no space': list{'v1.13.7irrelevant', '1.13.7'}, 'no version': list{'irrelevant text', 'irrelevant text'}, 'prefer semver (dev + semver)': list{'4.x-dev@ v1.13.7', '1.13.7'}, 'prefer semver (semver + dev)': list{'v1.13.7 4.x-dev@', '1.13.7'}, 'semver at 2nd line': list{'first\nirrele 4.8.36 vant\nsecond', '4.8.36'}, 'semver at the end': list{'irrelevant 0.12.86', '0.12.86'}, 'semver at the start': list{'0.12.86 irrelevant', '0.12.86'}}</message>
     <file_name>tests/GetVersionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/GetVersionsTest.php</file_path>
     <snippet>    public function provideCliVersion()</snippet>
@@ -6709,7 +7149,7 @@
     <line_from>49</line_from>
     <line_to>49</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Tools\GetVersionsTest::provideComparedVersions does not have a return type, expecting array{'dev version is greater than': array{"4.x", "&gt;=", "4", true}, 'is greater than dev version': array{"4", "&gt;=", "4.x", true}, 'is lower?': array{"7", "&lt;", "6", false}, 'no version': array{"", "&gt;", "1", false}, 'semver is greater than': array{"4.1", "&gt;=", "4", true}}</message>
+    <message>Method Edge\QA\Tools\GetVersionsTest::provideComparedVersions does not have a return type, expecting array{'dev version is greater than': list{'4.x', '&gt;=', '4', true}, 'is greater than dev version': list{'4', '&gt;=', '4.x', true}, 'is lower?': list{'7', '&lt;', '6', false}, 'no version': list{'', '&gt;', '1', false}, 'semver is greater than': list{'4.1', '&gt;=', '4', true}}</message>
     <file_name>tests/GetVersionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/GetVersionsTest.php</file_path>
     <snippet>    public function provideComparedVersions()</snippet>
@@ -6723,50 +7163,6 @@
     <error_level>2</error_level>
     <shortcode>50</shortcode>
     <link>https://psalm.dev/050</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>5</line_from>
-    <line_to>5</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\IgnoredPathsTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\IgnoredPathsTest or in any methods called in the constructor</message>
-    <file_name>tests/IgnoredPathsTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/IgnoredPathsTest.php</file_path>
-    <snippet>class IgnoredPathsTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>IgnoredPathsTest</selected_text>
-    <from>33</from>
-    <to>49</to>
-    <snippet_from>27</snippet_from>
-    <snippet_to>85</snippet_to>
-    <column_from>7</column_from>
-    <column_to>23</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>5</line_from>
-    <line_to>5</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\IgnoredPathsTest::$backupStaticAttributes is not defined in constructor of Edge\QA\IgnoredPathsTest or in any methods called in the constructor</message>
-    <file_name>tests/IgnoredPathsTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/IgnoredPathsTest.php</file_path>
-    <snippet>class IgnoredPathsTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>IgnoredPathsTest</selected_text>
-    <from>33</from>
-    <to>49</to>
-    <snippet_from>27</snippet_from>
-    <snippet_to>85</snippet_to>
-    <column_from>7</column_from>
-    <column_to>23</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -7039,7 +7435,7 @@
     <line_from>40</line_from>
     <line_to>40</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\IgnoredPathsTest::provideTools does not have a return type, expecting array{'pdepend + windows': array{"pdepend", array{both: " --ignore=app\\config\\*,vendor\\*,autoload.php,RoboFile.php", dirs: " --ignore=app\\config\\*,vendor\\*", files: " --ignore=autoload.php,RoboFile.php"}, "Windows"}, 'phpmd + windows': array{"phpmd", array{both: " --exclude app\\config\\*,vendor\\*,autoload.php,RoboFile.php", dirs: " --exclude app\\config\\*,vendor\\*", files: " --exclude autoload.php,RoboFile.php"}, "WIN32"}, 0: array{"phpcs", array{both: " --ignore=*/app/config/*,*/vendor/*,autoload.php,RoboFile.php", dirs: " --ignore=*/app/config/*,*/vendor/*", files: " --ignore=autoload.php,RoboFile.php"}}, 1: array{"pdepend", array{both: " --ignore=/app/config/,/vendor/,/autoload.php,/RoboFile.php", dirs: " --ignore=/app/config/,/vendor/", files: " --ignore=/autoload.php,/RoboFile.php"}}, 2: array{"phpmd", array{both: " --exclude /app/config/,/vendor/,/autoload.php,/RoboFile.php", dirs: " --exclude /app/config/,/vendor/", files: " --exclude /autoload.php,/RoboFile.php"}}, 3: array{"phpmetrics", array{both: " --excluded-dirs=\"app/config|vendor|autoload.php|RoboFile.php\"", dirs: " --excluded-dirs=\"app/config|vendor\"", files: " --excluded-dirs=\"autoload.php|RoboFile.php\""}}, 4: array{"phpmetrics2", array{both: " --exclude=\"app/config,vendor,autoload.php,RoboFile.php\"", dirs: " --exclude=\"app/config,vendor\"", files: " --exclude=\"autoload.php,RoboFile.php\""}}, 5: array{"bergmann", array{both: " --exclude=app/config --exclude=vendor --exclude=autoload.php --exclude=RoboFile...", dirs: " --exclude=app/config --exclude=vendor", files: " --exclude=autoload.php --exclude=RoboFile.php"}}, 6: array{"parallelLint", array{both: " --exclude app/config --exclude vendor --exclude autoload.php --exclude RoboFile...", dirs: " --exclude app/config --exclude vendor", files: " --exclude autoload.php --exclude RoboFile.php"}}, 7: array{"psalm", array{both: array{directory: array{"app/config", "vendor"}, file: array{"autoload.php", "RoboFile.php"}}, dirs: array{directory: array{"app/config", "vendor"}, file: array&lt;empty, empty&gt;}, files: array{directory: array&lt;empty, empty&gt;, file: array{"autoload.php", "RoboFile.php"}}}}}</message>
+    <message>Method Edge\QA\IgnoredPathsTest::provideTools does not have a return type, expecting array{'pdepend + windows': list{'pdepend', array{both: ' --ignore=app\\config\\*,vendor\\*,autoload.php,RoboFile.php', dirs: ' --ignore=app\\config\\*,vendor\\*', files: ' --ignore=autoload.php,RoboFile.php'}, 'Windows'}, 'phpmd + windows': list{'phpmd', array{both: ' --exclude app\\config\\*,vendor\\*,autoload.php,RoboFile.php', dirs: ' --exclude app\\config\\*,vendor\\*', files: ' --exclude autoload.php,RoboFile.php'}, 'WIN32'}, 0: list{'phpcs', array{both: ' --ignore=*/app/config/*,*/vendor/*,autoload.php,RoboFile.php', dirs: ' --ignore=*/app/config/*,*/vendor/*', files: ' --ignore=autoload.php,RoboFile.php'}}, 1: list{'pdepend', array{both: ' --ignore=/app/config/,/vendor/,/autoload.php,/RoboFile.php', dirs: ' --ignore=/app/config/,/vendor/', files: ' --ignore=/autoload.php,/RoboFile.php'}}, 2: list{'phpmd', array{both: ' --exclude /app/config/,/vendor/,/autoload.php,/RoboFile.php', dirs: ' --exclude /app/config/,/vendor/', files: ' --exclude /autoload.php,/RoboFile.php'}}, 3: list{'phpmetrics', array{both: ' --excluded-dirs=\"app/config|vendor|autoload.php|RoboFile.php\"', dirs: ' --excluded-dirs=\"app/config|vendor\"', files: ' --excluded-dirs=\"autoload.php|RoboFile.php\"'}}, 4: list{'phpmetrics2', array{both: ' --exclude=\"app/config,vendor,autoload.php,RoboFile.php\"', dirs: ' --exclude=\"app/config,vendor\"', files: ' --exclude=\"autoload.php,RoboFile.php\"'}}, 5: list{'bergmann', array{both: ' --exclude=app/config --exclude=vendor --exclude=autoload.php --exclude=RoboFile...', dirs: ' --exclude=app/config --exclude=vendor', files: ' --exclude=autoload.php --exclude=RoboFile.php'}}, 6: list{'parallelLint', array{both: ' --exclude app/config --exclude vendor --exclude autoload.php --exclude RoboFile...', dirs: ' --exclude app/config --exclude vendor', files: ' --exclude autoload.php --exclude RoboFile.php'}}, 7: list{'psalm', array{both: array{directory: list{'app/config', 'vendor'}, file: list{'autoload.php', 'RoboFile.php'}}, dirs: array{directory: list{'app/config', 'vendor'}, file: array&lt;never, never&gt;}, files: array{directory: array&lt;never, never&gt;, file: list{'autoload.php', 'RoboFile.php'}}}}}</message>
     <file_name>tests/IgnoredPathsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/IgnoredPathsTest.php</file_path>
     <snippet>    public function provideTools()</snippet>
@@ -7075,50 +7471,6 @@
     <error_level>-2</error_level>
     <shortcode>75</shortcode>
     <link>https://psalm.dev/075</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>6</line_from>
-    <line_to>6</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\OptionsTest::$backupStaticAttributes is not defined in constructor of Edge\QA\OptionsTest or in any methods called in the constructor</message>
-    <file_name>tests/OptionsTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/OptionsTest.php</file_path>
-    <snippet>class OptionsTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>OptionsTest</selected_text>
-    <from>86</from>
-    <to>97</to>
-    <snippet_from>80</snippet_from>
-    <snippet_to>133</snippet_to>
-    <column_from>7</column_from>
-    <column_to>18</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>6</line_from>
-    <line_to>6</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\OptionsTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\OptionsTest or in any methods called in the constructor</message>
-    <file_name>tests/OptionsTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/OptionsTest.php</file_path>
-    <snippet>class OptionsTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>OptionsTest</selected_text>
-    <from>86</from>
-    <to>97</to>
-    <snippet_from>80</snippet_from>
-    <snippet_to>133</snippet_to>
-    <column_from>7</column_from>
-    <column_to>18</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -7391,7 +7743,7 @@
     <line_from>61</line_from>
     <line_to>61</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\OptionsTest::provideInternalClass does not have a return type, expecting array{'at least one internal class is available': array{array{internalClass: array{"UnknownTool\\UnknownClass", Edge\QA\OptionsTest::class}}, true}, 'dependency is available': array{array{internalClass: Edge\QA\OptionsTest::class, internalDependencies: array{package: Edge\QA\OptionsTest::class}}, true}, 'dependency is not available': array{array{internalClass: Edge\QA\OptionsTest::class, internalDependencies: array{package: "UnknownTool\\UnknownClass"}}, false}, 'internal class is available': array{array{internalClass: "UnknownTool\\UnknownClass"}, false}}</message>
+    <message>Method Edge\QA\OptionsTest::provideInternalClass does not have a return type, expecting array{'at least one internal class is available': list{array{internalClass: list{'UnknownTool\\UnknownClass', Edge\QA\OptionsTest::class}}, true}, 'dependency is available': list{array{internalClass: Edge\QA\OptionsTest::class, internalDependencies: array{package: Edge\QA\OptionsTest::class}}, true}, 'dependency is not available': list{array{internalClass: Edge\QA\OptionsTest::class, internalDependencies: array{package: 'UnknownTool\\UnknownClass'}}, false}, 'internal class is available': list{array{internalClass: 'UnknownTool\\UnknownClass'}, false}}</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function provideInternalClass()</snippet>
@@ -7501,7 +7853,7 @@
     <line_from>92</line_from>
     <line_to>92</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\OptionsTest::provideOutputs does not have a return type, expecting array{'ignore verbose and report in CLI output': array{array{output: "cli", report: true, verbose: false}, false, true, false}, 'respect verbose mode and report in FILE output': array{array{output: "file", report: true, verbose: false}, true, false, true}}</message>
+    <message>Method Edge\QA\OptionsTest::provideOutputs does not have a return type, expecting array{'ignore verbose and report in CLI output': list{array{output: 'cli', report: true, verbose: false}, false, true, false}, 'respect verbose mode and report in FILE output': list{array{output: 'file', report: true, verbose: false}, true, false, true}}</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function provideOutputs()</snippet>
@@ -7567,7 +7919,7 @@
     <line_from>117</line_from>
     <line_to>117</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\OptionsTest::provideExecutionMode does not have a return type, expecting array{'dont use parallelism if execution is other word': array{array{execution: "single"}, false}, 'parallel execution is default mode': array{array&lt;empty, empty&gt;, true}, 'parallel execution': array{array{execution: "parallel"}, true}}</message>
+    <message>Method Edge\QA\OptionsTest::provideExecutionMode does not have a return type, expecting array{'dont use parallelism if execution is other word': list{array{execution: 'single'}, false}, 'parallel execution is default mode': list{array&lt;never, never&gt;, true}, 'parallel execution': list{array{execution: 'parallel'}, true}}</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function provideExecutionMode()</snippet>
@@ -7655,7 +8007,7 @@
     <line_from>133</line_from>
     <line_to>133</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\OptionsTest::provideAnalyzedDir does not have a return type, expecting array{'current dir + analyzed dir + slash': array{"src", non-empty-string}, 'file directory + skip invalid dir': array{"./non-existent-directory,phpqa", non-empty-string}, 'find common root from multiple dirs': array{"src,tests", non-empty-string}, 'no path when dir is invalid': array{"./non-existent-directory", ""}}</message>
+    <message>Method Edge\QA\OptionsTest::provideAnalyzedDir does not have a return type, expecting array{'current dir + analyzed dir + slash': list{'src', non-empty-string}, 'file directory + skip invalid dir': list{'./non-existent-directory,phpqa', non-empty-string}, 'find common root from multiple dirs': list{'src,tests', non-empty-string}, 'no path when dir is invalid': list{'./non-existent-directory', ''}}</message>
     <file_name>tests/OptionsTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/OptionsTest.php</file_path>
     <snippet>    public function provideAnalyzedDir()</snippet>
@@ -7720,50 +8072,6 @@
     <severity>info</severity>
     <line_from>5</line_from>
     <line_to>5</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\PathsTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\PathsTest or in any methods called in the constructor</message>
-    <file_name>tests/PathsTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/PathsTest.php</file_path>
-    <snippet>class PathsTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>PathsTest</selected_text>
-    <from>33</from>
-    <to>42</to>
-    <snippet_from>27</snippet_from>
-    <snippet_to>78</snippet_to>
-    <column_from>7</column_from>
-    <column_to>16</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>5</line_from>
-    <line_to>5</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\PathsTest::$backupStaticAttributes is not defined in constructor of Edge\QA\PathsTest or in any methods called in the constructor</message>
-    <file_name>tests/PathsTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/PathsTest.php</file_path>
-    <snippet>class PathsTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>PathsTest</selected_text>
-    <from>33</from>
-    <to>42</to>
-    <snippet_from>27</snippet_from>
-    <snippet_to>78</snippet_to>
-    <column_from>7</column_from>
-    <column_to>16</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>5</line_from>
-    <line_to>5</line_to>
     <type>UnusedClass</type>
     <message>Class Edge\QA\PathsTest is never used</message>
     <file_name>tests/PathsTest.php</file_name>
@@ -7801,50 +8109,6 @@
     <error_level>2</error_level>
     <shortcode>50</shortcode>
     <link>https://psalm.dev/050</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>5</line_from>
-    <line_to>5</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\ReportTest::$backupStaticAttributes is not defined in constructor of Edge\QA\ReportTest or in any private or final methods called in the constructor</message>
-    <file_name>tests/Report/ReportTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/Report/ReportTest.php</file_path>
-    <snippet>class ReportTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>ReportTest</selected_text>
-    <from>33</from>
-    <to>43</to>
-    <snippet_from>27</snippet_from>
-    <snippet_to>79</snippet_to>
-    <column_from>7</column_from>
-    <column_to>17</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>5</line_from>
-    <line_to>5</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\ReportTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\ReportTest or in any private or final methods called in the constructor</message>
-    <file_name>tests/Report/ReportTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/Report/ReportTest.php</file_path>
-    <snippet>class ReportTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>ReportTest</selected_text>
-    <from>33</from>
-    <to>43</to>
-    <snippet_from>27</snippet_from>
-    <snippet_to>79</snippet_to>
-    <column_from>7</column_from>
-    <column_to>17</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -8051,7 +8315,7 @@
     <line_from>30</line_from>
     <line_to>30</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\ReportTest::provideXml does not have a return type, expecting array{'create empty file if something went south': array{"invalid.xml", mixed}, 'create html': array{"phploc.xml", mixed}}</message>
+    <message>Method Edge\QA\ReportTest::provideXml does not have a return type, expecting array{'create empty file if something went south': list{'invalid.xml', mixed}, 'create html': list{'phploc.xml', mixed}}</message>
     <file_name>tests/Report/ReportTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Report/ReportTest.php</file_path>
     <snippet>    public function provideXml()</snippet>
@@ -8114,18 +8378,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>6</line_from>
-    <line_to>6</line_to>
+    <line_from>8</line_from>
+    <line_to>8</line_to>
     <type>UnusedClass</type>
     <message>Class Edge\QA\RunningToolTest is never used</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>class RunningToolTest extends \PHPUnit_Framework_TestCase</snippet>
     <selected_text>RunningToolTest</selected_text>
-    <from>86</from>
-    <to>101</to>
-    <snippet_from>80</snippet_from>
-    <snippet_to>137</snippet_to>
+    <from>123</from>
+    <to>138</to>
+    <snippet_from>117</snippet_from>
+    <snippet_to>174</snippet_to>
     <column_from>7</column_from>
     <column_to>22</column_to>
     <error_level>-2</error_level>
@@ -8136,62 +8400,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>6</line_from>
-    <line_to>6</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\RunningToolTest::$backupStaticAttributes is not defined in constructor of Edge\QA\RunningToolTest or in any methods called in the constructor</message>
-    <file_name>tests/RunningToolTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
-    <snippet>class RunningToolTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>RunningToolTest</selected_text>
-    <from>86</from>
-    <to>101</to>
-    <snippet_from>80</snippet_from>
-    <snippet_to>137</snippet_to>
-    <column_from>7</column_from>
-    <column_to>22</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>6</line_from>
-    <line_to>6</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\RunningToolTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\RunningToolTest or in any methods called in the constructor</message>
-    <file_name>tests/RunningToolTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
-    <snippet>class RunningToolTest extends \PHPUnit_Framework_TestCase</snippet>
-    <selected_text>RunningToolTest</selected_text>
-    <from>86</from>
-    <to>101</to>
-    <snippet_from>80</snippet_from>
-    <snippet_to>137</snippet_to>
-    <column_from>7</column_from>
-    <column_to>22</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>8</line_from>
-    <line_to>8</line_to>
+    <line_from>10</line_from>
+    <line_to>10</line_to>
     <type>MissingPropertyType</type>
     <message>Property Edge\QA\RunningToolTest::$errorsCountInXmlFile does not have a declared type - consider int</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    private $errorsCountInXmlFile = 2;</snippet>
     <selected_text>$errorsCountInXmlFile</selected_text>
-    <from>152</from>
-    <to>173</to>
-    <snippet_from>140</snippet_from>
-    <snippet_to>178</snippet_to>
+    <from>189</from>
+    <to>210</to>
+    <snippet_from>177</snippet_from>
+    <snippet_to>215</snippet_to>
     <column_from>13</column_from>
     <column_to>34</column_to>
     <error_level>2</error_level>
@@ -8202,18 +8422,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>10</line_from>
-    <line_to>10</line_to>
+    <line_from>12</line_from>
+    <line_to>12</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningToolTest::testBuildOptionWithDefinedSeparator does not have a return type, expecting void</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testBuildOptionWithDefinedSeparator()</snippet>
     <selected_text>testBuildOptionWithDefinedSeparator</selected_text>
-    <from>200</from>
-    <to>235</to>
-    <snippet_from>180</snippet_from>
-    <snippet_to>237</snippet_to>
+    <from>237</from>
+    <to>272</to>
+    <snippet_from>217</snippet_from>
+    <snippet_to>274</snippet_to>
     <column_from>21</column_from>
     <column_to>56</column_to>
     <error_level>2</error_level>
@@ -8224,18 +8444,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>18</line_from>
-    <line_to>18</line_to>
+    <line_from>20</line_from>
+    <line_to>20</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningToolTest::testMarkSuccessWhenXPathIsNotDefined does not have a return type, expecting void</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testMarkSuccessWhenXPathIsNotDefined()</snippet>
     <selected_text>testMarkSuccessWhenXPathIsNotDefined</selected_text>
-    <from>562</from>
-    <to>598</to>
-    <snippet_from>542</snippet_from>
-    <snippet_to>600</snippet_to>
+    <from>599</from>
+    <to>635</to>
+    <snippet_from>579</snippet_from>
+    <snippet_to>637</snippet_to>
     <column_from>21</column_from>
     <column_to>57</column_to>
     <error_level>2</error_level>
@@ -8246,18 +8466,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>25</line_from>
-    <line_to>25</line_to>
+    <line_from>27</line_from>
+    <line_to>27</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningToolTest::testMarkFailureWhenXmlFileDoesNotExist does not have a return type, expecting void</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testMarkFailureWhenXmlFileDoesNotExist($allowedErrors, $expectedIsOk)</snippet>
     <selected_text>testMarkFailureWhenXmlFileDoesNotExist</selected_text>
-    <from>824</from>
-    <to>862</to>
-    <snippet_from>804</snippet_from>
-    <snippet_to>893</snippet_to>
+    <from>861</from>
+    <to>899</to>
+    <snippet_from>841</snippet_from>
+    <snippet_to>930</snippet_to>
     <column_from>21</column_from>
     <column_to>59</column_to>
     <error_level>2</error_level>
@@ -8268,18 +8488,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>25</line_from>
-    <line_to>25</line_to>
+    <line_from>27</line_from>
+    <line_to>27</line_to>
     <type>MissingParamType</type>
     <message>Parameter $allowedErrors has no provided type</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testMarkFailureWhenXmlFileDoesNotExist($allowedErrors, $expectedIsOk)</snippet>
     <selected_text>$allowedErrors</selected_text>
-    <from>863</from>
-    <to>877</to>
-    <snippet_from>804</snippet_from>
-    <snippet_to>893</snippet_to>
+    <from>900</from>
+    <to>914</to>
+    <snippet_from>841</snippet_from>
+    <snippet_to>930</snippet_to>
     <column_from>60</column_from>
     <column_to>74</column_to>
     <error_level>2</error_level>
@@ -8290,18 +8510,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>25</line_from>
-    <line_to>25</line_to>
+    <line_from>27</line_from>
+    <line_to>27</line_to>
     <type>MissingParamType</type>
     <message>Parameter $expectedIsOk has no provided type</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testMarkFailureWhenXmlFileDoesNotExist($allowedErrors, $expectedIsOk)</snippet>
     <selected_text>$expectedIsOk</selected_text>
-    <from>879</from>
-    <to>892</to>
-    <snippet_from>804</snippet_from>
-    <snippet_to>893</snippet_to>
+    <from>916</from>
+    <to>929</to>
+    <snippet_from>841</snippet_from>
+    <snippet_to>930</snippet_to>
     <column_from>76</column_from>
     <column_to>89</column_to>
     <error_level>2</error_level>
@@ -8312,18 +8532,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>37</line_from>
-    <line_to>37</line_to>
+    <line_from>39</line_from>
+    <line_to>39</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\RunningToolTest::provideAllowedErrorsForNonexistentFile does not have a return type, expecting array{'success when allowed errors are not defined': array{null, true}, 'success when errors count are defined': array{mixed, false}}</message>
+    <message>Method Edge\QA\RunningToolTest::provideAllowedErrorsForNonexistentFile does not have a return type, expecting array{'success when allowed errors are not defined': list{null, true}, 'success when errors count are defined': list{mixed, false}}</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function provideAllowedErrorsForNonexistentFile()</snippet>
     <selected_text>provideAllowedErrorsForNonexistentFile</selected_text>
-    <from>1280</from>
-    <to>1318</to>
-    <snippet_from>1260</snippet_from>
-    <snippet_to>1320</snippet_to>
+    <from>1317</from>
+    <to>1355</to>
+    <snippet_from>1297</snippet_from>
+    <snippet_to>1357</snippet_to>
     <column_from>21</column_from>
     <column_to>59</column_to>
     <error_level>2</error_level>
@@ -8334,18 +8554,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>46</line_from>
-    <line_to>46</line_to>
+    <line_from>48</line_from>
+    <line_to>48</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningToolTest::testCompareAllowedCountWithErrorsCountFromXml does not have a return type, expecting void</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testCompareAllowedCountWithErrorsCountFromXml($allowedErrors, $isOk)</snippet>
     <selected_text>testCompareAllowedCountWithErrorsCountFromXml</selected_text>
-    <from>1596</from>
-    <to>1641</to>
-    <snippet_from>1576</snippet_from>
-    <snippet_to>1664</snippet_to>
+    <from>1633</from>
+    <to>1678</to>
+    <snippet_from>1613</snippet_from>
+    <snippet_to>1701</snippet_to>
     <column_from>21</column_from>
     <column_to>66</column_to>
     <error_level>2</error_level>
@@ -8356,18 +8576,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>46</line_from>
-    <line_to>46</line_to>
+    <line_from>48</line_from>
+    <line_to>48</line_to>
     <type>MissingParamType</type>
     <message>Parameter $allowedErrors has no provided type</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testCompareAllowedCountWithErrorsCountFromXml($allowedErrors, $isOk)</snippet>
     <selected_text>$allowedErrors</selected_text>
-    <from>1642</from>
-    <to>1656</to>
-    <snippet_from>1576</snippet_from>
-    <snippet_to>1664</snippet_to>
+    <from>1679</from>
+    <to>1693</to>
+    <snippet_from>1613</snippet_from>
+    <snippet_to>1701</snippet_to>
     <column_from>67</column_from>
     <column_to>81</column_to>
     <error_level>2</error_level>
@@ -8378,18 +8598,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>46</line_from>
-    <line_to>46</line_to>
+    <line_from>48</line_from>
+    <line_to>48</line_to>
     <type>MissingParamType</type>
     <message>Parameter $isOk has no provided type</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testCompareAllowedCountWithErrorsCountFromXml($allowedErrors, $isOk)</snippet>
     <selected_text>$isOk</selected_text>
-    <from>1658</from>
-    <to>1663</to>
-    <snippet_from>1576</snippet_from>
-    <snippet_to>1664</snippet_to>
+    <from>1695</from>
+    <to>1700</to>
+    <snippet_from>1613</snippet_from>
+    <snippet_to>1701</snippet_to>
     <column_from>83</column_from>
     <column_to>88</column_to>
     <error_level>2</error_level>
@@ -8400,18 +8620,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>56</line_from>
-    <line_to>56</line_to>
+    <line_from>58</line_from>
+    <line_to>58</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\RunningToolTest::provideAllowedErrors does not have a return type, expecting array{'failure when errors count &gt; allowed count': array{mixed, false}, 'success when allowed errors are not defined': array{null, true}, 'success when errors count &lt;= allowed count': array{mixed, true}}</message>
+    <message>Method Edge\QA\RunningToolTest::provideAllowedErrors does not have a return type, expecting array{'failure when errors count &gt; allowed count': list{mixed, false}, 'success when allowed errors are not defined': list{null, true}, 'success when errors count &lt;= allowed count': list{mixed, true}}</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function provideAllowedErrors()</snippet>
     <selected_text>provideAllowedErrors</selected_text>
-    <from>1985</from>
-    <to>2005</to>
-    <snippet_from>1965</snippet_from>
-    <snippet_to>2007</snippet_to>
+    <from>2022</from>
+    <to>2042</to>
+    <snippet_from>2002</snippet_from>
+    <snippet_to>2044</snippet_to>
     <column_from>21</column_from>
     <column_to>41</column_to>
     <error_level>2</error_level>
@@ -8422,18 +8642,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>65</line_from>
-    <line_to>65</line_to>
+    <line_from>67</line_from>
+    <line_to>67</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningToolTest::testRuntimeSelectionOfErrorXpath does not have a return type, expecting void</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testRuntimeSelectionOfErrorXpath()</snippet>
     <selected_text>testRuntimeSelectionOfErrorXpath</selected_text>
-    <from>2342</from>
-    <to>2374</to>
-    <snippet_from>2322</snippet_from>
-    <snippet_to>2376</snippet_to>
+    <from>2379</from>
+    <to>2411</to>
+    <snippet_from>2359</snippet_from>
+    <snippet_to>2413</snippet_to>
     <column_from>21</column_from>
     <column_to>53</column_to>
     <error_level>2</error_level>
@@ -8444,8 +8664,8 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>69</line_from>
-    <line_to>72</line_to>
+    <line_from>71</line_from>
+    <line_to>74</line_to>
     <type>InvalidArrayOffset</type>
     <message>Cannot create offset of type bool, expecting array-key</message>
     <file_name>tests/RunningToolTest.php</file_name>
@@ -8458,10 +8678,10 @@
                 false =&gt; '//errors/error',
                 true =&gt; '//errors/error[@severity="error"]',
             ]</selected_text>
-    <from>2503</from>
-    <to>2622</to>
-    <snippet_from>2474</snippet_from>
-    <snippet_to>2623</snippet_to>
+    <from>2540</from>
+    <to>2659</to>
+    <snippet_from>2511</snippet_from>
+    <snippet_to>2660</snippet_to>
     <column_from>30</column_from>
     <column_to>14</column_to>
     <error_level>6</error_level>
@@ -8472,18 +8692,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>80</line_from>
-    <line_to>80</line_to>
+    <line_from>82</line_from>
+    <line_to>82</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningToolTest::testMultipleXpaths does not have a return type, expecting void</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testMultipleXpaths(array $xpaths, array $expectedResult)</snippet>
     <selected_text>testMultipleXpaths</selected_text>
-    <from>2843</from>
-    <to>2861</to>
-    <snippet_from>2823</snippet_from>
-    <snippet_to>2899</snippet_to>
+    <from>2880</from>
+    <to>2898</to>
+    <snippet_from>2860</snippet_from>
+    <snippet_to>2936</snippet_to>
     <column_from>21</column_from>
     <column_to>39</column_to>
     <error_level>2</error_level>
@@ -8494,18 +8714,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>92</line_from>
-    <line_to>92</line_to>
+    <line_from>94</line_from>
+    <line_to>94</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\RunningToolTest::provideMultipleXpaths does not have a return type, expecting array{'invalid xpath': array{array{null}, array{false, "SimpleXMLElement::xpath(): Invalid expression"}}, 'multiple elements': array{array{"//errors/error", "//errors/warning"}, array{true, 3}}}</message>
+    <message>Method Edge\QA\RunningToolTest::provideMultipleXpaths does not have a return type, expecting array{'invalid xpath': list{list{null}, list{false, 'SimpleXMLElement::xpath(): Invalid expression'}}, 'multiple elements': list{list{'//errors/error', '//errors/warning'}, list{true, 3}}}</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function provideMultipleXpaths()</snippet>
     <selected_text>provideMultipleXpaths</selected_text>
-    <from>3219</from>
-    <to>3240</to>
-    <snippet_from>3199</snippet_from>
-    <snippet_to>3242</snippet_to>
+    <from>3256</from>
+    <to>3277</to>
+    <snippet_from>3236</snippet_from>
+    <snippet_to>3279</snippet_to>
     <column_from>21</column_from>
     <column_to>42</column_to>
     <error_level>2</error_level>
@@ -8516,18 +8736,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>101</line_from>
-    <line_to>101</line_to>
+    <line_from>103</line_from>
+    <line_to>103</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningToolTest::testAnalyzeExitCodeInCliMode does not have a return type, expecting void</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testAnalyzeExitCodeInCliMode($allowedErrors, $exitCode, array $expectedResult)</snippet>
     <selected_text>testAnalyzeExitCodeInCliMode</selected_text>
-    <from>3535</from>
-    <to>3563</to>
-    <snippet_from>3515</snippet_from>
-    <snippet_to>3613</snippet_to>
+    <from>3572</from>
+    <to>3600</to>
+    <snippet_from>3552</snippet_from>
+    <snippet_to>3650</snippet_to>
     <column_from>21</column_from>
     <column_to>49</column_to>
     <error_level>2</error_level>
@@ -8538,18 +8758,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>101</line_from>
-    <line_to>101</line_to>
+    <line_from>103</line_from>
+    <line_to>103</line_to>
     <type>MissingParamType</type>
     <message>Parameter $allowedErrors has no provided type</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testAnalyzeExitCodeInCliMode($allowedErrors, $exitCode, array $expectedResult)</snippet>
     <selected_text>$allowedErrors</selected_text>
-    <from>3564</from>
-    <to>3578</to>
-    <snippet_from>3515</snippet_from>
-    <snippet_to>3613</snippet_to>
+    <from>3601</from>
+    <to>3615</to>
+    <snippet_from>3552</snippet_from>
+    <snippet_to>3650</snippet_to>
     <column_from>50</column_from>
     <column_to>64</column_to>
     <error_level>2</error_level>
@@ -8560,18 +8780,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>101</line_from>
-    <line_to>101</line_to>
+    <line_from>103</line_from>
+    <line_to>103</line_to>
     <type>MissingParamType</type>
     <message>Parameter $exitCode has no provided type</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testAnalyzeExitCodeInCliMode($allowedErrors, $exitCode, array $expectedResult)</snippet>
     <selected_text>$exitCode</selected_text>
-    <from>3580</from>
-    <to>3589</to>
-    <snippet_from>3515</snippet_from>
-    <snippet_to>3613</snippet_to>
+    <from>3617</from>
+    <to>3626</to>
+    <snippet_from>3552</snippet_from>
+    <snippet_to>3650</snippet_to>
     <column_from>66</column_from>
     <column_to>75</column_to>
     <error_level>2</error_level>
@@ -8582,44 +8802,62 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>109</line_from>
+    <line_from>111</line_from>
     <line_to>111</line_to>
-    <type>PropertyTypeCoercion</type>
-    <message>$tool-&gt;process expects 'Symfony\Component\Process\Process',  parent type 'object' provided</message>
+    <type>UndefinedClass</type>
+    <message>Class, interface or enum named Prophecy\Prophecy\ObjectProphecy does not exist</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
-    <snippet>        $tool-&gt;process = $this-&gt;prophesize('Symfony\Component\Process\Process')
-            -&gt;getExitCode()-&gt;willReturn($exitCode)
-            -&gt;getObjectProphecy()-&gt;reveal();</snippet>
-    <selected_text>$this-&gt;prophesize('Symfony\Component\Process\Process')
-            -&gt;getExitCode()-&gt;willReturn($exitCode)
-            -&gt;getObjectProphecy()-&gt;reveal()</selected_text>
-    <from>3876</from>
-    <to>4025</to>
-    <snippet_from>3851</snippet_from>
-    <snippet_to>4026</snippet_to>
+    <snippet>        $tool-&gt;process = $this-&gt;prophesize('Symfony\Component\Process\Process')</snippet>
+    <selected_text>$this-&gt;prophesize('Symfony\Component\Process\Process')</selected_text>
+    <from>3913</from>
+    <to>3967</to>
+    <snippet_from>3888</snippet_from>
+    <snippet_to>3967</snippet_to>
     <column_from>26</column_from>
-    <column_to>44</column_to>
-    <error_level>3</error_level>
-    <shortcode>198</shortcode>
-    <link>https://psalm.dev/198</link>
+    <column_to>80</column_to>
+    <error_level>-1</error_level>
+    <shortcode>19</shortcode>
+    <link>https://psalm.dev/019</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
   <item>
     <severity>info</severity>
-    <line_from>109</line_from>
-    <line_to>109</line_to>
+    <line_from>111</line_from>
+    <line_to>111</line_to>
+    <type>DeprecatedMethod</type>
+    <message>The method PHPUnit\Framework\TestCase::prophesize has been marked as deprecated</message>
+    <file_name>tests/RunningToolTest.php</file_name>
+    <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
+    <snippet>        $tool-&gt;process = $this-&gt;prophesize('Symfony\Component\Process\Process')</snippet>
+    <selected_text>prophesize</selected_text>
+    <from>3920</from>
+    <to>3930</to>
+    <snippet_from>3888</snippet_from>
+    <snippet_to>3967</snippet_to>
+    <column_from>33</column_from>
+    <column_to>43</column_to>
+    <error_level>2</error_level>
+    <shortcode>1</shortcode>
+    <link>https://psalm.dev/001</link>
+    <taint_trace></taint_trace>
+    <other_references></other_references>
+  </item>
+  <item>
+    <severity>info</severity>
+    <line_from>111</line_from>
+    <line_to>111</line_to>
     <type>ArgumentTypeCoercion</type>
-    <message>Argument 1 of Edge\QA\RunningToolTest::prophesize expects class-string|null, parent type "Symfony\\Component\\Process\\Process" provided</message>
+    <message>Argument 1 of Edge\QA\RunningToolTest::prophesize expects class-string|null, but parent type 'Symfony\\Component\\Process\\Process' provided</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>        $tool-&gt;process = $this-&gt;prophesize('Symfony\Component\Process\Process')</snippet>
     <selected_text>'Symfony\Component\Process\Process'</selected_text>
-    <from>3894</from>
-    <to>3929</to>
-    <snippet_from>3851</snippet_from>
-    <snippet_to>3930</snippet_to>
+    <from>3931</from>
+    <to>3966</to>
+    <snippet_from>3888</snippet_from>
+    <snippet_to>3967</snippet_to>
     <column_from>44</column_from>
     <column_to>79</column_to>
     <error_level>3</error_level>
@@ -8630,40 +8868,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>110</line_from>
-    <line_to>110</line_to>
-    <type>TooManyArguments</type>
-    <message>Too many arguments for method Prophecy\Prophecy\MethodProphecy::willreturn - saw 1</message>
-    <file_name>tests/RunningToolTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
-    <snippet>            -&gt;getExitCode()-&gt;willReturn($exitCode)</snippet>
-    <selected_text>willReturn</selected_text>
-    <from>3960</from>
-    <to>3970</to>
-    <snippet_from>3931</snippet_from>
-    <snippet_to>3981</snippet_to>
-    <column_from>30</column_from>
-    <column_to>40</column_to>
-    <error_level>4</error_level>
-    <shortcode>26</shortcode>
-    <link>https://psalm.dev/026</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>115</line_from>
-    <line_to>115</line_to>
+    <line_from>117</line_from>
+    <line_to>117</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\RunningToolTest::provideProcess does not have a return type, expecting array{'failure when errors count &gt; allowed count but errors count is always one': array{0, 2, array{false, 1}}, 'success when exit code &lt;= allowed code': array{1, 1, array{true, 1}}, 'success when exit code = 0': array{0, 0, array{true, 0}}}</message>
+    <message>Method Edge\QA\RunningToolTest::provideProcess does not have a return type, expecting array{'failure when errors count &gt; allowed count but errors count is always one': list{0, 2, list{false, 1}}, 'success when exit code &lt;= allowed code': list{1, 1, list{true, 1}}, 'success when exit code = 0': list{0, 0, list{true, 0}}}</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function provideProcess()</snippet>
     <selected_text>provideProcess</selected_text>
-    <from>4123</from>
-    <to>4137</to>
-    <snippet_from>4103</snippet_from>
-    <snippet_to>4139</snippet_to>
+    <from>4160</from>
+    <to>4174</to>
+    <snippet_from>4140</snippet_from>
+    <snippet_to>4176</snippet_to>
     <column_from>21</column_from>
     <column_to>35</column_to>
     <error_level>2</error_level>
@@ -8674,18 +8890,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>124</line_from>
-    <line_to>124</line_to>
+    <line_from>126</line_from>
+    <line_to>126</line_to>
     <type>MissingReturnType</type>
     <message>Method Edge\QA\RunningToolTest::testCreateUniqueIdForUserReport does not have a return type, expecting void</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>    public function testCreateUniqueIdForUserReport()</snippet>
     <selected_text>testCreateUniqueIdForUserReport</selected_text>
-    <from>4449</from>
-    <to>4480</to>
-    <snippet_from>4429</snippet_from>
-    <snippet_to>4482</snippet_to>
+    <from>4486</from>
+    <to>4517</to>
+    <snippet_from>4466</snippet_from>
+    <snippet_to>4519</snippet_to>
     <column_from>21</column_from>
     <column_to>52</column_to>
     <error_level>2</error_level>
@@ -8696,18 +8912,18 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>127</line_from>
-    <line_to>127</line_to>
+    <line_from>129</line_from>
+    <line_to>129</line_to>
     <type>MissingPropertyType</type>
     <message>Property Edge\QA\RunningTool::$userReports does not have a declared type</message>
     <file_name>tests/RunningToolTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
     <snippet>        $tool-&gt;userReports['dir/path.php'] = 'My report';</snippet>
     <selected_text>$tool-&gt;userReports</selected_text>
-    <from>4543</from>
-    <to>4561</to>
-    <snippet_from>4535</snippet_from>
-    <snippet_to>4592</snippet_to>
+    <from>4580</from>
+    <to>4598</to>
+    <snippet_from>4572</snippet_from>
+    <snippet_to>4629</snippet_to>
     <column_from>9</column_from>
     <column_to>27</column_to>
     <error_level>2</error_level>
@@ -8718,45 +8934,23 @@
   </item>
   <item>
     <severity>info</severity>
-    <line_from>7</line_from>
-    <line_to>7</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\Tools\Analyzer\PhpstanTest::$runTestInSeparateProcess is not defined in constructor of Edge\QA\Tools\Analyzer\PhpstanTest or in any methods called in the constructor</message>
-    <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
-    <snippet>class PhpstanTest extends TestCase</snippet>
-    <selected_text>PhpstanTest</selected_text>
-    <from>81</from>
-    <to>92</to>
-    <snippet_from>75</snippet_from>
-    <snippet_to>109</snippet_to>
-    <column_from>7</column_from>
-    <column_to>18</column_to>
+    <line_from>134</line_from>
+    <line_to>134</line_to>
+    <type>MissingReturnType</type>
+    <message>Method Edge\QA\RunningToolTest::testDynamicOutputModePhpstan does not have a return type, expecting void</message>
+    <file_name>tests/RunningToolTest.php</file_name>
+    <file_path>/Users/www/zd/phpqa/tests/RunningToolTest.php</file_path>
+    <snippet>    public function testDynamicOutputModePhpstan()</snippet>
+    <selected_text>testDynamicOutputModePhpstan</selected_text>
+    <from>4768</from>
+    <to>4796</to>
+    <snippet_from>4748</snippet_from>
+    <snippet_to>4798</snippet_to>
+    <column_from>21</column_from>
+    <column_to>49</column_to>
     <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
-    <taint_trace></taint_trace>
-    <other_references></other_references>
-  </item>
-  <item>
-    <severity>info</severity>
-    <line_from>7</line_from>
-    <line_to>7</line_to>
-    <type>PropertyNotSetInConstructor</type>
-    <message>Property Edge\QA\Tools\Analyzer\PhpstanTest::$backupStaticAttributes is not defined in constructor of Edge\QA\Tools\Analyzer\PhpstanTest or in any methods called in the constructor</message>
-    <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
-    <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
-    <snippet>class PhpstanTest extends TestCase</snippet>
-    <selected_text>PhpstanTest</selected_text>
-    <from>81</from>
-    <to>92</to>
-    <snippet_from>75</snippet_from>
-    <snippet_to>109</snippet_to>
-    <column_from>7</column_from>
-    <column_to>18</column_to>
-    <error_level>2</error_level>
-    <shortcode>74</shortcode>
-    <link>https://psalm.dev/074</link>
+    <shortcode>50</shortcode>
+    <link>https://psalm.dev/050</link>
     <taint_trace></taint_trace>
     <other_references></other_references>
   </item>
@@ -8787,7 +8981,7 @@
     <line_from>10</line_from>
     <line_to>10</line_to>
     <type>MissingPropertyType</type>
-    <message>Property Edge\QA\Tools\Analyzer\PhpstanTest::$autoloadDirectories does not have a declared type - consider array{string}</message>
+    <message>Property Edge\QA\Tools\Analyzer\PhpstanTest::$autoloadDirectories does not have a declared type - consider list{string}</message>
     <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
     <snippet>    private $autoloadDirectories = ['src/'];</snippet>
@@ -8809,7 +9003,7 @@
     <line_from>11</line_from>
     <line_to>11</line_to>
     <type>MissingPropertyType</type>
-    <message>Property Edge\QA\Tools\Analyzer\PhpstanTest::$ignoredPaths does not have a declared type - consider array{string}</message>
+    <message>Property Edge\QA\Tools\Analyzer\PhpstanTest::$ignoredPaths does not have a declared type - consider list{string}</message>
     <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
     <snippet>    private $ignoredPaths = ['Test.php'];</snippet>
@@ -8919,7 +9113,7 @@
     <line_from>20</line_from>
     <line_to>20</line_to>
     <type>MissingReturnType</type>
-    <message>Method Edge\QA\Tools\Analyzer\PhpstanTest::provideConfig does not have a return type, expecting array{'Deprecated excludes_analyse': array{existingConfig: array{parameters: array{excludes_analyse: array{"File.php"}, reportUnmatchedIgnoredErrors: false}}, expectedConfig: array{parameters: array{excludes_analyse: array{"File.php", "Test.php"}, reportUnmatchedIgnoredErrors: false}}}, 'No config': array{existingConfig: array&lt;empty, empty&gt;, expectedConfig: array{parameters: array{autoload_directories: mixed, excludePaths: array{analyseAndScan: mixed}}}}, 'No parameters in config': array{existingConfig: array{includes: mixed}, expectedConfig: array{includes: mixed, parameters: array{excludePaths: array{analyseAndScan: mixed}}}}, 'excludePaths + analyseAndScan': array{existingConfig: array{parameters: array{excludePaths: array{analyseAndScan: array{"File.php"}}}}, expectedConfig: array{parameters: array{excludePaths: array{analyseAndScan: array{"File.php", "Test.php"}}}}}, 'excludePaths shortcut': array{existingConfig: array{parameters: array{excludePaths: array{"File.php"}}}, expectedConfig: array{parameters: array{excludePaths: array{"File.php", "Test.php"}}}}}</message>
+    <message>Method Edge\QA\Tools\Analyzer\PhpstanTest::provideConfig does not have a return type, expecting array{'Deprecated excludes_analyse': array{existingConfig: array{parameters: array{excludes_analyse: list{'File.php'}, reportUnmatchedIgnoredErrors: false}}, expectedConfig: array{parameters: array{excludes_analyse: list{'File.php', 'Test.php'}, reportUnmatchedIgnoredErrors: false}}}, 'No config': array{existingConfig: array&lt;never, never&gt;, expectedConfig: array{parameters: array{autoload_directories: mixed, excludePaths: array{analyseAndScan: mixed}}}}, 'No parameters in config': array{existingConfig: array{includes: mixed}, expectedConfig: array{includes: mixed, parameters: array{excludePaths: array{analyseAndScan: mixed}}}}, 'excludePaths + analyseAndScan': array{existingConfig: array{parameters: array{excludePaths: array{analyseAndScan: list{'File.php'}}}}, expectedConfig: array{parameters: array{excludePaths: array{analyseAndScan: list{'File.php', 'Test.php'}}}}}, 'excludePaths shortcut': array{existingConfig: array{parameters: array{excludePaths: list{'File.php'}}}, expectedConfig: array{parameters: array{excludePaths: list{'File.php', 'Test.php'}}}}}</message>
     <file_name>tests/Tools/Analyzer/PhpstanTest.php</file_name>
     <file_path>/Users/www/zd/phpqa/tests/Tools/Analyzer/PhpstanTest.php</file_path>
     <snippet>    public function provideConfig()</snippet>

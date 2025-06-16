@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<dependencies generated="2022-04-30T09:16:14" pdepend="@package_version@">
+<dependencies generated="2025-06-16T12:57:25" pdepend="@package_version@">
   <package name="Edge\QA">
     <class name="RoboFile">
       <efferent>
@@ -63,12 +63,15 @@
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
         <type namespace="Edge\QA" name="RunningTool"/>
+        <type namespace="Edge\QA" name="RunningToolTest"/>
+        <type namespace="Edge\QA\Tools\Analyzer" name="Phpstan"/>
       </afferent>
       <file name="/Users/www/zd/phpqa/src/OutputMode.php"/>
     </class>
     <class name="RunningTool">
       <efferent>
         <type namespace="Edge\QA" name="OutputMode"/>
+        <type namespace="Edge\QA\Tools\Analyzer" name="Phpstan"/>
       </efferent>
       <afferent>
         <type namespace="Edge\QA" name="CodeAnalysisTasks"/>
@@ -121,6 +124,8 @@
       <efferent>
         <type namespace="" name="PHPUnit_Framework_TestCase"/>
         <type namespace="Edge\QA" name="RunningTool"/>
+        <type namespace="Edge\QA\Tools\Analyzer" name="Phpstan"/>
+        <type namespace="Edge\QA" name="OutputMode"/>
       </efferent>
       <afferent/>
       <file name="/Users/www/zd/phpqa/tests/RunningToolTest.php"/>
@@ -154,7 +159,6 @@
         <type namespace="Edge\QA\Task" name="ParallelExec"/>
         <type namespace="Robo" name="Result"/>
         <type namespace="Symfony\Component\Process" name="Process"/>
-        <type namespace="Consolidation\Log" name="ConsoleLogLevel"/>
       </efferent>
       <afferent>
         <type namespace="Edge\QA\Task" name="NonParallelExecV0"/>
@@ -341,8 +345,11 @@
       <efferent>
         <type namespace="Edge\QA\Tools" name="Tool"/>
         <type namespace="Nette\Neon" name="Neon"/>
+        <type namespace="Edge\QA" name="OutputMode"/>
       </efferent>
       <afferent>
+        <type namespace="Edge\QA" name="RunningTool"/>
+        <type namespace="Edge\QA" name="RunningToolTest"/>
         <type namespace="Edge\QA\Tools\Analyzer" name="PhpstanTest"/>
       </afferent>
       <file name="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php"/>

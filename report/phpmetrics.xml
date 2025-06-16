@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<pmd version="@package_version@" timestamp="2022-04-30T09:16:19+00:00">
+<pmd version="@package_version@" timestamp="2025-06-16T12:57:28+00:00">
   <file name="Edge\QA\">
     <violation beginline="1" rule="Stable Dependencies Principle" ruleset="Stable Dependencies Principle" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="3">Packages should depend in the direction of stability.
 
@@ -19,8 +19,8 @@ The packages that are more stable are
   <file name="Edge\QA\RunningToolTest">
     <violation beginline="1" rule="Blob / God object" ruleset="Blob / God object" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="2">A blob object (or "god class") does not follow the Single responsibility principle.
 
-* object has lot of public methods  (12, excluding getters and setters)
-* object has a high Lack of cohesion of methods (LCOM=10)
+* object has lot of public methods  (13, excluding getters and setters)
+* object has a high Lack of cohesion of methods (LCOM=11)
 * object knows everything (and use lot of external classes)
 
 Maybe you should reducing the number of methods splitting this object in many sub objects.</violation>
@@ -33,7 +33,7 @@ Maybe you should reducing the number of methods splitting this object in many su
 * object knows everything (and use lot of external classes)
 
 Maybe you should reducing the number of methods splitting this object in many sub objects.</violation>
-    <violation beginline="1" rule="Probably bugged" ruleset="Probably bugged" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="3">This component contains in theory 0.42 bugs.
+    <violation beginline="1" rule="Probably bugged" ruleset="Probably bugged" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="3">This component contains in theory 0.44 bugs.
 
 * Calculation is based on number of operators, operands, cyclomatic complexity
 * See more details at https://en.wikipedia.org/wiki/Halstead_complexity_measures
@@ -52,6 +52,15 @@ Maybe you should check your unit tests for this class.</violation>
   </file>
   <file name="Edge\QA\Tools\GetVersions">
     <violation beginline="1" rule="Probably bugged" ruleset="Probably bugged" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="3">This component contains in theory 0.59 bugs.
+
+* Calculation is based on number of operators, operands, cyclomatic complexity
+* See more details at https://en.wikipedia.org/wiki/Halstead_complexity_measures
+*  testsuites has dependency to this class.
+
+Maybe you should check your unit tests for this class.</violation>
+  </file>
+  <file name="Edge\QA\RunningTool">
+    <violation beginline="1" rule="Probably bugged" ruleset="Probably bugged" externalInfoUrl="http://www.phpmetrics.org/documentation/index.html" priority="3">This component contains in theory 0.36 bugs.
 
 * Calculation is based on number of operators, operands, cyclomatic complexity
 * See more details at https://en.wikipedia.org/wiki/Halstead_complexity_measures

@@ -14,7 +14,7 @@
     public function __invoke(Options $o, array $assets)
 </codefragment>
   </duplication>
-  <duplication lines="6" tokens="19">
+  <duplication lines="6" tokens="16">
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Deptrac.php" line="7"/>
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpunit.php" line="7"/>
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/SecurityChecker.php" line="7"/>
@@ -23,7 +23,7 @@
     public static $SETTINGS = array(
         'optionSeparator' =&gt; '=',
         'outputMode' =&gt; OutputMode::RAW_CONSOLE_OUTPUT,
-        'composer' =&gt; 'qossmic/deptrac-shim',
+        'composer' =&gt; 'deptrac/deptrac',
 </codefragment>
   </duplication>
   <duplication lines="5" tokens="16">
@@ -46,18 +46,36 @@
             'extensions' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
 </codefragment>
   </duplication>
-  <duplication lines="5" tokens="16">
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Deptrac.php" line="7"/>
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpCsFixer.php" line="7"/>
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcs.php" line="5"/>
+  <duplication lines="5" tokens="11">
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcpd.php" line="5"/>
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phploc.php" line="5"/>
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpmd.php" line="5"/>
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php" line="7"/>
+    <codefragment>class Phpcpd extends \Edge\QA\Tools\Tool
+{
+    public static $SETTINGS = array(
+        'optionSeparator' =&gt; ' ',
+        'xml' =&gt; ['phpcpd.xml'],
+</codefragment>
+  </duplication>
+  <duplication lines="5" tokens="11">
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Pdepend.php" line="5"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcs.php" line="5"/>
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php" line="8"/>
-    <codefragment>class Deptrac extends \Edge\QA\Tools\Tool
+    <codefragment>class Pdepend extends \Edge\QA\Tools\Tool
 {
     public static $SETTINGS = array(
         'optionSeparator' =&gt; '=',
+        'xml' =&gt; ['pdepend-jdepend.xml', 'pdepend-summary.xml', 'pdepend-dependencies.xml'],
+</codefragment>
+  </duplication>
+  <duplication lines="5" tokens="13">
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/ParallelLint.php" line="7"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpCsFixer.php" line="7"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php" line="7"/>
+    <codefragment>class ParallelLint extends \Edge\QA\Tools\Tool
+{
+    public static $SETTINGS = array(
+        'optionSeparator' =&gt; ' ',
         'outputMode' =&gt; OutputMode::RAW_CONSOLE_OUTPUT,
 </codefragment>
   </duplication>
@@ -88,22 +106,9 @@
                 $this-&gt;writeln("&lt;error&gt;php-cs-fixer analyzes only first directory {$analyzedDir}&lt;/error&gt;");
 </codefragment>
   </duplication>
-  <duplication lines="4" tokens="11">
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Deptrac.php" line="7"/>
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/ParallelLint.php" line="7"/>
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Pdepend.php" line="5"/>
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="7"/>
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="5"/>
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcpd.php" line="5"/>
-    <codefragment>class Deptrac extends \Edge\QA\Tools\Tool
-{
-    public static $SETTINGS = array(
-        'optionSeparator' =&gt; '=',
-</codefragment>
-  </duplication>
   <duplication lines="4" tokens="10">
     <file path="/Users/www/zd/phpqa/src/Task/NonParallelExecV0.php" line="33"/>
-    <file path="/Users/www/zd/phpqa/src/Task/NonParallelExecV1.php" line="62"/>
+    <file path="/Users/www/zd/phpqa/src/Task/NonParallelExecV1.php" line="61"/>
     <codefragment>        $this-&gt;printTaskInfo(
             "Output for &lt;fg=white;bg=magenta&gt; " . $process-&gt;getCommandLine()." &lt;/fg=white;bg=magenta&gt;"
         );
@@ -111,9 +116,9 @@
 </codefragment>
   </duplication>
   <duplication lines="3" tokens="10">
-    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="52"/>
-    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="109"/>
-    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="116"/>
+    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="54"/>
+    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="111"/>
+    <file path="/Users/www/zd/phpqa/tests/Config/ConfigTest.php" line="118"/>
     <codefragment>        $config = new Config();
         $config-&gt;loadUserConfig(__DIR__);
         assertThat($config-&gt;value('phpcpd.minLines'), is(5));
@@ -143,18 +148,18 @@
         assertThat(file_get_contents($this-&gt;output), $assertOutput);
 </codefragment>
   </duplication>
-  <duplication lines="2" tokens="10">
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/ParallelLint.php" line="19"/>
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Pdepend.php" line="21"/>
-    <codefragment>            "-e {$this-&gt;config-&gt;csv('phpqa.extensions')}",
-            $this-&gt;options-&gt;getAnalyzedDirs(' '),
-</codefragment>
-  </duplication>
   <duplication lines="2" tokens="16">
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetrics.php" line="28"/>
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="18"/>
     <codefragment>        if ($this-&gt;options-&gt;isSavedToFiles) {
             $this-&gt;tool-&gt;htmlReport = $this-&gt;options-&gt;rawFile('phpmetrics.html');
+</codefragment>
+  </duplication>
+  <duplication lines="2" tokens="10">
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/ParallelLint.php" line="19"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Pdepend.php" line="21"/>
+    <codefragment>            "-e {$this-&gt;config-&gt;csv('phpqa.extensions')}",
+            $this-&gt;options-&gt;getAnalyzedDirs(' '),
 </codefragment>
   </duplication>
 </pmd-cpd>

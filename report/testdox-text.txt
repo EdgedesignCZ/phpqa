@@ -75,7 +75,7 @@ Options (Edge\QA\Options)
  [x] Load allowed errors count
 
 Paths (Edge\QA\Paths)
- [x] Path to binary is escaped
+ [ ] Path to binary is escaped
 
 Report (Edge\QA\Report)
  [x] Convert twig to html
@@ -98,6 +98,7 @@ Running Tool (Edge\QA\RunningTool)
  [ ] Analyze exit code in cli mode with data set "success when exit code <= allowed code"
  [ ] Analyze exit code in cli mode with data set "failure when errors count > allowed count but errors count is always one"
  [x] Create unique id for user report
+ [x] Dynamic output mode phpstan
 
 Phpstan (Edge\QA\Tools\Analyzer\Phpstan)
  [x] Build config with data set "No config"

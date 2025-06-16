@@ -6,11 +6,11 @@
         <TotalClasses>12</TotalClasses>
         <ConcreteClasses>12</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
-        <Ca>2</Ca>
-        <Ce>5</Ce>
+        <Ca>3</Ca>
+        <Ce>6</Ce>
         <A>0</A>
-        <I>0.71428571428571</I>
-        <D>0.28571428571429</D>
+        <I>0.66666666666667</I>
+        <D>0.33333333333333</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/Users/www/zd/phpqa/RoboFile.php">RoboFile</Class>
@@ -28,15 +28,17 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
-        <Package>Symfony\Component\Yaml</Package>
         <Package></Package>
-        <Package>Edge\QA\Tools</Package>
         <Package>Edge\QA\Task</Package>
+        <Package>Edge\QA\Tools</Package>
+        <Package>Edge\QA\Tools\Analyzer</Package>
         <Package>Robo</Package>
+        <Package>Symfony\Component\Yaml</Package>
       </DependsUpon>
       <UsedBy>
-        <Package>Edge\QA\Tools</Package>
         <Package>Edge\QA\Task</Package>
+        <Package>Edge\QA\Tools</Package>
+        <Package>Edge\QA\Tools\Analyzer</Package>
       </UsedBy>
     </Package>
     <Package name="Edge\QA\Task">
@@ -45,10 +47,10 @@
         <ConcreteClasses>6</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>1</Ca>
-        <Ce>8</Ce>
+        <Ce>7</Ce>
         <A>0</A>
-        <I>0.88888888888889</I>
-        <D>0.11111111111111</D>
+        <I>0.875</I>
+        <D>0.125</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/Users/www/zd/phpqa/src/Task/AssetsLoader.php">AssetsLoader</Class>
@@ -60,14 +62,13 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
-        <Package>Symfony\Component\Process</Package>
-        <Package>Symfony\Component\Console\Output</Package>
-        <Package>Symfony\Component\Console\Helper</Package>
-        <Package>Consolidation\Log</Package>
-        <Package>Robo\Task\Base</Package>
         <Package></Package>
         <Package>Edge\QA</Package>
         <Package>Robo</Package>
+        <Package>Robo\Task\Base</Package>
+        <Package>Symfony\Component\Console\Helper</Package>
+        <Package>Symfony\Component\Console\Output</Package>
+        <Package>Symfony\Component\Process</Package>
       </DependsUpon>
       <UsedBy>
         <Package>Edge\QA</Package>
@@ -94,13 +95,13 @@
         <Class sourceFile="/Users/www/zd/phpqa/src/Tools/Tool.php">Tool</Class>
       </AbstractClasses>
       <DependsUpon>
-        <Package>Symfony\Component\Process</Package>
         <Package></Package>
         <Package>Edge\QA</Package>
+        <Package>Symfony\Component\Process</Package>
       </DependsUpon>
       <UsedBy>
-        <Package>Edge\QA\Tools\Analyzer</Package>
         <Package>Edge\QA</Package>
+        <Package>Edge\QA\Tools\Analyzer</Package>
       </UsedBy>
     </Package>
     <Package name="Edge\QA\Tools\Analyzer">
@@ -108,11 +109,11 @@
         <TotalClasses>15</TotalClasses>
         <ConcreteClasses>15</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
-        <Ca>0</Ca>
-        <Ce>4</Ce>
+        <Ca>1</Ca>
+        <Ce>5</Ce>
         <A>0</A>
-        <I>1</I>
-        <D>0</D>
+        <I>0.83333333333333</I>
+        <D>0.16666666666667</D>
       </Stats>
       <ConcreteClasses>
         <Class sourceFile="/Users/www/zd/phpqa/src/Tools/Analyzer/Deptrac.php">Deptrac</Class>
@@ -133,36 +134,39 @@
       </ConcreteClasses>
       <AbstractClasses/>
       <DependsUpon>
-        <Package>PHPUnit\Framework</Package>
-        <Package>Nette\Neon</Package>
         <Package></Package>
+        <Package>Edge\QA</Package>
         <Package>Edge\QA\Tools</Package>
+        <Package>Nette\Neon</Package>
+        <Package>PHPUnit\Framework</Package>
       </DependsUpon>
-      <UsedBy/>
+      <UsedBy>
+        <Package>Edge\QA</Package>
+      </UsedBy>
     </Package>
   </Packages>
   <Cycles>
     <Package Name="Edge\QA">
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Tools</Package>
+      <Package>Edge\QA\Task</Package>
       <Package>Edge\QA</Package>
     </Package>
     <Package Name="Edge\QA\Task">
       <Package>Edge\QA\Task</Package>
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Tools</Package>
-      <Package>Edge\QA</Package>
+      <Package>Edge\QA\Task</Package>
     </Package>
     <Package Name="Edge\QA\Tools">
       <Package>Edge\QA\Tools</Package>
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Tools</Package>
+      <Package>Edge\QA\Task</Package>
+      <Package>Edge\QA</Package>
     </Package>
     <Package Name="Edge\QA\Tools\Analyzer">
       <Package>Edge\QA\Tools\Analyzer</Package>
-      <Package>Edge\QA\Tools</Package>
       <Package>Edge\QA</Package>
-      <Package>Edge\QA\Tools</Package>
+      <Package>Edge\QA\Task</Package>
+      <Package>Edge\QA</Package>
     </Package>
   </Cycles>
 </PDepend>

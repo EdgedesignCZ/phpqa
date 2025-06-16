@@ -1,12 +1,14 @@
 <h1>phpunit</h1>
-<pre id="cli">PHPUnit 9.5.20 [44m#StandWith[0m[43mUkraine[0m
+<pre id="cli">PHPUnit 9.6.23 by Sebastian Bergmann and contributors.
 
-...........E..................................................... 65 / 92 ( 70%)
-..................SSS......                                       92 / 92 (100%)
+...........E..................................................... 65 / 93 ( 69%)
+...E..............
+Deprecated: SimpleXMLElement::xpath(): Passing null to parameter #1 ($expression) of type string is deprecated in /Users/www/zd/phpqa/src/report.php on line 61
+SSS.......                                      93 / 93 (100%)
 
-Time: 00:00.130, Memory: 12.00 MB
+Time: 00:00.118, Memory: 12.00 MB
 
-There was 1 error:
+There were 2 errors:
 
 1) Edge\QA\ConfigTest::testMultipleConfig
 Hamcrest\AssertionError: Expected: is &quot;php,inc&quot;
@@ -15,10 +17,19 @@ Hamcrest\AssertionError: Expected: is &quot;php,inc&quot;
 /Users/www/zd/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:115
 /Users/www/zd/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:52
 /Users/www/zd/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php:28
-/Users/www/zd/phpqa/tests/Config/ConfigTest.php:129
+/Users/www/zd/phpqa/tests/Config/ConfigTest.php:131
+
+2) Edge\QA\PathsTest::testPathToBinaryIsEscaped
+Hamcrest\AssertionError: Expected: (a string starting with &quot;php \&quot;&quot; and a string ending with &quot;\&quot;&quot;)
+     but: a string starting with &quot;php \&quot;&quot; was &quot;php7.4 &quot;/Users/www/zd/phpqa/tests/PathsTest.php&quot;&quot;
+
+/Users/www/zd/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:115
+/Users/www/zd/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest/MatcherAssert.php:52
+/Users/www/zd/phpqa/vendor/hamcrest/hamcrest-php/hamcrest/Hamcrest.php:28
+/Users/www/zd/phpqa/tests/PathsTest.php:11
 
 ERRORS!
-Tests: 92, Assertions: 7, Errors: 1, Skipped: 3.
+Tests: 93, Assertions: 7, Errors: 2, Skipped: 3.
 </pre> 
  
 <style> 

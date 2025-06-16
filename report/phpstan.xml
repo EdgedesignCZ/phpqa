@@ -1,19 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <checkstyle>
-<file name="src/invalid/new-feature.php">
-  <error line="1" column="1" severity="error" message="If condition is always true." />
-  <error line="2" column="1" severity="error" message="If condition is always true." />
-</file>
 <file name="src/invalid/php-syntax.php">
-  <error line="3" column="1" severity="error" message="Syntax error, unexpected ';', expecting T_VARIABLE or '{' or '$' on line 3" />
-</file>
-<file name="tests/OptionsTest.php">
-  <error line="24" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
-  <error line="34" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
-  <error line="35" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
-  <error line="36" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
-  <error line="37" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
-  <error line="50" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
-  <error line="57" column="1" severity="error" message="Access to an undefined property Edge\QA\OptionsTest::$fileOutput." />
+  <error line="3" column="1" severity="error" message="Syntax error, unexpected ';', expecting T_VARIABLE or '{' or '$' on line 3" source="phpstan.parse" />
 </file>
 </checkstyle>

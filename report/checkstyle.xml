@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<checkstyle version="3.6.2">
+<checkstyle version="3.13.1">
 <file name="/Users/www/zd/phpqa/src/invalid/new-feature.php">
- <error line="1" column="15" severity="error" message="Expected 1 space(s) after closing parenthesis; found 0" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
- <error line="2" column="19" severity="error" message="Expected 1 space(s) after closing parenthesis; found 0" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
- <error line="4" column="7" severity="error" message="Expected 1 space(s) after ELSE keyword; 0 found" source="Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword"/>
+ <error line="1" column="15" severity="error" message="Expected 1 space after closing parenthesis; found 0" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="2" column="19" severity="error" message="Expected 1 space after closing parenthesis; found 0" source="Squiz.ControlStructures.ControlSignature.SpaceAfterCloseParenthesis"/>
+ <error line="4" column="7" severity="error" message="Expected 1 space after ELSE keyword; 0 found" source="Squiz.ControlStructures.ControlSignature.SpaceAfterKeyword"/>
  <error line="5" column="13" severity="error" message="A closing tag is not permitted at the end of a PHP file" source="PSR2.Files.ClosingTag.NotAllowed"/>
 </file>
 <file name="/Users/www/zd/phpqa/src/Task/NonParallelExecV1.php">
- <error line="23" column="14" severity="error" message="Each PHP statement must be on a line by itself" source="Generic.Formatting.DisallowMultipleStatements.SameLine"/>
+ <error line="22" column="14" severity="error" message="Each PHP statement must be on a line by itself" source="Generic.Formatting.DisallowMultipleStatements.SameLine"/>
 </file>
 </checkstyle>
 

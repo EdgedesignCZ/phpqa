@@ -19,7 +19,7 @@
                         });
                     }
                 ];
-                </script></head><body><div class="container-fluid"><h1>PHP CS Fixer report</h1><nav><ul class="nav nav-pills" role="tablist"><li role="presentation" class="active"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a></li><li role="presentation"><a href="#errors" aria-controls="errors" role="tab" data-toggle="tab">Errors</a></li></ul></nav><div class="tab-content"><div role="tabpanel" class="tab-pane active" id="overview"><table class="table table-striped"><thead><tr><th>Files</th><th>Errors</th><th>Duration</th></tr></thead><tr><td>40</td><th><span class="label label-danger">130</span></th><th><span class="label label-info">1.124</span></th></tr></table></div><div role="tabpanel" class="tab-pane" id="errors"><div class="fixed-navbar"><div class="input-group" style="width: 20em"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input data-search="errors" type="text" class="form-control" placeholder="trailing..."></div></div><script>
+                </script></head><body><div class="container-fluid"><h1>PHP CS Fixer report</h1><nav><ul class="nav nav-pills" role="tablist"><li role="presentation" class="active"><a href="#overview" aria-controls="overview" role="tab" data-toggle="tab">Overview</a></li><li role="presentation"><a href="#errors" aria-controls="errors" role="tab" data-toggle="tab">Errors</a></li></ul></nav><div class="tab-content"><div role="tabpanel" class="tab-pane active" id="overview"><table class="table table-striped"><thead><tr><th>Files</th><th>Errors</th><th>Duration</th></tr></thead><tr><td>40</td><th><span class="label label-danger">139</span></th><th><span class="label label-info">1.334</span></th></tr></table></div><div role="tabpanel" class="tab-pane" id="errors"><div class="fixed-navbar"><div class="input-group" style="width: 20em"><span class="input-group-addon"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></span><input data-search="errors" type="text" class="form-control" placeholder="trailing..."></div></div><script>
                         onDocumentReady.push(function () {
                             var rows = $('[data-filterable] tbody tr');
 
@@ -39,7 +39,7 @@
                         });
                         </script><table class="table table-striped table-hover" data-filterable="errors"><thead><tr><th>File</th><th>Errors (fixers)</th></tr></thead><tr><td><strong>tests/Tools/Analyzer/PhpstanTest</strong></td><td data-fixers="">applied fixers:
 ---------------
-* braces</td></tr><tr><td><strong>tests/RunningToolTest</strong></td><td data-fixers="">applied fixers:
+* no_blank_lines_after_class_opening</td></tr><tr><td><strong>tests/RunningToolTest</strong></td><td data-fixers="">applied fixers:
 ---------------
 * trailing_comma_in_multiline</td></tr><tr><td><strong>tests/Config/ConfigTest</strong></td><td data-fixers="">applied fixers:
 ---------------
@@ -56,14 +56,14 @@
 * blank_line_before_statement</td></tr><tr><td><strong>tests/Report/ReportTest</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax
-* concat_space
 * single_quote
+* concat_space
 * trailing_comma_in_multiline
 * whitespace_after_comma_in_array</td></tr><tr><td><strong>src/paths</strong></td><td data-fixers="">applied fixers:
 ---------------
-* concat_space
 * increment_style
 * single_quote
+* concat_space
 * yoda_style
 * blank_line_before_statement</td></tr><tr><td><strong>src/Tools/Tool</strong></td><td data-fixers="">applied fixers:
 ---------------
@@ -75,15 +75,15 @@
 * yoda_style
 * blank_line_before_statement</td></tr><tr><td><strong>src/Tools/Tools</strong></td><td data-fixers="">applied fixers:
 ---------------
-* single_line_throw
-* single_space_after_construct
 * array_syntax
+* single_line_throw
+* single_space_around_construct
 * no_alias_language_construct_call
 * blank_line_before_statement</td></tr><tr><td><strong>src/Tools/GetVersions</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax
-* concat_space
 * single_quote
+* concat_space
 * trailing_comma_in_multiline
 * yoda_style
 * blank_line_before_statement</td></tr><tr><td><strong>src/Tools/Analyzer/Phpunit</strong></td><td data-fixers="">applied fixers:
@@ -96,9 +96,9 @@
 * blank_line_before_statement</td></tr><tr><td><strong>src/Tools/Analyzer/Phpstan</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax
+* ternary_operator_spaces
 * concat_space
 * yoda_style
-* ternary_operator_spaces
 * blank_line_before_statement</td></tr><tr><td><strong>src/Tools/Analyzer/ParallelLint</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax</td></tr><tr><td><strong>src/Tools/Analyzer/Pdepend</strong></td><td data-fixers="">applied fixers:
@@ -108,8 +108,8 @@
 * blank_line_before_statement</td></tr><tr><td><strong>src/Tools/Analyzer/PhpCsFixer</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax
-* concat_space
 * single_quote
+* concat_space
 * blank_line_before_statement</td></tr><tr><td><strong>src/Tools/Analyzer/Phpmd</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax
@@ -118,7 +118,8 @@
 * blank_line_before_statement
 * single_line_comment_style</td></tr><tr><td><strong>src/Tools/Analyzer/Deptrac</strong></td><td data-fixers="">applied fixers:
 ---------------
-* array_syntax</td></tr><tr><td><strong>src/Tools/Analyzer/PhpMetrics</strong></td><td data-fixers="">applied fixers:
+* array_syntax
+* blank_line_before_statement</td></tr><tr><td><strong>src/Tools/Analyzer/PhpMetrics</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax
 * blank_line_before_statement</td></tr><tr><td><strong>src/Tools/Analyzer/Phpcpd</strong></td><td data-fixers="">applied fixers:
@@ -141,11 +142,14 @@
 * blank_line_before_statement</td></tr><tr><td><strong>src/Tools/Analyzer/Psalm</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax
-* no_whitespace_in_blank_line
+* global_namespace_import
+* no_unused_imports
+* no_extra_blank_lines
 * blank_line_before_statement
-* ordered_imports</td></tr><tr><td><strong>src/RunningTool</strong></td><td data-fixers="">applied fixers:
+* no_whitespace_in_blank_line</td></tr><tr><td><strong>src/RunningTool</strong></td><td data-fixers="">applied fixers:
 ---------------
 * concat_space
+* operator_linebreak
 * yoda_style
 * blank_line_before_statement</td></tr><tr><td><strong>src/OutputMode</strong></td><td data-fixers="">applied fixers:
 ---------------
@@ -154,59 +158,64 @@
 * no_alternative_syntax</td></tr><tr><td><strong>src/IgnoredPaths</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax
-* concat_space
 * single_quote
+* concat_space
 * yoda_style
 * blank_line_before_statement</td></tr><tr><td><strong>src/Config</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax
 * concat_space
 * yoda_style
+* statement_indentation
 * blank_line_before_statement</td></tr><tr><td><strong>src/Task/TableSummary</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax
 * concat_space
 * yoda_style
-* no_whitespace_in_blank_line
 * blank_line_before_statement
-* ordered_imports</td></tr><tr><td><strong>src/Task/ParallelExec</strong></td><td data-fixers="">applied fixers:
+* ordered_imports
+* no_whitespace_in_blank_line</td></tr><tr><td><strong>src/Task/ParallelExec</strong></td><td data-fixers="">applied fixers:
 ---------------
 * blank_line_before_statement</td></tr><tr><td><strong>src/Task/NonParallelExecV1</strong></td><td data-fixers="">applied fixers:
 ---------------
 * no_empty_statement
+* single_quote
 * concat_space
 * phpdoc_summary
-* single_quote
 * yoda_style</td></tr><tr><td><strong>src/Task/AssetsLoader</strong></td><td data-fixers="">applied fixers:
 ---------------
-* no_whitespace_in_blank_line
 * blank_line_before_statement
-* ordered_imports</td></tr><tr><td><strong>src/Task/NonParallelExecV0</strong></td><td data-fixers="">applied fixers:
+* ordered_imports
+* no_whitespace_in_blank_line</td></tr><tr><td><strong>src/Task/NonParallelExecV0</strong></td><td data-fixers="">applied fixers:
 ---------------
-* concat_space
-* single_quote</td></tr><tr><td><strong>src/Task/TableVersions</strong></td><td data-fixers="">applied fixers:
+* single_quote
+* concat_space</td></tr><tr><td><strong>src/Task/TableVersions</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax
-* no_whitespace_in_blank_line
-* ordered_imports</td></tr><tr><td><strong>src/Task/RoboAdapter</strong></td><td data-fixers="">applied fixers:
+* ordered_imports
+* no_whitespace_in_blank_line</td></tr><tr><td><strong>src/Task/RoboAdapter</strong></td><td data-fixers="">applied fixers:
 ---------------
 * yoda_style
 * blank_line_before_statement</td></tr><tr><td><strong>src/CodeAnalysisTasks</strong></td><td data-fixers="">applied fixers:
 ---------------
 * array_syntax
-* concat_space
 * single_quote
+* concat_space
+* trailing_comma_in_multiline
+* phpdoc_separation
 * blank_line_before_statement</td></tr><tr><td><strong>src/Options</strong></td><td data-fixers="">applied fixers:
 ---------------
-* phpdoc_scalar
 * array_syntax
+* phpdoc_scalar
 * concat_space
 * trailing_comma_in_multiline
 * yoda_style
 * blank_line_before_statement</td></tr><tr><td><strong>src/report</strong></td><td data-fixers="">applied fixers:
 ---------------
 * concat_space
-* blank_line_before_statement
-* ordered_imports</td></tr></table></div></div></div><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script>
+* global_namespace_import
+* no_unused_imports
+* no_extra_blank_lines
+* blank_line_before_statement</td></tr></table></div></div></div><script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script><script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script><script>
                 $(document).ready(onDocumentReady);
             </script></body></html>

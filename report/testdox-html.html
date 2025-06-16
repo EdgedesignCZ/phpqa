@@ -6,145 +6,167 @@
         <style>
             body {
                 text-rendering: optimizeLegibility;
+                font-family: Source SansSerif Pro, Arial, sans-serif;
                 font-variant-ligatures: common-ligatures;
                 font-kerning: normal;
-                margin-left: 2em;
-                background-color: #ffffff;
-                color: #000000;
+                margin-left: 2rem;
+                background-color: #fff;
+                color: #000;
             }
 
             body > ul > li {
-                font-family: Source Serif Pro, PT Sans, Trebuchet MS, Helvetica, Arial;
-                font-size: 2em;
+                font-size: larger;
             }
 
             h2 {
-                font-family: Tahoma, Helvetica, Arial;
-                font-size: 3em;
+                font-size: larger;
+                text-decoration-line: underline;
+                text-decoration-thickness: 2px;
+                margin: 0;
+                padding: 0.5rem 0;
             }
 
             ul {
                 list-style: none;
-                margin-bottom: 1em;
+                margin: 0 0 2rem;
+                padding: 0 0 0 1rem;
+                text-indent: -1rem;
+            }
+
+            .success:before {
+                color: #4e9a06;
+                content: '✓';
+                padding-right: 0.5rem;
+            }
+
+            .defect {
+                color: #a40000;
+            }
+
+            .defect:before {
+                color: #a40000;
+                content: '✗';
+                padding-right: 0.5rem;
             }
         </style>
     </head>
     <body>
-        <h2 id="Edge\QA\ConfigTest">Config (Edge\QA\Config)</h2>
+        <h2>Config (Edge\QA\Config)</h2>
         <ul>
-            <li style="color: #555753;">✓ Load default config</li>
-            <li style="color: #555753;">✓ Build absolute path</li>
-            <li style="color: #555753;">✓ Override default config</li>
-            <li style="color: #555753;">✓ Allow partial update of tools</li>
-            <li style="color: #555753;">✓ Ignore non existent user config</li>
-            <li style="color: #555753;">✓ No exception when cwd has no config</li>
-            <li style="color: #555753;">✓ Throw exception when file does not exist</li>
-            <li style="color: #555753;">✓ Config csv string</li>
-            <li style="color: #555753;">✓ Use cwd if no directory is specified</li>
-            <li style="color: #555753;">✓ Ignore invalid binary does not exist</li>
-            <li style="color: #555753;">✓ Tool and binary name might not match</li>
-            <li style="color: #ef2929;">❌ Multiple config</li>
-            <li style="color: #555753;">✓ Autodetect config in current directory</li>
-            <li style="color: #555753;">✓ Ignore autodetected config if user config is specified</li>
+            <li class="success">Load default config</li>
+            <li class="success">Build absolute path</li>
+            <li class="success">Override default config</li>
+            <li class="success">Allow partial update of tools</li>
+            <li class="success">Ignore non existent user config</li>
+            <li class="success">No exception when cwd has no config</li>
+            <li class="success">Throw exception when file does not exist</li>
+            <li class="success">Config csv string</li>
+            <li class="success">Use cwd if no directory is specified</li>
+            <li class="success">Ignore invalid binary does not exist</li>
+            <li class="success">Tool and binary name might not match</li>
+            <li class="defect">Multiple config</li>
+            <li class="success">Autodetect config in current directory</li>
+            <li class="success">Ignore autodetected config if user config is specified</li>
         </ul>
-        <h2 id="Edge\QA\Tools\GetVersionsTest">Get Versions (Edge\QA\Tools\GetVersions)</h2>
+        <h2>Get Versions (Edge\QA\Tools\GetVersions)</h2>
         <ul>
-            <li style="color: #555753;">✓ Normalize version with data set "full semver"</li>
-            <li style="color: #555753;">✓ Normalize version with data set "minor release"</li>
-            <li style="color: #555753;">✓ Normalize version with data set "major release"</li>
-            <li style="color: #555753;">✓ Cli version with data set "semver at the end"</li>
-            <li style="color: #555753;">✓ Cli version with data set "semver at the start"</li>
-            <li style="color: #555753;">✓ Cli version with data set "semver at 2nd line"</li>
-            <li style="color: #555753;">✓ Cli version with data set "custom format"</li>
-            <li style="color: #555753;">✓ Cli version with data set "no space"</li>
-            <li style="color: #555753;">✓ Cli version with data set "dev version"</li>
-            <li style="color: #555753;">✓ Cli version with data set "prefer semver (semver + dev)"</li>
-            <li style="color: #555753;">✓ Cli version with data set "prefer semver (dev + semver)"</li>
-            <li style="color: #555753;">✓ Cli version with data set "no version"</li>
-            <li style="color: #555753;">✓ Compare versions with data set "no version"</li>
-            <li style="color: #555753;">✓ Compare versions with data set "is lower?"</li>
-            <li style="color: #555753;">✓ Compare versions with data set "is greater than dev version"</li>
-            <li style="color: #555753;">✓ Compare versions with data set "semver is greater than"</li>
-            <li style="color: #555753;">✓ Compare versions with data set "dev version is greater than"</li>
+            <li class="success">Normalize version with data set "full semver"</li>
+            <li class="success">Normalize version with data set "minor release"</li>
+            <li class="success">Normalize version with data set "major release"</li>
+            <li class="success">Cli version with data set "semver at the end"</li>
+            <li class="success">Cli version with data set "semver at the start"</li>
+            <li class="success">Cli version with data set "semver at 2nd line"</li>
+            <li class="success">Cli version with data set "custom format"</li>
+            <li class="success">Cli version with data set "no space"</li>
+            <li class="success">Cli version with data set "dev version"</li>
+            <li class="success">Cli version with data set "prefer semver (semver + dev)"</li>
+            <li class="success">Cli version with data set "prefer semver (dev + semver)"</li>
+            <li class="success">Cli version with data set "no version"</li>
+            <li class="success">Compare versions with data set "no version"</li>
+            <li class="success">Compare versions with data set "is lower?"</li>
+            <li class="success">Compare versions with data set "is greater than dev version"</li>
+            <li class="success">Compare versions with data set "semver is greater than"</li>
+            <li class="success">Compare versions with data set "dev version is greater than"</li>
         </ul>
-        <h2 id="Edge\QA\IgnoredPathsTest">Ignored Paths (Edge\QA\IgnoredPaths)</h2>
+        <h2>Ignored Paths (Edge\QA\IgnoredPaths)</h2>
         <ul>
-            <li style="color: #555753;">✓ No option when nothing is ignored with data set #0</li>
-            <li style="color: #555753;">✓ No option when nothing is ignored with data set #1</li>
-            <li style="color: #555753;">✓ No option when nothing is ignored with data set #2</li>
-            <li style="color: #555753;">✓ No option when nothing is ignored with data set "pdepend + windows"</li>
-            <li style="color: #555753;">✓ No option when nothing is ignored with data set "phpmd + windows"</li>
-            <li style="color: #555753;">✓ No option when nothing is ignored with data set #3</li>
-            <li style="color: #555753;">✓ No option when nothing is ignored with data set #4</li>
-            <li style="color: #555753;">✓ No option when nothing is ignored with data set #5</li>
-            <li style="color: #555753;">✓ No option when nothing is ignored with data set #6</li>
-            <li style="color: #555753;">✓ No option when nothing is ignored with data set #7</li>
-            <li style="color: #555753;">✓ Ignore directories and files with data set #0</li>
-            <li style="color: #555753;">✓ Ignore directories and files with data set #1</li>
-            <li style="color: #555753;">✓ Ignore directories and files with data set #2</li>
-            <li style="color: #555753;">✓ Ignore directories and files with data set "pdepend + windows"</li>
-            <li style="color: #555753;">✓ Ignore directories and files with data set "phpmd + windows"</li>
-            <li style="color: #555753;">✓ Ignore directories and files with data set #3</li>
-            <li style="color: #555753;">✓ Ignore directories and files with data set #4</li>
-            <li style="color: #555753;">✓ Ignore directories and files with data set #5</li>
-            <li style="color: #555753;">✓ Ignore directories and files with data set #6</li>
-            <li style="color: #555753;">✓ Ignore directories and files with data set #7</li>
+            <li class="success">No option when nothing is ignored with data set #0</li>
+            <li class="success">No option when nothing is ignored with data set #1</li>
+            <li class="success">No option when nothing is ignored with data set #2</li>
+            <li class="success">No option when nothing is ignored with data set "pdepend + windows"</li>
+            <li class="success">No option when nothing is ignored with data set "phpmd + windows"</li>
+            <li class="success">No option when nothing is ignored with data set #3</li>
+            <li class="success">No option when nothing is ignored with data set #4</li>
+            <li class="success">No option when nothing is ignored with data set #5</li>
+            <li class="success">No option when nothing is ignored with data set #6</li>
+            <li class="success">No option when nothing is ignored with data set #7</li>
+            <li class="success">Ignore directories and files with data set #0</li>
+            <li class="success">Ignore directories and files with data set #1</li>
+            <li class="success">Ignore directories and files with data set #2</li>
+            <li class="success">Ignore directories and files with data set "pdepend + windows"</li>
+            <li class="success">Ignore directories and files with data set "phpmd + windows"</li>
+            <li class="success">Ignore directories and files with data set #3</li>
+            <li class="success">Ignore directories and files with data set #4</li>
+            <li class="success">Ignore directories and files with data set #5</li>
+            <li class="success">Ignore directories and files with data set #6</li>
+            <li class="success">Ignore directories and files with data set #7</li>
         </ul>
-        <h2 id="Edge\QA\OptionsTest">Options (Edge\QA\Options)</h2>
+        <h2>Options (Edge\QA\Options)</h2>
         <ul>
-            <li style="color: #555753;">✓ Escape paths</li>
-            <li style="color: #555753;">✓ Respect tools order defined in option</li>
-            <li style="color: #555753;">✓ Ignore pdepend in cli output</li>
-            <li style="color: #555753;">✓ Is suggested tool installed with data set "internal class is available"</li>
-            <li style="color: #555753;">✓ Is suggested tool installed with data set "at least one internal class is available"</li>
-            <li style="color: #555753;">✓ Is suggested tool installed with data set "dependency is available"</li>
-            <li style="color: #555753;">✓ Is suggested tool installed with data set "dependency is not available"</li>
-            <li style="color: #555753;">✓ Build output with data set "ignore verbose and report in CLI output"</li>
-            <li style="color: #555753;">✓ Build output with data set "respect verbose mode and report in FILE output"</li>
-            <li style="color: #555753;">✓ Execute with data set "parallel execution is default mode"</li>
-            <li style="color: #555753;">✓ Execute with data set "parallel execution"</li>
-            <li style="color: #555753;">✓ Execute with data set "dont use parallelism if execution is other word"</li>
-            <li style="color: #555753;">✓ Build root path with data set "current dir + analyzed dir + slash"</li>
-            <li style="color: #555753;">✓ Build root path with data set "find common root from multiple dirs"</li>
-            <li style="color: #555753;">✓ Build root path with data set "no path when dir is invalid"</li>
-            <li style="color: #555753;">✓ Build root path with data set "file directory + skip invalid dir"</li>
-            <li style="color: #555753;">✓ Load allowed errors count</li>
+            <li class="success">Escape paths</li>
+            <li class="success">Respect tools order defined in option</li>
+            <li class="success">Ignore pdepend in cli output</li>
+            <li class="success">Is suggested tool installed with data set "internal class is available"</li>
+            <li class="success">Is suggested tool installed with data set "at least one internal class is available"</li>
+            <li class="success">Is suggested tool installed with data set "dependency is available"</li>
+            <li class="success">Is suggested tool installed with data set "dependency is not available"</li>
+            <li class="success">Build output with data set "ignore verbose and report in CLI output"</li>
+            <li class="success">Build output with data set "respect verbose mode and report in FILE output"</li>
+            <li class="success">Execute with data set "parallel execution is default mode"</li>
+            <li class="success">Execute with data set "parallel execution"</li>
+            <li class="success">Execute with data set "dont use parallelism if execution is other word"</li>
+            <li class="success">Build root path with data set "current dir + analyzed dir + slash"</li>
+            <li class="success">Build root path with data set "find common root from multiple dirs"</li>
+            <li class="success">Build root path with data set "no path when dir is invalid"</li>
+            <li class="success">Build root path with data set "file directory + skip invalid dir"</li>
+            <li class="success">Load allowed errors count</li>
         </ul>
-        <h2 id="Edge\QA\PathsTest">Paths (Edge\QA\Paths)</h2>
+        <h2>Paths (Edge\QA\Paths)</h2>
         <ul>
-            <li style="color: #555753;">✓ Path to binary is escaped</li>
+            <li class="defect">Path to binary is escaped</li>
         </ul>
-        <h2 id="Edge\QA\ReportTest">Report (Edge\QA\Report)</h2>
+        <h2>Report (Edge\QA\Report)</h2>
         <ul>
-            <li style="color: #555753;">✓ Convert twig to html</li>
-            <li style="color: #555753;">✓ Convert xml to html with data set "create html"</li>
-            <li style="color: #555753;">✓ Convert xml to html with data set "create empty file if something went south"</li>
-            <li style="color: #555753;">✓ Ignore missing xml documents</li>
+            <li class="success">Convert twig to html</li>
+            <li class="success">Convert xml to html with data set "create html"</li>
+            <li class="success">Convert xml to html with data set "create empty file if something went south"</li>
+            <li class="success">Ignore missing xml documents</li>
         </ul>
-        <h2 id="Edge\QA\RunningToolTest">Running Tool (Edge\QA\RunningTool)</h2>
+        <h2>Running Tool (Edge\QA\RunningTool)</h2>
         <ul>
-            <li style="color: #555753;">✓ Build option with defined separator</li>
-            <li style="color: #555753;">✓ Mark success when x path is not defined</li>
-            <li style="color: #555753;">✓ Mark failure when xml file does not exist with data set "success when allowed errors are not defined"</li>
-            <li style="color: #555753;">✓ Mark failure when xml file does not exist with data set "success when errors count are defined"</li>
-            <li style="color: #555753;">✓ Compare allowed count with errors count from xml with data set "success when allowed errors are not defined"</li>
-            <li style="color: #555753;">✓ Compare allowed count with errors count from xml with data set "success when errors count <= allowed count"</li>
-            <li style="color: #555753;">✓ Compare allowed count with errors count from xml with data set "failure when errors count > allowed count"</li>
-            <li style="color: #555753;">✓ Runtime selection of error xpath</li>
-            <li style="color: #555753;">✓ Multiple xpaths with data set "multiple elements"</li>
-            <li style="color: #555753;">✓ Multiple xpaths with data set "invalid xpath"</li>
-            <li style="color: #ef2929;">❌ Analyze exit code in cli mode with data set "success when exit code = 0"</li>
-            <li style="color: #ef2929;">❌ Analyze exit code in cli mode with data set "success when exit code <= allowed code"</li>
-            <li style="color: #ef2929;">❌ Analyze exit code in cli mode with data set "failure when errors count > allowed count but errors count is always one"</li>
-            <li style="color: #555753;">✓ Create unique id for user report</li>
+            <li class="success">Build option with defined separator</li>
+            <li class="success">Mark success when x path is not defined</li>
+            <li class="success">Mark failure when xml file does not exist with data set "success when allowed errors are not defined"</li>
+            <li class="success">Mark failure when xml file does not exist with data set "success when errors count are defined"</li>
+            <li class="success">Compare allowed count with errors count from xml with data set "success when allowed errors are not defined"</li>
+            <li class="success">Compare allowed count with errors count from xml with data set "success when errors count <= allowed count"</li>
+            <li class="success">Compare allowed count with errors count from xml with data set "failure when errors count > allowed count"</li>
+            <li class="success">Runtime selection of error xpath</li>
+            <li class="success">Multiple xpaths with data set "multiple elements"</li>
+            <li class="success">Multiple xpaths with data set "invalid xpath"</li>
+            <li class="defect">Analyze exit code in cli mode with data set "success when exit code = 0"</li>
+            <li class="defect">Analyze exit code in cli mode with data set "success when exit code <= allowed code"</li>
+            <li class="defect">Analyze exit code in cli mode with data set "failure when errors count > allowed count but errors count is always one"</li>
+            <li class="success">Create unique id for user report</li>
+            <li class="success">Dynamic output mode phpstan</li>
         </ul>
-        <h2 id="Edge\QA\Tools\Analyzer\PhpstanTest">Phpstan (Edge\QA\Tools\Analyzer\Phpstan)</h2>
+        <h2>Phpstan (Edge\QA\Tools\Analyzer\Phpstan)</h2>
         <ul>
-            <li style="color: #555753;">✓ Build config with data set "No config"</li>
-            <li style="color: #555753;">✓ Build config with data set "No parameters in config"</li>
-            <li style="color: #555753;">✓ Build config with data set "excludePaths shortcut"</li>
-            <li style="color: #555753;">✓ Build config with data set "excludePaths + analyseAndScan"</li>
-            <li style="color: #555753;">✓ Build config with data set "Deprecated excludes_analyse"</li>
+            <li class="success">Build config with data set "No config"</li>
+            <li class="success">Build config with data set "No parameters in config"</li>
+            <li class="success">Build config with data set "excludePaths shortcut"</li>
+            <li class="success">Build config with data set "excludePaths + analyseAndScan"</li>
+            <li class="success">Build config with data set "Deprecated excludes_analyse"</li>
         </ul>
     </body>
 </html>

@@ -1,7 +1,26 @@
 
 # Changelog
 
+## v1.27.0
+
+* **tools**
+  * phpcpd - append suffixes correctly in version 6 - [#253](https://github.com/EdgedesignCZ/phpqa/pull/253)
+  * phpqa - use printTaskSuccess/printTaskError in NonParallelExecV1 (undefined ConsoleLogLevel) [#255](https://github.com/EdgedesignCZ/phpqa/pull/255)
+  * phpqa - don't preinstall anything, prefer phar dependencies - [#265](https://github.com/EdgedesignCZ/phpqa/pull/265)
+  * deptrac - add config for uncovered dependencies report - [#258](https://github.com/EdgedesignCZ/phpqa/issues/258)
+  * phpstan - add errorFormat config - [#260](https://github.com/EdgedesignCZ/phpqa/issues/260)
+* _internal (CI)_
+  * ignore twig security error in old php versions - [#254](https://github.com/EdgedesignCZ/phpqa/pull/254)
+  * delete composer.lock, add php 8.2, 8.3, 8.4 - [#257](https://github.com/EdgedesignCZ/phpqa/pull/257), [#265](https://github.com/EdgedesignCZ/phpqa/pull/265)
+  * try to upgrade, then delete flaky appveyor - [#268](https://github.com/EdgedesignCZ/phpqa/pull/268), [#269](https://github.com/EdgedesignCZ/phpqa/pull/269)
+
+## v1.26.2
+
+* **tools** - upgrade phpcs _(support PHP 8.1 Enums)_ [#251](https://github.com/EdgedesignCZ/phpqa/pull/251)
+
 ## v1.26.1
+
+* **Docker** - php 8.1, github container registry [#249](https://github.com/EdgedesignCZ/phpqa/pull/249)
 
 * **Docker** - php 8.1, github container registry
 

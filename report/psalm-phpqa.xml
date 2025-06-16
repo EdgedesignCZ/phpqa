@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<psalm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://getpsalm.org/schema/config" errorLevel="3" xsi:schemaLocation="https://getpsalm.org/schema/config ../../vendor/vimeo/psalm/config.xsd" resolveFromConfigFile="false">
+<psalm xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://getpsalm.org/schema/config" errorLevel="3" xsi:schemaLocation="https://getpsalm.org/schema/config https://getpsalm.org/schema/config" resolveFromConfigFile="false">
   <projectFiles>
     <ignoreFiles>
       <file name="src/Task/ParallelExec.php"/>
