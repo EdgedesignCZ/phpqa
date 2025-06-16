@@ -15,7 +15,7 @@ class SecurityChecker extends \Edge\QA\Tools\Tool
     public function __invoke()
     {
         $composerLockFromConfig = $this->config->path('security-checker.composerLock');
-        $composerLock = file_exists($composerLockFromConfig)
+        $composerLock = $composerLockFromConfig && file_exists($composerLockFromConfig)
             ? $composerLockFromConfig
             : $this->detectComposerLock();
 
