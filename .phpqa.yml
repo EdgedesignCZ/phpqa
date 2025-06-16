@@ -89,7 +89,7 @@ psalm:
     memoryLimit: null
 
 deptrac:
-    depfile: null # depfile.yml (https://github.com/deptrac/deptrac/blob/main/docs/index.md#configuration)
+    depfile: null # deptrac.yml (https://deptrac.github.io/deptrac/#configuration)
     reportUncovered: true
 
 security-checker:
