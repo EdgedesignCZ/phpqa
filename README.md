@@ -339,6 +339,7 @@ Tool | Settings | Default Value | Your value
 [psalm.showInfo](https://psalm.dev/docs/running_psalm/configuration/#reportinfo) | Display or not information (non-error) messages (option `--show-info=` of psalm) | `true` | Boolean value
 [psalm.memoryLimit](https://github.com/vimeo/psalm/issues/842) | Custom memory limit, ignore unless you are getting `Fatal error: Allowed memory size of ... bytes exhausted` | `null` | String value, e.g. `'1024M'`, `'1G'`
 [deptrac.depfile](https://github.com/deptrac/deptrac/blob/main/docs/index.md#configuration) | Complete [deptrac config](https://github.com/deptrac/deptrac/blob/main/docs/configuration.md) _(phpqa won't update source and excluded files)_ | `null` | Path to `depfile.yml` file
+[deptrac.reportUncovered](https://deptrac.github.io/deptrac/concepts/#uncovered-dependencies) | Option to let you know about any uncovered dependencies | `true` | Boolean value
 [security-checker.composerLock](https://github.com/EdgedesignCZ/phpqa/blob/bdd49e3/.phpqa.yml#L94) | Use it if composer.lock is not in current working directory or analyzed directory | `null` | Path to `composer.lock` file
 
 ## HTML reports

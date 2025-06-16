@@ -22,9 +22,12 @@ class Deptrac extends \Edge\QA\Tools\Tool
         } else {
             $args['config-file'] = $this->config->path('deptrac.depfile');
         }
-        return $args + [
+        $args += [
             'formatter' => 'console',
-            'report-uncovered' => '',
         ];
+        if ($this->config->value('deptrac.reportUncovered')) {
+            $args['report-uncovered'] = '';
+        }
+        return $args;
     }
 }
