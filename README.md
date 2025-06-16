@@ -7,7 +7,6 @@ Analyze PHP code with one command.
 [![Latest Stable Version](https://poser.pugx.org/edgedesign/phpqa/v/stable)](/CHANGELOG.md)
 [![Total Downloads](https://poser.pugx.org/edgedesign/phpqa/downloads)](https://packagist.org/packages/edgedesign/phpqa)
 [![Build Status](https://github.com/EdgedesignCZ/phpqa/workflows/PHPQA%20CI/badge.svg?branch=master)](https://github.com/EdgedesignCZ/phpqa/actions)
-[![Windows status](https://ci.appveyor.com/api/projects/status/t9f05uk4cjcg294o?svg=true&passingText=Windows)](https://ci.appveyor.com/project/zdenekdrahos/phpqa)
 
 ## Requirements
 

@@ -12,7 +12,7 @@
 * _internal (CI)_
   * ignore twig security error in old php versions - [#254](https://github.com/EdgedesignCZ/phpqa/pull/254)
   * delete composer.lock, add php 8.2, 8.3, 8.4 - [#257](https://github.com/EdgedesignCZ/phpqa/pull/257), [#265](https://github.com/EdgedesignCZ/phpqa/pull/265)
-  * update appveyor (windows test) - [#268](https://github.com/EdgedesignCZ/phpqa/pull/268)
+  * try to upgrade, then delete flaky appveyor - [#268](https://github.com/EdgedesignCZ/phpqa/pull/268), [#269](https://github.com/EdgedesignCZ/phpqa/pull/269)
 
 ## v1.26.2
 
