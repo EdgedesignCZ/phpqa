@@ -11,7 +11,7 @@ branches:
 
 clone_folder: C:\projects\phpqa
 cache:
-    - '%LOCALAPPDATA%\Composer\files -> composer.lock'
+    - '%LOCALAPPDATA%\Composer\files -> composer.json'
     # Cache chocolatey packages
     - C:\ProgramData\chocolatey\bin -> .appveyor.yml
     - C:\ProgramData\chocolatey\lib -> .appveyor.yml
@@ -42,6 +42,7 @@ install:
     - appveyor-retry appveyor DownloadFile https://getcomposer.org/composer.phar
     # install
     - cd c:\projects\phpqa
+    - del composer.lock
     - appveyor-retry composer require squizlabs/php_codesniffer phpmd/phpmd pdepend/pdepend phpmetrics/phpmetrics phploc/phploc sebastian/phpcpd --no-progress --profile
 
 test_script:
