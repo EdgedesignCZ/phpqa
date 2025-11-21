@@ -1,6 +1,11 @@
 
 # Changelog
 
+## v1.27.1
+
+* _internal (CI)_
+    * add php 8.5, drop 5.4 tests - [#270](https://github.com/EdgedesignCZ/phpqa/pull/270)
+
 ## v1.27.0
 
 * **tools**
