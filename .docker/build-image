@@ -37,6 +37,8 @@ load_docker_variables () {
         COMPOSER_VERSION="2.3"
     elif [[ $PHP_VERSION == "8.4" ]]; then
         COMPOSER_VERSION="2.8.9"
+    elif [[ $PHP_VERSION == "8.5" ]]; then
+        COMPOSER_VERSION="2.9.2"
     else
         echo "PHP version $PHP_VERSION not supported"
         exit 1
