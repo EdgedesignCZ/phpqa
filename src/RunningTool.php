@@ -13,8 +13,8 @@ class RunningTool
     private $outputMode;
 
     private $xmlFiles;
-    private $errorsXPath;
-    public $errorsType;
+    private $errorsXPath = '';
+    public $errorsType = '';
     private $allowedErrorsCount;
 
     public $htmlReport;
