@@ -124,19 +124,19 @@ Official docker image repository is https://github.com/EdgedesignCZ/phpqa/pkgs/c
 Images can be used at [Gitlab CI](#gitlabci---docker-installation--composer-cache--artifacts).
 
 ```bash
-docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.27.1-php7.2 phpqa tools
+docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.27.2-php7.2 phpqa tools
 # using a tool without phpqa
-docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.27.1-php7.2 phploc -v
+docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.27.2-php7.2 phploc -v
 ```
 
 | Image | PHP version | Tools versions | 
 | ----- | ----------- | ----- |
-| `ghcr.io/edgedesigncz/phpqa:v1.27.1-php7.2` | 7.2 | Versions that supports symfony2 components. Not [latest versions](https://github.com/EdgedesignCZ/phpqa/issues/159#issuecomment-452794397). |
-| `ghcr.io/edgedesigncz/phpqa:v1.27.1-php8.1` | 8.1 | |
-| `ghcr.io/edgedesigncz/phpqa:v1.27.1-php8.2` | 8.2 | |
-| `ghcr.io/edgedesigncz/phpqa:v1.27.1-php8.3` | 8.3 | |
-| `ghcr.io/edgedesigncz/phpqa:v1.27.1-php8.4` | 8.4 | |
-| `ghcr.io/edgedesigncz/phpqa:v1.27.1-php8.5` | 8.5 | Generally, latest versions available at the moment. If you need different versions, then [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/210) |
+| `ghcr.io/edgedesigncz/phpqa:v1.27.2-php7.2` | 7.2 | Versions that supports symfony2 components. Not [latest versions](https://github.com/EdgedesignCZ/phpqa/issues/159#issuecomment-452794397). |
+| `ghcr.io/edgedesigncz/phpqa:v1.27.2-php8.1` | 8.1 | |
+| `ghcr.io/edgedesigncz/phpqa:v1.27.2-php8.2` | 8.2 | |
+| `ghcr.io/edgedesigncz/phpqa:v1.27.2-php8.3` | 8.3 | |
+| `ghcr.io/edgedesigncz/phpqa:v1.27.2-php8.4` | 8.4 | |
+| `ghcr.io/edgedesigncz/phpqa:v1.27.2-php8.5` | 8.5 | Generally, latest versions available at the moment. If you need different versions, then [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/210) |
 
 Beware that images as lean as possible. That can be a problem for running PHPUnit tests.
 In that case, you might need different PHP version, miss PHP extensions for database etc.
@@ -144,8 +144,8 @@ You can [install phpqa](https://gitlab.com/costlocker/integrations/blob/213aab7/
 Or [build custom docker image](https://github.com/EdgedesignCZ/phpqa/issues/168#issuecomment-489180974).
 
 ```bash
-docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.27.1-php7.2 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
-docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.27.1-php8.4 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
+docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.27.2-php7.2 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
+docker run --rm -it ghcr.io/edgedesigncz/phpqa:v1.27.2-php8.4 sh -c "php --version && composer --version && composer outdated --direct --all && phpqa tools"
 ```
 
 There are also available images [eko3alpha/docker-phpqa](https://hub.docker.com/r/eko3alpha/docker-phpqa/) and [sparkfabrik/docker-phpqa](https://hub.docker.com/r/sparkfabrik/docker-phpqa/).
@@ -492,7 +492,7 @@ stages:
 
 test:
   stage: test
-  image: ghcr.io/edgedesigncz/phpqa:v1.27.1-php7.2
+  image: ghcr.io/edgedesigncz/phpqa:v1.27.2-php7.2
   variables:
     BACKEND_QA: "*/backend/var/QA"
     BACKEND_CACHE: $CI_PROJECT_DIR/.composercache
@@ -518,7 +518,7 @@ on: [push]
 
 jobs:
   qa:
-    container: ghcr.io/edgedesigncz/phpqa:v1.27.1-php8.4
+    container: ghcr.io/edgedesigncz/phpqa:v1.27.2-php8.4
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2

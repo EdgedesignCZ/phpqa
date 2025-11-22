@@ -1,6 +1,10 @@
 
 # Changelog
 
+## v1.27.2
+
+* _php8.5_ - fix deprecated null array offset - [#271](https://github.com/EdgedesignCZ/phpqa/pull/271)
+
 ## v1.27.1
 
 * _internal (CI)_
