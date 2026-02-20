@@ -64,6 +64,14 @@ class IgnoredPathsTest extends \PHPUnit_Framework_TestCase
                     'files' => ' --exclude /autoload.php,/RoboFile.php'
                 )
             ),
+            array(
+                'phpmd3',
+                array(
+                    'both' => " --exclude '*app/config/*' --exclude '*vendor/*' --exclude '*autoload.php' --exclude '*RoboFile.php'",
+                    'dirs' => " --exclude '*app/config/*' --exclude '*vendor/*'",
+                    'files' => " --exclude '*autoload.php' --exclude '*RoboFile.php'"
+                )
+            ),
             'pdepend + windows' => array(
                 'pdepend',
                 array(

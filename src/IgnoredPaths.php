@@ -50,6 +50,20 @@ class IgnoredPaths
         return $this->ignore(" --exclude /", '/,/', '/', ',/');
     }
 
+    public function phpmd3()
+    {
+        $parts = [];
+        foreach ($this->ignoreDirs as $dir) {
+            $dir = trim($dir, '/');
+            $parts[] = '--exclude ' . escapeshellarg('*' . $dir . '/*');
+        }
+        foreach ($this->ignoreFiles as $file) {
+            $file = ltrim($file, '/');
+            $parts[] = '--exclude ' . escapeshellarg('*' . $file);
+        }
+        return $parts ? ' ' . implode(' ', $parts) : '';
+    }
+
     private function pdependWindowsFilter($option)
     {
         return str_replace('/', '\\', $this->ignore(" --{$option}", '\*,', '\*', ','));
