@@ -19,11 +19,11 @@ phpqa:
         - php
 
 phpcs:
-    # alternatively you can use an array to define multiple standards (https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage#specifying-a-coding-standard)
+    # alternatively you can use an array to define multiple standards (https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Usage#specifying-a-coding-standard)
     standard: PSR2
     # number of allowed errors is compared with warnings+errors, or just errors from checkstyle.xml
     ignoreWarnings: false
-    # https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting
+    # https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting
     reports:
         cli:
             - full
