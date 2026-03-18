@@ -41,7 +41,7 @@ Tool | PHP | Supported since | Description |
 ---- | --- | --------------- | ----------- |
 [phploc](https://github.com/sebastianbergmann/phploc) | `>= 5.4` | `1.0` | Measure the size of a PHP project |
 [phpcpd](https://github.com/sebastianbergmann/phpcpd) | `>= 5.4` | `1.0` | Copy/Paste Detector (CPD) for PHP code |
-[phpcs](https://github.com/squizlabs/PHP_CodeSniffer) | `>= 5.4` | `1.0` | Detect violations of a coding standard |
+[phpcs](https://github.com/PHPCSStandards/PHP_CodeSniffer) | `>= 5.4` | `1.0` | Detect violations of a coding standard |
 [pdepend](https://github.com/pdepend/pdepend) | `>= 5.4` | `1.0` | PHP adaptation of JDepend |
 [phpmd](https://github.com/phpmd/phpmd) | `>= 5.4` | `1.0` | Scan PHP project for messy code |
 [phpmetrics](https://github.com/Halleck45/PhpMetrics) | `>= 5.4` | `1.0` | Static analysis tool for PHP |
@@ -186,7 +186,7 @@ Tool | `--output file` (default) - generated files | `--output cli` |
 ---- | ------------------------- | -------------- |
 phploc | [phploc.xml](https://edgedesigncz.github.io/phpqa/report/phploc.xml) | [✓](https://github.com/sebastianbergmann/phploc#analyse-a-directory-and-print-the-result) |
 phpcpd | [phpcpd.xml](https://edgedesigncz.github.io/phpqa/report/phpcpd.xml) | [✓](https://github.com/sebastianbergmann/phpcpd#usage-example) |
-phpcs | [checkstyle.xml](https://edgedesigncz.github.io/phpqa/report/checkstyle.xml) | [full report](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) |
+phpcs | [checkstyle.xml](https://edgedesigncz.github.io/phpqa/report/checkstyle.xml) | [full report](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) |
 pdepend | [pdepend-jdepend.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.xml), [pdepend-summary.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-summary.xml), [pdepend-dependencies.xml](https://edgedesigncz.github.io/phpqa/report/pdepend-dependencies.xml), [pdepend-jdepend.svg](https://edgedesigncz.github.io/phpqa/report/pdepend-jdepend.svg), [pdepend-pyramid.svg](https://edgedesigncz.github.io/phpqa/report/pdepend-pyramid.svg) | ✗ |
 phpmd | [phpmd.xml](https://edgedesigncz.github.io/phpqa/report/phpmd.xml) | [✓](https://github.com/phpmd/phpmd/blob/master/src/main/php/PHPMD/Renderer/TextRenderer.php#L47) |
 phpmetrics | [phpmetrics.html (v1)](https://edgedesigncz.github.io/phpqa/report/phpmetrics.html), [phpmetrics/index.html (v2)](https://edgedesigncz.github.io/phpqa/report/phpmetrics/), [phpmetrics.xml](https://edgedesigncz.github.io/phpqa/report/phpmetrics.xml) | [✓](https://github.com/phpmetrics/PhpMetrics#usage) |
@@ -317,9 +317,9 @@ $ phpqa --config tests/.ci/ --tools phpmetricsV1,phpmetrics
 Tool | Settings | Default Value | Your value
 ---- | -------- | ------------- | ----------- |
 [phpqa.extensions](https://github.com/EdgedesignCZ/phpqa/blob/master/.phpqa.yml#L49) | PHP File extensions | php | Name of php file to parse, you can specify it like a string `php,inc,modules` or like a yaml array.
-[phpcs.standard](https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard) | Coding standard | PSR2 | Name of existing standard (`PEAR`, `PHPCS`, `PSR1`, `PSR2`, `Squiz`,  `Zend`), or path to your coding standard. To specify [multiple standards](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Usage#specifying-a-coding-standard), you can use an array
+[phpcs.standard](https://pear.php.net/manual/en/package.php.php-codesniffer.usage.php#package.php.php-codesniffer.usage.coding-standard) | Coding standard | PSR2 | Name of existing standard (`PEAR`, `PHPCS`, `PSR1`, `PSR2`, `Squiz`,  `Zend`), or path to your coding standard. To specify [multiple standards](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Usage#specifying-a-coding-standard), you can use an array
 [phpcs.ignoreWarnings](https://github.com/EdgedesignCZ/phpqa/issues/53) | If number of allowed errors is compared with warnings+errors, or just errors from `checkstyle.xml` | `false` | Boolean value
-[phpcs.reports](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) | Report types | [`full`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) report in [cli mode](#output-modes), [`checkstyle`](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting#printing-a-checkstyle-report) in [file mode](#output-modes) | Predefined [report types](https://github.com/squizlabs/PHP_CodeSniffer/wiki/Reporting) or [custom reports](https://github.com/wikidi/codesniffer#examples)
+[phpcs.reports](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting) | Report types | [`full`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-full-and-summary-reports) report in [cli mode](#output-modes), [`checkstyle`](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting#printing-a-checkstyle-report) in [file mode](#output-modes) | Predefined [report types](https://github.com/PHPCSStandards/PHP_CodeSniffer/wiki/Reporting) or [custom reports](https://github.com/wikidi/codesniffer#examples)
 [php-cs-fixer.rules](http://cs.sensiolabs.org/#usage) | Coding standard rules | `@PSR2` | String value
 [php-cs-fixer.allowRiskyRules](http://cs.sensiolabs.org/#usage) | Whether risky rules may run  | `false` | Boolean value
 [php-cs-fixer.config](http://cs.sensiolabs.org/#usage) | Load configuration from [file](https://github.com/FriendsOfPHP/PHP-CS-Fixer/blob/master/.php_cs.dist) | `null` | Path to `.phpcs` file
