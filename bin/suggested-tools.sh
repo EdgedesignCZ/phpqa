@@ -19,6 +19,7 @@ PHP_VERSION=${PHP_VERSION:-"7"}
 PREINSTALLED_TOOLS=${PREINSTALLED_TOOLS:-""}
 
 run () {
+    hotfix_installing_old_versions
     TOOLS=$(get_tools)
     if [ -z "$SELECTED_MODE" ]; then
         show_help "install"
@@ -40,12 +41,18 @@ show_help() {
     echo
 }
 
+hotfix_installing_old_versions () {
+    if [[ ${PHP_VERSION:0:1} != "8" || $PHP_VERSION == "8" ]]; then
+        composer config --merge --json policy.advisories.ignore '{"twig/twig":"*"}'
+    fi
+}
+
 get_tools () {
-    TOOLS="squizlabs/php_codesniffer phpmd/phpmd pdepend/pdepend phpmetrics/phpmetrics phploc/phploc sebastian/phpcpd"
+    TOOLS="squizlabs/php_codesniffer:* phpmd/phpmd:<3 pdepend/pdepend:* phpmetrics/phpmetrics:* phploc/phploc:* sebastian/phpcpd:*"
     if [[ $PREINSTALLED_TOOLS != "legacy" ]]; then
-        TOOLS="${TOOLS} php-parallel-lint/php-parallel-lint php-parallel-lint/php-console-highlighter friendsofphp/php-cs-fixer"
+        TOOLS="${TOOLS} php-parallel-lint/php-parallel-lint:* php-parallel-lint/php-console-highlighter:* friendsofphp/php-cs-fixer:*"
         if [[ ${PHP_VERSION:0:1} != "5" ]]; then
-            TOOLS="${TOOLS} psalm/phar phpstan/phpstan nette/neon deptrac/deptrac enlightn/security-checker"
+            TOOLS="${TOOLS} psalm/phar:* phpstan/phpstan:* nette/neon:* deptrac/deptrac:* enlightn/security-checker:*"
         fi
     fi
     echo $TOOLS

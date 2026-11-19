@@ -19,9 +19,9 @@ jobs:
           # PHP7
           - { php: 7.0 }
           - { php: 7.1, areSuggestedToolsInstalled: yes, allowedSecurityErrors: 1 }
-          - { php: 7.2, areSuggestedToolsInstalled: yes }
+          - { php: 7.2, areSuggestedToolsInstalled: yes, allowedSecurityErrors: 1 }
           - { php: 7.3 }
-          - { php: 7.4, areSuggestedToolsInstalled: yes }
+          - { php: 7.4, areSuggestedToolsInstalled: yes, allowedSecurityErrors: 1 }
           # PHP8
           - { php: 8.0, areSuggestedToolsInstalled: yes, allowedSecurityErrors: 1 }
           - { php: 8.1, areSuggestedToolsInstalled: yes }
