@@ -131,7 +131,7 @@ tool:
     phploc: Edge\QA\Tools\Analyzer\Phploc
     phpcs: Edge\QA\Tools\Analyzer\Phpcs
     php-cs-fixer: Edge\QA\Tools\Analyzer\PhpCsFixer
-    phpmd: Edge\QA\Tools\Analyzer\Phpmd
+    phpmd: [Edge\QA\Tools\Analyzer\Phpmd, Edge\QA\Tools\Analyzer\PhpmdV3]
     pdepend: Edge\QA\Tools\Analyzer\Pdepend
     phpcpd: Edge\QA\Tools\Analyzer\Phpcpd
     parallel-lint: Edge\QA\Tools\Analyzer\ParallelLint

@@ -13,6 +13,7 @@ class Phpmd extends \Edge\QA\Tools\Tool
             false => ['//pmd/file/violation', '//pmd/error'],
         ],
         'composer' => 'phpmd/phpmd',
+        'internalClass' => 'PHPMD\AbstractWriter',
     );
 
     public function __invoke()

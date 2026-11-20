@@ -48,7 +48,7 @@ hotfix_installing_old_versions () {
 }
 
 get_tools () {
-    TOOLS="squizlabs/php_codesniffer:* phpmd/phpmd:<3 pdepend/pdepend:* phpmetrics/phpmetrics:* phploc/phploc:* sebastian/phpcpd:*"
+    TOOLS="squizlabs/php_codesniffer:* phpmd/phpmd:* pdepend/pdepend:* phpmetrics/phpmetrics:* phploc/phploc:* sebastian/phpcpd:*"
     if [[ $PREINSTALLED_TOOLS != "legacy" ]]; then
         TOOLS="${TOOLS} php-parallel-lint/php-parallel-lint:* php-parallel-lint/php-console-highlighter:* friendsofphp/php-cs-fixer:*"
         if [[ ${PHP_VERSION:0:1} != "5" ]]; then

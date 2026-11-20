@@ -50,6 +50,11 @@ class IgnoredPaths
         return $this->ignore(" --exclude /", '/,/', '/', ',/');
     }
 
+    public function phpmd3()
+    {
+        return $this->ignore(' --exclude ', ' --exclude ', '');
+    }
+
     private function pdependWindowsFilter($option)
     {
         return str_replace('/', '\\', $this->ignore(" --{$option}", '\*,', '\*', ','));
