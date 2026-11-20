@@ -1,6 +1,14 @@
 
 # Changelog
 
+## v1.28.0
+
+* **tools**
+    * phpcs - update repository link - [275](https://github.com/EdgedesignCZ/phpqa/pull/275)
+    * phpmd - add support for version 3.x - [#277](https://github.com/EdgedesignCZ/phpqa/pull/277)
+* _internal (CI)_
+    * add php 8.5 - [#276](https://github.com/EdgedesignCZ/phpqa/pull/276)
+
 ## v1.27.2
 
 * _php8.5_ - fix deprecated null array offset - [#271](https://github.com/EdgedesignCZ/phpqa/pull/271)
