@@ -37,23 +37,25 @@ Ignored Paths (Edge\QA\IgnoredPaths)
  [x] No option when nothing is ignored with data set #0
  [x] No option when nothing is ignored with data set #1
  [x] No option when nothing is ignored with data set #2
+ [x] No option when nothing is ignored with data set #3
  [x] No option when nothing is ignored with data set "pdepend + windows"
  [x] No option when nothing is ignored with data set "phpmd + windows"
- [x] No option when nothing is ignored with data set #3
  [x] No option when nothing is ignored with data set #4
  [x] No option when nothing is ignored with data set #5
  [x] No option when nothing is ignored with data set #6
  [x] No option when nothing is ignored with data set #7
+ [x] No option when nothing is ignored with data set #8
  [x] Ignore directories and files with data set #0
  [x] Ignore directories and files with data set #1
  [x] Ignore directories and files with data set #2
+ [x] Ignore directories and files with data set #3
  [x] Ignore directories and files with data set "pdepend + windows"
  [x] Ignore directories and files with data set "phpmd + windows"
- [x] Ignore directories and files with data set #3
  [x] Ignore directories and files with data set #4
  [x] Ignore directories and files with data set #5
  [x] Ignore directories and files with data set #6
  [x] Ignore directories and files with data set #7
+ [x] Ignore directories and files with data set #8
 
 Options (Edge\QA\Options)
  [x] Escape paths
@@ -75,7 +77,7 @@ Options (Edge\QA\Options)
  [x] Load allowed errors count
 
 Paths (Edge\QA\Paths)
- [ ] Path to binary is escaped
+ [x] Path to binary is escaped
 
 Report (Edge\QA\Report)
  [x] Convert twig to html

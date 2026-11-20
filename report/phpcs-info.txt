@@ -1,65 +1,65 @@
 
 PHP CODE SNIFFER INFORMATION REPORT
 ----------------------------------------------------------------------
-Blank lines at end of control structure: 0 [195/195, 100%]
+Blank lines at end of control structure: 0 [196/196, 100%]
 
-Blank lines at start of control structure: 0 [195/195, 100%]
+Blank lines at start of control structure: 0 [196/196, 100%]
 
-CamelCase method name: yes [157/157, 100%]
+CamelCase method name: yes [158/158, 100%]
 
-Class defined in namespace: yes [40/40, 100%]
+Class defined in namespace: yes [41/41, 100%]
 
-Class opening brace placement: new line [40/40, 100%]
+Class opening brace placement: new line [41/41, 100%]
 
 Closure opening brace placement: same line [20/20, 100%]
 
 Constant name case: upper [5/5, 100%]
 
-Control structure defined inline: no [189/189, 100%]
+Control structure defined inline: no [190/190, 100%]
 
-Declarations and side effects mixed: no [46/46, 100%]
+Declarations and side effects mixed: no [47/47, 100%]
 
-EOL char: \n [46/46, 100%]
+EOL char: \n [47/47, 100%]
 
-Function opening brace placement: new line [194/194, 100%]
+Function opening brace placement: new line [196/196, 100%]
 
-Line indent: spaces [2511/2511, 100%]
+Line indent: spaces [2552/2552, 100%]
 
 Line length:
-	80 or less  => 2,642 ( 93.62%)
-	81-120      =>   173 (  6.13%)
-	121-150     =>     5 (  0.18%)
+	80 or less  => 2,685 ( 93.62%)
+	81-120      =>   176 (  6.14%)
+	121-150     =>     5 (  0.17%)
 	151 or more =>     2 (  0.07%)
 	-------------------------------
-	total       => 2,822 (100.00%)
+	total       => 2,868 (100.00%)
 
 Multiple statements on same line:
-	no    =>  888 ( 99.89%)
+	no    =>  898 ( 99.89%)
 	yes   =>    1 (  0.11%)
 	------------------------
-	total =>  889 (100.00%)
+	total =>  899 (100.00%)
 
-Number of newlines at EOF: 1 [45/45, 100%]
+Number of newlines at EOF: 1 [46/46, 100%]
 
-One class per file: yes [40/40, 100%]
+One class per file: yes [41/41, 100%]
 
 PHP closing tag at end of PHP-only file:
-	no    => 45 ( 97.83%)
-	yes   =>  1 (  2.17%)
+	no    => 46 ( 97.87%)
+	yes   =>  1 (  2.13%)
 	----------------------
-	total => 46 (100.00%)
+	total => 47 (100.00%)
 
-PHP constant case: lower [120/120, 100%]
+PHP constant case: lower [123/123, 100%]
 
-PHP keyword case: lower [1247/1247, 100%]
+PHP keyword case: lower [1263/1263, 100%]
 
-PHP short open tag used: no [52/52, 100%]
+PHP short open tag used: no [53/53, 100%]
 
-PascalCase class name: yes [40/40, 100%]
+PascalCase class name: yes [41/41, 100%]
 
-Spaces after control structure open parenthesis: 0 [164/164, 100%]
+Spaces after control structure open parenthesis: 0 [165/165, 100%]
 
-Spaces before control structure close parenthesis: 0 [164/164, 100%]
+Spaces before control structure close parenthesis: 0 [165/165, 100%]
 
 Use of ELSE IF or ELSEIF: elseif [11/11, 100%]
 

@@ -106,8 +106,8 @@
     </Package>
     <Package name="Edge\QA\Tools\Analyzer">
       <Stats>
-        <TotalClasses>15</TotalClasses>
-        <ConcreteClasses>15</ConcreteClasses>
+        <TotalClasses>16</TotalClasses>
+        <ConcreteClasses>16</ConcreteClasses>
         <AbstractClasses>0</AbstractClasses>
         <Ca>1</Ca>
         <Ce>5</Ce>
@@ -126,6 +126,7 @@
         <Class sourceFile="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcs.php">Phpcs</Class>
         <Class sourceFile="/Users/www/zd/phpqa/src/Tools/Analyzer/Phploc.php">Phploc</Class>
         <Class sourceFile="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpmd.php">Phpmd</Class>
+        <Class sourceFile="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpmdV3.php">PhpmdV3</Class>
         <Class sourceFile="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpstan.php">Phpstan</Class>
         <Class sourceFile="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpunit.php">Phpunit</Class>
         <Class sourceFile="/Users/www/zd/phpqa/src/Tools/Analyzer/Psalm.php">Psalm</Class>

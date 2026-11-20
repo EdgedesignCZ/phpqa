@@ -1,6 +1,23 @@
 
 # Changelog
 
+## v1.28.0
+
+* **tools**
+    * phpcs - update repository link - [275](https://github.com/EdgedesignCZ/phpqa/pull/275)
+    * phpmd - add support for version 3.x - [#277](https://github.com/EdgedesignCZ/phpqa/pull/277)
+* _internal (CI)_
+    * add php 8.5 - [#276](https://github.com/EdgedesignCZ/phpqa/pull/276)
+
+## v1.27.2
+
+* _php8.5_ - fix deprecated null array offset - [#271](https://github.com/EdgedesignCZ/phpqa/pull/271)
+
+## v1.27.1
+
+* _internal (CI)_
+    * add php 8.5, drop 5.4 tests - [#270](https://github.com/EdgedesignCZ/phpqa/pull/270)
+
 ## v1.27.0
 
 * **tools**
@@ -21,8 +38,6 @@
 ## v1.26.1
 
 * **Docker** - php 8.1, github container registry [#249](https://github.com/EdgedesignCZ/phpqa/pull/249)
-
-* **Docker** - php 8.1, github container registry
 
 ## v1.26.0
 
@@ -197,7 +212,7 @@
 ## v1.15.0
 
 * **Optional tools**
-    * [#94](https://github.com/EdgedesignCZ/phpqa/pull/94) vimeo/psalm - dynamic configuration
+    * [#94](https://github.com/EdgedesignCZ/phpqa/pull/94) psalm - dynamic configuration
 * [#92](https://github.com/EdgedesignCZ/phpqa/pull/92) Improved reports (summary, [page load](https://github.com/EdgedesignCZ/phpqa/commit/96ea12438e1cb51362ad156a463fc7d5b9cff1a6))
     ![](https://user-images.githubusercontent.com/7994022/31012952-2121b600-a514-11e7-8a5c-3b9fadca7152.png)
 * Upgrade QA tools (phpcs)
@@ -208,7 +223,7 @@
 ## v1.14.0
 
 * **Optional tools**
-    * [#80](https://github.com/EdgedesignCZ/phpqa/issues/85) vimeo/psalm (stable)
+    * [#80](https://github.com/EdgedesignCZ/phpqa/issues/85) psalm (stable)
 * [#88](https://github.com/EdgedesignCZ/phpqa/issues/88) Allow using custom binary (e.g. `phpunit.binary`)    
     * show [skipped tools in summary](https://travis-ci.org/EdgedesignCZ/phpqa/jobs/278929601#L417)
     * refactoring printing versions in `phpqa tools`

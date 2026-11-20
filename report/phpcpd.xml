@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pmd-cpd>
+  <duplication lines="11" tokens="24">
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcpd.php" line="5"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpmdV3.php" line="5"/>
+    <codefragment>class Phpcpd extends \Edge\QA\Tools\Tool
+{
+    public static $SETTINGS = array(
+        'optionSeparator' =&gt; ' ',
+        'xml' =&gt; ['phpcpd.xml'],
+        'errorsXPath' =&gt; '//pmd-cpd/duplication',
+        'composer' =&gt; 'sebastian/phpcpd',
+    );
+
+    public function __invoke()
+    {
+</codefragment>
+  </duplication>
   <duplication lines="8" tokens="14">
     <file path="/Users/www/zd/phpqa/src/Task/AssetsLoader.php" line="11"/>
     <file path="/Users/www/zd/phpqa/src/Task/TableSummary.php" line="11"/>
@@ -88,6 +104,24 @@
             'ignoredFiles' =&gt; '',
 </codefragment>
   </duplication>
+  <duplication lines="4" tokens="10">
+    <file path="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="69"/>
+    <file path="/Users/www/zd/phpqa/tests/IgnoredPathsTest.php" line="119"/>
+    <codefragment>                array(
+                    'both' =&gt; ' --exclude app/config --exclude vendor --exclude autoload.php --exclude RoboFile.php',
+                    'dirs' =&gt; ' --exclude app/config --exclude vendor',
+                    'files' =&gt; ' --exclude autoload.php --exclude RoboFile.php'
+</codefragment>
+  </duplication>
+  <duplication lines="4" tokens="23">
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcs.php" line="18"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpmdV3.php" line="18"/>
+    <codefragment>    public function __invoke()
+    {
+        $this-&gt;tool-&gt;errorsType = $this-&gt;config-&gt;value('phpcs.ignoreWarnings') === true;
+        $standards = $this-&gt;config-&gt;pathsOrValues('phpcs.standard');
+</codefragment>
+  </duplication>
   <duplication lines="4" tokens="11">
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="12"/>
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcpd.php" line="14"/>
@@ -126,7 +160,7 @@
   </duplication>
   <duplication lines="3" tokens="13">
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcs.php" line="18"/>
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpmd.php" line="18"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpmd.php" line="19"/>
     <codefragment>    public function __invoke()
     {
         $this-&gt;tool-&gt;errorsType = $this-&gt;config-&gt;value('phpcs.ignoreWarnings') === true;
@@ -135,7 +169,7 @@
   <duplication lines="3" tokens="14">
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/PhpMetricsV2.php" line="16"/>
     <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpcs.php" line="27"/>
-    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpmd.php" line="28"/>
+    <file path="/Users/www/zd/phpqa/src/Tools/Analyzer/Phpmd.php" line="29"/>
     <codefragment>            'extensions' =&gt; $this-&gt;config-&gt;csv('phpqa.extensions')
         );
         if ($this-&gt;options-&gt;isSavedToFiles) {
